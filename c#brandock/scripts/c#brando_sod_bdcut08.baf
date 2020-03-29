@@ -1,0 +1,11 @@
+/* march out of BG city: make Brandock move when the coalition start marching out of BG city */
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("C#Brandock")  
+		ApplySpellRES("BDSLOW",Myself)  
+		Wait(2)
+		SmallWait(109) 
+		MoveToPoint([920.1060]) 
+END

@@ -1,0 +1,14 @@
+@0    = ~Holla, Imoen, ich bin ganz froh, dass <CHARNAME> sich eingemischt hat.~ [c#ablank]
+@1    = ~Obwohl <PRO_HESHE> Euch das Zauberbuch überlassen hat... Da würde ich bei Gelegenheit auch gerne noch einmal reinschauen, bitte.~
+@2    = ~Was? Glaubt Ihr etwa nicht, dass ich zaubern könnte?~
+@3    = ~Oh, im Gegenteil. Ich bin überzeugt davon, dass Ihr mit den richtigen Werkzeugen und dem entsprechenden Elan eine *Menge* Magie wirken könntet. Ich bin mir nur nicht sicher, ob ich das, äh, erleben möchte.~
+@4    = ~Ich werde tolle Sachen mit Magie machen! Ich werde es allen zeigen. Ich muss nur nochmal in dieses Zauberbuch schauen...~
+@5    = ~Imoen, ohne Euch zu nahe treten zu wollen, aber Ihr habt gerade den Ort verlassen, den einige der weisesten Magieanwender ihr Zuhause nennen. Wenn also in Kerzenburg Euch niemand in die Anwendung der Magie einführen konnte, dann bin ich nicht sicher, ob es eine gute Idee ist, damit jetzt anzufangen. Vielleicht *wollte* Euch auch niemand unterrichten? Oh-oh, das hätte ich nicht sagen sollen... NEIN! Nicht auf den Kopf!~
+@6    = ~Brandock, wenn Ihr so viel Angst vor meiner Magie habt, wie wär's, wenn Ihr mich unterrichtet, hm?~ [c#ablank]
+@7    = ~Selbst wenn ich wollte, Imoen - ich bin mir nicht sicher, dass ich es *könnte*. AUA! Was sollte das?! Ich habe mich auf meine Fähigkeiten als Lehrer bezogen, nicht auf Eure Fähigkeiten des Lernens! An letzterem habe ich nicht den geringsten Zweifel. Hört auf zu kichern!~
+@8    = ~Holla, Imoen, das war wirklich beeindruckend!~ [c#ablank]
+@9    = ~Nicht wahr? Das habe ich gemacht. Und Ihr habt es nicht für möglich gehalten!~
+@10   = ~Wie ich sagte, ganz im Gegenteil... Wozu ist es gut?~
+@11   = ~Ich weiß es selbst nicht... Ist das nicht klasse?!~
+@12   = ~Nur eine klitzekleine Bitte... Imoen, würdet Ihr in Zukunft *bitte* sowas nicht auf Amnischem Boden machen? Wir sind momentan in Amn, falls es Euch nicht bewusst war. Bitte zaubert nicht in Amn. Vor allem keine Magie mit unvorhersehbarem Effekt.~
+@13   = ~Nur eine klitzekleine Bitte... Imoen, würdet Ihr in Zukunft *bitte* sowas nicht auf Amnischem Boden machen? Insere Suche könnte uns sogar nördlich von Nashkell bringen, das bereits zu Amn gehört. Bitte zaubert nicht in Amn. Vor allem keine Magie mit unvorhersehbarem Effekt.~

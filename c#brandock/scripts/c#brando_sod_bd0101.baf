@@ -1,0 +1,91 @@
+/* In case Brandock was told to wait, he will be in front of the Ducal Palace when the PC is ready to march */
+
+
+IF
+	Global("C#Brandock_MoveCamp","bd0101",0)
+	GlobalGT("C#BrandockSpawn","GLOBAL",5)
+	Global("C#Brandock_Gone","GLOBAL",0)
+	!Dead("C#Brandock")
+	!InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_MoveCamp","bd0101",1)
+		MoveGlobal("BD0101","C#Brandock",[766.482]) 
+		ActionOverride("C#Brandock",Face(E)) 
+		ApplySpellRES("bdrejuve","C#Brandock")  // No such index
+		SmallWait(1)
+		ApplySpellRES("bdrejuve","C#Brandock")  // No such index
+		SmallWait(1)
+		ChangeEnemyAlly("C#Brandock",NEUTRAL) 
+		ChangeSpecifics("C#Brandock",ALLIES)  
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		ActionOverride("C#Brandock",SetGlobal("bd_retreat","locals",0))
+		ActionOverride("C#Brandock",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+		ActionOverride("C#Brandock",ChangeAIScript("C#BrandS",OVERRIDE))
+		ActionOverride("C#Brandock",ChangeAIScript("",CLASS))
+		ActionOverride("C#Brandock",ChangeAIScript("BDSHOUT",RACE))
+		ActionOverride("C#Brandock",ChangeAIScript("BDMAGE01",GENERAL))
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		ActionOverride("C#Brandock",SetDialogue("C#BrandP"))
+		Continue()
+END
+
+IF
+	Global("bd_mdd010z_ot","bd0101",1)
+	!GlobalTimerNotExpired("bd_mdd010z_ot_timer","bd0101")
+	InMyArea("C#Brandock") 
+	!Dead("C#Brandock") 
+//	!InParty("C#Brandock")  
+THEN
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~So many people! So, so many people.~)  
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~I won't panic. I am all calm. Aaaaaall calm.~)  
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~I now I'll regret this, but I say it anyway. I'll be glad to get out of here.~)  
+	RESPONSE #160
+		Continue()
+END
+
+/* Player went without recruiting NPC in Baldur's Gate OR didn't talk to Brandock at all OR it's a new game */
+IF 
+	!InMyArea("C#Brandock")
+	!Dead("C#Brandock")
+	!Allegiance("C#Brandock",ENEMY)
+	GlobalLT("C#BrandockSpawn","GLOBAL",6)	
+	!InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",0)
+THEN
+	RESPONSE #100
+            	SetGlobal("C#BrandockSpawn","GLOBAL",6)
+	    	CreateCreature("c#bran02",[766.482],NE)
+		ActionOverride("C#Brandock",MakeGlobalOverride())
+	  ChangeSpecifics("C#Brandock",ALLIES)
+	  ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
+	  ActionOverride("C#Brandock",ChangeAIScript("",CLASS))
+	  ActionOverride("C#Brandock",ChangeAIScript("BDSHOUT",RACE))
+	  ActionOverride("C#Brandock",ChangeAIScript("BDMAGE01",GENERAL))
+	  ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+	  ActionOverride("C#Brandock",SetDialog("c#brands")
+
+/* activate shape shifter quest */
+	  SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
+
+/* possessions quest */
+	  SetGlobal("C#Brandock_Possessions","GLOBAL",20)
+/* ##
+/* find Brandock's first tutor quest */
+	  ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
+*/
+/* items */
+	  ActionOverride("C#Brandock",DestroyItem("C#BR0005"))
+		SmallWait(1)
+	  GiveItemCreate("POTN52","C#Brandock",5,0,0)
+	  GiveItemCreate("c#br0003","C#Brandock",0,0,0)
+	  GiveItemCreate("c#br0001","C#Brandock",0,0,0)
+END

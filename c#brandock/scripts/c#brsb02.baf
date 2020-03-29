@@ -1,0 +1,45 @@
+/* c#brsb02 - second Brandock - Corwin banter */
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!Global("C#Br_bd_banter_Corwin02","MYAREA",-1)
+	Switch("C#Br_bd_banter_Corwin02","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("C#Brandock",~Corwin, how *did* you stay captain during Angelo's reign?~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("CORWIN",~Let me think... By murdering innocents, kidnapping children, chasing <CHARNAME>, and poisoning my officer.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("C#Brandock",~Really?~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("CORWIN",~Of course not.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",40)
+	RESPONSE #40
+		DisplayStringHead("C#Brandock",~Oh.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",50)
+	RESPONSE #50
+		DisplayStringHead("CORWIN",~Brandock, who said I *did* stay captain during Angelo's reign?~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",60)
+	RESPONSE #60
+		DisplayStringHead("C#Brandock",~Oh!~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",-1)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

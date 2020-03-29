@@ -1,0 +1,22 @@
+
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId("C#BRMELI")
+	MoveViewObject("C#Brandock",INSTANT)
+	ActionOverride("C#Brandock",ForceSpell("C#Brandock",EFFECT_ONLY))
+	Wait(3)	
+//	CreateCreatureOffScreen("c#brhao2",0)
+	CreateCreatureObjectOffset("c#brhao2","C#Brandock",[300.0])  // Halfoger
+	ActionOverride("c#brhao2",MoveToObject("C#BRMELI"))
+	Wait(2)	
+	EndcutSceneMode()
+	SetInterrupt(TRUE)
+	ActionOverride("C#Brandock",StartDialogueNoSet("C#BRMELI"))
+END 
+
+/*
+CreateCreatureObjectOffset("X#DGNLE1",Player1,[100.100])
+*/

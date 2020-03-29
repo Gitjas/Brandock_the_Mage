@@ -1,0 +1,29 @@
+/* Brandock comments in the elevator in hell */
+
+IF
+	Global("C#Brandock_hellevator","bd4601",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+	!GlobalTimerNotExpired("bd_hellevator_timer","bd4601")
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_hellevator","bd4601",1)
+		SetGlobalTimer("bd_hellevator_timer","bd4601",7)
+		DisplayStringHead("C#Brandock",@1275)  
+END
+
+IF
+	Global("C#Brandock_hellevator","bd4601",1)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+	!GlobalTimerNotExpired("bd_hellevator_timer","bd4601")
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_hellevator","bd4601",2)
+		SetGlobalTimer("bd_hellevator_timer","bd4601",7)
+		DisplayStringHead("C#Brandock",@1276)  
+END

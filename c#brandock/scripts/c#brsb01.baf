@@ -1,0 +1,45 @@
+/* c#brsb01 - 1st Brandock - Corwin banter */
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!Global("C#Br_bd_banter_Corwin01","MYAREA",-1)
+	Switch("C#Br_bd_banter_Corwin01","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("C#Brandock",~So, Corwin. You are a captain of the Flaming Fist.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("CORWIN",~Well spotted, Brandock. What about it?~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("C#Brandock",~I was just wondering... Flaming Fist presented itself from a bit of a corrupt side not long ago, you know.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("CORWIN",~Indeed, it did. We are all glad this is over.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",40)
+	RESPONSE #40
+		DisplayStringHead("C#Brandock",~Indeed. And yet I wonder how a lawful captain like you could go through this time... and still be captain.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",50)
+	RESPONSE #50
+		DisplayStringHead("CORWIN",~What are you implying?~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",60)
+	RESPONSE #60
+		DisplayStringHead("C#Brandock",~Nothing, it was a question, because I really don't know.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",-1)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

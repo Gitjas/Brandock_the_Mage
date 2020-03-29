@@ -1,0 +1,20 @@
+/* From Kulyok's Branwen tutorial mod:
+The list of conditions is simple: Global("StartEndBios","AR6200",1) means the epilogues are playing,
+then there go InParty() and O#BranwenRomanceActive variable. O#BranwenBio ensures the block runs only once.
+PlayerChoseEssence means that the player became god, so !Global("PlayerChoseEssence","GLOBAL",1) means he didn't.
+SmallWait(1) and Continue() are taken from the original game. */
+
+
+/* only one epilogue for now */
+IF
+Global("StartEndBios","AR6200",1)
+// ## add more checks whether Brandock was in party
+InPartyAllowDead("C#Brandock")
+Global("C#Brandock_ToBEpilog","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_ToBEpilog","GLOBAL",1)
+TextScreen("c#brep01")
+SmallWait(1)
+Continue()
+END

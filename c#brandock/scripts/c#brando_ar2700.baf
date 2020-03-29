@@ -1,0 +1,7 @@
+IF %BGT_VAR%
+      Global("C#BrandockGorionDS","GLOBAL",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#BrandockGorionDS","GLOBAL",1)
+	    CreateCreature("c#brspy1",[2865.1462],13) 
+END

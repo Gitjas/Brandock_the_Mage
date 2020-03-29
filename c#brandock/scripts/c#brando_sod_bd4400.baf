@@ -1,0 +1,15 @@
+IF
+	GlobalLT("bd_plot","global",505)
+	InMyArea("C#Barndock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)   
+	Global("C#Brandock_SoD_avernus","bd4400",0)
+THEN
+	RESPONSE #50
+		Continue()
+	RESPONSE #50
+		DisplayStringWait("C#Brandock",@1274)  
+		SetGlobal("C#Brandock_SoD_avernus","bd4400",1)
+		SmallWait(8)
+		Continue()
+END

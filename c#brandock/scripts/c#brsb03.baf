@@ -1,0 +1,37 @@
+/* c#brsb03 - third Brandock - Corwin banter */
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!Global("C#Br_bd_banter_Corwin03","MYAREA",-1)
+	Switch("C#Br_bd_banter_Corwin03","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("C#Brandock",~Corwin, when I return home, I will have to fit in into an evil organisation and appreciate any help or hint how to do so unscathed.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("CORWIN",~I see... I apologize, I understand now that the motivation behind your question was very different to what I assumed.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("C#Brandock",~I can't blame you. It must be hard, watching the lawful organisation you gave your live to turning evil.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("CORWIN",~It was. But I can't give you advice, not really. Only thing I can say is it helps if you have a standing that allows you to hide behind your desk if times get rough - and to know the right people who vouch for your integrity after the tides turned back to normal.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",40)
+	RESPONSE #40 
+		DisplayStringHead("C#Brandock",~That's good advice, though - now I only need someone to show me how to get there...~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",-1)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

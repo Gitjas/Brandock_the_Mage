@@ -1,0 +1,15 @@
+
+IF
+	Global("BD_AREA_HOSTILE","BD5300",1)
+	!GlobalTimerNotExpired("bd_sdd350b_ot_timer","bd2000")
+	Global("C#BrandockSoD_bd_ot","bd5300",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+	TriggerOverride("C#Brandock",Range([ENEMY.0.0.0.HOSTILES3],30))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_sdd350b_ot_timer","bd2000",THREE_MINUTES)
+		SetGlobal("C#BrandockSoD_bd_ot","bd5300",1)
+		DisplayStringHead("C#Brandock",@1277)  
+END

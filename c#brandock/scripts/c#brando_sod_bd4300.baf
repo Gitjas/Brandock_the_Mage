@@ -1,0 +1,82 @@
+/* Hephernaan discovered the group inside the castle */
+
+IF
+	Global("bd_plot","global",370)
+	!GlobalTimerNotExpired("bd_mdd905a_ot_timer","bd4300")
+	Global("C#Brandock_bd_ot","bd4300",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)   
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_mdd905a_ot_timer","bd4300",THREE_MINUTES)
+		SetGlobal("C#Brandock_bd_ot","bd4300",1)
+		DisplayStringHead("C#Brandock",@1269)
+END
+
+
+/* after portal is opened, after Hephernaan's scheme  */
+
+IF
+	AreaCheck("BD4300")
+	Global("bd_plot","bd4300",495)
+	Global("C#Brandock_SoDPortalComment","bd4300",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDPortalComment","bd4300",1)
+		DisplayStringHead("C#Brandock",@1270)  
+		Continue()
+END
+
+/* PC killed the crusaders at the portal */
+/* in the original, only one NPC gets to talk plus Corwin */
+
+IF
+	Global("C#Brandock_bd_MDD892a_ot","bd4300",0)
+	Global("bd_poison_dsc_supplies","global",0)
+	Dead("bdbelben")  // Belben
+	CombatCounter(0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_bd_MDD892a_ot","bd4300",1)
+		DisplayStringHead("C#Brandock",@1271)  
+END
+
+
+/* after first wave of demons */
+
+IF
+	Global("bd_mdd1290d_ot","bd4300",1)
+	Global("C#Brandock_SoDPortalComment","bd4300",1)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+THEN
+	RESPONSE #100 
+		SetGlobal("C#Brandock_SoDPortalComment","bd4300",2)
+		DisplayStringHead("C#Brandock",@1272) 
+		Continue()
+END
+
+
+/* portal is closed */
+
+IF
+	Global("bd_plot","global",586)
+	!GlobalTimerNotExpired("bd_mdd1341a_ot_timer","bd4300")
+	Global("C#Brandock_bd_ot2","bd4300",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",3)
+		SetGlobal("C#Brandock_bd_ot2","bd4300",1)
+		DisplayStringHead("C#Brandock",@1273)  
+END

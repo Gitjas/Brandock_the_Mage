@@ -1,0 +1,36 @@
+/* SoD, BDPARTY.bcs - Move camp if kicked out and waiting */
+
+IF
+	Global("bd_npc_camp","locals",1)
+	Name("C#Brandock",Myself)  
+	Switch("bd_npc_camp_chapter","global")
+	OR(2)
+		!Range("ff_camp",999)
+		!TriggerOverride("ff_camp",IsOverMe("C#Brandock"))  
+THEN
+	RESPONSE #2
+		EscapeAreaMove("bd1000",648,3782,N) 
+	RESPONSE #3
+		EscapeAreaMove("bd7100",330,3434,E) 
+	RESPONSE #4
+		EscapeAreaMove("bd3000",1420,1750,N) 
+END
+
+IF
+	GlobalLT("bd_npc_camp","locals",2)
+	Global("bd_joined","locals",0)
+	Name("C#Brandock",Myself)  
+	TriggerOverride("ff_camp",IsOverMe("C#Brandock"))  
+	Switch("bd_npc_camp_chapter","global")
+THEN
+	RESPONSE #2
+		SetGlobal("bd_npc_camp","locals",2)
+		SaveLocation("LOCALS","bd_default_loc",[648.3782])
+	RESPONSE #3
+		SetGlobal("bd_npc_camp","locals",2)
+		SaveLocation("LOCALS","bd_default_loc",[330.3434])
+	RESPONSE #4
+		SetGlobal("bd_npc_camp","locals",2)
+		SaveLocation("LOCALS","bd_default_loc",[1420.1750])
+		ChangeAIScript("bdasc3",CLASS)
+END

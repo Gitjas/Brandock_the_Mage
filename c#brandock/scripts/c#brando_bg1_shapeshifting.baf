@@ -1,0 +1,53 @@
+/* shapeshifting quest - version 2 */
+
+/* Activate: shapeshift - Melicamp is in party's inventory */
+IF %BGT_VAR%
+!Dead("Thalantyr")
+!Allegiance("Thalantyr",ENEMY)
+GlobalLT("C#Brandock_Shapeshift","GLOBAL",2)
+PartyHasItem("%tutu_var%MISC49") //Melicamp
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+AreaCheck("%HighHedge%") 
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+RESPONSE #100
+CreateCreature("C#BRMELI",[-1.-1],0)
+SetGlobal("C#Brandock_Shapeshift","GLOBAL",2)
+END
+
+/* Initiate: shapeshift - Melicamp is in party's inventory */
+IF %BGT_VAR%
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+Global("C#Brandock_Shapeshift","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+InMyArea("C#BRMELI")
+!StateCheck("C#BRMELI",CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet("C#BRMELI")
+END
+
+/* after retransformation, Brandock is no longer in party: Brandock will initiate dialogue */
+
+/* Initiate */
+IF %BGT_VAR%
+!InParty(Myself)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("C#Brandock_Shapeshift","GLOBAL",9)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+

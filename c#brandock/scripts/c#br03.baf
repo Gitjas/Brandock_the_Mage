@@ -1,0 +1,63 @@
+/* Brandock spawn - if he wasn't in the group upon the transition
+
+
+-he was part of the group in BG1
+-he retrieved his possessions ["quest possession"] (so he knew they were lost and joined PC) (Global("C#BrandockSpawn","GLOBAL",5))
+-he was either alive or part of the group (or both) at the transition to BGII
+-He did not leave unhappy in BG1
+
+*/
+
+/* Global("C#BrandockSpawn","GLOBAL",5) for BGT
+GlobalGT("C#BrandockSpawn","GLOBAL",5) for EET */
+
+
+IF 
+	!InMyArea("C#Brandock")
+	!Dead("C#Brandock")
+	Global("C#Brandock_Gone","GLOBAL",0)
+	GlobalGT("C#BrandockSpawn","GLOBAL",4)
+	GlobalLT("C#BrandockSpawn","GLOBAL",10)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BrandockSpawn","GLOBAL",10)
+		MoveGlobal("c#br03","C#Brandock",[365.326])
+	   	ActionOverride("C#Brandock",Face(6))
+		ReallyForceSpellRES("SPWM168","C#Brandock") //Heal 
+	   	ActionOverride("C#Brandock",SetDialog("c#brand2")
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
+END
+
+
+/* new game: Global("C#BrandockSpawn","GLOBAL",0) */
+
+
+IF 
+      Global("C#BrandockSpawn","GLOBAL",0)	
+THEN
+	RESPONSE #100
+            	SetGlobal("C#BrandockSpawn","GLOBAL",10)
+	    	CreateCreature("c#bran03",[365.326],6)
+		%Brandock_MakeGlobalOverride%
+	   	ActionOverride("C#Brandock",SetDialog("c#brand2")
+	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
+		ActionOverride("C#Brandock",SetGlobal("C#BrandockJoined","GLOBAL",0)) 
+
+/* shape shifter quest: done */
+		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)) 
+
+/* possessions quest */
+		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Possessions","GLOBAL",8)) 
+
+/* ## find Brandock's first tutor quest 
+		ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
+*/
+
+/* items */
+		GiveItemCreate("POTN52","C#Brandock",5,0,0)
+
+		GiveItemCreate("c#br0003","C#Brandock",0,0,0)
+		GiveItemCreate("c#br0001","C#Brandock",0,0,0)
+
+END

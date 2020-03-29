@@ -1,0 +1,28 @@
+/* activation: see Valerie the first time */
+IF %BGT_VAR%
+Global("C#Brandock_ValerieBG1","GLOBAL",0)
+See("t2val")
+!InParty("t2val")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+AreaCheck("%Nashkel%")
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_ValerieBG1","GLOBAL",1)
+END
+
+/* Initiate: see Valerie the first time */
+IF %BGT_VAR%
+Global("C#Brandock_ValerieBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+

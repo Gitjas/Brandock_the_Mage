@@ -1,0 +1,26 @@
+IF
+	Global("C#Brandock_MoveCamp","bd7100",0)
+	!Dead("C#Brandock")  
+	!InPartyAllowDead("C#Brandock") Global("C#BrandockJoined","GLOBAL",0) 
+	Global("C#Brandock_Gone","GLOBAL",0) //did not leave for good
+	GlobalGT("C#BrandockSpawn","GLOBAL",5) //exists in SoD
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_MoveCamp","bd7100",1)
+		MoveGlobal("bd7100","C#Brandock",[330.3434]) 
+		ActionOverride("C#Brandock",Face(E))
+		SetGlobal("C#BrandockJoined","GLOBAL",0) 
+		ReallyForceSpellDeadRES("bdrejuve","C#Brandock")  // No such index
+		ChangeEnemyAlly("C#Brandock",NEUTRAL)  
+		ChangeSpecifics("C#Brandock",ALLIES)  
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		ActionOverride("C#Brandock",SetGlobal("bd_retreat","locals",0))
+		ActionOverride("C#Brandock",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+		ActionOverride("C#Brandock",ChangeAIScript("c#brandS",OVERRIDE))
+		ActionOverride("C#Brandock",ChangeAIScript("bdasc3",CLASS))
+		ActionOverride("C#Brandock",ChangeAIScript("BDSHOUT",RACE))
+		ActionOverride("C#Brandock",ChangeAIScript("BDMAGE01",GENERAL))
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		ActionOverride("C#Brandock",SetDialogue("c#brandP"))
+		Continue()
+END

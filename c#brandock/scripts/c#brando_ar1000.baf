@@ -1,0 +1,7 @@
+IF %BGT_VAR%
+      Global("C#BrandockSpawnFisherman","MYAREA",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#BrandockSpawnFisherman","MYAREA",1)
+	    CreateCreature("c#brfish",[450.930],13) 
+END

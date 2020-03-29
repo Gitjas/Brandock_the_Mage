@@ -1,0 +1,74 @@
+/* Brandock spawn in SoD bd0010.are - 
+... and also bd0101.are, in case the player marches on directly.
+
+
+-he was part of the group in BG1
+-he retrieved his possessions ["quest possession"] (so he knew they were lost and joined PC) (Global("C#BrandockSpawn","GLOBAL",5))
+-he was either alive or part of the group (or both) at the transition to SoD
+-He did not leave unhappy in BG1
+
+*/
+
+
+
+IF 
+	!InMyArea("C#Brandock")
+	!Dead("C#Brandock")
+	!Allegiance("C#Brandock",ENEMY)
+	Global("C#BrandockSpawn","GLOBAL",5)	
+THEN
+	RESPONSE #100
+	  SetGlobal("C#BrandockSpawn","GLOBAL",6)
+	  MoveGlobal(%BG1_transition_area%,"C#Brandock",%BG1_transition_coord%)
+	  ActionOverride("C#Brandock",Face(N))
+	  ApplySpellRES("bdrejuve","C#Brandock")  
+	  SmallWait(1)
+	  ChangeEnemyAlly("C#Brandock",NEUTRAL)
+	  ChangeSpecifics("C#Brandock",ALLIES)
+	  ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))  
+	  ActionOverride("C#Brandock",SetGlobal("bd_retreat","locals",0)) 
+	  ActionOverride("C#Brandock",SaveObjectLocation("LOCALS","bd_default_loc",Myself)) 
+	  ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
+	  ActionOverride("C#Brandock",ChangeAIScript("DEFAULT",CLASS))
+	  ActionOverride("C#Brandock",ChangeAIScript("",RACE))
+	  ActionOverride("C#Brandock",ChangeAIScript("",GENERAL))
+	  ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+	  ActionOverride("C#Brandock",SetDialog("c#brands")
+END
+
+
+/* new game: Global("C#BrandockSpawn","GLOBAL",0) */
+
+
+IF 
+	Global("C#BrandockSpawn","GLOBAL",0)	
+THEN
+	RESPONSE #100
+	  SetGlobal("C#BrandockSpawn","GLOBAL",6)
+	  CreateCreature("c#bran02",%BG1_transition_coord%,%BG1_transition_face%)
+	  ActionOverride("C#Brandock",MakeGlobalOverride()) 
+	  ChangeSpecifics("C#Brandock",ALLIES)
+	  ActionOverride("C#Brandock",ChangeAIScript("",CLASS))
+	  ActionOverride("C#Brandock",ChangeAIScript("",RACE))
+	  ActionOverride("C#Brandock",ChangeAIScript("",GENERAL))
+	  ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+	  ActionOverride("C#Brandock",SetDialog("c#brands")
+	  ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
+	  SetGlobal("C#BrandockJoined","GLOBAL",0)
+
+/* activate shape shifter quest: set shapeshifter quest to "happened" */
+	  SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
+
+/* possessions quest: whole cicle "happened" */
+	  SetGlobal("C#Brandock_Possessions","GLOBAL",20)
+/* ##
+/* find Brandock's first tutor quest */
+	  ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
+*/
+/* items */
+	  ActionOverride("C#Brandock",DestroyItem("C#BR0005"))
+		SmallWait(1)
+	  GiveItemCreate("POTN52","C#Brandock",5,0,0)
+	  GiveItemCreate("c#br0003","C#Brandock",0,0,0)
+	  GiveItemCreate("c#br0001","C#Brandock",0,0,0)
+END

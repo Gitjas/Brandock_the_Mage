@@ -1,0 +1,12 @@
+/* Brandock was kicked out of group in hell dimension - make sure he's coming, too */
+
+IF
+	Global("C#Brandock_kicked_bd4700","global",1)
+	!Dead("C#Brandock")  
+	!InPartyAllowDead("C#Brandock") Global("C#BrandockJoined","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		MoveGlobal("bd4400","C#Brandock",[1160.1250])  
+		ActionOverride("C#Brandock",Face(NE))
+END

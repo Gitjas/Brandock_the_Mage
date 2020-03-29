@@ -1,0 +1,10 @@
+/* xxbdintro.baf
+transition from BG:EE to SoD: change brandock's Joined dialogue and OVERRIDE script */
+IF
+	Global("SOD_fromimport","global",1)
+	InMyArea("C#Brandock")  
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("C#Brandock",ChangeAIScript("C#BrandS",OVERRIDE)) 
+END

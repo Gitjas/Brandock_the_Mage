@@ -1,0 +1,1914 @@
+/* known issues:
+
+-c#br03: area hat einen weißen Strich im schwarzen Bereich und man sieht die Gruppe in der Ecke stehen...
+
+
+
+*/
+
+
+BACKUP ~C#Brandock/backup~
+AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
+
+
+VERSION ~Beta_1~ 
+
+README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
+
+
+AUTO_TRA ~C#Brandock/tra/%s~
+
+ALWAYS
+
+/* check for a ready SoD */
+
+ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN
+  FAIL @55542
+END
+
+
+
+/* continuous chapter for EET */
+
+  ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SET bg2_chapter = 12
+  END ELSE BEGIN
+    OUTER_SET bg2_chapter = 0
+  END
+  OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+    OUTER_SET bg2_chapter = bg2_chapter + 1
+    OUTER_SPRINT name_source ~bg2_chapter_%i%~
+    OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+  END
+
+/* DavidW's code for unifying the area script patching. With many thanks! */
+  DEFINE_ACTION_FUNCTION extend_area_script 
+    STR_VAR area=""
+            top=""
+            bottom=""
+BEGIN
+    // find the area script from the area file
+    COPY_EXISTING "%area%.are" override
+           READ_ASCII 0x94 script
+    BUT_ONLY
+    // if it doesn't exist, give it a default name
+    ACTION_IF "%script%" STRING_EQUAL "" BEGIN
+          OUTER_INNER_PATCH_SAVE script "%area%" BEGIN
+                REPLACE_TEXTUALLY "FW" "_AR" // TUTU naming conventions
+          END
+		// added: assign area script if needed
+          	 COPY_EXISTING "%area%.are" override
+                WRITE_ASCIIE 0x94 ~%script%~ #8
+    END
+    // extend the script
+    ACTION_IF "%top%" STRING_COMPARE "" BEGIN
+        EXTEND_TOP "%script%.bcs" "%top%" EVALUATE_BUFFER
+    END
+    ACTION_IF "%bottom%" STRING_COMPARE "" BEGIN
+       EXTEND_BOTTOM "%script%.bcs" "%bottom%" EVALUATE_BUFFER
+    END
+END
+
+/* dream scripts for all games */
+  INCLUDE ~c#brandock/lib/g3_dreamscript_cpmvars.tpa~ 
+
+
+
+/* some stuff for the BG2-part to make it compatible with the BGT-notation */
+
+  ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+
+    OUTER_SPRINT ~BGT_VAR~ ~False()~
+    OUTER_SPRINT ~tutu_var~ ~~
+    OUTER_SPRINT ~IT_IS_SOD~ ~False()~
+    OUTER_SPRINT ~IT_IS_BGII~ ~~
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
+
+    /* BGT Chapters - this doesn't have any significance, it is only needed so the d-files compile */
+    OUTER_SPRINT "tutu_prologue" "-1"
+    OUTER_SPRINT "tutu_prologue_reset" "-1"
+    OUTER_SPRINT "tutu_chapter_1" "-1"
+    OUTER_SPRINT "tutu_chapter_2" "-1"
+    OUTER_SPRINT "tutu_chapter_3" "-1"
+    OUTER_SPRINT "tutu_chapter_4" "-1"
+    OUTER_SPRINT "tutu_chapter_5" "-1"
+    OUTER_SPRINT "tutu_chapter_6" "-1"
+    OUTER_SPRINT "tutu_chapter_7" "-1"
+
+/* NextTriggerObject not known in BGII */
+    OUTER_SPRINT "NextTriggerObject_ff_camp" "False()"
+
+    OUTER_SPRINT ~Brandock_MakeGlobalOverride~ ~ActionOverride("C#Brandock",MakeGlobalOverride())~
+  END
+
+/* this is valid for BGII and bgt */
+  ACTION_IF GAME_IS ~tob~ THEN BEGIN
+
+    OUTER_SPRINT ~BGT_VAR~ ~False()~
+    OUTER_SPRINT ~tutu_var~ ~~
+    OUTER_SPRINT ~IT_IS_SOD~ ~False()~
+    OUTER_SPRINT ~IT_IS_BGII~ ~~ //will be overwritten for BGT below
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
+
+    /* BGT Chapters - this doesn't have any significance, it is only needed so the d-files compile */
+    OUTER_SPRINT "tutu_prologue" "-1"
+    OUTER_SPRINT "tutu_prologue_reset" "-1"
+    OUTER_SPRINT "tutu_chapter_1" "-1"
+    OUTER_SPRINT "tutu_chapter_2" "-1"
+    OUTER_SPRINT "tutu_chapter_3" "-1"
+    OUTER_SPRINT "tutu_chapter_4" "-1"
+    OUTER_SPRINT "tutu_chapter_5" "-1"
+    OUTER_SPRINT "tutu_chapter_6" "-1"
+    OUTER_SPRINT "tutu_chapter_7" "-1"
+
+/* NextTriggerObject not known in BGII */
+    OUTER_SPRINT "NextTriggerObject_ff_camp" "False()"
+
+    OUTER_SPRINT ~Brandock_MakeGlobalOverride~ ~ActionOverride("C#Brandock",MakeGlobal())~
+  END
+
+/* some of the variables set for "tob" need to be reset for BGT, because BGT is recognized as "tob", too */
+  ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+    PRINT @55549
+    INCLUDE ~c#brandock/lib/g3_bgt_cpmvars.tpa~ 
+
+    OUTER_SPRINT ~eet_var~ ~~
+
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("ENDOFBG1","GLOBAL",2)~
+
+    OUTER_SPRINT ~BG1_transition_area~ ~"c#br03"~
+    OUTER_SPRINT ~BG1_transition_coord~ ~[390.250]~ 
+    OUTER_SPRINT ~BG1_transition_face~ ~0~ 
+    OUTER_SPRINT ~BG1_transition_value~ ~10~
+    OUTER_SPRINT ~BG1_transition_script~ ~c#brand2~
+    OUTER_SPRINT ~BG1_transition_dlg~ ~c#brand2~
+
+    OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
+
+    OUTER_SPRINT ~OHDradeelInfo~ ~C#Bandock_DradeelInfo~
+    OUTER_SPRINT ~CELLDOOR~ ~c#brcelldoor~
+
+    OUTER_SPRINT ~NEERA_BANTER~ ~BGEEFAKE~
+    OUTER_SPRINT ~FIREBE_Bookqueststate~ ~1~
+  END
+
+
+  /* EET version! ---------------------- */
+
+  /* BG:EE version without SoD ---------------------- */
+  ACTION_IF (GAME_IS ~bgee~ AND NOT FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+    /* Tell the player it is using bgee */
+    PRINT @55550 
+    OUTER_SPRINT "NextTriggerObject_ff_camp" "False()"
+    OUTER_SPRINT "Brandock_MakeGlobalOverride" ~ActionOverride("C#Brandock",MakeGlobal())~
+  END
+
+/* all BG:EE with/without SoD */
+  ACTION_IF (GAME_IS ~bgee~) THEN BEGIN
+    INCLUDE ~c#brandock/lib/g3_bgee_cpmvars.tpa~
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("BD_PLOT","GLOBAL",0)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("BD_PLOT","GLOBAL",0)~
+    OUTER_SPRINT "IMOEN_DV_SOD" "imoen"
+    OUTER_SPRINT ~IT_IS_BGII~ ~False()~ 
+    OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
+    OUTER_SPRINT ~FIREBE_Bookqueststate~ ~3~
+    OUTER_SPRINT ~CELLDOOR~ ~CELLDOOR~
+  END
+
+/* SoD and EET */
+  ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+    /* Tell the player it is using SoD */
+    PRINT @55551 
+    OUTER_SPRINT ~BG1_transition_area~ ~"BD0010"~ 
+    OUTER_SPRINT ~BG1_transition_coord~ ~[608.657]~ 
+    OUTER_SPRINT ~BG1_transition_face~ ~N~ 
+    OUTER_SPRINT ~BG1_transition_value~ ~6~
+    OUTER_SPRINT ~BG1_transition_script~ ~c#brands~
+    OUTER_SPRINT ~BG1_transition_dlg~ ~c#brands~
+
+    OUTER_SPRINT "NextTriggerObject_ff_camp" ~NextTriggerObject("ff_camp")~
+    OUTER_SPRINT ~Brandock_MakeGlobalOverride~ ~ActionOverride("C#Brandock",MakeGlobalOverride())~
+END
+
+/* EET only */
+  ACTION_IF GAME_IS ~eet~ THEN BEGIN
+    /* Tell the player it is using eet */
+    PRINT @55552
+	INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",0)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1)~
+    OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
+    OUTER_SPRINT "IMOEN_DV_SOD" "imoen2"
+
+    OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
+    OUTER_SPRINT ~FIREBE_Bookqueststate~ ~3~
+    OUTER_SPRINT ~CELLDOOR~ ~CELLDOOR~
+  END
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+/* all following actions are only processed ONCE for the whole mod, independent of un- and reinstalling of single components */
+
+
+
+ACTION_IF !FILE_EXISTS ~c#brandock/backup/c#brandockinstall.mrk~ BEGIN
+ 
+
+
+/* Fake dlg state so the EE NPCs compile  */
+  ACTION_IF GAME_IS ~bgt tob~ THEN BEGIN
+<<<<<<<< ...inlined/bgeefake.d
+BEGIN BGEEFAKE
+>>>>>>>>
+COMPILE ~...inlined/bgeefake.d~
+  END
+
+
+  /* BGT: dream scripts */
+
+
+  ACTION_IF GAME_IS ~bgt~ THEN BEGIN /* BGT Versions */
+      COPY_EXISTING ~pdialog.2da~ ~override~
+      COUNT_2DA_ROWS 8 "cnt_row"
+      FOR ( cnt=0; cnt<"%cnt_row%"; cnt=cnt+1 ) BEGIN
+        READ_2DA_ENTRY "%cnt%" 0 8 "pd_name"
+        PATCH_IF (("%pd_name%" STRING_COMPARE_CASE "AJANTIS")=0) BEGIN
+         SET_2DA_ENTRY "%cnt%" 3 8 "AJANTD"
+        END
+/*
+        PATCH_IF (("%pd_name%" STRING_COMPARE_CASE "%IMOEN_DV%")=0) BEGIN
+         SET_2DA_ENTRY "%cnt%" 3 8 "IMOEND"
+        END
+*/
+      END
+      BUT_ONLY_IF_IT_CHANGES
+  END
+
+
+
+  /* BG:EE - formatted texts etc. */
+
+
+  ACTION_DEFINE_ARRAY fl#noconvert BEGIN setup END
+
+  ACTION_DEFINE_ARRAY fl#reload BEGIN game journal END
+
+    LAF HANDLE_CHARSETS
+      INT_VAR
+        infer_charsets = 1
+      STR_VAR
+        tra_path = EVAL ~C#Brandock/tra~
+        noconvert_array = fl#noconvert
+        reload_array = fl#reload
+    END
+
+
+
+
+  COPY ~c#brandock/Install/component.xx~ ~c#brandock/backup/c#brandockinstall.mrk~
+ 
+
+ //reloading of tras:
+
+  END // c#brandockinstall.mrk
+
+
+
+END //ALWAYS
+
+
+
+
+LANGUAGE ~English~
+         ~english~   
+         ~C#Brandock/tra/english/setup.tra~
+         ~C#Brandock/tra/english/game.tra~
+	 ~C#Brandock/tra/english/journal.tra~
+
+
+LANGUAGE ~Deutsch~
+         ~german~   
+         ~C#Brandock/tra/german/setup.tra~
+         ~C#Brandock/tra/german/game.tra~
+	 ~C#Brandock/tra/german/journal.tra~
+
+
+
+BEGIN @55540 /* ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~ */ DESIGNATED 0
+REQUIRE_PREDICATE GAME_IS ~bgt bgee bg2ee tob eet~ @55541
+
+//CamDawgs CD_STATE_NOTVALID zum Checken der Dialogfähigkeit eines Char
+//Thank you very much, CamDawg!
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~
+
+/* Brandock's dialogue timer */
+APPEND ~gtimes.ids~ ~3600 C#BRANDOCK_TIMERLONG~ UNLESS ~C#BRANDOCK_TIMERLONG~
+APPEND ~gtimes.ids~ ~1800 C#BRANDOCK_TIMERSHORT~ UNLESS ~C#BRANDOCK_TIMERSHORT~
+
+//Damit Imoen auch was sagen darf [taken from BGII fixpack at G3]
+ACTION_IF (GAME_IS ~bgt tob bg2~ AND NOT FILE_EXISTS_IN_GAME ~cdbehbla.pro~) //makes sure the fixpack isn't already installed
+ THEN BEGIN
+    COPY_EXISTING ~interdia.2da~ ~override~
+      SET_2DA_ENTRY 17 1 2 ~BIMOEN2~ // fixes ToB version
+      BUT_ONLY_IF_IT_CHANGES
+END ELSE BEGIN
+  APPEND ~interdia.2da~ ~IMOEN       BIMOEN2~ // fixes SoA version
+     UNLESS ~BIMOEN2~
+END
+
+/* Journal Entries for BG1 part */
+ACTION_IF GAME_IS ~eet bgee~ THEN BEGIN
+  ADD_JOURNAL TITLE (@10006) @10000 @10009 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10010) @10005 @10008 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10013) @10002 @10003 @10004 @10011 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10025 @10026 @10028 @10043 @10044 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10029) @10023 @10024 @10027 @10030 @10031 @10032 @10033 @10034 @10035 @10036 @10037 @10038 @10039 @10040 @10041 @10042 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+END
+
+/* Journal Entries for BGII part */
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  ADD_JOURNAL @10014 @10018 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+END
+
+
+
+
+
+/* general file patching */
+
+/* give DV to cre */
+
+/* BG1 */
+ACTION_IF GAME_IS ~bgee eet bgt~ THEN BEGIN
+
+/* Give the ogre in AR2800 (Coastway) a unique DV (possessions quest) */
+COPY_EXISTING ~%tutu_scripto%GREUNSH.CRE~ ~override/%tutu_scripto%GREUNSH.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~OGREUNSH~ #32 // script name / DV
+WRITE_EVALUATED_ASCII 0x268 ~%tutu_scriptw%TASIGHT~ #8 // Default script
+
+/* doppelgangers in Candlekeep: Shistal */
+ACTION_IF GAME_IS ~bgt bgee~ THEN BEGIN
+COPY_EXISTING ~%tutu_var%SHISTA.CRE~ ~override/%tutu_var%SHISTA.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~Shistal~ #32 // script name / DV
+
+/* doppelgangers in Candlekeep: Monk */
+COPY_EXISTING ~%tutu_var%POGHM9.CRE~ ~override/%tutu_var%POGHM9.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~POGHM9~ #32 // script name / DV
+END
+END
+
+
+
+/* general spells */
+
+/* general spells for lore increase below */
+
+/* 1 HP effect spell!! (gives 5 HP and a lot of protections against things that would kill + Regeneration of 1 HP / 6s */
+
+/* This line is crappy but I need one that works for Grey the dog, too */
+ADD_SECTYPE C#1HPEffect @1 /* ~(yawn)~ */
+
+/* HP effect spell etc. */
+COPY ~C#Brandock/spells/c#min5hp.spl~ ~override~
+WRITE_BYTE 0x27 C#1HPEffect
+WRITE_BYTE 0xa2 C#1HPEffect
+
+/* remove 5 HP effect and all other protections */
+COPY ~C#Brandock/spells/c#min0hp.spl~ ~override~
+WRITE_BYTE 0xa2 C#1HPEffect
+
+
+/* Work-around: Brandock gets restored after a fight */
+
+COPY ~C#Brandock/spells/c#brrest.spl~ ~override/c#brrest.spl~ //This is A7REST from Argent's Djinni Companion!
+SAY NAME1 @2 /* ~(cough)~ */
+SAY NAME2 @2 /* ~(cough)~ */
+
+
+
+
+/* not quest-related .d files */
+
+
+/* BG1 + BG2 */
+COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brandP.d~
+
+
+/* apply once 'BEGIN c#brandj' and 'BEGIN c#brandB' because I am using the same file for all games and don't know which ones will get compiled, first */
+
+ACTION_IF GAME_IS ~bgee bgt eet tob bg2ee~ THEN BEGIN
+<<<<<<<< ...inlined/begin_c#brand_dlg.d
+BEGIN c#brandj
+BEGIN c#brandB
+>>>>>>>>
+COMPILE ~...inlined/begin_c#brand_dlg.d~
+END
+
+/* BG1 */
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brandj.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bhaalreaction.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_bg1.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/brando_banter.tra~
+END
+
+/* SoD */
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_sod.d~
+END
+
+/* BG2 */
+ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva_firstmeeting.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva_sphere.d~
+
+/* ToB */
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_tob.d~
+END
+
+/* all EE games */
+ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_dorn_conflict.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/brando_banter.tra~
+END
+
+/* BG2 EE games */
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_hexxat_conflict.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/brando_banter.tra~
+END
+
+/* general .baf files */
+
+/* Brandock's dream script (triggers upon resting) */
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brandd.baf~
+
+/* in case Player1 gets rested via cutscene and not by RestParty() while Brandock is not in the group */
+/* spell and idea taken from Zed Nocear's BG1 trigger simulations! */
+
+//only works with AI turned on, but I don't want to cladder the baldur.bcs
+ACTION_IF !(FILE_CONTAINS_EVALUATED (~dplayer3.BCS~ ~"C#FATIG1"~))
+    THEN BEGIN
+        EXTEND_TOP ~dplayer3.bcs~   ~C#Brandock/scripts/c#brando_dplayer3_add.baf~
+        COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
+    END
+
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+	COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brando.baf~
+END
+
+ACTION_IF GAME_IS ~bg2ee bgt eet tob~ THEN BEGIN
+	<<<<<<<< ...inlined/c#brand2.baf
+	>>>>>>>>
+	COMPILE ~...inlined/c#brand2.baf~
+	EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando.baf~ 
+	EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_bg2.baf~ EVALUATE_BUFFER
+END
+
+
+
+/* additions to script for bgt */
+
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+
+/* BGT: add "Dradeel told his story" check variable - C#Bandock_DradeelInfo */
+	<<<<<<<< ...inlined/c#brando_bg1_add.d
+	ADD_TRANS_ACTION ~%tutu_var%DRADEE~ BEGIN 21 END BEGIN END ~SetGlobal("C#Bandock_DradeelInfo","GLOBAL",1)~
+	>>>>>>>>
+	COMPILE EVALUATE_BUFFER ~...inlined/c#brando_bg1_add.d~
+
+/* BG1 script */
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#_lvl.baf~ EVALUATE_BUFFER
+
+/* BGII script */
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#_lvl.baf~ EVALUATE_BUFFER
+
+END
+
+/* additions to script for bgee without SoD */
+
+ACTION_IF (GAME_IS ~bgee~ AND NOT FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#_lvl.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+END
+
+/* additions to script for bgee / EET with SoD */
+
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#_lvl_ee.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+
+/* script sod */
+	<<<<<<<< ...inlined/c#brands.baf
+	>>>>>>>>
+	COMPILE ~...inlined/c#brands.baf~
+	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando.baf~  EVALUATE_BUFFER
+	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_sod.baf~  EVALUATE_BUFFER
+	  EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#_lvl_ee.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+END
+
+/* additions to script for bg2ee (EE specific) */
+
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#_lvl_ee.baf~ EVALUATE_BUFFER 
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+END
+
+/* additions to script for tob */
+ACTION_IF GAME_IS ~tob~ THEN BEGIN
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#_lvl.baf~ EVALUATE_BUFFER
+END
+
+
+/* bams for all games */
+COPY ~C#Brandock/bams~ ~Override~
+
+
+/* items */
+
+/* all BG1 items will be compiled always in case they are transferred via savegame */
+
+COPY ~C#Brandock/items/c#br0005.itm~ ~override/c#br0005.itm~
+SAY NAME1 @4 /* ~Brandock's Robe~ */
+SAY NAME2 @4 /* ~Brandock's Robe~ */
+SAY UNIDENTIFIED_DESC @5 /* ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I must say'. Plus, the coat is so thick it actually provides protection against missiles, which comes quite handy for a mage.
+
+STATISTICS:
+
+Equipped abilities:
+Cold Resistance: +20%
+Armor Class: +1 vs. missile attacks
+
+Weight: 3~ */
+SAY IDENTIFIED_DESC @5 /* ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I must say'. Plus, the coat is so thick it actually provides protection against missiles, which comes quite handy for a mage.
+
+STATISTICS:
+
+Equipped abilities:
+Cold Resistance: +20%
+Armor Class: +1 vs. missile attacks
+
+Weight: 3~ */
+
+
+/* store */
+COPY ~C#Brandock/stores/c#br0003.sto~ ~Override~
+SAY STORE_NAME @6 /* ~Brandock's Bookcase~ */
+
+/* items */
+
+COPY ~C#Brandock/items/c#br0001.itm~ ~override/c#br0001.itm~
+SAY NAME1 @7 /* ~Scrumbled Book~ */
+SAY NAME2 @7 /* ~Scrumbled Book~ */
+SAY UNIDENTIFIED_DESC @8 /* ~This is the remains of what was before a *very* expensive magical book. Some pages are still readible, but it clearly was gnawed on by several small teeth, tearing the pages apart.~ */
+SAY IDENTIFIED_DESC @8 /* ~This is the remains of what was before a *very* expensive magical book. Some pages are still readible, but it clearly was gnawed on by several small teeth, tearing the pages apart.~ */
+
+COPY ~C#Brandock/items/c#br0007.itm~ ~override/c#br0007.itm~
+SAY NAME1 @9 /* ~Brandock's Restored Book~ */
+SAY NAME2 @9 /* ~Brandock's Restored Book~ */
+SAY UNIDENTIFIED_DESC @10 /* ~This is the book that transformed after Elvenhair tried to preserve the paper snippets of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is appearently empty, but flipping through the pages they seem to radiate with magic.~ */
+SAY IDENTIFIED_DESC @10 /* ~This is the book that transformed after Elvenhair tried to preserve the paper snippets of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is appearently empty, but flipping through the pages they seem to radiate with magic.~ */
+
+COPY ~C#Brandock/items/c#br0003.itm~ ~override/c#br0003.itm~
+SAY NAME1 @6 /* ~Brandock's Bookcase~ */
+SAY NAME2 @6 /* ~Brandock's Bookcase~ */
+SAY UNIDENTIFIED_DESC @11 /* ~This is Brandock's bookcase. It is for storing books and scrolls.~ */
+SAY IDENTIFIED_DESC @11 /* ~This is Brandock's bookcase. It is for storing books and scrolls.~ */
+
+/* ink of an octopus */
+COPY ~C#Brandock/items/c#broink.itm~ ~override/c#broink.itm~
+SAY NAME1 @12 /* ~Ink of an Octopus~ */
+SAY NAME2 @12 /* ~Ink of an Octopus~ */
+SAY UNIDENTIFIED_DESC @13 /* ~This is ink from an octopus. It is a rather expensive magic ingredient. You should only buy it if you know what you want to use it for.~ */
+SAY IDENTIFIED_DESC @13 /* ~This is ink from an octopus. It is a rather expensive magic ingredient. You should only buy it if you know what you want to use it for.~ */
+
+
+
+/* general BG1 contents */
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+/* spawn Brandock in BG1 */
+
+LAF extend_area_script STR_VAR area="%CoastWay%" bottom="C#Brandock/scripts/c#brando_ar2800.baf" END
+
+/* help me detect the spot */
+COPY ~C#Brandock/cre/c#brspy1.cre~ ~override/c#brspy1.cre~ //
+   SAY NAME1 ~~ 
+   SAY NAME2 ~~ 
+WRITE_EVALUATED_ASCII 0x280 ~c#brspy1~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brspy1~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brspy1~ #8   // Override script
+WRITE_EVALUATED_ASCII 0x260 ~~ #8   // General script
+
+/* place invisible creature onto Gorion's death site */
+LAF extend_area_script STR_VAR area="%LionsWay%" bottom="C#Brandock/scripts/c#brando_ar2700.baf" END
+
+/* place invisible cre so Brandock recognizes the carnival */
+LAF extend_area_script STR_VAR area="%NashkelCarnival%" bottom="C#Brandock/scripts/c#brando_ar4900.baf" END
+
+END //ACTION_IF GAME_IS ~bgee bgt eet~ 
+
+
+/* main quest path: Brandock's possessions */
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+/* script of "pile" in the cave on Coast Way */
+
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brpile.baf~
+
+/* cutscene: Brandock finds his possessions */
+
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut8.baf~
+
+/* book restore quest path */
+
+/* bookrestore quest */
+/* Fish store with octopus ink */
+COPY ~C#Brandock/stores/c#brfish.sto~ ~Override~
+SAY STORE_NAME @14 /* ~Fish Store~ */
+
+/* fisherman in Ulgoth's Beard */
+COPY ~C#Brandock/cre/c#brfish.cre~ ~override/c#brfish.cre~ 
+   SAY NAME1 @15 /* ~Fisherman~ */
+   SAY NAME2 @15 /* ~Fisherman~ */
+WRITE_EVALUATED_ASCII 0x280 ~c#brfish~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brfish~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brfish~ #8   // Override script
+
+/* place fisherman in Ulgoth's Beard */
+LAF extend_area_script STR_VAR area="%UlgothsBeard%" bottom="C#Brandock/scripts/c#brando_ar1000.baf" END
+
+/* cutscene: book restoration */
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcu11.baf~
+
+/* dialogues for main possessios quest are inside c#brandj.d */
+/* continuation: book restore quest */
+COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+/* continuation: candlekeep reactions */
+COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_candlekeep.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+
+END
+
+/* BG1 side-quest: shoes!  */
+
+COPY ~C#Brandock/items/c#br0002.itm~ ~override/c#br0002.itm~
+SAY NAME1 @16 /* ~Fine Pair of Boots~ */
+SAY NAME2 @16 /* ~Fine Pair of Boots~ */
+SAY UNIDENTIFIED_DESC @17 /* ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthousiasm it may be restored to its former appearance.~ */
+SAY IDENTIFIED_DESC @17 /* ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthousiasm it may be restored to its former appearance.~ */
+
+COPY ~C#Brandock/items/c#br0006.itm~ ~override/c#br0006.itm~
+SAY NAME1 @18 /* ~Delicious Salmon~ */
+SAY NAME2 @18 /* ~Delicious Salmon~ */
+SAY UNIDENTIFIED_DESC @19 /* ~This is a piece of delicious, juicy salmon.~ */
+SAY IDENTIFIED_DESC @20 /* ~This is a piece of delicious, juicy salmon.
+
+STATISTICS:
+
+Special: Restores 6 Hit Points.
+
+Weight: 1~ */
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+/* servant in AR3300, in front of servant quarters */
+COPY ~C#Brandock/cre/c#brserv.cre~ ~override/c#brserv.cre~ //
+WRITE_EVALUATED_ASCII 0x280 ~c#brserv~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brserv~ #8   // dialogue
+
+LAF extend_area_script STR_VAR area="%Beregost%" bottom="C#Brandock/scripts/c#brando_ar3300.baf" END
+
+
+/* encounter: Brandock and the half-ogre */
+
+COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_shapeshifter.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+
+EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_shapeshifting.baf~ EVALUATE_BUFFER
+
+/* BGT: Thalantyr needs extra dialogue state patching */
+
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bgtadd.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+END
+
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brhao2.baf~
+
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut1.baf~
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut2.baf~
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut3.baf~
+
+
+EXTEND_TOP ~THALANTR.bcs~ ~C#Brandock/scripts/thalantr_add.baf~
+      EVALUATE_BUFFER
+
+LAF extend_area_script STR_VAR area="%HighHedge_ThalanthyrsAbode%" bottom="C#Brandock/scripts/c#brando_ar3202.baf" END
+
+COPY_EXISTING ~%tutu_var%THALAN.CRE~ ~override/C#BRTHAL.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~C#BRTHAL~ #32 // script name / DV
+WRITE_EVALUATED_ASCII 0x2cc ~C#BRTHAL~ #8
+WRITE_EVALUATED_ASCII 0x250 ~~ #8   // Class script
+WRITE_EVALUATED_ASCII 0x258 ~~ #8   // Race script
+WRITE_EVALUATED_ASCII 0x258 ~~ #8   // Default script
+
+COPY ~C#Brandock/cre/c#brmeli.cre~ ~override/c#brmeli.cre~ //Melicamp for dialogue only
+   SAY NAME1 #19346 //~Melicamp the chicken~
+   SAY NAME2 #19346 
+WRITE_EVALUATED_ASCII 0x280 ~c#brmeli~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brmeli~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brmeli~ #8   // Override script
+
+COPY 	~C#Brandock/Cre/c#brhao2.cre~ ~override/c#brhao2.cre~ //Half-Ogre
+WRITE_EVALUATED_ASCII 0x280 ~c#brhao2~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brhao2~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brhao2~ #8   // Override script
+
+
+END //ACTION_IF GAME_IS ~bgee bgt eet~
+
+
+/* "lore path": Brandock's lore will increase if he studies books */
+
+/* spells: needed for all games */
+/* Lore increasing by 1 */
+COPY ~C#Brandock/spells/c#brlob1.spl~ ~override/c#brlob1.spl~ 
+SAY NAME1 @21 /* ~Lore Bonus +1~ */
+SAY NAME2 @21 /* ~Lore Bonus +1~ */
+   LPF ALTER_SPELL_EFFECT
+   INT_VAR
+     match_opcode  = 139   // Display String
+     parameter1    = RESOLVE_STR_REF(~Lore Increased by 1~)  // 
+   END
+
+/* Lore increasing by 2 */
+COPY ~C#Brandock/spells/c#brlob2.spl~ ~override/c#brlob2.spl~ 
+SAY NAME1 @22 /* ~Lore Bonus +2~ */
+SAY NAME2 @22 /* ~Lore Bonus +2~ */
+   LPF ALTER_SPELL_EFFECT
+   INT_VAR
+     match_opcode  = 139   // Display String
+     parameter1    = RESOLVE_STR_REF(~Lore Increased by 2~)  // 
+   END
+
+/* Lore increasing by 3 */
+COPY ~C#Brandock/spells/c#brlob3.spl~ ~override/c#brlob3.spl~ 
+SAY NAME1 @23 /* ~Lore Bonus +3~ */
+SAY NAME2 @23 /* ~Lore Bonus +3~ */
+   LPF ALTER_SPELL_EFFECT
+   INT_VAR
+     match_opcode  = 139   // Display String
+     parameter1    = RESOLVE_STR_REF(~Lore Increased by 3~)  // 
+   END
+
+/* fade to black with Brandock stating that it was intersting (lore path): needed for all games */
+COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brftb.baf~
+
+/* relevant dialogues */
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+/* bg1 */
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_lorepath.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+END //ACTION_IF GAME_IS BG1
+
+
+
+/* transition from BG1 */
+
+/* EET and SoD: transition from BG:EE to SoD campaign */
+/* transition from BG:EE to SoD: change Joined dialogue and OVERRIDE script */
+EXTEND_TOP ~bdintro.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bdintro.baf~
+  EVALUATE_BUFFER
+
+/* EET, BG:EE: to SoD AFTER Korlasz' Dungeon */
+
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+  EXTEND_TOP ~bd0103.bcs~   ~C#Brandock/scripts/c#brando_sod_bd0103.baf~    EVALUATE_BUFFER
+/* Brandock was dead but in party: resurrection and move to BD0010 */
+  EXTEND_TOP ~bd0103.bcs~   ~C#Brandock/scripts/c#brando_bg1_transition.baf~    EVALUATE_BUFFER
+
+/* spawn him in BD0010.are */
+
+  EXTEND_BOTTOM ~bd0010.bcs~   ~C#Brandock/scripts/c#brando_sod_bd0010.baf~    EVALUATE_BUFFER
+END
+
+
+/* BGT: to BGII */
+
+/* BGT transition */
+
+/* Brandock leaves the group by himself before Duke Belt sends the group to Athkatla */
+
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bgt.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
+
+/* detection: did PC have Brandock's book case with him? */
+  LAF extend_area_script STR_VAR area="aram00" top="C#Brandock/scripts/c#brando_bg2_ar0602.baf" END
+
+/* Brandock was dead but in party: resurrection and move to C#br03.are - ++has to be compiled AFTER c#brando_bg2_ar0602.baf */
+  EXTEND_TOP ~ARAM00.bcs~   ~C#Brandock/scripts/c#brando_bg1_transition.baf~    EVALUATE_BUFFER
+END
+
+/* EET: to BGII */
+
+/* transition from SoD to BGII for EET */
+
+/* detection: did player1 take Brandock's book case with him? 
+## did EET change this to somewhere else like BGT? */
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+  LAF extend_area_script STR_VAR area="ar0602" top="C#Brandock/scripts/c#brando_bg2_ar0602.baf" END
+
+/* [done] transition from SoD to BGII [done in dialogue after brandock received his letter ] */
+
+END
+
+
+/* SoD */
+
+/* messenger for Brandock's letter from home */
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+  COPY_EXISTING ~bdtsmess.cre~ ~override/c#brsodm.cre~
+WRITE_ASCII 0x2cc ~c#brsodm~  #8  // dialogue
+WRITE_ASCII 0x280 ~c#brsodm~ #32  // death variable
+WRITE_ASCII 0x280 ~c#brsodm~ #32  // Override script
+WRITE_BYTE 0x2c 27 // Metal color
+WRITE_BYTE 0x2d 66 // Minor color
+WRITE_BYTE 0x2e 59 // Major color
+WRITE_BYTE 0x2f 12 // Skin color
+WRITE_BYTE 0x30 16 // Leather color
+WRITE_BYTE 0x31 30 // Armor color
+WRITE_BYTE 0x32 41 // Hair color
+
+
+
+/* SoD: scripts */
+
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb01.baf~
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb02.baf~
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb03.baf~
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb04.baf~
+
+
+//Extend existing Scripts for SoD
+
+/* after Korlasz is defeated: DisplayStringHead */
+EXTEND_BOTTOM ~bd0120.bcs~ ~c#brandock/scripts/c#brando_sod_bd0120.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd0130.bcs~ ~c#brandock/scripts/c#brando_sod_bd0120.baf~
+  EVALUATE_BUFFER
+
+/* comment after defeating the first enemies */
+EXTEND_TOP ~bd0120.bcs~ ~c#brandock/scripts/c#brando_sod_bd0120_et.baf~
+  EVALUATE_BUFFER
+
+/* Change camps if not in party */
+/* Brandock is in front of Ducal Palace if told to wait */
+/* or Player marches onto the battle without recruiting NPCs in Baldur' Gate: Brandock will be in front of the palace */
+EXTEND_TOP ~bd0101.bcs~ ~c#brandock/scripts/c#brando_sod_bd0101.baf~
+  EVALUATE_BUFFER
+/* war camps */
+EXTEND_BOTTOM ~bd1000.bcs~ ~c#brandock/scripts/c#brando_sod_bd1000.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd3000.bcs~ ~c#brandock/scripts/c#brando_sod_bd3000.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd7100.bcs~ ~c#brandock/scripts/c#brando_sod_bd7100.baf~
+  EVALUATE_BUFFER
+
+/* return to camp if kicked out */
+EXTEND_TOP ~bdparty.bcs~ ~c#brandock/scripts/c#brando_sod_bdparty.baf~
+  EVALUATE_BUFFER
+
+/* Brandock is kicked in hell dimension - teleport to other areas */
+EXTEND_TOP ~bdcut59b.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut59b.baf~
+  EVALUATE_BUFFER
+EXTEND_TOP ~bdcut58.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut58.baf~
+  EVALUATE_BUFFER
+
+/* SoD: general game events */
+
+/* March out of BG city: make Brandock move when the coalition start marching out of BG city */
+EXTEND_TOP ~bdcut08.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut08.baf~
+  EVALUATE_BUFFER
+
+/* PC gave Bridgefort Castle to the crusaders */
+EXTEND_TOP ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
+  EVALUATE_BUFFER
+
+/* portal opened */
+EXTEND_TOP ~bd4300.bcs~ ~c#brandock/scripts/c#brando_sod_bd4300.baf~
+  EVALUATE_BUFFER
+
+/* inside Avernus */
+EXTEND_TOP ~bd4400.bcs~ ~c#brandock/scripts/c#brando_sod_bd4400.baf~
+  EVALUATE_BUFFER
+
+/* Hell elevator - Brandock comments */
+EXTEND_BOTTOM ~bd4601.bcs~ ~c#brandock/scripts/c#brando_sod_bd4601.baf~
+  EVALUATE_BUFFER
+
+/* Fugue portal - reaction to enemies ## funktioniert das? */
+EXTEND_BOTTOM ~bd5300.bcs~ ~c#brandock/scripts/c#brando_sod_bd5300.baf~
+  EVALUATE_BUFFER
+
+
+/* React in case crusaders in cages are killed by spikes (bd7230.are) */
+//bdlever2.BCS
+COPY_EXISTING ~bdlever2.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(Kill("bdkharmy")\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~SetGlobal("C#Brando_SoDKillSpikes","bd7230",1) \1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/* React in case Morentherene is killed with a dagger (bd7210.are) */
+//bdmorent.BCS
+COPY_EXISTING ~bdmorent.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(Kill(Myself)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~SetGlobal("C#Brando_SoDMorenDag","MYAREA",1) \1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+
+END //SoD
+
+
+
+/* BGII */
+
+ACTION_IF GAME_IS ~bgt eet~ THEN BEGIN
+
+/* if player had the book case, create it in ID (empty) */
+
+LAF extend_area_script STR_VAR area="ar0602" bottom="C#Brandock/scripts/c#brando_bg2_ar0602_eb.baf" END
+
+END
+
+ACTION_IF GAME_IS ~bg2ee tob bgt eet~ THEN BEGIN
+
+/* new BGII game or tob, bgii:ee: spawn Brandock in C#br03.are */
+// happens in c#br03.baf compiled below
+/* Add map note to AR0400 */
+  EXTEND_BOTTOM ~AR0400.bcs~ ~C#Brandock/scripts/c#brando_bg2_ar0400.baf~ EVALUATE_BUFFER
+
+
+
+
+/* Ebrel's ring */
+
+COPY ~C#Brandock/items/c#br2001.itm~ ~override/c#br2001.itm~
+SAY NAME1 @100 /* ~Ebrel's Ring~ */
+SAY NAME2 @100 /* ~Ebrel's Ring~ */
+SAY IDENTIFIED_DESC @101 /* ~This ring looks slighty dented and singed - if the latter is even possible for a greenstone ring. You are very certain that it belonged to one of the Cowled Wizards Irenicus killed at the promenade. 'To Ebrel - in Love' is ingraved into the inner side of the ring.~ */
+
+/* Place Ebrel's ring in Waukeen's Promenade */
+
+  EXTEND_BOTTOM ~AR0700.bcs~ ~C#Brandock/scripts/c#brando_bg2_ar0700.baf~ EVALUATE_BUFFER
+
+
+END //ACTION_IF GAME_IS ~bg2ee tob bgt eet~//
+
+
+/* transition to ToB */
+
+ACTION_IF GAME_IS ~bg2ee tob bgt eet~ THEN BEGIN
+
+  EXTEND_BOTTOM ~AR4000.bcs~ ~C#Brandock/scripts/c#brando_bg2_ar4000.baf~ EVALUATE_BUFFER
+
+
+  EXTEND_BOTTOM ~AR4500.bcs~ ~C#Brandock/scripts/c#brando_bg2_ar4500.baf~ EVALUATE_BUFFER
+
+END
+
+
+/* BGII content */
+
+ACTION_IF GAME_IS ~bg2ee tob bgt eet~ BEGIN
+
+/* Give the Homeless Woman in AR0400 (Slums) a unique DV: */
+COPY_EXISTING ~HOMELESS.CRE~ ~override/HOMELESS.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~HOMELESS~ #32 // script name / DV
+
+/* Give the Landlord in AR0400 (Slums) a unique DV: */
+COPY_EXISTING ~LANDLORD.CRE~ ~override/LANDLORD.CRE~
+WRITE_EVALUATED_ASCII 0x280 ~LANDLORD~ #32 // script name / DV
+
+//  epilogues:
+EXTEND_TOP ~AR6200.bcs~ ~C#Brandock/scripts/epilog_AR6200.baf~
+
+/* ToB Epilogue - one for now */
+COPY ~C#Brandock/2da/c#brepxx.2da~ ~override/c#brep01.2da~
+REPLACE ~99999~ @90000
+
+END //GAME_IS ~bg2ee tob bgt eet~
+
+
+/* +++++ PID - compile as last .d-file +++++ */
+
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+	COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brandj_PID.d~
+END
+ACTION_IF GAME_IS ~bg2ee bgt eet tob~ THEN BEGIN
+	COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brandj_PID_bg2.d~
+     USING ~C#Brandock/tra/%LANGUAGE%/c#brandj_PID.tra~
+END
+
+
+
+/* +++++ areas and area modifications +++++ */
+
+
+/* areas */
+
+/* BG1 */
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+  COPY ~C#Brandock/areas/bg1~ ~Override~	
+END
+
+ACTION_IF GAME_IS ~bgt~ BEGIN
+  COPY ~C#Brandock/areas/mos_bgt/c#br01.MOS~ ~Override/c#br01.MOS~
+  COPY ~C#Brandock/areas/mos_bgt/c#br2b.MOS~ ~Override/c#br2b.MOS~
+END
+
+
+/* area modifications - BG1 */
+
+ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+/* add entrance to cage  */
+
+
+COPY_EXISTING ~%CoastWay%.are~ ~override~
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 4500  //kleinstes x
+    fj_box_top      = 1400  //kleinstes y
+    fj_box_right    = 4670  //größtes x
+    fj_box_bottom   = 1565   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 4500 + (1400 << 16)   //kleinstes x +  kleinstes y
+    fj_vertex_1     = 4670 + (1400 << 16)   //größtes x + kleinstes y
+    fj_vertex_2     = 4670 + (1565 << 16)   //größtes x + größtes y
+    fj_vertex_3     = 4500 + (1565 << 16)   //kleinstes x + größtes y
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br01Tr
+    fj_destination_area = c#br01
+    fj_destination_name = c#br01En
+  END
+
+
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 4570    //x
+    fj_loc_y       = 1575   //y
+    fj_orientation = 0   //S
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = c#br01Ex
+  END
+BUT_ONLY
+
+
+/* add detection proximity trigger */
+/* this is the CELLDOOR info trigger from BG:EE. I just used the same coodinates because it's as good as any. */
+//proximity trigger
+COPY_EXISTING ~%SWBaldursGate_FlamingFistHQ_L1%.are~ ~override~
+  LPF ~fj_are_structure~
+    INT_VAR
+    fj_type         = 0    //proximity trigger
+    fj_box_left    = 1382
+    fj_box_top     = 215
+    fj_box_right   = 1425
+    fj_box_bottom  = 276
+    fj_vertex_0    = 1382 + (270 << 16) 
+    fj_vertex_1    = 1425 + (276 << 16)
+    fj_vertex_2    = 1425 + (222 << 16)
+    fj_vertex_3    = 1382 + (215 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#brcelldoor
+  END
+BUT_ONLY
+
+END //ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+
+/* door */
+
+
+
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+COPY_EXISTING ~c#br01.are~ ~override~
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 113  //kleinstes x
+    fj_box_top      = 545  //kleinstes y
+    fj_box_right    = 236  //größtes x
+    fj_box_bottom   = 638   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
+    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
+    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
+    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br01Ex
+    fj_destination_area = AR6900
+    fj_destination_name = c#br01Ex
+  END
+
+
+//trigger point with script
+  LPF ~fj_are_structure~
+    INT_VAR
+    fj_type         = 1    //trigger
+    fj_box_left    = 160
+    fj_box_top     = 200
+    fj_box_right   = 220
+    fj_box_bottom  = 228
+    fj_cursor_idx   = 2  //"take something"
+    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
+    fj_vertex_1    = 170 + (200 << 16)
+    fj_vertex_2    = 175 + (200 << 16)
+    fj_vertex_3    = 220 + (202 << 16)
+    fj_vertex_4    = 220 + (215 << 16)
+    fj_vertex_5    = 195 + (225 << 16)
+    fj_vertex_6    = 170 + (228 << 16)
+    fj_vertex_7    = 160 + (215 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#brpile
+    fj_reg_script   = c#brpile
+  END
+BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+COPY_EXISTING ~c#br01.are~ ~override~
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 113  //kleinstes x
+    fj_box_top      = 545  //kleinstes y
+    fj_box_right    = 236  //größtes x
+    fj_box_bottom   = 638   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
+    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
+    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
+    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br01Ex
+    fj_destination_area = AR2800
+    fj_destination_name = c#br01Ex
+  END
+
+
+//trigger point with script
+  LPF ~fj_are_structure~
+    INT_VAR
+    fj_type         = 1    //trigger
+    fj_box_left    = 160
+    fj_box_top     = 200
+    fj_box_right   = 220
+    fj_box_bottom  = 228
+    fj_cursor_idx   = 2  //"take something"
+    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
+    fj_vertex_1    = 170 + (200 << 16)
+    fj_vertex_2    = 175 + (200 << 16)
+    fj_vertex_3    = 220 + (202 << 16)
+    fj_vertex_4    = 220 + (215 << 16)
+    fj_vertex_5    = 195 + (225 << 16)
+    fj_vertex_6    = 170 + (228 << 16)
+    fj_vertex_7    = 160 + (215 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#brpile
+    fj_reg_script   = c#brpile
+  END
+BUT_ONLY
+END
+
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+  COPY_EXISTING ~c#br01.are~ ~override~
+  WRITE_SHORT 0x48 THIS | IDS_OF_SYMBOL(~AREATYPE~ ~BG1AREA~)
+
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 113  //kleinstes x
+    fj_box_top      = 545  //kleinstes y
+    fj_box_right    = 236  //größtes x
+    fj_box_bottom   = 638   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
+    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
+    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
+    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br01Ex
+    fj_destination_area = BG2800
+    fj_destination_name = c#br01Ex
+  END
+
+//trigger point with script
+  LPF ~fj_are_structure~
+    INT_VAR
+    fj_type         = 1    //trigger
+    fj_box_left    = 160
+    fj_box_top     = 200
+    fj_box_right   = 220
+    fj_box_bottom  = 228
+    fj_cursor_idx   = 2  //"take something"
+    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
+    fj_vertex_1    = 170 + (200 << 16)
+    fj_vertex_2    = 175 + (200 << 16)
+    fj_vertex_3    = 220 + (202 << 16)
+    fj_vertex_4    = 220 + (215 << 16)
+    fj_vertex_5    = 195 + (225 << 16)
+    fj_vertex_6    = 170 + (228 << 16)
+    fj_vertex_7    = 160 + (215 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#brpile
+    fj_reg_script   = c#brpile
+  END
+BUT_ONLY
+END
+
+
+/* adaption of tis-name (in the wed-file) for BGT & EET */
+ACTION_IF GAME_IS ~bgt eet~ THEN BEGIN
+
+ COPY_EXISTING ~c#br01.wed~ ~override~
+        SPRINT tis_name "%GnollStronghold_XvartCave%"
+        READ_LONG 16 overlay_off
+        WRITE_ASCIIE overlay_off + 0 + 4 ~%tis_name%~ (8)
+
+END
+
+
+/* areas - BGII */
+
+ACTION_IF GAME_IS ~bg2ee tob bgt eet~ THEN BEGIN
+COPY ~C#Brandock/areas/bg2~ ~Override~
+
+/* mos */
+ACTION_IF GAME_IS ~tob bgt~ BEGIN
+  COPY ~C#Brandock/areas/mos_bgt/c#br03.MOS~ ~Override/c#br03.MOS~
+END
+
+COMPILE ~C#Brandock/scripts/c#br03.baf~ EVALUATE_BUFFER
+COMPILE ~C#Brandock/scripts/c#br03ip.baf~
+
+/* add entrance to brandock's cousin's house to AR0400 slums */
+
+COPY_EXISTING ~AR0400.are~ ~override~ 
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 35  //kleinstes x
+    fj_box_top      = 1100  //kleinstes y
+    fj_box_right    = 130  //größtes x
+    fj_box_bottom   = 1250   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 35 + (1100 << 16)   //kleinstes x +  kleinstes y
+    fj_vertex_1     = 130 + (1100 << 16)   //größtes x + kleinstes y
+    fj_vertex_2     = 130 + (1250 << 16)   //größtes x + größtes y
+    fj_vertex_3     = 35 + (1250 << 16)   //kleinstes x + größtes y
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br03Tr
+    fj_destination_area = c#br03
+    fj_destination_name = C#br03en
+  END
+
+/* add entrance from C#BR03 to AR0400.are */
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 195    //x
+    fj_loc_y       = 1175   //y
+    fj_orientation = 12   //O
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = c#br03Ex
+  END
+BUT_ONLY
+
+
+/* Waukeens Promenade - create "container" and put Ebrel's ring inside */
+
+
+COPY_EXISTING ~AR0700.ARE~ ~override~
+  LPF fj_are_structure
+  INT_VAR
+    fj_loc_x          = 2455
+    fj_loc_y          = 900
+    fj_type           = 8         // non-visible
+    fj_box_left       = 2445
+    fj_box_top        = 881
+    fj_box_right      = 2469
+    fj_box_bottom     = 910
+    fj_vertex_0       = 2462 | (910 << 16)
+    fj_vertex_1       = 2445 | (893 << 16)
+    fj_vertex_2       = 2448 | (886 << 16)
+    fj_vertex_3       = 2456 | (889 << 16)
+    fj_vertex_4       = 2462 | (881 << 16)
+    fj_vertex_5       = 2469 | (888 << 16)
+    fj_vertex_6       = 2464 | (898 << 16)
+    fj_vertex_7       = 2467 | (908 << 16)
+  STR_VAR
+    fj_structure_type = "container"
+    fj_name           = "C#Rubble"
+  END
+
+
+
+
+END //~bg2ee tob bgt eet~
+
+
+
+
+
+
+/* +++++ Brandock cre things +++++ */
+
+/* Dialoguesets */
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+
+/* BG:EE */
+APPEND ~pdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+
+APPEND ~interdia.2da~
+~C#Brandock 	C#BrandB~
+UNLESS ~C#Brandock~
+
+END
+
+/* SoD */
+
+ACTION_IF (GAME_IS ~bgee~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+APPEND ~bddialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+
+
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
+
+	APPEND ~bdbanter.2da~
+		~C#Brandock 	C#BrandB~
+	UNLESS ~C#Brandock~
+        
+END ELSE BEGIN 
+
+<<<<<<<< .../BDBANTER.2DA
+2DA      V1.0
+NONE
+         FILE
+KIVAN    BDKIVANB
+ALORA    BDALORAB
+MINSC    BDMINSCB
+DYNAHEIR BDDYNAHB
+YESLICK  BDYESLIB
+CORAN    BDCORANB
+AJANTIS  BDAJANTB
+KHALID   BDKHALIB
+JAHEIRA  BDJAHEIB
+GARRICK  BDGARRIB
+SAFANA   BDSAFANB
+FALDORN  BDFALDOB
+BRANWEN  BDBRANWB
+QUAYLE   BDQUAYLB
+XAN      BDXANB
+SKIE     BDSKIEB
+ELDOTH   BDELDOTB
+XZAR     BDXZARB
+MONTARON BDMONTAB
+TIAX     BDTIAXB
+KAGAIN   BDKAGAIB
+SHARTEEL BDSHARTB
+EDWIN    BDEDWINB
+VICONIA  BDVICONB
+IMOEN2   BDIMOENB
+NEERA    BDNEERAB
+DORN     BDDORNB
+RASAAD   BDRASAAB
+BAELOTH  BDBAELOB
+VOGHILN  BDVOGHIB
+MKHIIN   BDMKHIIB
+CORWIN   BDCORWIB
+GLINT    BDGLINTB
+C#Brandock 	C#BrandB
+>>>>>>>>
+
+	COPY ~.../BDBANTER.2DA~ ~override~ 
+END
+
+
+END
+
+/* BG1:EET */
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+APPEND ~bgdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+APPEND ~bgbanter.2da~
+~C#Brandock 	C#BrandB~
+UNLESS ~C#Brandock~
+
+END
+
+/* BGT, BGII, BGII:EE */
+
+ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
+
+APPEND ~pdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD 	C#BrandP 	C#BrandJ 		C#BrandD 	C#Bran25~
+UNLESS ~C#Brandock~
+
+
+APPEND ~interdia.2da~
+~C#Brandock 	C#BrandB      C#BrandB~
+UNLESS ~C#Brandock~
+
+END
+
+/* sounds */
+
+/* this is a protagonist soundset from IWD */
+ACTION_IF FILE_EXISTS ~C#Brandock/sounds/%LANGUAGE%/c#bran01.wav~ THEN BEGIN
+  COPY ~C#Brandock/sounds/%LANGUAGE%~ ~override~
+END ELSE BEGIN
+  COPY ~C#Brandock/sounds/english~ ~override~
+END
+
+/* mute Brandock's "start dialogue" sound */
+  COPY ~C#Brandock/Sounds/C#ABLANK.wav~ ~override~
+
+/* Default Portrait */
+
+ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
+
+COPY ~C#Brandock/Portrait/bg2/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2/C#BrandM.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2/C#BrandS.bmp~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~bgee~ BEGIN
+
+COPY ~C#Brandock/Portrait/bgee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bgee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/bgee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+/* cres */
+/* all cres are level one but get XP according to the PC's level.
+c#bran01.cre is for BG1
+c#bran02.cre is for a new SoD game and knows more spells
+*/
+
+COPY 	~C#Brandock/Cre/c#bran01.cre~ ~override/c#bran01.cre~
+SAY NAME1 @500 /* ~Brandock~ */
+SAY NAME2 @500 /* ~Brandock~ */
+SAY MORALE @501 /* ~~ [c#bran01] */
+SAY HAPPY @502 /* ~~ */
+SAY UNHAPPY_ANNOYED @503 /* ~~ [c#bran21] */
+SAY UNHAPPY_SERIOUS @504 /* ~~ [c#bran26] */
+SAY UNHAPPY_BREAKING @505 /* ~~ [c#bran02] */ 
+SAY LEADER @506 /* ~~ [c#bran08] */
+SAY TIRED @507 /* ~~ [c#bran09] */  
+SAY BORED @508 /* ~~ [c#bran10] */
+SAY BATTLE_CRY1 @509 /* ~~ [c#bran03] */  
+SAY BATTLE_CRY2 @510 /* ~~ [c#bran05] */ 
+SAY BATTLE_CRY3 @511 /* ~~ [c#bran06] */ 
+SAY BATTLE_CRY4 @512 /* ~~ [c#bran07] */  
+SAY BATTLE_CRY5 @513 /* ~~ [c#bran04] */
+SAY DAMAGE @514 /* ~~ [c#bran25] */
+SAY DYING @515 /* ~~ [c#bran22] */
+SAY HURT @516 /* ~~ [c#bran24] */  
+SAY AREA_FOREST @517 /* ~Ich liebe den Duft von Moos und Kiefernadeln.~ [c#bran28] */
+SAY AREA_CITY @518 /* ~In der Stadt sind immer so viele Leute auf einem Haufen!~ [c#bran29] */  
+SAY AREA_DUNGEON @519 /* ~Irgendwie ist es hier unheimlich.~ [c#bran30] */ 
+SAY AREA_DAY @520 /* ~Ich mag es, wenn die Sonne scheint! Außer direkt in mein Gesicht, natürlich.~ [c#bran31] */ 
+SAY AREA_NIGHT @521 /* ~Nachts ist es immer so... dunkel.~ [c#bran32] */ 
+SAY SELECT_COMMON1 @522 /* ~~ [c#bran11] */  
+SAY SELECT_COMMON2 @523 /* ~~ [c#bran12] */  
+SAY SELECT_COMMON3 @524 /* ~~ [c#bran14] */
+SAY SELECT_COMMON4 @534 /* ~M-hm?~ [c#bran33] */  
+SAY SELECT_COMMON5 @535 /* ~Ich höre?~ [c#bran34] */  
+SAY SELECT_COMMON6 @536 /* ~[als freundliche Aufforerung] Sagt, was Ihr wollt!~ [c#bran35] */
+SAY SELECT_ACTION1 @525 /* ~~ [c#bran15] */ 
+SAY SELECT_ACTION2 @526 /* ~~ [c#bran13] */ 
+SAY SELECT_ACTION3 @527 /* ~~ [c#bran16] */ 
+SAY SELECT_ACTION4 @528 /* ~~ [c#bran17] */  
+SAY SELECT_ACTION5 @529 /* ~~ [c#bran18] */  
+SAY SELECT_ACTION6 @530 /* ~~ [c#bran19] */  
+SAY SELECT_ACTION7 @531 /* ~~ [c#bran20] */  
+SAY REACT_TO_DIE_GENERAL @532 /* ~~ [c#bran23] */ 
+SAY SELECT_RARE1 @537 /* ~Bei den Göttern! Erschreckt mich doch nicht so! Was wollt Ihr?~ [c#bran36] */ 
+SAY CRITICAL_HIT @538 /* ~[triumphierend] Ja!!~ [c#bran37] */ 
+SAY CRITICAL_MISS @539 /* ~Verdammt, daneben!~ [c#bran38] */ 
+SAY TARGET_IMMUNE @540 /* ~Meine Waffe scheint nichts zu bewirken.~ [c#bran39] */ 
+SAY INVENTORY_FULL @541 /* ~[entschuldigend] Tut mir Leid, aber das passte wirklich nicht mehr in meine Tasche.~ [c#bran40] */ 
+SAY SPELL_DISRUPTED @542 /* ~Ach, Mist! Jetzt bin ich rausgekommen.~ [c#bran41] */ 
+SAY BIO @533 /* ~When asked about his past, BRANDOCK DEEPWATER smiles apologetically and talks about his plans to become an acknowledged wizard. "There is not much to know about me", he adds. "I come from a normal family of farmers and carpenters - no magic talent, except for some distant mother's cousin."~ */
+
+ADD_KNOWN_SPELL ~SPWI210~ #1 ~wizard~ //Resist Fear
+ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~ //Mirror Image
+ADD_KNOWN_SPELL ~SPWI213~ #1 ~wizard~ //Stinking Cloud
+
+
+
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+/* c#bran02.cre is for a new SoD start: more spells memorized */
+COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran02.cre~
+  ADD_KNOWN_SPELL ~SPIN102~ #0 ~wizard~ //Slow Poison
+  ADD_KNOWN_SPELL ~SPWI106~ #0 ~wizard~ //Blindness
+  ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield
+  ADD_KNOWN_SPELL ~SPWI201~ #1 ~wizard~ //Blurr
+  ADD_KNOWN_SPELL ~SPWI205~ #1 ~wizard~ //Horror
+  ADD_KNOWN_SPELL ~SPWI207~ #1 ~wizard~ //Knock
+  ADD_KNOWN_SPELL ~SPWI215~ #1 ~wizard~ //Web
+  ADD_KNOWN_SPELL ~SPWI304~ #2 ~wizard~ //Fireball
+  ADD_KNOWN_SPELL ~SPWI305~ #2 ~wizard~ //Haste
+  ADD_KNOWN_SPELL ~SPWI309~ #2 ~wizard~ //Monster Summoning
+  ADD_KNOWN_SPELL ~SPWI311~ #2 ~wizard~ //Protection from normal missiles
+  ADD_KNOWN_SPELL ~SPWI326~ #2 ~wizard~ //Dispel Magic
+  ADD_KNOWN_SPELL ~SPWI405~ #3 ~wizard~ //Improved Invisibility
+  ADD_KNOWN_SPELL ~SPWI406~ #3 ~wizard~ //Minor Globe of Invulnerability
+  ADD_KNOWN_SPELL ~SPWI407~ #3 ~wizard~ //Monster Summoning II
+  ADD_KNOWN_SPELL ~SPWI408~ #3 ~wizard~ //Stoneskin
+  ADD_KNOWN_SPELL ~SPWI502~ #4 ~wizard~ //Cloudkill
+  ADD_KNOWN_SPELL ~SPWI513~ #4 ~wizard~ //Breach
+  ADD_KNOWN_SPELL ~SPWI519~ #4 ~wizard~ //Spell Shield
+
+/* items: */
+  ADD_CRE_ITEM ~clck09~ #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
+//  ADD_CRE_ITEM ~C#BR0004~ #0 #0 #0 ~IDENTIFIED~ ~CLOAK~
+  ADD_CRE_ITEM ~STAF02~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+  ADD_CRE_ITEM ~SLNG02~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~ EQUIP
+  ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver1~
+  ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver2~
+BUT_ONLY_IF_IT_CHANGES
+END
+
+ACTION_IF GAME_IS ~tob bgt bg2ee eet~ BEGIN
+/* c#bran03.cre is for a new SoA start: more spells memorized */
+COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran03.cre~
+  ADD_KNOWN_SPELL ~SPIN102~ #0 ~wizard~ //Slow Poison
+  ADD_KNOWN_SPELL ~SPWI106~ #0 ~wizard~ //Blindness
+  ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield
+  ADD_KNOWN_SPELL ~SPWI201~ #1 ~wizard~ //Blurr
+  ADD_KNOWN_SPELL ~SPWI205~ #1 ~wizard~ //Horror
+  ADD_KNOWN_SPELL ~SPWI207~ #1 ~wizard~ //Knock
+  ADD_KNOWN_SPELL ~SPWI215~ #1 ~wizard~ //Web
+  ADD_KNOWN_SPELL ~SPWI304~ #2 ~wizard~ //Fireball
+  ADD_KNOWN_SPELL ~SPWI305~ #2 ~wizard~ //Haste
+  ADD_KNOWN_SPELL ~SPWI309~ #2 ~wizard~ //Monster Summoning
+  ADD_KNOWN_SPELL ~SPWI311~ #2 ~wizard~ //Protection from normal missiles
+  ADD_KNOWN_SPELL ~SPWI326~ #2 ~wizard~ //Dispel Magic
+  ADD_KNOWN_SPELL ~SPWI405~ #3 ~wizard~ //Improved Invisibility
+  ADD_KNOWN_SPELL ~SPWI406~ #3 ~wizard~ //Minor Globe of Invulnerability
+  ADD_KNOWN_SPELL ~SPWI407~ #3 ~wizard~ //Monster Summoning II
+  ADD_KNOWN_SPELL ~SPWI408~ #3 ~wizard~ //Stoneskin
+  ADD_KNOWN_SPELL ~SPWI502~ #4 ~wizard~ //Cloudkill
+  ADD_KNOWN_SPELL ~SPWI513~ #4 ~wizard~ //Breach
+  ADD_KNOWN_SPELL ~SPWI519~ #4 ~wizard~ //Spell Shield
+
+  ADD_KNOWN_SPELL ~SPWI308~ #2 ~wizard~ //Lightning Bolt
+  ADD_KNOWN_SPELL ~SPWI312~ #2 ~wizard~ //Slow
+  ADD_KNOWN_SPELL ~SPWI418~ #3 ~wizard~ //Fire Shield (Red)
+  ADD_KNOWN_SPELL ~SPWI505~ #4 ~wizard~ //Shadow Door
+  ADD_KNOWN_SPELL ~SPWI508~ #4 ~wizard~ //Chaos
+  ADD_KNOWN_SPELL ~SPWI607~ #5 ~wizard~ //Mislead
+  ADD_KNOWN_SPELL ~SPWI609~ #5 ~wizard~ //True Sight
+  ADD_KNOWN_SPELL ~SPWI625~ #5 ~wizard~ //Stone To Flesh
+  ADD_KNOWN_SPELL ~SPWI703~ #6 ~wizard~ //Project Image
+
+/* items: */
+  ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
+//  ADD_CRE_ITEM ~C#BR0004~ #0 #0 #0 ~IDENTIFIED~ ~CLOAK~
+  ADD_CRE_ITEM ~STAF02~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+  ADD_CRE_ITEM ~SLNG02~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~ EQUIP
+  ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver1~
+  ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver2~
+  ADD_CRE_ITEM ~BULL03~ #40 #0 #0 ~IDENTIFIED~ ~quiver3~
+BUT_ONLY_IF_IT_CHANGES
+END
+
+
+/* give items to BG1 cre - needs to be done here so the items are not on the SoD + BGII cres, too */
+
+ACTION_IF GAME_IS ~bgee eet bgt~ BEGIN
+COPY_EXISTING ~c#bran01.CRE~ ~override~
+/* items: */
+  ADD_CRE_ITEM ~STAF01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+  ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~ EQUIP
+  ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver1~
+  ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver2~
+  ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver3~
+  ADD_CRE_ITEM ~c#br0003~ #40 #0 #0 ~IDENTIFIED~ ~inv1~
+BUT_ONLY_IF_IT_CHANGES
+END
+
+
+
+
+
+
+/* Crossmod */
+
+/* BG1 */
+
+ACTION_IF GAME_IS ~bgee eet bgt~ THEN BEGIN
+
+/* bgqe - need to check every component individually */
+
+/* bgqe - babysitting quest */
+ACTION_IF FILE_EXISTS_IN_GAME ~C#Q03008.dlg~ THEN BEGIN 
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bgqe_babysitting.d~
+END //babysitting quest
+
+/* bgqe - Nashkell Monster */
+ACTION_IF FILE_EXISTS_IN_GAME ~C#Q04004.dlg~ THEN BEGIN 
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bgqe_nashkelmonster.d~
+
+
+  /* more content for bgqe v21 and higher */
+  ACTION_IF FILE_EXISTS_IN_GAME ~c#bgqe_21.mrk~ THEN BEGIN
+	<<<<<<<< ...inlined/brandock_nashkelmonster_add.d
+	I_C_T C#Q04007 3 C#BR_C#Q04007_3
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @1021
+END
+	>>>>>>>>
+	COMPILE ~...inlined/brandock_nashkelmonster_add.d~
+  END
+
+END //Nashkell Monster
+
+
+/* Brage */
+ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~ THEN BEGIN 
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brage_brandock.d~
+END //ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~
+
+
+/* The Calling */
+
+ACTION_IF FILE_EXISTS_IN_GAME ~cdbracer.itm~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
+EVALUATE_BUFFER
+
+END //TheCalling
+
+
+/* not approved yet
+/* Valerie */
+
+ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~ THEN BEGIN 
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_valerie_BG1.d~
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/valerie.baf~
+EVALUATE_BUFFER
+
+END //ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~
+*/
+
+END //ACTION_IF GAME_IS ~bgee bgt~
+
+
+
+/* SoD */
+
+ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+
+/* Gavin */
+
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN
+/* spider cave */
+EXTEND_BOTTOM ~bd0114.bcs~ ~c#brandock/crossmod/c#brando_sod_bd0114.baf~
+  EVALUATE_BUFFER
+
+END //~b!gavin.cre~
+
+END //ACTION_IF [SoD]
+
+
+
+
+/* BGII */
+
+
+ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
+
+/* Alternatives */
+
+  ACTION_IF FILE_EXISTS_IN_GAME ~B!ASTER.dlg~ THEN BEGIN
+
+/* add Brandock to Brega's dialogue - PC needs witness */
+/* this will grab the correct state from the language alternatives is installed in - this is great! */
+/* @853  = ~Something I can put my hands on. A document, a witness, something more than your word against his.~ */
+    OUTER_SET brega_state_853 = STATE_WHICH_SAYS 853 IN ~alternatives/%s/DIALOGUE.tra~ FROM ~HABREGA.dlg~
+
+    COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_alternatives.d~
+    EXTEND_BOTTOM ~C#Brand2.bcs~ ~C#Brandock/crossmod/brando_crossmod_alternatives.baf~ EVALUATE_BUFFER
+  END /* Alternatives */
+
+
+/* NPC Strongholds */
+  ACTION_IF FILE_EXISTS_IN_GAME ~ksimteos.bcs~ THEN BEGIN
+    OUTER_SET teos_state_1 = STATE_WHICH_SAYS 2001 IN ~npc_strongholds/%s/npc_strongholds.tra~ FROM ~MGTEOS01.dlg~
+
+    OUTER_SET teos_state_2 = STATE_WHICH_SAYS 2009 IN ~npc_strongholds/%s/npc_strongholds.tra~ FROM ~MGTEOS01.dlg~
+    COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_npcstrongholds.d~
+    EXTEND_BOTTOM ~C#Brand2.bcs~ ~C#Brandock/crossmod/brando_crossmod_npcstrongholds.baf~
+  END /* NPC Strongholds */
+
+
+
+END //~tob bg2ee bgt eet~
+
+///////////////////////////////////////////////////////////
+// Install alternate portraits, also from Acifer    //
+/////////////////////////////////////////////////////////
+
+
+BEGIN @55545 /* ~Alternative #1: Very Friendly, by Acifer~ */ DESIGNATED 20 
+	SUBCOMPONENT @55544 
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+
+ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt1/bg2/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt1/bg2/C#BrandM.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt1/bg2/C#BrandS.bmp~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~bgee~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt1/bgee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt1/bgee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt1/bgee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt1/bg2ee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt1/bg2ee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt1/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+
+
+
+BEGIN @55546 /* ~Alternative #2: Mischievous, by Acifer~ */ DESIGNATED 21 
+	SUBCOMPONENT @55544
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+
+ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt2/bg2/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt2/bg2/C#BrandM.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt2/bg2/C#BrandS.bmp~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~bgee~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt2/bgee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt2/bgee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt2/bgee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt2/bg2ee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt2/bg2ee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt2/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+BEGIN @55547 /* ~Alternative #3: Juvenile, by Acifer~ */ DESIGNATED 22 
+	SUBCOMPONENT @55544 
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+
+ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt3/bg2/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt3/bg2/C#BrandM.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt3/bg2/C#BrandS.bmp~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt3/bgee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt3/bgee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt3/bgee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+/*
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/Alt3/bg2ee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/Alt3/bg2ee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/Alt3/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+*/
+
+
+
+BEGIN @55548 /* ~Default Portrait: Insecure, by Acifer (is included in the main component)~ */ DESIGNATED 23 
+	SUBCOMPONENT @55544
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+
+ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
+
+COPY ~C#Brandock/Portrait/bg2/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2/C#BrandM.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2/C#BrandS.bmp~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~bgee~ BEGIN
+
+COPY ~C#Brandock/Portrait/bgee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bgee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/bgee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandL.bmp~ ~override~
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandM.bmp~ ~override/C#BrandM.bmp~
+COPY ~C#Brandock/Portrait/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
+
+END
+
+
+
+
+

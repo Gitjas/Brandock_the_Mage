@@ -1,0 +1,1330 @@
+
+/* Brandocks sod-specific script */
+
+/* be in PC's chamber after wakeup */
+
+IF
+	Global("bd_plot","global",55)
+	Global("C#Brandock_bd_55","bd0103",0)
+	AreaCheck("bd0103")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("C#Brandock",JumpToPoint([542.229])) 
+		ActionOverride("C#Brandock",Face(S))
+		SetGlobal("C#Brandock_bd_55","bd0103",1)
+END
+
+
+
+
+/* camp BD1000 petrified people */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	OR(5)
+		See("BDPETR01")
+		See("BDPETR02")
+		See("BDPETR03")
+		See("BDPETR04")
+		See("BDPETR05")
+	StateCheck("BDPETR01",STATE_STONE_DEATH)
+	StateCheck("BDPETR02",STATE_STONE_DEATH)
+	StateCheck("BDPETR03",STATE_STONE_DEATH)
+	StateCheck("BDPETR04",STATE_STONE_DEATH)
+	StateCheck("BDPETR05",STATE_STONE_DEATH)
+	CombatCounter(0)
+	%IT_IS_SOD%
+	Global("C#Brandock_SoDStonePeople","GLOBAL",0)		
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDStonePeople","GLOBAL",1) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDStonePeople","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* Korlasz is defeated */
+
+IF
+
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+	AreaCheck("BD0130")  // 
+	%IT_IS_SOD%  // BG1 is over, we are in SoD
+	OR(2)
+		Global("BD_KORLASZ_SURRENDER","GLOBAL",1)
+		Dead("bdkorlas")
+	Global("C#Brando_SoDKorlaszDefeated","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDKorlaszDefeated","GLOBAL",1)
+END
+
+IF
+
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brando_SoDKorlaszDefeated","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+
+
+
+/* before joining - Brandock is outside the Ducal Palace */
+
+IF 
+	Global("C#BrandockSpawn","GLOBAL",6)
+	Range(Player1,15)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+IF 
+	Global("C#BrandockSpawn","GLOBAL",6)
+	!RealGlobalTimerNotExpired("C#Brandock_SoDSighTimer","GLOBAL")
+	See([PC])
+THEN
+	RESPONSE #25
+	  RealSetGlobalTimer("C#Brandock_SoDSighTimer","GLOBAL",10)
+	  DisplayStringHead(Myself,@1250)
+	RESPONSE #25	
+	  RealSetGlobalTimer("C#Brandock_SoDSighTimer","GLOBAL",10)
+	  DisplayStringHead(Myself,@1251)
+	RESPONSE #25	
+	  RealSetGlobalTimer("C#Brandock_SoDSighTimer","GLOBAL",10)
+	  DisplayStringHead(Myself,@1252)
+	RESPONSE #25	
+	  RealSetGlobalTimer("C#Brandock_SoDSighTimer","GLOBAL",10)
+	  DisplayStringHead(Myself,@1253)
+END
+
+
+
+/* bd1000: Brandock comments on the explosion on the bridge */
+
+IF
+//	GlobalLT("bd_plot","global",161)
+	GlobalTimerNotExpired("bd_caelar_timer","bd1000")
+	AreaCheck("bd1000")
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Detect(Player1)	
+	Global("C#Brandock_SoDbridge","bd1000",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDbridge","bd1000",1)
+		DisplayStringHead(Myself,@1254)
+END
+
+
+
+/* note about Sarevok's Sword in Korlash's Tomb (bdshkoro.itm) */
+/* activate */
+IF
+    OR(2) 
+	PartyHasItem("bdshkoro")
+	PartyHasItem("bdshkorj")
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_bdshkoro","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_bdshkoro","LOCALS",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_bdshkoro","LOCALS",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+/* many mentionings of Athkatla */
+/* activate */
+IF
+    OR(2) 
+	PartyHasItem("bdure2a") //(Letter)
+	PartyHasItem("bdscrl1") //(Tsolak's Scroll)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_bdscrl1","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_bdscrl1","LOCALS",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_bdscrl1","LOCALS",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+/* in case letter was found later */
+/* activate */
+IF
+    PartyHasItem("bdure2a") //(Letter)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	GlobalGT("C#Brando_bdscrl1","LOCALS",0)
+	Global("C#Brando_bdure2a","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_bdure2a","LOCALS",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_bdure2a","LOCALS",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+
+/* conspiring nobles in BG city */
+/* activate */
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	GlobalLT("C#Brandock_NoblesSoD","GLOBAL",2)
+	Dead("BDMAXWEL")
+	Dead("BDTHERTO")
+	Dead("BDARAYA")
+THEN
+	RESPONSE #100
+		IncrementGlobal("C#Brandock_NoblesSoD","GLOBAL",2)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  OR(2) 
+	Global("C#Brandock_NoblesSoD","GLOBAL",2)
+	Global("C#Brandock_NoblesSoD","GLOBAL",3)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+
+
+
+/* PC agreed to lure people to Teleri */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	Global("BD_PET_MAIN","MYAREA",80)
+	!Dead("BDTELERI")
+	!See("BDTELERI")
+	CombatCounter(0)
+	Global("C#Brandock_SoD_BD_PET_MAIN80","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoD_BD_PET_MAIN80","GLOBAL",1) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoD_BD_PET_MAIN80","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* PC lured people to Teleri */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	Global("BD_PET_MAIN","MYAREA",80)
+	OR(2)
+		Global("bd_move_brielle","MYAREA",2)
+		Global("bd_move_vessan","MYAREA",2)
+	CombatCounter(0)
+	Global("C#Brandock_SoDLuredStatues","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDLuredStatues","GLOBAL",1) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDLuredStatues","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* PC bought golem from Teleri */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	OR(2)
+		Global("bd_125_bought_golem","global",1)
+		Global("BD_PET_MAIN","MYAREA",84)
+	CombatCounter(0)
+	Global("C#Brandock_SoDBoughtGolem","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDBoughtGolem","GLOBAL",1) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDBoughtGolem","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* PC received scrolls from Teleri */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	CombatCounter(0)
+	Global("C#Brandock_SoD_GotSCRLPET","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoD_GotSCRLPET","GLOBAL",2) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoD_GotSCRLPET","GLOBAL",2) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* PC defeated Teleri */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	AreaCheck("bd1000") //first camp
+	OR(3)
+		Global("BD_PET_MAIN","MYAREA",60) //PC is elf and gets "spared" by her.
+		Global("BD_PET_MAIN","MYAREA",70) //T. was convinced to let the idea go.
+		Dead("BDTELERI")
+	CombatCounter(0)
+	Global("C#Brandock_SoDTeleriEnd","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDTeleriEnd","GLOBAL",1) 
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDTeleriEnd","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* bd1000 after meeting C. at the bridge */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+	AreaCheck("BD1000")  
+	GlobalGT("bd_plot","global",170)
+	!See("bdcaelar")
+	Global("C#Brando_SoDCaelarBridge","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDCaelarBridge","GLOBAL",1)
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brando_SoDCaelarBridge","GLOBAL",1)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+		StartDialogNoSet(Player1)
+END
+
+/* check: PC had nightmare without Brandock being around */
+
+IF
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	!Range(Player1,30)  //not in party, not nearby
+	Global("bd_ddd","global",1) //first nightmare happened
+	Global("C#Brandock_SoDNightmare","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDNightmare","GLOBAL",2) 
+END
+
+
+/* PC had first nightmare: Sarevok - slayer */
+IF
+	OR(3) 
+		InParty(Myself) 
+		Global("C#BrandockJoined","GLOBAL",2) 
+		Range(Player1,30)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	Global("bd_ddd","global",1) //first nightmare happened
+	CombatCounter(0)
+	Global("C#Brandock_SoDNightmare","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDNightmare","GLOBAL",1) 
+END
+
+
+/* triggering. This dialogue also fires if Brandock is standing nearby */
+IF
+	OR(3) 
+		InParty(Myself) 
+		Global("C#BrandockJoined","GLOBAL",2) 
+		Range(Player1,30)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDNightmare","GLOBAL",1) 
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		Interact(Player1) //triggers C#BrandB
+END
+
+/* bdspider.itm - giant spider leg */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	PartyHasItem("bdspider")
+	Detect(Player1)	
+	Global("C#Brandock_SoDSpiderLeg","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDSpiderLeg","LOCALS",1)
+		DisplayStringHead(Myself,@1255)
+END
+
+
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	PartyHasItem("bdspider")
+	Detect(Player1)	
+	GlobalGT("C#Brandock_GavinBG1NPC","GLOBAL",0)
+	Global("C#Brandock_SoDSpiderLeg","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDSpiderLeg","LOCALS",2)
+		DisplayStringHead(Myself,@1256)
+END
+
+
+/* musings about vampire Tsolak */
+ 
+IF
+
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	!AreaCheck("bd0115") //Vampire Cavern
+	!See("bdisabel")
+	CombatCounter(0)
+	%IT_IS_SOD%
+	Global("C#Brando_BDTSOLAK_2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_BDTSOLAK_2","GLOBAL",2)
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brando_BDTSOLAK_2","GLOBAL",2)
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+
+
+/* Morentherene - green dragon */
+/* activate */
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+	AreaCheck("bd7210")
+	OR(2)
+		Detect("BDMORENT")
+		GlobalGT("bd_dragon_ot","bd7210",0)
+    !Dead("BDMORENT")
+    !Detect([ENEMY])
+    CombatCounter(0)
+	Global("C#Brando_SoDMorentherene","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDMorentherene","GLOBAL",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDMorentherene","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* Skie in bd7000 */
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    See("bdskie")
+	AreaCheck("bd7000")
+    GlobalGT("bd_sddskie","bd7000",0)
+    GlobalLT("bd_sddskie","bd7000",3)
+    !Detect([ENEMY])
+    CombatCounter(0)
+	Global("C#Brando_SoDSkie7000","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDSkie7000","GLOBAL",1)
+END
+
+
+/* activate */
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !See("bdskie")
+	AreaCheck("bd7000")
+    GlobalGT("bd_sddskie","bd7000",2)
+    !Detect([ENEMY])
+    CombatCounter(0)
+	Global("C#Brando_SoDSkie7000","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDSkie7000","GLOBAL",2)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDSkie7000","GLOBAL",2) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+/* PC killed Morentherene with a dagger */
+
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_SoDMorenDag","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDMorenDag","MYAREA",2)
+		DisplayStringHead(Myself,@1257)
+END
+
+
+/* PC killed crusaders with the spikes */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  See(Player1)
+  AreaCheck("bd7230")
+  Global("C#Brando_SoDKillSpikes","bd7230",1)
+  CombatCounter(0)
+  !GlobalTimerNotExpired("C#SoD_spiketrap_timer","MYAREA")
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDKillSpikes","bd7230",2)
+		SetGlobalTimer("C#SoD_spiketrap_timer","MYAREA",ONE_ROUND)
+		DisplayStringHead(Myself,@1258)
+END
+
+
+
+/* dusty chicken (only if Shapeshift quest is active) */
+
+/* activate */
+IF
+	PartyHasItem("bdchickn")
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_SoDChicken","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDChicken","LOCALS",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+Global("C#Brando_SoDChicken","LOCALS",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+/* spider egg  */
+
+/* activate */
+IF
+	PartyHasItem("bdegg01")
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_SoDSpiderEgg","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDSpiderEgg","LOCALS",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDSpiderEgg","LOCALS",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+/* Reaction to BDHELM01.itm */
+/* (DisplayStringHead) */
+IF
+	HasItemEquiped("BDHELM01",Myself)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_BDHELM01","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_BDHELM01","LOCALS",1)
+		DisplayStringHead(Myself,@1259)
+END
+
+
+/* Reaction to bdhelm12.itm */
+/* (DisplayStringHead) */
+IF
+	HasItemEquiped("bdhelm12",Myself)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	Global("C#Brando_bdhelm12","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_bdhelm12","LOCALS",1)
+		DisplayStringHead(Myself,@1260)
+		DisplayStringHead(Myself,@1261)
+END
+
+
+
+
+/* Brandock reacts to Thrix's game */
+
+/* PC offered Brandock's soul */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	OR(2)
+		Global("C#Brandock_SoDThrix","GLOBAL",2)
+		Global("C#Brandock_SoDThrix","GLOBAL",3)
+	GlobalLT("bd_plot","global",550)
+	Global("bd_thrix_plot","global",20)
+THEN
+	RESPONSE #100
+		IncrementGlobal("C#Brandock_SoDThrix","GLOBAL",3)
+END
+
+/* PC offered someone's soul */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	!Global("C#Brandock_SoDThrix","GLOBAL",2)
+	!Global("C#Brandock_SoDThrix","GLOBAL",3)
+	GlobalLT("C#Brandock_SoDThrix","GLOBAL",7)
+	Global("bd_thrix_sacrifice_companion","global",1)
+	!Global("bd_thrix_sacrifice_self","global",1)
+	GlobalLT("bd_plot","global",550)
+	Global("bd_thrix_plot","global",20)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDThrix","GLOBAL",7)
+END
+
+/* PC offered own soul */
+
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	!Global("C#Brandock_SoDThrix","GLOBAL",2)
+	!Global("C#Brandock_SoDThrix","GLOBAL",3)
+	GlobalLT("C#Brandock_SoDThrix","GLOBAL",8)
+	Global("bd_thrix_sacrifice_self","global",1)
+	GlobalLT("bd_plot","global",550)
+	Global("bd_thrix_plot","global",20)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDThrix","GLOBAL",8)
+END
+
+/* trigger */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	OR(4)
+		Global("C#Brandock_SoDThrix","GLOBAL",8)
+		Global("C#Brandock_SoDThrix","GLOBAL",7)
+		Global("C#Brandock_SoDThrix","GLOBAL",6)
+		Global("C#Brandock_SoDThrix","GLOBAL",5)		
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+/* Messenger: after attack on the camp is defeated */
+
+IF 
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	GlobalGT("bd_plot","global",401)
+	AreaCheck("bd3000")
+	Global("C#Brandock_SoDMessenger","BD3000",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDMessenger","BD3000",1)
+		CreateCreatureObject("c#brsodm","C#Brandock",0,0,0)  // Messenger
+		ActionOverride("c#brsodm",Dialogue("C#Brandock"))
+END
+
+
+/* inside Avernus - imagine Caelar would have gone after Sarevok */
+
+/* activation */
+
+IF
+	%IT_IS_SOD%
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("bd_plot","global",500)
+	AreaCheck("bd4400")
+	Global("C#Brandock_SoDCaelarSarevok","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDCaelarSarevok","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDCaelarSarevok","GLOBAL",1)	
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+
+
+/* back from Avernus */
+
+/* activation */
+
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("bd_plot","global",586)
+	AreaCheck("bd4300")
+	Global("C#Brandock_SoDEnd","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDEnd","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("C#Brandock_SoDEnd","GLOBAL",1)	
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+
+
+
+/* cenery dialogues that use the same friendship timer */
+
+/* Caelar no child of Bhaal */
+IF
+%IT_IS_SOD%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Brandock_CaelarCoB","GLOBAL",0)
+  GlobalGT("bd_mdd018","global",0) //Caelar told she is no child of Bhaal
+  !AreaType(DUNGEON)
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brandock_CaelarCoB","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("C#Brandock_CaelarCoB","GLOBAL",1)	
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogNoSet(Player1)
+END
+
+
+/* Activate: 2nd follow-up Bhaal heritage - in case it did not run in BG1 (is inside c#brandj.d) */
+IF 
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+	!RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+	GlobalLT("C#Brandock_KnowBhaal","GLOBAL",6)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_KnowBhaal","GLOBAL",6)
+END
+
+/* Initiate: 2nd follow-up PID Bhaal heritage */
+IF 
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
+	Global("C#Brandock_KnowBhaal","GLOBAL",6)
+THEN
+RESPONSE #100
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+
+
+
+///////////////////////////////////////////////////
+/* FP after first meeting of Caelar - needs extra triggers */
+
+IF
+%IT_IS_SOD%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+    Global("C#Brandock_Dialog","GLOBAL",107)
+  GlobalGT("bd_plot","global",170)
+  !AreaType(DUNGEON)
+THEN
+  RESPONSE #100
+    IncrementGlobal("C#Brandock_Dialog","GLOBAL",1)
+END
+
+/* FP dialogue activation SoD */
+IF
+%IT_IS_SOD%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
+  !AreaCheck("BD0021") //cutscene area BG 
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !AreaType(DUNGEON)
+    OR(3)
+    Global("C#Brandock_Dialog","GLOBAL",101)
+    Global("C#Brandock_Dialog","GLOBAL",103)
+    Global("C#Brandock_Dialog","GLOBAL",105)
+//    Global("C#Brandock_Dialog","GLOBAL",107)
+/*
+    Global("C#Brandock_Dialog","GLOBAL",109)
+    Global("C#Brandock_Dialog","GLOBAL",111)
+    Global("C#Brandock_Dialog","GLOBAL",113)
+    Global("C#Brandock_Dialog","GLOBAL",115)
+    Global("C#Brandock_Dialog","GLOBAL",117)
+    Global("C#Brandock_Dialog","GLOBAL",119)
+    Global("C#Brandock_Dialog","GLOBAL",121)
+    Global("C#Brandock_Dialog","GLOBAL",123)
+    Global("C#Brandock_Dialog","GLOBAL",125)
+    Global("C#Brandock_Dialog","GLOBAL",127)
+*/
+THEN
+  RESPONSE #100
+    IncrementGlobal("C#Brandock_Dialog","GLOBAL",1)
+END
+
+/* FP dialogue triggering: SoD */
+IF
+%IT_IS_SOD%
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+//  GlobalLT("Chapter","GLOBAL",##)
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  OR(4)
+    Global("C#Brandock_Dialog","GLOBAL",102)  //
+    Global("C#Brandock_Dialog","GLOBAL",104)  //
+    Global("C#Brandock_Dialog","GLOBAL",106)  //
+    Global("C#Brandock_Dialog","GLOBAL",108)  //
+/*
+    Global("C#Brandock_Dialog","GLOBAL",110) //
+    Global("C#Brandock_Dialog","GLOBAL",112) //
+    Global("C#Brandock_Dialog","GLOBAL",114) //
+    Global("C#Brandock_Dialog","GLOBAL",116) //
+    Global("C#Brandock_Dialog","GLOBAL",118) //
+    Global("C#Brandock_Dialog","GLOBAL",120) //
+    Global("C#Brandock_Dialog","GLOBAL",122) //
+    Global("C#Brandock_Dialog","GLOBAL",124) //
+    Global("C#Brandock_Dialog","GLOBAL",126) //
+*/
+
+
+
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+		PlaySong(0)
+		PlaySound("C#BRAND")    //Does not exist (yet)
+    StartDialogNoSet(Player1)
+END
+
+
+
+
+/* NPC banter */
+
+/* activate timer Corwin */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	InParty("CORWIN")  // Corwin
+	OR(3)
+		Global("bd_banter_Corwin_set","LOCALS",0)
+		Global("bd_banter_Corwin_set","LOCALS",2)
+		Global("bd_banter_Corwin_set","LOCALS",4)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("bd_banter_Corwin_trigger","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		IncrementGlobal("bd_banter_Corwin_set","LOCALS",1)
+END
+
+/* deactivate timer if Corwin or Brandock is not in party */
+IF
+	OR(2)
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("CORWIN")  // Corwin
+	OR(3)
+		Global("bd_banter_Corwin_set","LOCALS",1)
+		Global("bd_banter_Corwin_set","LOCALS",3)
+		Global("bd_banter_Corwin_set","LOCALS",5)
+THEN
+	RESPONSE #100
+		IncrementGlobal("bd_banter_Corwin_set","LOCALS",-1)
+END
+
+/* activate timer M'Khiin */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	InParty("MKHIIN")  
+	Global("bd_banter_MKhin_set","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("bd_banter_MKhin_trigger","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		IncrementGlobal("bd_banter_MKhin_set","LOCALS",1)
+END
+
+/* deactivate timer if M'Khiin or Brandock is not in party */
+IF
+	OR(2)
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("MKHIIN")  
+	Global("bd_banter_MKhin_set","LOCALS",1)
+THEN
+	RESPONSE #100
+		IncrementGlobal("bd_banter_MKhin_set","LOCALS",-1)
+END
+
+/* first Corwin banter */
+IF
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug01","GLOBAL",1)
+		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug01","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("bd_banter_Corwin_set","LOCALS",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	IfValidForPartyDialogue("CORWIN")  // Corwin
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("bd_banter_Corwin_set","LOCALS",2)
+		SetAreaScript("c#brsb01",GENERAL)
+END
+
+/* first M'Khiin banter */
+IF
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug04","GLOBAL",1)
+		GlobalTimerExpired("bd_banter_MKhin_trigger","LOCALS")
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug04","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("bd_banter_MKhin_set","LOCALS",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	IfValidForPartyDialogue("MKHIIN")  // 
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("bd_banter_MKhin_set","LOCALS",2)
+		SetAreaScript("c#brsb04",GENERAL)
+END
+
+/* 2nd Corwin banter */
+IF
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug02","GLOBAL",1)
+		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug02","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("bd_banter_Corwin_set","LOCALS",3)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	IfValidForPartyDialogue("CORWIN")  // Corwin
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("bd_banter_Corwin_set","LOCALS",4)
+		SetAreaScript("c#brsb02",GENERAL)
+END
+
+/* 3rd Corwin banter */
+IF
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug03","GLOBAL",1)
+		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
+	OR(2)
+		Global("C#Brandock_SoDBanterDebug03","GLOBAL",1)
+		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("bd_banter_Corwin_set","LOCALS",5)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	IfValidForPartyDialogue("CORWIN")  // Corwin
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("bd_banter_Corwin_set","LOCALS",6)
+		SetAreaScript("c#brsb03",GENERAL)
+END
+

@@ -1,0 +1,19 @@
+/* NPC Strongholds compatibility */
+
+/* please note that NPC Strongholds v2 has some bugs for the sphere stronghold that could prevent the stronghold to trigger correctly. 
+Check here: http://gibberlings3.net/forums/index.php?showtopic=28374&p=259257 */
+
+
+/* set the multistronghold variable to get to the choice menue */
+IF
+	Global("KishMultipleMages","GLOBAL",0)
+	OR(5)
+		Global("KishAerieMageStronghold","GLOBAL",1)
+		Global("KishEdwinMageStronghold","GLOBAL",1)
+		Global("KishImoenMageStronghold","GLOBAL",1)
+		Global("KishJanMageStronghold","GLOBAL",1)
+		Global("KishNaliaMageStronghold","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("KishMultipleMages","GLOBAL",1)
+END

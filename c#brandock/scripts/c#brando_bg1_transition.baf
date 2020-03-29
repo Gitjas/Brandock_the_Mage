@@ -1,0 +1,47 @@
+/* If Brandock is dead, resurrection, full healing, and moving to new area  */
+
+/* for BGT, this goes to ARAM00.bcs. For EET, this goes to BD0103.bcs , both EXTEND_TOP 
+for BGT: transition to BGII (C#BR03.are)
+For EET & BGEE: transition from Korlasz' tomb to Ducal Palace in SoD */
+
+
+/* Brandock is in party, but dead */
+IF
+	InPartyAllowDead("C#Brandock")
+	Dead("C#Brandock")
+	Global("C#Brandock_BGTTOBG2","GLOBAL",0)
+	GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ReallyForceSpellRES("SPRR712","C#Brandock") //SPRR712
+    SmallWait(1)
+		ReallyForceSpellRES("SPWM168","C#Brandock") //Heal
+    SmallWait(1)
+		ActionOverride("C#Brandock",LeaveParty())
+    SmallWait(1)
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		ActionOverride("C#Brandock",SetDialog("%BG1_transition_dlg%")
+		ActionOverride("C#Brandock",ChangeAIScript("%BG1_transition_script%",OVERRIDE))
+// ??		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0001"))
+		SmallWait(1)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0007"))
+		SmallWait(1)
+		GiveItemCreate("STAF01","C#Brandock",0,0,0)
+		ActionOverride("C#Brandock",FillSlot(SLOT_WEAPON0))
+		GiveItemCreate("SLNG01","C#Brandock",0,0,0) 
+		ActionOverride("C#Brandock",FillSlot(SLOT_WEAPON1))
+		GiveItemCreate("BULL01","C#Brandock",20,0,0)
+		ActionOverride("C#Brandock",FillSlot(SLOT_AMMO0))
+		ActionOverride("C#Brandock",MoveBetweenAreas(%BG1_transition_area%,%BG1_transition_coord%,%BG1_transition_face%))
+		SetGlobal("C#Brandock_BGTTOBG2","GLOBAL",2)
+		SetGlobal("C#BrandockSpawn","GLOBAL",%BG1_transition_value%)
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+

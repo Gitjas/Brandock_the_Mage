@@ -1,0 +1,35 @@
+// c#brcu11.baf - Brandock and Firebead Elvenhair restore the book
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+	CreateVisualEffectObject("SPDISPMA","FIREBE")
+	Wait(1)
+	ActionOverride("FIREBE",ForceSpell("C#Brandock",FLASHY_1))
+	Wait(1)
+	DisplayStringHead("FIREBE",@1005)
+	Smallwait(20)
+	Screenshake([372.272],3)
+//	PlaySound(##)
+	Smallwait(10)
+	CreateVisualEffectObject("SPNWCHRM","C#Brandock")
+	Wait(1)
+	DisplayStringHead("FIREBE",@1006)
+	Smallwait(30)
+        ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+        ActionOverride("C#Brandock",DestroyItem("c#br0001"))
+        ActionOverride("C#Brandock",GiveItemcreate("c#br0007",Myself,0,0,0))
+	ActionOverride("FIREBE",TakePartyItemNum("POTN42",1))
+	ActionOverride("FIREBE",DestroyItem("POTN42"))
+	Smallwait(1)
+	ActionOverride("FIREBE",TakePartyItemNum("MISC41",1))
+	ActionOverride("FIREBE",DestroyItem("MISC41"))
+	Smallwait(1)
+	ActionOverride("FIREBE",TakePartyItemNum("c#broink",1))
+	ActionOverride("FIREBE",DestroyItem("c#broink"))
+	Wait(1)
+	EndcutSceneMode()
+        ActionOverride("C#Brandock",StartDialogNoSet("FIREBE"))
+END 

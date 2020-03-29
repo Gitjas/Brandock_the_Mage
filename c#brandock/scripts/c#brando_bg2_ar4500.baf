@@ -1,0 +1,34 @@
+//Fate spirit: no summoning for evil PC
+
+/* GlobalLT("C#BrandockSpawn","GLOBAL",10) true for tob, bg2ee, tob game in bgt and eet */
+IF
+	Global("C#Brandock_SummonedVariable","GLOBAL",1)
+	GlobalLT("C#BrandockSpawn","GLOBAL",10)
+THEN
+	RESPONSE #100
+		CreateVisualEffect("SPPORTAL",[1999.1218])
+		Wait(2)
+		CreateCreature("c#bran03",[1999.1218],0)
+	        %Brandock_MakeGlobalOverride% 
+		ActionOverride("C#Brandock",SetDialog("C#Bran25"))
+		ActionOverride("C#Brandock",ChangeAIScript("C#Bran25",OVERRIDE))
+		SetGlobal("C#Brandock_SummonedVariable","GLOBAL",2)
+END
+
+
+/* GlobalGT("C#BrandockSpawn","GLOBAL",9): continuous game for eet & bgt */
+
+IF
+	GlobalGT("C#BrandockSpawn","GLOBAL",9)
+	Global("C#Brandock_SummonedVariable","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CreateVisualEffect("SPPORTAL",[1999.1218])
+		Wait(2)
+		ActionOverride("C#Brandock",SetDialog("C#Bran25"))
+		ActionOverride("C#Brandock",ChangeAIScript("C#Bran25",OVERRIDE))
+		MoveGlobal("AR4500","C#Brandock",[1999.1218])
+		ActionOverride("C#Brandock",FaceObject(Player1))
+		ActionOverride("C#Brandock",SetGlobal("C#BrandockJoined","GLOBAL",0))
+		SetGlobal("C#Brandock_SummonedVariable","GLOBAL",2)
+END

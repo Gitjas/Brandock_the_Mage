@@ -1,0 +1,18 @@
+IF %BGT_VAR%
+      Global("C#Brandock_Shoequest","GLOBAL",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brandock_Shoequest","GLOBAL",1)
+	    CreateCreature("c#brserv",[4250.715],0)
+END
+
+IF 
+	!Dead("C#Brandock")
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	Global("C#Brandock_AddMapNote","MYAREA",0)
+THEN
+	RESPONSE #100
+		AddMapNote([2030.2940],@1022)
+		SetGlobal("C#Brandock_AddMapNote","MYAREA",1)
+END
+

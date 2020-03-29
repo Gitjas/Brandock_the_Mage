@@ -1,0 +1,26 @@
+/* Brandock was in party upon transition: he is no longer available for summoning */
+
+IF
+	InPartyAllowDead("C#Brandock")
+	Global("C#Brandock_SummonedVariable","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ActionOverride("C#Brandock",ChangeAIScript("C#Bran25",OVERRIDE))
+		SetGlobal("C#Brandock_SummonedVariable","GLOBAL",3)
+		Continue()
+END
+
+
+/* Brandock was never in Party - he won't be available for summoning
+conti game only ##
+IF
+  GlobalGT("C#BrandockSpawn","GLOBAL",9) //only for conti game
+  Global("C#Brandock_SummonedVariable","GLOBAL",0)
+  !BeenInParty("C#Brandock")
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brandock_SummonedVariable","GLOBAL",4)
+    Continue()
+END
+
+*/

@@ -1,0 +1,87 @@
+/* bd0120.bcs; bd0130.bcs */
+
+/* commented out
+ ///////////////////////////////////////////
+/* new SoD game - I want Brandock here already */
+
+/* ## this is for testing only! */
+
+
+IF 
+	Global("C#BrandockSpawn","GLOBAL",0)
+//	NumInPartyLT(6)	
+THEN
+	RESPONSE #100
+            	SetGlobal("C#BrandockSpawn","GLOBAL",5)
+		SetGlobal("C#BrandockJoined","GLOBAL",1)
+	    	CreateCreature("c#bran02",[950.1660],6)
+		ActionOverride("C#Brandock",MakeGlobalOverride())
+	    	ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
+
+/* activate half-ogre quest trigger */
+		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)) 
+
+/* possessions quest */
+		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Possessions","GLOBAL",20)) 
+/* ##
+/* find Brandock's first tutor quest */
+		ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
+*/
+/* items */
+		ActionOverride("C#Brandock",DestroyItem("C#BR0005"))
+
+		GiveItemCreate("POTN52","C#Brandock",5,0,0)
+
+		GiveItemCreate("c#br0003","C#Brandock",0,0,0)
+		GiveItemCreate("c#br0001","C#Brandock",0,0,0)
+/* Brandock joins directly */
+
+		ActionOverride("C#Brandock",JoinParty())
+		ActionOverride("C#Brandock",SetGlobal("C#BrandockJoined","GLOBAL",1)) 
+		ActionOverride("C#Brandock",EquipRanged())
+END
+*/
+
+
+/* First comment: before Korlasz will be defeated. */
+IF
+	Global("C#Brandock_SoDleavingcomment","global",0)
+	CombatCounter(0)
+	GlobalGT("bd_leaving_ot","GLOBAL",0)
+	GlobalLT("bd_leaving_ot","GLOBAL",7)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)  
+	GlobalTimerExpired("bd_leaving_ot_timer","global")
+	!Dead("bdkorlas")  // Korlasz
+	!Global("BD_KORLASZ_SURRENDER","GLOBAL",1)
+THEN
+	RESPONSE #200
+		Continue()
+	RESPONSE #100
+		IncrementGlobal("bd_leaving_ot","global",1)
+		SetGlobal("C#Brandock_SoDleavingcomment","global",1)
+		SetGlobalTimerRandom("bd_leaving_ot_timer","global",TWENTY_MINUTES,THIRTY_MINUTES)
+		DisplayStringHead("C#Brandock",@1263)
+END
+
+
+IF
+	GlobalLT("C#Brandock_SoDleavingcomment","global",2)
+	CombatCounter(0)
+	GlobalGT("bd_leaving2_ot","GLOBAL",0)
+	GlobalLT("bd_leaving2_ot","GLOBAL",7)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	GlobalTimerExpired("bd_leaving2_ot_timer","global")
+	OR(2)
+		Dead("bdkorlas")
+		Global("BD_KORLASZ_SURRENDER","GLOBAL",1)
+THEN
+	RESPONSE #200
+		Continue()
+	RESPONSE #100
+		BanterBlockTime(100)
+		IncrementGlobal("bd_leaving2_ot","global",1)
+		SetGlobal("C#Brandock_SoDleavingcomment","global",2)
+		SetGlobalTimerRandom("bd_leaving2_ot_timer","global",EIGHT_MINUTES,THIRTEEN_MINUTES)
+		DisplayStringWait("C#Brandock",@1264)
+		DisplayStringWait("C#Brandock",@1265)
+END

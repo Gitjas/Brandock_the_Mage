@@ -1,0 +1,186 @@
+//@0  =
+@1  = ~(yawn)~ 
+@2  = ~(cough)~ 
+//@3  =
+@4  = ~Brandock's Robe~
+@5  = ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I was told'. Plus, the coat is so thick it actually provides protection against missiles, which comes quite handy for a mage.
+
+STATISTICS:
+
+Equipped abilities:
+Cold Resistance: +20%
+Armor Class: +1 vs. missile attacks
+
+Weight: 3~
+@6  = ~Brandock's Bookcase~
+@7  = ~Scrumbled Book~
+@8  = ~This is the remains of what was before a *very* expensive magical book. Some pages are still readible, but it was gnawed on by several small teeth, tearing the pages apart.~
+@9  = ~Brandock's Restored Book~
+@10  = ~This is the book that transformed after Elvenhair tried to preserve the paper snippets of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is appearently empty, but flipping through the pages they seem to radiate with magic.~ 
+@11  = ~This is Brandock's bookcase. It is for storing books and scrolls.~
+@12  = ~Ink of an Octopus~
+@13  = ~This is ink from an octopus. It is a rather expensive magic ingredient. You should only buy it if you know what you want to use it for.~
+@14  = ~Fish Store~
+@15  = ~Fisherman~
+@16  = ~Fine Pair of Boots~
+@17  = ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthousiasm it may be restored to its former appearance.~
+@18  = ~Fresh Salmon~
+@19  = ~This is a piece of fresh, juicy salmon.~
+@20  = ~This is a piece of fresh, juicy salmon.
+
+STATISTICS:
+
+Special: Restores 6 Hit Points.
+
+Weight: 1~
+@21  = ~Lore Bonus +1~
+@22  = ~Lore Bonus +2~
+@23  = ~Lore Bonus +3~
+
+/*
+
+@24  =
+@25  =
+@26  =
+@27  =
+@28  =
+@29  =
+@30  =
+*/
+
+
+/* BGII */
+@100 = ~Ebrel's Ring~
+@101 = ~This ring looks slighty dented and singed - if the latter is even possible for a greenstone ring. You are very certain that it belonged to one of the Cowled Wizards Irenicus killed at the promenade. 'To Ebrel - in Love' is ingraved into the inner side of the ring.~
+
+/*
+@102 = 
+@103 = 
+@104 = 
+@105 = 
+@106 = 
+@107 = 
+@108 = 
+@109 = 
+@110 = 
+*/
+
+/* Brandock cre things */
+@500 = ~Brandock~
+@501 = ~~ [c#bran01] //SAY MORALE  
+@502 = ~~ [c#bran27] //SAY HAPPY
+@503 = ~~ [c#bran21] //SAY UNHAPPY_ANNOYED
+@504 = ~~ [c#bran26] //SAY UNHAPPY_SERIOUS
+@505 = ~~ [c#bran02] //SAY UNHAPPY_BREAKING
+@506 = ~~ [c#bran08] //SAY LEADER
+@507 = ~~ [c#bran09] //SAY TIRED
+@508 = ~~ [c#bran10] //SAY BORED
+@509 = ~~ [c#bran03] //SAY BATTLE_CRY1
+@510 = ~~ [c#bran05] //SAY BATTLE_CRY2
+@511 = ~~ [c#bran06] //SAY BATTLE_CRY3
+@512 = ~~ [c#bran07] //SAY BATTLE_CRY4
+@513 = ~~ [c#bran04] //SAY BATTLE_CRY5
+@514 = ~~ [c#bran25] //SAY DAMAGE
+@515 = ~~ [c#bran22] //SAY DYING
+@516 = ~~ [c#bran24] //SAY HURT
+@517 = ~~ [c#bran28] //SAY AREA_FOREST
+@518 = ~~ [c#bran29] //SAY AREA_CITY
+@519 = ~~ [c#bran30] //SAY AREA_DUNGEON
+@520 = ~~ [c#bran31] //SAY AREA_DAY
+@521 = ~~ [c#bran32] //SAY AREA_NIGHT
+@522 = ~~ [c#bran11] //SAY SELECT_COMMON1
+@523 = ~~ [c#bran12] //SAY SELECT_COMMON2
+@524 = ~~ [c#bran14] //SAY SELECT_COMMON3
+@525 = ~~ [c#bran15] //SAY SELECT_ACTION1
+@526 = ~~ [c#bran13] //SAY SELECT_ACTION2
+@527 = ~~ [c#bran16] //SAY SELECT_ACTION3 
+@528 = ~~ [c#bran17] //SAY SELECT_ACTION4
+@529 = ~~ [c#bran18] //SAY SELECT_ACTION5
+@530 = ~~ [c#bran19] //SAY SELECT_ACTION6
+@531 = ~~ [c#bran20] //SAY SELECT_ACTION7
+@532 = ~~ [c#bran23] //SAY REACT_TO_DIE_GENERAL
+@533 = ~When asked about his past, BRANDOCK DEEPWATER smiles apologetically and talks about his plans to become an acknowledged wizard. "There is not much to know about me", he adds. "I come from a normal family of farmers and carpenters - no magic talent, except for some distant mother's cousin."~
+@534 = ~~ [c#bran33] //SAY SELECT_COMMON4
+@535 = ~~ [c#bran34] //SAY SELECT_COMMON5
+@536 = ~~ [c#bran35] //SAY SELECT_COMMON6
+@537 = ~~ [c#bran36] //SAY SELECT_RARE1
+@538 = ~~ [c#bran37] //SAY CRITICAL_HIT
+@539 = ~~ [c#bran38] //SAY CRITICAL_MISS
+@540 = ~~ [c#bran39] //SAY TARGET_IMMUNE
+@541 = ~~ [c#bran40] //SAY INVENTORY_FULL
+@542 = ~~ [c#bran41] //SAY SPELL_DISRUPTED
+
+
+/* scripts: DisplayStringHeads & Mapnotes */
+/* BG1 */
+@1000 = ~The table is full of tools and devices for alchemical experiments.~
+@1001 = ~Ahem!~
+@1002 = ~What a fight.~
+@1003 = ~Help! (Brandock's health seems to be low.)~
+@1004 = ~Ouch!~
+@1005 = ~Oh, what is...~
+@1006 = ~Now, this was most unexpected!~
+@1007 = ~Magic books! Great books! Will help ...~
+@1008 = ~This is my private quarters! HOW did you get in here? What are you doing?! I should smite you both without ...~
+@1009 = ~You are not plundering. You are searching?!...~
+@1010 = ~I never saw a half-Ogre go through my library. Care to explain? Who are you?~
+@1011 = ~Me not half-ogre. Me mage. Me... (sigh) Words make head burn!~
+@1012 = ~Who am I? I am... I mean, theoretically speaking, I *was* the different acquaintance of another polymorphial being of very little intellectual habitus, if phrased in terms of principally conditions...~
+@1013 = ~He not speak clear. He dumb, with my brain! Me... bright, with his dumb brain! And clumsy hands... Need help!~
+@1014 = ~Alright, let me summarize. I see a mage who proclaims that he is not who he was.~
+@1015 = ~And I see a half-ogre who states that he would be the mage.~
+@1016 = ~And just when I thought the <DAYNIGHT> was getting dull. Come with me, then. Let me see what I can do for you.~
+@1017 = ~Oh dear, what a stink!~
+@1018 = ~Hm, let's see...~
+@1019 = ~This was most interesting! Thank you for taking the time, <CHARNAME>.~
+@1020 = ~The corner of the cave is full with tattered stuff. You feel absolutely no urge to go through it.~
+@1021 = ~Alright, am I the only one who thinks that this sounds a little bit alarming?~
+@1022 = ~Firebead Elvenhair's Home~
+/*
+@1023 = 
+@1024 = 
+@1025 = 
+@1026 = 
+@1027 = 
+@1028 = 
+@1029 = 
+@1030 = 
+*/
+
+/* SoD */
+@1250 = ~Hey, <CHARNAME>! <CHARNAME>, over here!~
+@1251 = ~Gods, I hope <PRO_HESHE> notices me!~
+@1252 = ~<CHARNAME>! Heyho, <CHARNAME>!~
+@1253 = ~Please, over here! (Pleeeease!)~
+@1254 = ~Wow... this was so stupid, that could have been me!~
+@1255 = ~Wow... what a huge spider leg!~
+@1256 = ~I am really glad Gavin isn't here right now!~
+@1257 = ~Wha... The dragon is dead. With one dagger. One dagger. You know, if someone'd tell me they killed a dragon, I *kind of* expect them to having done a, you know, kind of great deed with a, kind of, great fight, and... Alright, I give up, this is hilarious! (laughs)~
+@1258 = ~Woah, <CHARNAME>! I understand that you want them dead, but... That was... that was low.~
+@1259 = ~Wow - with this on my head I feel intelligent - and dumb - at the same time...~
+@1260 = ~Wohoo!~
+@1261 = ~*Now* I feel like a real wizard.~
+@1262 = ~So, this is the day of the great march. I *think* I'm glad to get out of the city. Let's see for how long...~
+@1263 = ~After we are finished here I guess I have no more excuses not to return home...~
+@1264 = ~It's over, <CHARNAME>. Sarevok and his scheme against you is gone.~
+@1265 = ~Maybe I'll stick around for a bit more, but I have to face the fact that it's time to return home.~
+@1266 = ~I guess there will be more where they came from...~
+@1267 = ~This woman is mad.... or blind. Or both!~
+@1268 = ~Whoa, <CHARNAME>, this cost a lot of lives... But were it more than if we would have fought - I don't know, and I am glad I didn't have to make this decision.~
+@1269 = ~Oh, we get a chance to escape. That's... nice.~
+@1270 = ~We are.. we are standing on top of... (gulp) By the gods, <CHARNAME>, are you alright?~
+@1271 = ~Did we have to kill that man? I mean, yeah, we probably did.~
+@1272 = ~Oh dear... oh dear... If we do not close this portal somehow, we might as well kill ourselves right away. So, better we die trying... right? I'd never thought I might sound like a paladin one day... (moans)~
+@1273 = ~We... we are back. And the portal is closed... <CHARNAME>? <CHARNAME>?! You are not bleeding - are you?!~
+@1274 = ~I... I feel sick.~
+@1275 = ~Is this still real or did we land in a nightmare? Gods, I'll be so glad when this is over - one way or the other. Although I prefer the one way.~
+@1276 = ~This would be so much better without being afraid of heights...~
+@1277 = ~Oh dear... Here we go!~
+@1278 = ~Boy, I'm happy for Gavin that he's not here!~
+/*
+@1279 = 
+@1280 = 
+*/
+
+/* BGII */
+@1500 = ~House of Brandock's Cousin~

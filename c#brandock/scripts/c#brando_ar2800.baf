@@ -1,0 +1,8 @@
+IF %BGT_VAR%
+      Global("C#BrandockSpawn","GLOBAL",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#BrandockSpawn","GLOBAL",1)
+	    CreateCreature("c#bran01",[2006.369],13)
+	    %Brandock_MakeGlobalOverride% 
+END

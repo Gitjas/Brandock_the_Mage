@@ -1,0 +1,82 @@
+/* Brandock is in party alive - (for SoD silent farewell) 
+For EET & BGEE: transition from Korlasz' tomb to Ducal Palace in SoD */
+
+
+IF
+	InParty("C#Brandock")
+	!Dead("C#Brandock")
+	Global("C#Brandock_BGTTOBG2","GLOBAL",0)
+	GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		SetGlobal("C#Brandock_BGTTOBG2","GLOBAL",2)
+		ApplySpellRES("bdresurr","C#Brandock") //resurrection
+		SmallWait(1)
+		ActionOverride("PlayerChest00",TakeCreatureItems("C#Brandock",BACKPACK))
+		SmallWait(1)
+		ActionOverride("C#Brandock",LeaveParty())
+		SmallWait(1)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0001"))
+		SmallWait(1)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0007"))
+		SmallWait(1)
+		ActionOverride("C#Brandock",DestroySelf())
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+/* 7th party member */
+IF
+	InMyArea("C#Brandock")
+	!Dead("C#Brandock")
+	Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Brandock_BGTTOBG2","GLOBAL",0)
+	GlobalLT("BD_PLOT","GLOBAL",51)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("C#Brandock",MakeGlobalOverride())
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		SetGlobal("C#Brandock_BGTTOBG2","GLOBAL",2)
+		ApplySpellRES("bdresurr","C#Brandock") //resurrection
+		SmallWait(1)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0001"))
+		SmallWait(1)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		ActionOverride("C#Brandock",DestroyItem("c#br0007"))
+		SmallWait(1)
+		ActionOverride("C#Brandock",RemoveFamiliar())
+		SmallWait(1)
+		ChangeEnemyAlly("C#Brandock",NEUTRAL)
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		SmallWait(1)
+		ActionOverride("C#Brandock",DestroySelf())
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+/* after Skie woke the PC up on the day of departure */
+
+IF
+	Global("bd_plot","global",55)
+	Global("C#Brandock_PLAY_ONCE","BD0103",0)
+	Global("BD_OT_DELAY","BD0103",0)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)   
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("BD_OT_DELAY","BD0103",1)
+		SetGlobal("C#Brandock_PLAY_ONCE","BD0103",1)
+		Wait(1)
+		DisplayStringWait("C#Brandock",@1262)  
+		SetGlobal("BD_OT_DELAY","BD0103",0)
+		SetInterrupt(TRUE)
+		Continue()
+END

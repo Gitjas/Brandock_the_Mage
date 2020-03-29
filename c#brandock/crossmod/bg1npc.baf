@@ -1,0 +1,73 @@
+
+/* activate Brandock-Imoen banter. Triggering is by the normal script c#brando_bg1_banter.baf */
+
+
+IF
+%BG1_BEFORE_TRANSITION%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockNPCBanterTimer","GLOBAL")
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  See("%IMOEN_DV%") 
+  !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+  InParty("%IMOEN_DV%")
+  CombatCounter(0)
+  Global("C#Brandock_ImoenBG1NPC","GLOBAL",0)
+  Global("X#IMPC8","GLOBAL",2) //Imoen looked into Tarnesh's spell book
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brandock_ImoenBG1NPC","GLOBAL",1)
+END
+
+IF 
+%BG1_BEFORE_TRANSITION%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+  See("%IMOEN_DV%") 
+  !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+  InParty("%IMOEN_DV%")
+  CombatCounter(0)
+  Global("C#Brandock_ImoenBG1NPC","GLOBAL",1)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
+		StartDialogueNoSet("IMOEN_DV")
+END
+
+IF
+%BG1_BEFORE_TRANSITION%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  !Range([NEUTRAL],10)
+  See("%IMOEN_DV%") 
+  !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+  InParty("%IMOEN_DV%")
+  CombatCounter(0)
+  Global("C#Brandock_ImoenBG1NPCTome","GLOBAL",0)
+  PartyHasItem("X#TOME") //Imoen created her artifact
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brandock_ImoenBG1NPCTome","GLOBAL",1)  
+END
+
+IF 
+%BG1_BEFORE_TRANSITION%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+  See("%IMOEN_DV%") 
+  !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+  InParty("%IMOEN_DV%")
+  CombatCounter(0)
+  Global("C#Brandock_ImoenBG1NPCTome","GLOBAL",1)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
+		StartDialogueNoSet("IMOEN_DV")
+END
+

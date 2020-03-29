@@ -1,0 +1,190 @@
+//@0  = 
+@1  = ~(gähn)~ 
+@2  = ~(hust)~ 
+//@3  = 
+@4  = ~Brandocks Mantel~
+@5  = ~Dies ist der wärmste Mantel, den Brandock fand, bevor er sich auf die Reise in den Norden aufmachte. Nicht, dass es in seiner Heimat so viel wärmer wäre, aber "die Nächte hier sind kalt, ließ ich mir sagen." Zusätzlich ist der Mantel so dick, dass er tatsächlich einen Schutz gegen Pfeile und andere Geschosse bietet, was für einen Magier recht praktisch ist.
+
+EIGENSCHFATEN:
+
+Kältewiderstand: +20 %
+RK-Bonus: -1 gg. Geschosswaffen
+
+Gewicht: 3~
+
+@6  = ~Brandocks Buchtasche~
+@7  = ~Zerstörtes Buch~
+@8  = ~Das sind die Reste eines vorher *sehr* wertvollen Buches. Einige Seiten kann man noch lesen, aber es wurde offensichtlich von vielen kleinen Zähnen zernagt und zerrissen.~
+@9  = ~Brandocks Restauriertes Buch~
+@10  = ~Dies ist das Buch, dass sich geformt hat, als Elfenhaar versuchte, die Schnipsel des ursprünglichen Buches namens "De Simplex Magicae" zu restaurieren. Die ersten Seiten sind in Ruathlek beschrieben, einer alten Runensprache der Illusionisten. Der Rest des Buches erscheint leer, aber beim Betrachten der Seiten spürt Ihr, dass das Buch vor Magie zu vibrieren scheint.~ 
+@11  = ~Dies ist Brandocks Buchtasche. In ihr können Bücher und Schriftrollen verstaut werden.~
+@12  = ~Oktopustinte~
+@13  = ~Dies ist ein Fässchen mit der Tinte eines Oktopus. Es handelt sich um eine eher teure magische Zutat, die Ihr nur erwerben solltet, wenn Ihr bereits wisst, wofür Ihr sie brauchen könnt.~
+@14  = ~Fischladen~
+@15  = ~Fischer~
+@16  = ~Ein feines Paar Stiefel~
+@17  = ~Dies ist ein feines Paar Stiefel, sie sehen recht teuer aus. Sie wurden offensichtlich mehrfach durch den Dreck gezogen, aber mit einer Bürste und etwas Enthusiasmus sollten sie wieder in ihren ursprünglichen Zustand versetzbar sein.~
+@18  = ~Frischer Lachs~
+@19  = ~Dies ist ein frisches, saftiges Lachsfilet.~
+@20  = ~Dies ist ein frisches, saftiges Lachsfilet.
+
+EIGENSCHAFTEN:
+
+Heilt 6 Trefferpunkte.
+
+Gewicht: 1~
+@21  = ~Sagenkunde +1~
+@22  = ~Sagenkunde +2~
+@23  = ~Sagenkunde +3~
+
+/*
+
+@24  =
+@25  =
+@26  =
+@27  =
+@28  =
+@29  =
+@30  =
+*/
+
+
+
+
+/* BGII */
+@100 = ~Ebrels Ring~
+@101 = ~Dieser Ring sieht leicht verbogen und angesengt aus - falls letzteres überhaupt bei einem Grünsteinring möglich ist. Ihr seid Euch sicher, dass er einem der Verhüllten Magier gehörte, die Irenicus auf der Promenade tötete. Er trägt die Gravur "Für Ebrel, in Liebe" auf der Innenseite.~
+
+/*
+@102 = 
+@103 = 
+@104 = 
+@105 = 
+@106 = 
+@107 = 
+@108 = 
+@109 = 
+@110 = 
+*/
+
+/* Brandock cre things */
+@500 = ~Brandock~
+@501 = ~[panisch] Ich... ich schaff's nicht mehr!~ [c#bran01]   //SAY MORALE
+@502 = ~[fröhlich] Hier zu sein gefällt mir ausgesprochen gut!~ [c#bran27] //SAY HAPPY
+@503 = ~[unglücklich] Das muss doch so nicht laufen!~ [c#bran21] //SAY UNHAPPY_ANNOYED
+@504 = ~[generft] Langsam wird es mir zu bunt!~ [c#bran26] //SAY UNHAPPY_SERIOUS
+@505 = ~[ärgerlich] Tut mir Leid, aber das war's!~ [c#bran02] //SAY UNHAPPY_BREAKING
+@506 = ~[unsicher] Oje. Seid Ihr sicher?~ [c#bran08] //SAY LEADER
+@507 = ~[müde] Ich bräuchte mal wieder eine Rast...~ [c#bran09] //SAY TIRED
+@508 = ~[freundlich] Stehen wir noch länger hier?~ [c#bran10] //SAY BORED
+@509 = ~[gerufen] Ich... ich kann auch gemein sein, wenn es sein muss!~ [c#bran03] //SAY BATTLE_CRY1
+@510 = ~[geseufzt] Dann müssen wir wohl wieder!~ [c#bran05] //SAY BATTLE_CRY2
+@511 = ~[gerufen] Macht Euch auf was gefasst!~ [c#bran06] //SAY BATTLE_CRY3
+@512 = ~[geseufzt] Nicht schon wieder...~ [c#bran07] //SAY BATTLE_CRY4
+@513 = ~[gerufen] Auf sie!~ [c#bran04] //SAY BATTLE_CRY5
+@514 = ~[Schmerzgeräusch]~ [c#bran25] //SAY DAMAGE
+@515 = ~[unter Schmerzen] Nicht... nicht so!~ [c#bran22] //SAY DYING
+@516 = ~[gequält] Ich... ich bräuchte etwas Hilfe!~ [c#bran24] //SAY HURT
+@517 = ~Ich liebe den Duft von Moos und Kiefernadeln.~ [c#bran28] //SAY AREA_FOREST
+@518 = ~In der Stadt sind immer so viele Leute auf einem Haufen!~ [c#bran29] //SAY AREA_CITY
+@519 = ~Irgendwie ist es hier unheimlich.~ [c#bran30] //SAY AREA_DUNGEON
+@520 = ~Ich mag es, wenn die Sonne scheint! Außer direkt in mein Gesicht, natürlich.~ [c#bran31] //SAY AREA_DAY
+@521 = ~Nachts ist es immer so... dunkel.~ [c#bran32] //SAY AREA_NIGHT
+@522 = ~Ja?~ [c#bran11] //SAY SELECT_COMMON1
+@523 = ~Was wollt Ihr?~ [c#bran12] //SAY SELECT_COMMON2
+@524 = ~Was kann ich tun?~ [c#bran14] //SAY SELECT_COMMON3
+@525 = ~[ergeben] In Ordnung.~ [c#bran15] //SAY SELECT_ACTION1
+@526 = ~Das kann ich machen.~ [c#bran13] //SAY SELECT_ACTION2 
+@527 = ~Ich werd's probieren.~ [c#bran16] //SAY SELECT_ACTION3 
+@528 = ~Schon unterwegs.~ [c#bran17] //SAY SELECT_ACTION4
+@529 = ~Gut.~ [c#bran18] //SAY SELECT_ACTION5
+@530 = ~Alles klar!~ [c#bran19] //SAY SELECT_ACTION6
+@531 = ~[bestätigend] Ja.~ [c#bran20] //SAY SELECT_ACTION7
+@532 = ~Ach verdammt. Daran werde ich mich nie gewöhnen.~ [c#bran23] //SAY REACT_TO_DIE_GENERAL
+@533 = ~Als Ihr BRANDOCK WASSERTIEF nach seiner Vergangenheit fragt, lächelt er entschuldigend und erzählt von seinem Plan, ein anerkannter Magier zu werden. "Über mich gibt es nicht viel Wissenswertes", fügt er hinzu. "Ich komme aus einer Familie aus Bauern und Tischlern. Kein weiteres bekanntes magisches Talent - außer bei einem entfernten Cousin meiner Mutter."~
+@534 = ~M-hm?~ [c#bran33] //SAY SELECT_COMMON4
+@535 = ~Ich höre?~ [c#bran34] //SAY SELECT_COMMON5
+@536 = ~[als freundliche Aufforerung] Sagt, was Ihr wollt!~ [c#bran35] //SAY SELECT_COMMON6
+@537 = ~Bei den Göttern! Erschreckt mich doch nicht so! Was wollt Ihr?~ [c#bran36] //SAY SELECT_RARE1
+@538 = ~[triumphierend] Ja!!~ [c#bran37] //SAY CRITICAL_HIT
+@539 = ~Verdammt, daneben!~ [c#bran38] //SAY CRITICAL_MISS
+@540 = ~Meine Waffe scheint nichts zu bewirken.~ [c#bran39] //SAY TARGET_IMMUNE
+@541 = ~[entschuldigend] Tut mir Leid, aber das passte wirklich nicht mehr in meine Tasche.~ [c#bran40] //SAY INVENTORY_FULL
+@542 = ~Ach, Mist! Jetzt bin ich rausgekommen.~ [c#bran41] //SAY SPELL_DISRUPTED
+
+
+
+
+/* scripts: DisplayStringHeads & Mapnotes */
+/* BG1 */
+@1000 = ~Der Tisch ist voller Utensilien und Material für alchemische Experimente.~
+@1001 = ~Ähem!~
+@1002 = ~Was für ein Kampf.~
+@1003 = ~Hilfe! (Brandock scheint recht stark verletzt zu sein.)~
+@1004 = ~Autsch!~
+@1005 = ~Oh, was ist...~
+@1006 = ~Also, das war wirklich unerwartet!~
+@1007 = ~Magische Bücher! Viele Bücher! Werden helfen ...~
+@1008 = ~Dies sind meine Privaträume. WIE seid Ihr hier reingekommen?! Ich sollte Euch beide einfach ohne Zögern...~
+@1009 = ~Ihr seid nicht am Plündern. Ihr seid am Suchen?!...~
+@1010 = ~Noch nie zuvor habe ich einen Halboger getroffen, der sich für meine magischen Bücher interessierte. Ich bitte um eine Erklärung. Wer seid Ihr?~
+@1011 = ~Ich nicht Halboger. Ich Magier! Ich... Worte lassen Kopf wehtun!~
+@1012 = ~Wer ich bin? Ich bin... ich meine, theoretisch gesprochen *war* ich früher eine Verkörperung eines anderen Lebewesens mit sehr viel begrenzterem intellektuellen Habitus, zumindest wenn man es in prinzipiellen Konditionen auszudrücken versucht...~
+@1013 = ~Er nicht klar sprechen. Er dumm, mit meinem Kopf! Ich... intelligent, mit seinem dummem Kopf! Und plumpe Hände... brauche Hilfe!~
+@1014 = ~Nungut, ich fasse das mal zusammen. Ich sehe einen Magier der sagt, nicht mehr der zu sein, der er war...~
+@1015 = ~Und ich sehe einen Halboger, der angibt, der Magier zu sein.~
+@1016 = ~Gerade als ich dachte, es würde ein ruhiger Abend werden. Kommt mit mir. Ich werde sehen, was ich für Euch tun kann.~
+@1017 = ~Oje, ist das ein Gestank!~
+@1018 = ~Hm, mal sehen...~
+@1019 = ~Das war äußerst interessant! Danke, dass wir uns die Zeit nehmen konnten, <CHARNAME>.~
+@1020 = ~Die Ecke der Höhle ist voller verdrecktem Zeug. Ihr verspürt absolut kein Verlangen, darin herum zu suchen.~
+@1021 = ~Also, bin ich eigentlich der einzige, der findet, das das ein bisschen alarmierend klingt?~
+@1022 = ~Firebead Elfenhaars Haus~
+/*
+@1023 = 
+@1024 = 
+@1025 = 
+@1026 = 
+@1027 = 
+@1028 = 
+@1029 = 
+@1030 = 
+*/
+
+/* SoD */
+@1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
+@1251 = ~Bei den Göttern, ich hoffe <PRO_HESHE> sieht mich!~
+@1252 = ~<CHARNAME>! Hehda, <CHARNAME>!~
+@1253 = ~Bitte, hier drüben! (Biiiitte!)~
+@1254 = ~Uah... das war so dumm, das hätte ich sein können!~
+@1255 = ~Uah... was für ein riesiges Spinnenbein!~
+@1256 = ~Ich bin wirklich froh, dass Gavin nicht hier ist.~
+@1257 = ~Wa... Der Drache ist tot! Durch einen Dolchwurf. Einen Dolchwurf. Wisst Ihr, wenn mir jemand erzählt, dass er einen Drachen getötet habe, dann erwarte ich irgendwie doch, dass es eine, nunja, irgendwie große Tat ist und, nunja, irgendwie einen großen Kampf beinhaltet und... ich gebe auf. Das ist einfach zu witzig! (Brandock lacht.)~
+@1258 = ~Mensch, <CHARNAME>! Ich verstehe, dass wir sie nicht einfach gehen lassen konnten, aber sie so zu töten, dass... das war irgendwie unter unserer Würde.~
+@1259 = ~Sowas - mit dem auf meinem Kopf fühle ich mich gleichzeitig schlau und blöd!~
+@1260 = ~Juhu!~
+@1261 = ~*Jetzt* fühle ich mich wie ein echter Zauberer.~
+@1262 = ~So, heute beginnt also der große Marsch. Ich *glaube* ich bin froh, aus der Stadt herauszukommen. Mal sehen, wann ich meine Meinung dazu ändere...~
+@1263 = ~Wenn wir hiermit fertig sind habe ich wohl keine Ausrede mehr, nicht nach hause zurückzukehren...~
+@1264 = ~Es ist überstanden, <CHARNAME>. Sarevok und sein Komplott gegen Euch sind verschwunden.~
+@1265 = ~Vielleicht bleibe ich noch ein bisschen, aber ich muss der Wahrheit ins Auge sehen, dass es Zeit ist, nach hause zurück zu kehren.~
+@1266 = ~Davon gibt es wohl noch mehr, da wo die herkamen...~
+@1267 = ~Diese Frau ist verrückt... oder blind. Oder beides!~
+@1268 = ~Uah, <CHARNAME>, das hat viele Leben gekostet... Aber waren es mehr als wenn wir gekämpft hätten - ich weiß es nicht, und ich bin froh, dass ich die Entscheidung nicht treffen musste.~
+@1269 = ~Oh, wir erhalten eine Möglichkeit, zu entkommen. Das ist... schön.~
+@1270 = ~Wir stehen... wir stehen auf einem... (Brandock schluckt hart.) Bei den Göttern, <CHARNAME>, seid Ihr in Ordnung?~
+@1271 = ~Mussten wir diesen Mann töten? Ich meine, nunja, das mussten wir wohl.~
+@1272 = ~Oje, oje... Wenn wir dieses Portal nicht geschlossen kriegen, dann können wir uns auch gleich selbst töten. Also sollten wir besser bei dem Versuch sterben, es zu schließen... oder? Ich hätte nie gedacht, dass ich mal wie ein Paladin klingen würde...~
+@1273 = ~Wir... wir sind zurück, und das Portal ist geschlossen... <CHARNAME>? <CHARNAME>?! Ihr blutet nicht etwa?!~
+@1274 = ~Mir... mir ist übel.~
+@1275 = ~Ist das hier noch real oder sind wir in einem Albtraum gelandet? Bei den Göttern, ich werde so froh sein, wenn das hier vorbei ist - so oder so. Wobei ich definitiv eins der "so" bevorzugen würde.~
+@1276 = ~Das ganze wäre noch viel besser ohne zusätzliche Höhenangst...~
+@1277 = ~Oje... Jetzt geht's los!~
+@1278 = ~Mann, freue ich mich für Gavin, dass er gerade nicht hier ist!~
+/*
+@1279 = 
+@1280 = 
+*/
+
+/* BGII */
+@1500 = ~Haus von Brandocks Cousin~

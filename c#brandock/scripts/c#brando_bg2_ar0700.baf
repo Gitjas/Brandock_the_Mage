@@ -1,0 +1,10 @@
+/* AR0602.bcs - create Brandock's book case in case the player had it */
+
+
+IF 
+    Global("C#Brandock_SpawnRing","MYAREA",0)
+THEN 
+    RESPONSE #100 
+        ActionOverride("C#Rubble",CreateItem("c#br2001",0,0,0))
+        SetGlobal("C#Brandock_SpawnRing","MYAREA",1) 
+END 

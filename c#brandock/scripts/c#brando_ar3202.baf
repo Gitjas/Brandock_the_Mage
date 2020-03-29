@@ -1,0 +1,7 @@
+IF %BGT_VAR%
+      Global("C#Brandock_Shapeshift","GLOBAL",5)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brandock_Shapeshift","GLOBAL",6)
+	    CreateCreature("c#brhao2",[397.229],0)
+END

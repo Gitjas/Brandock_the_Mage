@@ -1,0 +1,28 @@
+/* Set map point AR0400 */
+
+IF 
+	!Dead("C#Brandock")
+	GlobalGT("C#BrandockSpawn","GLOBAL",9)
+	Global("C#Brandock_Gone","GLOBAL",0)
+	Global("C#Brandock_AddMapNote","AR0400",0)
+THEN
+	RESPONSE #100
+		AddMapNote([150.1150],@1500)
+		SetGlobal("C#Brandock_AddMapNote","AR0400",1)
+END
+
+IF 
+	GlobalLT("C#BrandockSpawn","GLOBAL",10)
+	OR(2)
+		Dead("C#Brandock")
+		GlobalGT("C#Brandock_Gone","GLOBAL",0)
+	Global("C#Brandock_NoEntry","AR0400",0)
+THEN
+	RESPONSE #100
+		TriggerActivation("c#br03Tr",FALSE)
+		SetGlobal("C#Brandock_NoEntry","AR0400",1)
+
+END
+
+
+

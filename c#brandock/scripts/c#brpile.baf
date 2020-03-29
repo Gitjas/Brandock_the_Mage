@@ -1,0 +1,9 @@
+//Info trigger with this script
+
+
+IF
+	Clicked([ANYONE])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,@1020)
+END

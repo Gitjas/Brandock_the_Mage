@@ -1,0 +1,59 @@
+IF
+	HitBy([GOODCUTOFF],CRUSHING)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_Shapeshift","GLOBAL",15)
+		Shout(99)
+		Continue()
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_Shapeshift","GLOBAL",15)
+		Shout(99)
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+/*
+
+IF
+  Global("C#Brandock_Shapeshift","GLOBAL",5)
+  Global("C#Brandock_OgreTalks","GLOBAL",0)
+  See(Player1)
+CombatCounter(0)
+	Allegiance(Myself,NEUTRAL)
+  !StateCheck(Player1,STATE_INVISIBLE)
+  !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    StartDialogueNoSet(Player1)
+END
+
+
+IF
+  Global("C#Brandock_Shapeshift","GLOBAL",5)
+  Global("C#Brandock_OgreTalks","GLOBAL",0)
+  !See(Player1)
+	Allegiance(Myself,NEUTRAL)
+  !StateCheck(Player1,STATE_INVISIBLE)
+  !StateCheck(Player1,STATE_IMPROVEDINVISIBILITY)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+END
+
+
+
+
+*/
+

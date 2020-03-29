@@ -1,0 +1,13 @@
+/* Crossmod for Gavin BG1 / SoD */
+
+IF
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	InMyArea("C#Brandock")
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+	GlobalGT("C#Brandock_GavinBG1NPC","GLOBAL",0) //Brandock knows Gavin
+	Global("C#Brandock_SpiderComment","BD0114",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SpiderComment","BD0114",1)
+		DisplayStringHead("C#Brandock",@1278)
+END

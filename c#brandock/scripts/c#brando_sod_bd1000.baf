@@ -1,0 +1,47 @@
+/* Reaction to Caelar */
+
+IF
+	Global("bd_plot","global",170)
+	Global("C#Brandock_bd_mdd016b","bd1000",0)
+	!GlobalTimerNotExpired("bd_mdd016b_timer","bd1000")
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)  
+	TriggerOverride("C#Brandock",Detect(Player1))
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_bd_mdd016b","bd1000",1)
+		SetGlobalTimer("bd_mdd016b_timer","bd1000",ONE_ROUND)
+		DisplayStringHead("C#Brandock",@1267)  
+END
+
+
+
+/* Moves Brandock into the camp if he is not in party */
+
+IF
+	Global("C#Brandock_MoveCamp","bd1000",0)
+	!Dead("C#Brandock")  
+	!InPartyAllowDead("C#Brandock") Global("C#BrandockJoined","GLOBAL",0)
+	Global("C#Brandock_Gone","GLOBAL",0) //did not leave for good
+	GlobalGT("C#BrandockSpawn","GLOBAL",5) //exists in SoD
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_MoveCamp","bd1000",1)
+		MoveGlobal("bd1000","C#Brandock",[245.3745])
+		ActionOverride("C#Brandock",Face(S)) 
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		ReallyForceSpellDeadRES("bdrejuve","C#Brandock")  // No such index
+		ChangeEnemyAlly("C#Brandock",NEUTRAL)  
+		ChangeSpecifics("C#Brandock",ALLIES) 
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		ActionOverride("C#Brandock",SetGlobal("bd_retreat","locals",0))
+		ActionOverride("C#Brandock",SaveObjectLocation("LOCALS","bd_default_loc",Myself))
+		ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
+		ActionOverride("C#Brandock",ChangeAIScript("bdasc3",CLASS))
+		ActionOverride("C#Brandock",ChangeAIScript("BDSHOUT",RACE))
+		ActionOverride("C#Brandock",ChangeAIScript("BDMAGE01",GENERAL))
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		ActionOverride("C#Brandock",SetDialog("C#BrandP"))
+		Continue()
+END

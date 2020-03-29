@@ -1,0 +1,18 @@
+// cutscene: Brandock finds his possessions
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+	ActionOverride("C#Brandock",MoveToPoint([211.248]))
+        Wait(3)
+        ActionOverride("C#Brandock",DisplayStringHead(Myself,@1017)) 
+        Wait(2)
+        ActionOverride("C#Brandock",DisplayStringHead(Myself,@1018))
+	GiveItemCreate("c#br0001","C#Brandock",1,0,0)
+	GiveItemCreate("c#br0002","C#Brandock",1,0,0)
+	SetGlobal("C#Brandock_Possessions","GLOBAL",1)
+        Wait(2)	
+	EndcutSceneMode()
+        ActionOverride("C#Brandock",StartDialogNoSet(Player1))
+END 
