@@ -1211,9 +1211,10 @@ END
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 AreaCheck("%Beregost_FeldepostsInn_L2%")
+Global("chapter","GLOBAL",%tutu_chapter_3%)
 OR(2)
-Dead("Tranzig")
 !Exists("Tranzig")
+Dead("Tranzig")
 OR(2)
 See("Tranzig")
 !Dead("Tranzig")
