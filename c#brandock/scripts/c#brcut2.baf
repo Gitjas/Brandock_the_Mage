@@ -25,22 +25,3 @@ THEN
 	SetInterrupt(TRUE)
 	ActionOverride("C#Brandock",StartDialogueNoSet("C#BRMELI"))
 END 
-
-/* 
-		DisplayStringHead(Myself,5251) // Oops!
-		CreateVisualEffectObject("ICMAGICH",Myself)
-		Wait(5)
-	RESPONSE #10
-		CreateVisualEffectObject("AMCALL",Myself)
-		Wait(9)
-	RESPONSE #10
-		CreateVisualEffectObject("ICRMPARI",Myself)
-		Wait(8)
-	RESPONSE #30
-		ForceSpell(Myself,FLASHY_1)
-		Wait(7)
-	RESPONSE #30
-		ForceSpell(Myself,FLASHY_2)
-		Wait(6)
-	RESPONSE #30
-		ForceSpell(Myself,FLASHY_4) */
