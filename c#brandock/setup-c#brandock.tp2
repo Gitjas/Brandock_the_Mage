@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_3~ 
+VERSION ~Beta_4_pre_200413~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -754,7 +754,7 @@ SAY NAME2 @21 /* ~Lore Bonus +1~ */
    LPF ALTER_SPELL_EFFECT
    INT_VAR
      match_opcode  = 139   // Display String
-     parameter1    = RESOLVE_STR_REF(~Lore Increased by 1~)  // 
+     parameter1    = RESOLVE_STR_REF(@24)  // 
    END
 
 /* Lore increasing by 2 */
@@ -764,7 +764,7 @@ SAY NAME2 @22 /* ~Lore Bonus +2~ */
    LPF ALTER_SPELL_EFFECT
    INT_VAR
      match_opcode  = 139   // Display String
-     parameter1    = RESOLVE_STR_REF(~Lore Increased by 2~)  // 
+     parameter1    = RESOLVE_STR_REF(@25)  // 
    END
 
 /* Lore increasing by 3 */
@@ -774,7 +774,7 @@ SAY NAME2 @23 /* ~Lore Bonus +3~ */
    LPF ALTER_SPELL_EFFECT
    INT_VAR
      match_opcode  = 139   // Display String
-     parameter1    = RESOLVE_STR_REF(~Lore Increased by 3~)  // 
+     parameter1    = RESOLVE_STR_REF(@26)  // 
    END
 
 /* fade to black with Brandock stating that it was intersting (lore path): needed for all games */
@@ -1719,7 +1719,7 @@ EVALUATE_BUFFER
 END //TheCalling
 
 
-/* not approved yet
+/* not approved yet but I can't reach Tempest. Will be changed or removed if requested. */
 /* Valerie */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~ THEN BEGIN 
@@ -1728,7 +1728,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~ THEN BEGIN
 EVALUATE_BUFFER
 
 END //ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~
-*/
+
 
 END //ACTION_IF GAME_IS ~bgee bgt~
 

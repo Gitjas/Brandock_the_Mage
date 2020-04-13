@@ -25,7 +25,7 @@
 @22   = ~Where did you get such a valuable book from, Brandock?~
 @23   = ~When you talked about going to Candlekeep, I thought you need to earn the gold for a valuable book, first. It didn't occur to me you came here with the means to enter.~
 @24   = ~You want to study in Candlekeep?~
-@25   = ~'Unless kidnapping grannies or turturing puppies'? So, if I'd start kidnapping puppies and torturing grannies, you would be alright with that, then? (grin)~
+@25   = ~'Unless kidnapping grannies or torturing puppies'? So, if I'd start kidnapping puppies and torturing grannies, you would be alright with that, then? (grin)~
 @26   = ~Even though I understand that you said it in jest, I didn't like the way you put a condition to your loyalty. There might be times I'll have to do things you will not appreciate to accomplish our goals, and if such a time will come, I'll need loyal comrades-in-arms.~
 @27   = ~To make this clear, Brandock - I do not regret having you with me.~
 @28   = ~I'm not exactly regretting having you with me, but things tend to be more complicated around you, indeed.~
@@ -38,7 +38,7 @@
 @35   = ~Want to talk more about being expelled from Candlekeep?~
 @36   = ~You want to talk more about your first teacher?~
 @37   = ~You worked at a Carneval?~
-@38   = ~Do you want to tell more about working at a carneval?~
+@38   = ~Do you want to tell more about working at a carnival?~
 @39   = ~Want to talk about your time as a half-ogre?~
 @40   = ~Want to talk some more about your time as a half-ogre?~
 @41   = ~You wanted to say more about the tainted ore?~
@@ -63,7 +63,7 @@
 @60   = ~I heard about the Tanar'ri summonings and what it lead to, yes.~
 @61   = ~No, but I don't need to know. Just tell me about how it shows today.~
 @62   = ~Let's talk about this another time.~
-@63   = ~It started in the School of Wonder some hundred years back. It was a school of wisdom and magic... And one day, some power hungry students summoned several Tanar'ri - which lead to its destruction, and with it, the damnation of magic by King Dhanar of the Parhek Dynasty with many mages being set to the torch, which lead to half Athkatla burning as well, which lead to Dhanar's assassination by royal families and exciling of many of the uprising merchants families...~
+@63   = ~It started in the School of Wonder some hundred years back. It was a school of wisdom and magic... And one day, some power hungry students summoned several Tanar'ri - which lead to its destruction, and with it, the damnation of magic by King Dhanar of the Parhek Dynasty with many mages being set to the torch, which lead to half Athkatla burning as well, which lead to Dhanar's assassination by royal families and exiling of many of the uprising merchants families...~
 @64   = ~I shouldn't be surprised considering your upbringing.~
 @65   = ~The Coweld Wizards were formed to protect the arcane art, also restricting and controlling all mages traveling through the lands... and that's what they do until today.~
 @66   = ~In Amn, only "licensed" mages approved by the Cowled Wizards are allowed to practice magic. You don't have to be registered, as a mage. But if you aren't, you are not allowed to use magic, as easy as that. And if you are too powerful and seen as a danger, you will be asked to leave the land altogether - and if you are seen as a threat, you will be brought to a secret Asylum, or get killed.~
@@ -123,7 +123,7 @@
 @120  = ~Thanks for telling me.~
 @121  = ~I... I was a bit younger back then, yes.~
 @122  = ~I couldn't learn with him forver but had to change teacher after some time, though, but I guess that is the normal way.~
-@123  = ~I was already 14 when my magic talent was discovered. Magic didn't flow out of me like it does for sourcerers. But even for a normal mage who has to lern his spells, there is a certain limit as to where he is capable of neglecting it. Magic always finds a way, my first teacher said. Mine found its the day I found my first teacher's bag open, and being fascinated by the runes I saw in there. I was lucky he was nearby...~
+@123  = ~I was already 14 when my magic talent was discovered. Magic didn't flow out of me like it does for sorcerers. But even for a normal mage who has to lern his spells, there is a certain limit as to where he is capable of neglecting it. Magic always finds a way, my first teacher said. Mine found its the day I found my first teacher's bag open, and being fascinated by the runes I saw in there. I was lucky he was nearby...~
 @124  = ~You had a knack for bringing yourself into trouble with magic back then already, hm?~
 @125  = ~Uh-oh, I guess with 14 and an untrained magic talent you could do a lot of unpleasant things.~
 @126  = ~Then what happened?~
@@ -164,7 +164,7 @@
 @161  = ~They just let you work with the books?~
 @162  = ~I showed them the De Simplex Magicae when I got there, and was taken to Purgan's office almost instantly. He asked me all about how I came to that book - and I don't know why, but I trusted him despite being terrified, and told him all about my first, private teacher and how he left me all those things. He didn't say much, but afterwards, I got almost free access to the whole library and a sage who tought me how to scribe magic scrolls.~
 @163  = ~Wait a moment - you can scribe scrolls? Why don't you do it then?~
-@164  = ~Because I'd need papyrus, magic ink, and a quiet place to do so, <CHARNAME>. And a spell to copy on top of it. And... and the courage to do it in a sourrounding that is not magically protected against fire.~
+@164  = ~Because I'd need papyrus, magic ink, and a quiet place to do so, <CHARNAME>. And a spell to copy on top of it. And... and the courage to do it in a surrounding that is not magically protected against fire.~
 @165  = ~Anyway, that was my time in Alisarhold, up to the point where I realized that this is what I want to do, but without being around Cowled Wizards... Which planted the silly thought into my head to go and try to get entry to Candlekeep.~
 @166  = ~The long version is that after finishing my magic training with my official Cowled Wizard teacher, I... I didn't feel prepared for wielding magic.~
 @167  = ~You didn't feel prepared to wield magic?~
@@ -181,7 +181,7 @@
 @178  = ~So after that you went to Alisarhold?~
 @179  = ~No, absolutely not... I was very glad I could pay the healer... and that Rom had forgotten all about it the next day.~
 @180  = ~So after that you went to Alisarhold?~
-@181  = ~Right, I was about telling how I came to be in Alisarhold! I said it's the long story... Yes, that was one of the incidents but actually it was more the friendships I found there that made me see the light again. You know? I am someone, and I have a right to have dreams, and this is not my dream, so I will gather my spirit and change the way I am living, etcpp. I took all my courage, went by my parents', collected the magic items my private teacher left me, and went all the way to Alisarhold... in a payed coach. That's how I came to be there.~
+@181  = ~Right, I was about telling how I came to be in Alisarhold! I said it's the long story... Yes, that was one of the incidents but actually it was more the friendships I found there that made me see the light again. You know? I am someone, and I have a right to have dreams, and this is not my dream, so I will gather my spirit and change the way I am living, and so forth. I took all my courage, went by my parents', collected the magic items my private teacher left me, and went all the way to Alisarhold... in a payed coach. That's how I came to be there.~
 @182  = ~Oh yes. The book was unscarred, but I heard about fire protection of magic books so I wasn't too surprised by that, only relieved. The table wasn't a problem per se - my family is carpenters, after all, but making a new table for oneself is someting different than working for a customer... especially after the son set the old one on fire by magic - in a magic fearing land like Amn. I sold the one magic wand I ever had to make up for the loss.~
 @183  = ~How did your parents react?~
 @184  = ~Surely they were pleased by your efforts to make up for it?~
@@ -225,14 +225,14 @@
 @222  = ~Thank you! With pleasure.~
 @223  = ~I... I did not steal it, <CHARNAME>. Just thought I'd point this out.~
 @224  = ~Dang. (Ahem) Fine.~
-@225  = ~Well, you see, he left me with some of his utensils. But it wasn't a present per se. He told my parents that if he wouldn't return in a certain amount of time, it should be mine. What can I say, he didn't return, so it was mine: the book, several scrolls I copied into my spellbook, a wand I sold, and some other useful nonmagic stuff.~
+@225  = ~Well, you see, he left me with some of his utensils. But it wasn't a present per se. He told my parents that if he wouldn't return in a certain amount of time, it should be mine. What can I say, he didn't return, so it was mine: the book, several scrolls I copied into my spellbook, a wand I sold, and some other useful non-magic stuff.~
 @226  = ~I didn't make this easy for me, <CHARNAME>. It took me a long time until I learned that this book might be expensive enough, actually. Then it took quite an effort until I could justify it to myself to take it all the way here. I *was* thinking that it would be a good place for such a book to be in Candlekeep, open to anyone interested. Better than in Amn with the Cowled Wizards. And far better than in a box beneath my bed.~
 @227  = ~I didn't like me going on such a trip with this book - and everything that came out of it even less, but I did not decide this alone. I will explain it to my first teacher Master Sam when we meet next time. I am sure he will understand.~
 @228  = ~Yes! There is one in the main city, right in the middle of the Promenade. Well, it's not always the same, of course, as carnivals tend to move from time to time. But *almost* all the time there was one there. I did some magic tricks - a lot of sparks, usually. I know it's pathetic, but... It was one way to earn gold.~
-@229  = ~And it's Amn we are talking about. Inside the carnival, I could perform magic without having to pay for an own magic licence...~
-@230  = ~Me working at the carneval... I already said it's pathetic, and that it was. My Coweld Wizard teacher spit his venom as soon as he learned where I worked after passing his final tests... I probably said it before, but inside the carnival, I could perform magic without having to pay for an own magic licence - I could perform magic without having to fear a Cowled Wizard breathing down my neck.~
+@229  = ~And it's Amn we are talking about. Inside the carnival, I could perform magic without having to pay for an own magic license...~
+@230  = ~Me working at the carnival... I already said it's pathetic, and that it was. My Coweld Wizard teacher spit his venom as soon as he learned where I worked after passing his final tests... I probably said it before, but inside the carnival, I could perform magic without having to pay for an own magic licence - I could perform magic without having to fear a Cowled Wizard breathing down my neck.~
 @231  = ~I worked at the carnival after passing my final test in Amn. I told you I did it to earn gold, and I probably let it sound as if I did it with my travels in mind. Truth is, *first* I worked at the carnival and *then* I decided to leave. I didn't find the courage before that.~
-@232  = ~I am so glad I do not tend to drink my problems away, or I would be a trunkard by now, making colorful sparks at the carnival in Waukeen's Promenade... I needed the time and I don't regret it, but I am glad I am no longer there.~
+@232  = ~I am so glad I don't drink my problems away, or I'd be a drunkard by now, making colorful sparks at the carnival in Waukeen's Promenade... I needed the time and I don't regret it, but I am glad I am no longer there.~
 @233  = ~Yes, I know what you mean. We won't know unless one of the Cowled Wizards will tell us, though.~
 @234  = ~Yes! Most definitely, thank you for asking. My first teacher was a friend of my parents. I mean, now that I think of it, I do wonder how in the nine hells they would know and be friends with a wizard... I need to ask them when I am back home.~
 @235  = ~The reason why I have to think about this so much is that remembering it now I realize something was wrong, but I just accepted it then. I just accepted the explanation given of 'unexpected and urgent'. Maybe I also tried to forget about it, I don't know.~
@@ -349,4 +349,4 @@
 @407  = ~I wouldn't know which that would be.~
 @408  = ~Hm. They did seem to know each other when they came to get me he seemed not to belong to them.~
 @409  = ~Master Sam? Rebellious? Haha! Master Sam was the least rebellious person I ever saw. Just nodded silently when the Cowled Wizards said it's time to come with them. Hm, of course you are right, one doesn't have to be of rebellious nature to become a rebellion, but...~
-@410  = ~When we were together, he focussed completely onto my tutoring. There were no shady meetings, no strange messages, no times where he tried to occupy me with something so he could do something I wouldn't know about... Doesn't mean I never slept, of course. I was 14! Slept quite a bit and had to be woken every morning, actually... Still, he was such an honest and steadfast man.~
+@410  = ~When we were together, he focused completely onto my tutoring. There were no shady meetings, no strange messages, no times where he tried to occupy me with something so he could do something I wouldn't know about... Doesn't mean I never slept, of course. I was 14! Slept quite a bit and had to be woken every morning, actually... Still, he was such an honest and steadfast man.~

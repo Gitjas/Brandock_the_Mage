@@ -36,12 +36,10 @@ Gewicht: 1~
 @21  = ~Sagenkunde +1~
 @22  = ~Sagenkunde +2~
 @23  = ~Sagenkunde +3~
-
+@24  = ~Sagenkunde um 1 erhöht~
+@25  = ~Sagenkunde um 2 erhöht~
+@26  = ~Sagenkunde um 3 erhöht~
 /*
-
-@24  =
-@25  =
-@26  =
 @27  =
 @28  =
 @29  =

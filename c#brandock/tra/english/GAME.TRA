@@ -36,12 +36,10 @@ Weight: 1~
 @21  = ~Lore Bonus +1~
 @22  = ~Lore Bonus +2~
 @23  = ~Lore Bonus +3~
-
+@24  = ~Lore Increased by 1~
+@25  = ~Lore Increased by 2~
+@26  = ~Lore Increased by 3~
 /*
-
-@24  =
-@25  =
-@26  =
 @27  =
 @28  =
 @29  =
