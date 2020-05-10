@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_4_pre_200413~ 
+VERSION ~Beta_4~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -324,7 +324,8 @@ ACTION_IF GAME_IS ~eet bgee~ THEN BEGIN
   ADD_JOURNAL TITLE (@10010) @10005 @10008 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10013) @10002 @10003 @10004 @10011 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10025 @10026 @10028 @10043 @10044 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
-  ADD_JOURNAL TITLE (@10029) @10023 @10024 @10027 @10030 @10031 @10032 @10033 @10034 @10035 @10036 @10037 @10038 @10039 @10040 @10041 @10042 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10029) @10023 @10024 @10027 @10030 @10031 @10032 @10033 @10034 @10035 @10036 @10037 @10038 @10039 @10040 @10041 @10042 @10045 @10046 @10047 @10048 @10049  USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10007) @10012 @10016 @10050 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
 END
 
 /* Journal Entries for BGII part */
@@ -1669,6 +1670,20 @@ END
 
 
 
+/* Reaction to Taerom, BG:EE: vial */
+ACTION_IF GAME_IS ~bgee eet~ BEGIN
+<<<<<<<< ...inlined/add_taerom_vial.d
+
+I_C_T ~TAEROM~ 18 C#Brandock_Taerom_Vial
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2010
+== TAEROM IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2011
+END
+
+>>>>>>>>
+COMPILE EVALUATE_BUFFER ~...inlined/add_taerom_vial.d~ USING ~c#brandock/tra/%LANGUAGE%/C#BRAND_DIALOGUES.TRA~ 
+END 
+
+
 
 
 
@@ -1678,15 +1693,62 @@ END
 
 ACTION_IF GAME_IS ~bgee eet bgt~ THEN BEGIN
 
+/* Ascalon's Breagar */
+ACTION_IF FILE_EXISTS_IN_GAME ~ACBREB.dlg~ THEN BEGIN 
+PRINT ~Breagar detected.~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_breagar.d~ 
+END 
+
+/* Ascalon's Questpack */
+/* Ygnazius Bombastus III */
+ACTION_IF FILE_EXISTS_IN_GAME ~ACQ17001.dlg~ THEN BEGIN 
+
+PRINT ~Ascalon's Questpack: Ignazius Bombastus detected.~
+// Get state for Ygnazius ACQ17001 %ygnatz_47% 
+/* ~That's to my liking, my liking! Let's waste no more time and whooshy-whooshy set off! The Ulcaster Ruins are waiting!~ */
+OUTER_SET ygnatz_47 = STATE_WHICH_SAYS 47 IN ~AC_QUEST/tra/autotra/%s/ACQ17000.tra~ FROM ~ACQ17001~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_ac_quest_17.d~ 
+END //babysitting quest
+
+/* bg1npc, Quest & Interjections */
+ACTION_IF FILE_EXISTS_IN_GAME ~X#TOME.itm~ THEN BEGIN 
+PRINT ~bg1npc, Quest and Interjections detected.~
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/bg1npc.baf~ EVALUATE_BUFFER
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bg1npc_BG1.d~ 
+END 
+
+/* bg1ub - mysterious vial */
+ACTION_IF GAME_IS ~bgt~ BEGIN
+ACTION_IF (MOD_IS_INSTALLED ~bg1ub.TP2~ "1") THEN BEGIN
+PRINT ~bg1ub - mysterious vial detected.~
+// Get state for Thalantyr %thalantyr_30% 
+/* ~A remarkable compound. It must have taken a skilled alchemist to concoct this. I may be able to formulate an antidote to salvage some of the current iron stocks, although I doubt it will be sufficient to resolve the crisis. Leave it with me, and I will contact Taerom if I have any success.~ */
+OUTER_SET thalantyr_30 = STATE_WHICH_SAYS 30 IN ~bg1ub/tra/%s/ubvial.tra~ FROM ~THALAN~
+
+<<<<<<<< ...inlined/bg1ub_vial.d
+//%thalantyr_30%
+I_C_T ~THALAN~ 0 C#Brandock_Mysterious_Vial
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2015 
+== ~THALAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2016
+END
+
+>>>>>>>>
+COMPILE EVALUATE_BUFFER ~...inlined/bg1ub_vial.d~ USING ~c#brandock/tra/%LANGUAGE%/C#BRAND_DIALOGUES.TRA~ 
+END
+END 
+
+
 /* bgqe - need to check every component individually */
 
 /* bgqe - babysitting quest */
 ACTION_IF FILE_EXISTS_IN_GAME ~C#Q03008.dlg~ THEN BEGIN 
+PRINT ~bgqe - babysitting quest detected.~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bgqe_babysitting.d~
 END //babysitting quest
 
 /* bgqe - Nashkell Monster */
 ACTION_IF FILE_EXISTS_IN_GAME ~C#Q04004.dlg~ THEN BEGIN 
+PRINT ~bgqe - Nashkell Monster detected.~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bgqe_nashkelmonster.d~
 
 
@@ -1697,7 +1759,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~C#Q04004.dlg~ THEN BEGIN
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @1021
 END
 	>>>>>>>>
-	COMPILE ~...inlined/brandock_nashkelmonster_add.d~
+	COMPILE EVALUATE_BUFFER ~...inlined/brandock_nashkelmonster_add.d~
   END
 
 END //Nashkell Monster
@@ -1705,13 +1767,23 @@ END //Nashkell Monster
 
 /* Brage */
 ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~ THEN BEGIN 
+PRINT ~Brage's Redemption detected.~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brage_brandock.d~
 END //ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~
+
+
+/* Gavin BG1 */
+ACTION_IF FILE_EXISTS_IN_GAME ~BB!GAVIN.dlg~ THEN BEGIN 
+PRINT ~Gavin BG1 detected.~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_gavin_BG1.d~
+END //ACTION_IF FILE_EXISTS_IN_GAME ~BB!GAVIN.dlg~
+
 
 
 /* The Calling */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~cdbracer.itm~ THEN BEGIN
+PRINT ~The Calling detected.~
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
 EVALUATE_BUFFER
@@ -1719,10 +1791,12 @@ EVALUATE_BUFFER
 END //TheCalling
 
 
-/* not approved yet but I can't reach Tempest. Will be changed or removed if requested. */
+
 /* Valerie */
+/* not approved yet but I can't reach Tempest. Will be changed or removed if requested. */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~ THEN BEGIN 
+PRINT ~Valerie detected.~
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_valerie_BG1.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/valerie.baf~
 EVALUATE_BUFFER
@@ -1760,6 +1834,7 @@ ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
 /* Alternatives */
 
   ACTION_IF FILE_EXISTS_IN_GAME ~B!ASTER.dlg~ THEN BEGIN
+PRINT ~Alternatives detected.~
 
 /* add Brandock to Brega's dialogue - PC needs witness */
 /* this will grab the correct state from the language alternatives is installed in - this is great! */
@@ -1773,6 +1848,7 @@ ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
 
 /* NPC Strongholds */
   ACTION_IF FILE_EXISTS_IN_GAME ~ksimteos.bcs~ THEN BEGIN
+PRINT ~NPC Strongholds detected.~
     OUTER_SET teos_state_1 = STATE_WHICH_SAYS 2001 IN ~npc_strongholds/%s/npc_strongholds.tra~ FROM ~MGTEOS01.dlg~
 
     OUTER_SET teos_state_2 = STATE_WHICH_SAYS 2009 IN ~npc_strongholds/%s/npc_strongholds.tra~ FROM ~MGTEOS01.dlg~

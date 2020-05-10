@@ -17,7 +17,7 @@ I found Master Travenhurst's fine pair of boots in a fox cave near Beregost. I a
 
 Brandock tried to help Melicamp, and that turned horribly wrong. The magic Melicamp used seemed to be something very powerful, indeed. I witnessed Brandock turning himself into a half-ogre. Or, switching bodies with one is the better term. Whatever it was, they both went to Thalantyr's abode to get help. I should go there, too, I guess.~
 @10006  = ~Brandock's Possessions~
-//@10007  = ~~
+@10007  = ~Elvenhair teaches Brandock to Scribe Scrolls~
 @10008  = ~Brandock the Half-Ogre
 
 Thalantyr was able to help Brandock back into his own body.~
@@ -28,7 +28,9 @@ Brandock found his missing possessions - or what is left of them, to be precise.
 @10011  = ~A Fine Pair of Boots
 
 I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~
-//@10012  = ~~
+@10012  = ~Elvenhair teaches Brandock to Scribe Scroll
+
+Brandock is ready to return to Elvenhair in Beregost to learn how to scribe scrolls.~
 @10013  = ~A Fine Pair of Boots~
 
 @10014  = ~Brandock in the Slums
@@ -39,8 +41,9 @@ I met Brandock, but he'll remain in the house of his mother's cousin. It's one o
 
 I can find Brandock in the house of his mother's cousin, if I have need of him. It's one of the houses next to the great sphere in the Slums.~
 
+@10016  = ~Elvenhair teaches Brandock to Scribe Scrolls
 
-//@10016  = ~~
+Elvenhair offered Brandock to teach him the knowledge of scroll scribing. We should return to Elvenhair as soon as Brandock is ready.~
 
 @10017  = ~Brandock Wants to Restore his Book~
 
@@ -59,7 +62,7 @@ I decided I don't care. Brandock will find a way by himself to deal with his des
 I promised Brandock that we'd go to Firebead Elvenhair in Beregost. Brandock wants to ask him for help with retoring his destroyed book.~
 @10022  = ~Brandock Wants to Restore his Book
 
-Elvenhair will help Brandock with his book. First he needs the following items: a Star Sapphire, a potion of Regeneration, and ink of an octopus. The last we should be able to buy from fishermen who fish in the sea. A fishemen's town like Ulgoth's Beard should be a good start to look for it.~
+Elvenhair will help Brandock with his book. First he requested the following ingredients: a Star Sapphire, a potion of Regeneration, and ink of an octopus. The last we should be able to buy from fishermen who fish in the sea. A fishemen's town like Ulgoth's Beard should be a good start to look for it.~
 
 @10023  = ~Increase Brandock's Lore Wisdom
 
@@ -91,7 +94,7 @@ Brandock increased his lore wisdom by studying the History of the Nether Scrolls
 Brandock increased his lore wisdom by studying Balduran's Logbook.~
 @10033  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spell book of the mage that killed the woman in the Nashkel Carnival tent and increased his lore wisdom.~
+Brandock studied the spell book of the mage in the Nashkel Carnival tent and increased his lore wisdom.~
 @10034  = ~Increase Brandock's Lore Wisdom
 
 Brandock increased his lore wisdom by studying Yago's Book of Curses.~
@@ -121,7 +124,7 @@ Brandock increased his lore wisdom by studying the spell book of that middle man
 Brandock studied the spell books of the four mages who attacked us in the Sorcerous Sundries and increased his lore wisdom.~
 @10042  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spell books of the crazy wizard who petrified the five refugees for "art" and increased his lore wisdom with it.~
+Brandock studied the spell book of the crazy wizard who petrified the five refugees for "art" and increased his lore wisdom with it.~
 @10043  = ~Brandock Wants to Restore his Book
 
 Appearently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language noone speaks any more and is seemingly empty, but Elvenhair believes it to contain all spell recipes still - only magically conceiled.~
@@ -131,6 +134,23 @@ Brandock got kicked out of Candlekeep with me... We will have to see when and wh
 @10045  = ~Increase Brandock's Lore Wisdom
 
 Brandock studied a book with spell components to create a Halruaan skyship and increased his lore wisdom with it.~
+
+/* new in vbeta_4 */
+@10046  = ~Increase Brandock's Lore Wisdom
+
+Brandock studied the spellbook of a mage we met in the wilderness with a formular to control slimes and increased his lore wisdom with it.~
+@10047  = ~Increase Brandock's Lore Wisdom
+
+Brandock studied the spellbook of a crazy mage who threatened us with bazilisks and increased his lore wisdom with it.~
+@10048  = ~Increase Brandock's Lore Wisdom
+
+Brandock studied the spellbooks of Red Wizards of Thay who attacked us in the wilderness and increased his lore wisdom with it.~
+@10049  = ~Increase Brandock's Lore Wisdom
+
+Brandock studied some old book remains he found inside the old Ulcaster school and increased his lore wisdom with it.~
+@10050  = ~Elvenhair teaches Brandock to Scribe Scrolls
+
+Elvenhair offered Brandock to teach him the knowledge of scroll scribing. Once we found Gorion's murderer, Brandock should return to Elvenhair.~
 
 /* Epilogue(s) */
 

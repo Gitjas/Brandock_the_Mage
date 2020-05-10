@@ -8,6 +8,16 @@ ADD_TRANS_ACTION ~%tutu_scriptbg%FTOWN2~ BEGIN 3 END BEGIN END
 ~SetGlobal("C#Brandock_JosephsWife","GLOBAL",1)~
 
 
+/* Narcillicus Harwilliger Neen (green slimes) */
+I_C_T ~%tutu_var%NARCIL~ 0 C#Brandock_NARCIL_0
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @465
+== ~%tutu_var%NARCIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @466
+END
+
+I_C_T ~%tutu_var%NARCIL~ 3 C#Brandock_NARCIL_3
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @467
+== ~%tutu_var%NARCIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @468
+END
 
 
 
@@ -23,16 +33,58 @@ END
 
 
 /* Brage: I_C_T into Nalin 4 */
-
 I_C_T ~%tutu_var%Nalin~ 4 C#Brandock_Brage
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @3
 == ~%tutu_var%BRAGE~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @4
 END
 
 
+/* Ulcaster - first interjections should only play once */
+I_C_T ~%tutu_var%ULCAST~ 0 C#Brandock_ULCAST_0
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @479
+END
+
+I_C_T ~%tutu_var%ULCAST~ 1 C#Brandock_ULCAST_0
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @479
+END
+
+I_C_T ~%tutu_var%ULCAST~ 2 C#Brandock_ULCAST_0
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @479
+END
+
+I_C_T ~%tutu_var%ULCAST~ 4 C#Brandock_ULCAST_4
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @480
+END
+
+I_C_T ~%tutu_var%ULCAST~ 5 C#Brandock_ULCAST_5
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @481
+== ~%tutu_var%ULCAST~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @482
+END
+
+
+
 APPEND c#brandj
 
+/* Ulcaster school - outside */
+IF ~Global("C#Brandock_UlcasterSchool","GLOBAL",1)~ THEN ulcaster_school
+SAY @475
+IF ~~ THEN DO ~SetGlobal("C#Brandock_UlcasterSchool","GLOBAL",2)~ EXIT
+END
 
+END //APPEND c#brandj
+
+/* Ulcaster school - in dungeon */
+CHAIN
+IF ~Global("C#Brandock_InsideUlcasterSchool","GLOBAL",1)~ THEN c#brandj ulcaster_school
+@476
+== c#brandj IF ~Global("C#Brandock_ULCAST_4","GLOBAL",1)~ THEN @477
+== c#brandj @478
+END
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Brandock_InsideUlcasterSchool","GLOBAL",2)~ UNSOLVED_JOURNAL @10049 EXIT
+
+
+
+APPEND c#brandj
 
 /* after defeating Sarevok (BGT / EE+EBG1) */
 
@@ -40,6 +92,29 @@ IF ~Global("C#Brando_BG1SarevokDefeated","GLOBAL",1)~ THEN sarevok_defeated
 SAY @5
 IF ~~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDefeated","GLOBAL",2)~ EXIT
 END
+
+/* Sarevok dead, after leaving the ThievesGuild -> in brandock_bookrestore.d*/
+
+END //APPEND c#brandj
+
+/* brandock's book(s) not in his inventory. Warning - no action */
+CHAIN
+IF ~OR(2)
+Global("C#Brandock_BookWarningLokal1","GLOBAL",1)
+Global("C#Brandock_BookWarningLokal2","GLOBAL",1)~ THEN c#brandj my_book
+@469
+== c#brandj IF ~OR(2) HasItem("c#br0001",Player2) HasItem("c#br0007",Player2)~ THEN @470
+== c#brandj IF ~OR(2) HasItem("c#br0001",Player3) HasItem("c#br0007",Player3)~ THEN @471
+== c#brandj IF ~OR(2) HasItem("c#br0001",Player4) HasItem("c#br0007",Player4)~ THEN @472
+== c#brandj IF ~OR(2) HasItem("c#br0001",Player5) HasItem("c#br0007",Player5)~ THEN @473
+== c#brandj IF ~OR(2) HasItem("c#br0001",Player6) HasItem("c#br0007",Player6)~ THEN @474
+END
+IF ~Global("C#Brandock_BookWarningLokal2","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",2)~ EXIT
+IF ~Global("C#Brandock_BookWarningLokal1","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",2)~ EXIT
+
+
+APPEND c#brandj
+
 
 /* destroyed book gone - talk one 
 GlobalGT("C#Brandock_Possessions","GLOBAL",1) 
@@ -63,36 +138,40 @@ END
 /* either book gone - talk two (Brandock leaves) */
 IF ~Global("C#Brandock_BookWarning","GLOBAL",5)~ THEN book_gone_02
 SAY @8
-IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
+IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
 GivePartyAllEquipment()
 TakePartyItem("c#br0001") DestroyItem("c#br0001")
 TakePartyItem("c#br0007") DestroyItem("c#br0007")
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0) ChangeAIScript("",DEFAULT)
-SetLeavePartyDialogFile() LeaveParty() EscapeArea()~ EXIT
-IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~ EXIT
+IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
 GivePartyAllEquipment()
-TakePartyItem("c#br0001") DestroyItem("c#br0001")
-TakePartyItem("c#br0007") DestroyItem("c#br0007")
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
 ChangeEnemyAlly(Myself,NEUTRAL)
-EscapeArea()~ EXIT
+TakePartyItem("c#br0001") DestroyItem("c#br0001")
+TakePartyItem("c#br0007") DestroyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~ EXIT
 END
-
-
-/* dead assassin in Beregost Red Sheaf */
-
-
-IF ~Global("C#Brandock_BeregostAssassin","GLOBAL",1)~ THEN assassin_beregost
-SAY @9
-IF ~~ THEN DO ~SetGlobal("C#Brandock_BeregostAssassin","GLOBAL",2)~ EXIT
-END
-
 
 END //APPEND c#brandj
+/* dead assassin in Beregost Red Sheaf */
+
+CHAIN
+IF ~Global("C#Brandock_BeregostAssassin","GLOBAL",1)~ THEN c#brandj assassin_beregost
+@9
+== c#brandj IF ~OR(2) !See("GV#MOID") Dead("GV#MOID")~ THEN @463
+END
+IF ~~ THEN DO ~SetGlobal("C#Brandock_BeregostAssassin","GLOBAL",2)~ EXIT
+
+
+
+
 
 /* after meeting Nashkel mayor */
 
@@ -947,6 +1026,18 @@ IF ~Global("C#Brandock_DurlagT","GLOBAL",3)~ THEN c#brandj durlags_tower_01
 == c#brandj @228
 EXIT
 
+/* Clair inside Durlag's Tower */
+I_C_T ~%tutu_var%CLAIRD~ 21 C#Brandock_CLAIRD
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @464
+END
+
+I_C_T ~%tutu_var%CLAIRD~ 23 C#Brandock_CLAIRD
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @464
+END
+
+I_C_T ~%tutu_var%CLAIRD~ 26 C#Brandock_CLAIRD
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @464
+END
 
 
 

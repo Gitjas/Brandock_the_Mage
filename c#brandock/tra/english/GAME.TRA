@@ -134,10 +134,10 @@ Weight: 1~
 @1020 = ~The corner of the cave is full with tattered stuff. You feel absolutely no urge to go through it.~
 @1021 = ~Alright, am I the only one who thinks that this sounds a little bit alarming?~
 @1022 = ~Firebead Elvenhair's Home~
+@1023 = ~We have a Star Saphire! Please, let us hold onto it. I need this for my book restoration.~
+@1024 = ~We have a potion of Regeneration! Please, let us keep this. I need it for my book restoration.~
+@1025 = ~We have ink of an Octopus! Master Elvenhair requested this for my book restoration.~
 /*
-@1023 = 
-@1024 = 
-@1025 = 
 @1026 = 
 @1027 = 
 @1028 = 

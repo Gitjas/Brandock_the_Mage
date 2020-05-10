@@ -47,17 +47,38 @@ END
 IF ~Global("C#Br_LorePathNiemain","GLOBAL",1)~ THEN niemain_lorepath
 SAY @1503
 IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) AddJournalEntry(@10030,QUEST)
-SetGlobal("C#Br_C#Br_LorePathNiemain","GLOBAL",2)~ UNSOLVED_JOURNAL @10041 EXIT
+SetGlobal("C#Br_LorePathNiemain","GLOBAL",2)~ UNSOLVED_JOURNAL @10041 EXIT
 END
 
-/* Delorna's Spellbook */
+/* Delorna's Spell Component for Halruaan's Skyship  */
 IF ~Global("C#Br_LorePathDelornaBG1","GLOBAL",1)~ THEN delorna_spellbook
 SAY @1536
-IF ~~ THEN DO ~SetGlobal("C#Br_LorePathDelornaBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10045 EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathDelornaBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10045 EXIT
+END
+
+/* Narcillicus Harwilliger Neen (green slimes) */
+IF ~Global("C#Br_LorePathNarcillicusBG1","GLOBAL",1)~ THEN narcillicus_spellbook
+SAY @1537
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathNarcillicusBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10046 EXIT
+END
+
+/* Mutamin */
+IF ~Global("C#Br_LorePathNarcillicusBG1","GLOBAL",1)~ THEN mutamin_spellbook
+SAY @1538
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathNarcillicusBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10047 EXIT
+END
+
+/* 4 Wizards from Thay: Denak, Lasala, Diana, Brendan */
+IF ~Global("C#Br_LorePathThayMagesBG1","GLOBAL",1)~ THEN thaymages_lorepath
+SAY @1539
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) AddJournalEntry(@10030,QUEST)
+SetGlobal("C#Br_LorePathThayMagesBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10048 EXIT
 END
 
 /* ------------------------------------------*/
 /* Libraries and homes with bookshelves etc. */
+
+/* Ulcaster school - in dungeon ==>inside c#brandj.d */
 
 /* Davaeorn library ==>inside c#brandj.d */
 
@@ -93,7 +114,8 @@ END
 
 IF ~~ THEN candlekeep_library_03
 SAY @1511
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob3",Myself) SetGlobal("C#Brandock_LorePathCKLibrary","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10027 /* ~Brandock's Lore increased
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob3",Myself) AddJournalEntry(@10030,QUEST)
+SetGlobal("C#Brandock_LorePathCKLibrary","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10027 /* ~Brandock's Lore increased
 
 Brandock increased his lore wisdom by having a good look around Candlekeep library.~ */ EXIT
 END

@@ -9,7 +9,7 @@
 @6    = ~<CHARNAME>, das mögen zwar nur Schnipsel sein, aber die Reste des Buches sind mir sehr wichtig. Wir müssen zurück gehen und sie wieder einsammeln, so schnell wie möglich.~
 @7    = ~<CHARNAME>, dieses Buch bedeutet mir wirklich viel. Wir müssen zurück gehen und es wieder einsammeln, so schnell wie möglich.~
 @8    = ~<CHARNAME>, ich bat darum, dass wir zurückkehren und mein Buch wieder einsammeln. Dies ist nicht geschehen, daher muss ich nun gehen und es suchen. Lebt wohl.~
-@9    = ~Dass man in der Taverne wartet, bis man sein ausgesuchtes Opfer ausfindig macht ist verständlich. Dass allerdings auch in der Taverne *angegriffen* wird, spricht von einer hohen Meinung über die eigene Kampfeskunst. (Brandock rudert mit den Armen.) Dieser Mann hat uns *angegriffen*! In diesem Schankraum! Und *niemand* kümmert es! Ich glaube, ich könnte einen Trunk vertragen. Wenn ich denn trinken würde. Met, meine ich. (seufz)~ [c#ablank]
+@9    = ~Dass man in der Taverne wartet, bis man sein ausgesuchtes Opfer ausfindig macht ist verständlich. Dass allerdings auch in der Taverne *angegriffen* wird, spricht von einer hohen Meinung über die eigene Kampfeskunst.~ [c#ablank]
 @10   = ~Hm, Nashkell ist Amnischer Boden, <CHARNAME>. Dass die hier Schwierigkeiten in der Mine haben - magischer Art, wohlgemerkt, ist sicher von hohem Interesse für die Verhüllten Magier.~ [c#ablank]
 @11   = ~Die Verhüllten Magier sind die offizielle Organisation Amnischer Zauberer, wie Ihr wohl wisst. Sie sind mächtig... sehr mächtig.~
 @12   = ~Ich sage das nur, weil es für mich ebenfalls von Interesse ist. Dabei zu helfen, die Probleme in der Mine zu klären würde uns sicher Pluspunkte bei den Verhüllten Magiern geben. Pluspunkte bei denen sind immer gut.~
@@ -464,6 +464,31 @@
 @460  = ~Hm.~
 @461  = ~Was auch immer es ist, ich werde Euch nicht im Stich lassen, <CHARNAME>. Ich bin nicht der mutigste, aber ich habe Euch mein Wort gegeben, dass ich an Eurer Seite kämpfe, und dazu stehe ich!~
 @462  = ~Ich war einst versucht, magische Kräfte zu entfesseln, denen ich nicht gewachsen gewesen wäre...~
+@463  = ~(Brandock rudert mit den Armen.) Dieser Mann hat uns *angegriffen*! In diesem Schankraum! Und *niemand* kümmert es! Ich glaube, ich könnte einen Trunk vertragen. Wenn ich denn trinken würde. Met, meine ich. (seufz)~
+
+/* new for vbeta 4 */
+@464  = ~Oha, das klingt gar nicht gut. Ich vermute wir gehen da jetzt trotzdem rein, oder?~
+@465  = ~Das war höchstwahrscheinlich eine gute Wahl... Obwohl ich zugeben muss, dass es mich zumindest interessiert hätte, von was für einer Art von Experiment er sprach.~
+@466  = ~Unvernunft und Unwissen, das ist es, was alle wählen.~
+@467  = ~Wartet! Ist das alles, was Euch dazu einfällt? Ihr habt diese Grünschleime erschaffen, und nun überlasst Ihr es uns, sie zu bekämpfen?!~
+@468  = ~Nun... ich habe keine Zeit! Ich muss los und die Beschwörung überarbeiten.~
+@469  = ~Ich würde mein Buch lieber selbst tragen, <CHARNAME>.~
+@470  = ~Ich habe nichts dagegen, dass <PLAYER2> das Gewicht trägt, aber bitte stellt sicher, das das Buch wieder bei mir ist, bevor <PLAYER2> eigene Wege geht.~
+@471  = ~Ich habe nichts dagegen, dass <PLAYER3> das Gewicht trägt, aber bitte stellt sicher, das das Buch wieder bei mir ist, bevor <PLAYER3> eigene Wege geht.~
+@472  = ~Ich habe nichts dagegen, dass <PLAYER4> das Gewicht trägt, aber bitte stellt sicher, das das Buch wieder bei mir ist, bevor <PLAYER4> eigene Wege geht.~
+@473  = ~Ich habe nichts dagegen, dass <PLAYER5> das Gewicht trägt, aber bitte stellt sicher, das das Buch wieder bei mir ist, bevor <PLAYER5> eigene Wege geht.~
+@474  = ~Ich habe nichts dagegen, dass <PLAYER6> das Gewicht trägt, aber bitte stellt sicher, das das Buch wieder bei mir ist, bevor <PLAYER6> eigene Wege geht.~
+@475  = ~Die Ruinen der alten Schule von Ulcaster! Ah, wenn ich mir das vorstelle, wie das früher gewesen sein muss, als es hier noch voller Leben war, und Weisheit, und magische Bücher, und Studenten, die ihre Zaubersprüche ausprobierten... (seufz) Trotzdem, es ist schön, an diesem Ort zu sein, auch wenn es nur noch eine Ruine ist.~
+@476  = ~Wahnsinn, es gibt hier sogar noch lesbare Bücher! Obgleich dieses hier eher profaner Natur ist. Was wohl auch der Grund ist, warum es noch hier ist, wenn ich mir das recht überlege.~
+@477  = ~Dieses alte Buch könnte aber reichen, damit Meister Ulcaster seinen Frieden findet! Wir sollten es ihm auf alle Fälle bringen.~
+@478  = ~Es gibt hier auch noch ein paar andere lesbare Schnipsel, die ich durchaus interesant finde. Jedoch, so alles in allem... ist dieser Ort eher etwas für das Studium der humanoiden Anatomie, in allen Formen und... Stadien... und ich fänd's toll, wenn wir hier bald wieder rausgehen würden.~
+@479  = ~Meister... Meister Ulcaster? *Der* Meister Ulcaster sucht die ehemaligen Schulgründe heim? Das nenn' ich mal Pflichtgefühl.~
+@480  = ~Meister Ulcaster möchte ein Buch aus der alten Schule, glaube ich. Oh, das sollten wir ihm wirklich geben, <CHARNAME>. Der Anblick bricht mir das Herz!~
+@481  = ~Ruhet in Frieden, Meister Ulcaster. Und habt keine Sorge, auch wenn diese Schule vergangen ist, so gibt es noch immer andere, in der gelehrt und gelernt wird, mit Schülern, die begierig sind, ihr Wissen zu vergrößern! Oh, ich fürchte wirklich, dass ich eines Tages auch so die Gegend unsicher machen könnte, <CHARNAME>, auf der Suche nach meinen Büchern... Meine Bücher, wo sind meine Bücher... (ähem) Ja, klingt nach mir.~
+/* #18300 in BG:EE */
+@482  = ~... werden wir alle noch einmal leben ... eines Tages ...~
+
+
 
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal wäre Euer Vater, Ihr wurdet von einem Gott gezeugt? Der mittlerweile tot ist, sollte ich dazu sagen. Gehe ich richtig in der Annahme, dass Ihr das selbst nicht wusstet?~ [c#ablank]
@@ -517,7 +542,7 @@
 @753  = ~Oh, das ist ja ein wahres Unglück. Das arme Buch! Füchse, sagt Ihr? (Murmelt vor sich hin) Ich sollte mit Tethtoril noch einmal die Schutzzauber diskutieren... (Räuspert sich) Und nun wollt Ihr daran arbeiten, das Buch wieder herzustellen, vermute ich?~
 @754  = ~Äh, ja! Genau das war meine Hoffnung, dass Ihr mir dabei helfen wollt - beziehungsweise, dass Ihr mich dabei helfen lasst, sollte ich wohl besser sagen... Meister Elfenhaar, ich kann gar nicht in Worte fassen, wie sehr es mich mit Dankbarkeit erfüllt, dass Ihr das ganze als "wahres Unglück" bezeichnet und nichts weiter! An Eurer Stelle hätte ich ganz andere Worte gewählt... Ich komme nicht mit komplett leeren Händen zu Euch, Meister Elfenhaar. Seht hier, dieses Siegel hätte mir einen Studienaufenthalt in Kerzenburg ermöglicht, wäre das Buch noch intakt.~
 @755  = ~Ein Siegel aus Alisarhold, unterzeichnet von Purgan aus Riatavin! Junger Freund, wenn Purgan aus der Bibliothek Alisarhold Euch für würdig befunden hat, in Kerzenburg zu studieren, dann ist das genug Referenz für mich, um Euch mit der Restauration des Buches zu helfen. Dankt mir noch nicht. Erst müsst Ihr ein paar Zutaten besorgen, bevor wir uns mit den Buchseiten befassen. Wir brauchen das folgende: ein Trank der Restauration, die Tinte eines Oktopus - diese kann man meist bei Fischern an der Küste kaufen, aber es ist in der Regel recht teuer. Einen Oktopus für die magische Tinte zu melken ist jedoch eine Erfahrung, die jeder Magier einmal in seinem Leben selbst gemacht haben sollte, danach wertschätzt man sie ungleich höher - und einen Sternensaphir.~
-@756  = ~Wenn Ihr alles zusammen habt, werden wir als erstes die Buchseiten stabilisieren, so dass sie vor weiterem Verfall geschützt sind. Danach werden wir daran arbeiten, wieder ein Buch voller Zauber daraus zu machen. Ich habe viele Verpflichtungen, die meine Zeit in Anspruch nehmen. Aber Ihr seid ja nun mit <CHARNAME> unterwegs, wenn ich es richtig verstanden habe, von daher wird es ausreichen, wenn wir uns hin und wieder treffen, hm? Dies ist nichts, was man in einem Zehntag erledigen kann. Ihr werdet mit dieser Aufgabe die nächsten Jahre beschäftigt sein, mein junger Freund, und auch lange nachdem ich Euch alles gezeigt habe, was ich Euch dazu lehren kann weiter daran arbeiten.~
+@756  = ~Wenn Ihr alles zusammen habt, werden wir als erstes die Buchseiten stabilisieren, so dass sie vor weiterem Verfall geschützt sind. Danach werdet Ihr ein paar Schriftrollen schreiben, so dass ich sehen kann, wie weit Eure Fähigkeiten sind. Dann werden wir daran arbeiten, wieder ein Buch voller Zauber zu machen. Ich habe viele Verpflichtungen, die meine Zeit in Anspruch nehmen. Aber Ihr seid ja nun mit <CHARNAME> unterwegs, wenn ich es richtig verstanden habe, von daher wird es ausreichen, wenn wir uns hin und wieder treffen, hm? Dies ist nichts, was man in einem Zehntag erledigen kann. Ihr werdet mit dieser Aufgabe die nächsten Jahre beschäftigt sein, mein junger Freund, und auch lange nachdem ich Euch alles gezeigt habe, was ich Euch dazu lehren kann weiter daran arbeiten.~
 @757  = ~Danke... ich danke Euch, Meister Elfenhaar.~
 @758  = ~Was... was ist gerade passiert? Warum ist das jetzt ein gebundenes Buch? Wo kommt das Buch her?~ [c#ablank]
 @759  = ~Oh, das hatte ich nicht erwartet. Hm... Allem Anschein nach haben die Erschaffer dieses Buches einen Zauber für eine Notfallrestauration eingearbeitet - das zerstörte Buch hat unseren Versuch der Stabilisierung verwendet, um sich in ein Buch zurückzuverwandeln. Aber, da es stark beschädigt wurde, bleiben die Zauber vorerst versteckt. Zumindest *vermute* ich, dass das das ist, was die ersten Seiten erläutern, aber mein Ruathlek ist nicht mehr das flüssigste. Um das korrekt zu übersetzen bräuchte ich meine Übersetzungstafeln, und diese befinden sich in Kerzenburg.~
@@ -712,6 +737,28 @@
 @948  = ~Ja, bitte zeigt uns was Ihr habt.~
 @949  = ~Nein, danke.~
 @950  = ~Ich wünsche Euch einen schönen Tag.~
+
+/* new for vbeta 4 */
+@951  = ~Jetzt, wo Sarevok tot ist und so... Ich kann mir nicht mal ansatzweise vorstellen, was das bedeutet. Die Spannungen zwischen Amn und der Schwertküste sollten hoffentlich abnehmen, und es sollte wieder richtiges Eisen erhältlich sein. Und Ihr habt nun hoffentlich eine Chance, zur Ruhe zu kommen, hoffe ich.~
+@952  = ~Absolut. Ich fühle mich schon viel wohler.~
+@953  = ~Ich habe noch nicht ganz begriffen, dass die Bedrohung durch Sarevok nun vorbei ist.~
+@954  = ~Ich werde nicht zur Ruhe kommen. Es gibt immer etwas zu tun.~
+@955  = ~Ruhe? Mit dem Wissen, wer mein richtiger Vater war? Pffft.~
+@956  = ~Was auch immer, Brandock.~
+@957  = ~Ich meinte Ruhe vor allem, was nun keine Bedrohung mehr darstellt. Das kann Euch keiner nehmen... Hoffe ich zumindest.~
+@958  = ~Ja, das kann ich mir vorstellen. Ein Ziel zu haben und so lange danach zu streben - und plötzlich ist es geschafft, und man braucht Zeit, um sich auf die neue Situation einzustellen.~
+@959  = ~Nun... Ja, dieses Wissen wird Euch wohl noch eine Weile beschäftigen. Es tut mir Leid, <CHARNAME>.~
+@960  = ~Ds ist schön zu hören!~
+@961  = ~Was werdet Ihr also jetzt machen?~
+@962  = ~Nun, jetzt sofort sollten wir wohl in den Palast zurückkehren und den Herzögen Bericht erstatten. Was danach kommt, werden wir sehen.~
+@963  = ~Ich mache einfach weiter und lasse mich überraschen, was die Götter für mich vorgesehen haben.~
+@964  = ~Es gibt noch einige Angelegenheiten, die der Klärung bedürfen. Ich mache einfach weiter damit, mich um die ganzen Dinge zu kümmern, die wir auf dem Weg so eingesammelt haben.~
+@965  = ~Ich glaube es ist wirklich an der Zeit, dass wir uns eine nette Taverne suchen und den Abend blau machen. Wenn nicht jetzt, wann dann?~
+@966  = ~Ich habe das ungute Gefühl, dass es völlig egal ist, was ich mir vornehme, weil die Götter anderes für mich geplant haben.~
+@967  = ~(seufz) Ja, das Gefühl kann ich gut nachvollziehen. Trotzdem, wie wir die Zeit ausfüllen, die uns gewährt ist, bleibt unsere eigene Verantwortung.~
+@968  = ~Da habt Ihr Recht! Das Leben und seine Pflichten holen uns noch früh genug wieder ein.~
+@969  = ~Das klingt vernünftig.~
+@970  = ~Ich bleibe an Eurer Seite, bis wir all die unerledigten Dinge erledigt haben. Ich war bisher davon ausgegangen, dass ich an Eurer Seite bleibe, bis wir den Mörder von Gorion gefunden haben, aber jetzt Abschied zu nehmen würde sich nicht richtig anfühlen - vorausgesetzt natürlich Ihr wollt, dass ich bleibe. Ich brauche etwas Zeit, um zu realisieren, dass wir es geschafft haben... Und um den nötigen Mut aufzubringen, nach Hause zurückzukehren.~
 
 /* brandock_candlekeep.d */
 @1050 = ~Torwache, würdet Ihr einen Blick auf die Überbleibsel eines Buches werfen, die mein Kamerad hier bei sich hat. Es handelte sich um ein sehr wertvolles Buch, und einiges davon ist noch lesbar. Reicht das für den Einlass?~
@@ -952,7 +999,7 @@
 @1333 = ~Wunderbar! Dann lasst uns also gehen. Und <CHARNAME>: Außer wenn Ihr jetzt damit anfangt, Großmütterchen zu entführen und Welpen zu quälen werde ich ohne Unterbrechung an Eurer Seite bleiben, das verspreche ich!~
 
 /* brandock_lorepath.d */
-@1500 = ~Was war das für ein Wahnsinn? Ich werde zumindest in das Zauberbuch dieses Magiers schauen... damit wenigstens *etwas* sinnvolles auf diese... diese Meuchelei folgt.~ [c#ablank]
+@1500 = ~Was war das für ein Wahnsinn? Ich werde zumindest in das Zauberbuch dieses Magiers schauen.~ [c#ablank]
 @1501 = ~Darf ich mir das Buch mal genauer ansehen? Oh... ohja. Das ist... nichts, was ich selbst jemals verwenden werde, vielen Dank auch.~ [c#ablank]
 @1502 = ~Könnte ich mir Dradeels Zauberbuch genauer ansehen? Hm... Nein, ich denke nicht, dass ich wüsste, wie man das lesen soll. Es würde allerdings ein interessantes Studienobjekt sein. Äh, damit wollte ich nicht andeuten, dass das ein gerechtfertigter Grund wäre, es Dradeel vorzuenthalten. *So* interessant ist es dann auch wieder nicht.~ [c#ablank]
 @1503 = ~So vollkommen aus dem Nichts attakiert zu werden... Eigentlich sollte ich daran schon gewöhnt sein, oder? Lasst mich einen Blick in die Zauberbücher dieser Magier werfen. Sie waren recht mächtig...~ [c#ablank]
@@ -990,6 +1037,21 @@
 @1535 = ~Danke! Ich werde mich beeilen.~
 @1536 = ~Ich bin mir nicht sicher ob mir der Weg gefällt, auf dem wir es erhalten haben, aber das ist auf alle Fälle ein sehr interessantes Buch. Ich denke nicht, dass ich jemals ein Himmelsschiff werde bauen können, aber darüber zu lesen ist sehr spannend.~
 
+/* new for vbeta 4 */
+@1537 = ~Hm, das ist interessant zu lesen - Gedankenkontrolle von Schleimen... Aber nein, das sollten wir besser nicht verwenden. Nicht ohne nochmal *viel* Forschung hinein zu stecken, wozu mir ganz ehrlich das Interesse fehlt.~
+@1538 = ~Brrrr. "Skulpturen" aus vrsteinerten Leuten! Der Gnom wäre mal besser selbst nicht "vom Pfad abgekommen", dann hätten wir ihn nicht zu töten brauchen. Ah, mir Zauberbücher von solchen Magiern anzugucken schlägt mir immer etwas auf den Magen.~
+@1539 = ~Warum müssen uns die Leute immer angreifen? Na klasse, das Zauberbuch von dem hier ist nicht mehr brauchbar, es ist angesengt. Ich schau mal, ob ich die der anderen noch lesen kann.~
+
+
 /* c#brando_bg1end_bgt.d */
 @2000 = ~<CHARNAME>, ich denke dies ist ein passender Zeitpunkt, um Lebewohl zu sagen. Wir haben beide unsere Ziele erreicht. Sarevok ist aufgehalten, und ich habe eine Menge über die Anwendung von Magie gelernt... Ich hoffe Ihr könnt nachvollziehen, dass ich meinen eigenen Weg zurück nach Amn finden muss. Ich kann nicht als Abgesandter von Baldurs Tor dort auftreten - das werdet Ihr sicher verstehen.~
 @2001 = ~Passt auf Euch auf, <CHARNAME>. Da Euch Euer Pfad nun nach Amn führt, werden wir uns dort vielleicht sogar teffen? Wer weiß, vielleicht habe ich bis dahin sogar eine einflussreiche Stellung inne. Es ist immer gut, Freunde zu haben, wenn man in Amn ist. Seid vorsichtig da unten, ja?~
+
+/* new for vbeta 4 */
+/* .../add_taerom_vial.d */
+@2010 = ~Aber das... das ist ja großartig! Ich ziehe meinen Hut vor der Arbeit Eures Bekannten, Meister Taerom.~
+@2011 = ~Das ist es in der Tat, mein Freund.~
+
+/* .../add_thalantyr_vial.d */
+@2015 = ~Oh, das wäre in der Tat fantastisch! Eine Lösung für dieses verdammte brechende Eisen! Ich wünsche Euch den erhofften Erfolg bei diesem Unterfangen, Meister Thalantyr.~
+@2016 = ~Und ich werde damit sehr viel schneller fertig, wenn Ihr alle mich nun wieder in Ruhe lasst.~

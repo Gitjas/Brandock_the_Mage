@@ -48,11 +48,13 @@ END
 IF ~~ THEN farewell_sod
 SAY @12 /* ~I see. I'll return home, then. I wish you well, <CHARNAME>.~ */
 IF ~~ THEN DO ~
+SetInterrupt(FALSE)
 EraseJournalEntry(@10000)
 EraseJournalEntry(@10001)
 MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 SetGlobal("bd_joined","locals",0)
+SetInterrupt(TRUE)
 EscapeArea()~ EXIT
 END
 
@@ -155,7 +157,8 @@ END
 
 IF ~~ THEN follow_companion
 SAY @27 /* ~Sure! I'll fall in line at the back.~ */
-IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",2)
+IF ~~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#BrandockJoined","GLOBAL",2)
 EraseJournalEntry(@10015)
 EraseJournalEntry(@10018)
 MakeGlobal()
@@ -167,8 +170,10 @@ ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
+SetInterrupt(TRUE)
 ~ EXIT
-IF ~%BGT_VAR%~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",2)
+IF ~%BGT_VAR%~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#BrandockJoined","GLOBAL",2)
 EraseJournalEntry(@10001)
 MakeGlobal()
 ChangeEnemyAlly(Myself, FAMILIAR)
@@ -177,7 +182,8 @@ SetDialog("c#brandj")
 ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
-ChangeAIScript("",DEFAULT)~ EXIT
+ChangeAIScript("",DEFAULT)
+SetInterrupt(TRUE)~ EXIT
 END
 
 

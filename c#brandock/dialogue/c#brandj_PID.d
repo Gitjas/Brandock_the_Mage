@@ -10,8 +10,9 @@ SAY @0
 
 /* crossmod with bgqe: unbaked egg c#q04001.itm */
 
-+ ~HasItem("c#q04001",Myself) Global("C#Brandock_c#q04001PID","LOCALS",0)~ + @336 DO ~SetGlobal("C#Brandock_BhaalPID","LOCALS",1)~ + bgqe_nashkelmonster_egg
-
++ ~PartyHasItem("c#q04001") Global("C#Brandock_c#q04001PID","LOCALS",0)
+Global("c#q04_SpiderTimer","GLOBAL",0)
+Global("C#BR_C#Q04007_3","GLOBAL",0)~ + @336 DO ~SetGlobal("C#Brandock_BhaalPID","LOCALS",1)~ + bgqe_nashkelmonster_egg
 
 
 /* comments on game-related happenings */
@@ -1393,6 +1394,7 @@ IF ~~ THEN bgqe_nashkelmonster_egg
 SAY @337
 IF ~~ THEN EXIT
 END
+
 
 
 END //APPEND

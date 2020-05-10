@@ -432,14 +432,21 @@ I_C_T ~Bodhi~ 6 C#Brandock_Bodhi_6
 END
 
 I_C_T3 ~Bodhi~ 18 C#Brandock_Bodhi_18
-== ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I will not go with you on this path, <CHARNAME>... Something dark is radiating from this place, and you scare me. Farewell.~ DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1)
+== ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I will not go with you on this path, <CHARNAME>... Something dark is radiating from this place, and you scare me. Farewell.~ DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
-SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
-== ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I will not go with you on this path, <CHARNAME>... Something dark is radiating from this place, and you scare me. Farewell.~ DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1)
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~
+== ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I will not go with you on this path, <CHARNAME>... Something dark is radiating from this place, and you scare me. Farewell.~ DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL) 
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~
 END
 
 /* Bodhi: in case Aster offred her help before her, Brandock would comment the other way around */

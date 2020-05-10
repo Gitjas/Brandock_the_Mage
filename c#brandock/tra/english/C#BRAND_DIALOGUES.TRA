@@ -9,7 +9,7 @@
 @6    = ~<CHARNAME>, those might be only snippets and pieces but the remains of that book really mean a lot to me. We need to go back and collect them as soon as possible.~
 @7    = ~<CHARNAME>, that book really means a lot to me. We need to go back and collect it as soon as possible.~
 @8    = ~<CHARNAME>, I asked you to return so we could collect my book. This did not happen so I'll have to go searching for it myself. Farewell.~
-@9    = ~To be on look-out for an assassination victim in a tavern is understandable. But to *attack* inside the tavern surely speaks of a high self opinion concerning your fighting prowess. (waves his arms) That man *attacked* us inside a tavern! And *no one* cares! I think I could use a drink. If only I would. Drink, I mean. (sigh).~ [c#ablank]
+@9    = ~To be on look-out for an assassination victim in a tavern is understandable. But to *attack* inside the tavern surely speaks of a high self opinion concerning your fighting prowess.~ [c#ablank]
 @10   = ~Hm, Nashkel is Amnish soil, <CHARNAME>. Having trouble in the mine - magic trouble, as it seems, surely is of high interest to the Cowled Wizards.~ [c#ablank]
 @11   = ~The Cowled Wizards are the official organization of Amnish mages, as you probably know. They are very powerful... very powerful.~
 @12   = ~I'm just saying... This would be of interest to me, too. Helping to clear the mines surely will give us bonus points with the Cowled Wizards. Bonus points with them are always good.~
@@ -464,6 +464,30 @@
 @460  = ~Hm.~
 @461  = ~Whatever it will turn out to be, I will not shy away from this, <CHARNAME>. I am not the bravest, but I told you I'd stand with you, and I will keep my word!~
 @462  = ~I was temped once by magic whose power I would not have been able to control.~
+@463  = ~(waves his arms) That man *attacked* us inside a tavern! And *no one* cares! I think I could use a drink. If only I would. Drink, I mean. (sigh).~ 
+
+/* new for vbeta 4 */
+@464  = ~Uh-oh, that doesn't sound good. But I guess we won't turn around now, will we?~
+@465  = ~That was probably a good choice... Although I do admit I would have been tempted to know what the experiment was about.~
+@466  = ~Ignorance and folly, that's what they always chose.~
+@467  = ~Wait! That's all you have to say to this? You created these green slimes and now you'll leave us to fight them?!~
+@468  = ~Well... No time - no time! I need to go and correct the formular.~
+@469  = ~I would prefer to carry my book myself, <CHARNAME>.~
+@470  = ~Not that I do not mind <PLAYER2> carrying the weight, but please make sure my book will be back with me before <PLAYER2> might go separate ways.~
+@471  = ~Not that I do not mind <PLAYER3> carrying the weight, but please make sure my book will be back with me before <PLAYER3> might go separate ways.~
+@472  = ~Not that I do not mind <PLAYER4> carrying the weight, but please make sure my book will be back with me before <PLAYER4> might go separate ways.~
+@473  = ~Not that I do not mind <PLAYER5> carrying the weight, but please make sure my book will be back with me before <PLAYER5> might go separate ways.~
+@474  = ~Not that I do not mind <PLAYER6> carrying the weight, but please make sure my book will be back with me before <PLAYER6> might go separate ways.~
+@475  = ~The remains of Ulcaster School! Ah, if I imagine how it must have been here when life was still bustling - with wisdom, and magic books, and students practicing magic... (sigh) Still, it's great to visit this place, even though it's only a ruin nowadays.~
+@476  = ~Wow, there is even readable books here still, although this one is rather profane. Well, I guess that's the reason it is stil here, now that I think of it.~
+@477  = ~This book could be enough to give peace to Master Ulcaster, though. We should definitely take this to him.~
+@478  = ~There is some other snippets and book pieces here that I can make use of, but... all in all, this place is far better suited to study the humanoid anatomy in all various forms and... stages and... I'd be very grateful if we'd leave this place again, soon.~
+@479  = ~Master... Master Ulcaster? *The* Master Ulcaster is roaming the old school grounds? Gosh. Talk about feelings of obligation.~
+@480  = ~Master Ulcaster wants us to give im a book from the old school, I think. Oh, we *so* should do this, <CHARNAME>. The sight breaks my heart.~
+@481  = ~Rest in peace, Master Ulcaster. And do not worry. Even if this school is lost, there are others, and there are still students, ready and eager to learn! Oh, I really think this could be me someday, <CHARNAME>. Haunting the grounds and looking for my books. My books... where are my books... (ahem) Yep, sounds like me.~
+/* #18300 in BG:EE */
+@482  = ~... we all shall live again... someday...~
+
 
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal would be your father, you would be sired by a god? Which is now dead, I might add. You didn't know this, I take it?~ [c#ablank]
@@ -517,7 +541,7 @@
 @753  = ~Oh, this is very unfortunate. The poor book! Foxes, you say? (murmurs) I think I should talk to Tethtoril about extending the protection spells... (clears his throat) So you want to work on restoring this, I figure?~
 @754  = ~Er, yes, it was my hope you would help me with it... or let me help you with it, to be more precise... Master Elvenhair, I cannot say how grateful I am that you call this whole incident "unfortunate" and nothing else! Would I be you, I'd call it by much more drastic words, I can tell you that. I... I do not come to you with such a request without any proof of my abilities, Master Elvenhair. See this seal - it would have granted me access to Candlekeep as a seeker, had I the book still with me.~
 @755  = ~A seal from Purgan from Riatavin, signed with the signet of Alisarhold! Young friend, if Purgan from Alisarhold thought you ready and worthy to find entrance to Candlekeep, then this is enough for me to help you with your studies. Do not thank me too soon, young friend. I have some requirements for you to fulfill before we start working on the book snippets. I want you to collect the following items: a potion of restoration, ink of an octopus - you usually can buy this from fishermen as they know mages need it occasionally, but it is expensive. Milking an octopus will do just as well, and if you ever went through the hassle of retrieving ink from an octopus yourself you will value the ink more I can tell you - and a Star Sapphire.~
-@756  = ~Once you retrieved all the ingredients we will first stabilize the book pages. After that, we will work on restoring the book. My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for the next years, my young friend, and you will go on working on it after I'll show you everything you need to know to work on it.~
+@756  = ~Once you retrieved all the ingredients we will first stabilize the book pages, then you will write a few scrolls with one or two recipes you remember so I can see your level of knowledge in this regard. After that, we will work on restoring the book. My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for the next years, my young friend, and you will go on working on it after I'll show you everything you need to know to work on it.~
 @757  = ~Thank you... thank you, Master Elvenhair.~
 @758  = ~What... what just happened? Why is this a book now? Where does this book come from?~ [c#ablank]
 @759  = ~Oh, I didn't expect this to happen. Hm... Seems the creator of this book included a saftey restoration - the destroyed book used our restoration attempts and transformed back into a book. But, since it was heavily damaged, it keeps its spells secret for now. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my translation tables, which are in Candlekeep.~
@@ -712,6 +736,28 @@
 @948  = ~Yes, please show us your wares.~
 @949  = ~No, thank you.~
 @950  = ~Have a good day then.~
+
+/* new for vbeta 4 */
+@951  = ~Now with Sarevok dead and all... Wow, I can't even start to realize what this means. Tension between Amn and the Sword Coast should decrease, hopefully, and there should be proper iron around again. And you will get a chance to come to peace, I hope.~
+@952  = ~Definitely. I feel much more at ease already.~
+@953  = ~I didn't fully grab that the threat from Sarevok is gone yet.~
+@954  = ~There is no peace for me. There will be always something to do.~
+@955  = ~Peace? With the knowledge of who my real father was? Pffft.~
+@956  = ~Whatever, Brandock.~
+@957  = ~What I meant was peace from the things that are settled now... Noone can take those away from you. I hope.~
+@958  = ~Yes, I can imagine. To have a goal and to strive for it for so long, and then it's done and one needs time to readjust to the new situation.~
+@959  = ~Well... Yes, I agree that this knowledge will keep you occupied. I am sorry, <CHARNAME>.~
+@960  = ~That is great to hear!~
+@961  = ~So, what will you do now?~
+@962  = ~Well, right now we should return to the Palace and report back to the Dukes, I guess. After that - we will see.~
+@963  = ~I'll just go on and see what the gods might have in stock for me.~
+@964  = ~There are still some things that need our attention. I'll just continue with all the tasks we collected along the way.~
+@965  = ~I think it's about time we'll go into a nice inn and take the evening off. If not now, then when else?~
+@966  = ~I have the uneasy feeling that my plans do not matter, because the gods will have their own plans for me.~
+@967  = ~(sigh) Yes, I can relate to that feeling, actually. But still, it's our responsibility to shape the time that is given to us.~
+@968  = ~Right you are! Life and its duties will catch up with us soon enough.~
+@969  = ~That sounds reasonable.~
+@970  = ~I will remain at your side until we finished all the lose ends and bits. I always thought I'd remain with you until we found the murderer of Gorion, but parting now would not feel right - if you want me to stay, that is. I need some time to realize it's done... And to collect the needed courage to return home.~
 
 /* brandock_candlekeep.d */
 @1050 = ~Gatewarden, would you have a look at the book remains my friend carries. It was a very valuable book, and a lot of it is readable still. Would this suffice to get entrance?~
@@ -952,7 +998,7 @@
 @1333 = ~Great! Then let's go. And <CHARNAME>: unless you start kidnapping grannies or torturing puppies, I'll be on your side with no further interruptions. You have my word for that.~
 
 /* brandock_lorepath.d */
-@1500 = ~What kind of madness was that? I will have a look at this mage's spellbook, so at least *something* good comes out of this... this needless slaughter.~ [c#ablank]
+@1500 = ~What kind of madness was that? I will have a look at this mage's spellbook.~ [c#ablank]
 @1501 = ~Could I have a look at that book? Oh... oh, yes. This is... nothing I will make use of myself, thank you very much.~ [c#ablank]
 @1502 = ~Could I have a look at Dradeel's spell book? Hm... No, I do not think I have an idea how to read this. It would make an interesting object for study, though. Er, I did not intend to suggest that this would be a valid reason to keep it from the poor man. It's not *that* interesting.~ [c#ablank]
 @1503 = ~To be attacked out of the blue... I should be used to it by now, shouldn't I? Let me have a look into those mages' spellbooks. They were quite powerful...~ [c#ablank]
@@ -990,6 +1036,21 @@
 @1535 = ~Thank you! I'll try to be quick.~
 @1536 = ~I'm not sure I like the fact how we retrieved it, but this is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most interesting.~
 
+/* new for vbeta 4 */
+@1537 = ~Hm, that's an interesting read - mind controlling slimes... But no, I don't think we should try to use this. Not with a *lot* of more testing - which I lack the interest in.~
+@1538 = ~Brrrr. "Sculptures" out of petrified people. Well, I guess that gnome better would have stayed "on the roads" himself, then we wouldn't have had to kill him. Ah, looking at spellbooks from people like him make me a little sick sometimes, I have to admit.~
+@1539 = ~Why do people always have to attack us? Great, this one's spell book is no longer useful, it's singed. I'll see whether the other ones are still readable.~ 
+
+
 /* c#brando_bg1end_bgt.d */
 @2000 = ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... Please understand that I need to take my way back to Amn on my own. I cannot return as a representative of Baldur's Gate authorities - I am sure you understand.~
 @2001 = ~Take care, <CHARNAME>. Seeing how your path guides you to Amn, I am sure we will meet there? Who knows, maybe I'll have an influencial position when next we meet - it's always good to have friends, if you are in Amn. Take care down there, will you?~
+
+/* new for vbeta 4 */
+/* .../add_taerom_vial.d */
+@2010 = ~But that... that is fantastic news! I am deeply impressed by your friend's knowledge, Master Taerom.~
+@2011 = ~It is indeed, young man.~
+
+/* .../add_thalantyr_vial.d */
+@2015 = ~Oh, that would be fantastic indeed! A solution to this cursed breaking iron! I wish you all the success you need, Master Thalantyr.~
+@2016 = ~And I will be quicker the sooner you all leave me to my work.~

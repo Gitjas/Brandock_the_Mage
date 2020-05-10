@@ -63,6 +63,10 @@ IF ~Global("C#Br_BookRestore","GLOBAL",5)~ THEN c#brandj bookrestore
 == c#brandj @760
 == FIREBE @761
 = @762
+/*
+== FIREBE IF ~!Dead("Sarevok")~ THEN ~Still, I would like to hold on to our plan on writing some scrolls together, as I do think this exercise will serve you well, just in case. But scroll scribing is a matter of utmost calmness and inner peace. Go and finish whatever you are doing with <CHARNAME>. When you have finished, return to me and I will teach you what you need to know about scroll scribing.~ DO ~AddJournalEntry(@10050,QUEST)~
+== FIREBE IF ~Dead("Sarevok")~ THEN ~Still, I would like to hold on to our plan on writing some scrolls together, as I do think this exercise will serve you well, just in case. Return to me when you have the calm needed for it and I will teach you what you need to know about scroll scribing.~ DO ~AddJournalEntry(@10016,QUEST)~
+*/
 == c#brandj @763
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10026)
@@ -75,8 +79,7 @@ APPEND c#brandj
 
 IF ~Global("C#Brandock_AllIngredientsBG1","GLOBAL",1)~ THEN all_ingredients
 SAY @764
-IF ~~ THEN DO ~EraseJournalEntry(@10022) 
-SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10026 EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10026 EXIT
 END
 
 
@@ -177,6 +180,9 @@ END
 IF ~~ THEN transformed_book_10
 SAY @796
 IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ EXIT
+/*
+IF ~Dead("Sarevok")~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ + scrollscribing_start
+*/
 END
 
 IF ~~ THEN transformed_book_11
@@ -668,10 +674,90 @@ SAY @947
 ++ @949 + fisherman_01
 END
 
-IF ~~THEN fisherman_01
+IF ~~ THEN fisherman_01
 SAY @950
 IF ~~ THEN EXIT
 END
 
 
+APPEND c#brandj
 
+
+/* Sarevok dead, after leaving the ThievesGuild */
+/* Sarevok is dead: Brandock suggests to return to Elvenhair */
+
+IF ~Global("C#Brando_BG1SarevokDeadTalk","GLOBAL",1)~ THEN after_sarevok
+SAY @951 
+++ @952 + after_sarevok_04
+++ @953 + after_sarevok_02
+++ @954 + after_sarevok_01
+++ @955 + after_sarevok_03
+++ @956 + after_sarevok_05
+END
+
+IF ~~ THEN after_sarevok_01
+SAY @957
+IF ~~ THEN + after_sarevok_05
+END
+
+IF ~~ THEN after_sarevok_02
+SAY @958
+IF ~~ THEN + after_sarevok_05
+END
+
+IF ~~ THEN after_sarevok_03
+SAY @959
+IF ~~ THEN + after_sarevok_01
+END
+
+IF ~~ THEN after_sarevok_04
+SAY @960
+IF ~~ THEN + after_sarevok_05
+END
+
+IF ~~ THEN after_sarevok_05
+SAY @961
++ ~Global("C#EndlessBG1","GLOBAL",1) Global("C#st_HeroOfBG","GLOBAL",0)~ + @962 + after_sarevok_08
+++ @963 + after_sarevok_08
+++ @964 + after_sarevok_08
+++ @965 + after_sarevok_07
+++ @966 + after_sarevok_06
+END
+
+IF ~~ THEN after_sarevok_06
+SAY @967
+IF ~~ THEN + after_sarevok_09
+END
+
+IF ~~ THEN after_sarevok_07
+SAY @968
+IF ~~ THEN + after_sarevok_09
+END
+
+IF ~~ THEN after_sarevok_08
+SAY @969
+IF ~~ THEN + after_sarevok_09
+END
+
+IF ~~ THEN after_sarevok_09
+SAY @970
+IF ~~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",2)~ EXIT
+/*
+IF ~GlobalGT("C#Br_BookRestore","GLOBAL",7)~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",2)~ + scrollscribing_start
+*/
+END
+
+
+/*
+/* Elvenhair teaches Brandock how to write scrolls */
+
+
+/* GlobalGT("C#Br_BookRestore","GLOBAL",7) */
+IF ~~ THEN scrollscribing_start
+SAY ~Oh, and I am ready to return to Elvenhair to practice scroll scribing - or should I say learn how to do it without setting anything on fire and die of nervousness.~ 
+IF ~~ THEN DO ~EraseJournalEntry(@10050) EraseJournalEntry(@10016) AddJournalEntry(@10012,QUEST)
+SetGlobal("C#Brando_BG1ScrollScribing","GLOBAL",1)~ EXIT
+END
+*/
+
+END //APPEND

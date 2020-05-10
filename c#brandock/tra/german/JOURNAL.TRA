@@ -17,7 +17,7 @@ Ich habe die Stiefel von Herrn Travenhurst in einer Fuchshöhle nahe Beregost gef
 
 Brandock hat versucht Melicamp dem Hühnchen zu helfen, und das ist gehörig schief gelaufen. Die von Melicamp verwendete Magie scheint sehr mächtig zu sein. Ich wurde Zeuge, wie sich Brandock in einen Halboger verwandelt hat. Oder besser gesagt, wie er den Körper mit einem getauscht hat. Was auch immer genau geschehen ist, sie sind beide zu dem in der Nähe ansässigen Magier Thalantyr gegangen, um Hilfe zu holen. Ich sollte da vermutlich auch hingehen.~
 @10006  = ~Brandocks Besitztümer~
-//@10007  = ~~
+@10007  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen~
 @10008  = ~Brandock der Halboger
 
 Dank Thalantyr hat Brandock nun seinen eigenen Körper wieder.~
@@ -28,7 +28,9 @@ Brandock hat seine fehlenden Besitztümer gefunden - oder besser gesagt, was davo
 @10011  = ~Ein feines Paar Stiefel
 
 Ich habe das Paar Stiefel beim Travenhurster Herrenhaus abgegeben. Der Diener war angetan davon, dass sie in relativ gutem Zustand sind.~
-//@10012  = ~~
+@10012  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
+
+Brandock ist bereit, zu Elfenhaar in Beregost zu gehen und das Schreiben von Schriftrollen zu üben.~
 @10013  = ~Ein feines Paar Stiefel~
 
 @10014  = ~Brandock in den Slums
@@ -39,8 +41,9 @@ Ich habe Brandock getroffen, er befindet sich in dem Haus seines Großcousins. Es
 
 Wenn ich Brandock suche, dann finde ich ihn in dem Haus seines Großcousins. Es befindet sich nahe der großen Sphäre in den Slums.~
 
+@10016  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
 
-//@10016  = ~~
+Elfenhaar hat Brandock angeboten, mit ihm das Schreiben von magischen Schriftrollen zu üben. Wir sollten zu Elfenhaar zurückkehren, wenn Brandock die Ruhe dazu hat.~ 
 
 @10017  = ~Brandock möchte sein Buch Restaurieren~
 
@@ -91,7 +94,7 @@ Brandock hat seine Sagenkunde erhöht, indem er die Geschichte der Schriftrollen 
 Brandock hat durch das Studium von Baldurans Logbuch seine Sagenkunde erhöht.~
 @10033  = ~Brandock erhöht seine Sagenkunde
 
-Brandock hat das Zauberbuch des Magiers studiert, der die Frau in einem Zelt auf dem Nashkellner Karneval getötet hat, und damit seine Sagenkunde erhöht.~
+Brandock hat das Zauberbuch des Magiers aus dem Zelt auf dem Nashkellner Karneval studiert und damit seine Sagenkunde erhöht.~
 @10034  = ~Brandock erhöht seine Sagenkunde
 
 Brandock erhöhte seine Sagenkunde durch das Studium von Yagos Buch der Flüche.~
@@ -131,6 +134,23 @@ Brandock wurde mit mir zusammen aus Kerzenburg verbannt... Wir werden sehen, wan
 @10045  = ~Brandock erhöht seine Sagenkunde
 
 Brandock studierte ein Zauberbuch mit Hinweisen zum Bauen eines Halruaanschen Himmelsschiff und erhöhte dadurch seine Sagenkunde.~
+
+/* new in vbeta_4 */
+@10046  = ~Brandock erhöht seine Sagenkunde
+
+Brandock studierte ein Zauberbuch eines Magiers den wir in der Wildnis trafen und damit experimentiert, Schleime zu kontrollieren und erhöhte dadurch seine Sagenkunde.~
+@10047  = ~Brandock erhöht seine Sagenkunde
+
+Brandock studierte ein Zauberbuch eines Magiers der uns mit Basilisken bedrohte und erhöhte dadurch seine Sagenkunde.~
+@10048  = ~Brandock erhöht seine Sagenkunde
+
+Brandock studierte die Zauberbücher Roter Magier, die uns in dr Wildnis angriffen und erhöhte dadurch seine Sagenkunde.~
+@10049  = ~Brandock erhöht seine Sagenkunde
+
+Brandock hat ein paar alte Buchseiten in den Ruinen der Ulcasterschule gelesen und dadurch seine Sagenkunde erhöht.~
+@10050  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
+
+Elfenhaar hat Brandock angeboten, mit ihm das Schreiben von magischen Schriftrollen zu üben. Sobald wir Gorions Mörder gestellt haben, sollten wir noch einmal zu Alfenhaar nach Beregost zurückkehren.~
 
 /* Epilogue(s) */
 

@@ -77,7 +77,10 @@ THEN
 	  SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
 
 /* possessions quest */
-	  SetGlobal("C#Brandock_Possessions","GLOBAL",20)
+	  SetGlobal("C#Brandock_Possessions","GLOBAL",20) 
+
+/* book restore quest */
+		SetGlobal("C#Br_BookRestore","GLOBAL",10)
 /* ##
 /* find Brandock's first tutor quest */
 	  ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
@@ -87,5 +90,5 @@ THEN
 		SmallWait(1)
 	  GiveItemCreate("POTN52","C#Brandock",5,0,0)
 	  GiveItemCreate("c#br0003","C#Brandock",0,0,0)
-	  GiveItemCreate("c#br0001","C#Brandock",0,0,0)
+	  GiveItemCreate("c#br0007","C#Brandock",0,0,0)
 END

@@ -13,7 +13,10 @@ IF
 	!Detect([EVILBUTBLUE])
 	CombatCounter(0)
 	Global("C#Brandock_Possessions","GLOBAL",16)
-	GlobalGT("C#Brandock_Davaeorn","GLOBAL",1)// random variable just to make sure some time has passed
+	GlobalGT("Chapter","GLOBAL",%tutu_chapter_5%)// random variable just to make sure some time has passed
+	OR(2)
+		AreaType(OUTDOOR)	
+		AreaType(FOREST)
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_Possessions","GLOBAL",17)

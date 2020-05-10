@@ -43,7 +43,7 @@ END
 CHAIN 
 IF ~Global("C#Brando_SoDKorlaszDefeated","GLOBAL",1)~ THEN c#brandj korlasz_defeated
 ~We did it! We ended the bandit threat, the threat of war, and did all the cleanup, too. That should be impressive even for Amnish authorities, don't you think?~ [c#ablank]
-== c#brandj IF ~PartyHasItem("C#BR0007")~ THEN ~Well, I guess I will start searching for Ruathlek translation tables soon, maybe go and talk to Elvenhair again. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
+== c#brandj IF ~PartyHasItem("C#BR0007")~ THEN ~Well, I guess I will start searching for Ruathlek translation tables soon, and definitely go and talk to Elvenhair again. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
 == c#brandj IF ~PartyHasItem("C#BR0001")~ THEN ~Well, I guess I will start writing down what I remember of that book now. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
 END
 IF ~~ THEN DO ~SetGlobal("C#Brando_SoDKorlaszDefeated","GLOBAL",2)~ EXIT
@@ -101,7 +101,7 @@ SAY ~<CHARNAME>! <CHARNAME>!! Oh, thank the gods, you heard me. It is so good to
 END
 
 IF ~~ THEN sod_meeting_01
-SAY ~I was in Beregost, continuing my work on rebuilding the De Simplex Magicae - but then ongoings caught up with me. Look at all these people! Look at all these frightened people.~
+SAY ~After some time on studying the remains of the De Simplex Magicae and dawdling away time at the Sorcerous Sundries, ongoings caught up with me. Look at all these people! Look at all these frightened people.~
 = ~I thought - maybe you would like me to join you again? Ah, I need to be honest. *I* would like to accompany you again. Life seems far easier when I am travelling with you.~
 ++ ~I've agreed to take forces against this Caelar and her crusade, Brandock.~ + sod_meeting_05
 ++ ~I have no use for a mage I'd need to babysit, thank you.~ + sod_meeting_06
@@ -114,11 +114,14 @@ END
 
 IF ~~ THEN sod_meeting_04
 SAY ~Oh, thank you. Thank you! I'll try to be of use.~
-IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",8)
+IF ~~ THEN DO ~SetInterrupt(FALSE)
+EraseJournalEntry(@10016)
+SetGlobal("C#BrandockSpawn","GLOBAL",8)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
 SetGlobal("C#Brandock_Dialog","GLOBAL",101)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",180)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
+SetInterrupt(TRUE)
 JoinParty()~ EXIT
 END
 
@@ -131,13 +134,14 @@ END
 
 IF ~~ THEN sod_meeting_06
 SAY ~Oh, this is too bad... Farewell, then.~
-IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",0)
+IF ~~ THEN DO ~EraseJournalEntry(@10016)
+SetGlobal("C#BrandockJoined","GLOBAL",0)
 EscapeArea()~ EXIT
 END
 
 IF ~~ THEN sod_meeting_08
 SAY ~Yes! I will do that. I'll follow anywhere you'll go, ready in case you need me. Thank you, <CHARNAME>!~
-IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",7)~ EXIT
+IF ~~ THEN DO ~EraseJournalEntry(@10016) SetGlobal("C#BrandockSpawn","GLOBAL",7)~ EXIT
 END
 
 IF ~Global("C#BrandockSpawn","GLOBAL",7)
@@ -283,21 +287,31 @@ IF ~Global("C#Brandock_SoDLuredStatues","GLOBAL",1)~ THEN lure_statues_03
 SAY ~What can I say - I am surprised I misjudged you so. Luring people to their stone deaths, lying to me... I'm not stupid, so I know I can't beat you even if I tried, and I'm not a paladin so I will not charge you for it and risk my life against all odds, but I will not be part of this any longer. Our ways part here, <CHARNAME>.~
 IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 InMyArea("C#Brandock")
-!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN DO ~MakeGlobal()
+!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
 ChangeAIScript("",DEFAULT)
 LeaveParty()
-EscapeArea()~ EXIT 
+EscapeArea() SetInterrupt(TRUE)~ EXIT 
 
 /* Brandock was 7th party member */
-IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN DO ~MakeGlobal()
+IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 ChangeAIScript("",DEFAULT)
 RemoveFamiliar()
 ChangeEnemyAlly(Myself,NEUTRAL)
-EscapeArea()~ EXIT
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~ EXIT
 END
 
 
@@ -320,13 +334,19 @@ SAY ~So, not only did you talk that madwoman into giving up on her 'art' project
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SoD_GotSCRLPET","GLOBAL",3)~ + teleri_defeated
 END
 
-/* PC defeated Teleri */
+END //APPEND
 
-IF ~Global("C#Brandock_SoDTeleriEnd","GLOBAL",1)~ THEN teleri_defeated
-SAY ~What a madwoman! At least the poor souls she petrified can be saved now.~ [c#ablank]
-IF ~Dead("BDTELERI")~ THEN DO ~SetGlobal("C#Brandock_SoDTeleriEnd","GLOBAL",2)~ + teleri_defeated_02
-IF ~!Dead("BDTELERI")~ THEN DO ~SetGlobal("C#Brandock_SoDTeleriEnd","GLOBAL",2)~ + teleri_defeated_01
+/* PC defeated Teleri */
+CHAIN
+IF ~Global("C#Brandock_SoDTeleriEnd","GLOBAL",1)~ THEN c#brandj teleri_defeated
+~What a madwoman! At least the poor souls she petrified can be saved now.~ [c#ablank] DO ~SetGlobal("C#Brandock_SoDTeleriEnd","GLOBAL",2)~
+== c#brandj IF ~GlobalGT("C#Br_LorePathNarcillicusBG1","GLOBAL",1)~ THEN ~At least she had the decency not to attack us with basilisks like this crazy dwarf we met in the wilderness... and yes that was a meak attempt for a jest.~
 END
+IF ~Dead("BDTELERI")~ THEN + teleri_defeated_02
+IF ~!Dead("BDTELERI")~ THEN + teleri_defeated_01
+
+
+APPEND c#brandj
 
 IF ~~ THEN teleri_defeated_01
 SAY ~I'm not sure it was a wise decision to let her go like this, though. I mean it's obvious her 'art' is supposed to consume living persons, one way or another!~
@@ -336,7 +356,7 @@ END
 IF ~~ THEN teleri_defeated_02
 SAY ~I'll have a look at that woman's spell book. She doesn't need it any more...~
 IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST)
-SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10043 EXIT
+SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10042 EXIT
 END
 
 
@@ -1083,8 +1103,11 @@ InMyArea("C#Brandock")
 == C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 InMyArea("C#Brandock")
 !StateCheck(Myself,CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ 
-DO ~MakeGlobal()
+DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
 ChangeAIScript("",DEFAULT)
 LeaveParty()
 EscapeArea()
@@ -1094,14 +1117,18 @@ ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
 SetGlobal("C#BrandockSpawn","GLOBAL",10)
 ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))
-*/~ 
+*/
+SetInterrupt(TRUE)~ 
 
 /* Brandock was 7th party member */
-== C#BrandJ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ DO ~MakeGlobal()
+== C#BrandJ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 ChangeAIScript("",DEFAULT)
 RemoveFamiliar()
 ChangeEnemyAlly(Myself,NEUTRAL)
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
 /*
 ActionOverride("C#Brandock",SetDialog("c#brand2")
 ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
@@ -1109,7 +1136,7 @@ ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
 SetGlobal("C#BrandockSpawn","GLOBAL",10)
 ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))
 */
-EscapeArea()~ 
+EscapeArea() SetInterrupt(TRUE)~ 
 END
 
 I_C_T3 BDDAZZO 3 C#Brandock_BDDAZZO_3

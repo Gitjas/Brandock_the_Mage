@@ -34,17 +34,30 @@ END
 IF WEIGHT #-1
 ~Global("C#Brandock_CM_AltMal","GLOBAL",3)~ THEN attack
 SAY ~<CHARNAME>, you're not the person I thought you were. I'll go.~
-IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
-SetGlobal("C#BrandockJoined","GLOBAL",0) ChangeAIScript("",DEFAULT)
-SetLeavePartyDialogFile() LeaveParty() EscapeArea()~ EXIT
-IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)
+SetGlobal("C#BrandockJoined","GLOBAL",0) 
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+ChangeAIScript("",DEFAULT)
+SetLeavePartyDialogFile() LeaveParty() EscapeArea()
+SetInterrupt(TRUE)~ EXIT
+IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
 ChangeEnemyAlly(Myself,NEUTRAL)
-EscapeArea()~ EXIT
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+EscapeArea()
+SetInterrupt(TRUE)~ EXIT
 END
 
 END
@@ -64,70 +77,132 @@ IF ~~ THEN EXTERN HABREGA %brega_state_853%
 /* PC payed for Malficus' offer */
 I_C_T3 ~B!Mal~ 25 C#Brandock_CM_MAL_25
 == ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1) 
 SetGlobal("C#BrandockJoined","GLOBAL",0)
-SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+SetLeavePartyDialogFile() LeaveParty() EscapeArea()
+SetInterrupt(TRUE)~
 
 == ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL) 
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+EscapeArea()
+SetInterrupt(TRUE)~
 
 == ~B!Mal~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Someone not ready for the journey, it seems!~
 END
 
 I_C_T3 ~B!Mal~ 102 C#Brandock_CM_MAL_102
 == ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)  
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~
 == ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL)  
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~
 == ~B!Mal~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Someone not ready for the journey, it seems!~
 END
 
 I_C_T3 ~B!Mal~ 103 C#Brandock_CM_MAL_103
 == ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)   
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~
 == ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL)   
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~
 == ~B!Mal~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Someone not ready for the journey, it seems!~
 END
 
 I_C_T3 ~B!Mal~ 108 C#Brandock_CM_MAL_108
 == ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)  
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007") 
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~
 == ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL)  
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007") 
+EscapeArea() SetInterrupt(TRUE)~
 == ~B!Mal~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Someone not ready for the journey, it seems!~
 END
 
 /* PC is ready to ship */
 I_C_T3 ~B!Mal~ 39 C#Brandock_CM_MAL_39
 == ~c#brandj~ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) SetLeavePartyDialogFile() LeaveParty() EscapeArea()~
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_Gone","GLOBAL",1) SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4)   
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007") 
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~
 == ~c#brandj~ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~<CHARNAME>, I wish you farewell. I hope you will find what you seek.~
-DO ~SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
+DO ~SetInterrupt(FALSE)
+SetGlobal("C#Brandock_CM_AltMal","GLOBAL",4) 
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~
+ChangeEnemyAlly(Myself,NEUTRAL)   
+TakePartyItem("c#br0001")
+DestroyItem("c#br0001")
+TakePartyItem("c#br0007")
+DestroyItem("c#br0007") 
+EscapeArea() SetInterrupt(TRUE)~
 == ~B!Mal~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Someone not ready for the journey, it seems!~
 END

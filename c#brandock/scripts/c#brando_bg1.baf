@@ -84,15 +84,137 @@ THEN
 		StartDialogNoSet(Player1)
 END
 
+/* Dialogue: Sarevok is dead! - triggers only for BGT or with EBG1 installed (or other mod that prolongs BG1 after S. death) */
+
+IF
+
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+	AreaCheck("%EBaldursGate%")  // After leaving the Thieves' Guild
+	OR(2)
+		!Global("ENDOFBG1","GLOBAL",0)
+		Dead("Sarevok")
+	Global("C#Brando_BG1SarevokDeadTalk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",1)
+END
+
+IF
+
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("C#Brando_BG1SarevokDeadTalk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+		StartDialogNoSet(Player1)
+END
 
 
+
+
+
+/* possessions/ bookrestore: book is not in Brandock's inventory */
+
+/* destroyed book is in Brandock's inventory. set variable to "0" */
+IF %BGT_VAR%
+	GlobalGT("C#Brandock_BookWarningLokal1","GLOBAL",0) 
+	OR(2)
+		HasItem("c#br0001",Myself)
+		HasItem("c#br0001",Player1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",0) 
+END
+
+/* restored book was collected. set variable to "0" */
+IF %BGT_VAR%
+	GlobalGT("C#Brandock_BookWarningLokal2","GLOBAL",0)
+	OR(2)
+		HasItem("c#br0007",Myself)
+		HasItem("c#br0007",Player1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",0) 
+END
+
+/* book is not in Brandock's inventory. Warning (no action) */
+/* Activate */
+IF %BGT_VAR%
+	Global("C#Brandock_BookWarningLokal1","GLOBAL",0) 
+	GlobalGT("C#Brandock_Possessions","GLOBAL",1) 
+	!GlobalGT("C#Br_BookRestore","GLOBAL",4)
+	!HasItem("c#br0001",Myself)
+	!HasItem("c#br0001",Player1)
+	PartyHasItem("c#br0001")
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",1) 
+END
+/* restored book is not in Brandock's inventory. Warning (no action) */
+/* Activate */
+IF %BGT_VAR%
+	Global("C#Brandock_BookWarningLokal2","GLOBAL",0) 
+	GlobalGT("C#Br_BookRestore","GLOBAL",4)
+	!HasItem("c#br0007",Myself)
+	!HasItem("c#br0007",Player1)
+	PartyHasItem("c#br0007")
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",1) 
+END
+/* Initiate */
+IF %BGT_VAR%
+	OR(2)
+		Global("C#Brandock_BookWarningLokal1","GLOBAL",1)
+		Global("C#Brandock_BookWarningLokal2","GLOBAL",1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
 
 /* possessions/ bookrestore: book is gone from group's inventory */
 
 /* destroyed book was collected. set variable to "0" */
 IF %BGT_VAR%
-	Global("C#Brandock_BookWarning","GLOBAL",3) 
-	PartyHasItem("c#br0001")
+	GlobalGT("C#Brandock_BookWarning","GLOBAL",0) 
+	OR(2)
+		HasItem("c#br0001",Myself)
+		PartyHasItem("c#br0001")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	See(Player1)
 	!Detect([ENEMY])
@@ -104,8 +226,10 @@ END
 
 /* restored book was collected. set variable to "0" */
 IF %BGT_VAR%
-	Global("C#Brandock_BookWarning","GLOBAL",4) 
-	PartyHasItem("c#br0007")
+	GlobalGT("C#Brandock_BookWarning","GLOBAL",0)
+	OR(2)
+		HasItem("c#br0007",Myself)
+		PartyHasItem("c#br0007")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	See(Player1)
 	!Detect([ENEMY])
@@ -121,6 +245,7 @@ IF %BGT_VAR%
 	Global("C#Brandock_BookWarning","GLOBAL",0) 
 	GlobalGT("C#Brandock_Possessions","GLOBAL",1) 
 	!GlobalGT("C#Br_BookRestore","GLOBAL",4)
+	!HasItem("c#br0001",Myself)
 	!PartyHasItem("c#br0001")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -139,6 +264,7 @@ END
 IF %BGT_VAR%
 	Global("C#Brandock_BookWarning","GLOBAL",0) 
 	GlobalGT("C#Br_BookRestore","GLOBAL",4)
+	!HasItem("c#br0007",Myself)
 	!PartyHasItem("c#br0007")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -176,6 +302,9 @@ IF %BGT_VAR%
 		Global("C#Brandock_BookWarning","GLOBAL",3)
 		Global("C#Brandock_BookWarning","GLOBAL",4) 
 	GlobalGT("C#Br_BookRestore","GLOBAL",4)
+	!HasItem("c#br0001",Myself)
+	!PartyHasItem("c#br0001")
+	!HasItem("c#br0007",Myself)
 	!PartyHasItem("c#br0007")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -365,7 +494,6 @@ StartDialogueNoSet(Player1)
 END
 
 
-
 /* Party has all ingedients needed for Brandock's book retore */
 /* Activate */
 IF %BGT_VAR%
@@ -383,6 +511,9 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+SetGlobal("C#Brandock_IngredientsSaphireBG1","GLOBAL",1)
+SetGlobal("C#Brandock_IngredientsRegenBG1","GLOBAL",1)
+SetGlobal("C#Brandock_IngredientsInkBG1","GLOBAL",1)
 SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",1)
 END
 
@@ -398,6 +529,67 @@ THEN
 RESPONSE #100
 StartDialogueNoSet(Player1)
 END
+
+/* Party finds ingredients for Brandock's book restore */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Br_BookRestore","GLOBAL",4)
+Global("C#Brandock_IngredientsSaphireBG1","GLOBAL",0)
+!AreaCheck("%Beregost_FirebeadsHouse_L1%")
+PartyHasItem("c#br0001")
+PartyHasItem("MISC41")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@1023)
+SetGlobal("C#Brandock_IngredientsSaphireBG1","GLOBAL",1)
+END
+
+/* Party finds ingredients for Brandock's book restore */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Br_BookRestore","GLOBAL",4)
+Global("C#Brandock_IngredientsRegenBG1","GLOBAL",0)
+!AreaCheck("%Beregost_FirebeadsHouse_L1%")
+PartyHasItem("c#br0001")
+PartyHasItem("POTN42")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@1024)
+SetGlobal("C#Brandock_IngredientsRegenBG1","GLOBAL",1)
+END
+
+/* Party finds ingredients for Brandock's book restore */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Br_BookRestore","GLOBAL",4)
+Global("C#Brandock_IngredientsInkBG1","GLOBAL",0)
+!AreaCheck("%Beregost_FirebeadsHouse_L1%")
+PartyHasItem("c#br0001")
+PartyHasItem("c#broink")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@1025)
+SetGlobal("C#Brandock_IngredientsInkBG1","GLOBAL",1)
+END
+
 
 /* after book restore - Brandock reacts after stepping out of Master Elvenhair's home */
 /* Activate */
@@ -1788,6 +1980,69 @@ RESPONSE #100
 StartDialogueNoSet(Player1)
 END
 
+/* Ulcaster school - outside */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Brandock_UlcasterSchool","GLOBAL",0)
+AreaCheck("%Ulcaster%")
+Range("Inf3901",20)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_UlcasterSchool","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Brandock_UlcasterSchool","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+/* Ulcaster school - in dungeon PartyHasItem("Book54") */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Brandock_InsideUlcasterSchool","GLOBAL",0)
+AreaCheck("%UlcasterRuins%")
+PartyHasItem("Book54")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_InsideUlcasterSchool","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Brandock_InsideUlcasterSchool","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+
 
 /* werewolf island - upon arrival */
 
@@ -2272,7 +2527,7 @@ RESPONSE #100
 StartDialogueNoSet(Player1)
 END
 
-/* lore path: Delorna's Spellbook */
+/* lore path: Delorna's Spell Component for Halruaan's Skyship */
 /* activation */
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
@@ -2291,6 +2546,103 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Br_LorePathDelornaBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Narcillicus Harwilliger Neen (green slimes) */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%ValleyoftheTombs%")
+Dead("NARCIL")
+See("NARCIL")
+Global("C#Br_LorePathNarcillicusBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathNarcillicusBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathNarcillicusBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Mutamin */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%MutaminsGarden%")
+Dead("MUTAMIN")
+See("MUTAMIN")
+Global("C#Br_LorePathMutaminBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathMutaminBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathMutaminBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: 4 wizards from Thay (Spiderwood) */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%SpiderWood%")
+Dead("DENAK")
+Dead("DIANA")
+Dead("BRENDAN")
+Dead("LASALA")
+OR(4)
+	See("DENAK")
+	See("DIANA")
+	See("BRENDAN")
+	See("LASALA")
+Global("C#Br_LorePathThayMagesBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathThayMagesBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathThayMagesBG1","GLOBAL",1)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)

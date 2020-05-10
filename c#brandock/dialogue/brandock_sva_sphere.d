@@ -65,18 +65,22 @@ END
 
 IF ~~ THEN angered_tolgerias_02_b //Brandock leaves
 SAY ~I see I have to go my own way, then. So much for helping each other... Farewell.~
-IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~
+IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
 LeaveParty()
 ChangeAIScript("",DEFAULT)
 SetLeavePartyDialogFile() 
-SetGlobal("C#Brandock_Gone","GLOBAL",1) EscapeArea()~ EXIT
-IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~
+SetGlobal("C#Brandock_Gone","GLOBAL",1) EscapeArea() SetInterrupt(TRUE)~ EXIT
+IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 ChangeEnemyAlly(Myself,NEUTRAL) 
-SetGlobal("C#Brandock_Gone","GLOBAL",1) EscapeArea()~ EXIT
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
+SetGlobal("C#Brandock_Gone","GLOBAL",1) EscapeArea() SetInterrupt(TRUE)~ EXIT
 END
 
 IF ~~ THEN angered_tolgerias_03
@@ -1047,19 +1051,24 @@ END
 
 IF ~Global("C#Brandock_ApprenticeLeave","GLOBAL",1) Global("C#Brandock_MGAPPR02_9","GLOBAL",1)~ THEN apprentice_advice_07
 SAY ~Ah well, what am I trying to accomplish here, anyway. Know what? You and the Cowled Wizards - it's a perfect fit. Plus, you don't need me any more. You have Teos investigating about Soellhold, and everything will be fine. But *I* won't stay and watch any more of those young mages die. Fare well, <CHARNAME>!~ [c#ablank]
-IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~
+IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#Brandock_MageApprentices","GLOBAL",5)
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
 LeaveParty()
 ChangeAIScript("",DEFAULT)
-SetLeavePartyDialogFile() EscapeArea()~ EXIT
-IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~
+SetLeavePartyDialogFile() EscapeArea() SetInterrupt(TRUE)~ EXIT
+IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
 SetGlobal("C#Brandock_Gone","GLOBAL",1)
 SetGlobal("C#Brandock_MageApprentices","GLOBAL",5)
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 RemoveFamiliar()
 ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ChangeEnemyAlly(Myself,NEUTRAL) EscapeArea()~ EXIT
+ChangeEnemyAlly(Myself,NEUTRAL) 
+TakePartyItem("c#br0001")
+TakePartyItem("c#br0007")
+EscapeArea() SetInterrupt(TRUE)~ EXIT
 END
 
 /* if PC chose difficult task */

@@ -21,9 +21,11 @@ IF
 	InMyArea(Player1)
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		SetGlobal("C#BrandockRestCounter","GLOBAL",1)
 		Rest()
-		ReallyForceSpellRES("C#BRREST",Myself)	
+		ReallyForceSpellRES("C#BRREST",Myself)
+		SetInterrupt(TRUE)	
 END
 
 
@@ -47,8 +49,10 @@ IF
 	See([ENEMY])
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",2)
-		ReallyForceSpellRES("C#MIN5HP","C#Brandock") 
+		ReallyForceSpellRES("C#MIN5HP","C#Brandock")
+		SetInterrupt(TRUE)
 END
 
 
@@ -60,6 +64,7 @@ IF
 	CombatCounter(0)
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		ReallyForceSpellRES("C#BRREST","C#Brandock")    // Cures effects and restores health - taken from Argent77's Djinni Companion with many thanks	
 		SetGlobal("C#Brandock_IsUnconscious","GLOBAL",0)		
 		DisplayStringHead(Myself,@1001)
@@ -72,29 +77,31 @@ THEN
 		ChangeAIScript("",GENERAL)
 		ChangeAIScript("",DEFAULT)		
 		DisplayStringHead(Myself,@1002)
+		SetInterrupt(TRUE)
 END
 
 /* follows as familiar: fight ends - resetting health warn variable */
 IF
-	Global("C#Brandock_HPAlarmDone","GLOBAL",1)
+	Global("C#Brandock_HPAlarmDone","LOCALS",1)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
 	CombatCounter(0)
 THEN
 	RESPONSE #100
-		SetGlobal("C#Brandock_HPAlarmDone","GLOBAL",0)
+		SetGlobal("C#Brandock_HPAlarmDone","LOCALS",0)
 END
 
 /* follows as familiar: Brandock warns about HP too low: auto pause. This can be switsched on and off via PID */
 
 IF
 	Global("C#Brandock_HPAlarm","GLOBAL",1)  //PC told Brandock to warn
-	Global("C#Brandock_HPAlarmDone","GLOBAL",0)
+	Global("C#Brandock_HPAlarmDone","LOCALS",0)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
 	!CombatCounter(0)
-	HPPercentLT(Myself,35)
+	HPPercentLT(Myself,45)
 THEN
 	RESPONSE #100
-		DisplayStringHead(Myself,@1003) 			SetGlobal("C#Brandock_HPAlarmDone","GLOBAL",1)
+		DisplayStringHead(Myself,@1003)
+		SetGlobal("C#Brandock_HPAlarmDone","LOCALS",1)
 		PauseGame()
 END
 
@@ -102,13 +109,14 @@ END
 
 IF
 	Global("C#Brandock_HPAlarm","GLOBAL",0)  //PC told Brandock not to warn
-	Global("C#Brandock_HPAlarmDone","GLOBAL",0)
+	Global("C#Brandock_HPAlarmDone","LOCALS",0)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
 	!CombatCounter(0)
 	HPPercentLT(Myself,45)
 THEN
 	RESPONSE #100
-		DisplayStringHead(Myself,@1003) 			SetGlobal("C#Brandock_HPAlarmDone","GLOBAL",1)
+		DisplayStringHead(Myself,@1003)
+		SetGlobal("C#Brandock_HPAlarmDone","LOCALS",1)
 END
 
 
@@ -123,6 +131,7 @@ IF
 	HPLT(Myself,6)
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		DisplayStringHead(Myself,@1004) 
 		ClearActions(Myself)
 		RemoveFamiliar()
@@ -132,6 +141,7 @@ THEN
 		ChangeAIScript("",GENERAL)
 		ChangeAIScript("",DEFAULT)	
 		SetGlobal("C#Brandock_IsUnconscious","GLOBAL",1)
+		SetInterrupt(TRUE)
 END
 
 /* follows as familiar: Brandock is at 1 HP and passes out */
@@ -154,10 +164,12 @@ IF
 	Global("C#Brandock_Has1HPEffect","GLOBAL",0)
 THEN
   RESPONSE #100
+		SetInterrupt(FALSE)
 		ReallyForceSpellRES("C#BRREST","C#Brandock") //make sure there is no negative effect
 		ReallyForceSpellRES("C#MIN5HP","C#Brandock") //give him min 5 HP and immunities
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",1)
-		IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1)	
+		IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1) //needed for Brandock's spell regeneration
+		SetInterrupt(TRUE)	
 END
 
 
@@ -168,9 +180,11 @@ IF
 	!Global("C#Brandock_Has1HPEffect","GLOBAL",0)
 THEN
   RESPONSE #100
+		SetInterrupt(FALSE)
 		ReallyForceSpellRES("C#MIN0HP","C#Brandock")
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",0)	
 		IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",-1)
+		SetInterrupt(TRUE)
 END
 
 
