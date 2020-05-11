@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_4~ 
+VERSION ~Beta_5~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -1713,7 +1713,7 @@ END //babysitting quest
 /* bg1npc, Quest & Interjections */
 ACTION_IF FILE_EXISTS_IN_GAME ~X#TOME.itm~ THEN BEGIN 
 PRINT ~bg1npc, Quest and Interjections detected.~
-  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/bg1npc.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/bg1npc.baf~ EVALUATE_BUFFER
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bg1npc_BG1.d~ 
 END 
 
