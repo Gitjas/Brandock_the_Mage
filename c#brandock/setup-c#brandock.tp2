@@ -1,3 +1,19 @@
+/* Beta 6 changes:
+-journal entry for Brandock's restore book path should work as intended.
+-book restore path: Brandock should not think that all ingredients are present if they are not.
+-mappnote to Elvenhair only for BGT (EE adds an own one)
+-Dialog after death of Mutamin should not lead to stutter
+-Brandock should not start banter before switching into 7th party member mode is done.
+-Brandock should not start dialogue about Brage if Brandock-Brage banter happened.
+-Thalantyr should start dialogue to help Brandock after Melicamp is restored.
+-fix stutter bug in BGII
+-first proof readings by Caedwyr integrated.
+
+
+*/
+
+
+
 /* known issues:
 
 -c#br03: area hat einen weiﬂen Strich im schwarzen Bereich und man sieht die Gruppe in der Ecke stehen...
@@ -11,7 +27,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_5~ 
+VERSION ~Beta_6 pre 200601~ //pre
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -664,7 +680,26 @@ COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore.d~
 COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_candlekeep.d~
      USING ~C#Brandock/tra/%LANGUAGE%/c#brand_dialogues.tra~
 
+END //ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
+
+/* For BGT: add mapnote to Elvenhair's house */
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+
+<<<<<<<< ...inlined/mapnote_elvenhair.baf
+IF 
+	!Dead("C#Brandock")
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	Global("C#Brandock_MNElvenhair","MYAREA",0)
+THEN
+	RESPONSE #100
+		AddMapNote([2030.2940],@1022)
+		SetGlobal("C#Brandock_MNElvenhair","MYAREA",1)
 END
+
+>>>>>>>>
+LAF extend_area_script STR_VAR area="%Beregost%" bottom="...inlined/mapnote_elvenhair.baf" END
+
+END //ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 
 /* BG1 side-quest: shoes!  */
 
