@@ -108,8 +108,7 @@ DO ~SetGlobal("C#Br_BookRestore","GLOBAL",4)~
 !PartyHasItem("POTN42") !PartyHasItem("MISC41") !PartyHasItem("c#broink")
 OR(3)
 PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")~ THEN @772
-== c#brandj IF ~OR(3)
-PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")~ THEN @773 DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2) EraseJournalEntry(@10022) AddJournalEntry(@10026,QUEST)~
+== c#brandj IF ~PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")~ THEN @773 DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2) EraseJournalEntry(@10022) AddJournalEntry(@10026,QUEST)~
 EXIT
 
 APPEND c#brandj
