@@ -158,7 +158,6 @@ END
 IF ~~ THEN follow_companion
 SAY @27 /* ~Sure! I'll fall in line at the back.~ */
 IF ~~ THEN DO ~SetInterrupt(FALSE)
-SetGlobal("C#BrandockJoined","GLOBAL",2)
 EraseJournalEntry(@10015)
 EraseJournalEntry(@10018)
 MakeGlobal()
@@ -170,10 +169,10 @@ ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
+SetGlobal("C#BrandockJoined","GLOBAL",2)
 SetInterrupt(TRUE)
 ~ EXIT
 IF ~%BGT_VAR%~ THEN DO ~SetInterrupt(FALSE)
-SetGlobal("C#BrandockJoined","GLOBAL",2)
 EraseJournalEntry(@10001)
 MakeGlobal()
 ChangeEnemyAlly(Myself, FAMILIAR)
@@ -183,6 +182,7 @@ ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
+SetGlobal("C#BrandockJoined","GLOBAL",2)
 SetInterrupt(TRUE)~ EXIT
 END
 
