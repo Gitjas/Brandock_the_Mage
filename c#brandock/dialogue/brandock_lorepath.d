@@ -63,9 +63,9 @@ IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUE
 END
 
 /* Mutamin */
-IF ~Global("C#Br_LorePathNarcillicusBG1","GLOBAL",1)~ THEN mutamin_spellbook
+IF ~Global("C#Br_LorePathMutaminBG1","GLOBAL",1)~ THEN mutamin_spellbook
 SAY @1538
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathNarcillicusBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10047 EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathMutaminBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10047 EXIT
 END
 
 /* 4 Wizards from Thay: Denak, Lasala, Diana, Brendan */
