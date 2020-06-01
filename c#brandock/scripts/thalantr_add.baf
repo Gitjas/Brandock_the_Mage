@@ -1,12 +1,19 @@
 IF %BGT_VAR%
       Global("TransformedChicken","GLOBAL",2)
 	Global("C#Brandock_Shapeshift","GLOBAL",6)
-	GlobalLT("C#Brandock_Shapeshift","GLOBAL",7)
 	InMyArea("C#Brandock")
 	!InParty("C#Brandock") !Global("C#BrandockJoined","GLOBAL",2)
 THEN
 	RESPONSE #100
             SetGlobal("C#Brandock_Shapeshift","GLOBAL",7)
+END
+
+IF %BGT_VAR%
+	Global("C#Brandock_Shapeshift","GLOBAL",7)
+	InMyArea("C#Brandock")
+	!InParty("C#Brandock") !Global("C#BrandockJoined","GLOBAL",2)
+THEN
+	RESPONSE #100
 	    StartDialogueNoSet(Player1)
 END
 
