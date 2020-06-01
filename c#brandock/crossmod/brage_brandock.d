@@ -14,8 +14,8 @@ See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
-Global("C#Brandock_Brage","GLOBAL",0)~ THEN C#BrandB brage_dialogue
-@0 DO ~SetGlobal("C#Brandock_Brage","GLOBAL",2)~ //needs to be at "2"
+GlobalLT("C#Brandock_Brage","GLOBAL",3)~ THEN C#BrandB brage_dialogue
+@0 DO ~SetGlobal("C#Brandock_Brage","GLOBAL",3)~ //needs to be at "3"
 == C#BrageB @1
 == C#BrandB @2
 == C#BrageB @3
