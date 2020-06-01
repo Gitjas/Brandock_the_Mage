@@ -717,10 +717,10 @@ IF
   See(Player1) 
   !StateCheck(Myself,CD_STATE_NOTVALID)
   !StateCheck(Player1,CD_STATE_NOTVALID)
-  OR(3)
+  OR(2) //##
     Global("C#Brandock_Dialog","GLOBAL",202)  //
     Global("C#Brandock_Dialog","GLOBAL",204)  //
-    Global("C#Brandock_Dialog","GLOBAL",206)  //
+//    Global("C#Brandock_Dialog","GLOBAL",206)  //
 THEN
   RESPONSE #100
     RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
