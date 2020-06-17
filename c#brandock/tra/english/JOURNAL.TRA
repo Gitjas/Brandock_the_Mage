@@ -1,6 +1,6 @@
 @10000  = ~Brandock's Possessions
 
-I agreed to help Brandock to regain his possessions that were stolen from him. He said he traced them inside a cavern in the east of the Coastway, but an ogre holds residence nearby, so we should approach well prepared. Brandock marked the cave on my map.~
+I agreed to help Brandock to regain his possessions that were stolen from him. He said he traced them to a cavern east of the Coastway, but an ogre resides nearby, so we should approach well prepared. Brandock marked the cave on my map.~
 @10001  = ~Brandock the Mage
 
 Brandock is waiting for me in Beregost at the Jovial Juggler.~
@@ -9,13 +9,13 @@ Brandock is waiting for me in Beregost at the Jovial Juggler.~
 A pair of boots was taken from Travenhurst Manor in Beregost. The servant thinks that they are not stolen but only misplaced by someone making a joke.~
 @10003  = ~A Fine Pair of Boots
 
-I found a fine pair of boots in a fox cave near Beregost. I assume they could be returned to their owner. Judging by the looks, they belong to a wealthy man.~
+I found a fine pair of boots in a fox cave near Beregost. I assume they can be returned to their owner. Judging by the looks, they belong to a wealthy man.~
 @10004  = ~A Fine Pair of Boots
 
-I found Master Travenhurst's fine pair of boots in a fox cave near Beregost. I assume they could be returned to the servant at Travenhurst Manor.~
+I found Master Travenhurst's fine pair of boots in a fox cave near Beregost. I assume they can be returned to the servant at Travenhurst Manor.~
 @10005  = ~Brandock the Half-Ogre
 
-Brandock tried to help Melicamp, and that turned horribly wrong. The magic Melicamp used seemed to be something very powerful, indeed. I witnessed Brandock turning himself into a half-ogre. Or, switching bodies with one is the better term. Whatever it was, they both went to Thalantyr's abode to get help. I should go there, too, I guess.~
+Brandock tried to help Melicamp and that went horribly wrong. The magic Melicamp used seemed to be very powerful and Brandock's attempts to help backfired. I witnessed Brandock transform himself into a half-ogre. Or, swapped bodies with one is perhaps more accurate. Whatever it was, they both sought aid at Thalantyr's abode. I should go there, too, I guess.~
 @10006  = ~Brandock's Possessions~
 @10007  = ~Elvenhair teaches Brandock to Scribe Scrolls~
 @10008  = ~Brandock the Half-Ogre
@@ -23,7 +23,7 @@ Brandock tried to help Melicamp, and that turned horribly wrong. The magic Melic
 Thalantyr was able to help Brandock back into his own body.~
 @10009  = ~Brandock's Possessions
 
-Brandock found his missing possessions - or what is left of them, to be precise. Turns out it was a very valuable magical book, with which he wanted to gain access to Candlekeep! The book was destroyed by foxes, so Brandock doesn't know where to go. He will come with me - he said "for now", but I have the feeling that he has no urge to leave my side.~
+Brandock found his missing possessions - or what is left of them, to be precise. Turns out it was a very valuable magical book, with which he intended to gain access to Candlekeep! The book was destroyed by foxes, so Brandock doesn't know where to go. He will come with me - he said "for now", but I have the feeling that he has no urge to leave my side.~
 @10010  = ~Brandock the Half-Ogre~
 @10011  = ~A Fine Pair of Boots
 
@@ -43,7 +43,7 @@ I can find Brandock in the house of his mother's cousin, if I have need of him. 
 
 @10016  = ~Elvenhair teaches Brandock to Scribe Scrolls
 
-Elvenhair offered Brandock to teach him the knowledge of scroll scribing. We should return to Elvenhair as soon as Brandock is ready.~
+Elvenhair offered Brandock to teach him how to scribe scrolls. We should return to Elvenhair as soon as Brandock is ready.~
 
 @10017  = ~Brandock Wants to Restore his Book~
 
@@ -53,29 +53,29 @@ I can find Brandock in the great sphere in the Slums, if I have need of him. He 
 
 @10019  = ~Brandock Wants to Restore his Book
 
-Brandock mentioned that almost all spells from his desroyed book are in his memory, and he wants to restore the book. For this he needs a friendly mage who would help him with it. I should talk to him again about it.~
+Brandock mentioned that almost all spells from his destroyed book are in his memory, and he wants to restore the book. For this he needs a friendly mage who would help him. I should talk to him again about it.~
 @10020  = ~Brandock Wants to Restore his Book
 
 I decided I don't care. Brandock will find a way by himself to deal with his destroyed book.~
 @10021  = ~Brandock Wants to Restore his Book
 
-I promised Brandock that we'd go to Firebead Elvenhair in Beregost. Brandock wants to ask him for help with retoring his destroyed book.~
+I promised Brandock that we'd go to Firebead Elvenhair in Beregost. Brandock wants to ask him for help restoring his destroyed book.~
 @10022  = ~Brandock Wants to Restore his Book
 
-Elvenhair will help Brandock with his book. First he requested the following ingredients: a Star Sapphire, a potion of Regeneration, and ink of an octopus. The last we should be able to buy from fishermen who fish in the sea. A fishemen's town like Ulgoth's Beard should be a good start to look for it.~
+Elvenhair will help Brandock with his book. First he requested the following ingredients: a Star Sapphire, a Potion of Regeneration, and ink of an octopus. The last we should be able to buy from sea-going fishermen. A fishing village like Ulgoth's Beard should be a good start to look for it.~
 
 @10023  = ~Increase Brandock's Lore Wisdom
 
 Brandock studied the spell book of Tarnesh, the mage who attacked me in front of the Friendly Arm Inn and increased his lore wisdom with it.~
 @10024  = ~Increase Brandock's Lore Wisdom
 
-Brandock found interesting books at Elvenhair's home and increased his lore wisdom with them.~
+Brandock found interesting books at Elvenhair's home and reading them increased his lore score.~
 @10025  = ~Brandock Wants to Restore his Book
 
-Appearently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language noone speaks any more and is seemingly empty, but Elvenhair believes it to contain all spell recipes still - only magically conceiled. Brandock needs help to decipher the pages covered in Ruathlek runes, but there is currently nothing we can do about it, as the nearest translation tables are in Candlekeep...~
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty, but Elvenhair believes it to still contain all its spell formulas - only magically concealed. Brandock needs help to decipher the pages covered in Ruathlek runes, but there is currently nothing we can do about it, as the nearest Ruathlek lexicon is located in Candlekeep...~
 @10026  = ~Brandock Wants to Restore his Book
 
-We have all needed ingredients requested by Elvenhair. Brandock wants to return to Master Elvenhair's home in Beregost so they can work on restoring the destroyed book.~
+We have all the ingredients requested by Elvenhair. Brandock wants to return to Master Elvenhair's home in Beregost so they can work on restoring the destroyed book.~
 @10027  = ~Increase Brandock's Lore Wisdom
 
 Brandock increased his lore wisdom by having a good look around Candlekeep library.~
@@ -85,10 +85,10 @@ Brandock found a way to translate the Ruathlek pages in his restored book: he wa
 @10029  = ~Increase Brandock's Lore Wisdom~
 @10030  = ~Increase Brandock's Lore Wisdom
 
-Brandock seems to have a very curious mind and draw wisdom from every magic book we encounter. On our travels, I should give him the possibility to study as much books as possible. I am sure it will help him increase his lore wisdom.~
+Brandock seems to have a very inquisitive mind and manages to learn from every magic book we encounter. On our travels, I should give him the opportunity to study as many books as possible. I am sure it will help him increase his knowledge.~
 @10031  = ~Increase Brandock's Lore Wisdom
 
-Brandock increased his lore wisdom by studying the History of the Nether Scrolls, the book we obtained from Duke Eltan to get entry to Candlekeep.~
+Brandock increased his lore wisdom by studying the History of the Nether Scrolls, the book we obtained from Duke Eltan to gain entry to Candlekeep.~
 @10032  = ~Increase Brandock's Lore Wisdom
 
 Brandock increased his lore wisdom by studying Balduran's Logbook.~
@@ -100,18 +100,18 @@ Brandock studied the spell book of the mage in the Nashkel Carnival tent and inc
 Brandock increased his lore wisdom by studying Yago's Book of Curses.~
 @10035  = ~Increase Brandock's Lore Wisdom
 
-Brandock could not increased his lore wisdom by studying Dradeel's spell book.~
+Brandock could not increase his lore by studying Dradeel's spell book.~
 
 @10036  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the magic books of the mage in the Cloakwood Mines and increased his lore wisdom with it.~
+Brandock studied the magic books of the mage in the Cloakwood Mines and increased his knowledge.~
 
 @10037  = ~Increase Brandock's Lore Wisdom
 
 Brandock found some interesting books in Durlag's old library and increased his wisdom lore by studying them.~
 @10038  = ~Increase Brandock's Lore Wisdom
 
-The books in Ramazith's home helped Brandock to increse his lore wisdom.~
+The books in Ramazith's home helped Brandock to increase his lore.~
 @10039  = ~Increase Brandock's Lore Wisdom
 
 Brandock studied Ragefast's library and increased his lore wisdom.~
@@ -124,36 +124,36 @@ Brandock increased his lore wisdom by studying the spell book of that middle man
 Brandock studied the spell books of the four mages who attacked us in the Sorcerous Sundries and increased his lore wisdom.~
 @10042  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spell book of the crazy wizard who petrified the five refugees for "art" and increased his lore wisdom with it.~
+Brandock studied the spell book of the crazy wizard who petrified the five refugees for "art" and increased his lore.~
 @10043  = ~Brandock Wants to Restore his Book
 
-Appearently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language noone speaks any more and is seemingly empty, but Elvenhair believes it to contain all spell recipes still - only magically conceiled.~
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty, but Elvenhair believes it to still contain all its spell formulas - only magically concealed.~
 @10044  = ~Brandock Wants to Restore his Book
 
 Brandock got kicked out of Candlekeep with me... We will have to see when and where he will be able to translate his book.~
 @10045  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied a book with spell components to create a Halruaan skyship and increased his lore wisdom with it.~
+Brandock studied a book with the spell components used in the creation of a Halruaan skyship and increased his knowledge.~
 
 /* new in vbeta_4 */
 @10046  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spellbook of a mage we met in the wilderness with a formular to control slimes and increased his lore wisdom with it.~
+Brandock studied the spellbook of a mage we met in the wilderness with a formula to control slimes and increased his lore.~
 @10047  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spellbook of a crazy mage who threatened us with bazilisks and increased his lore wisdom with it.~
+Brandock studied the spellbook of a crazy mage who threatened us with basilisks and increased his lore.~
 @10048  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spellbooks of Red Wizards of Thay who attacked us in the wilderness and increased his lore wisdom with it.~
+Brandock studied the spellbooks of Red Wizards of Thay who attacked us in the wilderness and increased his knowledge.~
 @10049  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied some old book remains he found inside the old Ulcaster school and increased his lore wisdom with it.~
+Brandock studied some old book remains he found inside the old Ulcaster school and increased his lore wisdom.~
 @10050  = ~Elvenhair teaches Brandock to Scribe Scrolls
 
-Elvenhair offered Brandock to teach him the knowledge of scroll scribing. Once we found Gorion's murderer, Brandock should return to Elvenhair.~
+Elvenhair offered Brandock to teach him the knowledge of scroll scribing. Once we find Gorion's murderer, Brandock should return to Elvenhair.~
 
 /* Epilogue(s) */
 
-@90000  = ~After Melissan was defeated, Brandock finally returned to Athkatla to achieve his original goal - become an administrative mage in the city's government building. Upon facing the Cowled Wizards to achieve a magic license and the permission to represent official matters, he had the surprise of his life: It was not him bargaining for conditions, it was the Cowled Wizards. Brandock was said to chuckle when he told this story many times afterwards. "I totally forgot how powerful I became at <CHARNAME>'s side", he would say. 
-It is said that the Cowled Wizards' soon offered him to rebuild Spellhold, the Asylum where he lost two persons dear to him, his former teacher and his mother's cousin. The former still alive but out of his senses, Brandock accepted and withdrew from public life to give his mentor a home were "he won't be restored, but at least can live in dignity".
-His work at the asylum included concealment from any public affairs, only interrupted by rare occasions of him as an ambassador of the asylum's affairs in front of the city's counsil. Rumors spread he remained not alone, but gathered followers for his gentle approach for mental ill mages of which one was said to win a place in his heart. He was seen at his parents' home on several occasions, and always with a gentle smile on his lips. It is said that he spent the rest of his days in good company and quite content, but no specifics are known.~
+@90000  = ~After Melissan was defeated, Brandock finally returned to Athkatla to achieve his original goal - become an administrative mage in the city's government building. Upon facing the Cowled Wizards to obtain a magic license and the permission to represent official matters, he had the surprise of his life: it was not him bargaining for conditions, it was the Cowled Wizards bargaining for his services. Brandock was said to chuckle when he told this story many times afterwards. "I totally forgot how powerful I became at <CHARNAME>'s side", he would say. 
+It is said that the Cowled Wizards' soon asked him to lead the reconstruction of Spellhold, the Asylum where he had lost two persons dear to him, his former teacher and his mother's cousin.  Brandock accepted and withdrew from public life to lead the project in order to give his former mentor a home where "even if he can't be restored to what he once was, he can at least live in dignity".
+His work at the asylum out of the public eye continued, only interrupted on rare occasions when he acted as a representative of the asylum's affairs to Athkatla's city council. In time, rumors spread that he did not toil alone, but had gathered likeminded followers who aided him in his gentle approach for treating mentally ill mages. One in particular was said to have won a place hin his heart.  He was seen at his parents' home on several occasions, and always with a gentle smile on his lips. It is said that he spent the rest of his days in good company and quite content, but no specifics are known.~

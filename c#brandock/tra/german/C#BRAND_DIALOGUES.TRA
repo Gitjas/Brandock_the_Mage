@@ -488,7 +488,8 @@
 /* #18300 in BG:EE */
 @482  = ~... werden wir alle noch einmal leben ... eines Tages ...~
 
-
+/* new for vbeta 6 */
+@483  = ~Nein, Brandock. Die ersten Meuchekmörder lauerten mir in Kerzenburg auf, und sie waren explizit hinter mir her. Sie machten kein Geheimnis daraus, dass jemand bereit ist viel Geld für meinen Kopf zu zahlen.~
 
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal wäre Euer Vater, Ihr wurdet von einem Gott gezeugt? Der mittlerweile tot ist, sollte ich dazu sagen. Gehe ich richtig in der Annahme, dass Ihr das selbst nicht wusstet?~ [c#ablank]

@@ -3,7 +3,7 @@
 @2  = ~(cough)~ 
 //@3  =
 @4  = ~Brandock's Robe~
-@5  = ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I was told'. Plus, the coat is so thick it actually provides protection against missiles, which comes quite handy for a mage.
+@5  = ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I was told'. Plus, the coat is so thick it actually provides protection against missiles, which is quite handy for a mage.
 
 STATISTICS:
 
@@ -13,17 +13,17 @@ Armor Class: +1 vs. missile attacks
 
 Weight: 3~
 @6  = ~Brandock's Bookcase~
-@7  = ~Scrumbled Book~
-@8  = ~This is the remains of what was before a *very* expensive magical book. Some pages are still readible, but it was gnawed on by several small teeth, tearing the pages apart.~
+@7  = ~Scrambled Book~
+@8  = ~This is the remains of what was once a *very* expensive magical book. Some pages are still readable, but it was gnawed on by several sets of small teeth, tearing the pages.~
 @9  = ~Brandock's Restored Book~
-@10  = ~This is the book that transformed after Elvenhair tried to preserve the paper snippets of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is appearently empty, but flipping through the pages they seem to radiate with magic.~ 
+@10  = ~This is the book that transformed after Elvenhair tried to preserve the paper shreds of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is apparently empty, but flipping through the pages they seem to radiate magic.~ 
 @11  = ~This is Brandock's bookcase. It is for storing books and scrolls.~
 @12  = ~Ink of an Octopus~
 @13  = ~This is ink from an octopus. It is a rather expensive magic ingredient. You should only buy it if you know what you want to use it for.~
 @14  = ~Fish Store~
 @15  = ~Fisherman~
 @16  = ~Fine Pair of Boots~
-@17  = ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthousiasm it may be restored to its former appearance.~
+@17  = ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthusiasm it may be restored to its former appearance.~
 @18  = ~Fresh Salmon~
 @19  = ~This is a piece of fresh, juicy salmon.~
 @20  = ~This is a piece of fresh, juicy salmon.
@@ -49,7 +49,7 @@ Weight: 1~
 
 /* BGII */
 @100 = ~Ebrel's Ring~
-@101 = ~This ring looks slighty dented and singed - if the latter is even possible for a greenstone ring. You are very certain that it belonged to one of the Cowled Wizards Irenicus killed at the promenade. 'To Ebrel - in Love' is ingraved into the inner side of the ring.~
+@101 = ~This ring looks slightly dented and singed - if the latter is even possible for a greenstone ring. You are very certain that it belonged to one of the Cowled Wizards Irenicus killed at the promenade. 'To Ebrel - With Love' is engraved into the inner side of the ring.~
 
 /*
 @102 = 
@@ -97,7 +97,7 @@ Weight: 1~
 @530 = ~~ [c#bran19] //SAY SELECT_ACTION6
 @531 = ~~ [c#bran20] //SAY SELECT_ACTION7
 @532 = ~~ [c#bran23] //SAY REACT_TO_DIE_GENERAL
-@533 = ~When asked about his past, BRANDOCK DEEPWATER smiles apologetically and talks about his plans to become an acknowledged wizard. "There is not much to know about me", he adds. "I come from a normal family of farmers and carpenters - no magic talent, except for some distant mother's cousin."~
+@533 = ~When asked about his past, BRANDOCK DEEPWATER smiles apologetically and talks about his plans to become an acknowledged wizard. "There is not much to know about me", he adds. "I come from a normal family of farmers and carpenters - no magic talent, except for one of my mother' cousins."~
 @534 = ~~ [c#bran33] //SAY SELECT_COMMON4
 @535 = ~~ [c#bran34] //SAY SELECT_COMMON5
 @536 = ~~ [c#bran35] //SAY SELECT_COMMON6
@@ -131,11 +131,11 @@ Weight: 1~
 @1017 = ~Oh dear, what a stink!~
 @1018 = ~Hm, let's see...~
 @1019 = ~This was most interesting! Thank you for taking the time, <CHARNAME>.~
-@1020 = ~The corner of the cave is full with tattered stuff. You feel absolutely no urge to go through it.~
+@1020 = ~The corner of the cave is full of tattered stuff. You feel absolutely no urge to go through it.~
 @1021 = ~Alright, am I the only one who thinks that this sounds a little bit alarming?~
 @1022 = ~Firebead Elvenhair's Home~
-@1023 = ~We have a Star Saphire! Please, let us hold onto it. I need this for my book restoration.~
-@1024 = ~We have a potion of Regeneration! Please, let us keep this. I need it for my book restoration.~
+@1023 = ~We have a Star Sapphire! Please, let us hold onto it. I need this for my book restoration.~
+@1024 = ~We have a Potion of Regeneration! Please, let us keep this. I need it for my book restoration.~
 @1025 = ~We have ink of an Octopus! Master Elvenhair requested this for my book restoration.~
 /*
 @1026 = 
@@ -164,7 +164,7 @@ Weight: 1~
 @1265 = ~Maybe I'll stick around for a bit more, but I have to face the fact that it's time to return home.~
 @1266 = ~I guess there will be more where they came from...~
 @1267 = ~This woman is mad.... or blind. Or both!~
-@1268 = ~Whoa, <CHARNAME>, this cost a lot of lives... But were it more than if we would have fought - I don't know, and I am glad I didn't have to make this decision.~
+@1268 = ~Whoa, <CHARNAME>, this cost a lot of lives... But was it more lives than would have been lost if we had fought - I don't know, and I am glad I didn't have to make this decision.~
 @1269 = ~Oh, we get a chance to escape. That's... nice.~
 @1270 = ~We are.. we are standing on top of... (gulp) By the gods, <CHARNAME>, are you alright?~
 @1271 = ~Did we have to kill that man? I mean, yeah, we probably did.~
