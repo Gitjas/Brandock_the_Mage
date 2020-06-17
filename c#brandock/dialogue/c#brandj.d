@@ -1875,6 +1875,7 @@ END
 IF ~~ THEN hunted_pc_07
 SAY @454
 = @455
++ ~OR(2) Dead("SHANK") DEAD("CARBOS")~ + @483 + hunted_pc_08
 ++ @456 + hunted_pc_09
 ++ @457 + hunted_pc_08
 ++ @458 + hunted_pc_08
