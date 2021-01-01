@@ -61,9 +61,133 @@ I_C_T ~%tutu_var%ULCAST~ 5 C#Brandock_ULCAST_5
 == ~%tutu_var%ULCAST~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @482
 END
 
+/* Sendai */
+I_C_T3 ~%tutu_var%Sendai~ 0 C#Brandock_SENDAI_0
+== ~c#brandj~ IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",4)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @484
+== ~c#brandj~ IF ~!GlobalGT("C#Brandock_Dialog","GLOBAL",4)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @485
+END
+
+I_C_T ~%tutu_var%Sendai~ 3 C#Brandock_SENDAI_3
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @486
+END
+
+I_C_T ~%tutu_var%Sendai~ 5 C#Brandock_SENDAI_5
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @487
+END
+
+
+
+
+
+/* Prism dead */
+CHAIN
+IF 
+~%BG1_BEFORE_TRANSITION%
+CombatCounter(0) !See([ENEMY]) 
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+Dead("Prism")
+!See("Prism") See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("C#Brandock_PrismBG1","GLOBAL",1)~ THEN C#BrandB prism
+@488
+DO ~SetGlobal("C#Brandock_PrismBG1","GLOBAL",2)~
+= @489
+END
+++ @490 EXTERN C#BrandJ prism_01
+++ @491 EXTERN C#BrandJ prism_02
+++ @492 EXTERN C#BrandJ prism_03  
+++ @493 EXTERN C#BrandJ prism_03 
 
 
 APPEND c#brandj
+
+IF ~~ THEN prism_01
+SAY @494
+++ @491 + prism_02
+++ @492 + prism_03  
+++ @493 + prism_03 
+END
+
+IF ~~ THEN prism_02
+SAY @495
+IF ~~ THEN + prism_04
+END
+
+IF ~~ THEN prism_03
+SAY @496
+IF ~~ THEN + prism_04
+END
+
+IF ~~ THEN prism_04
+SAY @497
+++ @498 + prism_06
+++ @499 + prism_05
+++ @500 + prism_07
+++ @501 + prism_12
+END
+
+IF ~~ THEN prism_05
+SAY @502
+IF ~~ THEN + prism_07
+END
+
+IF ~~ THEN prism_06
+SAY @503
+IF ~~ THEN + prism_07
+END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN C#BrandJ prism_07
+@504
+== C#BrandJ IF ~GlobalGT("C#Br_BookRestore","GLOBAL",4)~ THEN @505
+== C#BrandJ IF ~!GlobalGT("C#Br_BookRestore","GLOBAL",4)~ THEN @506
+== C#BrandJ @507
+END
+++ @508 + prism_09
+++ @514 + prism_11
+++ @509 + prism_09
+++ @510 + prism_11
+++ @511 + prism_10
+++ @512 + prism_08 
+++ @513 + prism_12
+
+APPEND C#BrandJ 
+
+IF ~~ THEN prism_08
+SAY @515
+++ @508 + prism_09
+++ @514 + prism_11
+++ @509 + prism_09
+++ @510 + prism_11
+++ @511 + prism_10
+++ @513 + prism_12
+END
+
+IF ~~ THEN prism_09
+SAY @516
+IF ~~ THEN + prism_11
+END
+
+IF ~~ THEN prism_10
+SAY @517
+IF ~~ THEN + prism_11
+END
+
+IF ~~ THEN prism_11
+SAY @518
+IF ~~ THEN + prism_12
+END
+
+IF ~~ THEN prism_12
+SAY @519
+IF ~~ THEN EXIT
+END
+
 
 /* Ulcaster school - outside */
 IF ~Global("C#Brandock_UlcasterSchool","GLOBAL",1)~ THEN ulcaster_school
@@ -1020,7 +1144,7 @@ END //APPEND
 
 CHAIN
 IF ~Global("C#Brandock_DurlagT","GLOBAL",3)~ THEN c#brandj durlags_tower_01
-@225
+@225 DO ~SetGlobal("C#Brandock_DurlagT","GLOBAL",4)~
 = @226
 == c#brandj IF ~GlobalGT("C#Brandock_CKeepDoppelgangers","GLOBAL",1)~ THEN @227
 == c#brandj @228

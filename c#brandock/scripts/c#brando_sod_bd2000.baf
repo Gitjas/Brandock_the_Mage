@@ -15,3 +15,17 @@ THEN
 		SetGlobalTimer("bd_betrayal_discuss_timer","bd2000",ONE_MINUTE)
 		DisplayStringHead("C#Brandock",@1268)
 END
+
+/* Battle at Bridgefort starts */
+IF
+	Global("bd_plot","global",250)
+	!GlobalTimerNotExpired("bd_mdd410z_ot_timer","bd2000")  //Boareskyr Bridge & Bridgefort
+	Global("C#Brando_bd_ot","bd2000",0)  // Boareskyr Bridge & Bridgefort
+	IfValidForPartyDialog("C#Brandock")  
+	TriggerOverride("C#Brandock",Range([ENEMY.0.0.0.CRUSADERS],30))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("bd_mdd410z_ot_timer","bd2000",THREE_MINUTES)  // Boareskyr Bridge & Bridgefort
+		SetGlobal("C#Brando_bd_ot","bd2000",1)  // Boareskyr Bridge & Bridgefort
+		DisplayStringHead("C#Brandock",@1281)  
+END

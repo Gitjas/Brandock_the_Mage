@@ -1,0 +1,14 @@
+/* c#brando_sod_bdbark01_commenting.baf */
+/* Comment in Dragonspear Castle Exterior */
+IF
+	Name("bark_mdd1246a",Myself)
+	Global("C#Brandock_bd_mdd1246a_ot","bd4000",0)  
+	Range("C#Brandock",35)  
+	Global("chapter","global",11)
+	OR(2) InParty("C#Brandock") Global("C#HusamJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)   
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_bd_mdd1246a_ot","bd4000",1)  
+		DisplayStringHead("C#Brandock",@1283)
+END

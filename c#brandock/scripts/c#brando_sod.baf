@@ -185,6 +185,42 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
+/* after the sign incident at the Boareskyr bridge */
+/* activate */
+IF
+%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !AreaType(DUNGEON)
+	GlobalGT("bd_plot","global",294)
+	AreaCheck("bd2000")
+	!InMyArea("bdireni")
+	Global("C#Brandock_SoDSignDialog","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",1)
+END
+
+/* initiate */
+IF
+%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Brandock_SoDSignDialog","GLOBAL",1)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",2400)
+    StartDialogNoSet(Player1)
+END
+
+
+
 /* many mentionings of Athkatla */
 /* activate */
 IF
@@ -850,7 +886,9 @@ IF
 		Global("C#Brandock_SoDThrix","GLOBAL",2)
 		Global("C#Brandock_SoDThrix","GLOBAL",3)
 	GlobalLT("bd_plot","global",550)
-	Global("bd_thrix_plot","global",20)
+	OR(2)
+		Global("bd_thrix_plot","global",20)
+		Dead("bdthrix")  // Thrix
 THEN
 	RESPONSE #100
 		IncrementGlobal("C#Brandock_SoDThrix","GLOBAL",3)
@@ -871,7 +909,9 @@ IF
 	Global("bd_thrix_sacrifice_companion","global",1)
 	!Global("bd_thrix_sacrifice_self","global",1)
 	GlobalLT("bd_plot","global",550)
-	Global("bd_thrix_plot","global",20)
+	OR(2)
+		Global("bd_thrix_plot","global",20)
+		Dead("bdthrix")  // Thrix
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_SoDThrix","GLOBAL",7)
@@ -892,7 +932,9 @@ IF
 	GlobalLT("C#Brandock_SoDThrix","GLOBAL",8)
 	Global("bd_thrix_sacrifice_self","global",1)
 	GlobalLT("bd_plot","global",550)
-	Global("bd_thrix_plot","global",20)
+	OR(2)
+		Global("bd_thrix_plot","global",20)
+		Dead("bdthrix")  // Thrix
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_SoDThrix","GLOBAL",8)

@@ -13,6 +13,7 @@ THEN
 		SetGlobal("C#Brandock_bd_mdd016b","bd1000",1)
 		SetGlobalTimer("bd_mdd016b_timer","bd1000",ONE_ROUND)
 		DisplayStringHead("C#Brandock",@1267)  
+		Continue()
 END
 
 

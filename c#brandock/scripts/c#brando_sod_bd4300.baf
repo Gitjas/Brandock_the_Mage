@@ -11,7 +11,8 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("bd_mdd905a_ot_timer","bd4300",THREE_MINUTES)
 		SetGlobal("C#Brandock_bd_ot","bd4300",1)
-		DisplayStringHead("C#Brandock",@1269)
+		DisplayStringHead("C#Brandock",@1269)  
+		Continue()
 END
 
 
@@ -45,7 +46,8 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_bd_MDD892a_ot","bd4300",1)
-		DisplayStringHead("C#Brandock",@1271)  
+		DisplayStringHead("C#Brandock",@1271)    
+		Continue()
 END
 
 
@@ -78,5 +80,6 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",3)
 		SetGlobal("C#Brandock_bd_ot2","bd4300",1)
-		DisplayStringHead("C#Brandock",@1273)  
+		DisplayStringHead("C#Brandock",@1273)   
+		Continue() 
 END

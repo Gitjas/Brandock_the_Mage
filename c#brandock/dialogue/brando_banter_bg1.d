@@ -281,6 +281,27 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 == ~%AJANTIS_BANTER%~ @70
 EXIT
 
+/* Brandock - Xan 3 */
+
+CHAIN
+IF WEIGHT #-1 
+~%BG1_BEFORE_TRANSITION%
+CombatCounter(0) !See([ENEMY]) 
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+See("Xan") See(Player1)
+!StateCheck("Xan",CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+InParty("Xan")
+Global("C#Brandock_XanBG1","GLOBAL",2)~ THEN C#BrandB brandockxan_3
+@509 DO ~SetGlobal("C#Brandock_XanBG1","GLOBAL",3)~
+= @510 /* ~What I wanted to say is, I am impressed with what you achieved and are still achieving. You might say and perhaps even believe that life is hollow, but you surely strive to fill it with your actions nontheless, which stirrs hope in others.~ */
+== ~%XAN_BANTER%~ @511 
+== C#BrandB @512 
+= @513 
+== ~%XAN_BANTER%~ @514 
+= @526 
+EXIT
+
 
 /* Brandock - Neera 5 */
 CHAIN
@@ -345,6 +366,28 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 EXIT
 
 
+/* Brandock - Xan 4 */
+
+CHAIN
+IF WEIGHT #-1 
+~%BG1_BEFORE_TRANSITION%
+CombatCounter(0) !See([ENEMY]) 
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+See("Xan") See(Player1)
+!StateCheck("Xan",CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+InParty("Xan")
+Global("C#Brandock_XanBG1","GLOBAL",3)~ THEN C#BrandB brandockxan_4
+@515 
+DO ~SetGlobal("C#Brandock_XanBG1","GLOBAL",4)~
+== ~%XAN_BANTER%~ @516
+== C#BrandB @517
+== ~%XAN_BANTER%~ @518
+== C#BrandB @519
+= @520
+EXIT
+
+
 
 /* Brandock - Neera 6 */
 CHAIN
@@ -384,6 +427,25 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 EXIT
 
 
+/* Brandock - Xan 5 */
+
+CHAIN
+IF WEIGHT #-1 
+~%BG1_BEFORE_TRANSITION%
+CombatCounter(0) !See([ENEMY]) 
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+See("Xan") See(Player1)
+!StateCheck("Xan",CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+InParty("Xan")
+Global("C#Brandock_XanBG1","GLOBAL",4)~ THEN C#BrandB brandockxan_5
+@521 
+DO ~SetGlobal("C#Brandock_XanBG1","GLOBAL",5)~
+== ~%XAN_BANTER%~ @522
+== C#BrandB @523
+== ~%XAN_BANTER%~ @524
+== C#BrandB @525
+EXIT
 
 
 /* Brandock - Neera 7 */

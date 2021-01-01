@@ -1,0 +1,10 @@
+/* c#brando_sod_bd0063.baf */
+IF
+	Global("BD_NPC01","MYAREA",0)
+	IfValidForPartyDialog("C#Brandock")  
+	Delay(3)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_NPC01","MYAREA",1)
+		DisplayStringHead("C#Brandock",@1279)  
+END

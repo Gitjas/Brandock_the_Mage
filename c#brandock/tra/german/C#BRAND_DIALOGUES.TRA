@@ -489,7 +489,45 @@
 @482  = ~... werden wir alle noch einmal leben ... eines Tages ...~
 
 /* new for vbeta 6 */
-@483  = ~Nein, Brandock. Die ersten Meuchekmörder lauerten mir in Kerzenburg auf, und sie waren explizit hinter mir her. Sie machten kein Geheimnis daraus, dass jemand bereit ist viel Geld für meinen Kopf zu zahlen.~
+@483  = ~Nein, Brandock. Die ersten Meuchelmörder lauerten mir in Kerzenburg auf, und sie waren explizit hinter mir her. Sie machten kein Geheimnis daraus, dass jemand bereit ist viel Geld für meinen Kopf zu zahlen.~
+
+/* new for vbeta 7 */
+@484  = ~[Brandock zu Sendai] Ho! Habt Ihr in Erwägung gezogen, dass wir eventuell selbst von Amn stammen könnten?!~
+@485  = ~[Brandock zu Sendai] Ho! Und was macht Euch so sicher, dass wir nicht selbst aus Amn stammen... was ja zumindest theoretisch möglich wäre?~
+@486  = ~[Brandock zu Sendai] Das ist in der Tat in Amn ein bekannter Name, aber... Gute Güte, Frau, ich hoffe Ihr sehr Ihr meint das nicht ernst!~
+@487  = ~[Brandock zu Sendai] Boah, <CHARNAME>, glaubt mir, nicht alle in Amn sind derartig... derartig... derartig *aufgeblasen*.~
+@488  = ~[Brandock] Dieser Prism... Ihr erinnert Euch, der Künstler, der lieber sterben als sein Werk unvollendet lassen wollte - der hat mich wirklich sehr beeindruckt.~
+@489  = ~[Brandock] Nicht im positiven Sinne. Er war so versteift auf diese eine Sache... besessen - verrückt! Er war so besessen, dass er sich von seiner Arbeit hat töten lassen!~
+@490  = ~[PC reply] "Hat töten lassen"? Interessante Wortwahl.~ 
+@491  = ~[PC reply] Er war krank, Brandock. Keine normale Person würde sich so zu Tode arbeiten.~
+@492  = ~[PC reply] Viele wollen in ihrem Leben etwas von Wichtigkeit und Dauer erschaffen. Häufig sagen sie, dass ihr Lebenssinn dann erfüllt ist und sie sterben könnten. Das hat er eindeutig erreicht.~
+@493  = ~[PC reply] Er hat sein Meisterwerk vollendet und ist glücklich gestorben. Das ist mehr, als viele andere über ihr Leben sagen können.~
+@494  = ~[Brandock] Das ist meine Meinung zu dem, was geschehen ist.~
+@495  = ~[Brandock] Das war er auf alle Fälle.~
+@496  = ~[Brandock] Ja, aber normalerweise haben sie trotzdem vorher lange und glücklich erstmal gelebt!~
+@497  = ~[Brandock] Die Frage ist, was ihn zu dieser Besessenheit getrieben hat. Wie kann man so sehr von einem Ziel erfüllt sein, dass das eigene Leben nichts mehr wert ist? Ergibt sich das aus einer Mischung bestimmter Einflüsse, oder ist das etwas, was jedem passieren könnte?~
+@498  = ~[PC reply] Dafür braucht es definitiv eine Verkopplung von Umständen. Nicht viele verhalten sich so extrem, sie werden immer Ausnahmen sein.~
+@499  = ~[PC reply] Ich denke, dass es jedem passieren könnte, wenn sich die Person zu sehr auf eine Sache fokussiert und versteift.~
+@500  = ~[PC reply] Warum beschäftigt Euch das so?~
+@501  = ~[PC reply] Ich möchte darüber nicht weiter sprechen, Brandock.~
+@502  = ~[Brandock] Das ist es, was ich befürchte.~
+@503  = ~[Brandock] Das sind sie wohl und doch passiert es immer wieder.~
+@504  = ~[Brandock] Weil es mich... ängstigt. Zu sehen, wo einen ein Ziel, dass einem sehr wichtig ist hinführen kann, wenn man es nicht schafft, es sinnvoll zu strukturieren macht mir wirklich Angst. Ich... ich habe sehr große Ziele in meinem Leben als Magier, wie Ihr wisst.~
+@505  = ~[Brandock with retored book] Das De Simplex Magicae wieder herzustellen ist eines davon, ein sehr starkes - sehr, *sehr* starkes Ziel. Beängstigend stark.~
+@506  = ~[Brandock, with damaged book] *Irgendwie* für das De Simplex Magicae wieder Gutmachung leisten ist eines davon, ein sehr starkes - sehr, *sehr* starkes Ziel. Beängstigend stark.~
+@507  = ~[Brandock] Ich bereite mich darauf vor, Jahre an der Erreichung meiner Ziele arbeiten zu müssen, und nicht aufzuhören, bevor ich es nicht umgesetzt habe. Woher werde ich wissen, wo ich es langsamer angehen sollte - wann ich einen Gang runterschalten muss, um nicht denselben Pfad wie Prism zu gehen? Werde ich stark genug sein, um damit aufzuhören, bevor es mich in den Wahnsinn treibt - und damit in den Tod?~
+@508  = ~[PC reply] Selbstverständlich werdet Ihr das, Brandock. Ihr sucht nach Wissen und wollt die Dinge richtig machen. Ihr seid doch kein Verrückter, der einer Fantasie hinterherrennt, die nur seinem Kopf entsprungen ist.~
+@509  = ~[PC reply] Ziele zu haben ist eine gute Sache, Brandock. Sie werden Euch durch die Zeiten tragen, in denen Ihr den Sinn des Lebens anzweifelt.~
+@510  = ~[PC reply] Woher soll ich das wissen?~
+@511  = ~[PC reply] Keine Sorge. Wenn ich bemerke, dass Ihr Gefahr lauft, Euch so zu verhalten, werde ich Euch mit einem kräftigen Schlag auf den Hinterkopf wieder zur Vernunft bringen.~
+@512  = ~[PC reply] Wie wäre es, wenn Ihr Euch um diese Dinge sorgt, wenn sie auch eine wirkliche Gefahr darstellen?~
+@513  = ~[PC reply] Das interessiert mich wenig, Brandock.~
+@514  = ~[PC reply] Es ist auf alle Fälle gut, vorsichtig zu sein und immer wieder die eigenen Ziele zu hinterfragen, keine Frage.~
+@515  = ~[Brandock] Was? Aber... dann könnte es bereits zu spät sein!~
+@516  = ~[Brandock] Danke. Eure Worte geben mir etwas Gewissheit.~
+@517  = ~[Brandock] Oh ja, das... das ist sehr beruhigend, danke auch.~
+@518  = ~[Brandock] Ich weiß, dass es wohl noch zu früh ist, sich darüber Gedanken - *Sorgen* zu machen. Was mir Angst macht ist die Möglichkeit, dass ich den richtigen Zeitpunkt verpassen könnte, wann ich damit anfangen sollte.~
+@519  = ~[Brandock] Ich hoffe sehr, dass ich niemals den Bezug zur Realität verliere, wie es Herrn Prism passiert ist.~
 
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal wäre Euer Vater, Ihr wurdet von einem Gott gezeugt? Der mittlerweile tot ist, sollte ich dazu sagen. Gehe ich richtig in der Annahme, dass Ihr das selbst nicht wusstet?~ [c#ablank]
@@ -760,6 +798,25 @@
 @968  = ~Da habt Ihr Recht! Das Leben und seine Pflichten holen uns noch früh genug wieder ein.~
 @969  = ~Das klingt vernünftig.~
 @970  = ~Ich bleibe an Eurer Seite, bis wir all die unerledigten Dinge erledigt haben. Ich war bisher davon ausgegangen, dass ich an Eurer Seite bleibe, bis wir den Mörder von Gorion gefunden haben, aber jetzt Abschied zu nehmen würde sich nicht richtig anfühlen - vorausgesetzt natürlich Ihr wollt, dass ich bleibe. Ich brauche etwas Zeit, um zu realisieren, dass wir es geschafft haben... Und um den nötigen Mut aufzubringen, nach Hause zurückzukehren.~
+
+/* new for vbeta7 */
+/* @762 rephrased */
+@971  = ~This was a most interesting experience for me at my age, young man. Please, continue to note down what you remember from the book's spells as you already did. Until we know exactly what the first pages translate to we should not risk the recipes getting lost.~
+@972  = ~But we cannot know when this will come to pass, and I am much too intrigued to wait for it to happen. I will do the following, my young mage. Next time my ways guide me to Candlekeep, I will bring my Ruathlek lexicon with me. I do not know yet when this will be, I fear it will be a while still. I will let you know once this happens.~
+@973  = ~Until then we would be poorly advised to just try and do anything more with the book before we do not know what exactly it says how to proceed to restore it. Do not attempt to write spells into it on your own account, Brandock. I fear for you safety.~
+@974  = ~[Brandock] I would never, Master Elvenhair. I know how dangerous it can be, ahem. Thank you - thank you so much for all your help. I am completely stunned and don't know what to say.~
+/* former @754 slpit in several lines and added comment */
+@975  = ~Er, yes, it was my hope you would help me with it... or let me help you with it, to be more precise... Master Elvenhair, I cannot say how grateful I am that you call this whole incident "unfortunate" and nothing else! Would I be you, I'd call it by much more drastic words, I can tell you that.~
+@976  = ~I... I do not come to you with such a request without any proof of my abilities, Master Elvenhair. See this seal - it would have granted me access to Candlekeep as a seeker, had I the book still with me.~
+@977  = ~Also, I want you to note down anything you can still remember about the spell recipes that were in the books. Not as a scroll - that would be way too dangerous. Just plain notes on paper.~
+/* former @756 */
+@978  = ~Once you retrieved all the ingredients we will first stabilize the book pages before we attempt anything else. After that and when I see what you still remember from the book's spells and how you fare with scroll scribing, we will work on restoring the book.~
+@979  = ~My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for years, my young friend, and you will continue to work on it long after I've taught you everything you need to know to work on it.~
+/* @759 rephrased */
+@980  = ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book.~ 
+@981  = ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my lexicon, which is in Candlekeep.~
+@982  = ~But I do recommend you practice your scroll scribing skills before we do any attempt on scribing spells of the De Simplex Magicae. Just come here to do so. You can use my desk and utensils any time you want.~
+
 
 /* brandock_candlekeep.d */
 @1050 = ~Torwache, würdet Ihr einen Blick auf die Überbleibsel eines Buches werfen, die mein Kamerad hier bei sich hat. Es handelte sich um ein sehr wertvolles Buch, und einiges davon ist noch lesbar. Reicht das für den Einlass?~
@@ -1042,6 +1099,10 @@
 @1537 = ~Hm, das ist interessant zu lesen - Gedankenkontrolle von Schleimen... Aber nein, das sollten wir besser nicht verwenden. Nicht ohne nochmal *viel* Forschung hinein zu stecken, wozu mir ganz ehrlich das Interesse fehlt.~
 @1538 = ~Brrrr. "Skulpturen" aus versteinerten Leuten! Der Gnom wäre mal besser selbst nicht "vom Pfad abgekommen", dann hätten wir ihn nicht zu töten brauchen. Ah, mir Zauberbücher von solchen Magiern anzugucken schlägt mir immer etwas auf den Magen.~
 @1539 = ~Warum müssen uns die Leute immer angreifen? Na klasse, das Zauberbuch von dem hier ist nicht mehr brauchbar, es ist angesengt. Ich schau mal, ob ich die der anderen noch lesen kann.~
+
+/* new for vbeta 7 */
+@1540 = ~Here, let me put the books aside so my desk is free again, in case you want to continue with scroll scribing later. I'll send them off as soon as I finished indexing them.~
+@1541 = ~Oooh, I'll help you gladly with that, Master Elvenhair... if I may.~
 
 
 /* c#brando_bg1end_bgt.d */

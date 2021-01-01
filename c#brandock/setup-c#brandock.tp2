@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_6~ 
+VERSION ~Beta_7_pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -71,7 +71,6 @@ END
 
 /* dream scripts for all games */
   INCLUDE ~c#brandock/lib/g3_dreamscript_cpmvars.tpa~ 
-
 
 
 /* some stuff for the BG2-part to make it compatible with the BGT-notation */
@@ -323,7 +322,7 @@ ACTION_IF GAME_IS ~eet bgee~ THEN BEGIN
   ADD_JOURNAL TITLE (@10006) @10000 @10009 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10010) @10005 @10008 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10013) @10002 @10003 @10004 @10011 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
-  ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10025 @10026 @10028 @10043 @10044 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10026 @10051 @10052 @10053 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10029) @10023 @10024 @10027 @10030 @10031 @10032 @10033 @10034 @10035 @10036 @10037 @10038 @10039 @10040 @10041 @10042 @10045 @10046 @10047 @10048 @10049  USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
   ADD_JOURNAL TITLE (@10007) @10012 @10016 @10050 USING ~C#Brandock/tra/%LANGUAGE%/journal.tra~
 END
@@ -422,7 +421,8 @@ END
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_sod.d~
-END
+END //SoD
+
 
 /* BG2 */
 ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
@@ -904,12 +904,59 @@ EXTEND_TOP ~bd0120.bcs~ ~c#brandock/scripts/c#brando_sod_bd0120_et.baf~
 EXTEND_TOP ~bd0101.bcs~ ~c#brandock/scripts/c#brando_sod_bd0101.baf~
   EVALUATE_BUFFER
 /* war camps */
-EXTEND_BOTTOM ~bd1000.bcs~ ~c#brandock/scripts/c#brando_sod_bd1000.baf~
+EXTEND_TOP ~bd1000.bcs~ ~c#brandock/scripts/c#brando_sod_bd1000.baf~
   EVALUATE_BUFFER
-EXTEND_BOTTOM ~bd3000.bcs~ ~c#brandock/scripts/c#brando_sod_bd3000.baf~
+	/* Patch your NPC's "Move Camp" variable to the original game's script block (bd1000.bcs) */
+COPY_EXISTING ~bd1000.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(SetGlobal("bd_move_npcs","bd1000",1)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 SetGlobal("C#Brandock_MoveCamp","bd1000",1)~ 
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+EXTEND_TOP ~bd3000.bcs~ ~c#brandock/scripts/c#brando_sod_bd3000.baf~
   EVALUATE_BUFFER
-EXTEND_BOTTOM ~bd7100.bcs~ ~c#brandock/scripts/c#brando_sod_bd7100.baf~
+	/* Patch your NPC's "Move Camp" variable to the original game's script block (bd3000.bcs) */
+COPY_EXISTING ~bd3000.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(SetGlobal("bd_move_npcs","bd3000",1)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 SetGlobal("C#Brandock_MoveCamp","bd3000",1)~ 
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(SetGlobal("bd_move_voghiln","bd3000",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 SetGlobal("C#Brandock_MoveCamp","bd3000",0)~ 
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+EXTEND_TOP ~bd7100.bcs~ ~c#brandock/scripts/c#brando_sod_bd7100.baf~
   EVALUATE_BUFFER
+	/* Patch your NPC's "Move Camp" variable to the original game's script block (bd7100.bcs) */
+COPY_EXISTING ~bd7100.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(SetGlobal("bd_move_npcs","bd7100",1)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 SetGlobal("C#Brandock_MoveCamp","bd7100",1)~ 
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
 
 /* return to camp if kicked out */
 EXTEND_TOP ~bdparty.bcs~ ~c#brandock/scripts/c#brando_sod_bdparty.baf~
@@ -928,7 +975,8 @@ EXTEND_TOP ~bdcut08.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut08.baf~
   EVALUATE_BUFFER
 
 /* PC gave Bridgefort Castle to the crusaders */
-EXTEND_TOP ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
+/* & Battle at Bridgefort starts */
+EXTEND_BOTTOM ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
   EVALUATE_BUFFER
 
 /* portal opened */
@@ -936,7 +984,7 @@ EXTEND_TOP ~bd4300.bcs~ ~c#brandock/scripts/c#brando_sod_bd4300.baf~
   EVALUATE_BUFFER
 
 /* inside Avernus */
-EXTEND_TOP ~bd4400.bcs~ ~c#brandock/scripts/c#brando_sod_bd4400.baf~
+EXTEND_BOTTOM ~bd4400.bcs~ ~c#brandock/scripts/c#brando_sod_bd4400.baf~
   EVALUATE_BUFFER
 
 /* Hell elevator - Brandock comments */
@@ -978,6 +1026,26 @@ COPY_EXISTING ~bdmorent.BCS~ ~override~
 	END
 BUT_ONLY
 
+/* (T3) Comment in random area (Canyon Ambush) bd0063.are */
+EXTEND_BOTTOM ~bd0063.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bd0063.baf~
+EVALUATE_BUFFER
+
+/* (T3) Move NPC to entrance of the Allied Siege Camp (Crusade battle) */
+EXTEND_BOTTOM ~bdasc3.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bdasc3.baf~
+  EVALUATE_BUFFER
+
+/* (T3) Comment when battle starts in Kanaglym (bd5300.are, Underground River) */
+EXTEND_BOTTOM ~bd5300.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bd5300_commenting.baf~
+EVALUATE_BUFFER
+
+/* Comment in Dragonspear Castle Exterior */
+EXTEND_BOTTOM ~bdbark01.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bdbark01_commenting.baf~
+EVALUATE_BUFFER
+
+
+/* Move the PC in the cutscene of the plotting nobles in Three Old Kegs (bdc116d.bcs) */
+EXTEND_BOTTOM ~bdc116d.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bdc116d.baf~
+EVALUATE_BUFFER
 
 END //SoD
 
@@ -1683,7 +1751,7 @@ COPY_EXISTING ~c#bran01.CRE~ ~override~
   ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver1~
   ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver2~
   ADD_CRE_ITEM ~BULL01~ #40 #0 #0 ~IDENTIFIED~ ~quiver3~
-  ADD_CRE_ITEM ~c#br0003~ #40 #0 #0 ~IDENTIFIED~ ~inv1~
+  ADD_CRE_ITEM ~c#br0003~ #1 #0 #0 ~IDENTIFIED~ ~inv1~
 BUT_ONLY_IF_IT_CHANGES
 END
 

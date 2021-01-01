@@ -260,11 +260,9 @@ END
 
 IF ~~ THEN approaching_candlekeep_12
 SAY @1110
-IF ~~ THEN DO ~EraseJournalEntry(@10025)
-AddJournalEntry(@10043,QUEST)
-SetGlobal("C#Br_InsideCandlekeep","GLOBAL",1) SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",4)~ UNSOLVED_JOURNAL @10028 /* ~Brandock Wants to Restore his Book
+IF ~~ THEN DO ~SetGlobal("C#Br_InsideCandlekeep","GLOBAL",1) SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",4)~ UNSOLVED_JOURNAL @10052 /* ~Brandock Wants to Restore his Book
 
-Brandock found a way to translate the Ruathlek pages in his restored book: he wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a seeker.~ */ EXIT
+Brandock wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a visitor and start working on translating the Ruathlek writing in his magic book.~ */ EXIT
 END
 
 IF ~~ THEN approaching_candlekeep_13
@@ -450,7 +448,7 @@ APPEND c#brandj
 
 IF ~~ THEN candlekeep_catacombs_expelled_05
 SAY @1149
-IF ~~ THEN DO ~EraseJournalEntry(@10028) AddJournalEntry(@10044,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~EraseJournalEntry(@10052) AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
 END
 
 END //APPEND
@@ -477,7 +475,7 @@ IF ~~ THEN c#brandj candlekeep_catacombs_expelled_08
 @1154
 == c#brandj IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",6)~ THEN @1155
 END
-IF ~~ THEN DO ~EraseJournalEntry(@10028) AddJournalEntry(@10044,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~EraseJournalEntry(@10052) AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
 
 
 APPEND c#brandj

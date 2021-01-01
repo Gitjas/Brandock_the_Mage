@@ -5,7 +5,7 @@
 @2    = ~Wait, what? Poisoned? When, how ... what?!~
 @3    = ~To atone for an involuntary murder of your own family. I do not envy you, Captain Brage. Not at all. Your path will be a hard one...~
 @4    = ~Do not call me captain. I shamed and lost that title forever. My poor family...~
-@5    = ~Wow, I can't believe we really defeated your 'half-brother'. Hmm. The way that Sarevok was shocked when you struck him down... So much disbelief. He really didn't expect this to happen, it seems. I felt a little sorry for him. A little. Almost. Well, not really.~
+@5    = ~Wow, I can't believe we really defeated your 'half-brother'. Hmm. The way that Sarevok was shocked when you struck him down... So much disbelief. He really didn't expect this to happen, it seems. I felt almost little sorry for him. Almost.~
 @6    = ~<CHARNAME>, those might be only snippets and pieces but the remains of that book really mean a lot to me. We need to go back and collect them as soon as possible.~
 @7    = ~<CHARNAME>, that book really means a lot to me. We need to go back and collect it as soon as possible.~
 @8    = ~<CHARNAME>, I asked you to return so we could collect my book. This did not happen so I'll have to go search for it myself. Farewell.~
@@ -491,6 +491,44 @@
 /* new for vbeta 6 */
 @483  = ~No, Brandock. There were assassins *inside* Candlekeep I had to fight off as well. They were explicitely aiming at me, personally, stating that my head is worth a large amount of gold.~
 
+/* new for vbeta 7 */
+@484  = ~[Brandock to Sendai] Whoa! Did you consider that people walking so far north might, indeed, originate from Amn themselves?!~
+@485  = ~[Brandock to Sendai] Whoa! And what makes you so sure that we are the ones travelling so far "north", maybe there is people here that originate from Amn... At least it's possible, hypothetically speaking, right?~
+@486  = ~[Brandock to Sendai] This is a known name in Amn indeed, but... by the gods, woman, you cannot be serious.~
+@487  = ~[Brandock to Sendai] Uch. <CHARNAME>, I swear, not everyone on Amn is so... so... so *pompous*.~
+@488  = ~[Brandock] This Prism... You know, the artist that rather died than leaving his work unfinished - he left me deeply impressed.~
+@489  = ~[Brandock] Not in the positive sense. He was so driven... obsessed - crazy! He was so obsessed with his work that he lets it kill him!~
+@490  = ~[PC reply] "Lets it kill him"? That's an interesting choice of words.~ 
+@491  = ~[PC reply] He was sick, Brandock. No normal person would drive himself to death like that.~
+@492  = ~[PC reply] A lot of people want to create something of value and perpetuity in their life. Often they are ready to die afterwards. He certainly did that.~
+@493  = ~[PC reply] He finished his masterpiece and died happy. It's more than many others can say about their life.~
+@494  = ~[Brandock] It's how I see it.~
+@495  = ~[Brandock] He definitely was.~
+@496  = ~[Brandock] Yes, but they usually also want to live long and happy before that!~
+@497  = ~[Brandock] The question is what drove him into this insanity? How can a man become so obsessed with one goal? Is it a combination of special influences, or is it something that could happen to anyone?~
+@498  = ~[PC reply] It definitely is a combination of circumstances. There is not many people who behave that way, they will always be an exception.~
+@499  = ~[PC reply] I think it could happen to anyone, if a person sets his mind onto something too much.~
+@500  = ~[PC reply] Why does this bother you so much?~
+@501  = ~[PC reply] I don't want to talk about this futher, Brandock.~
+@502  = ~[Brandock] That's what I'm afraid of.~
+@503  = ~[Brandock] They surely are, still it happens.~
+@504  = ~[Brandock] This... scares me. Seeing where having a very important personal goal could lead to if you are not careful how you pace it scares the wits out of me. I... I have very distinctive goals myself as a mage, as you know.~
+@505  = ~[Brandock with retored book] Restoring the De Simplex Magicae is one of them, and a very strong one it is. Very, very strong. Scarily strong.~
+@506  = ~[Brandock, with damaged book] *Somehow* making up for the De Simplex Magicae is one of them, and a very strong one it is. Very, very strong. Scarily strong.~
+@507  = ~[Brandock] I am preparing myself to work on what I want to achieve for years to come, and not to let go before I reached it. How would I know where to take it slow - where to adapt to prevent going down the path Prism went? Will I be strong enough to be able to stop before it drives me mad - and dead?~
+@508  = ~[PC reply] Of course you will be strong enough, Brandock. You strive for wisdom and want to do things right. You are not a driven madman that clings to a fantasy he made up in his mind.~
+@509  = ~[PC reply] Having goals is a good thing, Brandock. They will guide you through the times where you question the meaning of life.~
+@510  = ~[PC reply] How should I know?~
+@511  = ~[PC reply] No worries. If I notice you going down that path I'll give you a good smacking to put your head in order.~
+@512  = ~[PC reply] How about you wory about these things if they are an actual danger?~
+@513  = ~[PC reply] I couldn't care less, Brandock.~
+@514  = ~[PC reply] It's good to be careful and always reevaluate one's ways of achieving one's goals, that is surely true.~
+@515  = ~[Brandock] What? But... it might be too late then!~
+@516  = ~[Brandock] Thank you. Your words give me reassurance.~
+@517  = ~[Brandock] Oh yes, That's... that's very reassuring, thank you.~
+@518  = ~[Brandock] I know it's probably too early to think about this - to *worry* about this. But what scares me is the possibility to lose track as to *when* it would be time to worry about it.~
+@519  = ~[Brandock] I surely hope I'll never lose connection to reality like Mister Prism did.~
+
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal would be your father, you were sired by a god? Who is now dead, I might add. You didn't know this, I take it?~ [c#ablank]
 @651  = ~No, I didn't.~
@@ -541,15 +579,15 @@
 @751  = ~Ah, the young <CHARNAME> and <PRO_HISHER> unfortunate friend. I see you have everything I requested here. Let us begin with preserving the remaining book snippets against further destruction, shall we?~
 @752  = ~Master Elvenhair, we came here with a request of, erm, well I would say it is important but that is dependent of perspective, of course, and... ah, blast it! (Brandock takes out the remains of his book, mumbling something about "extremely sorry" and "foxes".)~ [c#ablank]
 @753  = ~Oh, this is very unfortunate. The poor book! Foxes, you say? (murmurs) I think I should talk to Tethtoril about extending the protection spells... (clears his throat) So you want to work on restoring this, I figure?~
-@754  = ~Er, yes, it was my hope you would help me with it... or let me help you with it, to be more precise... Master Elvenhair, I cannot say how grateful I am that you call this whole incident "unfortunate" and nothing else! Would I be you, I'd call it by much more drastic words, I can tell you that. I... I do not come to you with such a request without any proof of my abilities, Master Elvenhair. See this seal - it would have granted me access to Candlekeep as a seeker, had I the book still with me.~
+//@754  = ~~
 @755  = ~A seal from Purgan from Riatavin, signed with the signet of Alisarhold! Young friend, if Purgan from Alisarhold thought you ready and worthy to find entrance to Candlekeep, then this is enough for me to help you with your studies. Do not thank me too soon, young friend. I have some requirements for you to fulfill before we start working on the book snippets. I want you to collect the following items: a potion of restoration, ink of an octopus - you usually can buy this from fishermen as they know mages need it occasionally, but it is expensive. Milking an octopus will do just as well, and if you ever went through the hassle of retrieving ink from an octopus yourself you will value the ink more I can tell you - and a Star Sapphire.~
-@756  = ~Once you retrieved all the ingredients we will first stabilize the book pages, then you will write a few scrolls with one or two recipes you remember so I can see your level of knowledge in this regard. After that, we will work on restoring the book. My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for years, my young friend, and you will continue to work on it long after I've taught you everything you need to know to work on it.~
+//@756  = ~~
 @757  = ~Thank you... thank you, Master Elvenhair.~
 @758  = ~What... what just happened? Why is this a book now? Where did this book come from?~ [c#ablank]
-@759  = ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book. But, since it was heavily damaged, it keeps its spells hidden. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my lexicon, which is in Candlekeep.~
+//@759  = ~~
 @760  = ~You've... *got* to be kidding me.~
 @761  = ~This is most fascinating, it seems this transformation is related to the simplified magic formulas characterizing the De Simplex Magicae. We just raised the book to its next level, and a lot could be learnt from that. You need to find a way into Candlekeep with this, young friend. Unfortunately, it is not valuable enough in its current state, but it will be a most precious object of study. If you ever earn the way into Candlekeep, I will make sure the sages know about this.~
-@762  = ~This was a most interesting experience for me at my age, young man. I do have the feeling that you do not have to write down the book's spells by heart as we thought you would. They are all still inside the book, only magically hidden.~
+//@762  = ~~
 @763  = ~Thank you, Master Elvenhair. I don't know what to say... <CHARNAME>, I... I need to process what just happened. My head feels like it's gonna *explode*.~
 @764  = ~We have all the requested ingredients! Please, <CHARNAME>, let us return to Master Elvenhair!~ [c#ablank]
 @765  = ~He's helping me... he's helping me he's helping me he's HELPING ME! <CHARNAME>! Elvenhair will help me restore the De Simplex Magicae!!~ [c#ablank]
@@ -760,6 +798,25 @@
 @968  = ~Right you are! Life and its duties will catch up with us soon enough.~
 @969  = ~That sounds reasonable.~
 @970  = ~I will remain at your side until we finished all the loose ends and bits. I always thought I'd remain with you until we found the murderer of Gorion, but parting now would not feel right - if you want me to stay, that is. I need some time to realize it's done... And to collect the needed courage to return home.~
+
+/* new for vbeta7 */
+/* @762 rephrased */
+@971  = ~This was a most interesting experience for me at my age, young man. Please, continue to note down what you remember from the book's spells as you already did. Until we know exactly what the first pages translate to we should not risk the recipes getting lost.~
+@972  = ~But we cannot know when this will come to pass, and I am much too intrigued to wait for it to happen. I will do the following, my young mage. Next time my ways guide me to Candlekeep, I will bring my Ruathlek lexicon with me. I do not know yet when this will be, I fear it will be a while still. I will let you know once this happens.~
+@973  = ~Until then we would be poorly advised to just try and do anything more with the book before we do not know what exactly it says how to proceed to restore it. Do not attempt to write spells into it on your own account, Brandock. I fear for you safety.~
+@974  = ~[Brandock] I would never, Master Elvenhair. I know how dangerous it can be, ahem. Thank you - thank you so much for all your help. I am completely stunned and don't know what to say.~
+/* former @754 slpit in several lines and added comment */
+@975  = ~Er, yes, it was my hope you would help me with it... or let me help you with it, to be more precise... Master Elvenhair, I cannot say how grateful I am that you call this whole incident "unfortunate" and nothing else! Would I be you, I'd call it by much more drastic words, I can tell you that.~
+@976  = ~I... I do not come to you with such a request without any proof of my abilities, Master Elvenhair. See this seal - it would have granted me access to Candlekeep as a seeker, had I the book still with me.~
+@977  = ~Also, I want you to note down anything you can still remember about the spell recipes that were in the books. Not as a scroll - that would be way too dangerous. Just plain notes on paper.~
+/* former @756 */
+@978  = ~Once you retrieved all the ingredients we will first stabilize the book pages before we attempt anything else. After that and when I see what you still remember from the book's spells and how you fare with scroll scribing, we will work on restoring the book.~
+@979  = ~My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for years, my young friend, and you will continue to work on it long after I've taught you everything you need to know to work on it.~
+/* @759 rephrased */
+@980  = ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book.~ 
+@981  = ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my lexicon, which is in Candlekeep.~
+@982  = ~But I do recommend you practice your scroll scribing skills before we do any attempt on scribing spells of the De Simplex Magicae. Just come here to do so. You can use my desk and utensils any time you want.~
+
 
 /* brandock_candlekeep.d */
 @1050 = ~Gatewarden, would you have a look at the book remains my friend carries. It was a very valuable book, and a lot of it is readable still. Would this suffice to get entrance?~
@@ -1013,7 +1070,7 @@
 @1510 = ~Oh-oh, really? Just a quick look what kind of books there actually *are* - so I'll know what to look forward to!~
 @1511 = ~Oh-oh, really? Just a quick look what kind of books there actually *are* - so I'll know what I'll be missing...~
 @1512 = ~Young man, if you lean any closer to the table you might drool onto my newly acquired books, which I would find most unfortunate.~
-@1513 = ~I'm... I'm so sorry, Master Elvenhair. I...~
+@1513 = ~I'm... I'm so sorry, Master Elvenhair. I didn't mean to!...~
 @1514 = ~I see you have a curious mind, and a good heart, my friend. Feel free to stay and look through the books and tomes you see here. They are for others to appreciate the contained wisdom - but you'll have to do so now, because I will send them on their way to Candlekeep soon.~
 @1515 = ~You are very generous, Master Elvenhair.~
 @1516 = ~I... I probably shouldn't. Not after... But...~
@@ -1043,6 +1100,9 @@
 @1538 = ~Brrrr. "Sculptures" out of petrified people. Well, I guess that gnome should have stayed "on the roads" himself, then we wouldn't have had to kill him. Ah, looking at spellbooks from people like him make me a little sick sometimes, I have to admit.~
 @1539 = ~Why do people always have to attack us? Great, this one's spell book is no longer useful, it's singed. I'll see whether the other ones are still readable.~ 
 
+/* new for vbeta 7 */
+@1540 = ~Here, let me put the books aside so my desk is free again, in case you want to continue with scroll scribing later. I'll send them off as soon as I finished indexing them.~
+@1541 = ~Oooh, I'll help you gladly with that, Master Elvenhair... if I may.~
 
 /* c#brando_bg1end_bgt.d */
 @2000 = ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... Please understand that I need to make my way back to Amn on my own. I cannot return as a representative of Baldur's Gate authorities - I am sure you understand.~

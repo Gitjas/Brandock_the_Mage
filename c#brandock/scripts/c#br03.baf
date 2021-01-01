@@ -23,7 +23,7 @@ THEN
 		SetGlobal("C#BrandockSpawn","GLOBAL",10)
 		MoveGlobal("c#br03","C#Brandock",[365.326])
 	   	ActionOverride("C#Brandock",Face(6))
-		ReallyForceSpellRES("SPWM168","C#Brandock") //Heal 
+		ReallyForceSpellRES("SPPR607","C#Brandock") //Heal 
 	   	ActionOverride("C#Brandock",SetDialog("c#brand2")
 		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))

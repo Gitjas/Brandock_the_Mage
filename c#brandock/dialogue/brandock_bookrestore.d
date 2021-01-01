@@ -47,30 +47,36 @@ PartyHasItem("c#br0001")
 See("FIREBE")~ THEN c#brandj brandock_quest
 @752
 == FIREBE @753
-== c#brandj @754
+== c#brandj @975
+= @976
 == FIREBE @755
-= @756
+= @977
+= @982
+= @978
+= @979
 == c#brandj @757
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10021)
+AddJournalEntry(@10050,QUEST)
+SetGlobal("C#Brandock_ScrollscribingElvenhair","GLOBAL",1)
 SetGlobal("C#Br_BookRestore","GLOBAL",2)~ UNSOLVED_JOURNAL @10022 EXIT
 
 /* after book restore cutscene */
 CHAIN
 IF ~Global("C#Br_BookRestore","GLOBAL",5)~ THEN c#brandj bookrestore
 @758
-== FIREBE @759
-== c#brandj @760
-== FIREBE @761
-= @762
-/*
-== FIREBE IF ~!Dead("Sarevok")~ THEN ~Still, I would like to hold on to our plan on writing some scrolls together, as I do think this exercise will serve you well, just in case. But scroll scribing is a matter of utmost calmness and inner peace. Go and finish whatever you are doing with <CHARNAME>. When you have finished, return to me and I will teach you what you need to know about scroll scribing.~ DO ~AddJournalEntry(@10050,QUEST)~
-== FIREBE IF ~Dead("Sarevok")~ THEN ~Still, I would like to hold on to our plan on writing some scrolls together, as I do think this exercise will serve you well, just in case. Return to me when you have the calm needed for it and I will teach you what you need to know about scroll scribing.~ DO ~AddJournalEntry(@10016,QUEST)~
-*/
-== c#brandj @763
+== FIREBE @980 /* ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book.~ */
+== c#brandj @760 /* ~You've... *got* to be kidding me.~ */
+== FIREBE @981 /* ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my lexicon, which is in Candlekeep.~ */
+= @761  /* ~This is most fascinating, it seems this transformation is related to the simplified magic formulas characterizing the De Simplex Magicae. We just raised the book to its next level, and a lot could be learnt from that. You need to find a way into Candlekeep with this, young friend. Unfortunately, it is not valuable enough in its current state, but it will be a most precious object of study. If you ever earn the way into Candlekeep, I will make sure the sages know about this.~ */
+= @972 /* But we cannot know when this will come to pass, and I am much too intrigued to wait for it to happen. I will do the following, my young mage. Next time my ways guide me to Candlekeep, I will bring my private copy of Ruathlek lexicon with me. I do not know yet when this will be, I fear it will be a while still. I will let you know once this happens.~ */
+= @973 /* ~Until then we would be poorly advised to just try and do anything more with the book before we do not know what exactly it says how to proceed to restore it. Do not attempt to write spells into it on your own account, Brandock. I fear for you safety.~ */
+== c#brandj @974  /* ~[Brandock] I would never, Master Elvenhair. I know how dangerous it can be, ahem. Thank you - thank you so much for all your help. I am completely stunned and don't know what to say.~ */
+= @971 /* ~This was a most interesting experience for me at my age, young man. Please, continue to note down what you remember from the book's spells as you already did. Until we know exactly what the first pages translate to we should not risk the recipes getting lost.~ */
+== c#brandj @763 /* ~Thank you, Master Elvenhair. I don't know what to say... <CHARNAME>, I... I need to process what just happened. My head feels like it's gonna *explode*.~ */
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10026)
-SetGlobal("C#Br_BookRestore","GLOBAL",6)~ UNSOLVED_JOURNAL @10025 EXIT
+SetGlobal("C#Br_BookRestore","GLOBAL",6)~ UNSOLVED_JOURNAL @10051 EXIT
 
 
 APPEND c#brandj
@@ -115,77 +121,74 @@ APPEND c#brandj
 
 /* after book transformed */
 IF ~Global("C#Br_BookRestore","GLOBAL",7)~ THEN transformed_book
-SAY @774
-++ @775 + transformed_book_02
-++ @776 + transformed_book_02
-++ @777 + transformed_book_02
-++ @778 + transformed_book_01
-++ @779 + transformed_book_09
+SAY @774 /* ~Well, that-that definitely went differently than expected.~ [c#ablank] */
+++ @775 /* ~It definitely did, yes.~ */ + transformed_book_02
+++ @776 /* ~Your book is a book again!~ */ + transformed_book_02
+++ @777 /* ~You "lifted the book to its next level", eh?~ */ + transformed_book_02
+++ @778 /* ~Don't tell me we will go through *another* "I can't believe what happened" phase!~ */ + transformed_book_01
+++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
 IF ~~ THEN transformed_book_01
-SAY @780
+SAY @780 /* ~But I definitely am in such a phase! Or did you understand what happened?~ */
 IF ~~ THEN + transformed_book_02
 END
 
 IF ~~ THEN transformed_book_02
-SAY @781
-++ @782 + transformed_book_04
-++ @783 + transformed_book_03
-++ @779 + transformed_book_09
+SAY @781 /* ~It-it turned into a whole book - I mean a book in whole - I mean a real book, with cover and pages, not "whole" in the sense of "everything is inside". By itself! From those snippets and pieces I recovered from the fox hole. Because of a preservation spell!~ */
+++ @782 /* ~You really think the creators of that book put such a spell on it on purpose?~ */ + transformed_book_04
+++ @783 /* ~I know, Brandock, I was there when it happened.~ */ + transformed_book_03
+++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
 IF ~~ THEN transformed_book_03
-SAY @784
-++ @782 + transformed_book_04
-++ @779 + transformed_book_09
+SAY @784 /* ~I'm sorry, I'm still trying to process what happened.~ */
+++ @782 /* ~You really think the creators of that book put such a spell on it on purpose?~ */ + transformed_book_04
+++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
 IF ~~ THEN transformed_book_04
-SAY @785
+SAY /* @##  @785 */ ~What else could it be? Yes, I believe they did. The spells have to be added back by a mage of high enough expertise... But of course we will only know for sure once I have the chance to study it thoroughly. With which Master Elvenhair will help me by bringing his Ruathlek lexicon from Candlekeep... Candlekeep!~ 
 IF ~~ THEN + transformed_book_05
 END
 
 IF ~~ THEN transformed_book_05
-SAY @786
-++ @787 + transformed_book_06
-++ @788 + transformed_book_06
+SAY /* @##  @786 */ ~Master Elvenhair would even welcome me in Candlekeep with this book to study. He said that, didn't he? You heard it too?~ 
+++ @787 /* ~Yes, he definitely was most fascinated by the whole thing.~ */ + transformed_book_06
+++ @788 /* ~I am very happy for you, Brandock.~ */ + transformed_book_06
 + ~!PartyHasItem("BOOK68")~ + @789 + transformed_book_07
-++ @779 + transformed_book_09
+++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
 IF ~~ THEN transformed_book_06
-SAY @790
+SAY @790 /* ~He made it sound as if I'd even be *welcome* there, with this book. "Next level", and all it needed was a little teeth-work and a preservation spell.~ */
 IF ~~ THEN + transformed_book_07
 END
 
 IF ~~ THEN transformed_book_07
-SAY @791
+SAY @791 /* ~I can't believe how fate turned. It-it *did* turn, didn't it? Something good came out of this, this *mess*. I feel blessed and cursed at the same time, <CHARNAME>. Cursed, because I will remain the laughing stock of every mage out there, but blessed because it gave me the opportunity to not only restore the original magic spells the book contained, but also to discover unknown protection spells the creators put onto it.~ */
 IF ~~ THEN + transformed_book_08
 END
 
 IF ~~ THEN transformed_book_08
-SAY @792
-++ @793 + transformed_book_10
-++ @794 + transformed_book_11
-++ @779 + transformed_book_09
+SAY @792 /* ~But, oh no, I will not start to think I *achieved* anything with what happened. It will be a fine specimen for examination, and maybe no one would have found out if it wouldn't have happened, but... No, I will never pretend it was a great achievement to have it destroyed first.~ */
+++ @793 /* ~I understand what you mean.~ */ + transformed_book_10
+++ @794 /* ~Still, it's true. Protected in the high halls of some monastery, no one would have discovered that secret.~ */ + transformed_book_11
+++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
 IF ~~ THEN transformed_book_09
-SAY @795
+SAY @795 /* ~That we can! That we definitely can.~ */
 IF ~~ THEN + transformed_book_10
 END
 
 IF ~~ THEN transformed_book_10
-SAY @796
+SAY /* @## @796 */ ~But... to know the book is not lost! And the thought of not being expelled from Candlekeep - that I might be welcome, even! I have a goal again, <CHARNAME>. I will help you with your endeavors, and I will save my gold, and I will buy a new book, valuable enough to get entry into the monastery. Someday, <CHARNAME>. Someday I will be there!~ 
 IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ EXIT
-/*
-IF ~Dead("Sarevok")~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ + scrollscribing_start
-*/
 END
 
 IF ~~ THEN transformed_book_11
-SAY @797
+SAY @797 /* ~I know it's true, but... I will never be anything compared to being proud about it, you know.~ */
 IF ~~ THEN + transformed_book_10
 END
 
@@ -683,7 +686,6 @@ APPEND c#brandj
 
 
 /* Sarevok dead, after leaving the ThievesGuild */
-/* Sarevok is dead: Brandock suggests to return to Elvenhair */
 
 IF ~Global("C#Brando_BG1SarevokDeadTalk","GLOBAL",1)~ THEN after_sarevok
 SAY @951 
@@ -741,22 +743,7 @@ END
 IF ~~ THEN after_sarevok_09
 SAY @970
 IF ~~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",2)~ EXIT
-/*
-IF ~GlobalGT("C#Br_BookRestore","GLOBAL",7)~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",2)~ + scrollscribing_start
-*/
 END
-
-
-/*
-/* Elvenhair teaches Brandock how to write scrolls */
-
-
-/* GlobalGT("C#Br_BookRestore","GLOBAL",7) */
-IF ~~ THEN scrollscribing_start
-SAY ~Oh, and I am ready to return to Elvenhair to practice scroll scribing - or should I say learn how to do it without setting anything on fire and die of nervousness.~ 
-IF ~~ THEN DO ~EraseJournalEntry(@10050) EraseJournalEntry(@10016) AddJournalEntry(@10012,QUEST)
-SetGlobal("C#Brando_BG1ScrollScribing","GLOBAL",1)~ EXIT
-END
-*/
 
 END //APPEND
+

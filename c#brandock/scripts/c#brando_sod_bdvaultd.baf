@@ -1,0 +1,12 @@
+/* bdvaultd.baf */
+/* Comment on closed vault door (to portal) in Dragonspear Castle Interior */
+IF
+	Global("C#Brando_bd_MDD893a_ot","bd4300",0)  
+	GlobalLT("bd_plot","global",400)
+	CombatCounter(0)
+	Range("C#Brandock",25)  
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_bd_MDD893a_ot","bd4300",1)  
+		DisplayStringHead("C#Brandock",@1284)  
+END

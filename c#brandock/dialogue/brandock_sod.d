@@ -3,7 +3,7 @@
 /* last follower's dungeon */
 
 I_C_T BDAMMON 4 C#Brando_BDAMMON4
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Hm... Standing in front of an alchemist's table doing experiments all day... That sounds completely dull - and like something I'd like to do in the future.~
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Hm... Standing in front of an alchemist's table doing experiments all day... That sounds completely dull - and like something I'll probably end up doing in the future...~
 == BDAMMON IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It's the results that matters, young mage. The results! And for that, someone was supposed to help me find the needed ingredients.~
 END
 
@@ -70,7 +70,8 @@ END //APPEND
 
 /* Make Corwin mention Brandock's whereabouts in BG city */
 EXTEND_BOTTOM bdschael 39
-IF ~!Dead("C#Brandock") !InPartyAllowDead("C#Brandock") BeenInParty("C#Brandock")~ THEN + mynpc
+IF ~!Dead("C#Brandock") !InPartyAllowDead("C#Brandock") 
+//BeenInParty("C#Brandock")~ THEN JOURNAL @10016 + mynpc
 END
 
 APPEND bdschael
@@ -458,6 +459,34 @@ SAY ~Anyways - this bridge will no longer give passage across this river. Seems 
 IF ~~ THEN DO ~SetGlobal("C#Brando_SoDCaelarBridge","GLOBAL",2)~ EXIT
 END
 
+
+/* after Bhaal sign incident at bridge */
+IF ~Global("C#Brandock_SoDSignDialog","GLOBAL",1)~ THEN bhaal_bridge
+SAY ~What in the nine hells' name was that? <CHARNAME>, are you alright?~
+++ ~What can I say. I fainted, there was Bhaal's sign on the ground...~ + bhaal_bridge_02
+++ ~I feel a bit dizzy.~ + bhaal_bridge_02
+++ ~That is a very good question, indeed.~ + bhaal_bridge_02
+++ ~It's nothing, Brandock. Let's move on.~ + bhaal_bridge_01
+END
+
+IF ~~THEN bhaal_bridge_01
+SAY ~Well, it was a *lot* to see for "nothing", but fine, I'll be quiet.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",2)~ EXIT
+END
+
+IF ~~THEN bhaal_bridge_02
+SAY ~It sure as hell looked very impressive. It was a real show off, now that I think about it. So much unlike your Bhaal dreams. Do you feel any different? Any new abilities or somesuch?~
+++ ~Not that I notice, no.~ + bhaal_bridge_03
+++ ~Nothing yet.~ + bhaal_bridge_03
+++ ~It's nothing, Brandock. Let's move on.~ + bhaal_bridge_01
+END
+
+IF ~~THEN bhaal_bridge_03
+SAY ~Hm. Weird. One thing is for sure: the way people will perceive you might have changed, though. It was really impressive. Not to say frightening. Good that I know you so well already, or my imagination would go wild. Almost as if someone planned it to give you a worse stand with people...~
+= ~... Still I'd prefer it to be the explanation for this, because this arising out of godly intervention would be even scarier.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",2)~ EXIT
+END
+
 END //APPEND
 
 APPEND c#brandB 
@@ -773,6 +802,8 @@ I_C_T BDJUNIA 33 C#Brando_BDJUNIA_33
 END
 
 
+/*
+## needs either passback line or make this a separate dialogue!
 /* Ophyllis in camp */
 
 /* The sword is yours... M-may the gods smile upon you, O hero of Baldur's Gate... Uhhh...
@@ -780,6 +811,7 @@ END
 I_C_T BDOPHYLL 40 C#Brando_BDOPHYLL_40
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~The... the poor man. It's a long time since I saw someone try so hard and fail so horribly. Kind of reminds me... Ah, no, forgive me. I will not take this poor man's death as an excuse to dwell on my own self-pity. I'm embarrassed my thoughts even started to wander into that direction.~
 END
+*/
 
 
 /* Messenger with letter from Brandock's parents */
@@ -878,15 +910,31 @@ END
 
 /* Thrix's game */
 
-ADD_TRANS_TRIGGER BDTHRIX 13 ~OR(3) Global("C#BrandockJoined","GLOBAL",0) !InMyArea("C#Brandock") StateCheck("C#Brandock",CD_STATE_NOTVALID)~ DO 1
+ADD_TRANS_TRIGGER BDTHRIX 13 ~OR(3) Global("C#BrandockJoined","GLOBAL",0) !InMyArea("C#Brandock") StateCheck("C#Brandock",CD_STATE_NOTVALID)~ DO 2 IF ~!Is?f?ValidForPartyDialogue("Rasaad")~
 
 
 
+/*
 EXTEND_BOTTOM BDTHRIX 21 22 23 24 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 
-IF ~Global("C#Brandock_SoDThrix","bd4500",0) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock
+*/
+
+EXTEND_BOTTOM BDTHRIX 21 26 30 34 38 42 46 50 54 58 62 66 70 74 78 82 86 90
+IF ~Global("C#Brandock_SoDThrix","GLOBAL",0) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock
 END
 
-EXTEND_BOTTOM BDTHRIX 117 118 119 120 
+EXTEND_TOP BDTHRIX 22 27 31 35 39 43 47 51 55 59 63 67 71 75 79 83 87 91 #1
+IF ~Global("C#Brandock_SoDThrix","GLOBAL",0) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock
+END
+
+EXTEND_TOP BDTHRIX 23 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 #10
+IF ~Global("C#Brandock_SoDThrix","GLOBAL",0) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock
+END
+
+EXTEND_TOP BDTHRIX 24 29 33 37 41 45 49 53 57 61 65 69 73 77 81 85 89 93 #5
+IF ~Global("C#Brandock_SoDThrix","GLOBAL",0) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock
+END
+
+EXTEND_BOTTOM BDTHRIX 118 119 120 121 
 IF ~Global("C#Brandock_SoDThrix","GLOBAL",2) OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN + brandock_01
 END
 
@@ -894,15 +942,20 @@ END
 APPEND BDTHRIX
 
 IF ~~ THEN BEGIN brandock
-  SAY ~Your mage shakes with fear already. Lose the riddle and I will make his life hell indeed.~
-  IF ~~ THEN REPLY ~You want Brandock? Then he will be yours if I lose.~ DO ~SetGlobal("C#Brandock_SoDThrix","bd4500",2)
+  SAY ~Your insecure mage shakes with fear already. Lose the riddle and I will make his life hell indeed.~
+  IF ~~ THEN REPLY ~You want Brandock? Then he will be yours if I lose.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",2)
 SetGlobal("bd_thrix_sacrifice_companion","global",1)
 ~ EXTERN C#BrandJ thrix_01
 
-  IF ~RandomNum(4,1)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you. Pick another of my party as a prize or stand aside and let me pass.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 70
-  IF ~RandomNum(4,2)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you. Pick another of my party as a prize or stand aside and let me pass.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 71
-  IF ~RandomNum(4,3)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you. Pick another of my party as a prize or stand aside and let me pass.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 72
-  IF ~RandomNum(4,4)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you. Pick another of my party as a prize or stand aside and let me pass.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 73
+  IF ~RandomNum(4,1)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 70
+  IF ~RandomNum(4,2)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 71
+  IF ~RandomNum(4,3)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 72
+  IF ~RandomNum(4,4)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1) IncrementGlobal("BD_NumInParty","bd4500",1)~ + 73
+
+  IF ~!Global("BD_NumInParty","bd4500",1)
+!Global("BD_NumInParty","bd4500",2)
+!Global("BD_NumInParty","bd4500",3)
+!Global("BD_NumInParty","bd4500",4)~ THEN REPLY ~Brandock came back to me for guidance and protection. I will not trade his soul to you.~ DO ~SetGlobal("C#Brandock_SoDThrix","GLOBAL",1)~ + 114
 
   IF ~~ THEN REPLY ~He has his faults, but I'll not risk Brandock's soul in so blithe a fashion. If I cannot answer your riddle, mine is the soul you will take. Agreed?~ GOTO 113
   IF ~~ THEN REPLY ~I'll feed you your own limbs if you don't let me into the tower, you wretched creature. I'm done playing games with you.~ GOTO 12
@@ -922,7 +975,7 @@ Global("C#Brandock_SoDThrix","GLOBAL",1): PC declined Thrix' choice
 
 Global("C#Brandock_SoDThrix","GLOBAL",2)-> 5: PC agreed on Brandock's soul before the riddle
 
-Global("C#Brandock_SoDThrix","GLOBAL",3)-> 6: PC gave Brandock to Thrix after riddle was lost
+Global("C#Brandock_SoDThrix","GLOBAL",3)-> 6: PC agreed on Brandock's soul before the riddle and did not fight for Brandock after riddle was lost
 
 
 */
@@ -937,8 +990,8 @@ END
 
 IF ~~ THEN thrix_02
   SAY ~I... I... I really think it should be me doing the descision here!~
-  IF ~~ THEN DO ~SetGlobal("bd_thrix_plot","global",11)~ EXTERN ~BDTHRIX~ 140
-END //SetGlobal("bd_thrix_won","global",1) ##
+  IF ~~ THEN DO ~SetGlobal("bd_thrix_won","global",1)~ EXTERN ~BDTHRIX~ 140
+END 
 
 IF ~OR(2)
 Global("C#Brandock_SoDThrix","GLOBAL",6)
@@ -988,7 +1041,7 @@ SAY ~You traded your own soul to that fiend. That was a brave thing to do! A bit
 + ~!Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I gambled, I lost. Such is life.~ + after_thrix_06
 + ~!Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~Don't remind me of that.~ + after_thrix_06
 + ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I couldn't bet another one's soul! And I didn't want to fight the fiend. At least not now.~ + after_thrix_07
-+ ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I gambled, I lost. Such is life.~ + after_thrix_07
++ ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I gambled, I won. Sometimes a risk pays off.~ + after_thrix_07
 + ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~Don't remind me of that.~ + after_thrix_07
 END
 
@@ -1355,8 +1408,6 @@ END
 IF ~!PartyHasItem("bdmisc56") Global("C#Brandock_Dialog","GLOBAL",102) GlobalGT("BD_plot","global",53)~ THEN imoen_down_00
 SAY ~Imoen needed treatment earlier, I heard? What happened?~ [c#ablank]
 ++ ~She was attacked by assassins.~ + imoen_down_01
-+ ~GlobalLT("BD_plot","global",54)~ + ~(scoffs) As her research material for finding a cure, maybe.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~GlobalLT("BD_plot","global",54)~ + ~Imoen's poisoned, and fighting for her life.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
 END
 
 IF ~~ THEN imoen_down_01

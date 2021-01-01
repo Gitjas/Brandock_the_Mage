@@ -29,7 +29,7 @@ See("C#Brandock") See(Player1)
 InParty(Myself)
 Global("C#Brandock_ImoenBG1NPC","GLOBAL",2)~ THEN %IMOEN_BANTER% brandockimoenbg1npc_02
 @6 DO ~SetGlobal("C#Brandock_ImoenBG1NPC","GLOBAL",3)~
-== c#brandB @7
+== c#brandJ @7
 EXIT
 
 

@@ -179,10 +179,14 @@ Gewicht: 1~
 @1276 = ~Das ganze wäre noch viel besser ohne zusätzliche Höhenangst...~
 @1277 = ~Oje... Jetzt geht's los!~
 @1278 = ~Mann, freue ich mich für Gavin, dass er gerade nicht hier ist!~
-/*
-@1279 = 
-@1280 = 
-*/
+
+/* new for vbeta 7 */
+@1279 = ~Oh! <CHARNAME>, we are in a dead magic zone.~
+@1280 = ~That... that's a huge beetle. I'm glad there are no Rhinoceros Spiders!~
+@1281 = ~The battle started! Let's fight them!~
+@1282 = ~Another battle! We will prevail! I hope.~
+@1283 = ~It just *had* to die right on top of the castle, hadn't it?~
+@1284 = ~I never thought I'd say that, but those doors look *really* intimidating!~
 
 /* BGII */
 @1500 = ~Haus von Brandocks Cousin~

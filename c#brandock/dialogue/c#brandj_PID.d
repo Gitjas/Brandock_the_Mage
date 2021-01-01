@@ -281,6 +281,7 @@ Global("C#BR_KnowsAmn","GLOBAL",1) Global("C#Brandock_CarnivalPID","LOCALS",3)~ 
 + ~Global("C#Brandock_Shapeshift","GLOBAL",11) Global("C#BRPID_TimeAsHalfogre","LOCALS",3)~ + @40 DO ~IncrementGlobal("C#BRPID_TimeAsHalfogre","LOCALS",1)~ + time_as_halfogre_04
 + ~Global("C#Brandock_Shapeshift","GLOBAL",11) Global("C#BRPID_TimeAsHalfogre","LOCALS",4)~ + @40 DO ~IncrementGlobal("C#BRPID_TimeAsHalfogre","LOCALS",1)~ + time_as_halfogre_05
 + ~Global("C#Brandock_Shapeshift","GLOBAL",11) Global("C#BRPID_TimeAsHalfogre","LOCALS",5)~ + @40 DO ~IncrementGlobal("C#BRPID_TimeAsHalfogre","LOCALS",1)~ + time_as_halfogre_06
++ ~Global("C#Brandock_Shapeshift","GLOBAL",11) Global("C#BRPID_TimeAsHalfogre","LOCALS",6)~ + @40 DO ~IncrementGlobal("C#BRPID_TimeAsHalfogre","LOCALS",1)~ + time_as_halfogre_07
 
 /* tainted ore */
 
@@ -366,7 +367,9 @@ Global("C#BR_KnowsAmn","GLOBAL",1) Global("C#Brandock_MageInAmnPID","LOCALS",2)~
 /* inventory management.  - if Brandock is not in party but following as companion Brandock has to join the group so the player has access to the inventory.
 This is what usually is dealt with by the kicked out "P" dialogue for re-joining */
 
-+ ~!InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) NumInPartyLT(6)~ + @50 DO ~SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
++ ~!InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) NumInPartyLT(6)~ + @50 DO ~RemoveFamiliar()
+SetGlobal("C#BrandockJoined","GLOBAL",1)
+JoinParty()~ EXIT
 
 + ~!InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) NumInParty(6)~ + @50 + join
 
@@ -394,7 +397,10 @@ END
 
 IF ~~ THEN join
 SAY @56
-IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
+IF ~~ THEN DO ~RemoveFamiliar()
+ChangeAIScript("",DEFAULT)
+ChangeEnemyAlly(Myself,NEUTRAL)
+SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ THEN sure_end
@@ -1289,6 +1295,12 @@ END
 IF ~~ THEN time_as_halfogre_06
 SAY @308
 = @309
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN time_as_halfogre_07
+SAY @411
+= @412
 IF ~~ THEN EXIT
 END
 

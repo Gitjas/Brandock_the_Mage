@@ -33,7 +33,8 @@ Global("C#Brando_PIDEbrel4","LOCALS",0)~ + ~About your mother's cousin, Ebrel th
 /* inventory management.  - if Brandock is not in party but following as companion Brandock has to join the group so the player has access to the inventory.
 This is what usually is dealt with by the kicked out "P" dialogue for re-joining */
 
-+ ~!InParty(Myself) NumInPartyLT(6)~ + @50 /* ~Brandock, would you grant me access to your inventory?~ */ DO ~SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
++ ~!InParty(Myself) NumInPartyLT(6)~ + @50 /* ~Brandock, would you grant me access to your inventory?~ */ DO ~RemoveFamiliar()
+SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
 
 + ~!InParty(Myself) NumInParty(6)~ + @50 /* ~Brandock, would you grant me access to your inventory?~ */ + join
 
@@ -47,7 +48,10 @@ END
 
 IF ~~ THEN join
 SAY @56 /* ~With pleasure. Er, Excuse me, <PLAYER2>, <PLAYER3>, or someone else, I'd need to get closer to <CHARNAME>...~ */
-IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
+IF ~~ THEN DO ~RemoveFamiliar()
+ChangeAIScript("",DEFAULT)
+ChangeEnemyAlly(Myself,NEUTRAL)
+SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ THEN hp_alarm_on

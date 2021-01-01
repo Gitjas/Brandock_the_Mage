@@ -128,16 +128,7 @@ END //APPEND
 /* Brandock increases his lore score - not if next step of restore book is active */
 CHAIN
 IF WEIGHT #-1
-~!Global("TalkedToFirebead","GLOBAL",0)
-!Global("C#Br_BookRestore","GLOBAL",1)
-!Global("C#Br_BookRestore","GLOBAL",2)
-!Global("C#Br_BookRestore","GLOBAL",4)
-See("FIREBE")
-InMyArea(Player1)
-InMyArea("C#Brandock")
-OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
-!StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_LorePathElvenhair","GLOBAL",0)~ THEN FIREBE brandock_visits_elvenhair
+~Global("C#Br_LorePathElvenhair","GLOBAL",1)~ THEN FIREBE brandock_visits_elvenhair
 @1512
 == c#brandj @1513
 == FIREBE @1514
@@ -148,21 +139,26 @@ END
 ++ @1518 EXTERN c#brandj brandock_visits_elvenhair_01
 ++ @1519 EXTERN c#brandj brandock_visits_elvenhair_02
 
-APPEND c#brandj
-IF ~~ THEN brandock_visits_elvenhair_01
-SAY @1520
+CHAIN
+IF ~~ THEN c#brandj brandock_visits_elvenhair_01
+@1520
+== FIREBE IF ~GlobalGT("C#Brandock_ScrollscribingElvenhair","GLOBAL",0)~ @1540
+== c#brandj IF ~GlobalGT("C#Brandock_ScrollscribingElvenhair","GLOBAL",0)~ @1541
+END
 IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) 
-AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathElvenhair","GLOBAL",1) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10024 /* ~Brandock's Lore increased
+AddJournalEntry(@10030,QUEST) SetGlobal("C#Br_LorePathElvenhair","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10024 /* ~Brandock's Lore increased
 
 Brandock found interesting books at Elvenhair's home and increased his lore wisdom with them.~ */ EXIT
-END
 
-IF ~~ THEN brandock_visits_elvenhair_02
-SAY @1521
+CHAIN
+IF ~~ THEN c#brandj brandock_visits_elvenhair_02
+@1521
+== FIREBE IF ~GlobalGT("C#Brandock_ScrollscribingElvenhair","GLOBAL",0)~ @1540
+END
 IF ~~ THEN DO ~SetGlobal("C#Br_LorePathElvenhair","GLOBAL",2)~ EXIT
-END
 
-END //APPEND
+
+
 
 /* Ragefast's home WBaldursGate_RagefastsHouse */
 CHAIN

@@ -33,7 +33,7 @@ IF
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
-		StartDialogueNoSet("IMOEN_DV")
+		StartDialogueNoSet("%IMOEN_DV%")
 END
 
 IF
@@ -66,6 +66,6 @@ IF
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
-		StartDialogueNoSet("IMOEN_DV")
+		StartDialogueNoSet("%IMOEN_DV%")
 END
 

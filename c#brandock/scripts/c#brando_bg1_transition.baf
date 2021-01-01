@@ -16,7 +16,7 @@ THEN
 		SetInterrupt(FALSE)
 		ReallyForceSpellRES("SPRR712","C#Brandock") //SPRR712
     SmallWait(1)
-		ReallyForceSpellRES("SPWM168","C#Brandock") //Heal
+		ReallyForceSpellRES("SPPR607","C#Brandock") //Heal
     SmallWait(1)
 		ActionOverride("C#Brandock",LeaveParty())
     SmallWait(1)

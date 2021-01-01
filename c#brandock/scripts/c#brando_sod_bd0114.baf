@@ -1,0 +1,12 @@
+/* c#brando_sod_bd0114.baf */
+IF
+	Global("BD_POINT6","BD0114",4)  // Spider Cave: Rhinoceros Beetle appeared
+	StateCheck("BDBEETRH",STATE_REALLY_DEAD)  // Rhinoceros Beetle
+	Global("C#Brandock_BD_BEETLE","BD0114",0)  // Spider Cave
+	!GlobalTimerNotExpired("BD_TIMER_RHINOTALK","BD0114")  // Spider Cave
+	IfValidForPartyDialog("C#Brandock")  
+THEN
+	RESPONSE #100
+		DisplayStringHead("C#Brandock",@1280)
+		SetGlobal("C#Brandock_BD_BEETLE","BD0114",1)  // Spider Cave
+END
