@@ -7,7 +7,7 @@ IF
 	Global("C#Brandock_AddMapNote","AR0400",0)
 THEN
 	RESPONSE #100
-		AddMapNote([150.1150],@1500)
+		AddMapNote([150.1150],@3500)
 		SetGlobal("C#Brandock_AddMapNote","AR0400",1)
 END
 

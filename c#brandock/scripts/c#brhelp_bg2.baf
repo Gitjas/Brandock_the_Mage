@@ -1,0 +1,160 @@
+/* "c#brbo01" */
+IF
+	Global("C#Br_WriteBookPage01","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL1G",1)
+		DestroyItem("SCRL1G")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage01","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo02" */
+IF
+	Global("C#Br_WriteBookPage02","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL6P",1)
+		DestroyItem("SCRL6P")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage02","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo03" */
+IF
+	Global("C#Br_WriteBookPage03","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL6U",1)
+		DestroyItem("SCRL6U")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage03","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo04" */
+IF
+	Global("C#Br_WriteBookPage04","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL7V",1)
+		DestroyItem("SCRL7V")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage04","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo05" */
+IF
+	Global("C#Br_WriteBookPage05","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL8W",1)
+		DestroyItem("SCRL8W")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage05","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo06" */
+IF
+	Global("C#Br_WriteBookPage06","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL8S",1)
+		DestroyItem("SCRL8S")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage06","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo07" */
+IF
+	Global("C#Br_WriteBookPage07","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRLB1",1)
+		DestroyItem("SCRLB1")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage07","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo08" */
+IF
+	Global("C#Br_WriteBookPage08","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL9A",1)
+		DestroyItem("SCRL9A")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage08","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo09" */
+IF
+	Global("C#Br_WriteBookPage09","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRLB2",1)
+		DestroyItem("SCRLB2")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage09","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+
+/* "c#brbo10" */
+IF
+	Global("C#Br_WriteBookPage10","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ClearAllActions() StartCutSceneMode()
+		TakePartyItemNum("SCRL9Q",1)
+		DestroyItem("SCRL9Q")
+		DestroyGold(5000)
+		SetGlobal("C#Br_WriteBookPage10","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		EndCutSceneMode()
+		SetInterrupt(TRUE)
+END
+

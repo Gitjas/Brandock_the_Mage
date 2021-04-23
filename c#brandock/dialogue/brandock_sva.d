@@ -15,12 +15,52 @@ IF ~Global("C#Brandock_SlumSphere","GLOBAL",1)~ THEN C#BrandJ slum_sphere
 == C#BrandJ IF ~See("HIST1") !Dead("HIST1") !StateCheck("HIST1",CD_STATE_NOTVALID)~ THEN ~Well, that's because they, er, we pretend not to be interested in it. I assure you, they know everything you could tell about it already. Did you talk to this man, <CHARNAME>? He knows some very interesting things about this sphere. Albeit not why it is here. I guess everyone is puzzling over that one.~
 EXIT
 
+
+/* High Priest Oisig - ask for Ebrel's funeral */
+
+INTERJECT BHOISIG 19 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+INTERJECT BHOISIG 42 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+INTERJECT BHOISIG 43 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+INTERJECT BHOISIG 48 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+INTERJECT BHOISIG 49 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+INTERJECT BHOISIG 59 C#Brando_EbrelFuneral
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
+END c#brandj ebrel_funeral
+
+EXTEND_BOTTOM BHOISIG 23
++ ~Global("C#Brando_EbrelFuneral","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~My friend Brandock wants to ask fo his cousin's funeral. Brandock?~ DO ~SetGlobal("C#Brando_EbrelFuneral","GLOBAL",1)~ EXTERN c#brandj ebrel_funeral
+END
+EXTEND_BOTTOM BHOISIG 24
++ ~Global("C#Brando_EbrelFuneral","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~My friend Brandock wants to ask fo his cousin's funeral. Brandock?~ DO ~SetGlobal("C#Brando_EbrelFuneral","GLOBAL",1)~ EXTERN c#brandj ebrel_funeral
+END
+
+
+CHAIN
+IF ~~ THEN c#brandj ebrel_funeral
+~My cousin died in the fight at the Promenade - he performed his duties as a Coweld Wizard. I am here to ask for the temple to arrange for his remains to be transferred to his hometown and give him a proper funeral.~
+== BHOISIG ~Of course, my son. We will see to the needed arrangements and will perform the last service for our lost son and his family. Go with a peaceful mind.~
+END
+IF ~~ THEN DO ~EraseJournalEntry(@10027)~ SOLVED_JOURNAL @10032 EXIT
+
+
 APPEND C#BrandJ
 
 /* PC approaches Councellors Building */
 
 IF ~Global("C#BrandockAboutTeos","GLOBAL",1)~ THEN ebrel_house_11
-SAY ~(winces) I guess I need to give you a warning before we go into the Councellor's Building. See, Teos, the official emissary was my teacher - the Cowled Wizard I graduated with. And even if we meet another Coweld Wizard... most of them would know Teos, so it's well possible they also know me.~ [c#ablank]
+SAY ~(winces) I guess I need to give you a warning before we go into the Councellor's Building. See, Teos, the official emissary was my teacher - the Cowled Wizard I graduated with. And even if we meet another Cowled Wizard... most of them would know Teos, so it's well possible they also know me.~ [c#ablank]
 ++ ~What about you and Teos?~ + ebrel_house_13
 ++ ~Did anything special happen?~ + ebrel_house_13
 ++ ~So?~ + ebrel_house_12
@@ -36,7 +76,7 @@ SAY ~Last time I met one, it went like 'Oh, Brandock, weren't you graduate of Te
 ++ ~Or your presence would turn things to the better. Who knows.~ + ebrel_house_15
 + ~InParty("t2val")~ + ~Seeing how we have another official Cowled Wizard with us, I am sure we will be alright.~ + ebrel_house_15
 ++ ~I don't see a problem.~ + ebrel_house_15
-++ ~I need you to stand above their snarky remarks. We have family to inquire about.~ + ebrel_house_15
+++ ~I need you to stand above their snarky remarks. We have urgent matters to inquire about.~ + ebrel_house_15
 + ~Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Are you suggesting you should not come inside?~ + ebrel_house_16
 + ~!Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Are you suggesting you should not come inside?~ + ebrel_house_16_01
 END
@@ -239,7 +279,7 @@ SAY ~You... you mean my presence? No, surely you meant the other way around? Yes
 END
 
 IF ~~ THEN first_join_02
-SAY ~But never I would have imagined your return to be such a disaster, with you having to suffer so much... and with a quarter of the Promenade being destroyed. You vanished from Baldur's Gate and from the rest of the world without a sound, and reappeared with the loudest boom I can imagine... I am strongly surprised no-one is coming for us to put the blame. Actually, I do not trust this peace. We seem to be strangely ignored by the authorities. (mutters) I am sure *someone* will remember when I'll apply for a civil position. If I'll ever do that.~
+SAY ~But never I would have imagined your return to be such a disaster, with you having to suffer so much... and with a quarter of the Promenade being destroyed. You vanished from Baldur's Gate and from the rest of the world without a trace, and reappeared with the loudest boom I can imagine... I am strongly surprised no-one is coming for us to put the blame. Actually, I do not trust this peace. We seem to be strangely ignored by the authorities. (mutters) I am sure *someone* will remember when I'll apply for a civil position. If I'll ever do that.~
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~You haven't applied yet?~ + first_join_05
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~What where you up to since we parted?~ + first_join_06
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~Let's go on, Brandock.~ + first_join_04
@@ -369,7 +409,7 @@ END
 /* ~Meine ... meine Hände ... meine Haut. Endlich wieder real! Dank sei Baervar! Oh, wir müssen Quayle so rasch wie möglich finden ... und Kalah stoppen, bevor er noch mehr Schaden anrichten kann!~ */
 I_C_T ~AERIE~ 3 C#Brandock_CircusICT_Kalah
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ THEN ~Yeah, it's great isn't it? Changing back from an Ogre into yourself...~
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ THEN ~Yeah, it's great isn't it? Changing back from an Ogre into yourself. Also works for half-ogre, I can tell you...~
 END
 
 
@@ -380,12 +420,51 @@ APPEND c#brandj
 
 /* PC kept the bookcase (BGT / EET) */
 
-IF ~Global("C#Brandock_BGTTOBG2","GLOBAL",5) PartyHasItem("c#br0003")~ THEN bookcase_01
+IF ~Global("C#Brandock_BGTTOBG2","GLOBAL",5) 
+OR(5)
+		PartyHasItem("c#br0003") 
+		HasItem("c#br0003","C#Solaufein")
+		HasItem("c#br0003","C#Grey")
+		HasItem("c#br0003","C#Husam1")
+		HasItem("c#br0003","C#Brandock")
+	OR(3)
+		!HasItem("c#br0003","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("c#br0003","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("c#br0003","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("c#br0003","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN bookcase_01
 SAY ~You kept my old teacher's bookcase, I see.~ [c#ablank]
 IF ~~ THEN + bookcase_03
 END
 
-IF ~Global("C#Brandock_BGTTOBG2","GLOBAL",5) !PartyHasItem("c#br0003")~ THEN bookcase_01
+IF ~Global("C#Brandock_BGTTOBG2","GLOBAL",5)
+!PartyHasItem("c#br0003") 
+	OR(3)
+		!HasItem("c#br0003","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",0)
+		!InParty("C#Solaufein")
+	OR(3)
+		!HasItem("c#br0003","C#Grey")
+		Global("C#GreyJoined","GLOBAL",0)
+		!InParty("C#Grey")
+	OR(3)
+		!HasItem("c#br0003","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",0)
+		!InParty("C#Husam")
+	OR(3)
+		!HasItem("c#br0003","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("C#Brandock")~ THEN bookcase_01
 SAY ~You don't happen to have my bookcase somewhere, do you? I was hoping it would at least serve you now.~
 ++ ~It did, but I lost it while being captured.~ + bookcase_04
 ++ ~Sorry, it is lost.~ + bookcase_04
@@ -483,10 +562,38 @@ OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Br
 END
 
 /* ~Excellent.  I understand you have completed the task at the house.  The Harpers are grateful.  You may go inside...but I warn you to keep to the first floor.~ */
-I_C_T ~RYLOCK~ 37 C#Brandock_RYLOCK_37
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It was apprentices, and it was cobolds! Care to explain why you exaggerated the way you did when sending us after them? Oh, no, of course not. Just go on ignoring me!~
+I_C_T3 ~RYLOCK~ 37 C#Brandock_RYLOCK_37
+== ~c#brandj~ IF ~Global("C#Brandock_RYLOCK_19","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It was apprentices, and it was cobolds! Care to explain why you exaggerated the way you did when sending us after them? Oh, no, of course not. Just go on ignoring me!~
+== ~c#brandj~ IF ~Global("C#Brandock_RYLOCK_19","GLOBAL",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~The name you gave us was one of the apprentices - not the master! And the "vile creatures threatening the city" was cobolds! Care to explain why you exaggerated the way you did when sending us after them? Oh, no, of course not. Just go on ignoring me!~
 END
 
+/* ~The owner of the house, a mage named Prebek, performs vile experiments... creating beasts which threaten the city.  Destroy them, and we'll allow your wish.~ */
+I_C_T3 ~XAPPREN1~ 2 C#Brandock_XAPPREN1_2
+== ~c#brandj~ IF ~Global("HarperJob","GLOBAL",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh gods, hearing this I realize apprenticeship I went through was a peace of cake. Please - we are here for the creatures only!~
+== ~XAPPREN1~ IF ~Global("HarperJob","GLOBAL",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Did you hear that? They were sent to test whether we could protect the experiments!~
+== ~c#brandj~ IF ~Global("HarperJob","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh gods, hearing this I realize apprenticeship I went through was a peace of cake. Please - we just happen to walk in here!~
+== ~XAPPREN1~ IF ~Global("HarperJob","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Did you hear that? They were sent to test whether we could protect this place!~
+END
+
+I_C_T ~XAPPREN1~ 3 C#Brandock_XAPPREN1_3
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~No - please!... Dammit.~
+END
+
+/* Killed Apprentices in AR0407 - Harper's plot */
+CHAIN
+IF ~Global("C#Brandock_XAPPRENDead","GLOBAL",1)~ THEN c#brandj xappren_dead
+~Gods... we just eliminated a class of Cowled Wizards' apprentices. Who is their master, I wonder? But no, I do not want to find out... I mean, I *know* live as apprentice is dangerous and we didn't really have a chance to prevent it, but they weren't a threat to the city.~
+DO ~SetGlobal("C#Brandock_XAPPRENDead","GLOBAL",2)~
+== c#brandj IF ~Global("HarperJob","GLOBAL",0)~ THEN ~Maybe we shouldn't continue to stomp through every door like we did? Just a thought!~
+== c#brandj IF ~Global("HarperJob","GLOBAL",1)~ THEN ~Didn't that Harper say it was a mage conjuring threatening creatures? <CHARNAME>, I counted some kobolds, and two *apprentices*. If the name of the man wouldn't have matched with what the Harpers told us, I would habe thought we went into the wrong house.~
+== c#brandj ~Ugh, this wasn't a glorious day. Killing apprentices! Their spellbooks aren't even worth studying...~
+EXIT
 
 
 
@@ -524,3 +631,23 @@ I_C_T ~JUGJER01~ 2 C#Brandock_JUGJER01_2
 END
 
 
+/* Perth */
+
+APPEND c#brandj 
+
+IF ~Global("C#Br_KilledPerthBG2","GLOBAL",1)~ THEN perth_dead
+SAY ~Something's very off, <CHARNAME>. If Perth's condition is any hint as to what is happening inside the asylum, then the gods help us.~
+++ ~What do you mean?~ + perth_dead_01
+++ ~He sounded like a nutjob, indeed.~ + perth_dead_01
+++ ~We will see.~ + perth_dead_01
+END
+
+IF ~~ THEN perth_dead_01
+SAY ~Perth was the contact between the Coweld Wizards in Athkatla and the mages who run the asylum. He was the keeper of the connection between the two organizations, through a direct portal as well as exchange of intelligence.~
+= ~And in addition to that, he was the official Cowled Wizard here in Brynnlaw. He surely did not look like a good diplomat when we met him... Something was messing with his head, that's for sure.~
+= ~(sigh) I'll have a look at his spellbook, maybe we can profit from this tragedy nontheless...~
+IF ~~ THEN DO ~SetGlobal("C#Br_KilledPerthBG2","GLOBAL",2)
+ReallyForceSpellRES("c#brlob1",Myself)~ EXIT
+END
+
+END //APPEND

@@ -3,7 +3,7 @@ IF
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
 	Global("C#Brandock_BetrayedCowled","GLOBAL",0)
-	PartyHasItem("MISC7L")
+	PartyHasItem("MISC7L") //critical item
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_BetrayedCowled","GLOBAL",1)

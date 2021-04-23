@@ -13,24 +13,29 @@ I found a fine pair of boots in a fox cave near Beregost. I assume they can be r
 @10004  = ~A Fine Pair of Boots
 
 I found Master Travenhurst's fine pair of boots in a fox cave near Beregost. I assume they can be returned to the servant at Travenhurst Manor.~
-@10005  = ~Brandock the Half-Ogre
+@10005  = ~Brandock's Half-Ogre Troubles
 
 Brandock tried to help Melicamp and that went horribly wrong. The magic Melicamp used seemed to be very powerful and Brandock's attempts to help backfired. I witnessed Brandock transform himself into a half-ogre. Or, swapped bodies with one is perhaps more accurate. Whatever it was, they both sought aid at Thalantyr's abode. I should go there, too, I guess.~
 @10006  = ~Brandock's Possessions~
-@10007  = ~Elvenhair Offered Brandock to Scribe Scrolls~
-@10008  = ~Brandock the Half-Ogre
+@10007  = ~Brandock's Scroll Scribing Skills~
+@10008  = ~Brandock's Half-Ogre Troubles
 
-Thalantyr was able to help Brandock back into his own body.~
+Thalantyr was able to help Brandock back into his own body. Let's hope that was all there is to this.~
 @10009  = ~Brandock's Possessions
 
 Brandock found his missing possessions - or what is left of them, to be precise. Turns out it was a very valuable magical book, with which he intended to gain access to Candlekeep! The book was destroyed by foxes, so Brandock doesn't know where to go. He will come with me - he said "for now", but I have the feeling that he has no urge to leave my side.~
-@10010  = ~Brandock the Half-Ogre~
+@10010  = ~Brandock's Half-Ogre Troubles~
 @10011  = ~A Fine Pair of Boots
 
 I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~
-@10012  = ~Elvenhair teaches Brandock to Scribe Scroll
+@10012  = ~Brandock's Scroll Scribing Skills
 
-Brandock is ready to return to Elvenhair in Beregost to learn how to scribe scrolls.~
+Brandock can scribe scrolls once a day. Scrolls of level 1 are free. Higher level spells will consume gold in the making:
+level 2&3: 100 gold
+level 4&5: 200 gold
+level 6&7: 350 gold
+level 8&9: 500 gold.
+The scrolls he can write depends on his level as a mage and other experiences.~
 @10013  = ~A Fine Pair of Boots~
 
 @10014  = ~Brandock in the Slums
@@ -40,17 +45,13 @@ I met Brandock, but he'll remain in the house of his mother's cousin. It's one o
 @10015  = ~Brandock in the Slums
 
 I can find Brandock in the house of his mother's cousin, if I have need of him. It's one of the houses next to the great sphere in the Slums.~
-
 @10016  = ~Brandock the Mage
 
 Brandock was last seen outside the Palace's gates.~ 
-
 @10017  = ~Brandock Wants to Restore his Book~
-
 @10018  = ~Brandock in the Slums
 
 I can find Brandock in the great sphere in the Slums, if I have need of him. He will be in the room with the apprentices.~
-
 @10019  = ~Brandock Wants to Restore his Book
 
 Brandock mentioned that almost all spells from his destroyed book are in his memory, and he wants to restore the book. For this he needs a friendly mage who would help him. I should talk to him again about it.~
@@ -63,106 +64,144 @@ I promised Brandock that we'd go to Firebead Elvenhair in Beregost. Brandock wan
 @10022  = ~Brandock Wants to Restore his Book
 
 Elvenhair will help Brandock with his book. First he requested the following ingredients: a Star Sapphire, a Potion of Regeneration, and ink of an octopus. The last we should be able to buy from sea-going fishermen. A fishing village like Ulgoth's Beard should be a good start to look for it.~
-
 @10023  = ~Increase Brandock's Lore Wisdom
 
-Brandock studied the spell book of Tarnesh, the mage who attacked me in front of the Friendly Arm Inn and increased his lore wisdom with it.~
+Brandock seems to have a very inquisitive mind. So far, he managed to learn from most magic book we encounter, but with him getting more well-versed, spellbooks from other mages do not necessarily help him increase his knowledge any more. Giving him the opportunity to study as many books as possible on our travels might still help him to increase his knowledge, but those events will become more rare.~
 @10024  = ~Increase Brandock's Lore Wisdom
 
-Brandock found interesting books at Elvenhair's home and reading them increased his lore score.~
-//@10025  = ~~
+Brandock seems to have a very inquisitive mind. He increased his lore by studying his cousin's spellbook. On our travels, I should give him the opportunity to study as many books as possible in the hopes that it will help him increase his knowledge.~
+@10025  = ~Funeral for Brandock's Cousin~
 @10026  = ~Brandock Wants to Restore his Book
 
 We have all the ingredients requested by Elvenhair. Brandock wants to return to Master Elvenhair's home in Beregost so they can work on restoring the destroyed book.~
-@10027  = ~Increase Brandock's Lore Wisdom
+@10027  = ~Funeral for Brandock's Cousin
 
-Brandock increased his lore wisdom by having a good look around Candlekeep library.~
-//@10028  = ~~
+Brandock wants to go to the Temple of Helm and arrange the funeral of his mother's cousin Ebrel.~
+@10028  = ~Brandock Wants to Restore his Book
+
+Acursed murder accusations! Elvenhair will not help Brandock until we cleared our names from the murder accusation in Candlekeep. I hope once this is resolved, Elvenhair will continue to help Brandock with his troubles.~
 @10029  = ~Increase Brandock's Lore Wisdom~
 @10030  = ~Increase Brandock's Lore Wisdom
 
 Brandock seems to have a very inquisitive mind and manages to learn from every magic book we encounter. On our travels, I should give him the opportunity to study as many books as possible. I am sure it will help him increase his knowledge.~
 @10031  = ~Increase Brandock's Lore Wisdom
 
-Brandock increased his lore wisdom by studying the History of the Nether Scrolls, the book we obtained from Duke Eltan to gain entry to Candlekeep.~
-@10032  = ~Increase Brandock's Lore Wisdom
+Brandock can't increase his lore wisdom by studying random books any more. Maybe he'll find one or two along our travels, but the days where every enemies' spellbook would give him a lore boost are over.~
+@10032  = ~Funeral for Brandock's Cousin
 
-Brandock increased his lore wisdom by studying Balduran's Logbook.~
-@10033  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spell book of the mage in the Nashkel Carnival tent and increased his lore wisdom.~
-@10034  = ~Increase Brandock's Lore Wisdom
-
-Brandock increased his lore wisdom by studying Yago's Book of Curses.~
-@10035  = ~Increase Brandock's Lore Wisdom
-
-Brandock could not increase his lore by studying Dradeel's spell book.~
-
-@10036  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the magic books of the mage in the Cloakwood Mines and increased his knowledge.~
-
-@10037  = ~Increase Brandock's Lore Wisdom
-
-Brandock found some interesting books in Durlag's old library and increased his wisdom lore by studying them.~
-@10038  = ~Increase Brandock's Lore Wisdom
-
-The books in Ramazith's home helped Brandock to increase his lore.~
-@10039  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied Ragefast's library and increased his lore wisdom.~
-@10040  = ~Increase Brandock's Lore Wisdom
-
-Brandock increased his lore wisdom by studying the spell book of that middle man we found in Beregost.~
-
-@10041  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spell books of the four mages who attacked us in the Sorcerous Sundries and increased his lore wisdom.~
-@10042  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spell book of the crazy wizard who petrified the five refugees for "art" and increased his lore.~
+Brandock arranged the funeral of his mother's cousin Ebrel with the Temple of Helm. They will transfer the remains to Ebrel's hometown and hold a ceremony there.~
+//@10033  = ~~
+//@10034  = ~~
+//@10035  = ~~
+//@10036  = ~~
+//@10037  = ~~
+//@10038  = ~~
+//@10039  = ~~
+//@10040  = ~~
+//@10041  = ~~
+//@10042  = ~~
 //@10043  = ~~
 @10044  = ~Brandock Wants to Restore his Book
 
-Brandock got kicked out of Candlekeep with me... We will have to see when and where he will be able to translate his book.~
-@10045  = ~Increase Brandock's Lore Wisdom
+Elvenhair will bring his lexicon next time he returns from Candlekeep, but when this will be he couldn't tell. He said he will let Brandock know when he has the lexicon.~
+@10045  = ~Brandock and his Half-Ogre 'Twin'
 
-Brandock studied a book with the spell components used in the creation of a Halruaan skyship and increased his knowledge.~
+Malm, the half-ogre who shapeshifted into a human went on a journey to the great library Alisarhold in Amn. I am sure Brandock will meet him again someday.~
 
-/* new in vbeta_4 */
-@10046  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spellbook of a mage we met in the wilderness with a formula to control slimes and increased his lore.~
-@10047  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spellbook of a crazy mage who threatened us with basilisks and increased his lore.~
-@10048  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied the spellbooks of Red Wizards of Thay who attacked us in the wilderness and increased his knowledge.~
-@10049  = ~Increase Brandock's Lore Wisdom
-
-Brandock studied some old book remains he found inside the old Ulcaster school and increased his lore wisdom.~
+//@10046  = ~~
+//@10047  = ~~
+//@10048  = ~~
+//@10049  = ~~
 
 /* new in vbeta 7 */
-@10050  = ~Elvenhair Offered Brandock to Scribe Scrolls
+@10050  = ~Brandock's Scroll Scribing Skills
 
 Elvenhair offered Brandock to scribe scrolls in his home. He is welcome to use Elvenhair's desk any time he wants.~
-/* @10025 rephrased */
 @10051  = ~Brandock Wants to Restore his Book
 
-Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty. Elvenhair believes the spells have to be added back by "a mage of high enough expertise", but to know for sure they need to decipher the pages covered in Ruathlek runes. Elvenhair will bring his lexicon next time he returns from Candlekeep, but when this will be he couldn't tell. He said he will let Brandock know when he has the lexicon.~
-/* @10028 rephrased */
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty. Elvenhair believes the spells have to be added back by "a mage of high enough expertise", but to know for sure they need to decipher the pages covered in Ruathlek runes.~
 @10052  = ~Brandock Wants to Restore his Book
 
 Brandock wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a visitor and start working on translating the Ruathlek writing in his magic book.~
-/* @10044 rephrased */
 @10053    = ~Brandock Wants to Restore his Book
 
 Brandock got kicked out of Candlekeep with me...~
-/*
-@10054  = ~
-@10055  = ~
-*/
+@10054  = ~Brandock's Scroll Scribing Skills
+
+Until our names are cleared from the murder accusations, Brandock cannot use Elvenhair's desk to scribe scrolls.~
+@10055  = ~Brandock Wants to Restore his Book
+
+Elvenhair send a messenger: he brought his Ruathlek lexicon from Candlekeep and is waiting in his house in Beregost, ready to help Brandock with the translation. Brandock is eager to go there as soon as possible.~
+@10056  = ~Brandock Wants to Restore his Book
+
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language saying: 
+"Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom.".~
+@10057  = ~Brandock Wants to Restore his Book
+
+Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Amn.~
+@10058  = ~Brandock Wants to Restore his Book
+
+Brandock wants to show his restored book to the priests of Oghma. The Temple of Oghma is in the Dock's District in Athkatla.~
+@10059  = ~Brandock Wants to Restore his Book
+
+Brandock showed his restored book to the priests in the Temple of Oghma is in the Dock's District in Athkatla. They need a King's Tear and 5000 gold to help further with the book.~
+@10060  = ~Brandock Wants to Restore his Book
+
+Brandock wants to return to the Temple of Oghma is in the Dock's District in Athkatla.~
+@10061  = ~Brandock Wants to Restore his Book
+
+The De Simplex Magicae is fully restored. Brandock gave the book to the Temple of Oghma.~
+@10062  = ~Brandock's Scroll Scribing Skills
+
+Brandock möchte, dass wir alle verfluchten Schriftrollen aufbewahren die wir finden, um die Magie darin für etwas Sinnvolles zu nutzen.~
+@10063  = ~Brandock's Scroll Scribing Skills
+
+Brandock promised to scribe a scroll on our next rest - no matter where.~
+@10064  = ~Brandock's Scroll Scribing Skills
+
+Brandock overcame his fear of setting fire to his surroundings when scribing a spell scroll. He is no longer dependent on Master Elvenhair's desc but can write scrolls anywhere.~
+@10065  = ~Brandock Changes the Book of Infinite Spells
+
+Brandock offers to reorganize the Book of Infinite Spells so every page I'll open now can be reopened later.
+I should scroll though the book until I reach the last page. Upon turning a page, Brandock will tell me when he's finished with whatever he's doing to get them to open later. He also said he will not react to pages that were already opened before in case they appear again.~
+@10066  = ~Brandock Changes the Book of Infinite Spells
+
+Brandock finished rewriting the Book of Infinite Spells. Now older pages can be reopened, too.~
+@10067  = ~Brandock Changes the Book of Infinite Spells~
+@10068  = ~~
+@10069  = ~Brandock's Half-Ogre Troubles
+
+Brandock shifted into a half-ogre when we fought doppelgangers inside the Candlekeep Catacombs. He says that it must be connected to the incident where he changed bodies with a half-ogre, but he needs to see Thalantyr about this.~
+@10070  = ~Brandock's Half-Ogre Troubles
+
+Brandock spoke to Thalantyr. The older mage made it clear that Brandock will develop the ability to shapeshift into a half-ogre, and there is nothing that can be done against it - Brandock can only learn to control it.~
+@10071  = ~Brandock's Half-Ogre Troubles
+
+Brandock is now ready to use his ability to shapeshift into a half-ogre.~
+@10072  = ~Brandock's Half-Ogre Troubles
+
+Brandock is no longer afraid to use his ability to shapeshift into a half-ogre.~
+@10073  = ~Brandock and his Half-Ogre 'Twin'
+
+Brandock's body switch with the half-ogre affected the half-ogre, too! Apparently, he can turn into a human who looks a lot like Brandock. Brandock feels responsible for the half-ogre being stuck in human form and wants to search for him. As far as we know he was camping to the west of Thalantyr's abode.~
+@10074  = ~Brandock and his Half-Ogre 'Twin'
+
+Malm, the half-ogre who shapeshifted into a human found a temporary home in the Temple by Beregost. Something tells me Brandock and he will not have met for the last time...~
+@10075  = ~Brandock and his Half-Ogre 'Twin'
+
+Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison! Brandock wants us to go there and see whether Malm needs support.~
+@10076  = ~Brandock and his Half-Ogre 'Twin'~
+@10077  = ~Increase Brandock's Lore Wisdom
+
+The books in Oghma's Temple helped Brandock to increase his lore.~
+//@10078  = ~~
+//@10079  = ~~
+//@10080  = ~~
+//@10081  = ~~
+//@10082  = ~~
+//@10083  = ~~
+
+
 
 /* Epilogue(s) */
 

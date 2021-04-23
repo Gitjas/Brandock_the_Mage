@@ -12,3 +12,14 @@
 @11   = ~Ich weiß es selbst nicht... Ist das nicht klasse?!~
 @12   = ~Nur eine klitzekleine Bitte... Imoen, würdet Ihr in Zukunft *bitte* sowas nicht auf Amnischem Boden machen? Wir sind momentan in Amn, falls es Euch nicht bewusst war. Bitte zaubert nicht in Amn. Vor allem keine Magie mit unvorhersehbarem Effekt.~
 @13   = ~Nur eine klitzekleine Bitte... Imoen, würdet Ihr in Zukunft *bitte* sowas nicht auf Amnischem Boden machen? Insere Suche könnte uns sogar nördlich von Nashkell bringen, das bereits zu Amn gehört. Bitte zaubert nicht in Amn. Vor allem keine Magie mit unvorhersehbarem Effekt.~
+
+/* new for vbeta7 */
+@14   = ~Ihr wisst selbst nicht... Ah, Imoen, das geht so nicht. Ihr macht mir Angst! Lasst mich einen Blick darauf werfen...~
+@15   = ~Oh, unglaublich! Das habt wirklich Ihr gezaubert? Das ist jetzt keiner Eurer Tricks? Imoen, dieses Artefakt wird Euch für eine gewisse Zeit noch geschickter machen. Jedoch... da ist noch was anderes, eine mögliche ungewollte Nebenwirkung... sieht aus wie ein Verwandlungszauber? Die Nutzung geschieht auf alle Fälle auf eigene Gefahr. Ich bin mir nicht sicher, ob Ihr es nutzen solltet... Trotzdem ist das wirklich beeindruckend... und beängstigend.~
+@16   = ~Imoen, es ist absolut notwendig, dass Ihr lernt, mit Eurem magischen Talent umzugehen. Ich fühle mich so sehr an mich selbst erinnert, wie ich als Junge mit Magie hantiert habe, die meine damaligen Fähigkeiten bei weitem überstiegen - einziger Unterschied zu Imoen war, dass ich nicht mal wusste, dass es Magie war...~
+@17   = ~Mein magisches Talent wurde durch puren Zufall entdeckt. "Magie findet immer einen Weg", sagte meine erster Lehrmeister. Und wenn nicht rechtzeitig gebändigt, dann sind diese "Wege" meist der Gesundheit des Anwenders oder der Umgebung abträglich...~
+@18   = ~Ungebändigtes magisches Talent macht mir wirklich Sorgen. <CHARNAME>, wir müssen Imoen Magie trainieren lassen.~
+@19   = ~Jaaaaa! Hörst du das, <CHARNAME>?~
+@20   = ~Was Ihr da kreiert habt ist wirklich beeindruckend. Wir sollten vorsichtig sein, <CHARNAME>. Lasst Imoen nicht zu lange ohne Anleitung mit Magie rumprobieren.~
+@21   = ~Ich werde Eure Versuche im Auge behalten, aber solange Ihr nicht ernsthaft anfangt als Magierin zu lernen, kann ich nur eine gewisse Schadensbegrenzung machen.~
+@22   = ~"Schadensbegrenzung", ja? Ihr seid heute ja sehr charmant!~

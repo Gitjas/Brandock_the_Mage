@@ -14,7 +14,7 @@ THEN
 		SetGlobal("C#Brandock_BGTTOBG2","GLOBAL",2)
 		ApplySpellRES("bdresurr","C#Brandock") //resurrection
 		SmallWait(1)
-		ActionOverride("PlayerChest00",TakeCreatureItems("C#Brandock",BACKPACK))
+//		ActionOverride("PlayerChest00",TakeCreatureItems("C#Brandock",BACKPACK))
 		SmallWait(1)
 		ActionOverride("C#Brandock",LeaveParty())
 		SmallWait(1)

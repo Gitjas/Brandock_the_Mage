@@ -1,0 +1,48 @@
+/* Necromancer's Trouble */
+@0  = ~I really *really* understand the urge to know, to *understand* things and I definitely can't judge you for why you did it but - did it ever cross your mind that there is something like "too much"?~
+@1  = ~[Brandock]Seeing the necromancer who tried to resurrect his love. This was the first time it scared me to see someone striving for knowledge, <CHARNAME>. I know there's a "too much" for everything, but...~
+@2  = ~[Brandock]We already talked about it with regard to poor, driven Prism...~
+@3  = ~Seeing this... this *insane* man amidst of all the corpses, frantically muttering "I need to know, I need to know" - well, alright, that's not how it was, he actually looked all sad and *tired*. But in my head that's what it looked like! It scared me. Which is not a surprise to anyone in particular, I guess.~
+@4  = ~I see what you mean. It's always a thin line between ambition and obsession.~
+@5  = ~Being scared by such a sight is nothing to be ashamed of.~ 
+@6  = ~No, it's not a surprise at all that you are scared.~
+@7  = ~Whatever, Brandock.~
+@8  = ~[Brandock]That's what I mean exactly!~
+@9  = ~[Brandock]You on the other hand are calm as a frozen lake.~
+@10  = ~[Brandock]I mean - even obsession is fine. It's fine... as long as you don't plaster your home with dead bodies while pursuing it. (shudders).~
+@11  = ~Oh, what a sad, sad ending. His spell book is full of necromancer stuff - well, that's not a surprise, I guess. (sigh)~
+/*
+@12  = 
+@13  = 
+@14  = 
+@15  = 
+@16  = 
+@17  = 
+@18  = 
+@19  = 
+*/
+
+/* Dinner with Thalantyr */
+@20  = ~What? Did you just agree to a dinner with <CHARNAME>? Did he just agree to a dinner with you? What... what did you do to this grumpy... er, wise, very wise, mage?...~
+@21  = ~Did I mention before that I am jealous? Well, now I am even more. Yes, just go and spend the *second* evening in private conversation with the most powerful mage in these parts of the Sword Coast and - enjoy yourself, <CHARNAME>, alright?~
+@22  = ~You were in Thalantyr's private quarters!~
+@23  = ~As was I of course... I even went through some of his books with my half-ogre hands, as embarrassing as it is.~
+@24  = ~As was I, of course - but you got to spend private time with him!~
+@25  = ~Oh, it must have been *so* exciting! Please tell me!~
+@26  = ~(cheeky) It was quite stimulating, yes.~
+@27  = ~Excuse me? What are you implying?~
+@28  = ~It wasn't what you are thinking.~
+@29  = ~Brandock - that's usually not what you ask if someone had a private evening with someone else.~
+@30  = ~None of your business I would say.~
+@31  = ~Oh, you mean you didn't have a highly intellectual conversation with him and couldn't study some of his rarer books? That's disappointing.~
+@32  = ~No, we actually had a very fine dinner only. But we talked a bit.~
+@33  = ~Brandock, your innocence is boundless. Didn't you even notice the innuendo in your previous question?~
+@34  = ~I do think the details are none of your business.~
+@35  = ~Oh, you mean you had a highly intellectual conversation with him and could study some of his rarer books? That's exciting! ...I am jealous.~
+@36  = ~Oh. OH! I am sorry, <CHARNAME>! I didn't mean to imply... the gods, now I feel embarassed. I *was* talking about having a long conversation with a well-versed mage like Thalantyr. Nothing else. Uhm...~
+@37  = ~I am a bit scared, <CHARNAME>. If you can charm this old "grumpyhead" - then you are really poweful. I am kidding of course... and yet - he surrounded himself with flesh golems. People who do that usually aren't the most social type.~
+@38  = ~Of course not. You are right. I'm just jealous of you getting some of his private time... he *is* the most powerful mage around after all.~
+/*
+@39  =
+@40  = 
+*/

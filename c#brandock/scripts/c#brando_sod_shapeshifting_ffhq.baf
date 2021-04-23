@@ -1,0 +1,25 @@
+/* this script block is for SoD area only: spawn Malm here if quest was not done in BG1 area */
+IF
+	!Dead("c#brhabr")
+	!InMyArea("c#brhabr")
+	Global("C#Brando_VisitedMalm","GLOBAL",3)
+	Global("C#Brandock_Shapeshift","GLOBAL",24)
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brando_VisitedMalm","GLOBAL",4)
+	    CreateCreature("c#brhabr",[343.615],12) 
+END
+
+/* Malm should not be here if we are hitting chapter 13 */
+IF	
+	OR(2)
+		InMyArea("c#brhabr")
+		InMyArea("c#brhaff")
+	GlobalGT("chapter","global",12)
+	Global("C#Brando_DeSpawnMalm","MYAREA",0)
+THEN
+	RESPONSE #100
+		ActionOverride("c#brhabr",DestroySelf())
+		ActionOverride("c#brhaff",DestroySelf())
+           	SetGlobal("C#Brando_DeSpawnMalm","MYAREA",1)	
+END

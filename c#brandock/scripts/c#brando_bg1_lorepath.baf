@@ -1,0 +1,757 @@
+/* lore path: set general journal entry once */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_LorePathIncrease","GLOBAL",1)
+	Global("C#Br_LorePathJournalEntry","LOCALS",0)
+THEN
+	RESPONSE #100
+		AddJournalEntry(@10030,QUEST)
+		SetGlobal("C#Br_LorePathJournalEntry","LOCALS",0)
+END
+
+/* lore path: zordral */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%NashkelCarnival_ZordralsTent%")
+Dead("Zordral")
+See("Zordral")
+Global("C#Br_LorePathZordral","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathZordral","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathZordral","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: yago's */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+PartyHasItem("BOOK70")
+Global("C#Br_LorePathYagosCurses","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathYagosCurses","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathYagosCurses","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Dradeel's */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+PartyHasItem("MISC1F")
+Global("C#Br_LorePathDradeelBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathDradeelBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathDradeelBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: DurlagsTower_L3 */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%DurlagsTower_L3%")
+Range("Container 5",10)
+Range("Container 4",15)
+Range("Container 6",15)
+Global("C#Br_LorePathDurlagsTower","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathDurlagsTower","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+
+/* lore path: NBaldursGate_RamazithsTower_L6 */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%NBaldursGate_RamazithsTower_L6%")
+OR(2)
+!Exists("Ramazith")
+Dead("Ramazith")
+Global("C#Br_LorePathRamazith","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathRamazith","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathRamazith","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: WBaldursGate_RagefastsHouse */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%WBaldursGate_RagefastsHouse%")
+OR(2)
+!Exists("Abela")
+Dead("Ragefast")
+Global("C#Br_LorePathRagefast","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathRagefast","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathRagefast","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+
+/* lore path: niemain et al. EBaldursGate_SorcerousSundries_L2 */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%EBaldursGate_SorcerousSundries_L2%")
+Dead("Niemain")
+See("Niemain")
+Dead("Oulam")
+Dead("Wheber")
+Dead("William")
+Global("C#Br_LorePathNiemain","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathNiemain","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathNiemain","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Candlekeep! */
+IF %BGT_VAR%
+AreaCheck("%Candlekeep_Library_L1%")
+Global("C#Brandock_LorePathCKLibrary","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_LorePathCKLibrary","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Brandock_LorePathCKLibrary","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+
+/* Delorna + Ithmeera + Helshara, Halruaan Skyship components */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+!AreaCheck("CentralBaldursGate_OberonsEstate_L3")
+PartyHasItem("MISC71")
+Global("C#Br_LorePathDelornaBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathDelornaBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathDelornaBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Narcillicus Harwilliger Neen (green slimes) */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%ValleyoftheTombs%")
+Dead("NARCIL")
+See("NARCIL")
+Global("C#Br_LorePathNarcillicusBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathNarcillicusBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathNarcillicusBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: Mutamin */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%MutaminsGarden%")
+Dead("MUTAMIN")
+See("MUTAMIN")
+Global("C#Br_LorePathMutaminBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathMutaminBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathMutaminBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* lore path: 4 wizards from Thay (Spiderwood) */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%SpiderWood%")
+Dead("DENAK")
+Dead("DIANA")
+Dead("BRENDAN")
+Dead("LASALA")
+OR(4)
+	See("DENAK")
+	See("DIANA")
+	See("BRENDAN")
+	See("LASALA")
+Global("C#Br_LorePathThayMagesBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathThayMagesBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathThayMagesBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* Sunin SWBaldursGate_SuninsHouse */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%SWBaldursGate_SuninsHouse%")
+Dead("Sunin")
+Global("C#Br_LorePathSuninBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathSuninBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathSuninBG1","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* minor lore path encounters: DisplayStringHead only. (And also because I'm getting lazy.) 
+@1026 = ~I'll have a look into this mage's spellbook - oh yes, that is interesting.~
+@1027 = ~This mage's spellbook is an interesting read indeed.~
+@1028 = ~I can learn from this mage's spellbook.~
+
+template:
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%##%")
+Dead("##")
+See("##")
+Global("C#Br_LorePath##BG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePath##BG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@##)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+*/
+
+/* outside cloakwood mine */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("REZDAN") Dead("KYSUS")
+OR(2) See("REZDAN") See("KYSUS")
+Global("C#Br_LorePath##BG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePath##BG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1029)
+ReallyForceSpellRES("c#brlob2",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* dwaven mage outside Gullykin (HALACAN) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("HALACAN")
+See("HALACAN")
+Global("C#Br_LorePathHALACANBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathHALACANBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1030)
+SetInterrupt(TRUE)
+END
+
+/* Arkushule (ARKUSH) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("ARKUSH")
+See("ARKUSH")
+Global("C#Br_LorePathARKUSHBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathARKUSHBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1031)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Joular (JOULAR) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("JOULAR")
+See("JOULAR")
+Global("C#Br_LorePathJOULARBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathJOULARBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Daer'Ragh (DAERRAGH) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("DAERRAGH")
+See("DAERRAGH")
+Global("C#Br_LorePathDAERRAGHBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathDAERRAGHBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1027)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Gervisse (GERVISSE) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("GERVISSE")
+See("GERVISSE")
+Global("C#Br_LorePathGERVISSEBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathGERVISSEBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1028)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Natasha, Cloakwood Mine (NATASHA) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("NATASHA")
+See("NATASHA")
+Global("C#Br_LorePathNATASHABG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathNATASHABG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Hareishan, Cloakwood Mines (HAREIS) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("HAREIS")
+See("HAREIS")
+Global("C#Br_LorePathHAREISBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathHAREISBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1027)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Drelik, House in BG (DRELIK) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("DRELIK")
+See("DRELIK")
+Global("C#Br_LorePathDRELIKBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathDRELIKBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1028)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+
+/* Garan, Ice Island L1 (GARAN) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("GARAN")
+See("GARAN")
+Global("C#Br_LorePathGARANBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathGARANBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Cuchol, Ice Island L1 (CUCHOL) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("CUCHOL")
+See("CUCHOL")
+Global("C#Br_LorePathCUCHOLBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathCUCHOLBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1027)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Tellan, Ice Island L1 (TELLAN) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("TELLAN")
+See("TELLAN")
+Global("C#Br_LorePathTELLANBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathTELLANBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1028)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Andris + Marcellus + Beyn, Ice Island L1 (ANDRIS) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("ANDRIS") Dead("MARCEL") DEAD("BEYN")
+OR(3) See("ANDRIS") See("MARCEL") See("BEYN")
+Global("C#Br_LorePathANDRISBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathANDRISBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1032)
+ReallyForceSpellRES("c#brlob2",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Dezkiel, Ice Island L1 (DEZKIEL) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("DEZKIEL")
+See("DEZKIEL")
+Global("C#Br_LorePathDEZKIELBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathDEZKIELBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Beregost, Travenhurst Manor */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("%Beregost_TravenhurstManor_L1%")
+OR(2) Range("Container2",20) Range("Container4",20)
+Global("C#Br_LorePathTravenhurstBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathTravenhurstBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1035)
+SetInterrupt(TRUE)
+END

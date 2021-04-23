@@ -17,6 +17,38 @@ THEN
 END
 
 
+/* book quest was not finished in BG1 - bring the quest onto same level */
+IF
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_BookRestoreAlone","GLOBAL",0)	
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	GlobalLT("C#Br_BookRestore","GLOBAL",12)
+	!HasItem("C#br0007","C#Brandock")
+	HasItem("C#br0001","C#Brandock")
+	GlobalGT("bd_plot","global",50)
+THEN
+	RESPONSE #100
+		DestroyItem("C#br0001")
+		GiveItemCreate("c#br0007","C#Brandock",0,0,0)
+		SetGlobal("C#Br_BookRestoreAlone","GLOBAL",1)
+END
+
+/* scroll scribing quest line wasn't finished - Brandock will now know how to scribe scrolls */
+IF 
+	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",7)
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	GlobalGT("bd_plot","global",50)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		EraseJournalEntry(@10050)
+		EraseJournalEntry(@10054)
+		AddJournalEntry(@10012,QUEST_DONE)
+		ReallyForceSpellRES("c#brscra","C#Brandock")
+		SetInterrupt(TRUE)
+END
+
 
 
 /* camp BD1000 petrified people */
@@ -71,6 +103,7 @@ IF
 	!Detect([EVILBUTBLUE])
 	CombatCounter(0)
 	AreaCheck("BD0130")  // 
+	!See("bdkorlas")
 	%IT_IS_SOD%  // BG1 is over, we are in SoD
 	OR(2)
 		Global("BD_KORLASZ_SURRENDER","GLOBAL",1)
@@ -259,7 +292,7 @@ END
 /* in case letter was found later */
 /* activate */
 IF
-    PartyHasItem("bdure2a") //(Letter)
+    PartyHasItem("bdure2a")
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
   !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -634,6 +667,57 @@ THEN
 		StartDialogNoSet(Player1)
 END
 
+/* Arcane Scroll of Impactful Doom, PartyHasItem("BDSCRL02") */
+/* activate */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	OR(5)
+		PartyHasItem("BDSCRL02") 
+		HasItem("BDSCRL02","C#Solaufein")
+		HasItem("BDSCRL02","C#Grey")
+		HasItem("BDSCRL02","C#Husam1")
+		HasItem("BDSCRL02","C#Brandock")
+	OR(3)
+		!HasItem("BDSCRL02","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("BDSCRL02","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("BDSCRL02","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("BDSCRL02","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")
+	Global("C#Brando_SoDScrollOfDoom","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDScrollOfDoom","GLOBAL",1)
+END
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDScrollOfDoom","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+
 
 
 /* Morentherene - green dragon */
@@ -664,7 +748,6 @@ IF
   !StateCheck(Myself,CD_STATE_NOTVALID)
     See(Player1)
     !Detect([ENEMY])
-    !Detect([EVILBUTBLUE])
     CombatCounter(0)
 THEN
 	RESPONSE #100
@@ -715,7 +798,6 @@ IF
   !StateCheck(Myself,CD_STATE_NOTVALID)
     See(Player1)
     !Detect([ENEMY])
-    !Detect([EVILBUTBLUE])
     CombatCounter(0)
 THEN
 	RESPONSE #100
@@ -799,7 +881,28 @@ END
 
 /* activate */
 IF
-	PartyHasItem("bdegg01")
+   OR(5)
+		PartyHasItem("bdegg01") 
+		HasItem("bdegg01","C#Solaufein")
+		HasItem("bdegg01","C#Grey")
+		HasItem("bdegg01","C#Husam1")
+		HasItem("bdegg01","C#Brandock")
+	OR(3)
+		!HasItem("bdegg01","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdegg01","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdegg01","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdegg01","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")
   !RealGlobalTimerNotExpired("C#BrandockDialogSpaceTimer","GLOBAL")
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -975,9 +1078,11 @@ IF
 	Global("C#Brandock_SoDMessenger","BD3000",0)
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		SetGlobal("C#Brandock_SoDMessenger","BD3000",1)
-		CreateCreatureObject("c#brsodm","C#Brandock",0,0,0)  // Messenger
-		ActionOverride("c#brsodm",Dialogue("C#Brandock"))
+		CreateCreatureObject("c#brmess","C#Brandock",0,0,0)  // Messenger
+		ActionOverride("c#brmess",Dialogue("C#Brandock"))
+		SetInterrupt(TRUE)
 END
 
 
@@ -1060,6 +1165,8 @@ END
 
 
 /* cenery dialogues that use the same friendship timer */
+
+
 
 /* Caelar no child of Bhaal */
 IF
@@ -1230,56 +1337,62 @@ END
 
 /* activate timer Corwin */
 IF
+	%IT_IS_SOD%
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	InParty("CORWIN")  // Corwin
 	OR(3)
-		Global("bd_banter_Corwin_set","LOCALS",0)
-		Global("bd_banter_Corwin_set","LOCALS",2)
-		Global("bd_banter_Corwin_set","LOCALS",4)
+		Global("C#Brandock_CorwinSoD","GLOBAL",0)
+		Global("C#Brandock_CorwinSoD","GLOBAL",3)
+		Global("C#Brandock_CorwinSoD","GLOBAL",6)
 THEN
 	RESPONSE #100
 		SetGlobalTimerRandom("bd_banter_Corwin_trigger","LOCALS",ONE_DAY,FOURTEEN_DAYS)
-		IncrementGlobal("bd_banter_Corwin_set","LOCALS",1)
+		IncrementGlobal("C#Brandock_CorwinSoD","GLOBAL",1)
 END
 
 /* deactivate timer if Corwin or Brandock is not in party */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#BrandockJoined","GLOBAL",0)
 		!InParty("CORWIN")  // Corwin
 	OR(3)
-		Global("bd_banter_Corwin_set","LOCALS",1)
-		Global("bd_banter_Corwin_set","LOCALS",3)
-		Global("bd_banter_Corwin_set","LOCALS",5)
+		Global("C#Brandock_CorwinSoD","GLOBAL",1)
+		Global("C#Brandock_CorwinSoD","GLOBAL",4)
+		Global("C#Brandock_CorwinSoD","GLOBAL",7)
 THEN
 	RESPONSE #100
-		IncrementGlobal("bd_banter_Corwin_set","LOCALS",-1)
+		IncrementGlobal("C#Brandock_CorwinSoD","GLOBAL",-1)
 END
 
 /* activate timer M'Khiin */
 IF
+	%IT_IS_SOD%
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	InParty("MKHIIN")  
-	Global("bd_banter_MKhin_set","LOCALS",0)
+	Global("C#Brandock_MHhiinSoD","GLOBAL",0)
 THEN
 	RESPONSE #100
 		SetGlobalTimerRandom("bd_banter_MKhin_trigger","LOCALS",ONE_DAY,FOURTEEN_DAYS)
-		IncrementGlobal("bd_banter_MKhin_set","LOCALS",1)
+		IncrementGlobal("C#Brandock_MHhiinSoD","GLOBAL",1)
 END
 
 /* deactivate timer if M'Khiin or Brandock is not in party */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#BrandockJoined","GLOBAL",0)
 		!InParty("MKHIIN")  
-	Global("bd_banter_MKhin_set","LOCALS",1)
+	Global("C#Brandock_MHhiinSoD","GLOBAL",1)
 THEN
 	RESPONSE #100
-		IncrementGlobal("bd_banter_MKhin_set","LOCALS",-1)
+		IncrementGlobal("C#Brandock_MHhiinSoD","GLOBAL",-1)
 END
 
 /* first Corwin banter */
+/* activate */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#Brandock_SoDBanterDebug01","GLOBAL",1)
 		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
@@ -1287,9 +1400,10 @@ IF
 		Global("C#Brandock_SoDBanterDebug01","GLOBAL",1)
 		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
 	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
-	Global("bd_banter_Corwin_set","LOCALS",1)
+	Global("C#Brandock_CorwinSoD","GLOBAL",1)
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
 	IfValidForPartyDialogue("CORWIN")  // Corwin
 	!PartyRested()
 	!ActuallyInCombat()
@@ -1297,12 +1411,25 @@ THEN
 	RESPONSE #100
 		BanterBlockTime(450) 
 		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
-		SetGlobal("bd_banter_Corwin_set","LOCALS",2)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",2)
+END
+/* Initiate */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_CorwinSoD","GLOBAL",2)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
+	IfValidForPartyDialogue("CORWIN")  // Corwin
+THEN
+	RESPONSE #100
 		SetAreaScript("c#brsb01",GENERAL)
 END
 
 /* first M'Khiin banter */
+/* activate */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#Brandock_SoDBanterDebug04","GLOBAL",1)
 		GlobalTimerExpired("bd_banter_MKhin_trigger","LOCALS")
@@ -1310,22 +1437,36 @@ IF
 		Global("C#Brandock_SoDBanterDebug04","GLOBAL",1)
 		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
 	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
-	Global("bd_banter_MKhin_set","LOCALS",1)
+	Global("C#Brandock_MHhiinSoD","GLOBAL",1)
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
-	IfValidForPartyDialogue("MKHIIN")  // 
+	See("MKHIIN")
+	IfValidForPartyDialogue("MKHIIN")  
 	!PartyRested()
 	!ActuallyInCombat()
 THEN
 	RESPONSE #100
 		BanterBlockTime(450) 
 		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
-		SetGlobal("bd_banter_MKhin_set","LOCALS",2)
+		SetGlobal("C#Brandock_MHhiinSoD","GLOBAL",2)
+END
+/* Initiate */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_MHhiinSoD","GLOBAL",2)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("MKHIIN")
+	IfValidForPartyDialogue("MKHIIN")  
+THEN
+	RESPONSE #100
 		SetAreaScript("c#brsb04",GENERAL)
 END
 
 /* 2nd Corwin banter */
+/* activate */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#Brandock_SoDBanterDebug02","GLOBAL",1)
 		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
@@ -1333,9 +1474,10 @@ IF
 		Global("C#Brandock_SoDBanterDebug02","GLOBAL",1)
 		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
 	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
-	Global("bd_banter_Corwin_set","LOCALS",3)
+	Global("C#Brandock_CorwinSoD","GLOBAL",4)
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
 	IfValidForPartyDialogue("CORWIN")  // Corwin
 	!PartyRested()
 	!ActuallyInCombat()
@@ -1343,12 +1485,25 @@ THEN
 	RESPONSE #100
 		BanterBlockTime(450) 
 		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
-		SetGlobal("bd_banter_Corwin_set","LOCALS",4)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",5)
+END
+/* Initiate */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_CorwinSoD","GLOBAL",5)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
+	IfValidForPartyDialogue("CORWIN")  // Corwin
+THEN
+	RESPONSE #100
 		SetAreaScript("c#brsb02",GENERAL)
 END
 
 /* 3rd Corwin banter */
+/* activate */
 IF
+	%IT_IS_SOD%
 	OR(2)
 		Global("C#Brandock_SoDBanterDebug03","GLOBAL",1)
 		GlobalTimerExpired("bd_banter_Corwin_trigger","LOCALS")
@@ -1356,9 +1511,10 @@ IF
 		Global("C#Brandock_SoDBanterDebug03","GLOBAL",1)
 		!GlobalTimerNotExpired("BD_NPC_BANTER","GLOBAL")
 	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
-	Global("bd_banter_Corwin_set","LOCALS",5)
+	Global("C#Brandock_CorwinSoD","GLOBAL",7)
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
 	IfValidForPartyDialogue("CORWIN")  // Corwin
 	!PartyRested()
 	!ActuallyInCombat()
@@ -1366,7 +1522,17 @@ THEN
 	RESPONSE #100
 		BanterBlockTime(450) 
 		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
-		SetGlobal("bd_banter_Corwin_set","LOCALS",6)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",8)
+END
+/* Initiate */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_CorwinSoD","GLOBAL",8)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("CORWIN")
+	IfValidForPartyDialogue("CORWIN")  
+THEN
+	RESPONSE #100
 		SetAreaScript("c#brsb03",GENERAL)
 END
-

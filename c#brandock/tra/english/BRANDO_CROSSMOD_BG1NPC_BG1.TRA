@@ -12,3 +12,14 @@
 @11   = ~I don't *know*... Isn't it great?!~
 @12   = ~Just one minor nitpick... Imoen, would you, in future, would you *please* not do things like that on Amnish soil? We are in Amn, currently, you know? Please don't do magic in Amn. Especially not unpredictable magic.~
 @13   = ~Just one minor nitpick... Imoen, would you, in future, would you *please* take care you won't do something like that on Amnish soil? Our current travels might bring us south of Nashkel, which is already Amn. Please don't do magic in Amn. Especially not unpredictable magic.~
+
+/* new for vbeta7 */
+@14   = ~You don't... Ah, Imoen, this won't do. You are scaring me! Let me have a look at it...~
+@15   = ~Oh, wow! You created this? This is not one of your tricks? Imoen, this tome will give you even better dexterousness for some amount of time. But... there is also some slight chance of some unwanted outcome - I'm not sure, it looks lie a polymorphing spell... You'll use this at your own risk. I'm not sure you should use it, to be honest. Still, this is... impressive! And scary.~
+@16   = ~Imoen, it is imperative that you learn how to handle your magic talent. I feel reminded to the young lad I was, fiddling with magic way over my head - only difference that I didn't know I was actually using magic...~
+@17   = ~My magic talent was found out by mere coincidence. "Magic always finds a way", my first teacher said. And if it is not tamed in time, these "ways" are usually hurtful for oneself or other people around.~
+@18   = ~Untamed magic talent really scares me. <CHARNAME>, we need to let Imoen train magic.~
+@19   = ~Woooo! Ya hear that, <CHARNAME>?~
+@20   = ~You did something there, without being trained. We should be careful, <CHARNAME>. Don't let her fiddle with it on her own for too long.~
+@21   = ~I'll have an eye on your attempts, Imoen, but unless you start training magic on a serious note, there is only so much damage control I can do.~
+@22   = ~"Damage control", huh? My, aren't you a real charmer!~

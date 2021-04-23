@@ -1,0 +1,26 @@
+IF
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	InMyArea("C#Brandock")
+	GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)
+	!Global("C#Brando_ActivateExit","MYAREA",1)
+THEN
+	RESPONSE #100
+		TriggerActivation("%Door5506%",FALSE)
+		TriggerActivation("c#br02Ex",TRUE)
+		SetGlobal("C#Brando_ActivateExit","MYAREA",1)
+END
+
+IF
+	OR(4) 
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InMyArea("C#Brandock")
+		Dead("C#Brandock")
+		!GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)
+	GlobalLT("C#Brandock_Shapeshift","GLOBAL",17)
+	GlobalLT("C#Brando_ActivateExit","MYAREA",2)
+THEN
+	RESPONSE #100
+		TriggerActivation("c#br02Ex",FALSE)
+		TriggerActivation("%Door5506%",TRUE)
+		SetGlobal("C#Brando_ActivateExit","MYAREA",2)
+END

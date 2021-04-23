@@ -1,5 +1,5 @@
 @0    = ~Imoen, do you miss your home?~ [c#ablank]
-@1    = ~Dunno. It was so *boring* in Candlekeep. At some point, you just run out of dog's tails to tie cans too or love notes of secret lovers to snatch and read aloud in the library or freshly milked milk from Nessa you can take when Dreppin isn't looking and drink in the hay until your belly hurts...~
+@1    = ~Dunno. It was so *boring* in Candlekeep. At some point, you just run out of dog's tails to tie cans to or love notes of secret lovers to snatch and read aloud in the library or freshly milked milk from Nessa you can take when Dreppin isn't looking and drink in the hay until your belly hurts...~
 @2    = ~Boring.~
 @3    = ~Do you miss the people?~
 @4    = ~A little. But I prefer travelling with <CHARNAME>. <CHARNAME>'s my family now!~
@@ -117,26 +117,37 @@
 @508  = ~I'm sorry... I am sorry, but there is only room for one of us in this group... and that is definitely not me. It was nice to meet you, <CHARNAME>, but you have obviously decided to keep this evil vampire as a companion, so it is my time to leave.~ [c#ablank]
 
 /* new for vBeta7 */
-@509  = ~[Brandock] Xan, don't get me wrong. I... I understand where you are coming from. Your gloominess - er, I mean your *sensible approach to reality* is something I can relate to very much. And I am only two decades old, whereas you are much more. I am well aware that I am young an, yes, naive in comparison. I can't even imagine what you must have experienced. I thought my fate was tough but if I compare loosing a magic book with being imprisoned for months on end...~
+@509  = ~[Brandock]Xan, don't get me wrong. I... I understand where you are coming from. Your gloominess - er, I mean your *sensible approach to reality* is something I can relate to very much. And I am only two decades old, whereas you are much more. I am well aware that I am young and, yes, naive in comparison. I can't even imagine what you must have experienced. I thought my fate was tough but if I compare loosing a magic book with being imprisoned for months on end...~
 @510  = ~What I wanted to say is, I am impressed with what you achieved and are still achieving. You might say and perhaps even believe that life is hollow, but you surely strive to fill it with your actions nontheless, which stirrs hope in others.~
-@511  = ~[Xan] All who win hope by the actions of others are fools. Do not rely on strangers, as you will be betrayed.~
-@512  = ~[Brandock] As I said, I am with you there. I am also very mistrusting towards strangers... Right up to the point where I trust them without thinking twice, I guess... Nevertheless, we aren't strangers any more. I see a comrade in profession in you, Xan. You specialized in a field I am not as familiar with and I know there is a lot I could learn from you.~
-@513  = ~[Brandock] No - please, don't... don't say anything back that would spoil the mood. Could we just end the conversation here? It left me with a nice, warm feeling of friendship and comradery...~
-@514  = ~[Xan] If a mere conversation and your own words of ackknowledgement give you such a feeling, all it shows is how young you are and how little you know about this world yet.~
+@511  = ~[Xan]All who win hope by the actions of others are fools. Do not rely on strangers, as you will be betrayed.~
+@512  = ~[Brandock]As I said, I am with you there. I am also very mistrusting towards strangers... Right up to the point where I trust them without thinking twice, I guess... Nevertheless, we aren't strangers any more. I see a comrade in profession in you, Xan. You specialized in a field I am not as familiar with and I know there is a lot I could learn from you.~
+@513  = ~[Brandock]No - please, don't... don't say anything back that would spoil the mood. Could we just end the conversation here? It left me with a nice, warm feeling of friendship and comradery...~
+@514  = ~[Xan]If a mere conversation and your own words of ackknowledgement give you such a feeling, all it shows is how young you are and how little you know about this world yet.~
 
-@515  = ~[Brandock] Xan, I am young and I know little but I still dare to differ about what life will turn out in the end. It's not always hollow.~
-@516  = ~[Xan] ...Which is a result of your missing life experience, Brandock. Pointless hope and optimism is the priviledge of the youth.~
-@517 = ~[Brandock] It's not pointless! You got freed from your imprisonment, no? By someone as impressive as <CHARNAME>, no less! I know I am young and full of unshattered juvenile hope now. But still - there is always hope if one keeps one's optimism.~
-@518  = ~[Xan] For remaining optimistic you need to have hope, Brandock.~
-@519  = ~[Brandock] That's... that's true...~
-@520  = ~[Brandock] Your way of thinking is catching, especially for me, Xan... Deep down I *fear* I'll become like you in the end. Not because I expect life to be harsh to me, but because I know I tend to focus on the negative things happening to me. This is very scary. I think I take back the part about how I want to learn from you... No offence, Xan.~
+@515  = ~[Brandock]Xan, I am young and I know little but I still dare to differ about what life will turn out in the end. It's not always hollow.~
+@516  = ~[Xan]...Which is a result of your missing life experience, Brandock. Pointless hope and optimism is the priviledge of the youth.~
+@517 = ~[Brandock]It's not pointless! You got freed from your imprisonment, no? By someone as impressive as <CHARNAME>, no less! I know I am young and full of unshattered juvenile hope now. But still - there is always hope if one keeps one's optimism.~
+@518  = ~[Xan]For remaining optimistic you need to have hope, Brandock.~
+@519  = ~[Brandock]That's... that's true...~
+@520  = ~[Brandock]Your way of thinking is catching, especially for me, Xan... Deep down I *fear* I'll become like you in the end. Not because I expect life to be harsh to me, but because I know I tend to focus on the negative things happening to me. This is very scary. I think I take back the part about how I want to learn from you... No offence, Xan.~
+
+@521  = ~[Brandock]Xan, I am not sure how I will turn out to be once I lived for longer, especially if things happen to me like they did to you. If I imagine living a timespan like you did and will do...~
+@522  = ~[Xan]After a time span I have lived you'd be already dead.~
+@523  = ~[Brandock]That... too. It was nice talking to you, Xan, I really appreciate you as a comrade in profession and am at awe at your knowledge in your field of magic but please don't feel offended that I would not survive having you as a mentor. I'll... walk over there, if you don't mind.~
+@524  = ~[Xan]Do as you please. It's all meaningless in the end, anyway.~
+@525  = ~[Brandock]Hey everyone - how about we sing a song? Something cheery and frolicking... And loudly, very loudly!~
+@526  = ~[Brandock](moans)~
 
 
-@521  = ~[Brandock] Xan, I am not sure how I will turn out to be once I lived for longer, especially if things happen to me like they did to you. If I imagine living a timespan like you did and will do...~
-@522  = ~[Xan] After a time span I have lived you'd be already dead.~
-@523  = ~[Brandock] That... too. It was nice talking to you, Xan, I really appreciate you as a comrade in profession and am at awe at your knowledge in your field of magic but please don't feel offended that I would not survive having you as a mentor. I'll... walk over there, if you don't mind.~
-@524  = ~[Xan] Do as you please. It's all meaningless in the end, anyway.~
-@525  = ~[Brandock] Hey everyone - how about we sing a song? Something cheery and frolicking... And loudly, very loudly!~
-@526  = ~[Brandock] (moans)~
+/* BGII */
+@5000 = ~Imoen, you don't sleep well lately.~
+@5001 = ~I... have the dreams <CHARNAME> already went through. I am scared it will continue the same for me, until - well, the slayer turns up.~
+@5002 = ~Don't be afraid, Imoen.~
+@5003 = ~You think I don't need to be scared?~
+@5004 = ~No - when <CHARNAME> turned into the slayer it took us all by surprise. We were much weaker then, too. Would it happen to you now, we would be much stronger and know what it means.~
+@5005 = ~Ah, so you're saying... Phh, Brandock, I'm not sure that puts my mind to rest, you know!~
+@5006 = ~Or a giant werechicken?...~
+@5007 = ~Oh, you really didn't like that example when I said it to Solaufein, did you? I didn't even think about what happened to you when dealing with "Werechicken" Melicamp back at the Sword Coast. Although - if I would have, I'd probably used the example on purpose, haha!...~
+@5008 = ~I'm sorry, Imoen. This is about you and your sorrows, not my anxiousness, so - laugh and jest away!~
 
 

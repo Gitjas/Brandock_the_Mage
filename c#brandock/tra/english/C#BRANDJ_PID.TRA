@@ -5,7 +5,7 @@
 @2    = ~So, your book is a book again? What happened back there?~
 @3    = ~Brandock, I might know a friendly mage who could help with restoring the book: Firebead Elvenhair.~
 @4    = ~So... have you already come up with a plan to catch an octopus? (smirk)~
-@5    = ~A Potion of Restoration and Star Sapphire sound normal enough, albeit expensive. But where are we supposed to find octopus ink?~
+@5    = ~A Potion of Regeneration and Star Sapphire sound normal enough, albeit expensive. But where are we supposed to find octopus ink?~
 @6    = ~It's clear we will have to buy octopus ink from someone who already retrieved it. I'm not going to go fishing!~
 @7    = ~You set your parents' table on fire by scribing a magic scroll?~
 @8    = ~Tell me about how you came to be in Alisarhold.~
@@ -163,7 +163,7 @@
 @160  = ~I spent six months there. Six months - between magic books, with other acolytes and friendly mages who shared their wisdom with me or let me work in silence. It would have been paradise, if not for the Cowled Wizards' constant presence... and a palpable tension between them, the monks, and Purgan of Riatavin, the chief librarian.~
 @161  = ~They just let you work with the books?~
 @162  = ~I showed them the De Simplex Magicae when I got there, and was taken to Purgan's office almost instantly. He asked me all about how I came possess the book - and I don't know why, but I trusted him despite being terrified and told him all about my first private teacher and how he left me all those things. He didn't say much, but afterwards, I got almost free access to the whole library and a sage who taught me how to scribe magic scrolls.~
-@163  = ~Wait a moment - you can scribe scrolls? Why don't you do it then?~
+@163  = ~Wait a moment - you could scribe scrolls already? Why didn't you do it then?~
 @164  = ~Because I'd need papyrus, magic ink, and a quiet place to do so, <CHARNAME>. And a spell to copy on top of it. And... and the courage to do it in a surrounding that is not magically protected against fire.~
 @165  = ~Anyway, that was my time in Alisarhold, up to the point where I realized that this is what I want to do, but without being around Cowled Wizards... Which planted the silly thought into my head to go and try to gain entry to Candlekeep.~
 @166  = ~The long version is that after finishing my magic training with my official Cowled Wizard teacher, I... I didn't feel prepared for wielding magic.~
@@ -277,7 +277,7 @@
 @274  = ~I am Brandock Deepwater, and I'm 23 years old. I am a mage, and I desperately want to improve my magic skills. I do have a plan for achieving this, but first I have to get my possessions back. Which were probably stolen by bandits.~
 @275  = ~Sorry for being one-track minded, but I really need to find my possessions.~
 @276  = ~I grew up in a smaller village to the south. It's big enough to not talk to all inhabitants every day, but small enough that *everyone* knows stories from your childhood. We are all preoccupied with our own doings, politics is of no importance where I come from... apart from everyone having a sharp eye on whether others are abiding by the law, of course. There is really not much to tell, otherwise, except that my family consists of carpenters and farmers, so my magic talent was most unexpected.~
-@277  = ~I can't believe I swapped bodies with a half-ogre. That was so... unbelievable. Why did it happen? Why the half-ogre? Why was he there, anyway, and alone. Don't they usually travel in groups? I still can't put my mind around it, no matter how hard I try.~
+@277  = ~I can't believe I swapped bodies with a half-ogre. That was so... unbelievable. Why did it happen? Why the half-ogre? Why was he there, anyway. Where there others, too? They usually travel in groups, don't they? I didn't notice any others, were they scared away by the magic? I still can't put my mind around it, no matter how hard I try.~
 @278  = ~Ugh. You have no idea how infuriating it was to think that slowly. Deciding it was time to use the privy took half a day, and by then, I'd already found a tree. Disgusting.~
 @279  = ~What can I say. I am happy the spell didn't backfire with a squirrel. Or chicken Melicamp himself! (scoffs) ... Or ... a nearby bush. (under his breath) Gods, the thought alone.~
 @280  = ~What I wanted to say: It could have been worse. But then, it always could.~
@@ -291,7 +291,7 @@
 @288  = ~The difference was too great.~
 @289  = ~Yes, I see your point.~
 @290  = ~It's no secret that too much thinking capacity leads to indecision and getting stuck in circles of "what-ifs".~
-@291  = ~*Or* it gives a deep insight into the extent of your brain's capacity, hm?~
+@291  = ~*Or* it gives a deep insight into the extent of your brain's capacity, hmm?~
 @292  = ~Don't forget that it was quite painful for you, too, having such limited brain capacity filled with all your knowledge and memories.~
 @293  = ~You mean, it's a bit like a child? They have all this brain when they are born, but all they can do is babble, as well, until it develops.~
 @294  = ~Oh, I am not forgetting that. I am not forgetting that at all.~
@@ -354,3 +354,111 @@
 /* new for vBeta 7 */
 @411  = ~Well, one thing I would like to mention, although it's only remotely connected - the library of Thalantyr is a dream! A pity he locks it away in his private quarters. I totally understand why he does, of course. But how much I would like to go through his books and volumes... while having a clear mind, I mean.~
 @412  = ~When I was there I didn't really have the... capacity to take in any of the wisdom I found there, but I remember some of the titles. Oh yes, I remember. (sigh) What I would give to be a fly on the wall in that library. Er - I didn't mean this literally! You know what I meant!~
+@413  = ~Master Elvenhair's desk is perfect. His presence while I do it is even better. He'll know how to handle a fire if I cause another one - and he probably already protected his home against it, anyway.~
+@414  = ~Brandock, I might know a friendly mage who could help with restoring the book: Firebead Elvenhair. But, considering we are being searched for murder currently, I guess we need to clear our names before this option gets realistic.~
+@415  = ~So - our names are cleared. Time to go to Elvenhair and ask him for help with your book!~
+@416  = ~Scroll scribing with Elvanhair is great, but when will you be able to scribe them without his help?~
+@417  = ~Scribing scrolls at Elvenhair's might be out of the question for some time, but I need scrolls, Brandock. Make it happen.~
+@418  = ~Scribing scrolls at Elvenhair's is not a solution for eternity. I need you to scribe scrolls elsewhere, too. Make it happen.~
+@419  = ~Oh... I'm not sure. I set the table of my parents on fire when I tampered with this alone. That was the spells from the De Simplex Magicae, of course, but still - you don't just shake something like this. Well, I don't, at least. Plus - I am still really very young for this, <CHARNAME>. I'm excited it works so well with Master Elvenhair's guidance. Give me a little time, please.~
+@420  = ~Gladly. Do you know a nearby fire proof desk and a friendly mage to assist me?~
+@421  = ~No, I don't. Neither do you. That's why you need to overcome your fear and start scribing them on your own.~
+@422  = ~That's exactly the point, Brandock, that you learn to scribe scrolls *away* from "fire proof desks".~
+@423  = ~So much spite! I didn't know you had it in you.~
+@424  = ~That was not addressed against you, <CHARNAME>... I am sorry.~
+@425  = ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile. Plus, it could hurt people. Us. You! I really don't want to put you into danger.~
+@426  = ~And... and I could turn into a half-ogre half the way through...~
+@427  = ~I'm sorry I'm putting so much pressure on you. But it went fine with Elvenhair, and all he did was watch over your shoulder, if at all. You can do this.~
+@428  = ~I'll be here, ready with a bucket full of water if it helps. Please, Brandock. I want you to scribe scrolls for me.~
+@429  = ~I am already in danger. I need scrolls to fight off our foes.~
+@430  = ~<CHARNAME>, I don't know what to say... this is so overwhelming. Let's just go to Thalantyr and hope that he has an explanation for what happened.. and a cure, If I'm allowed to make a wish.~
+@431  = ~You are exaggerating and you know it. Even if your scroll would burst into fire, we aren't talking about a huge blast. It will hardly do any harm.~
+@432  = ~Don't you take me as an excuse for shying away from overcoming your fear!~
+@433  = ~A mage who's greatest interest is to learn and conserve knowledge is too afraid to write scrolls. Don't you think that's a little bit rediculous?~
+@434  = ~Wow, you are complicated. Sure, let's just wait until *everything* is settled before making use of a helpful skill, then.~
+@435  = ~I would have said "ironic" but... I guess it is rediculous, as well. (sigh)~
+@436  = ~(Brandock exhales audibly.) Fine. Be my doom. Or let me be yours, to be precise, when the guards will rush in after I set a fire to our resting place. Assuming we will be able to keep ourselves safe from it. Gnahhh... Very well. The next rest it is, <CHARNAME>. I will do it, or at least try. Now, if you'll excuse me, I feel like I need to puke.~
+@437  = ~Setting your first scroll on fire really got to you, didn't it?~
+@438  = ~It... really did.~
+@439  = ~You turned into a half-ogre! Do you have any idea what happened there?~
+@440  = ~How do you cope with your half-ogre shape?~
+@441  = ~Do you want to talk about your half-ogre shapeshifting ability?~
+@442  = ~Do you want to talk about your half-ogre shapeshifting ability now?~
+@443  = ~Do you want to talk more about your half-ogre shapeshifting ability?~
+@444  = ~[Brandock]I... I didn't want to admit it, but since the incident with Melicamp, I felt connected to the form as a half-ogre. Like I was just putting on another coat... I repressed it and ignored it because I hoped it would pass. But it didn't, and it won't...~
+@445  = ~[Brandock]Oh yes, a lot... But I need to sort some thoughts, first. Thank you for asking, <CHARNAME>.~
+@446  = ~[Brandock]When I turned into a half-ogre, it was not fear that overwhelmed me or anything, <CHARNAME>. I... I was angry and wanted to be strong. That is why I turned...~
+@447  = ~[Brandock]So, in a moment full of boldness, strength, and determination, I didn't use my real strength - magic! - but chose to be a half-ogre. This is... this is so pathetic, I don't know where to start...~
+@448  = ~Why is it pathetic? You needed to be strong, so you became strong.~
+@449  = ~On the contrary! You found a way to help yourself. That is great! Not everyone can do that.~
+@450  = ~Brandock, last time I checked, turning into a half-ogre *was* magic.~ 
+@451  = ~I regret I asked. Let's just move on.~
+@452  = ~[Brandock]Ah, I so wish I would be able to focus on the positive things like you do. Seeing this as me being clever to reach my goals is not how I see it.~
+@453  = ~[Brandock]Of course turning into a half-ogre is magic. It's not what I meant - I think it's pathetic that I need a half-ogre shape to be "strong", obviously, because I am convinced I can't be while being "Brandock"!~
+@454  = ~[Brandock]I... well, yearned for just being sure of what I do - not to *think* about every damn decision over and over again. When I felt it while being in the half-ogre body I knew it would be good for me could I hold on to it. And then, the first moment I did - I could only do it as a half-ogre, not as "Brandock".~
+@455  = ~[Brandock]And now I... I am anxious. That "Brandock" will never be able to be like that, but will always be the babbling idiot the half-ogre turned into while being in my body. While I smash everything as a happy, stupid half-ogre the other half of the day.~
+@456  = ~Really? Because I don't see any sign for this to happen, for none of the two shapes.~
+@457  = ~Hmm, you seem to work yourself up on this thought, giving in to fear you only feel while being in human shape. If you start using the half-ogre form to "flee" from these fears then the negative cycle would be complete.~
+@458  = ~That's a great exaggeration, and you know it.~
+@459  = ~Yes, hearing you talk like this makes me think you were the babbling idiot, indeed. Get it together!~
+@460  = ~Is there anything I can do to help you snap out of it?~
+@461  = ~[Brandock]Thank you for your support, <CHARNAME>. I have no idea how you stand through my various nervous breakdowns without developping the urge to strangle me.~
+@462  = ~[Brandock]You mean this is like a self-fulfilling prophecy? You do have a point there.~
+@463  = ~[Brandock]I am exaggerating when painting my half-ogre picture, of course. Which is exactly my point. It's what I do! Aaaand - here goes my brain again - the next train of anxious thoughts is starting. I will spare you the details, you listened long enough. Thank you for that, <CHARNAME>. It means a lot to me.~
+@464  = ~[Brandock]Who am I now actually, am I the lanky human or the half-ogre? Or both? Am I now a half-half-ogre? Or a half-human? Or just a cheap copy of an existing half-ogre...? Some kind of - doppelganger?...~
+@465  = ~[Brandock]I wonder how the people in my immediate environment will react to it. Well - how my family would react to it is clear. Seeing a half-ogre in their house, mother will have a heart attack and my brothers will go get the pitchforks...~
+@466  = ~[Brandock]But take my friends in the library of Alisarhold, for example. Would they accept it or see me as a threat? Although I don't think they would have too much trouble with it. We *are* magic users, after all. I can imagine, though, that they wouldn't find it funny if I walked through the narrow rows of books in that form....~
+@467  = ~[Brandock]Somehow the feeling remains that I should be embarrassed about being able to change into a half-ogre. At the latest when asked "Hey, Brandock - how did that happen?" it gets pretty embarrassing. (sigh)~
+@468  = ~[Brandock]One may wonder why the whole thing is so upsetting to me, After all, there are various ways for mages to shapeshift. What makes me so unsettled is the already frequently mentioned feeling that the half-ogre form is now a part of me - which in some respects I even like far too much...~
+@469  = ~[Brandock]What is it?~ [c#ablank]
+@470  = ~How do you feel?~
+@471  = ~I would like to talk to you, Brandock.~
+@472  = ~[Brandock]I dn't feel like talking when being like this, <CHARNAME>. If you feel like chatting, it will have to wait until I take human form again.~
+@473  = ~[Brandock]Strong.~
+@474  = ~[Brandock]Relaxed.~
+@475  = ~[Brandock]Hungry.~
+@476  = ~[Brandock]I need to use the bushes... I probably shouldn't have said that.~
+@477  = ~[PC Reply]Seems like you found a quiet place for scroll scribing!~
+
+
+
+/* SoD */
+/* @1000 - @1002, @1004, @1007 also used for "c#brandj_PID_BG2.d" */
+@1000 = ~[PC reply]What happened to your destroyed book? I see an empty book in your backpack, instead.~
+@1001 = ~[Brandock]Oh, <CHARNAME>! This is so great. I gathered the courage and went to Master Elvenhair alone!~
+@1002 = ~[Brandock]What is written on the first page is actually a note to one of Bowgentle's apprentices - it seems they intended to train book restoration using this as an example but never came this far with this specimen. I will need the help of the Temple of Oghma in Athkatla for this, so until then the book will stay with me.~
+@1003 = ~[Brandock]I'm still deeply impressed by the feyr manifesting in the fort's courtyard... People's believes and emotions can have grave consequences, and not only because of the deeds it makes them do. I knew this in principle, but witnessing it like this was very impressive... Especially because I was affected by it, as well.~
+@1004 = ~About your attempt to help Melicamp 'the chicken' with a spell out of your magic book...~
+@1005 = ~We didn't have time to go to the half-ogre as you requested. Did you see him in the meantime?~
+@1006 = ~I see an empty book in your backpack. Remind me why it is so important to you?~
+@1007 = ~He worked on preserving the book pages before they would be torn completely - and this is the result! The book transferred itself into a book again, brimming with magic.~
+@1008 = ~This is what my destroyed magic book turned into after Master Elvenhair tried to preserve the torn pages.~
+
+
+/* BGII */
+
+@2000 = ~[Brandock]You are asking me this now? I carried this all the way to Dragonspear Castle!~
+@2001 = ~[Brandock]Oh, that was a most fascinating experience indeed. Long story short: the book was under a spell of some sort. Trying to preserve it turned it into an empty book again!~
+@2002 = ~[Brandock]That's what my scrumbled book turned into when Master Elvenhair helped me with it. He worked on preserving the book pages before they would be torn completely - and this is the result! The book transferred itself into a book again, brimming with magic.~
+@2003 = ~[Brandock]The greatest Temple of Oghma I know is right here, in Athkatla's Docks District.~
+@2004 = ~You didn't show your transformed De Simplex Magicae to the priests of Oghma yet, I take it?~
+@2005 = ~I... I didn't go to the Temple of Oghma yet. Please don't judge me - or feel free to judge me, if you feel the need. And roll your eyes, while we are at it.~
+@2006 = ~Otherwise, Gavin's daughter would be training with a Cowled Wizard already.~
+@2007 = ~Now we are occupied with an important mission again so me procrastinating was a bad idea and I should have done this when my life was defined by routines, I guess. And yet, having you at my side gives me a secure feeling, <CHARNAME>. You probably already know what I'll plea for - please let us go to the Temple of Oghma in the Docks District so I can show them the De Simplex Magicae!~
+@2008 = ~[Brandock]It's just... I was scared the Cowled Wizards would take the book away when they'd learn about its presence - especially with the restoration magic that revealed itself.~
+@2009 = ~[Brandock]So being busy with Ebrel and the experiments came as a good excuse... But yes, of course the priests of Oghma are not obliged to the Cowled Wizards. Quite the contrary.~
+//@2010 = 
+
+/* c#brandj_PID.d */
+
+@5000 = ~Yes, what of it?~ 
+@5001 = ~Good thing I stopped you in time. Who knows what would have come out of it!~
+@5002 = ~Well, you did it and switched bodies with a half-ogre. After that we parted ways, so did anything happen after that?~
+@5003 = ~You shapeshifted into a half-ogre in Candlekeep, but we didn't have time to deal with it properly. What is the status?~
+@5004 = ~You dealt with your ability to shapeshift into a half-ogre, but what happened to the half-ogre who is in human shape now, did you meet him after we parted ways?~
+@5005 = ~Indeed! Especially considering the kind of magic involved, as we learned through Master Thalantyr. Who knows what would have happened, had I tried!~
+@5006 = ~Indeed! You won't believe this, <CHARNAME>! I actually developped the ability to shapeshift into a half-ogre! It's inbelievable - but true... Just let me know if you want me to. I... I didn't do it yet, I'm scared I won't turn back again because being a half-ogre feels so much easier than being 'Brandock'.~
+@5007 = ~And - can you believe this? The half-ogre shifted into a human now! Which looks almost exactly like me - I have a twin brother!... He is very curious about people and wants to learn to live amongst them.~
+@5008 = ~You already met my half-ogre 'twin brother'... He is very curious about people and wants to learn to live amongst them.~
+@5009 = ~He is on his way to the library in Alisarhold - I know the sages there would be thrilled to work with him, and he needs people who are patient enough to teach his child-like mind.~
+@5010 = ~I convinced him to go to the Temple in Beregost. I think he's enjoying being amongst people.~

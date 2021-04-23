@@ -19,6 +19,25 @@ I_C_T ~%tutu_var%NARCIL~ 3 C#Brandock_NARCIL_3
 == ~%tutu_var%NARCIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @468
 END
 
+/* Drelik and Jardak */
+I_C_T ~DRELIK~ 1 C#Brandock_DRELIK
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @535 /* ~Wait! Bloodshed is not necessary. You are outnumbered, do you not have any survival instict? We will leave instantly, noone has to d...~ */
+== ~DRELIK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @536 /* ~Too late. I was hired for one purpose, and I will fulfill it.~ */
+END
+I_C_T ~DRELIK~ 2 C#Brandock_DRELIK
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @535 /* ~Wait! Bloodshed is not necessary. You are outnumbered, do you not have any survival instict? We will leave instantly, noone has to d...~ */
+== ~DRELIK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @536 /* ~Too late. I was hired for one purpose, and I will fulfill it.~ */
+END
+I_C_T ~DRELIK~ 3 C#Brandock_DRELIK
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @535 /* ~Wait! Bloodshed is not necessary. You are outnumbered, do you not have any survival instict? We will leave instantly, noone has to d...~ */
+== ~DRELIK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @536 /* ~Too late. I was hired for one purpose, and I will fulfill it.~ */
+END
+
+I_C_T ~JARDAK~ 1 C#Brandock_JARDAK_1
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @537 /* ~What? Did everyone lose their minds in this house? We just defeated your b...~ */
+== ~DRELIK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @538 /* ~Stop talking and defend yourself!~ */
+END
+
 
 
 /* Bassilus */
@@ -62,21 +81,34 @@ I_C_T ~%tutu_var%ULCAST~ 5 C#Brandock_ULCAST_5
 END
 
 /* Sendai */
-I_C_T3 ~%tutu_var%Sendai~ 0 C#Brandock_SENDAI_0
+I_C_T3 ~%tutu_scriptbg%Sendai%eet_var%~ 0 C#Brandock_SENDAIBG1_0
 == ~c#brandj~ IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",4)
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @484
 == ~c#brandj~ IF ~!GlobalGT("C#Brandock_Dialog","GLOBAL",4)
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @485
 END
 
-I_C_T ~%tutu_var%Sendai~ 3 C#Brandock_SENDAI_3
+I_C_T ~%tutu_scriptbg%Sendai%eet_var%~ 3 C#Brandock_SENDAIBG1_3
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @486
 END
 
-I_C_T ~%tutu_var%Sendai~ 5 C#Brandock_SENDAI_5
+I_C_T ~%tutu_scriptbg%Sendai%eet_var%~ 5 C#Brandock_SENDAIBG1_5
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @487
 END
 
+/* CHELAN.d */
+I_C_T ~CHELAN~ 1 C#Brandock_CHELAN
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @531 /* ~Wow. Could I have a litle bit of your optimistic spirit, please? I little slice would do, I'd probably feed off it for months.~ */
+== ~CHELAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @532 /* ~Heh, if that'd be possible I'd have sliced it all up for Torlo over there already probably, 'm afraid. Nothing can do - only suggest you let the sun shine onto your face whenever possible, that's the only useful advice I can give you, and it's for free!~ */
+END
+I_C_T ~CHELAN~ 2 C#Brandock_CHELAN
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @531 /* ~Wow. Could I have a litle bit of your optimistic spirit, please? I little slice would do, I'd probably feed off it for months.~ */
+== ~CHELAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @532 /* ~Heh, if that'd be possible I'd have sliced it all up for Torlo over there already probably, 'm afraid. Nothing can do - only suggest you let the sun shine onto your face whenever possible, that's the only useful advice I can give you, and it's for free!~ */
+END
+I_C_T ~CHELAN~ 3 C#Brandock_CHELAN
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @531 /* ~Wow. Could I have a litle bit of your optimistic spirit, please? I little slice would do, I'd probably feed off it for months.~ */
+== ~CHELAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @532 /* ~Heh, if that'd be possible I'd have sliced it all up for Torlo over there already probably, 'm afraid. Nothing can do - only suggest you let the sun shine onto your face whenever possible, that's the only useful advice I can give you, and it's for free!~ */
+END
 
 
 
@@ -204,11 +236,13 @@ IF ~Global("C#Brandock_InsideUlcasterSchool","GLOBAL",1)~ THEN c#brandj ulcaster
 == c#brandj IF ~Global("C#Brandock_ULCAST_4","GLOBAL",1)~ THEN @477
 == c#brandj @478
 END
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) SetGlobal("C#Brandock_InsideUlcasterSchool","GLOBAL",2)~ UNSOLVED_JOURNAL @10049 EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1) SetGlobal("C#Brandock_InsideUlcasterSchool","GLOBAL",2)~ EXIT
 
 
 
 APPEND c#brandj
+
+/* after revealing Sarevok's plans in the Ducal Palace: in -> in brandock_bookrestore.d */
 
 /* after defeating Sarevok (BGT / EE+EBG1) */
 
@@ -217,73 +251,10 @@ SAY @5
 IF ~~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDefeated","GLOBAL",2)~ EXIT
 END
 
-/* Sarevok dead, after leaving the ThievesGuild -> in brandock_bookrestore.d*/
+/* Sarevok dead, after leaving the ThievesGuild -> in brandock_bookrestore.d */
 
 END //APPEND c#brandj
 
-/* brandock's book(s) not in his inventory. Warning - no action */
-CHAIN
-IF ~OR(2)
-Global("C#Brandock_BookWarningLokal1","GLOBAL",1)
-Global("C#Brandock_BookWarningLokal2","GLOBAL",1)~ THEN c#brandj my_book
-@469
-== c#brandj IF ~OR(2) HasItem("c#br0001",Player2) HasItem("c#br0007",Player2)~ THEN @470
-== c#brandj IF ~OR(2) HasItem("c#br0001",Player3) HasItem("c#br0007",Player3)~ THEN @471
-== c#brandj IF ~OR(2) HasItem("c#br0001",Player4) HasItem("c#br0007",Player4)~ THEN @472
-== c#brandj IF ~OR(2) HasItem("c#br0001",Player5) HasItem("c#br0007",Player5)~ THEN @473
-== c#brandj IF ~OR(2) HasItem("c#br0001",Player6) HasItem("c#br0007",Player6)~ THEN @474
-END
-IF ~Global("C#Brandock_BookWarningLokal2","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",2)~ EXIT
-IF ~Global("C#Brandock_BookWarningLokal1","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",2)~ EXIT
-
-
-APPEND c#brandj
-
-
-/* destroyed book gone - talk one 
-GlobalGT("C#Brandock_Possessions","GLOBAL",1) 
-!GlobalGT("C#Br_BookRestore","GLOBAL",4)
-!PartyHasItem("c#br0001") */
-
-IF ~Global("C#Brandock_BookWarning","GLOBAL",1)~ THEN book_gone
-SAY @6
-IF ~~ THEN DO ~SetGlobal("C#Brandock_BookWarning","GLOBAL",3)~ EXIT
-END
-
-/* restored book gone - talk one 
-GlobalGT("C#Br_BookRestore","GLOBAL",4)
-!PartyHasItem("c#br0007") */
-
-IF ~Global("C#Brandock_BookWarning","GLOBAL",2)~ THEN book_gone_01
-SAY @7
-IF ~~ THEN DO ~SetGlobal("C#Brandock_BookWarning","GLOBAL",4)~ EXIT
-END
-
-/* either book gone - talk two (Brandock leaves) */
-IF ~Global("C#Brandock_BookWarning","GLOBAL",5)~ THEN book_gone_02
-SAY @8
-IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
-SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
-GivePartyAllEquipment()
-TakePartyItem("c#br0001") DestroyItem("c#br0001")
-TakePartyItem("c#br0007") DestroyItem("c#br0007")
-SetGlobal("C#Brandock_Gone","GLOBAL",1)
-SetGlobal("C#BrandockJoined","GLOBAL",0) ChangeAIScript("",DEFAULT)
-SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~ EXIT
-IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
-SetGlobal("C#Brandock_BookWarning","GLOBAL",6)
-GivePartyAllEquipment()
-SetGlobal("C#Brandock_Gone","GLOBAL",1)
-SetGlobal("C#BrandockJoined","GLOBAL",0)
-RemoveFamiliar()
-ChangeAIScript("",DEFAULT)
-ChangeEnemyAlly(Myself,NEUTRAL)
-TakePartyItem("c#br0001") DestroyItem("c#br0001")
-TakePartyItem("c#br0007") DestroyItem("c#br0007")
-EscapeArea() SetInterrupt(TRUE)~ EXIT
-END
-
-END //APPEND c#brandj
 /* dead assassin in Beregost Red Sheaf */
 
 CHAIN
@@ -292,10 +263,6 @@ IF ~Global("C#Brandock_BeregostAssassin","GLOBAL",1)~ THEN c#brandj assassin_ber
 == c#brandj IF ~OR(2) !See("GV#MOID") Dead("GV#MOID")~ THEN @463
 END
 IF ~~ THEN DO ~SetGlobal("C#Brandock_BeregostAssassin","GLOBAL",2)~ EXIT
-
-
-
-
 
 /* after meeting Nashkel mayor */
 
@@ -385,7 +352,15 @@ COPY_TRANS ~%tutu_var%DRADEE~ 6
 
 
 
+
+
 APPEND c#brandj
+
+/* Elvenhair's book "BOOK40" */
+IF ~Global("C#Brando_Book40","GLOBAL",1)~ THEN elvenhairs_book
+SAY @533 /* ~Oh, we have the book Master Elvenhair is looking for! That's... an intersting read. "Cursed with misfortune for the rest of his or her days", hmm? That would explain a lot... Anyway, if we could spare this we should bring it to your old friend.~ */
+IF ~~ THEN DO ~SetGlobal("C#Brando_Book40","GLOBAL",2)~ EXIT
+END
 
 /* on the island */
 
@@ -472,8 +447,8 @@ IF ~Global("C#Brandock_BalduransBook","GLOBAL",1)~ THEN c#brandj baldurans_book
 == c#brandj IF ~!HasItem("BOOK87","C#Brandock")~ THEN @54
 == c#brandj @55
 END
-IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",0)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) AddJournalEntry(@10032,QUEST)~ + baldurans_book_01
-IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",1)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) AddJournalEntry(@10032,QUEST)~ + baldurans_book_02
+IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",0)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~ + baldurans_book_01
+IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",1)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~ + baldurans_book_02
 
 
 /* valuable book 'History of the Nether Scrolls' - entrance fee to Candlekeep - Brandock wants to have a peek */
@@ -483,8 +458,8 @@ IF ~Global("C#Brandock_CandlekeepBook","GLOBAL",1)~ THEN c#brandj valuable_book
 == c#brandj IF ~!HasItem("BOOK68","C#Brandock")~ THEN @57
 == c#brandj @58
 END
-IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",0)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) AddJournalEntry(@10031,QUEST)~ + baldurans_book_01
-IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",1)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) AddJournalEntry(@10031,QUEST)~ + baldurans_book_02
+IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",0)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~ + baldurans_book_01
+IF ~Global("C#Brandock_ValuableBookComment","GLOBAL",1)~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~ + baldurans_book_02
 
 
 
@@ -532,9 +507,7 @@ IF ~Global("C#Brandock_WerewolfIsland","GLOBAL",5)~ THEN c#brandj werewolf_follo
 @65
 == c#brandj IF ~Kit(Player1,SHAPESHIFTER)~ THEN @66
 == c#brandj @67
-/* traces of a quest that was cut... 
-== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",19)~ THEN ~And... I already *have* an unwanted form I am in danger of changing into! I have no interest in adding to the count. And I was thinking... What if I am in halfoger form when the lycantrophy kicks in, would I be a halfoger-werewolf?~
-*/
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",17)~ THEN @534 /* ~And... I already *have* an unwanted form I am in danger of changing into! I have no interest in adding to the count. And I was thinking... What if I am in halfoger form when the lycantrophy kicks in, would I be a halfoger-werewolf?~ */
 == c#brandj @68
 == c#brandj IF ~Kit(Player1,SHAPESHIFTER)~ THEN @69
 END
@@ -557,12 +530,22 @@ SAY @76
 IF ~~ THEN + werewolf_followup_01
 END
 
+END //APPEN
+
+/* Ice Island */
+/* this is not a nice I_C_T because there are reply options */
+I_C_T ~ANDRIS~ 2 C#Brandock_ANDRIS_2
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @539 /* ~What? This would be the Ice Island... *the* trap for teleporting mages?!~ */
+END
+
 
 /* TotSC (Bg1), Ice Island */
 
+APPEND c#brandj
+
 IF ~Global("C#Brandock_1stTutor","GLOBAL",1)~ THEN island
 SAY @77
-+ ~!Class(Player1,MAGE_ALL)~ + @78+ island_01 
++ ~!Class(Player1,MAGE_ALL)~ + @78 + island_01 
 + ~Class(Player1,MAGE_ALL)~ + @79 + island_01
 + ~GlobalGT("TransformedChicken","GLOBAL",0)~ + @80 + island_04
 + ~Global("TransformedChicken","GLOBAL",0)~ + @80 + island_05
@@ -578,14 +561,24 @@ END
 
 IF ~~ THEN island_02
 SAY @84
-IF ~~ THEN + island_03
-END
-
-IF ~~ THEN island_03
-SAY @85
-= @86
 IF ~~ THEN DO ~SetGlobal("C#Brandock_1stTutor","GLOBAL",2)~ EXIT
 END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj island_03
+@85
+== c#brandj IF ~Global("KillDaughter","GLOBAL",1)~ THEN @540 /* ~And now we are here as a punishment for killing three young women... Yes, that *is* fate alright.~ */
+== c#brandj IF ~Global("Evilsh","GLOBAL",1)~ THEN @541 /* ~And now we are here... send just because someone didn't like out demeanor. What a fate!~ */
+= @86
+= @542 /* ~I need to have a look at that wardstone again, now that I know what it is *for*... No, I don't really see how it works.~ */
+= @543 /* ~(moans) Let's hope that crazy man wants his cloak back bad enough then... and that it won't be the only thing he brings back from here! Excuse me, <CHARNAME>, I feel like I need to throw up...~ */
+END
+IF ~~ THEN DO ~SetGlobal("C#Brandock_1stTutor","GLOBAL",2)~ EXIT
+
+
+APPEND c#brandj
 
 IF ~~ THEN island_04
 SAY @87
@@ -597,7 +590,7 @@ END //APPEND c#brandj
 CHAIN
 IF ~~ THEN c#brandj island_05
 @462
-== c#brandj IF ~Global("C#Brandock_Shapeshift","GLOBAL",11)~ THEN @88
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)~ THEN @88
 == c#brandj @89
 == c#brandj IF ~Global("C#Brandock_HowMagePID","LOCALS",1)~ THEN @90
 == c#brandj @91
@@ -690,10 +683,8 @@ END
 IF ~Global("C#Brandock_Tarnesh","GLOBAL",1)~ THEN tarnesh
 SAY @116
 = @117
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST)
-SetGlobal("C#Brandock_Tarnesh","GLOBAL",2)~ JOURNAL @10023 /* ~Brandock's Lore increased
-
-Brandock studied the spell book of the mage who attacked me in front of the Friendly Arm and increased his lore wisdom with it.~ */ EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+SetGlobal("C#Brandock_Tarnesh","GLOBAL",2)~ EXIT
 END
 
 /* Player made Brandock drunk - I really don't think anyone will make him drunk 5 times but these lines just more or less wrote themselves */
@@ -821,7 +812,7 @@ END //APPEND
 CHAIN
 IF ~Global("C#Brandock_OrganisationLevel","GLOBAL",3)~ THEN c#brandj c#brandjtranzig_defeated
 @142
-== c#brandj IF ~Dead("Tranzig")~ THEN @143 DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST) AddJournalEntry(@10040,QUEST)~
+== c#brandj IF ~Dead("Tranzig")~ THEN @143 DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Brandock_OrganisationLevel","GLOBAL",4)~ EXIT
 
@@ -1045,8 +1036,8 @@ END
 
 /* after the first visit to Thalantyr AND after possessions are found */
 IF ~Global("C#Brandock_Thalantyr","GLOBAL",2)~ THEN thalantyr
-SAY @198
-= @199
+SAY @198 /* ~Hm, Thalantyr is a great mage. Very peculiar, but great. And wise, and famous. Had I not lost my reputation as a mage by destroying the book, I could ask him to take me on as an apprentice...~ */
+= @199 /* ~Argh, what nonsense! Had I not destroyed that book I'd be in Candlekeep now!...~ */
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Thalantyr","GLOBAL",3)~ EXIT
 END
 
@@ -1080,7 +1071,7 @@ END
 IF ~~ THEN davaeorn_04
 SAY @209 
 IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) 
-AddJournalEntry(@10030,QUEST) SetGlobal("C#Brandock_Davaeorn","GLOBAL",2)~ UNSOLVED_JOURNAL @10036 EXIT
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1) SetGlobal("C#Brandock_Davaeorn","GLOBAL",2)~ EXIT
 END
 
 /* ponders about Daveaorn */
@@ -1105,6 +1096,58 @@ SAY @212
 IF ~~ THEN DO ~SetGlobal("C#Brandock_CloakwoodMines","GLOBAL",2)~ EXIT
 END
 
+
+
+/* reaction to letters of Iron THrone / Sarevok mentioning meeting in Candlekeep */
+/* SCRL3C.itm - [Note from Tuth to Rieltar]Rieltar,
+My superiors are intrigued by your proposal. I would like to discuss it further, but not through correspondence such as this. The Harpers and Zhents have been very active in this region of late; it would be very unfortunate if they tried to disrupt an alliance between our two organizations. If you, Brunos, and Thaldorn were to meet with us in the safety of Candlekeep, my superiors would be much relieved. Please send a response ASAP.
+
+Tuth */
+/* SCRL3A.itm - [Note from Sarevok to Rieltar]Father,
+I received your letter, and I can assure you that the mercenaries led by <CHARNAME> will no longer trouble our operations. I have dealt with them personally. Before dying, they were most forthcoming in their revelations. It is as you had surmised: They were agents of the Zhentarim. I am also writing to tell you that I cannot attend the meeting at Candlekeep. Some problems have arisen with the Chill and the Blacktalons. They have had trouble working with each other, and I am needed there to smooth over any dissension. I am sorry that I will not be at your side.
+
+Sarevok */
+
+IF ~Global("C#Brandock_ITCkLetters","LOCALS",1)~ THEN ironthrone_candlekeep_letters
+SAY @520 /* ~Of course the Iron Throne leaders would meet up in Candlekeep! From all places! Oh, *they* do not have a problem to give a book of high value each to get inside, do they? Of course not! (mumbles) Why do the bad guys always seem to have all the fun?~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_ITCkLetters","LOCALS",2)~ EXIT
+END
+
+IF ~Global("C#Brandock_ITSaLetters","LOCALS",1)~ THEN ironthrone_candlekeep_letters_01
+SAY @521 /* ~That Sarevok is a great liar - or a great schemer. Zhentarim, Chill, Blacktalon. I get a headache by even reading all these.~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_ITSaLetters","LOCALS",2)~ EXIT
+END
+
+END //APPEND
+
+
+
+/* Schlumpsha the Sewer King! */
+/* ~Who amm I, whoo indeed...? It has been so llllong since I had hideous fform and—and shape lllike you... Hah, in yourrr mind, I see things I recognize therrre, a place you calllled home once...~ */
+ADD_TRANS_ACTION SCHLUM BEGIN 2 END BEGIN END ~SetGlobal("C#Brando_SCHLUMSHA","GLOBAL",1)~
+
+/* ~Candlllekeep... I was therrre, wassn't I... Yes, when I wass in my younger forrrm, when I wasss a mage so proud offf my talllent, of my craffft... But I transcended that llong ago and llleft it behind... Rrrrgh, you havve awakenned an ollld hunger in me, a hunger for substance, chilllld! Come closer, that I may gorge myselllf on you.~ */
+ADD_TRANS_ACTION SCHLUM BEGIN 3 END BEGIN END ~SetGlobal("C#Brando_SCHLUMSHA","GLOBAL",2)~
+
+CHAIN
+IF ~OR(2)
+Global("C#Brando_SCHLUMSHA","GLOBAL",3)
+Global("C#Brando_SCHLUMSHA","GLOBAL",4)~ THEN c#brandj schlumpsha
+@523 /* ~[Brandock]That... that *slime* was a person once...~ */
+== c#brandj IF ~Global("C#Brando_SCHLUMSHA","GLOBAL",3)~ THEN @524 /* ~And from what it hinted at it was in - in Candlekeep? What else could it have meant?~ */
+== c#brandj IF ~Global("C#Brando_SCHLUMSHA","GLOBAL",4)~ THEN @525 /* ~A mage, to be precise, and he... it was in Candlekeep. Why does *everybody* and their cow seem to get into Candlekeep?!~ */
+== c#brandj @526 /* ~To me it's also a little disturbing that its current form was a *wanted* change and it really thought it was a good one...~ */
+DO ~SetGlobal("C#Brando_SCHLUMSHA","GLOBAL",5)~
+== %IMOEN_JOINED% IF ~InParty("%IMOEN_DV%") Detect("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+GlobalGT("C#Q01_Retransformation","GLOBAL",1)~ THEN @527 /* ~Mir ist was ganz anderes durch den Kopf gegangen: Wenn wir dem Verehrer von Alanna in Beregost nicht geholfen hätten - wäre er dann auch so ein sprechender Schleim geworden?! Brrr...~ */
+== c#brandj IF ~InParty("%IMOEN_DV%") Detect("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+GlobalGT("C#Q01_Retransformation","GLOBAL",1)~ THEN @528 /* ~Ich seh das genau anders rum - was Schlumpsha der König der Abwässer wohl dazu gesagt hätte, dass ein magisch völlig unbegabter Mensch sich so einfach ebenfalls in die von ihm bevorzugte Gestalt verwandeln konnte!~ */
+== %IMOEN_JOINED% IF ~InParty("%IMOEN_DV%") Detect("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+GlobalGT("C#Q01_Retransformation","GLOBAL",1)~ THEN @529 /* ~Oh, das stimmt... Naja, jetzt ist es eh zu spät um seine Reaktion darauf zu sehen...~ */
+EXIT
+
+
+APPEND c#brandj
 
 /* after being arrested - BG prison */
 
@@ -1171,7 +1214,6 @@ APPEND c#brandj
 
 
 /* somewhere near the end, before confronting Sarevok, in or after chapter 6 */
-
 IF ~Global("C#Brandock_InvitationDP","GLOBAL",1)~ resumee
 SAY @229
 = @230
@@ -1181,25 +1223,9 @@ END
 
 
 
-/* After Sarevok's scheme is revealed */
+/* After Sarevok's scheme is revealed -> in brandock_bookrestore.d */
 
-IF ~Global("C#Brandock_SarevoksScheme","GLOBAL",1)~ THEN sarevoks_scheme1
-SAY @232
-++ @233 + sarevoks_scheme1_01
-++ @234 + sarevoks_scheme1_01
-++ @235 + sarevoks_scheme1_01
-++ @236 + sarevoks_scheme1_02
-END
 
-IF ~~ THEN sarevoks_scheme1_01
-SAY @237
-IF ~~ THEN DO ~SetGlobal("C#Brandock_SarevoksScheme","GLOBAL",2)~ EXIT
-END
-
-IF ~~ THEN sarevoks_scheme1_02
-SAY @238
-IF ~~ THEN + sarevoks_scheme1_01
-END
 
 END //APPEND
 
@@ -1207,6 +1233,43 @@ END //APPEND
 
 /* side quest: shoes */
 
+/* direct the player to the servant outside in case they ask Lord Travenhurst himself */
+
+APPEND NOBL10
+
+IF WEIGHT #-1
+~Global("C#Brandock_Shoes","MYAREA",0)
+OR(5)
+		PartyHasItem("c#br0002") 
+		HasItem("c#br0002","C#Solaufein")
+		HasItem("c#br0002","C#Grey")
+		HasItem("c#br0002","C#Husam1")
+		HasItem("c#br0002","C#Brandock")
+	OR(3)
+		!HasItem("c#br0002","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("c#br0002","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("c#br0002","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("c#br0002","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN shoes
+SAY @530 /* ~Oh, I recognize a pair of my boots. I wasn't aware they needed repair. Please give them directly to my servant, he should be outside somewhere on the manor premises. He will also pay you for your sevices. Good day to you.~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Shoes","MYAREA",1)~ EXIT
+IF ~NumTimesTalkedTo(0)~ THEN DO ~SetNumTimesTalkedTo(0)
+SetGlobal("C#Brandock_Shoes","MYAREA",1)~ EXIT
+END
+
+END //APPEND
+
+/* servant on the manor premises */
 BEGIN c#brserv
 
 IF ~Global("C#Brandock_Shoequest","GLOBAL",1)~ THEN shoes
@@ -1217,20 +1280,106 @@ A pair of boots was taken from Travenhurst Manor in Beregost. The servant thinks
 END
 
 IF ~Global("C#Brandock_Shoequest","GLOBAL",2)
-!PartyHasItem("c#br0002")~ THEN shoes_01
+!PartyHasItem("c#br0002")
+OR(3)
+		!HasItem("c#br0002","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",0)
+		!InParty("C#Solaufein")
+	OR(3)
+		!HasItem("c#br0002","C#Grey")
+		Global("C#GreyJoined","GLOBAL",0)
+		!InParty("C#Grey")
+	OR(3)
+		!HasItem("c#br0002","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",0)
+		!InParty("C#Husam")
+	OR(3)
+		!HasItem("c#br0002","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("C#Brandock")~ THEN shoes_01
 SAY @240
 IF ~~ THEN EXIT
 END
 
 IF ~Global("C#Brandock_Shoequest","GLOBAL",2)
-PartyHasItem("c#br0002")~ THEN shoes_01
+OR(5)
+		PartyHasItem("c#br0002") 
+		HasItem("c#br0002","C#Solaufein")
+		HasItem("c#br0002","C#Grey")
+		HasItem("c#br0002","C#Husam1")
+		HasItem("c#br0002","C#Brandock")
+	OR(3)
+		!HasItem("c#br0002","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("c#br0002","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("c#br0002","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("c#br0002","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN shoes_01
 SAY @241
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
+IF ~HasItem("c#br0002","C#Solaufein")
+InMyArea("C#Solaufein")
+OR(2) Global("C#SolauJoined","GLOBAL",2) InParty("C#Solaufein")~ THEN DO ~ActionOverride("C#Solaufein",GiveItem("c#br0002","c#brserv"))
+GiveItemCreate("c#br0006",[PC],1,0,0)
+SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
 EraseJournalEntry(@10003)
 EraseJournalEntry(@10004)
 EraseJournalEntry(@10002)
-TakePartyItem("c#br0002")
+AddExperienceParty(100)
+EscapeArea()~ SOLVED_JOURNAL @10011 /* ~A Fine Pair of Boots
+
+I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~ */ EXIT
+IF ~HasItem("c#br0002","C#Grey")
+InMyArea("C#Grey")
+OR(2) Global("C#GreyJoined","GLOBAL",2) InParty("C#Grey")~ THEN DO ~ActionOverride("C#Grey",GiveItem("c#br0002","c#brserv"))
 GiveItemCreate("c#br0006",[PC],1,0,0)
+SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
+EraseJournalEntry(@10003)
+EraseJournalEntry(@10004)
+EraseJournalEntry(@10002)
+AddExperienceParty(100)
+EscapeArea()~ SOLVED_JOURNAL @10011 /* ~A Fine Pair of Boots
+
+I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~ */ EXIT
+IF ~HasItem("c#br0002","C#Husam1")
+InMyArea("C#Husam1")
+OR(2) Global("C#HusamJoined","GLOBAL",2) InParty("C#Husam1")~ THEN DO ~ActionOverride("C#Husam1",GiveItem("c#br0002","c#brserv"))
+GiveItemCreate("c#br0006",[PC],1,0,0)
+SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
+EraseJournalEntry(@10003)
+EraseJournalEntry(@10004)
+EraseJournalEntry(@10002)
+AddExperienceParty(100)
+EscapeArea()~ SOLVED_JOURNAL @10011 /* ~A Fine Pair of Boots
+
+I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~ */ EXIT
+IF ~HasItem("c#br0002","C#Brandock")
+InMyArea("C#Brandock")
+OR(2) Global("C#BrandockJoined","GLOBAL",2) InParty("C#Brandock")~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0002","c#brserv"))
+GiveItemCreate("c#br0006",[PC],1,0,0)
+SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
+EraseJournalEntry(@10003)
+EraseJournalEntry(@10004)
+EraseJournalEntry(@10002)
+AddExperienceParty(100)
+EscapeArea()~ SOLVED_JOURNAL @10011 /* ~A Fine Pair of Boots
+
+I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~ */ EXIT
+IF ~PartyHasItem("c#br0002")~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0002","c#brserv"))
+ActionOverride("c#brserv",TakePartyItem("c#br0002"))
+GiveItemCreate("c#br0006",[PC],1,0,0)
+SetGlobal("C#Brandock_Shoequest","GLOBAL",3) 
+EraseJournalEntry(@10003)
+EraseJournalEntry(@10004)
+EraseJournalEntry(@10002)
 AddExperienceParty(100)
 EscapeArea()~ SOLVED_JOURNAL @10011 /* ~A Fine Pair of Boots
 
@@ -1351,21 +1500,21 @@ END
 IF ~~ THEN book_12
 SAY @278
 IF ~~ THEN + book_14_01
-//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",0)~ THEN SOLVED_JOURNAL @10009 + what_now_07
+//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",2)~ THEN SOLVED_JOURNAL @10009 + what_now_07
 IF ~Global("C#Brandock_Reward","GLOBAL",1)~ THEN + book_14
 END
 
 IF ~~ THEN book_13
 SAY @279
 IF ~~ THEN + book_14_01
-//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",0)~ THEN SOLVED_JOURNAL @10009 + what_now_07
+//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",2)~ THEN SOLVED_JOURNAL @10009 + what_now_07
 IF ~Global("C#Brandock_Reward","GLOBAL",1)~ THEN + book_14
 END
 
 IF ~~ THEN book_14
 SAY @280 
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Reward","GLOBAL",2) GiveGoldForce(150)~ + book_14_01
-//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",0)~ THEN DO ~SetGlobal("C#Brandock_Reward","GLOBAL",2) GiveGoldForce(150)~ SOLVED_JOURNAL @10009 + what_now_07
+//IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",2)~ THEN DO ~SetGlobal("C#Brandock_Reward","GLOBAL",2) GiveGoldForce(150)~ SOLVED_JOURNAL @10009 + what_now_07
 END
 
 IF ~~ THEN book_14_01
@@ -1424,10 +1573,8 @@ END //APPEND
 CHAIN
 IF ~Global("C#Brandock_PondersBadLuck","GLOBAL",1)~ THEN c#brandj badluck
 @287
-== c#brandj IF ~GlobalLT("C#Brandock_Shapeshift","GLOBAL",15)~ THEN @288
-/*
-== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",15)~ THEN ~And then there is that... incident including a half-ogre, after I cast magic on someone I didn't know anything about, ruining my reputation as a mage around these lands for time to come, and changing something inside me - changing me, *literally* - in a way I haven't yet understood...~
-*/
+== c#brandj IF ~GlobalLT("C#Brandock_Shapeshift","GLOBAL",18)~ THEN @288
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",17)~ THEN @522 /* ~And then there is that... incident including a half-ogre, after I cast magic on someone I didn't know anything about, ruining my reputation as a mage around these lands for time to come, and changing something inside me - changing me, *literally* - in a way I haven't yet understood...~ */
 = @289
 END
 ++ @290 + badluck_02

@@ -7,28 +7,29 @@ IF
 	Switch("C#Br_bd_banter_MKhin01","MYAREA")
 THEN
 	RESPONSE #0
-		DisplayStringHead("C#Brandock",~I... I still don't know what to make of you, M'Khiin.~)
+		DisplayStringHead("C#Brandock",@20)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",10)
 	RESPONSE #10
-		DisplayStringHead("C#Brandock",~I mean, you are obviously capable of shamanic magic, and very much so. But...~)
+		DisplayStringHead("C#Brandock",@21)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",20)
 	RESPONSE #20
-		DisplayStringHead("C#Brandock",~Well, you are a goblin. And I just can't imagine how a smart goblin shaman like you ends up alone, seeking protection from a drow.~)
+		DisplayStringHead("C#Brandock",@22)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("C#Brandock",~So, what happened? I sense a tragic story. Maybe you summoned the wrong spirit and got banned? Another shaman wanted you dead? The love of your life had to marry another?~)
+		DisplayStringHead("C#Brandock",@23)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",40)
 	RESPONSE #40
-		DisplayStringHead("MKHIIN",~You, human mage. Talk too much.~)
+		DisplayStringHead("MKHIIN",@24)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",50)
 	RESPONSE #50
-		DisplayStringHead("C#Brandock",~Well, yes, probably. Smart goblin. Yeah, you got that quickly alright!~)
+		DisplayStringHead("C#Brandock",@25)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Brandock_MHhiinSoD","GLOBAL",3)
 		SetGlobal("C#Br_bd_banter_MKhin01","MYAREA",-1)
 END
 

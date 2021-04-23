@@ -169,6 +169,7 @@ ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
+RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",400)
 SetGlobal("C#BrandockJoined","GLOBAL",2)
 SetInterrupt(TRUE)
 ~ EXIT
@@ -182,6 +183,7 @@ ChangeAIScript("DEFAULT",CLASS)
 ChangeAIScript("",RACE)
 ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
+RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",400)
 SetGlobal("C#BrandockJoined","GLOBAL",2)
 SetInterrupt(TRUE)~ EXIT
 END

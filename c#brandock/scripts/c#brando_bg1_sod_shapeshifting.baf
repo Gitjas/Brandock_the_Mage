@@ -1,0 +1,74 @@
+/* Brandock Half-ogre quest. Needed for BG1 and SoD */
+
+
+
+
+/* meets Malm after Sarevok is dead */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	GlobalLT("ENDOFBG1","GLOBAL",2)
+	Global("C#Brando_VisitedMalm","GLOBAL",2)
+	OR(3)
+		Dead("Sarevok")
+		GlobalGT("BD_plot","global",10)
+		Global("ENDOFBG1","GLOBAL",1)
+	!See([ENEMY])
+	See(Player1) 
+	CombatCounter(0)
+	AreaType(OUTDOOR)
+	GlobalLT("BD_plot","global",54)
+	Global("C#Brandock_Shapeshift","GLOBAL",21)
+THEN
+  RESPONSE #100
+	SetGlobalTimer("C#BrandockMalmVisitTimer","GLOBAL",FIVE_ROUNDS)
+	SetGlobal("C#Brandock_Shapeshift","GLOBAL",22)
+END
+
+IF
+	GlobalLT("ENDOFBG1","GLOBAL",2)
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !See([ENEMY])
+  See(Player1) 
+  CombatCounter(0)
+	Global("C#Brandock_Shapeshift","GLOBAL",22)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Brandock_Shapeshift","GLOBAL",23)
+		CreateCreatureObject("c#brhadr","C#Brandock",0,0,0)  // Messenger
+		ActionOverride("c#brhadr",Dialogue("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+/* follow-up: Malm went on his way to Alisarhold */
+
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See("c#brhabr")
+  Global("C#Brando_VisitedMalm","GLOBAL",6)
+  Global("C#Brandock_Shapeshift","GLOBAL",24)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    SetGlobal("C#Brandock_Shapeshift","GLOBAL",25)
+END
+
+/* triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brandock_Shapeshift","GLOBAL",25)  
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END

@@ -1,0 +1,106 @@
+/* K#TelBGT.bcs */
+
+/* Brandock is in party - take his items */
+IF
+	Global("C#Brando_EETTransit","LOCALS",0)
+	InParty("C#Brandock")
+	!Dead("C#Brandock")
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		DisableAI("C#Brandock",FALSE)  
+		SetGlobal("C#Brando_EETTransit","LOCALS",1)
+		ApplySpellRES("bdresurr","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("K#UNREST","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("bdrejuve","C#Brandock")  
+		SmallWait(10)
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		ActionOverride("C#Brandock",LeaveParty())
+		SmallWait(10)
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		ActionOverride("C#Brandock",DestroySelf())
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+
+/* Brandock is 7th party member */
+IF
+	Global("C#Brando_EETTransit","LOCALS",0)
+	InMyArea("C#Brandock")
+	!Dead("C#Brandock")
+	Global("C#BrandockJoined","GLOBAL",2)  
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		DisableAI("C#Brandock",FALSE)  
+		SetGlobal("C#Brando_EETTransit","LOCALS",1)
+		ApplySpellRES("bdresurr","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("K#UNREST","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("bdrejuve","C#Brandock")  
+		SmallWait(10)
+		ActionOverride("C#Brandock",MakeGlobalOverride())
+		SmallWait(1)
+		ActionOverride("C#Brandock",RemoveFamiliar())
+		SmallWait(1)
+		ChangeEnemyAlly("C#Brandock",NEUTRAL)
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		SmallWait(10)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		ActionOverride("C#Brandock",DestroySelf())
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+
+/* Brandock is in party, but dead */
+IF
+	InPartyAllowDead("C#Brandock")
+	Dead("C#Brandock")
+	Global("C#Brando_EETTransit","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		DisableAI("C#Brandock",FALSE)  
+		SetGlobal("C#Brando_EETTransit","LOCALS",1)
+		ApplySpellRES("bdresurr","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("K#UNREST","C#Brandock")  
+		SmallWait(10)
+		ApplySpellRES("bdrejuve","C#Brandock")  
+		SmallWait(10)
+		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
+		ActionOverride("C#Brandock",LeaveParty())
+		SmallWait(10)
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		GiveItemCreate("STAF01","C#Brandock",0,0,0)
+		SmallWait(1)
+		ActionOverride("C#Brandock",FillSlot(SLOT_WEAPON0))
+		GiveItemCreate("SLNG01","C#Brandock",0,0,0) 
+		SmallWait(1)
+		ActionOverride("C#Brandock",FillSlot(SLOT_WEAPON1))
+		GiveItemCreate("BULL01","C#Brandock",20,0,0)
+		SmallWait(1)
+		ActionOverride("C#Brandock",FillSlot(SLOT_AMMO0))
+		ActionOverride("C#Brandock",DestroySelf())
+		SetInterrupt(TRUE)
+		Continue()
+END
+
+

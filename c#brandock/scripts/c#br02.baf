@@ -1,0 +1,8 @@
+IF 
+	GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)
+	GlobalLT("C#Brandock_Shapeshift","GLOBAL",14)	
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_Shapeshift","GLOBAL",14)
+	    CreateCreature("c#brfire",[236.153],14) 
+END

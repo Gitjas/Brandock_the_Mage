@@ -1,4 +1,64 @@
 
+/* book quest was not finished in BG1 - bring the quest onto same level */
+IF
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_BookRestoreAlone","GLOBAL",0)	
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	GlobalLT("C#Br_BookRestore","GLOBAL",12)
+	!HasItem("C#br0007","C#Brandock")
+	HasItem("C#br0001","C#Brandock")
+THEN
+	RESPONSE #100
+		DestroyItem("C#br0001")
+		GiveItemCreate("c#br0007","C#Brandock",0,0,0)
+		SetGlobal("C#Br_BookRestoreAlone","GLOBAL",2)
+END
+
+/* book quest wasn't even started in BG1 - bring the quest onto same level. No Master Elvenhair in this case! */
+IF
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_BookRestoreAlone","GLOBAL",0)	
+	Global("C#Br_BookRestore","GLOBAL",0)
+	!HasItem("C#br0007","C#Brandock")
+	HasItem("C#br0001","C#Brandock")
+THEN
+	RESPONSE #100
+		DestroyItem("C#br0001")
+		GiveItemCreate("c#br0007","C#Brandock",0,0,0)
+		SetGlobal("C#Br_BookRestoreAlone","GLOBAL",3)
+END
+
+/* PC didn't have any interest in the book quest - book(s) will be just gone at the start of BGII */
+
+IF
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_BookRestoreAlone","GLOBAL",0)	
+	Global("C#Br_BookRestore","GLOBAL",50)
+	OR(2)
+	HasItem("C#br0007","C#Brandock")
+	HasItem("C#br0001","C#Brandock")
+THEN
+	RESPONSE #100
+		DestroyItem("C#br0001")
+		DestroyItem("C#br0007")
+		SetGlobal("C#Br_BookRestoreAlone","GLOBAL",4)
+END
+
+/* scroll scribing quest line wasn't finished - Brandock will now know how to scribe scrolls */
+IF 
+	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		EraseJournalEntry(@10050)
+		EraseJournalEntry(@10054)
+		AddJournalEntry(@10012,QUEST_DONE)
+		ReallyForceSpellRES("c#brscra","C#Brandock")
+		SetInterrupt(TRUE)
+END
+
 
 /* Brandock initiates dialogue upon first meeting in Ebrel's house */
 
@@ -29,6 +89,8 @@ THEN
 	RESPONSE #100
 		StartDialogueNoSet(Player1)
 END
+
+
 
 
 
@@ -102,6 +164,408 @@ THEN
 	RESPONSE #100
 		StartDialogueNoSet(Player1)
 END
+
+/* bookrestore quest: after stepping outside the Temple after giving away the book */
+
+/* Activate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	!See("DOGHMA") //Priest of Oghma
+	Global("C#Br_BookRestore","GLOBAL",20)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_BookRestore","GLOBAL",21)
+END
+
+/* Initiate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_BookRestore","GLOBAL",21)
+THEN
+	RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+		StartDialogueNoSet(Player1)
+END
+
+/* bookrestore quest: Brandock asks to go to the Temple of Oghma if PID didn't happen */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  GlobalGT("C#Brandock_Dialog","GLOBAL",202) //after first Friendship dialogue
+  GlobalLT("C#Br_BookRestore","GLOBAL",14)
+  OR(2)
+     HasItem("C#br0007","C#Brandock")
+     PartyHasItem("C#br0007")
+THEN
+  RESPONSE #100
+    SetGlobal("C#Br_BookRestore","GLOBAL",14)
+END
+
+/* Initiation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Br_BookRestore","GLOBAL",14)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+    StartDialogNoSet(Player1)
+END
+
+/* group has King's Tear gem and needed amount of gold */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Br_BookRestore","GLOBAL",16)
+  PartyGoldGT(4999)
+  OR(5)
+		PartyHasItem("MISC44") 
+		HasItem("MISC44","C#Solaufein")
+		HasItem("MISC44","C#Grey")
+		HasItem("MISC44","C#Husam1")
+		HasItem("MISC44","C#Brandock")
+	OR(3)
+		!HasItem("MISC44","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("MISC44","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("MISC44","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("MISC44","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")
+  !AreaCheck("AR0319") //(not in Temple of Oghma)
+THEN
+  RESPONSE #100
+    SetGlobal("C#Br_BookRestore","GLOBAL",17)
+END
+
+/* Initiation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Br_BookRestore","GLOBAL",17)
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+/* Brandock finished his Book of Spells: follow up */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  GlobalGT("C#Brandock_Dialog","GLOBAL",202) //after first Friendship dialogue
+  Global("C#Br_WriteBook","LOCALS",8)
+THEN
+  RESPONSE #100
+    SetGlobal("C#Br_WriteBook","LOCALS",9)
+END
+
+/* Initiation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Br_WriteBook","LOCALS",9)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+    StartDialogNoSet(Player1)
+END
+
+/* Book of Inifinite Spells */
+
+/* Activate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(11)
+		PartyHasItemIdentified("MISC3AA")
+		PartyHasItemIdentified("MISC3A")
+		PartyHasItemIdentified("MISC3A1")
+		PartyHasItemIdentified("MISC3A2")
+		PartyHasItemIdentified("MISC3A3")
+		PartyHasItemIdentified("MISC3A4")
+		PartyHasItemIdentified("MISC3A5")
+		PartyHasItemIdentified("MISC3A6")
+		PartyHasItemIdentified("MISC3A7")
+		PartyHasItemIdentified("MISC3A8")
+		PartyHasItemIdentified("MISC3A9")
+	Global("C#Br_BookOfInfiniteSpells","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_BookOfInfiniteSpells","GLOBAL",1)
+END
+
+/* Initiate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_BookOfInfiniteSpells","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* Book of Inifinite Spells - offer to rewrite it after visit to Temple of Oghma */
+
+/* Activate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	!See("DOGHMA") //Priest of Oghma
+	GlobalGT("C#Br_BookRestore","GLOBAL",21)
+	OR(11)
+		PartyHasItemIdentified("MISC3AA")
+		PartyHasItemIdentified("MISC3A")
+		PartyHasItemIdentified("MISC3A1")
+		PartyHasItemIdentified("MISC3A2")
+		PartyHasItemIdentified("MISC3A3")
+		PartyHasItemIdentified("MISC3A4")
+		PartyHasItemIdentified("MISC3A5")
+		PartyHasItemIdentified("MISC3A6")
+		PartyHasItemIdentified("MISC3A7")
+		PartyHasItemIdentified("MISC3A8")
+		PartyHasItemIdentified("MISC3A9")
+	Global("C#Br_BookOfInfiniteSpells","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_BookOfInfiniteSpells","GLOBAL",3)
+END
+
+/* Initiate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_BookOfInfiniteSpells","GLOBAL",3)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* Book of Inifnite Spells - Brandock marks pages */
+
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A1")
+	Global("C#Br_BoIS_A1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A1","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3501)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A2")
+	Global("C#Br_BoIS_A2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A2","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3502)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A3")
+	Global("C#Br_BoIS_A3","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A3","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3503)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A4")
+	Global("C#Br_BoIS_A4","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A4","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3504)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A5")
+	Global("C#Br_BoIS_A5","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A5","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3505)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A6")
+	Global("C#Br_BoIS_A6","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A6","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3506)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A7")
+	Global("C#Br_BoIS_A7","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A7","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3507)
+		SetInterrupt(TRUE)
+END
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+	PartyHasItem("MISC3A8")
+	Global("C#Br_BoIS_A8","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		SetGlobal("C#Br_BoIS_A8","GLOBAL",1)
+		DisplayStringHead("C#Brandock",@3508)
+		SetInterrupt(TRUE)
+END
+
+
+/* Book of Inifnite Spells - Brandock gives rewritten book to PC */
+/* Activate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyHasItem("MISC3A9")
+	Global("C#Br_Rewrite_BoIS","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_Rewrite_BoIS","LOCALS",2)
+END
+
+/* Initiate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",3)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Br_Rewrite_BoIS","LOCALS",2)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+
+
 
 /* PC kept the bookcase (BGT / EET) */
 /* Activate */
@@ -666,6 +1130,101 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
+/* Killed Apprentices in AR0407 - Harper's plot */
+/* Activate */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Dead("XAPPREN1") Dead("XAPPREN2")
+	AreaCheck("AR0407")
+	Global("C#Brandock_XAPPRENDead","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_XAPPRENDead","GLOBAL",1)
+END
+
+/* Initiate */
+/* Global("C#Brandock_ApprenticeLeave","GLOBAL",1) could also be set via INTERJECT */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Brandock_XAPPRENDead","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* Lorepath: learning from other mages' spellbooks is getting harder */
+/* Activate */
+IF 
+	RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	GlobalGT("C#Brandock_Dialog","GLOBAL",204) //even later?
+	GlobalGT("C#Br_LorePathIncrease","GLOBAL",0)
+	Global("C#Brandock_LorePathStop","GLOBAL",0)
+THEN
+	RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+		SetGlobal("C#Brandock_LorePathStop","GLOBAL",1)
+END
+
+/* Initiate */
+/* Global("C#Brandock_ApprenticeLeave","GLOBAL",1) could also be set via INTERJECT */
+IF 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("C#Brandock_LorePathStop","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* activation */
+IF %IT_IS_BGII%
+Dead("ppcowled")
+See("ppcowled")
+Global("C#Br_KilledPerthBG2","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+SetGlobal("C#Br_KilledPerthBG2","GLOBAL",1)
+END
+
+/* Initiate */
+IF %IT_IS_BGII%
+Global("C#Br_KilledPerthBG2","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
 
 
 //////////////////////////////////////////////////////////////
@@ -696,6 +1255,7 @@ IF
   !See([ENEMY])
 	!Range([NEUTRAL],10)
   See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
   !StateCheck(Player1,CD_STATE_NOTVALID)
   CombatCounter(0)
     OR(3)
@@ -723,7 +1283,7 @@ IF
 //    Global("C#Brandock_Dialog","GLOBAL",206)  //
 THEN
   RESPONSE #100
-    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
 		PlaySong(0)
 		PlaySound("C#BRAND")    //Does not exist (yet)
     StartDialogNoSet(Player1)

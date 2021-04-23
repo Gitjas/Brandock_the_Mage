@@ -1,4 +1,4 @@
-@55540  = ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~
+@55540  = ~Brandock the Mage~
 @55541  = ~This mod is not compatible with your game.~
 @55542  = ~You need to modmerge your SoD game before installing any mods.~
 @55543 = ~Brandock the Mage main component is required.~
@@ -11,3 +11,30 @@
 @55550 = ~BG:EE without SoD detected...~
 @55551 = ~SoD detected...~
 @55552 = ~EET detected...~ 
+
+/* new for vBeta 7 */
+@55553  = ~Use Dialogue Style for Brandock's Banter in SoD~
+@55554  = ~This component is only for SoD.~
+@55555  = ~Breagar detected.~
+@55556  = ~Ascalon's Questpack: The Great Karlini detected.~
+@55557  = ~bg1npc: Quest and Interjections detected.~
+@55558  = ~bg1ub: Mysterious Vial detected.~
+@55559  = ~bgqe: Babysitting quest detected.~
+@55560  = ~bgqe: Nashkel monster quest detected.~
+@55561  = ~Brage's Redemption detected.~
+@55562  = ~Gavin BG1 detected.~
+@55563  = ~The Calling detected.~
+@55564  = ~Valerie detected.~
+@55565  = ~Imoen 4 Ever: SoD detected.~
+@55566  = ~Alternatives detected.~
+@55567  = ~NPC Strongholds detected.~
+@55568  = ~This mod needs to be installed before EET_End on your EET install.~
+@55569  = ~bg1re "Necromancer's Trouble" detected.~
+@55570  = ~bg1re "Dinner for Thalantyr" detected.~
+@55571  = ~Shades of the Sword Coast detected.~
+@55572  = ~Solaufein's Rescue detected.~
+@55573  = ~Ascalon's Questpack: Of Wolves and Men detected.~
+@55574  = ~Stone of Askavar detected.~
+@55575  = ~Lure of Sirine's Call detected.~
+@55576  = ~Balduran's Seatower detected.~
+@55577  = ~Northern Tales of the Sword Coast - Main component detected.~

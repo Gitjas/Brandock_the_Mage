@@ -1,0 +1,51 @@
+/* lore path: bst Master Shizell's library */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("bs1011")
+See("bstrmage")
+StateCheck("bstrmage",CD_STATE_NOTVALID)
+!Dead("bstrmage")
+Global("C#BrCross_bst_LorePath","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#BrCross_bst_LorePath","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#BrCross_bst_LorePath","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* remains of mage in bs0114 */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("bs0114")
+Range("Dead_mage",15)
+Global("C#Br_LorePathbs0114BG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathbs0114BG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1036)
+SetInterrupt(TRUE)
+END

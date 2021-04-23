@@ -1,0 +1,17 @@
+/* bd5100aw.bcs */
+
+IF
+	OR(3)
+		Entered([GOODCUTOFF])
+		IsOverMe([GOODCUTOFF])
+		WalkedToTrigger([GOODCUTOFF])
+	Range([PC],20)
+	Global("C#Brando_BD_SDD317_WYRMS","GLOBAL",0)  
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+	InMyArea("C#Brandock") 
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_BD_SDD317_WYRMS","GLOBAL",2)
+		ActionOverride("C#Brandock",StartDialogNoSet(Player1))
+END

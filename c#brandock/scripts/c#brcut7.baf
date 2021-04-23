@@ -1,0 +1,13 @@
+IF
+      True()
+THEN
+    RESPONSE #100
+	CutSceneId(Player1)
+	ClearAllActions()
+	Wait(1)
+	ActionOverride("C#Brandock",ForceSpell(Myself,FLASHY_1))
+	ActionOverride("C#Brandock",Polymorph(MAGE_MALE_HUMAN))
+	Wait(3)
+	EndCutSceneMode()
+	ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
+END

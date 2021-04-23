@@ -1,0 +1,15 @@
+
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+	MoveViewObject("C#Brandock",INSTANT)
+	Wait(1)	
+	ActionOverride("C#Brandock",ReallyForceSpellRES("c#brsh03","C#Brandock"))
+	Wait(3)
+	EndcutSceneMode()
+	SetInterrupt(TRUE)
+	ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
+END 

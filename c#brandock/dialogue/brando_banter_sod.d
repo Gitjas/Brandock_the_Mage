@@ -1,15 +1,55 @@
-/* SoD Banter */
+/* 1st with Corwin, "c#brsb01.baf" */
+CHAIN
+IF WEIGHT #-1
+~Global("C#Brandock_CorwinSoD","GLOBAL",2)~ THEN C#BrandB brandock_corwin_sod_1
+@0
+DO ~SetGlobal("C#Brandock_CorwinSoD","GLOBAL",3)~
+== BDCORWIB @1
+== C#BrandB @2
+== BDCORWIB @3
+== C#BrandB @4
+== BDCORWIB @5
+== C#BrandB @6
+EXIT
 
-/* Imoen - the only chance we have to let those two banter is when Brandock comes with CHARNAME before the last night in the Ducal Palace */
+/* 2nd with Corwin, "c#brsb02.baf" */
+CHAIN
+IF WEIGHT #-1
+~Global("C#Brandock_CorwinSoD","GLOBAL",5)~ THEN C#BrandB brandock_corwin_sod_2
+@7
+DO ~SetGlobal("C#Brandock_CorwinSoD","GLOBAL",6)~
+== BDCORWIB @8
+== C#BrandB @9
+== BDCORWIB @10
+== C#BrandB @11
+== BDCORWIB @12
+== C#BrandB @13
+EXIT
 
-I_C_T BDIMOEN 85 C#Brandock_ImoenSoD
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Imoen, I can't tell you how glad I am to see you alive and well.~
-== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Hey, Brandock. What'cha think? I found a teacher for my magic skills in Duke Jannath. Jeeeeealous?~ 
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Jealous? Me? Because you found an influencial, well-known, acknowledged teacher for learning and improving your magical skills?~
-== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~(nods teasingly) U-hu!~ 
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~I... don't think so.~
-== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Huh?~
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Not any more, Imoen... I am so much farther than back then when I was pondering which mage could be my teacher. So much farther. Back *then*, though - back *then* I would have been jealous as *hell*.~
-== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Ha!~
-== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Good bye, <CHARNAME>. Take care!~
-END
+/* 3rd with Corwin, "c#brsb03.baf" */
+CHAIN
+IF WEIGHT #-1
+~Global("C#Brandock_CorwinSoD","GLOBAL",8)~ THEN C#BrandB brandock_corwin_sod_3
+@14
+DO ~SetGlobal("C#Brandock_CorwinSoD","GLOBAL",9)~
+== BDCORWIB @15
+== C#BrandB @16
+= @17
+== BDCORWIB @18
+== C#BrandB @19
+EXIT
+
+
+/* 1st with , "c#brsb04.baf" 
+BDMKHIIB */
+CHAIN
+IF WEIGHT #-1
+~Global("C#Brandock_MHhiinSoD","GLOBAL",2)~ THEN C#BrandB brandock_corwin_sod_3
+@20
+DO ~SetGlobal("C#Brandock_MHhiinSoD","GLOBAL",3)~
+= @21
+= @22
+= @23
+== BDMKHIIB @24
+== C#BrandB @25
+EXIT

@@ -1,0 +1,58 @@
+/* c#brsc01 - Crossmod Banter SoD Brandock Imoen (I4E) */
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	Global("C#Br_bd_banter_Imoen02","MYAREA",-1)
+	Switch("C#Br_bd_banter_Imoen02","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("%IMOEN_DV%",@100285)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("C#Brandock",@100286)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("%IMOEN_DV%",@100287)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("C#Brandock",~You mean the one you left to follow <CHARNAME> into adventure? That well-known magic teacher?... NonoNONO! Keep your hands away. You know I'm ticklish as hell.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",40)
+	RESPONSE #40
+		DisplayStringHead("%IMOEN_DV%",~Still she chose me!~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",50)
+	RESPONSE #50
+		DisplayStringHead("C#Brandock",~I know, Imoen. And she had all reason to. I never doubted your talent.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",60)
+	RESPONSE #60
+		DisplayStringHead("C#Brandock",~I... don't think I was jealous.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",70)
+	RESPONSE #70
+		DisplayStringHead("%IMOEN_DV%",@100288)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",80)
+	RESPONSE #80
+		DisplayStringHead("C#Brandock",@100289)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",90)
+	RESPONSE #90
+		DisplayStringHead("%IMOEN_DV%",@100290)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",-1)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",6)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

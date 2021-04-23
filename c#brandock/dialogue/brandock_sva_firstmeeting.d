@@ -142,12 +142,13 @@ IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",13)~ + firstmeeting_19
 END
 
 IF ~~ THEN firstmeeting_14
-SAY ~That... that's his ring. If you found this at the site, he is dead indeed...~
-IF ~~ THEN + firstmeeting_15
+SAY ~That... that's his spellbook. If you found this at the site, he is dead indeed...~
+= ~Oh no! Ebrel, no... I didn't... I didn't want to learn from you like this...~
+IF ~~ THEN DO ~ActionOverride("C#Brandock",TakePartyItem("c#br2001"))~ + firstmeeting_15
 END
 
 IF ~~ THEN firstmeeting_15
-SAY ~Oh, the gods have mercy. I know you could call this a to be expected occupational hazard but Ebrel wasn't one of *those* Cowled Wizards, you know... (sigh)~
+SAY ~Oh, the gods have mercy. I know you could call this a to be expected occupational hazard but Ebrel wasn't one of *those* Cowled Wizards, you know... (sob)~
 ++ ~I am very sorry, Brandock.~ + firstmeeting_17
 ++ ~You had a Cowled Wizard in your family?~ + firstmeeting_16
 + ~Global("C#Brandock_FirstMeeting1","LOCALS",0)~ + ~I could use your help, Brandock.~ + firstmeeting_18
@@ -225,14 +226,21 @@ END
 APPEND c#brand2 
 
 IF ~~ THEN firstmeeting_24
-SAY ~With pleasure! I'll do as best I can. Let us go to the Coucellor's Building, I need to talk to the Cowled Wizard Emissary!~
-IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",15)
+SAY ~With pleasure! I'll do as best I can. Let us go to the Councellor's Building, I need to talk to the Cowled Wizard Emissary!~
+= ~And also... Please let us go to the Temple of Helm in the Temple District. I need to arrange for Ebrel's funeral... Oh, Ebrel. I'll learn from your spellbook as much as I can. Your wisdom will not be lost...~
+IF ~~ THEN DO ~EraseJournalEntry(@10030)
+EraseJournalEntry(@10014)
+EraseJournalEntry(@10015)
+AddJournalEntry(@10027,QUEST)
+AddJournalEntry(@10024,QUEST)
+SetGlobal("C#Br_LorePathIncrease","GLOBAL",2)
+SetGlobal("C#BrandockSpawn","GLOBAL",15)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
 SetGlobal("C#Brandock_Dialog","GLOBAL",201)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",400)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",1800)
-EraseJournalEntry(@10014)
-EraseJournalEntry(@10015)
+ReallyForceSpellRES("c#brlob1",Myself)
+DestroyItem("c#br2001")
 JoinParty()~ EXIT
 END
 

@@ -1,0 +1,64 @@
+/* Brandock - Imoen banter, SoD style */
+
+/* activate timer for Imoen banter */
+IF
+	%IT_IS_SOD%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	InParty("%IMOEN_DV%")  
+	OR(2)
+		Global("C#Brandock_ImoenSoD","GLOBAL",0) 
+		Global("C#Brandock_ImoenSoD","GLOBAL",3) // only for Global("C#Brandock_ImoenSoD_Palace","GLOBAL",0)
+		//Global("C#Brandock_ImoenSoD","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobalTimerRandom("bd_banter_Imoen_trigger","LOCALS",ONE_DAY,FOURTEEN_DAYS)
+		IncrementGlobal("C#Brandock_ImoenSoD","GLOBAL",1)
+END
+
+/* deactivate timer if Imoen or Brandock is not in party */
+IF
+	%IT_IS_SOD%
+	OR(2)
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("%IMOEN_DV%")  
+	OR(2)
+		Global("C#Brandock_ImoenSoD","GLOBAL",1)
+		Global("C#Brandock_ImoenSoD","GLOBAL",4)
+THEN
+	RESPONSE #100
+		IncrementGlobal("C#Brandock_ImoenSoD","GLOBAL",-1)
+END
+
+/* first Imoen banter */
+/* activation */
+IF
+	%IT_IS_SOD%
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	GlobalLT("C#Brandock_ImoenSoD","GLOBAL",2)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("%IMOEN_DV%")
+	IfValidForPartyDialogue("%IMOEN_DV%")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",2)
+END
+
+/* first Imoen banter */
+/* initiation */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_ImoenSoD","GLOBAL",2)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See("%IMOEN_DV%")
+	IfValidForPartyDialogue("%IMOEN_DV%")  
+THEN
+	RESPONSE #100
+		SetAreaScript("c#brsc01",GENERAL)
+END
+

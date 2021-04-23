@@ -1,0 +1,30 @@
+
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId(Player1)
+	MoveViewObject("C#Brandock",INSTANT)
+	ActionOverride("C#BRFIRE",ReallyForceSpellRES("c#brfedg","C#BRFIRE"))
+	Wait(2)
+	ActionOverride("c#brfedg",Spell(Myself,WIZARD_MIRROR_IMAGE))
+	Wait(1)
+	DisplayStringHead("C#Brandock",~Doppelganger?! Elvenhair is a doppelganger, too... This is is too much! This is TOO MUCH! Don't you dare having done anything to Master Elvenhair! Don't you DARE touch <CHARNAME>!~)
+	Wait(4)	
+	ActionOverride("C#Brandock",ReallyForceSpellRES("c#brsh02","C#Brandock"))
+	Wait(3)
+	ActionOverride("C#Brandock",MoveToObject("c#brfedg"))
+	Wait(3)
+	ActionOverride("C#Brandock",AttackReevaluate("c#brfedg",10))
+	Wait(5)
+	ActionOverride("c#brfedg",Kill(Myself))
+	Wait(2)	
+	EndcutSceneMode()
+	SetInterrupt(TRUE)
+	ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
+END 
+
+/*
+CreateCreatureObjectOffset("X#DGNLE1",Player1,[100.100])
+*/

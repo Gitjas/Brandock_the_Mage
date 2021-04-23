@@ -31,7 +31,7 @@ END
 
 /* IF ~~ THEN BEGIN 33 // from: 32.1 30.2
   SAY #45598 /* ~Fair enough. I had to ask, you understand, yes? Well, I'm off to Candlekeep regardless. Here's a little reward for your help with the moss.~ */ */
-I_C_T BDAMMON 31 C#Brando_BDAMMON31
+I_C_T BDAMMON 33 C#Brando_BDAMMON31
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Well, who would have known. You changed from outcast of your own home and no-entry-without-valuable-book-like-everyone-else to a source of connections and "who know who"! If only you knew when seeking entrance to Candlekeep yourself.~
 = ~Thank you for not giving her that signature. That woman scared the hell out of me!~
 END
@@ -43,8 +43,8 @@ END
 CHAIN 
 IF ~Global("C#Brando_SoDKorlaszDefeated","GLOBAL",1)~ THEN c#brandj korlasz_defeated
 ~We did it! We ended the bandit threat, the threat of war, and did all the cleanup, too. That should be impressive even for Amnish authorities, don't you think?~ [c#ablank]
-== c#brandj IF ~PartyHasItem("C#BR0007")~ THEN ~Well, I guess I will start searching for Ruathlek translation tables soon, and definitely go and talk to Elvenhair again. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
-== c#brandj IF ~PartyHasItem("C#BR0001")~ THEN ~Well, I guess I will start writing down what I remember of that book now. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
+== c#brandj IF ~OR(2) PartyHasItem("c#br0007") HasItem("c#br0007","C#Brandock")~ THEN ~Well, I guess I will start searching for Ruathlek translation tables soon, and definitely go and talk to Elvenhair again. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
+== c#brandj IF ~OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")~ THEN ~Well, I guess I will start writing down what I remember of that book now. It sure was a great time with you, <CHARNAME>. I thank you for taking me with you!~
 END
 IF ~~ THEN DO ~SetGlobal("C#Brando_SoDKorlaszDefeated","GLOBAL",2)~ EXIT
 
@@ -60,6 +60,7 @@ END
 
 
 END //APPEND
+
 
 
 
@@ -165,7 +166,41 @@ END
 /////////////////////////////////////////////////////////////////////////
 /* SoD campaign - I_C_T and scene reactions */
 
-/* working with doppelganger of prison */
+
+
+/* Imoen - without I4E the only chance we have to let those two banter is when Brandock comes with CHARNAME before the last night in the Ducal Palace 
+Interjection will be short if Imoen rejoins later (I4E is detected, i.e. Global("C#IM_ImoenComesBackSoD","GLOBAL",0) is not set to 1 ) */
+
+I_C_T BDIMOEN 85 C#Brandock_ImoenSoD_Palace
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Imoen, I can't tell you how glad I am to see you alive and well.~
+== BDIMOEN IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100285 
+== c#brandj IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100286 
+== BDIMOEN IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100287 
+== c#brandj IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~I... don't think so.~
+== BDIMOEN IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100288
+== c#brandj IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100289
+== BDIMOEN IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN @100290
+== BDIMOEN IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Thanks, Brandock. Good bye, <CHARNAME>. Take care!~
+END
+
+
+
+/* HC is working with doppelganger of prison */
 
 I_C_T BDFFDOPP 73 C#Brando_BDFFDOPP_73
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Ah, it doesn't sit well, making deals with a doppelganger. And on top of it all it's impersonating a Flaming Fist officer! Doesn't it give you the shivers to take gold from it? Could be one of the monsters we faced at Sarevok's side. Could be one of those who infiltrated Candlekeep and killed half of your childhood friends!~
@@ -178,9 +213,9 @@ END
 I_C_T3 BDRAYPHU 7 C#Brando_BDRAYPHU_7
 /* traces of a removed quest */
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) Detect("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-GlobalGT("C#Brandock_Shapeshift","GLOBAL",24)~ THEN ~There you have it. Some deal with fear and become a paladin. Others turn into a half-ogre. Life is not fair.~ 
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",19)~ THEN ~There you have it. Some deal with fear and become a paladin. Others turn into a half-ogre. Life is not fair.~ 
 == c#brandP IF ~!InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",0) Detect("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-GlobalGT("C#Brandock_Shapeshift","GLOBAL",24)~ THEN ~There you have it. Some deal with fear and become a paladin. Others turn into a half-ogre. Life is not fair.~ 
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",19)~ THEN ~There you have it. Some deal with fear and become a paladin. Others turn into a half-ogre. Life is not fair.~ 
 END
 */
 
@@ -249,7 +284,7 @@ END //APPEND
 /* Takos' burnt-down inn */
 
 I_C_T BDTAKOS 4 C#Brando_BDTAKOS_4
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh no, it's always the same if people are 'inn' the wrong mood... Oops, did I just say that out loud?~
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh no, it's always the same if people are 'inn' the wrong mood... (I didn't just say that to his face. Get a grip, Brandock.)~
 END
 
 
@@ -356,8 +391,8 @@ END
 
 IF ~~ THEN teleri_defeated_02
 SAY ~I'll have a look at that woman's spell book. She doesn't need it any more...~
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) AddJournalEntry(@10030,QUEST)
-SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ UNSOLVED_JOURNAL @10042 EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ EXIT
 END
 
 
@@ -460,6 +495,124 @@ IF ~~ THEN DO ~SetGlobal("C#Brando_SoDCaelarBridge","GLOBAL",2)~ EXIT
 END
 
 
+
+
+/* Bridgefort */
+
+/* Arcane Scroll of Impactful Doom, PartyHasItem("BDSCRL02") */
+IF ~Global("C#Brando_SoDScrollOfDoom","GLOBAL",1)~ THEN doom_scroll
+SAY ~(sigh) Seeing something like this I start to wondern whether I chose the right profession... I know I do harmful magics as well to damage our foes, but... this has an evil cling to it. At least we know how to stop the energy drain now, before more people inside the fort will die.~
+= ~Er, I'm talking about the scroll. Who calls their own creation "Arcane Scroll of Impactful Doom"?~
+IF ~~ THEN DO ~SetGlobal("C#Brando_SoDScrollOfDoom","GLOBAL",2)~ EXIT
+END
+
+END //APPEND
+
+EXTEND_BOTTOM bdwynan 14 
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~I do. Brandock, would you use it and end the stone's curse?~ EXTERN c#brandj bridgefort_stone
+END
+
+I_C_T3 bdwynan 21 C#Brando_bdwynan_21
+== c#brandj IF ~Global("c#_bd_sdd200_brandock","bd2100",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~NonononoNO dammit -~
+== c#brandj IF ~Global("c#_bd_sdd200_brandock","bd2100",0)
+!IsValidForPartyDialogue("Edwin")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Ooh, this doesn't -~
+END
+
+I_C_T bdwynan 22 C#Brando_bdwynan_22
+== c#brandj IF ~Global("c#_bd_sdd200_brandock","bd2100",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I felt it - I *felt* it the moment I spoke the words. This mage knew what he was doing!~
+END
+
+APPEND c#brandj
+
+IF ~~ THEN BEGIN bridgefort_stone
+  SAY ~I - I could try... Yes, I can do that.~
+  IF ~~ THEN DO ~SetGlobal("BD_SDD200","GLOBAL",3)
+SetGlobal("BD2100GL","GLOBAL",3)
+SetGlobal("c#_bd_sdd200_brandock","bd2100",1)
+StartCutSceneMode()
+ClearAllActions()
+StartCutSceneEx("c#brcugl",FALSE)
+~ EXIT
+END
+
+END //APPEND
+
+
+EXTEND_BOTTOM BDVIDYAD 9
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~Brandock, any ideas?~ EXTERN c#brandj answer_bees
+END
+
+APPEND c#brandj
+
+IF ~~ THEN BEGIN answer_bees
+  SAY ~Erm... that all points to "bees". But I'm not sure that answer is actualy inside the scope of this riddle?...~
+  IF ~~ THEN EXTERN BDVIDYAD 10
+END
+
+END //APPEND
+
+/* catapult at castle */
+I_C_T BDHELDMO 5 C#Brando_BDHELDMO_5
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Alright, that was effective - but I feel sorry for him. Anyone else feels sorry for this man?~
+END
+
+
+/* Elandro and the Feyr */
+/* bdelandr.d */
+
+I_C_T bdelandr 1 C#Brando_bdelandr_1
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~There is a difference in doing experiments and doing things where you *know* it will go wrong... But yes, I'm definitely the wrong to talk to here.~
+END
+
+I_C_T bdelandr 2 C#Brando_bdelandr_2
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Well, thank goodness. This would have been one of those 'I'm dying to see the results' kind of experiments. Literally...~
+END
+
+I_C_T bdelandr 12 C#Brando_bdelandr_12
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh, how I do know how that feels... <CHARNAME>, the atmosphere is thick with despair, I'm barely holding it together myself. Gods, why do I have to be so receptive towards people's emotions...~
+END
+
+/* chicken in the well easter egg */
+I_C_T3 BDDOGW01 0 C#Brando_BDDOGW01_0
+== c#brandj IF ~!GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Am I the onle one who has the feeling this dog is watching over that chicken?~
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~And to add to the creepiness, now an *almost* talking dog appeared out of nowhere who seems to be watching over that chicken. I'll... I'll be over there until this is done.~
+== BDDOGW01 IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+OR(2) IsValidForPartyDialogue("KHALID")
+IsValidForPartyDialogue("JAHEIRA")~ THEN ~Woof!~
+END
+
+/* "knotted" Wyverns - in case Jaheira talks first */
+I_C_T bdjaheij 47 C#Brando_BD_SDD317_WYRMS
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~This... this feeling - it's so intense! Pain and sorrow, and anger... and *pain*! It's nearly taking my breath away.~
+END
+
+/* "knotted" Wyverns - in case M'Khiin talks first */
+I_C_T bdmkhiij 80 C#Brando_BD_SDD317_WYRMS
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~This... this feeling - it's so intense! Pain and sorrow... and *pain*! It's nearly taking my breath away.~
+END
+
+/* "knotted" Wyverns - in case Dynaheir talks first */
+I_C_T bddynahj 85 C#Brando_BD_SDD317_WYRMS
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~This... this feeling - it's so intense! Pain and sorrow, and anger... and *pain*! It's nearly taking my breath away.~
+END
+
+/* "knotted" Wyverns - in case Minsc talks first */
+I_C_T bdminscj 85 C#Brando_BD_SDD317_WYRMS
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~This... this feeling - it's so intense! Pain and sorrow, and anger... and *pain*! It's nearly taking my breath away.~
+END
+
+APPEND c#brandj
+
+IF ~Global("C#Brando_BD_SDD317_WYRMS","GLOBAL",2)~ THEN tangled_wyrms
+SAY ~This... this feeling - it's so intense! Pain and sorrow, and anger... and *pain*! Something gruesome awaits us near here, <CHARNAME> - it's nearly taking my breath away.~
+IF ~~ THEN DO ~SetGlobal("C#Brando_BD_SDD317_WYRMS","GLOBAL",3)~ EXIT
+END
+
 /* after Bhaal sign incident at bridge */
 IF ~Global("C#Brandock_SoDSignDialog","GLOBAL",1)~ THEN bhaal_bridge
 SAY ~What in the nine hells' name was that? <CHARNAME>, are you alright?~
@@ -488,6 +641,44 @@ IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",2)~ EXIT
 END
 
 END //APPEND
+
+/* coalition camp - training the recruits */
+/* Hester */
+EXTEND_BOTTOM BDHESTER 6
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~Brandock, any advice for our nervous private how to overcome his fear in battle?~ EXTERN c#brandj teach_hester
+END
+
+CHAIN
+IF ~~ THEN c#brandj teach_hester
+~[Brandock]What? Just because I'm nervous as hell and faught - haha, what a game of words! - my way into not losing my head in battle (and over a lot of trivial things for that matter) doesn't make me a good advisor! I'd rather suggest I'll keep my distance to this poor chap until he learned how to focus positive energy to overcome the feelings of inevitable doom...~
+== BDHESTER ~[Hester]That's it! I feel absolutely and utterly doomed... like the sword is already at my throat, no matter what I'll do.~
+== bdimoen IF ~IsValidForPartyDialogue("%IMOEN_DV_SOD%")~ THEN ~[Imoen]Oh-oh... I'm not sure this conversation is going the direction it should.~
+== c#brandj ~[Brandock]And so weak that anything you'll do won't change a thing, right? Anyone could do this better - just being on the battle field will probably lead to allies dying because we do not really belong there.~
+== BDHESTER ~[Hester]That's... that's exactly what I'm feeling. I'll die in the battle anyway - but I'll probably also take friends with me who could have lived otherwise. But you... you overcame these feelings?~
+== c#brandj ~[Brandock]Yes, I did - but it was a long way, and I'm still not finished. It's a tedious fight against your own anxiety - and it starts every day anew. But to know that there are friends to fight and die *for* helps me to overcome it - because if I'll have to die anyway, I want to take as many of them bastards with me so they can't threaten my loved ones any more.~
+= ~Gods, why am I still talking to this poor man? My babbling probably dragged him down so much he's thinking about how to escape this whole thing now.~
+== BDHESTER ~[Hester]No! On the contrary. I... I have hope now. Everyone I ever talked to made it sound like not being afraid is the normal way to be, and that I'd have to overcome my fear *right now* or I'd be doomed. So I believed to be doomed, because I couldn't just stop being anxious. You confirmed what I always thought: that I'm not strange - and that it's not easy. But you managed to overcome your fears - and so will I!~
+== bdimoen IF ~IsValidForPartyDialogue("%IMOEN_DV_SOD%")~ THEN ~[Imoen]Wait - did we just fight fire with fire? And it *worked*?~
+== c#brandj ~[Brandock]You... you do? This is fabulous! That means you made the first, huge step to overcoming your fears! You faught your first battle - and it could have been the most difficult one. How do you feel?~
+END
+IF ~~ THEN DO ~IncrementGlobal("BD_FIGHTERS_SKILL","BD3000",2)
+SetGlobal("bd_sdd301_hester_skill","global",2)~ EXTERN bdhester 13
+
+/* Garrold */
+EXTEND_BOTTOM BDGARROL 1
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~Brandock, you seem like you want to say something?~ EXTERN c#brandj teach_garrold
+END
+
+CHAIN
+IF ~~ THEN c#brandj teach_garrold
+~[Brandock]You have a certain way of conentrating when doing your fight patterns. Ah, I'll just blurt it out directly. Did you ever consider becoming a mage? Did you like learning and memorizing things?~
+== BDGARROL ~I did enjoy my schooling. I am here because I think it's my duty. Mage, you say?...~
+== c#brandj ~You definitely have potential. More than with what you do here. Would the battle mages take on new recruits as well?~
+END
+IF ~~ THEN DO ~IncrementGlobal("BD_FIGHTERS_SKILL","BD3000",2)
+SetGlobal("bd_sdd301_garrold_skill","global",2)~ EXTERN BDGARROL 3
+
+
 
 APPEND c#brandB 
 /* banter dialogue because this fires if Brandock is not in party, too */
@@ -585,7 +776,28 @@ END
 IF ~~ THEN athkatla_everywhere_01
 SAY ~I guess I am taking it way too seriously. It surely is a coincidence. And if not, it probably doesn't have anything to do with you.~
 IF ~~ THEN EXIT
-IF ~PartyHasItem("bdure2a")~ THEN + athkatla_everywhere_02
+IF ~OR(5)
+		PartyHasItem("bdure2a") 
+		HasItem("bdure2a","C#Solaufein")
+		HasItem("bdure2a","C#Grey")
+		HasItem("bdure2a","C#Husam1")
+		HasItem("bdure2a","C#Brandock")
+	OR(3)
+		!HasItem("bdure2a","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdure2a","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdure2a","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdure2a","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN + athkatla_everywhere_02
 END
 
 IF ~~ THEN athkatla_everywhere_02
@@ -686,7 +898,28 @@ END //APPEND
 CHAIN
 IF ~~ THEN c#brandj about_tsolak_08
 ~What makes me wonder, though - do you also question yourself what 'important mission' it was supposed to be on? With contacts and 'masters' in far away lands? A vampire? What am I missing here?~ DO ~SetGlobal("C#Brando_BDTSOLAK_2","GLOBAL",3)~
-== c#brandj IF ~PartyHasItem("dbscrl1")~ THEN ~Seeing how it is *Athkatla* it was supposed to go, I wonder whether I'll meet some of his friends again when I'll return home. I sure as hell hope I don't!~
+== c#brandj IF ~OR(5)
+		PartyHasItem("dbscrl1") 
+		HasItem("dbscrl1","C#Solaufein")
+		HasItem("dbscrl1","C#Grey")
+		HasItem("dbscrl1","C#Husam1")
+		HasItem("dbscrl1","C#Brandock")
+	OR(3)
+		!HasItem("dbscrl1","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("dbscrl1","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("dbscrl1","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("dbscrl1","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN ~Seeing how it is *Athkatla* it was supposed to go, I wonder whether I'll meet some of his friends again when I'll return home. I sure as hell hope I don't!~
 EXIT
 
 
@@ -816,10 +1049,8 @@ END
 
 /* Messenger with letter from Brandock's parents */
 
-BEGIN c#brsodm
-
 CHAIN
-IF ~Global("C#Brandock_SoDMessenger","BD3000",1)~ THEN c#brsodm letter
+IF ~Global("C#Brandock_SoDMessenger","BD3000",1)~ THEN c#brmess letter
 ~Mister Brandock Deepwater? I have a letter for you, sir.~ [c#ablank]
 == c#brandj ~A letter? For me? Here? Man, what did you go through to get this to me?! Here, take these coins... and save travels. Keep out of the danger!~
 = ~Oh, it's a letter from my parents, <CHARNAME>... From my parents! That means they sent their third letter of their whole lifetime to me. Let me have a quick peak inside, it can't be much text... (Reads in silence).~
@@ -856,10 +1087,44 @@ END
 IF ~~ THEN letter_05
 SAY ~This letter travelled I don't know how many miles for I don't know how many days, if not weeks. My mother was sick when they sent it, but how she is now, I don't know. I will not leave the fight for a message that might be completely outdated. She might as well be, er - well, I surely hope she got better, already. Better not dwell on the other possibility...~
 = ~But I *will* leave as soon as everything is settled, of course. Just so you know.~
-IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDMessenger","BD3000",2)~ EXIT
+IF ~~ THEN DO ~ActionOverride("c#brmess",EscapeAreaDestroy(5))
+SetGlobal("C#Brandock_SoDMessenger","BD3000",2)~ EXIT
+END
+
+END //APPEND
+
+/* bdnederl looking for Skie */
+I_C_T BDNEDERL 36 C#Brando_BDNEDERL_36
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Yes, "displeased" is putting it mildly.~
+END
+
+/* before attack Caelar in castle */
+I_C_T BDSTONEH 47 C#Brando_BDSTONEH_47
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Sounds... fair?~
+END
+
+/* Torsin de Lancie sent PC to infiltrate the castle */
+I_C_T BDDELANC 16 C#Brando_BDDELANC_16
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~So - we will go right inside the enemy's hideout. I got that right, yes? And we are on our own? That's... terrific.~
+END
+
+/* wall came down with the barrel of Bwoosh! */
+I_C_T BDDELANC 65 C#Brando_BDDELANC_65
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~What do you mean, you weren't sure - you let us carry that... that *stuff* all the way through the enemy's territory without being sure it'd actually work?!~
+END
+
+/* portal is open, talk to Torsin de Lancie through the closed door */
+I_C_T BDDELANC 75 C#Brando_BDDELANC_75
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I hope they'll do more than just smile. Thre is an OPEN HELL MOUTH next to us!~
+END
+
+/* after return from Avernus, Torsin de Lancie */
+I_C_T BDDELANC 79 C#Brando_BDDELANC_79
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Is... is this really over? Like, *over* over? I feel so sick...~
 END
 
 
+APPEND c#brandj 
 
 /* in Avernus - imagine Caelar would have gone after Sarevok */
 
@@ -872,7 +1137,7 @@ SAY ~(All of a sudden, Brandock starts to laugh.)~ [c#ablank]
 END
 
 IF ~~ THEN caelar_sarevok_01
-SAY ~I... I just (smirks) I just imagined Caelar would have come sooner. Let's say... two, three months. She would have gone after Sarevok! Sarevok! And we would ha-hahaha - have had to face only one foe. Isn't the thought hilarious?~
+SAY ~I... I just (smirks) I just imagined Caelar would have come sooner. Let's say... two, three months. She would have gone after Sarevok! Sarevok! And we would ha-hahaha! - have had to face only one foe. Isn't the thought hilarious?~
 ++ ~(smile) I see the irony, yes.~ + caelar_sarevok_02
 ++ ~It's an interesting thought, indeed.~ + caelar_sarevok_02
 ++ ~To hell with your funny ideas, Brandock. Heh.~ + caelar_sarevok_04
@@ -996,18 +1261,20 @@ END
 IF ~OR(2)
 Global("C#Brandock_SoDThrix","GLOBAL",6)
 Global("C#Brandock_SoDThrix","GLOBAL",5)~ THEN after_thrix
-SAY ~You traded my soul to a fiend!~ [c#ablank]
+SAY ~You gambled for my soul with a fiend!~ [c#ablank]
 ++ ~That I did, yes. It granted us passage!~ + after_thrix_02
-++ ~I gambled, I lost. Such is life.~ + after_thrix_02
-++ ~I am sorry I traded your soul, Brandock.~ + after_thrix_02
++ ~!Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I gambled, I lost. Such is life.~ + after_thrix_02
++ ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I won, though!~ + after_thrix_02
+++ ~I am sorry I accepted your soul as a wager, Brandock.~ + after_thrix_02
 ++ ~And?~ + after_thrix_02
 END
 
 IF ~Global("C#Brandock_SoDThrix","GLOBAL",7)~ THEN after_thrix_01
-SAY ~You traded a companion's soul to a fiend!~ [c#ablank]
+SAY ~You gambled for a companion's soul with a fiend!~ [c#ablank]
 ++ ~That I did, yes. It granted us passage!~ + after_thrix_04
-++ ~I gambled, I lost. Such is life.~ + after_thrix_04
-++ ~I am sorry I traded your soul, Brandock.~ + after_thrix_04
++ ~!Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I gambled, I lost. Such is life.~ + after_thrix_04
++ ~Global("BD_Thrix_riddle_won","GLOBAL",1)~ + ~I won, though!~ + after_thrix_04
+++ ~I am sorry I accepted a soul as a wager, Brandock.~ + after_thrix_04
 ++ ~And?~ + after_thrix_04
 END
 
@@ -1148,14 +1415,16 @@ END //APPEND
 
 I_C_T3 BDDAZZO 2 C#Brandock_BDDAZZO_2
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
-InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It was an honor travelling with you. And quite scary, to be honest... I'll be on my way then. Straight south to my parents and no distractions this time.~
+InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @0 /* ~It was an honor travelling with you. And quite scary, to be honest... I'll be on my way then. Straight south to my parents and no distractions this time.~ */
 == C#BrandJ IF ~GlobalGT("C#Brando_bdscrl1","LOCALS",0)
-InParty("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 InMyArea("C#Brandock")
-!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN ~Seeing how everthing points to Athkatla these days, maybe we will meet there? Who knows, maybe I'll have an influencial position when next we meet - it's always good to have friends, if you are in Amn.~
-== C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN @1 /* ~Seeing how everthing points to Athkatla these days, maybe we will meet there? Who knows, maybe I'll have an influencial position when next we meet - it's always good to have friends, if you are in Amn.~ */
+
+/* Brandock is party member */
+== C#BrandJ IF ~InParty("C#Brandock")
 InMyArea("C#Brandock")
-!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ 
+!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN @2 /* ~Farewell, <CHARNAME>.~ */
 DO ~SetInterrupt(FALSE)
 MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
@@ -1164,17 +1433,10 @@ TakePartyItem("c#br0007")
 ChangeAIScript("",DEFAULT)
 LeaveParty()
 EscapeArea()
-/*
-ActionOverride("C#Brandock",SetDialog("c#brand2")
-ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
-SetGlobal("C#BrandockSpawn","GLOBAL",10)
-ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))
-*/
 SetInterrupt(TRUE)~ 
 
 /* Brandock was 7th party member */
-== C#BrandJ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ DO ~SetInterrupt(FALSE)
+== C#BrandJ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2 /* ~Farewell, <CHARNAME>.~ */ DO ~SetInterrupt(FALSE)
 MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 ChangeAIScript("",DEFAULT)
@@ -1182,58 +1444,42 @@ RemoveFamiliar()
 ChangeEnemyAlly(Myself,NEUTRAL)
 TakePartyItem("c#br0001")
 TakePartyItem("c#br0007")
-/*
-ActionOverride("C#Brandock",SetDialog("c#brand2")
-ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
-SetGlobal("C#BrandockSpawn","GLOBAL",10)
-ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))
-*/
-EscapeArea() SetInterrupt(TRUE)~ 
+EscapeArea() 
+SetInterrupt(TRUE)~ 
 END
 
 I_C_T3 BDDAZZO 3 C#Brandock_BDDAZZO_3
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
-InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It was an honor travelling with you. And quite scary, to be honest... I'll be on my way then. Straight south to my parents and no distractions this time.~
+InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @0 /* ~It was an honor travelling with you. And quite scary, to be honest... I'll be on my way then. Straight south to my parents and no distractions this time.~ */
 == C#BrandJ IF ~GlobalGT("C#Brando_bdscrl1","LOCALS",0)
-InParty("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 InMyArea("C#Brandock")
-!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN ~Seeing how everthing points to Athkatla these days, maybe we will meet there? Who knows, maybe I'll have an influencial position when next we meet - it's always good to have friends, if you are in Amn.~
-== C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN @1 /* ~Seeing how everthing points to Athkatla these days, maybe we will meet there? Who knows, maybe I'll have an influencial position when next we meet - it's always good to have friends, if you are in Amn.~ */
+== C#BrandJ IF ~InParty("C#Brandock") 
 InMyArea("C#Brandock")
-!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ 
-DO ~MakeGlobal()
+!StateCheck(Myself,CD_STATE_NOTVALID)~ THEN @2 /* ~Farewell, <CHARNAME>.~ */ 
+DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 ChangeAIScript("",DEFAULT)
 LeaveParty()
-EscapeArea()
-/*
-ActionOverride("C#Brandock",SetDialog("c#brand2")
-ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
-SetGlobal("C#BrandockSpawn","GLOBAL",10)
-ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))*/
-~ 
+EscapeArea() 
+SetInterrupt(TRUE)~ 
 
 /* Brandock was 7th party member */
-== C#BrandJ IF ~InParty("C#Brandock") InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Farewell, <CHARNAME>.~ DO ~MakeGlobal()
+== C#BrandJ IF ~Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2 /* ~Farewell, <CHARNAME>.~ */ DO ~SetInterrupt(FALSE)
+MakeGlobal()
 SetGlobal("C#BrandockJoined","GLOBAL",0)
 ChangeAIScript("",DEFAULT)
 RemoveFamiliar()
 ChangeEnemyAlly(Myself,NEUTRAL)
-EscapeArea()
-/*
-ActionOverride("C#Brandock",SetDialog("c#brand2")
-ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
-SetGlobal("C#BrandockSpawn","GLOBAL",10)
-ActionOverride("C#Brandock",MoveBetweenAreas("c#br03",[390.250],0))
-*/~ 
+EscapeArea() 
+SetInterrupt(TRUE)~ 
 END
 
 
 
-/* cenery dialogues that use the same friendship timer */
+/* scenery dialogues that use the same friendship timer */
 
 
 /* Caelar no child of Bhaal 
@@ -1287,7 +1533,29 @@ END
 
 /* 1st Friendship dialogue - bounty note of PC */
 
-IF ~PartyHasItem("bdmisc56") Global("C#Brandock_Dialog","GLOBAL",102)~ THEN bounty_notice
+IF ~Global("C#Brandock_Dialog","GLOBAL",102)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ THEN bounty_notice
 SAY ~Oh, another bounty notice? Let me take a look. Hm... Yes, these fellows did catch your nose right. Definitely!~ [c#ablank]
 ++ ~It's not a joking matter, Brandock.~ + bounty_notice_01
 
@@ -1306,7 +1574,29 @@ SAY ~But... that's the best moment to take life with a grain of jest - when it's
 
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) 
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1318,7 +1608,29 @@ SAY ~Then I apologize, I didn't mean to offend you. (They *did* catch your nose 
 
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) 
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1329,7 +1641,29 @@ SAY ~The warlord? ...Warlady? Assassins, for you! She seems to fear you a lot! W
 ++ ~Who knows, maybe the Dukes were talking about it for some time before requesting it from me.~ + bounty_notice_10
 
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1340,7 +1674,29 @@ SAY ~Imoen is sick and Duke Jannath can't help her? This is bad. This is really 
 ++ ~It is, and I won't stop until I found who's behind this.~ + bounty_notice_07
 
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1358,7 +1714,29 @@ IF ~~ THEN bounty_notice_06
 SAY ~Thanks.~
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1367,7 +1745,29 @@ IF ~~ THEN bounty_notice_07
 SAY ~Indeed.~
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
@@ -1392,20 +1792,76 @@ SAY ~Which could mean she could have spies in the palace... which is not a thoug
 
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-+ ~Global("C#Brando_SoDDPEvents3","LOCALS",0) PartyHasItem("bdmisc56")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
++ ~Global("C#Brando_SoDDPEvents3","LOCALS",0)
+OR(5)
+		PartyHasItem("bdmisc56") 
+		HasItem("bdmisc56","C#Solaufein")
+		HasItem("bdmisc56","C#Grey")
+		HasItem("bdmisc56","C#Husam1")
+		HasItem("bdmisc56","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + ~You're right. Maybe I should start a collection of these things. 'My life in pictures - volume I: Bounty notices by my foes.'~ DO ~SetGlobal("C#Brando_SoDDPEvents3","LOCALS",1)~ + bounty_notice_05
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
 
 /* Imoen down - first dialogue starts here if PC didn't pick up bounty notice */
-IF ~!PartyHasItem("bdmisc56") Global("C#Brandock_Dialog","GLOBAL",102) GlobalLT("BD_plot","global",54)~ THEN imoen_down
+IF ~Global("C#Brandock_Dialog","GLOBAL",102) GlobalLT("BD_plot","global",54)
+!PartyHasItem("bdmisc56") 
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",0)
+		!InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",0)
+		!InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",0)
+		!InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("C#Brandock")~ THEN imoen_down
 SAY ~Imoen stayed with Duke Jannath, I take it?~ [c#ablank]
 ++ ~She was attacked by assassins.~ + imoen_down_01
 + ~GlobalLT("BD_plot","global",54)~ + ~(scoffs) As her research material for finding a cure, maybe.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
 + ~GlobalLT("BD_plot","global",54)~ + ~Imoen's poisoned, and fighting for her life.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
 END
 
-IF ~!PartyHasItem("bdmisc56") Global("C#Brandock_Dialog","GLOBAL",102) GlobalGT("BD_plot","global",53)~ THEN imoen_down_00
+IF ~Global("C#Brandock_Dialog","GLOBAL",102) GlobalGT("BD_plot","global",53)
+!PartyHasItem("bdmisc56") 
+	OR(3)
+		!HasItem("bdmisc56","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",0)
+		!InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc56","C#Grey")
+		Global("C#GreyJoined","GLOBAL",0)
+		!InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc56","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",0)
+		!InParty("C#Husam")
+	OR(3)
+		!HasItem("bdmisc56","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",0)
+		!InParty("C#Brandock")~ THEN imoen_down_00
 SAY ~Imoen needed treatment earlier, I heard? What happened?~ [c#ablank]
 ++ ~She was attacked by assassins.~ + imoen_down_01
 END
@@ -1488,13 +1944,13 @@ SAY ~I am scared about what is going on. Didn't we just *end* a threat of war? L
 END
 
 IF ~~ THEN sod_story1_01
-SAY ~Caelar woule be a child of Bhaal? yes, that would make sense... more than I am happy to admit, if thinking of Sarevok.~
+SAY ~Caelar would be a child of Bhaal? Yes, that would make sense... more than I am happy to admit, if thinking of Sarevok.~
 IF ~~ THEN + sod_story1_02
 END
 
 IF ~~ THEN sod_story1_02
 SAY ~And what did Sarevok and the Iron Throne do to get this far. Poisoned the ore, enslaved miners, woven a net of conspiracy across the land, replaced influencial persons by doppelgangers. He didn't even stop at infiltrating Candlekeep!~
-= ~Now look at the city, and all because a war lord raised an army and just started marching. I wonder whether he'd be envious. Sarevok, I mean.~
+= ~Now look at the city! All because a war lord raised an army and just started marching. I wonder whether he'd be envious. Sarevok, I mean.~
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Dialog","GLOBAL",107)~ EXIT
 END
 

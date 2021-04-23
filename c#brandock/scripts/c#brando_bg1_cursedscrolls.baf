@@ -1,0 +1,81 @@
+
+/* comments on identified cursed scroll. Activation of variables in "c#brando_scrollscribing.baf" */
+/* trigger dialogue */
+IF 	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(8)
+		GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL12","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
+		GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)
+		Global("C#Br_CommentsIndentScroll","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_CommentsIndentScroll","LOCALS",1)
+END
+
+IF  	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("C#Br_CommentsIndentScroll","LOCALS",1)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* Party has first Cursed Scroll: not identified */
+IF 	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	OR(8)
+		PartyHasItem("SCRL10")
+		PartyHasItem("SCRL11")
+		PartyHasItem("SCRL12")
+		PartyHasItem("SCRL13")
+		PartyHasItem("SCRL14")
+		PartyHasItem("SCRL16")
+		PartyHasItem("SCRL17")
+		PartyHasItem("SCRL18")
+	!PartyHasItemIdentified("SCRL10")
+	!PartyHasItemIdentified("SCRL11")
+	!PartyHasItemIdentified("SCRL12")
+	!PartyHasItemIdentified("SCRL13")
+	!PartyHasItemIdentified("SCRL14")
+	!PartyHasItemIdentified("SCRL16")
+	!PartyHasItemIdentified("SCRL17")
+	!PartyHasItemIdentified("SCRL18")
+	Global("C#Br_CommentsCursedScroll","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_CommentsCursedScroll","LOCALS",1)
+END
+
+IF  	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("C#Br_CommentsCursedScroll","LOCALS",1)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END

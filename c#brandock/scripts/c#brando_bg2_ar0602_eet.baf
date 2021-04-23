@@ -1,0 +1,13 @@
+/* AR0602.bcs check for Brandock's book case */
+
+
+
+IF
+	GlobalLT("C#Brandock_BGTTOBG2","GLOBAL",3)
+	HasItem("c#br0003","K#ImportContainer")
+THEN
+	RESPONSE #100
+        	ActionOverride("K#ImportContainer",GiveItem("c#br0003","Picture1"))
+		SetGlobal("C#Brandock_BGTTOBG2","GLOBAL",3)
+		Continue()
+END

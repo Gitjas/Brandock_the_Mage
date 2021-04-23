@@ -7,24 +7,29 @@ IF
 	Switch("C#Br_bd_banter_Corwin03","MYAREA")
 THEN
 	RESPONSE #0
-		DisplayStringHead("C#Brandock",~Corwin, when I return home, I will have to fit in into an evil organisation and appreciate any help or hint how to do so unscathed.~)
+		DisplayStringHead("C#Brandock",@14)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",10)
 	RESPONSE #10
-		DisplayStringHead("CORWIN",~I see... I apologize, I understand now that the motivation behind your question was very different to what I assumed.~)
+		DisplayStringHead("CORWIN",@15)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",20)
 	RESPONSE #20
-		DisplayStringHead("C#Brandock",~I can't blame you. It must be hard, watching the lawful organisation you gave your live to turning evil.~)
+		DisplayStringHead("C#Brandock",@16)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("CORWIN",~It was. But I can't give you advice, not really. Only thing I can say is it helps if you have a standing that allows you to hide behind your desk if times get rough - and to know the right people who vouch for your integrity after the tides turned back to normal.~)
-		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_MINUTES)
+		DisplayStringHead("C#Brandock",@17)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",40)
-	RESPONSE #40 
-		DisplayStringHead("C#Brandock",~That's good advice, though - now I only need someone to show me how to get there...~)
+	RESPONSE #40
+		DisplayStringHead("CORWIN",@18)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",THREE_MINUTES)
+		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",50)
+	RESPONSE #50 
+		DisplayStringHead("C#Brandock",@19)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",9)
 		SetGlobal("C#Br_bd_banter_Corwin03","MYAREA",-1)
 END
 

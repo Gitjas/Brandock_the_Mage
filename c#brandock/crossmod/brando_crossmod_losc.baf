@@ -1,0 +1,18 @@
+/* Lighthouse L2, Lure of Sirine's Call */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("J#Lig2")
+Global("C#Br_LorePathJ#Lig2BG1_CM","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathJ#Lig2BG1_CM","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1033)
+SetInterrupt(TRUE)
+END

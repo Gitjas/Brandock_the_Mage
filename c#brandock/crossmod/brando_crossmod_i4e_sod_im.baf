@@ -1,0 +1,32 @@
+/* second Imoen banter */
+/* activation */
+IF
+	%IT_IS_SOD%
+	GlobalTimerNotExpired("BD_AREA_BANTER_DELAY","MYAREA")
+	Global("C#Brandock_ImoenSoD","GLOBAL",4)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See("C#Brandock")
+	IfValidForPartyDialogue("%IMOEN_DV%")  
+	!PartyRested()
+	!ActuallyInCombat()
+THEN
+	RESPONSE #100
+		BanterBlockTime(450) 
+		SetGlobalTimer("BD_NPC_BANTER","GLOBAL",FOUR_HOURS)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",5)
+END
+
+/* second Imoen banter */
+/* initiation */
+IF
+	%IT_IS_SOD%
+	Global("C#Brandock_ImoenSoD","GLOBAL",5)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See("C#Brandock")
+	IfValidForPartyDialogue("%IMOEN_DV%") 
+THEN
+	RESPONSE #100
+		SetAreaScript("c#brsc02",GENERAL)
+END

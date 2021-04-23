@@ -27,6 +27,10 @@ THEN
 	   	ActionOverride("C#Brandock",SetDialog("c#brand2")
 		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
+		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		SetGlobal("C#BrandockJoined","GLOBAL",0)
+/* shape shifter quest: reset variable so it can be 'updated' via PID if necessary */
+		SetGlobal("C#Brandock_UpdateShapeshift","LOCALS",0)
 END
 
 
@@ -44,14 +48,21 @@ THEN
 	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
 		SetGlobal("C#BrandockJoined","GLOBAL",0)
 
-/* shape shifter quest: done */
-		SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
+/* shape shifter quest: reset variable so it can be 'updated' via PID (not really needed for newly spawned cre) */
+		SetGlobal("C#Brandock_UpdateShapeshift","LOCALS",0)
 
-/* possessions quest */
-		SetGlobal("C#Brandock_Possessions","GLOBAL",8) 
+/* possessions quest - done */
+		SetGlobal("C#Brandock_Possessions","GLOBAL",21) 
 
 /* book restore quest */
-		SetGlobal("C#Br_BookRestore","GLOBAL",10)
+		SetGlobal("C#Br_BookRestore","GLOBAL",12)
+
+/* scroll scribing */
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		EraseJournalEntry(@10050)
+		EraseJournalEntry(@10054)
+		AddJournalEntry(@10012,QUEST_DONE)
+		ActionOverride("C#Brandock",ReallyForceSpellRES("c#brscra","C#Brandock"))		
 
 /* ## find Brandock's first tutor quest 
 		ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 
@@ -59,7 +70,6 @@ THEN
 
 /* items */
 		GiveItemCreate("POTN52","C#Brandock",5,0,0)
-
 		GiveItemCreate("c#br0003","C#Brandock",0,0,0)
 		GiveItemCreate("c#br0007","C#Brandock",0,0,0)
 

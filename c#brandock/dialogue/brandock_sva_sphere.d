@@ -401,7 +401,9 @@ APPEND c#brandj
 
 IF ~Global("C#Brandock_Killed Tolgerias","GLOBAL",1)~ THEN killed_tolgerias
 SAY ~Oh, oh, now we did not only anger a Cowled Wizard, but we *killed* him. I am sure there will be a heavy follow up to *this*! But, aaah, don't worry, <CHARNAME>, I'm alright. I'm al-right... (inhales) all... (exhales) ...right...~ [c#ablank]
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Killed Tolgerias","GLOBAL",2)~ EXIT
+= ~Oh, nearly forgot to look into his spellbook...~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Killed Tolgerias","GLOBAL",2)
+ReallyForceSpellRES("c#brlob1",Myself)~ EXIT
 END
 
 END //APPEND c#brandj

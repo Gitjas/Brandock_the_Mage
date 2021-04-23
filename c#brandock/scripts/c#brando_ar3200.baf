@@ -1,0 +1,49 @@
+IF 
+      OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+      InMyArea("C#Brandock")
+      !Dead("C#Brandock")
+      GlobalGT("C#Brandock_Shapeshift","GLOBAL",18)
+      Global("C#Brando_SpawnMalm","MYAREA",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brando_SpawnMalm","MYAREA",1)
+	    CreateCreature("c#brhabr",[833.2642],0)
+END
+
+IF 
+        InMyArea("c#brhabr")
+	OR(2)
+		Global("ENDOFBG1","GLOBAL",2) 
+		GlobalGT("C#Brando_VisitedMalm","GLOBAL",2)
+	Global("C#Brando_DeSpawnMalm","MYAREA",0)	
+THEN
+	RESPONSE #100
+	    ActionOverride("c#brrang",DestroySelf())
+            SetGlobal("C#Brando_DeSpawnMalm","MYAREA",1)
+END
+
+IF 
+      OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+      InMyArea("C#Brandock")
+      !Dead("C#Brandock")
+      GlobalGT("C#Brandock_Shapeshift","GLOBAL",18)
+      Global("C#Brando_SpawnRanger","MYAREA",0)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brando_SpawnRanger","MYAREA",1)
+	    CreateCreature("c#brrang",[2665.2657],0)
+END
+
+IF 
+      OR(3) 
+      	Global("C#BrandockJoined","GLOBAL",0)
+        !InMyArea("C#Brandock")
+        Dead("C#Brandock")
+      Global("C#Brando_SpawnRanger","MYAREA",1)	
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brando_SpawnRanger","MYAREA",0)
+	    ActionOverride("c#brrang",DestroySelf())
+END
+
+

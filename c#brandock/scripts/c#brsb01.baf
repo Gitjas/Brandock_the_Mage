@@ -7,32 +7,33 @@ IF
 	Switch("C#Br_bd_banter_Corwin01","MYAREA")
 THEN
 	RESPONSE #0
-		DisplayStringHead("C#Brandock",~So, Corwin. You are a captain of the Flaming Fist.~)
+		DisplayStringHead("C#Brandock",@0)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",10)
 	RESPONSE #10
-		DisplayStringHead("CORWIN",~Well spotted, Brandock. What about it?~)
+		DisplayStringHead("CORWIN",@1)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",20)
 	RESPONSE #20
-		DisplayStringHead("C#Brandock",~I was just wondering... Flaming Fist presented itself from a bit of a corrupt side not long ago, you know.~)
+		DisplayStringHead("C#Brandock",@2)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("CORWIN",~Indeed, it did. We are all glad this is over.~)
+		DisplayStringHead("CORWIN",@3)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",40)
 	RESPONSE #40
-		DisplayStringHead("C#Brandock",~Indeed. And yet I wonder how a lawful captain like you could go through this time... and still be captain.~)
+		DisplayStringHead("C#Brandock",@4)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",50)
 	RESPONSE #50
-		DisplayStringHead("CORWIN",~What are you implying?~)
+		DisplayStringHead("CORWIN",@5)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",60)
 	RESPONSE #60
-		DisplayStringHead("C#Brandock",~Nothing, it was a question, because I really don't know.~)
+		DisplayStringHead("C#Brandock",@6)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",3)
 		SetGlobal("C#Br_bd_banter_Corwin01","MYAREA",-1)
 END
 

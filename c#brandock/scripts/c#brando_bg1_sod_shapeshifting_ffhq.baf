@@ -1,0 +1,28 @@
+/* this gets patched to the prison area script; BG1 + SoD */
+IF 
+	!InMyArea("c#brhabr")
+	GlobalLT("ENDOFBG1","GLOBAL",2)
+	Global("C#Brando_VisitedMalm","GLOBAL",2)
+	Global("C#Brandock_Shapeshift","GLOBAL",24)
+THEN
+	RESPONSE #100
+            SetGlobal("C#Brando_VisitedMalm","GLOBAL",3)
+	    CreateCreature("c#brhabr",[343.615],12) 
+END
+
+/* Malm should not be here if it's BGII or if he was talked to */
+IF	
+	OR(2)
+		InMyArea("c#brhabr")
+		InMyArea("c#brhaff")
+	OR(2)
+		Global("ENDOFBG1","GLOBAL",2) 
+		Global("C#Brando_VisitedMalm","GLOBAL",6)
+	Global("C#Brando_DeSpawnMalm","MYAREA",0)
+THEN
+	RESPONSE #100
+		ActionOverride("c#brhabr",DestroySelf())
+		ActionOverride("c#brhaff",DestroySelf())
+           	SetGlobal("C#Brando_DeSpawnMalm","MYAREA",1)
+		Continue()	
+END

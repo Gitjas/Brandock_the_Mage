@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+	CutSceneID("C#Brandock")
+	MoveViewObject("C#Brandock",INSTANT)
+	FadeToColor([20.0],0)
+	Wait(2)
+	ActionOverride("c#brhaff",JumpToPoint([364.497]))
+	ActionOverride("c#brhaff",Face(12))
+	ActionOverride("c#brhabr",JumpToPoint([429.530]))
+	ActionOverride("c#brhabr",Face(6))
+	FadeFromColor([20.0],0)
+	Wait(2)
+	EndcutSceneMode()
+	SetInterrupt(TRUE)
+	ActionOverride("c#brhaff",StartDialogueNoSet("c#brhabr"))
+END

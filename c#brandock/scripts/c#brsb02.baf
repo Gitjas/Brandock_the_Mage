@@ -7,32 +7,33 @@ IF
 	Switch("C#Br_bd_banter_Corwin02","MYAREA")
 THEN
 	RESPONSE #0
-		DisplayStringHead("C#Brandock",~Corwin, how *did* you stay captain during Angelo's reign?~)
+		DisplayStringHead("C#Brandock",@7)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",10)
 	RESPONSE #10
-		DisplayStringHead("CORWIN",~Let me think... By murdering innocents, kidnapping children, chasing <CHARNAME>, and poisoning my officer.~)
+		DisplayStringHead("CORWIN",@8)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",20)
 	RESPONSE #20
-		DisplayStringHead("C#Brandock",~Really?~)
+		DisplayStringHead("C#Brandock",@9)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("CORWIN",~Of course not.~)
+		DisplayStringHead("CORWIN",@10)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",40)
 	RESPONSE #40
-		DisplayStringHead("C#Brandock",~Oh.~)
+		DisplayStringHead("C#Brandock",@11)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",7)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",50)
 	RESPONSE #50
-		DisplayStringHead("CORWIN",~Brandock, who said I *did* stay captain during Angelo's reign?~)
+		DisplayStringHead("CORWIN",@12)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",60)
 	RESPONSE #60
-		DisplayStringHead("C#Brandock",~Oh!~)
+		DisplayStringHead("C#Brandock",@13)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",4)
+		SetGlobal("C#Brandock_CorwinSoD","GLOBAL",6)
 		SetGlobal("C#Br_bd_banter_Corwin02","MYAREA",-1)
 END
 

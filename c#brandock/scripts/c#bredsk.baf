@@ -1,0 +1,108 @@
+/* script to "Elvenhair's desk" C#BREDSK.baf */
+
+/* not in chapter 7 if searched for murder */
+IF
+	Clicked([ANYONE])
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	Global("Chapter","GLOBAL",%tutu_chapter_7%)
+	Global("DukeThanks","GLOBAL",0)
+	Global("C#Brando_BookquestHold","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+/* PC is no longer serched for murder */
+IF
+	Clicked([ANYONE])
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	GlobalGT("C#Br_BookRestore","GLOBAL",0)
+	Global("DukeThanks","GLOBAL",1)
+	GlobalLT("C#Brando_BookquestHold","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+/* Brandock looks at the desk for the first time */
+IF
+	Clicked([ANYONE])
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	Global("C#Br_LorePathElvenhair","GLOBAL",0)
+	!Global("C#Brando_BookquestHold","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		DisplayString(Myself,~Today, Elvenhair's desk is loaded with magic books, tomes, and scrolls, some in languages you do not know. Brandock is already eyeing the titles, restraining himself visibly from touching the books.~)
+		Wait(2)
+		SetGlobal("C#Br_LorePathElvenhair","GLOBAL",1)
+		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+
+IF
+	Clicked([ANYONE])
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_ScribeScrollQuest","GLOBAL",1)
+	!Global("C#Brando_BookquestHold","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",2)
+		ActionOverride("firebe", StartDialogNoSet("C#Brandock"))
+END
+
+IF
+	Clicked([ANYONE])
+	InMyArea(Player1)
+	!Dead("firebe")
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_ScribeScrollQuest","GLOBAL",4)
+	!Global("C#Brando_BookquestHold","GLOBAL",1)
+	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",2)
+	OR(2)
+		Global("C#Br_Scrollscribing","GLOBAL",0)
+		Global("C#Br_Scrollscribing","GLOBAL",3)
+THEN
+	RESPONSE #100
+		IncrementGlobal("C#Br_Scrollscribing","GLOBAL",1)
+		ActionOverride("C#Brandock", StartDialogNoSet("C#Brandock"))
+END
+
+
+
+
+
+
+/* If no other conditions are true */
+IF
+	Clicked([ANYONE])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~This is Elvenhair's desk. You see piles of books, scrolls, and a set of differently shaped quills.~)
+END

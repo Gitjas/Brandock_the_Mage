@@ -2,17 +2,17 @@
 /* Gatewarden, before chapter 6 */
 EXTEND_BOTTOM ~%tutu_var%KEEPER~ 1 
 + ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-PartyHasItem("c#br0001")
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
 !GlobalGT("C#Br_BookRestore","GLOBAL",1)
 Global("C#Br_OfferedDestroyedBook","MYAREA",0)~ + @1050 DO ~SetGlobal("C#Br_OfferedDestroyedBook","MYAREA",1)
 SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",3)~ EXTERN c#brandj keeper_destroyedbook
 + ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-PartyHasItem("c#br0001")
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
 GlobalGT("C#Br_BookRestore","GLOBAL",1)
 Global("C#Br_OfferedDestroyedBook","MYAREA",0)~ + @1050 DO ~SetGlobal("C#Br_OfferedDestroyedBook","MYAREA",1)
 SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",3)~ + keeper_destroyedbook_02
 + ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-PartyHasItem("c#br0007")
+OR(2) PartyHasItem("c#br0007") HasItem("c#br0007","C#Brandock")
 Global("C#Br_OfferedRestoredBook","MYAREA",0)~ + @1051 DO ~SetGlobal("C#Br_OfferedRestoredBook","MYAREA",1)~ + keeper_destroyedbook_03
 END
 
@@ -37,33 +37,15 @@ IF ~~ THEN ~%tutu_var%KEEPER~ keeper_destroyedbook_03
 EXIT
 
 
-
-
-
-/* SCRL3C.itm - [Note from Tuth to Rieltar]Rieltar,
-My superiors are intrigued by your proposal. I would like to discuss it further, but not through correspondence such as this. The Harpers and Zhents have been very active in this region of late; it would be very unfortunate if they tried to disrupt an alliance between our two organizations. If you, Brunos, and Thaldorn were to meet with us in the safety of Candlekeep, my superiors would be much relieved. Please send a response ASAP.
-
-Tuth */
-
-/* SCRL3A.itm - [Note from Sarevok to Rieltar]Father,
-I received your letter, and I can assure you that the mercenaries led by <CHARNAME> will no longer trouble our operations. I have dealt with them personally. Before dying, they were most forthcoming in their revelations. It is as you had surmised: They were agents of the Zhentarim. I am also writing to tell you that I cannot attend the meeting at Candlekeep. Some problems have arisen with the Chill and the Blacktalons. They have had trouble working with each other, and I am needed there to smooth over any dissension. I am sorry that I will not be at your side.
-
-Sarevok */
-
-/* ##
-SAY ~Candlekeep! From all places, they meet up in Candlekeep?! Oh, they did not have a problem to give a book of high value each to get inside, did they? Why do the bad guys always seem to have all the fun?~
-*/
-
-
 /* Duke Eltan */
-I_C_T ~%tutu_var%DELTAN~ 10 C#Brandock_DELTAN
+I_C_T ~%tutu_var%DELTAN~ 10 C#Brandock_DELTAN_10
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @1058
 == ~%tutu_var%DELTAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @1059
 END
 
 
 APPEND c#brandj 
-/* entered Candlekeep area */
+/* entered Candlekeep area (not inside yet) */
 
 
 IF ~Global("C#Brandock_SeeCandlekeep","GLOBAL",1)~ THEN seeing_candlekeep
@@ -159,7 +141,7 @@ IF ~~ THEN c#brandj seeing_candlekeep_12
 @1074
 == c#brandj IF ~GlobalLT("C#Brandock_Dialog","GLOBAL",6)~ THEN @1075 
 == c#brandj IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",5)~ THEN @1077
-== c#brandj IF ~PartyHasItem("c#br0001")
+== c#brandj IF ~OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
 GlobalLT("C#Brandock_EnterCandlekeepPID","LOCALS",2)~ THEN @1076
 END
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",2)~ EXIT
@@ -534,6 +516,7 @@ END
 
 IF ~Global("C#Brandock_CKeepDoppelgangers","GLOBAL",5)~ THEN candlekeep_followup
 SAY @1175
++ ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",17)~ + @1200 /* ~Nice of you to ask - considering you have your plate full yourself currently with happenings to yourself we can't explain.~ */ + candlekeep_followup_05
 ++ @1176 + candlekeep_followup_02
 ++ @1177 + candlekeep_followup_02
 ++ @1178 + candlekeep_followup_02
@@ -552,14 +535,29 @@ SAY @1183
 IF ~~ THEN + candlekeep_followup_04
 END
 
-IF ~~ THEN candlekeep_followup_03
-SAY @1184
-IF ~~ THEN + candlekeep_followup_02
-END
+END //APPEND
 
+CHAIN
+IF ~~ THEN c#brandj APPENDcandlekeep_followup_03
+@1184
+== c#brandj @1201 /* ~Even... even if I'd have to stomp as a half-ogre at your side!~ */
+END
+IF ~~ THEN + candlekeep_followup_02
+
+APPEND c#brandj
 IF ~~ THEN candlekeep_followup_04
 SAY @1185
 IF ~~ THEN DO ~SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",7)~ EXIT
+END
+
+IF ~~ THEN candlekeep_followup_05
+SAY @1202 /* ~Oh, but what's happening to me is nothing compared to being expelled from your home and seeing it being invaded by doppelgangers!~ */
+++ @1176 + candlekeep_followup_02
+++ @1177 + candlekeep_followup_02
+++ @1203 /* ~I'm afraid there is nothing you can do. This is something I'll have to deal with, and nothing will make it better.~ */ + candlekeep_followup_02
+++ @1179 + candlekeep_followup_01
++ ~Global("C#Brandock_KnowBhaal","GLOBAL",1)~ + @1180 + candlekeep_followup_01
+++ @1181 + candlekeep_followup_01
 END
 
 
@@ -568,6 +566,7 @@ END
 /* #2  */
 IF ~Global("C#Brandock_CKeepDoppelgangers","GLOBAL",7)~ THEN candlekeep_followup2
 SAY @1186
++ ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",17)~ + @1204 /* ~You mean after you stomped your way through them as a half-oger?~ */+ candlekeep_followup2_07
 ++ @1187 + candlekeep_followup2_01
 ++ @1188 + candlekeep_followup2_02
 ++ @1189 + candlekeep_followup2_03
@@ -607,6 +606,17 @@ IF ~~ THEN candlekeep_followup2_06
 SAY @1199  
 IF ~~ THEN DO ~SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",8)~ EXIT
 END
+
+IF ~~ THEN candlekeep_followup2_07
+SAY @1205 /* ~Oh yes, that's... that's actually funny. Still... I don't think it would have saved me in the end from the doppelgangers.~ */
+++ @1187 + candlekeep_followup2_01
+++ @1188 + candlekeep_followup2_02
+++ @1189 + candlekeep_followup2_03
+++ @1190 + candlekeep_followup2_01
+++ @1191 + candlekeep_followup2_04
+++ @1192 + candlekeep_followup2_06
+END
+
 
 
 END //APPEND

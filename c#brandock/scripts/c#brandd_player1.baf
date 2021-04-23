@@ -1,0 +1,48 @@
+
+/* Brandock's rest talk, appended to playr1d.bcs; in case he is in 7th party member mode. The triggers need to be adjusted! */
+
+/* "Myself" = Player1 ! */
+
+
+/* activate */
+IF
+	%BGT_VAR%
+	Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See("C#Brandock")
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+	Global("C#Brandock_Possessions","GLOBAL",16)
+	GlobalGT("Chapter","GLOBAL",%tutu_chapter_5%)// random variable just to make sure some time has passed
+	OR(2)
+		AreaType(OUTDOOR)	
+		AreaType(FOREST)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_Possessions","GLOBAL",17)
+		ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
+		
+END
+
+/* Brandock scribes a scroll upon rest */
+/*activate */
+
+
+IF
+	%BGT_VAR%
+	Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See("C#Brandock")
+	!Detect([ENEMY])
+	!Detect([EVILBUTBLUE])
+	CombatCounter(0)
+	Global("C#Br_ScribeScrollQuest","GLOBAL",5)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",6)
+		ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
+		
+END

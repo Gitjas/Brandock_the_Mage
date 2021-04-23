@@ -1,11 +1,34 @@
+/* Brandock Half-ogre quest. Needed for BG1 */
 /* shapeshifting quest - version 2 */
 
 /* Activate: shapeshift - Melicamp is in party's inventory */
 IF %BGT_VAR%
 !Dead("Thalantyr")
 !Allegiance("Thalantyr",ENEMY)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",2)
-PartyHasItem("%tutu_var%MISC49") //Melicamp
+Global("C#Brandock_Shapeshift","GLOBAL",0)
+//Melicamp
+OR(5)
+		PartyHasItem("%tutu_var%MISC49") 
+		HasItem("%tutu_var%MISC49","C#Solaufein")
+		HasItem("%tutu_var%MISC49","C#Grey")
+		HasItem("%tutu_var%MISC49","C#Husam1")
+		HasItem("%tutu_var%MISC49","C#Brandock")
+	OR(3)
+		!HasItem("%tutu_var%MISC49","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("%tutu_var%MISC49","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("%tutu_var%MISC49","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("%tutu_var%MISC49","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -18,13 +41,13 @@ AreaCheck("%HighHedge%")
 THEN
 RESPONSE #100
 CreateCreature("C#BRMELI",[-1.-1],0)
-SetGlobal("C#Brandock_Shapeshift","GLOBAL",2)
+SetGlobal("C#Brandock_Shapeshift","GLOBAL",1)
 END
 
 /* Initiate: shapeshift - Melicamp is in party's inventory */
 IF %BGT_VAR%
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-Global("C#Brandock_Shapeshift","GLOBAL",2)
+Global("C#Brandock_Shapeshift","GLOBAL",1)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 InMyArea("C#BRMELI")
@@ -49,5 +72,108 @@ Global("C#Brandock_Shapeshift","GLOBAL",9)
 THEN
 RESPONSE #100
 StartDialogueNoSet(Player1)
+END
+
+/* follow-up: life was easy as a half-ogre (needed as prep for following quest content */
+
+/* activation */
+IF
+%BGT_VAR%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+	!Range([NEUTRAL],10)
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Brandock_Shapeshift","GLOBAL",11)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    SetGlobal("C#Brandock_Shapeshift","GLOBAL",12)
+END
+
+/* triggering */
+IF
+%BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brandock_Shapeshift","GLOBAL",12)  
+THEN
+  RESPONSE #100
+    StartDialogNoSet(Player1)
+END
+
+/* after being to Thalantyr and stepping out of his abode */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+	!Range([NEUTRAL],10)
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  !See("Thalantyr")
+  Global("C#Brandock_Shapeshift","GLOBAL",20)
+  GlobalLT("C#Brando_ShapeFollowup","LOCALS",3)
+  		
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brando_ShapeFollowup","LOCALS",3)
+END
+
+/* triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brando_ShapeFollowup","LOCALS",3)  
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    StartDialogNoSet(Player1)
+END
+
+/* reminder that Brandock wants to go to Thalantyr */
+/* activation */
+IF
+%BGT_VAR%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+	!Range([NEUTRAL],10)
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Brandock_Shapeshift","GLOBAL",19)
+  Global("C#Brando_ShapeFollowup","LOCALS",0)
+  		
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brando_ShapeFollowup","LOCALS",1)
+END
+
+/* triggering */
+IF
+%BGT_VAR%
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brando_ShapeFollowup","LOCALS",1)  
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    StartDialogNoSet(Player1)
 END
 

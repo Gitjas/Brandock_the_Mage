@@ -1,0 +1,11 @@
+IF 
+        InMyArea("c#brhabr")
+	GlobalGT("C#Brandock_Shapeshift","GLOBAL",21)
+	Global("C#Brando_DeSpawnMalm","MYAREA",0)	
+THEN
+	RESPONSE #100
+	    ActionOverride("c#brrang",DestroySelf())
+            SetGlobal("C#Brando_DeSpawnMalm","MYAREA",1)
+END
+
+

@@ -73,14 +73,18 @@ THEN
 	  ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 	  ActionOverride("C#Brandock",SetDialog("c#brands")
 
-/* activate shape shifter quest */
-	  SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
-
 /* possessions quest */
-	  SetGlobal("C#Brandock_Possessions","GLOBAL",20) 
+	  SetGlobal("C#Brandock_Possessions","GLOBAL",21) 
 
 /* book restore quest */
-		SetGlobal("C#Br_BookRestore","GLOBAL",10)
+		SetGlobal("C#Br_BookRestore","GLOBAL",12)
+
+/* scroll scribing */
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		EraseJournalEntry(@10050)
+		EraseJournalEntry(@10054)
+		AddJournalEntry(@10012,QUEST_DONE)
+		ReallyForceSpellRES("c#brscra","C#Brandock")
 /* ##
 /* find Brandock's first tutor quest */
 	  ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 

@@ -1,0 +1,11 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("C#Brandock")
+        	FadeToColor([20.0],0)
+        	Wait(3)
+        	FadeFromColor([20.0],0)
+		EndcutSceneMode()
+		ActionOverride("C#Brandock",StartDialogNoSet([PC]))
+END

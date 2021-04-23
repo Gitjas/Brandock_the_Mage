@@ -1,0 +1,21 @@
+/* party rested: reset scroll scribing variable. */
+IF
+	%BGT_VAR%
+	GlobalGT("C#Br_Scrollscribing","GLOBAL",0)
+	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
+		SetGlobal("C#Br_Scrollscribing","GLOBAL",0)
+		Continue()	
+END
+
+IF
+	GlobalGT("c#brbok1","GLOBAL",0)
+	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
+		SetGlobal("c#brbok1","GLOBAL",0) //book will be refreshed
+		Continue()	
+END

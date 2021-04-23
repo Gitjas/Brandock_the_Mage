@@ -1,0 +1,144 @@
+/* first entry: Brandock notices book shelf */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	AreaCheck("l#hig1")
+	Global("C#Brando_WasInThalanRoom","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_WasInThalanRoom","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_WasInThalanRoom","GLOBAL",1)		
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* after player conversed with book shelf: Brandock asks for Lore increase */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	AreaCheck("l#hig1")
+	GlobalGT("L#HIGBookQuest","GLOBAL",0)
+	Global("C#Brando_WasInThalanRoom","GLOBAL",2)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("L#HIGBO",Myself,0,0,0) 
+		SetGlobal("C#Brando_WasInThalanRoom","GLOBAL",3)
+END
+
+/* trigger */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_WasInThalanRoom","GLOBAL",3)		
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* l#ICERE.itm ~Tome of Lore~
+  SAY DESC ~This powerful tome holds all kinds of information on magical items, important places and researches conducted by well-respected scholars. */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	PartyHasItem("l#ICERE")
+	Global("C#Brando_sotsc_l#ICERE","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_sotsc_l#ICERE","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_sotsc_l#ICERE","GLOBAL",1)		
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* l#HIGKE.itm ~Thalantyr's Ward Stone~
+  SAY DESC ~This ward stone must belong to Thalantyr. He must have lost it. Perhaps it may be used to open a door to his secret chamber? Should I check it out or return it to the mage? */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	PartyHasItem("l#HIGKE")
+	Global("C#Brando_sotsc_l#HIGKE","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_sotsc_l#HIGKE","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_sotsc_l#HIGKE","GLOBAL",1)		
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* l#HIGBO.itm~ ~Book of Swirling Stones~
+  SAY DESC ~This book is a magic item that allows you to trigger a special magic that will lift stones surrounding you into the air and throw them at your targets. */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	PartyHasItem("l#HIGBO")
+	Global("C#Brando_sotsc_l#HIGBO","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_sotsc_l#HIGBO","GLOBAL",1)
+END
+
+/* trigger */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_sotsc_l#HIGBO","GLOBAL",1)		
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END

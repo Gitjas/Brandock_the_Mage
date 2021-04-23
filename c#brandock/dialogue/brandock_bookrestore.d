@@ -1,4 +1,48 @@
 
+
+
+/* group was expelled from Candlekeep - Elvenhair will not throw them out but make clear that being associated with PC is currently not favorable - ONLY if Brandock's book quest is valid. */
+/* triggered either by talking to Elvenhair or by clicking on the desk in case Brandock is allowed to scrie scrolls. */
+
+CHAIN
+IF WEIGHT #-1
+~InMyArea("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+GlobalGT("C#Br_BookRestore","GLOBAL",0)
+Global("Chapter","GLOBAL",%tutu_chapter_7%)
+Global("DukeThanks","GLOBAL",0)
+Global("C#Brando_BookquestHold","GLOBAL",0)~ THEN FIREBE no_help_chapter6
+@995 /* ~[Elvenhair]Ah, young <CHARNAME> and <PRO_HISHER> friends. I am very unsettled to say so, but I cannot well be seen with people wanted for murder in Candlekeep. I am sorry. I do know that Tethtoril thinks you do not deserve this, and I trust his judgement, but until this is resolved, I need you to leave.~ */
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",12)~ THEN @998 /* ~We... we understand, Master Elvenhair. You are alive and well - that is the most important thing right now and will hopefully stay that way. Er, I hope that didn't sound like a threat... <CHARNAME>, let us go, please.~ */
+END
+IF ~~ THEN DO ~SetGlobal("C#Brando_BookquestHold","GLOBAL",1)~ UNSOLVED_JOURNAL @10028 /* ~Brandock Wants to Restore his Book
+
+Acursed murder accusations! Elvenhair will not help Brandock until we cleared our names from the murder accusation in Candlekeep. I hope once this is resolved, Elvenhair will continue to help Brandock with his troubles.~ */ EXIT
+IF ~GlobalGT("C#Br_BookRestore","GLOBAL",5)~ THEN DO ~AddJournalEntry(@10054,QUEST) SetGlobal("C#Brando_BookquestHold","GLOBAL",1)~ UNSOLVED_JOURNAL @10028 /* ~Brandock Wants to Restore his Book
+
+Acursed murder accusations! Elvenhair will not help Brandock until we cleared our names from the murder accusation in Candlekeep. I hope once this is resolved, Elvenhair will continue to help Brandock with his troubles.~ */ EXIT
+
+
+/* after name is cleared */
+CHAIN
+IF WEIGHT #-1
+~InMyArea("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+GlobalGT("C#Br_BookRestore","GLOBAL",0)
+Global("DukeThanks","GLOBAL",1)
+GlobalLT("C#Brando_BookquestHold","GLOBAL",2)~ THEN FIREBE help_after_chapter6
+@997 /* ~[Elvenhair]Ah, young <CHARNAME> and <PRO_HISHER> friends - it is good to see you. With great relieve I heard that the accusations against you were false indeed. I am sorry you were the target of such a misunderstanding and it eases my heart to know that you did nothing wrong. Feel welcome in my house any time you wish.~ */
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",12)~ THEN @999 /* ~Thank you so much, Master Elvenhair. Let me stress that I am more than relieved to see you alive and well as well. We killed a doppelganger with your face in Candlekeep!~ */
+== FIREBE IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",12)~ THEN @1000 /* ~Yes, Tethtoril wrote to me about doppelgangers inside the keep - nasty, very nasty.~ */
+END
+IF ~~ THEN DO ~EraseJournalEntry(@10028)
+EraseJournalEntry(@10054)
+SetGlobal("C#Brando_BookquestHold","GLOBAL",2)
+SetGlobal("C#Brandock_BG1BookMessenger","GLOBAL",2)~ EXIT
+
+
 APPEND FIREBE
 
 /* Firebead will give his book quest first if he hasn't already. It only triggers for "IsGabber(Player1) in BGT. BG:EE rearranged the whole FIREBE dialogue states for reasons unknown. */
@@ -14,22 +58,134 @@ SAY @750
 IF ~~ THEN + %FIREBE_Bookqueststate%
 END
 
-/* Brandock comes with all ingredients */
+
+/* Brandock comes with ingredients */
 /* POTN42 - potion of Regeneration */
 /* Star Sapphire MISC41.itm */
 
+
+/* octopus ink */
 IF WEIGHT #-1
 ~OR(2)
 	Global("C#Br_BookRestore","GLOBAL",2)
 	Global("C#Br_BookRestore","GLOBAL",4)
-PartyHasItem("c#br0001")
-PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
+OR(2) PartyHasItem("c#broink") HasItem("c#broink","C#Brandock")
+Global("C#Br_HaveInk","MYAREA",0)
 InMyArea(Player1)
 InMyArea("C#Brandock")
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
-!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN bookrestore
-SAY @751
-IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",5)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ingredient_01
+SAY @751 /* ~Ah, the young <CHARNAME> and <PRO_HISHER> unfortunate friend. I see you have ingredients I requested.~ */
+IF ~~ THEN DO ~SetGlobal("C#Br_HaveInk","MYAREA",1)~ + ingredient_04
+IF ~HasItem("c#broink","C#Brandock") Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#broink",Player1))
+SetGlobal("C#Br_HaveInk","MYAREA",1)~ + ingredient_04
+END
+
+/* potion of regeneration */
+IF WEIGHT #-1
+~OR(2)
+	Global("C#Br_BookRestore","GLOBAL",2)
+	Global("C#Br_BookRestore","GLOBAL",4)
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
+OR(2) PartyHasItem("POTN42") HasItem("POTN42","C#Brandock")
+Global("C#Br_HavePotion","MYAREA",0)
+InMyArea(Player1)
+InMyArea("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ingredient_02
+SAY @751 /* ~Ah, the young <CHARNAME> and <PRO_HISHER> unfortunate friend. I see you have ingredients I requested.~ */
+IF ~HasItem("POTN42","C#Brandock") Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("POTN42",Player1)) SetGlobal("C#Br_HavePotion","MYAREA",1)~ + ingredient_05
+IF ~PartyHasItem("POTN42")~ THEN DO ~SetGlobal("C#Br_HavePotion","MYAREA",1)~ + ingredient_05
+END
+
+/* star saphire */
+IF WEIGHT #-1
+~OR(2)
+	Global("C#Br_BookRestore","GLOBAL",2)
+	Global("C#Br_BookRestore","GLOBAL",4)
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
+OR(2) PartyHasItem("MISC41") HasItem("MISC41","C#Brandock")
+Global("C#Br_HaveSaphire","MYAREA",0)
+InMyArea(Player1)
+InMyArea("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ingredient_03
+SAY @751 /* ~Ah, the young <CHARNAME> and <PRO_HISHER> unfortunate friend. I see you have ingredients I requested.~ */
+IF ~HasItem("MISC41","C#Brandock") Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("MISC41",Player1))
+SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+IF ~PartyHasItem("MISC41")~ THEN DO ~SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+END
+
+/* octopus ink */
+IF ~~ THEN ingredient_04
+SAY @754 /* ~Octopus ink!~ */
+IF ~~ THEN DO ~ActionOverride("FIREBE",TakePartyItem("c#broink")) 
+ActionOverride("FIREBE",DestroyItem("c#broink"))~ + ingredient_04_1
+END
+
+IF ~~ THEN ingredient_04_1
+SAY @759 /* ~Always needed for the right consistency of magical ink.~ */
+IF ~~ THEN + not_all_ingredients
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0001",Player1))~ + bookrestore
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)
+PartyHasItem("c#br0001")~ THEN + bookrestore
+IF ~Global("C#Br_HaveSaphire","MYAREA",0) 
+HasItem("MISC41","C#Brandock")
+Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("MISC41",Player1))
+SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+IF ~Global("C#Br_HaveSaphire","MYAREA",0) PartyHasItem("MISC41")~ THEN DO ~SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+IF ~Global("C#Br_HavePotion","MYAREA",0) HasItem("POTN42","C#Brandock")
+Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("POTN42",Player1))
+SetGlobal("C#Br_HavePotion","MYAREA",1)~ + ingredient_05
+IF ~Global("C#Br_HavePotion","MYAREA",0) PartyHasItem("POTN42")~ THEN DO ~SetGlobal("C#Br_HavePotion","MYAREA",1)~ + ingredient_05
+END
+
+/* potion of regeneration */
+IF ~~ THEN ingredient_05
+SAY @762 /* ~A potion of Regeneration!~ */
+IF ~~ THEN DO ~ActionOverride("FIREBE",TakePartyItemNum("POTN42",1)) 
+ActionOverride("FIREBE",DestroyItem("POTN42"))~ + ingredient_05_1
+END
+
+IF ~~ THEN ingredient_05_1
+SAY @983 /* ~A powerful magic, and useful in more than one way if you know how.~ */ 
+IF ~~ THEN + not_all_ingredients
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0001",Player1))~ + bookrestore
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)
+PartyHasItem("c#br0001")~ THEN + bookrestore
+IF ~Global("C#Br_HaveSaphire","MYAREA",0) 
+HasItem("MISC41","C#Brandock")
+Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("MISC41",Player1))
+SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+IF ~Global("C#Br_HaveSaphire","MYAREA",0) PartyHasItem("MISC41")~ THEN DO ~SetGlobal("C#Br_HaveSaphire","MYAREA",1)~ + ingredient_06
+END
+
+/* star spahire */
+IF ~~ THEN ingredient_06
+SAY @984 /* ~A Star Saphire!~ */
+IF ~~ THEN DO ~ActionOverride("FIREBE",TakePartyItemNum("MISC41",1)) 
+ActionOverride("FIREBE",DestroyItem("MISC41"))~ + ingredient_06_1
+END
+
+
+IF ~~ THEN ingredient_06_1
+SAY @985 /* ~Always a sight for sore eyes.~ */ 
+IF ~~ THEN + not_all_ingredients
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0001",Player1))~ + bookrestore
+IF ~Global("C#Br_HaveInk","MYAREA",1) Global("C#Br_HavePotion","MYAREA",1) Global("C#Br_HaveSaphire","MYAREA",1)
+PartyHasItem("c#br0001")~ THEN + bookrestore
+END
+
+IF ~~ THEN not_all_ingredients
+SAY @986 /* ~Come back when you have all needed ingredients.~ */
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN bookrestore
+SAY @987 /* ~Let us begin with preserving the remaining book snippets against further destruction, shall we?~ */
+IF ~~ THEN DO ~ActionOverride("FIREBE",TakePartyItem("c#br0001")) 
+ActionOverride("FIREBE",DestroyItem("c#br0001")) SetGlobal("C#Br_BookRestore","GLOBAL",5)
 ClearAllActions() StartCutSceneMode() StartCutScene("c#brcu11")~ EXIT
 END
 
@@ -43,51 +199,91 @@ END //APPEND
 
 CHAIN
 IF ~Global("C#Br_BookRestore","GLOBAL",1)
-PartyHasItem("c#br0001")
+OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
 See("FIREBE")~ THEN c#brandj brandock_quest
 @752
 == FIREBE @753
 == c#brandj @975
 = @976
 == FIREBE @755
+= @756
 = @977
-= @982
 = @978
 = @979
 == c#brandj @757
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10021)
-AddJournalEntry(@10050,QUEST)
-SetGlobal("C#Brandock_ScrollscribingElvenhair","GLOBAL",1)
 SetGlobal("C#Br_BookRestore","GLOBAL",2)~ UNSOLVED_JOURNAL @10022 EXIT
 
 /* after book restore cutscene */
 CHAIN
-IF ~Global("C#Br_BookRestore","GLOBAL",5)~ THEN c#brandj bookrestore
+IF ~Global("C#Br_BookRestore","GLOBAL",5)~ THEN c#brandj bookrestore_01
 @758
 == FIREBE @980 /* ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book.~ */
 == c#brandj @760 /* ~You've... *got* to be kidding me.~ */
-== FIREBE @981 /* ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand the rest I'd need my lexicon, which is in Candlekeep.~ */
+== FIREBE @981 /* ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise... and it also seems to mention Oghma's wisdom. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand it properly I'd need my lexicon, which is in Candlekeep.~ */
 = @761  /* ~This is most fascinating, it seems this transformation is related to the simplified magic formulas characterizing the De Simplex Magicae. We just raised the book to its next level, and a lot could be learnt from that. You need to find a way into Candlekeep with this, young friend. Unfortunately, it is not valuable enough in its current state, but it will be a most precious object of study. If you ever earn the way into Candlekeep, I will make sure the sages know about this.~ */
 = @972 /* But we cannot know when this will come to pass, and I am much too intrigued to wait for it to happen. I will do the following, my young mage. Next time my ways guide me to Candlekeep, I will bring my private copy of Ruathlek lexicon with me. I do not know yet when this will be, I fear it will be a while still. I will let you know once this happens.~ */
 = @973 /* ~Until then we would be poorly advised to just try and do anything more with the book before we do not know what exactly it says how to proceed to restore it. Do not attempt to write spells into it on your own account, Brandock. I fear for you safety.~ */
 == c#brandj @974  /* ~[Brandock] I would never, Master Elvenhair. I know how dangerous it can be, ahem. Thank you - thank you so much for all your help. I am completely stunned and don't know what to say.~ */
-= @971 /* ~This was a most interesting experience for me at my age, young man. Please, continue to note down what you remember from the book's spells as you already did. Until we know exactly what the first pages translate to we should not risk the recipes getting lost.~ */
+== FIREBE @971 /* ~This was a most interesting experience for me at my age, young man. Please, continue to note down what you remember from the book's spells as you already did. Until we know exactly what the first pages translate to we should not risk the recipes getting lost.~ */
+= @982 /* ~But I do recommend you practice your scroll scribing skills so you are prepared for scribing spells into the De Simplex Magicae later. Just come here to do so. You can use my desk and utensils any time you want.~ */
 == c#brandj @763 /* ~Thank you, Master Elvenhair. I don't know what to say... <CHARNAME>, I... I need to process what just happened. My head feels like it's gonna *explode*.~ */
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10026)
-SetGlobal("C#Br_BookRestore","GLOBAL",6)~ UNSOLVED_JOURNAL @10051 EXIT
+AddJournalEntry(@10050,QUEST)
+AddJournalEntry(@10051,QUEST)
+SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",1)
+SetGlobal("C#Br_BookRestore","GLOBAL",6)~ UNSOLVED_JOURNAL @10044 EXIT
 
+/* group has all needed ingredients */
+CHAIN
+IF ~Global("C#Brandock_AllIngredientsBG1","GLOBAL",1)~ THEN c#brandj all_ingredients
+@764
+== c#brandj IF ~Global("C#Brando_BookquestHold","GLOBAL",1)~ THEN @993 /* ~Please let's hold on to them, until we can go to Master Elvenhair again.~ */
+END
+IF ~~ THEN + return_elvenhair
+IF ~!Global("C#Brando_BookquestHold","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",3)~ EXIT
 
 APPEND c#brandj
 
-/* group has all needed ingredients */
+/* Sarevok's scheme is revealed */
 
-IF ~Global("C#Brandock_AllIngredientsBG1","GLOBAL",1)~ THEN all_ingredients
-SAY @764
-IF ~~ THEN DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10026 EXIT
+IF ~Global("C#Brandock_SarevoksScheme","GLOBAL",1)~ THEN sarevoks_scheme1
+SAY @232 /* ~We did it! We cleared our names and saved the Dukes - for now. And we confronted Sarevok! Well, kind of. Sarevok, who apparently is the murderer of your foster father, Gorion! How do you feel?~ */
+++ @991 /* ~Having out names cleared takes a huge weight from my shoulders.~ */ + sarevoks_scheme1_03
+++ @233 + sarevoks_scheme1_01
+++ @234 + sarevoks_scheme1_01
+++ @235 + sarevoks_scheme1_01
+++ @236 + sarevoks_scheme1_02
 END
 
+IF ~~ THEN sarevoks_scheme1_01
+SAY @237 /* ~The situation has turned - now Sarevok is the hunted one. Let's go and stop him for good.~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SarevoksScheme","GLOBAL",2)~ EXIT
+IF ~Global("C#Brando_BookquestHold","GLOBAL",1)~ THEN DO ~SetGlobal("C#Brandock_SarevoksScheme","GLOBAL",2)~ + visit_elvenhair_again
+END
+
+IF ~~ THEN sarevoks_scheme1_02
+SAY @238
+IF ~~ THEN + sarevoks_scheme1_01
+END
+
+IF ~~ THEN sarevoks_scheme1_03
+SAY @992 /* ~Oh yes, I can very much relate to that!~ */
+IF ~~ THEN + sarevoks_scheme1_01
+END
+
+IF ~~ THEN visit_elvenhair_again
+SAY @994 /* ~Now that we cleared our names, we probably can visit Elvenhair again, what do you think?~ */
+IF ~~ THEN EXIT
+IF ~Global("C#Brandock_AllIngredientsBG1","GLOBAL",3)~ THEN + return_elvenhair
+END
+
+IF ~~ THEN return_elvenhair
+SAY @990 /* ~Please, <CHARNAME>, let us return to Master Elvenhair as soon as possible!~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2)~ UNSOLVED_JOURNAL @10026 EXIT
+END
 
 
 /* Brandock after leaving Elvenhair's home: restore book quest */
@@ -104,20 +300,36 @@ SAY @769
 IF ~~ THEN + after_elvenhair_02
 END
 
-END //APPEND
-CHAIN
-IF ~~ THEN c#brandj after_elvenhair_02
-@770 
-DO ~SetGlobal("C#Br_BookRestore","GLOBAL",4)~
-== c#brandj IF ~!PartyHasItem("POTN42") !PartyHasItem("MISC41") !PartyHasItem("c#broink")~ THEN @771
-== c#brandj IF ~OR(3)
-!PartyHasItem("POTN42") !PartyHasItem("MISC41") !PartyHasItem("c#broink")
-OR(3)
-PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")~ THEN @772
-== c#brandj IF ~PartyHasItem("POTN42") PartyHasItem("MISC41") PartyHasItem("c#broink")~ THEN @773 DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2) EraseJournalEntry(@10022) AddJournalEntry(@10026,QUEST)~
-EXIT
+IF ~~ THEN after_elvenhair_02
+SAY @770 /* ~I'm sorry I'm so excited. But I'm *so* excited! I... arrrrrrgh, I will be calm now.~ */
+IF ~~ THEN + after_elvenhair_05
+IF ~OR(2)
+PartyHasItem("POTN42") 
+HasItem("POTN42","C#Brandock")
+OR(2)
+PartyHasItem("MISC41") 
+HasItem("MISC41","C#Brandock")
+OR(2)
+PartyHasItem("c#broink")
+HasItem("c#broink","C#Brandock")~ THEN + after_elvenhair_04
+IF ~!PartyHasItem("POTN42") !PartyHasItem("MISC41") !PartyHasItem("c#broink")
+!HasItem("POTN42","C#Brandock") !HasItem("MISC41","C#Brandock") !HasItem("c#broink","C#Brandock")~ THEN + after_elvenhair_03
+END
 
-APPEND c#brandj
+IF ~~ THEN after_elvenhair_03
+SAY @771  /* ~Let's go find the things he requested! I promise, I'll help retrieve the gold we need to acquire them.~ */
+IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",4)~ EXIT
+END
+
+IF ~~ THEN after_elvenhair_04
+SAY @773 /* ~And we already have everything he requested! Er, why did we leave? Let's go back inside! Please!~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_AllIngredientsBG1","GLOBAL",2) EraseJournalEntry(@10022) AddJournalEntry(@10026,QUEST) SetGlobal("C#Br_BookRestore","GLOBAL",4)~ EXIT
+END
+
+IF ~~ THEN after_elvenhair_05
+SAY @772 /* ~And we already have some of the required ingredients! Let's go find the other things he requested. I promise, I'll help retrieve the gold we need to acquire them!~ */
+IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",4)~ EXIT
+END
 
 /* after book transformed */
 IF ~Global("C#Br_BookRestore","GLOBAL",7)~ THEN transformed_book
@@ -148,15 +360,15 @@ SAY @784 /* ~I'm sorry, I'm still trying to process what happened.~ */
 END
 
 IF ~~ THEN transformed_book_04
-SAY /* @##  @785 */ ~What else could it be? Yes, I believe they did. The spells have to be added back by a mage of high enough expertise... But of course we will only know for sure once I have the chance to study it thoroughly. With which Master Elvenhair will help me by bringing his Ruathlek lexicon from Candlekeep... Candlekeep!~ 
+SAY @785 /* ~What else could it be? Yes, I believe they did. The spells have to be added back by a mage of high enough expertise... But of course we will only know for sure once I have the chance to study it thoroughly. With which Master Elvenhair will help me by bringing his Ruathlek lexicon from Candlekeep... Candlekeep!~ */
 IF ~~ THEN + transformed_book_05
 END
 
 IF ~~ THEN transformed_book_05
-SAY /* @##  @786 */ ~Master Elvenhair would even welcome me in Candlekeep with this book to study. He said that, didn't he? You heard it too?~ 
+SAY @786 /* ~Master Elvenhair would even welcome me in Candlekeep with this book to study. He said that, didn't he? You heard it too?~ */
 ++ @787 /* ~Yes, he definitely was most fascinated by the whole thing.~ */ + transformed_book_06
 ++ @788 /* ~I am very happy for you, Brandock.~ */ + transformed_book_06
-+ ~!PartyHasItem("BOOK68")~ + @789 + transformed_book_07
++ ~!PartyHasItem("BOOK68") !HasItem("BOOK68","C#Brandock")~ + @789 + transformed_book_07
 ++ @779 /* ~Great, now we can go back to do important things.~ */ + transformed_book_09
 END
 
@@ -182,10 +394,18 @@ SAY @795 /* ~That we can! That we definitely can.~ */
 IF ~~ THEN + transformed_book_10
 END
 
-IF ~~ THEN transformed_book_10
-SAY /* @## @796 */ ~But... to know the book is not lost! And the thought of not being expelled from Candlekeep - that I might be welcome, even! I have a goal again, <CHARNAME>. I will help you with your endeavors, and I will save my gold, and I will buy a new book, valuable enough to get entry into the monastery. Someday, <CHARNAME>. Someday I will be there!~ 
-IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ EXIT
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj transformed_book_10
+@796 /* ~But... to know the book is not lost! And the thought of not being expelled from Candlekeep - that I might be welcome, even! I have a goal again, <CHARNAME>. I will help you with your endeavors, and I will save my gold, and I will buy a new book, valuable enough to get entry into the monastery. Someday, <CHARNAME>. Someday I will be there!~ */
+= @988 /* ~And on top of it all, Master Elvenhair offered me to train scroll scribing with him. I'd be ready to take him up on that offer any time you can spare a moment, <CHARNAME>. I would be daft not to!~ */
+== c#brandj IF ~Global("C#Br_ScribeScrollQuest","GLOBAL",3)~ THEN @989 /* ~Albeit not today any more, of course.~ */
 END
+IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ EXIT
+
+
+APPEND c#brandj
 
 IF ~~ THEN transformed_book_11
 SAY @797 /* ~I know it's true, but... I will never be anything compared to being proud about it, you know.~ */
@@ -284,15 +504,16 @@ END
 
 IF ~~ THEN book1_05
 SAY @824
-IF ~~ THEN + book1_07
+IF ~~ THEN DO ~SetGlobal("C#BR_KnowsBookName","LOCALS",1)~ + book1_07
 END
 
 IF ~~ THEN book1_06
 SAY @825
-++ @826 + book1_07
++ ~Global("C#BR_KnowsBookName","LOCALS",1)~ + @1015 /* ~I did hear the title after Thalantyr helped you with your half-ogre problem, but I still don't know what it was.~ */ + book1_07
+++ @826 DO ~SetGlobal("C#BR_KnowsBookName","LOCALS",1)~ + book1_07
 ++ @827 + book1_05
 ++ @828 + book1_08
-++ @829 + book1_07
+++ @829 DO ~SetGlobal("C#BR_KnowsBookName","LOCALS",1)~ + book1_07
 ++ @830 + book1_14
 END
 
@@ -306,7 +527,7 @@ END
 
 IF ~~ THEN book1_08
 SAY @835
-IF ~~ THEN + book1_07
+IF ~~ THEN DO ~SetGlobal("C#BR_KnowsBookName","LOCALS",1)~ + book1_07
 END
 
 IF ~~ THEN book1_09
@@ -615,7 +836,43 @@ SAY @929
 IF ~~ THEN + book6_03
 END
 
+/* 7th dialogue book cycle */
 
+IF ~Global("C#Brandock_AddBookTalk","LOCALS",1)~ THEN book7
+SAY @1016 /* ~<CHARNAME>, I want to clearify something. I went on and on about how powerful the De Simplex Magicae were, and how valuable. It only occurred to me now that this might have lead to a false impression. The spells inside that book aren't great battle magic. It isn't battle magic at all. They do not qualify for use in a fight.~ */
+++ @1017 /* ~No magic that could be used in battle? None at all?~ */ + book7_02
+++ @1018 /* ~Why did you call it powerful, then?~ */ + book7_03
+++ @1019 /* ~It's destroyed, anyway, so who cares.~ */ + book7_01
+END
+
+IF ~~ THEN book7_01
+SAY @1020 /* ~Well, I definitely do hope that it will be restored... someday.~ */
+IF ~~ THEN + book7_04
+END
+
+IF ~~ THEN book7_02
+SAY @1021 /* ~Well... if you are very desparate I guess there is some use in a very sharpened quill, a candle flame that doesn't flicker, or a pyramid of cards you could sit on...~ */
+IF ~~ THEN + book7_04
+END
+
+IF ~~ THEN book7_03
+SAY @1022 /* ~Because I'm... well, me. I'm a knowledge seeker, and this book - it gives knowledge, a lot.~ */
+IF ~~ THEN + book7_04
+END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj book7_04
+@1023 /* ~I'm not saying the spells don't have any practical use.~ */
+== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ THEN @1024 /* ~I tried using its explanations about polymorphing to help Melicamp, after all.~ */
+== c#brandj @1025 /* ~It's just... nothing overly useful when being on the road, fighting foes and monsters. It's more of an academic value - complicated spells, very well explained, broken down so they are manageable by lesser experienced mages.~ */
+= @1026 /* ~It gives examples about how to design spells - if read between the lines, of course, but I'm sure I'm not the only one understanding this. It's a template, for those who see the pattern. That's its power - and its danger, would it fall into the wrong hands.~ */
+= @1027 /* ~So... *thank the gods* it's no longer a danger, I guess. (moans). No, I didn't mean that... But one thing is clear and I am determined about it, <CHARNAME>: should I manage to restore this precious book, then I will make sure it can't fall into the wrong hands every again. It belongs in a place of scholars and seekers for wisdom. Not... not mages seeking for power.~ */
+END
+IF ~~ THEN DO ~SetGlobal("C#Brandock_AddBookTalk","LOCALS",2)~ EXIT
+
+APPEND c#brandj 
 /* Brandock wants to write down his own wisdom -> rest dialogue: */
 
 IF ~Global("C#Brandock_Possessions","GLOBAL",17)~ THEN book_rest
@@ -746,4 +1003,51 @@ IF ~~ THEN DO ~SetGlobal("C#Brando_BG1SarevokDeadTalk","GLOBAL",2)~ EXIT
 END
 
 END //APPEND
+
+/* After Sarevok's scheme is revealed: messenger calls Brandock to Elvenhair */
+/* either after the wait for the lexicon or in case Elvenhair sent them away? */
+
+CHAIN
+IF ~Global("C#Brandock_BG1BookMessenger","GLOBAL",1)~ THEN c#brmess letter
+@1001 /* ~[Messenger]Mister Brandock Deepwater? I have a message from Master Elvenhair in Beregost. He wants me to tell you that he is ready to help you again.~ */
+== c#brandj @1002 /* ~That - that is fantastic! Thank you, good man, for coming all the way to letting me know. Here, take these coins. <CHARNAME> - I guess you know what I'll beg for next: let us return to Master Elvenhair as soon as our tasks will allow!~ */
+END
+IF ~~ THEN DO ~EraseJournalEntry(@10044)
+ActionOverride("c#brmess",EscapeAreaDestroy(5)) SetGlobal("C#Brandock_BG1BookMessenger","GLOBAL",2)~ UNSOLVED_JOURNAL @10055 EXIT
+
+CHAIN
+IF WEIGHT #-1
+~InMyArea("C#Brandock")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+Global("C#Brando_BookquestHold","GLOBAL",2)
+Global("C#Br_BookRestore","GLOBAL",10)~ THEN FIREBE book_translation
+@1003 /* ~[Elvenhair]So, young Brandock. I have here my Ruathlek lexicon, and am ready to translate the note in the De Simplex Magicae with you. Shall we?~ */
+== c#brandj @1004 /* ~[Brandock]Oooh - yes, please!~ */
+== c#brandj IF ~GlobalGT("C#Brandock_Expelled","GLOBAL",0)~ THEN @1005 /* ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out -which you already know. I was so devastated, I can't express how thankful I am that you reached out to me so quickly!~ */
+== FIREBE IF ~GlobalGT("C#Brandock_Expelled","GLOBAL",0)~ THEN @1006 /* ~[Elvenhair]Yes, this was a most unfortunate affair. But at least your names are cleared now, so do not worry, young mage. If your steps will guide you to Candlekeep again in the future, you will find entry as a seeker again.~ */ DO ~EraseJournalEntry(@10053)~
+== FIREBE @1007 /* ~[Elvenhair]So, let me see the book. This shouldn't take too long. I already prepared everything we need.~ */
+END
+IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",11) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut4")~ EXIT
+
+CHAIN
+IF WEIGHT #-1
+~Global("C#Br_BookRestore","GLOBAL",11)~ THEN FIREBE book_translation_01
+@1008 /* ~[Elvenhair]"...Oghma's Wisdom". That's it, my young Brandock.~ */
+== c#brandj @1009 /* ~(Brandock reads the finished notes.) "Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom."~ */
+= @1010 /* ~This... this a note to one of Bowgentle's apprentices! It's what they wanted to do with the book - apply a restoration procedure that makes it unperishable? This "Seph" never came to casting the restoration spell needed, as it seems - Bowgentle and his apprentices didn't even came to destroying the book. It took me to do that - ahem...~ */
+= @1011 /* ~"Oghma's Wisdom". I do not know yet whether this refers to an item, a spell - or just what the name says: wisdom hold by those who worship Oghma. But I already know where I will find an answer to this riddle. The greatest temple of Oghma I know is in my home land, in Athkatla.~ */
+= @1012 /* ~<CHARNAME> - this book and my notes about the spells in it will accompany my until I'll return home. Well, and until I'll have 5000 gold and a King's Tear gem to spare, as well. Thank you, Master Elvenhair, for your help in this. I am in your debt.~ */
+== FIREBE @1013 /* ~[Elvenhair] It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that preserved the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep.~ */
+== c#brandj @1014 /* ~[Brandock]I will certainly do so, Master Elvenhair. I promise. Just as much as I promise to restore the De Simplex Magicae, even if Oghma's priests will need to extract my brain to get the spell recipes out for restoration.~ */
+END
+IF ~~ THEN DO ~EraseJournalEntry(@10044)
+EraseJournalEntry(@10051)
+EraseJournalEntry(@10055)
+AddJournalEntry(@10057,QUEST)
+SetGlobal("C#Br_BookRestore","GLOBAL",13)~ UNSOLVED_JOURNAL @10056 EXIT
+
+
+
+
 

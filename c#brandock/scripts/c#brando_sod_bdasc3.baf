@@ -1,10 +1,10 @@
-/* brage_bdasc3.baf */
+/* brando_sod_bdasc3.baf */
 /* Move NPC to entrance of the Allied Siege Camp (Crusade battle) */
 IF
 	Global("bd_battle","global",1)
 	Global("bd_move_npcs","bd3000",1)  // Allied Siege Camp
 	Global("bd_move_to_entrance","locals",0)
-	Name("C#Brage",Myself)  
+	Name("C#Brandock",Myself)  
 	Global("C#Brandock_MoveCamp","bd3000",1)  // same variable as used for moving Biff here
 THEN
 	RESPONSE #100

@@ -38,23 +38,7 @@ Global("C#Brandock_BeenInParty","GLOBAL",2)
 END
 
 
-/* Brandock - Imoen: ToB only */
-CHAIN
-IF 
-~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
-CombatCounter(0)
-!See([ENEMY])
-!StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Brandock_ImoenBanterToB","GLOBAL",0)
-InParty("IMOEN2") InMyArea("IMOEN2") !StateCheck("IMOEN2",CD_STATE_NOTVALID)
-GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~ THEN C#BrandB imoen_tob
-~Imoen, Ihr schlaft in letzter Zeit schlecht.~ DO ~SetGlobal("C#Brandock_ImoenBanterToB","GLOBAL",1)~
-== BIMOEN25 ~Ich... ich habe die Träume, die <CHARNAME> ebenfalls bereits hinter sich gebracht hat. Ich habe Angst, dass es bei mir auch weiter geht, bis... Nun, bis der Schlächter zum Vorschein kommt.~
-== C#BrandB ~Habt keine Angst, Imoen.~
-== BIMOEN25 ~Du meinst, ich brauche keine Angst zu haben?~
-== C#BrandB ~Nein. Als <CHARNAME> der Schlächter wurde, hat es uns alle überrascht und erschreckt. Wir waren noch nicht so stark wie jetzt. Wenn Euch es auch geschieht, dann sind wir vorbereitet, und stärker als damals.~
-== BIMOEN25 ~Achso, du meinst... Mensch, Brandock, ob mich das jetzt wirklich beruhigt, bin ich mir nicht so sicher. Pff!~
-EXIT
+
 
 /* Volo in Saradush */
 
@@ -62,7 +46,6 @@ EXTEND_TOP SARVOLO 9
 + ~InParty("C#Brandock")~ + ~Tell me about Brandock.~ + volo_brandock
 END
 
-//## C#brandJ?
 CHAIN 
 IF ~~ THEN SARVOLO volo_brandock
 ~Brandock the mage. Went out of his home land to seak power and might, and so he did. Found the might of the foxes, and the power of the half-ogres. The might of a good nights drink, and the power of his own fear. Behold of Brandock, the mighty and powerful mage!~

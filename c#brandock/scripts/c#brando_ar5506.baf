@@ -1,0 +1,19 @@
+IF
+	GlobalGT("C#Brandock_Shapeshift","GLOBAL",16)
+	Global("C#Brando_ActivateExit","MYAREA",0)
+THEN
+	RESPONSE #100
+		TriggerActivation("%Door2619%",FALSE)
+		TriggerActivation("c#br02Ex",TRUE)
+		SetGlobal("C#Brando_ActivateExit","MYAREA",1)
+END
+
+IF
+	GlobalLT("C#Brandock_Shapeshift","GLOBAL",17)
+	Global("C#Brando_DeactivateExit","MYAREA",0)
+THEN
+	RESPONSE #100
+		TriggerActivation("c#br02Ex",FALSE)
+		TriggerActivation("%Door2619%",TRUE)
+		SetGlobal("C#Brando_DeactivateExit","MYAREA",1)
+END

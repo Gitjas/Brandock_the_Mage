@@ -1,0 +1,29 @@
+/* lore path: bg1re necromancer */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+AreaCheck("c#q112")
+Dead("C#q11nec")
+See("C#q11nec")
+Global("C#BrCross_bg1reNecro_LorePath","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#BrCross_bg1reNecro_LorePath","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#BrCross_bg1reNecro_LorePath","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END

@@ -13,7 +13,7 @@ RESPONSE #100
 SetGlobal("C#BR_TheCallingBracers","GLOBAL",1)
 END
 
-/* Initiate: see Valerie the first time */
+/* Initiate: Brandock comments on the bracers */
 IF %BGT_VAR%
 Global("C#BR_TheCallingBracers","GLOBAL",1)
 !StateCheck(Myself,CD_STATE_NOTVALID)

@@ -1,0 +1,47 @@
+/* c#brsc01 - Crossmod Banter SoD Brandock Imoen (I4E) */
+
+/* this script block toggles Brandock's line: if they bantered in Palace already, his second line will be slightly different. */
+IF
+	Global("C#Br_bd_banter_Imoen01","MYAREA",20)
+	Global("C#Br_bd_banter_Imoen01_2","MYAREA",0)
+	GlobalGT("C#Brandock_ImoenSoD_Palace","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",10)
+		SetGlobal("C#Br_bd_banter_Imoen01_2","MYAREA",1)
+END
+
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!Global("C#Br_bd_banter_Imoen01","MYAREA",-1)
+	Switch("C#Br_bd_banter_Imoen01","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("C#Brandock",~Imoen, I am happy that you are back with us now.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",20)
+	RESPONSE #10
+		DisplayStringHead("C#Brandock",~I'm really glad to see you alive and well.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",30)
+	RESPONSE #20
+		DisplayStringHead("C#Brandock",~I can't tell you how glad I am to see you alive and well.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("%IMOEN_DV%",~[Imoen] Oh, me too! Being poisoned was scary. Having trembling hands was scary! Letting <CHARNAME> go without me was very scary! I'm glad I'm back.~)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",-1)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",3)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

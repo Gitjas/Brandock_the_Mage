@@ -1,0 +1,29 @@
+@0   = ~[Brandock]So, Corwin. You are a captain of the Flaming Fist.~
+@1   = ~[Corwin]Well spotted, Brandock. What about it?~
+@2   = ~[Brandock]I was just wondering... Flaming Fist presented itself from a bit of a corrupt side not long ago, as you surely know.~
+@3   = ~[Corwin]Indeed, it did. We are all glad this is over.~
+@4   = ~[Brandock]Indeed. And yet I wonder how a lawful captain like you could go through this time... and still be captain.~
+@5   = ~[Corwin]What are you implying?~
+@6   = ~[Brandock]Nothing, it was a question, because I really don't know.~
+
+@7   = ~[Brandock]Corwin, how *did* you stay captain during Angelo's reign?~
+@8   = ~[Corwin]Let me think... By murdering innocents, kidnapping children, chasing <CHARNAME>, and poisoning my commander.~
+@9   = ~[Brandock]Really?~
+@10   = ~[Corwin]Of course not.~
+@11   = ~[Brandock]Oh.~
+@12   = ~[Corwin]Brandock, who said I *did* stay captain during Angelo's reign?~
+@13   = ~[Brandock]Oh!~
+
+@14   = ~[Brandock]Corwin, when I return home, I will have to fit in into an evil organisation and appreciate any help or hint how to do so unscathed.~
+@15   = ~[Corwin]I see... I apologize, I understand now that the motivation behind your questions was very different to what I assumed.~
+@16   = ~[Brandock]I can't blame you. I guess not to expect the bad of people is a luxury a captain of a military force can't afford.~
+@17   = ~[Brandock]It must be hard, watching the lawful organisation you gave your live to turning evil.~
+@18   = ~[Corwin]It was. But I can't give you advice, not really. Only thing I can say is it helps if you have a standing that allows you to hide behind your desk if times get rough - and to know the right people who vouch for your integrity after the tides turned back to normal.~
+@19   = ~[Brandock]That's good advice, though - now I only need someone to show me how to get there...~
+
+@20   = ~[Brandock]I... I still don't know what to make of you, M'Khiin.~
+@21   = ~[Brandock]I mean, you are obviously capable of shamanic magic, and very much so. But...~
+@22   = ~[Brandock]Well, you are a goblin. And I just can't imagine how a smart goblin shaman like you ends up alone, seeking protection from a drow.~
+@23   = ~[Brandock]So, what happened? I sense a tragic story. Maybe you summoned the wrong spirit and got banned? Another shaman wanted you dead? The love of your life had to marry another?~
+@24   = ~[M'Khiin]You, human mage. Talk too much.~
+@25   = ~[Brandock]Well, yes, probably. Yeah, you got that quickly alright!...  Smart goblin.~

@@ -1,0 +1,20 @@
+/* Borsk and the other two Necromancers, Ascalon's Breagar */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("ACNECRO1") Dead("ACNECRO2") Dead("ACNECRO3")
+OR(3) See("ACNECRO1") See("ACNECRO2") See("ACNECRO3")
+Global("C#Br_LorePathACNECRBG1_CM","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+//!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathACNECRBG1_CM","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1034)
+ReallyForceSpellRES("c#brlob2",Myself) 
+SetInterrupt(TRUE)
+END

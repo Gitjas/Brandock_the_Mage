@@ -1,0 +1,85 @@
+/* Brandock Half-ogre quest. Needed for all games */
+
+/* Brandock died while being halfork. Need to reset the shapeshifting ability */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("c#brisog","GLOBAL",2)
+
+THEN
+	RESPONSE #100
+		RemoveSpellRES("c#brshnf") 
+		ReallyForceSpellRES("c#brsh01","C#Brandock")
+		SetGlobal("c#brisog","GLOBAL",0)
+END
+
+/* Brandock verwandelt sich das erste mal in einen Halboger (über die Fähigkeit):
+Global("c#brisog","GLOBAL",1) */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+	!Range([NEUTRAL],10)
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("c#brisog","GLOBAL",1)
+  Global("C#Brando_ShapeFollowup","LOCALS",4)
+  		
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brando_ShapeFollowup","LOCALS",5)
+END
+
+/* triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brando_ShapeFollowup","LOCALS",5)  
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    StartDialogNoSet(Player1)
+END
+
+/* Brandock hat sich zurück verwandelt:
+Global("c#brisog","GLOBAL",0) */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+	!Range([NEUTRAL],10)
+  See(Player1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("c#brisog","GLOBAL",0)
+  Global("C#Brando_ShapeFollowup","LOCALS",6)
+  		
+THEN
+  RESPONSE #100
+    SetGlobal("C#Brando_ShapeFollowup","LOCALS",7)
+END
+
+/* triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1) 
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Brando_ShapeFollowup","LOCALS",7)  
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    StartDialogNoSet(Player1)
+END
+
+
+
+
+

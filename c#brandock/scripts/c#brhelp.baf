@@ -1,0 +1,118 @@
+IF
+	!InMyArea("C#Brandock")
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL10","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL10",1) 
+		DestroyItem("SCRL10")
+		GiveItemCreate("SCRLAI",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL10","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL10","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL11","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL11",1) 
+		DestroyItem("SCRL11")
+		GiveItemCreate("SCRL1O",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL11","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL11","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL12","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL12",1) 
+		DestroyItem("SCRL12")
+		GiveItemCreate("SCRL1U",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL12","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL12","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL13","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL13",1) 
+		DestroyItem("SCRL13")
+		GiveItemCreate("SCRL89",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL13","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL13","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL14","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL14",1) 
+		DestroyItem("SCRL14")
+		GiveItemCreate("SCRL1L",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL14","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL14","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL16",1) 
+		DestroyItem("SCRL16")
+		GiveItemCreate("SCRL7H",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL16","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL16","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL17","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL17",1) 
+		DestroyItem("SCRL17")
+		GiveItemCreate("SCRL8O",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL17","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL17","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END
+
+IF
+	Global("C#Br_ScribeScrollSCRL18","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		TakePartyItemNum("SCRL18",1) 
+		DestroyItem("SCRL18")
+		GiveItemCreate("SCRL5Q",Player1,1,0,0)
+		IncrementGlobal("C#Br_HasScrollSCRL18","LOCALS",-1)
+		SetGlobal("C#Br_ScribeScrollSCRL18","MYAREA",2)
+		ActionOverride("C#Brandock",StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
+END

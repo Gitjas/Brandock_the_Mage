@@ -1,0 +1,10 @@
+/* Brandock died while being half-ogre: need to reset variable and abilities */
+IF
+	Dead("C#Brandock")
+	InPartyAllowDead("C#Brandock")
+	Global("c#brisog","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("c#brisog","GLOBAL",2)
+		Continue()	
+END

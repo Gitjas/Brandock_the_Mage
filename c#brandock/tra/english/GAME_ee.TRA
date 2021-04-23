@@ -1,0 +1,397 @@
+@5  = ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I was told'. Plus, the coat is so thick it actually provides protection against missiles, which is quite handy for a mage.
+
+STATISTICS:
+
+Equipped abilities:
+Cold Resistance: +20%
+Armor Class: +1 vs. missile attacks
+
+Weight: 3~
+
+@8  = ~This is the remains of what was once a *very* expensive magical book. Some pages are still readable, but it was gnawed on by several sets of small teeth, tearing the pages.
+
+STATISTICS:
+
+Weight: 0~
+
+@10  = ~This is the book that transformed after Elvenhair tried to preserve the paper shreds of the destroyed De Simplex Magicae: the first pages are written in Ruathlek, a rune language only known to some sages and Illusionists. The rest of the book is apparently empty, but flipping through the pages they seem to radiate magic.
+
+STATISTICS:
+
+Weight: 1~ 
+
+@11  = ~This is Brandock's bookcase. It is for storing books and scrolls.
+
+STATISTICS:
+
+Weight: 2~
+
+@13  = ~This is ink from an octopus. It is a rather expensive magic ingredient. You should only buy it if you know what you want to use it for.
+
+STATISTICS:
+
+Weight: 1~
+
+@17  = ~This is a pair of boots, and quite an expensive one, as it is. It was visibly dragged through the dirt, but with a brush and some enthusiasm it may be restored to its former appearance.
+
+STATISTICS:
+
+Weight: 4~
+
+@20  = ~This is a piece of fresh, juicy salmon.
+
+STATISTICS:
+
+Special: Restores 6 Hit Points.
+
+Weight: 1~
+
+@101 = ~This is a spellbook that belonged to one of the Cowled Wizards who were killed by Irenicus at the Promenade. The name 'Ebrel Furborrow' is written inside.
+
+STATISTICS:
+
+Weight: 2~
+
+/* SCRL1G: Fireball */
+@104 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Fireball
+(Evocation)
+
+Level: 3
+Range: 40 ft.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 15-ft. radius
+Saving Throw: 1/2 
+
+A Fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it—1d6 points of damage for each level of experience of the caster (up to a maximum of 10d6). The wizard points <PRO_HISHER> finger and speaks the range (distance and height) at which the Fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their Saving Throws each suffer full damage from the blast. Those who roll successful Saving Throws manage to dodge, fall flat, or roll aside, each receiving half.~ 
+/* SCRL6P: Minor Sequencer */
+@105 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Minor Sequencer
+(Invocation/Evocation)
+
+Level: 4
+Range: 0
+Duration: Permanent
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+This spell allows a wizard to store two spells and activate them both at the same time from <PRO_HISHER> Special Ability button. Both spells must be of 2nd level or lower. To create a sequencer, a Mage must memorize not only Minor Sequencer but also the spells <PRO_HESHE> intends to store in it (a Sorcerer can store spells of any level for which <PRO_HESHE> still has spell slots). After casting Minor Sequencer, the player will be prompted to choose the sequenced spells from those <PRO_HESHE> has memorized.
+
+A sequencer lasts until activated and, once used, releases its spells immediately (no casting time). The Special Ability icon also disappears until the next time a sequencer is formed. A wizard can possess only one Minor Sequencer at a time, and it may not be given to other characters.~
+/* SCRL6U: Breach */
+@106 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Breach
+(Abjuration)
+
+Level: 5
+Range: 40 ft.
+Duration: Instant
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None
+
+When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature. Here is a complete list of all the specific protection spells that are dispelled by Breach: Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy. The combat protection spells dispelled by Breach are Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magical Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle. The target's Magic Resistance, if any, does not affect this spell.~
+/* SCRL7V: Spell Deflection */
+@107 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Spell Deflection
+(Abjuration)
+
+Level: 6
+Range: 0 
+Duration: 3 rounds/level
+Casting Time: 6
+Area of Effect: The caster 
+Saving Throw: None 
+
+This powerful abjuration spell causes any spells cast against the wizard to be absorbed and consumed. This affects a total of 10 spell levels. This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard, as well as area effects that are stationary, such as Cloudkill and Stinking Cloud. As long as the spell is cast directly at the wizard it will be absorbed. Something to note is that as long as there are levels remaining, then the spell will be absorbed. For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection. It is not affected by a Dispel Magic.~
+/* SCRL8W: Mass Invisibility */
+@108 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Mass Invisibility 
+(Illusion/Phantasm)
+
+Level: 7
+Range: Visual range of the caster 
+Duration: 1 round/level
+Casting Time: 7
+Area of Effect: 15-ft. radius 
+Saving Throw: None 
+
+Upon casting this spell, the wizard causes all friendly creatures within the area of effect to be affected by the spell Improved Invisibility. This spell is similar to the Invisibility spell, but the recipient is able to attack, either by missile discharge, melee combat, or spellcasting, and remain unseen. Note, however, that there are sometimes telltale traces, a shimmering, so that an observant opponent can attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made <PRO_HISHER> presence known). Attacks against the invisible character suffer -4 penalties to the attack rolls, and the invisible character's Saving Throws are made with a +4 bonus.~
+/* SCRL8S: Summon Efreeti */
+@109 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Summon Efreeti
+(Conjuration/Summoning)
+
+Level: 7
+Range: 120 ft.
+Duration: 8 rounds + 1 round/level
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+With this spell, the wizard can cajole an efreeti—a massive genie with powerful abilities—to leave the Elemental Plane of Fire and enter the Prime Material. The efreeti will serve the caster for the duration of the spell, attacking <PRO_HISHER> enemies.~
+/* SCRLB1: Bigby's Clenched Fist */
+@110 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Bigby's Clenched Fist
+(Evocation)
+
+Level: 8
+Range: 35 ft.
+Duration: 4 rounds
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: Special
+
+This spell causes a giant disembodied hand to squeeze and constrict the target once per round for up to 4 rounds. It initially smashes the target for 3d6 damage with no save, and the target is held. In the second round, the target can save vs. Paralysis at -2 to escape. If they fail to save, the hand does 4d6 damage. The following round, the target can save vs. Paralysis with no penalty. If they make the save, they are free to move, if they fail, the spell does 6d6 damage and holds them for 2 rounds. After the 4th round, the spell is finished. Magic Resistance will stop the spell.~
+/* SCRL9A: Pierce Shield */
+@111 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Pierce Shield
+(Abjuration) 
+
+Level: 8
+Range: 40 ft.
+Duration: Instant
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: None 
+
+When this spell is cast, it launches a massive attack on an enemy wizard's spell defenses. The target's Magic Resistance will be lowered by 10% + 1% per level of the caster. Next, Pierce Shield will cancel one spell protection of any level. For example, if this spell was cast by a 15th-level wizard, the target creature would lose 25% Magic Resistance from its current total, reducing it to 0 if less than that remains, as well as canceling one spell protection if the Mage currently has one. The list of spells that this includes: Minor Spell Deflection, Minor Spell Turning, Spell Deflection, Minor Globe of Invulnerability, Spell Immunity, Globe Of Invulnerability, Spell Turning, Spell Shield, and Spell Trap. Magic Resistance does not affect this spell, nor do any of the spell protections. The resistance remains lowered for 1 round per level of the caster. It cannot be dispelled.~
+/* SCRLB2: Bigby's Crushing Hand */
+@112 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Bigby's Crushing Hand
+(Evocation)
+
+Level: 9
+Range: 35 ft.
+Duration: 3 rounds
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: Special
+
+This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2d10 damage. The victim can save at -4 vs. Paralysis to avoid being pinned. If they fail, the hand does 3d10 damage the next round. The victim can again save vs. Paralysis at -2. If they fail to save, the hand does a final 4d10 damage and disappears.~
+/* SCRL9Q: Chain Contingency */
+@113 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+
+The spell on this page is:
+
+Chain Contingency
+(Evocation) 
+
+Level: 9
+Range: 0
+Duration: Permanent until triggered
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None 
+
+Chain Contingency channels some of the magical energy of the wizard and releases it only under certain circumstances. The wizard chooses three spells that will be released under certain conditions, such as being hit by an enemy. When this condition occurs, all three spells are cast immediately. Spells of 8th level or lower may be used in the contingency.~
+/* #39427 */
+@115  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Fireball
+(Evocation)
+
+Level: 3
+Range: 40 ft.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 15-ft. radius
+Saving Throw: 1/2 
+
+A Fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it—1d6 points of damage for each level of experience of the caster (up to a maximum of 10d6). The wizard points <PRO_HISHER> finger and speaks the range (distance and height) at which the Fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their Saving Throws each suffer full damage from the blast. Those who roll successful Saving Throws manage to dodge, fall flat, or roll aside, each receiving half.~
+/* #39428 */
+@116  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Invisibility 
+(Illusion/Phantasm)
+
+Level: 2
+Range: Touch 
+Duration: Special 
+Casting Time: 2 
+Area of Effect: 1 creature 
+Saving Throw: None 
+
+This spell causes the creature touched to vanish from sight and be undetectable by normal vision or even infravision. Of course, the invisible creature is not magically silenced, and certain other conditions can render the creature detectable. Even allies cannot see the invisible creature or its gear, unless these allies can normally see invisible things or employ magic to do so. Items dropped or put down by the invisible creature become visible; items picked up disappear if tucked into the clothing or pouches worn by the creature. The spell remains in effect until it is magically broken or dispelled, until the recipient attacks any creature, or until 24 hours have passed. The caster cannot perform any actions that manipulate the environment around <PRO_HIMHER>, such as opening doors, disarming a trap, or opening a chest. The caster can, however, cast defensive spells on <PRO_HIMHER>self and fellow party members. And if <PRO_HESHE> attacks, <PRO_HESHE> immediately becomes visible, although the invisibility enables <PRO_HIMHER> to attack first.~
+/* #39429 */
+@117  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Protection From Evil
+(Abjuration)
+
+Level: 1
+Range: Touch
+Duration: 2 rounds/level
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+When this spell is cast, it creates a magical barrier around the recipient at a distance of one foot. The barrier moves with the recipient and has two major effects: First, all attacks made by evil or evilly enchanted creatures against the protected creature receive a penalty of -2 to each attack roll. Second, summoned demons cannot target the protected creature.~
+/* #39430 */
+@118  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+True Seeing
+(Divination)
+
+Level: 5
+Sphere: Divination
+Range: 0
+Duration: 1 turn
+Casting Time: 8
+Area of Effect: 120-ft. radius
+Saving Throw: None 
+
+When this spell is cast, an area roughly 120 ft. in radius around the caster will be affected. Instantly and once each round for 1 turn after this spell is cast, all hostile Illusion/Phantasm spells in the area of effect will be dispelled. The spells that are affected by this are Reflected Image, Invisibility, Mirror Image, Non-Detection, Improved Invisibility, Shadow Door, Mislead, Project Image, and Simulacrum. The area of effect is roughly a 120-ft. radius around the caster. The target's Magic Resistance, if any, does not come into effect with this spell. This spell only affects enemies; thus, it is unable to dispel the invisibility from a party member.~
+/* #39433 */
+@119  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Farsight
+(Divination)
+
+Level: 4
+Range: Special
+Duration: 3 rounds + 1 round/level
+Casting Time: 4 
+Area of Effect: Special
+Saving Throw: None 
+
+When Farsight is cast, the caster is able to view an area of an unexplored map. After casting the spell, simply click on a section of the map that you want to view. For the duration of the spell, the caster can spy on that area, noting creatures and fortifications.~
+/* #39434 */
+@120  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Spell Turning
+(Abjuration)
+
+Level: 7
+Range: 0
+Duration: 3 rounds/level
+Casting Time: 7
+Area of Effect: The caster
+Saving Throw: None
+
+This powerful Abjuration spell causes the spells cast against the wizard to rebound upon the original caster. This affects a total of 12 spell levels—including spells cast from scrolls and innate spell-like abilities—but excludes the following: area effects that are not centered directly upon the wizard, as well as area effects that are stationary, such as Cloudkill and Stinking Cloud. As long as the spell is cast directly at the wizard, it will be reflected back upon the caster as long as there are levels remaining. For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be reflected while canceling the Spell Turning. This spell will not protect the caster from Dispel Magic, but it will not be dispelled by Dispel Magic either.~
+/* #39435 */
+@121  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Wyvern Call
+(Conjuration/Summoning)
+
+Level: 6
+Range: 120 ft.
+Duration: 1 round/level
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+When this spell is cast, the wizard opens up a magical channel that will summon a wyvern to <PRO_HISHER> aid. The creature will live and die at <PRO_HISHER> command until the spell's duration expires.~
+/* #39436 */
+@122  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Stinking Cloud
+(Evocation)
+
+Level: 2
+Range: 90 ft.
+Duration: 1 turn
+Casting Time: 2
+Area of Effect: 15-ft. radius
+Saving Throw: Neg.
+
+When casting a Stinking Cloud spell, the wizard creates a billowing mass of nauseous vapors up to 90 ft. away from <PRO_HISHER> position. Any creature caught within the cloud must roll a successful Saving Throw vs. Poison at +2 or be sent reeling and fall down for 1d2 rounds. Those who make successful Saving Throws can leave the cloud without suffering any ill effects, although those remaining in the cloud must continue to save each round. A Dispel Magic will remove the nausea on a particular character, but if they remain in the cloud, then they are still subject to its effects.~
+/* #39437 */
+@123  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Lightning Bolt
+(Evocation) 
+
+Level: 3
+Range: 120 ft. + 30 ft./level
+Duration: Instant 
+Casting Time: 3 
+Area of Effect: Special 
+Saving Throw: 1/2
+
+Upon casting this spell, the wizard releases a powerful stroke of electrical energy that inflicts 1d6 points of damage per level of the caster (maximum damage of 10d6) to each creature within its area of effect. A successful Saving Throw vs. Spell reduces this damage to half (round fractions down). The bolt begins at a range and height decided by the caster and streaks outward in a direct line from the casting wizard (e.g., if a 40-ft. bolt was started at 180 ft. from the wizard, the far end of bolt would reach 220 ft. (180+40)). If the Lightning Bolt intersects with a wall, it will bounce until it reaches its full length.~
+/* #39438 */
+@124  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+
+Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+
+The spell on this page is:
+
+Burning Hands
+(Alteration)
+
+Level: 1
+Range: 0
+Duration: Instant
+Casting Time: 1
+Area of Effect: The caster
+Saving Throw: 1/2
+
+When the wizard casts this spell, a jet of searing flame shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The burning hands send out flame jets of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. Any creature in the area of the flames suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of fire damage. Those successfully saving vs. Spell receive half damage.~

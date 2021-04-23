@@ -18,11 +18,11 @@ THEN
 		ActionOverride("C#Brandock",MakeGlobalOverride())
 	    	ActionOverride("C#Brandock",ChangeAIScript("c#brands",OVERRIDE))
 
-/* activate half-ogre quest trigger */
+/* ## activate half-ogre quest trigger */
 		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)) 
 
 /* possessions quest */
-		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Possessions","GLOBAL",20)) 
+		ActionOverride("C#Brandock",SetGlobal("C#Brandock_Possessions","GLOBAL",21)) 
 /* ##
 /* find Brandock's first tutor quest */
 		ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 

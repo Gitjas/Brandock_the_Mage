@@ -13,14 +13,14 @@ Ich habe ein feines Paar Stiefel in einer Fuchshöhle nahe Beregost gefunden, die
 @10004  = ~Ein feines Paar Stiefel
 
 Ich habe die Stiefel von Herrn Travenhurst in einer Fuchshöhle nahe Beregost gefunden. Ich sollte sie wohl dem Diener bringen, mit dem ich vor dem Anwesen gesprochen hatte.~
-@10005  = ~Brandock der Halboger
+@10005  = ~Brandocks Halbogerprobleme
 
 Brandock hat versucht Melicamp dem Hühnchen zu helfen, und das ist gehörig schief gelaufen. Die von Melicamp verwendete Magie scheint sehr mächtig zu sein. Ich wurde Zeuge, wie sich Brandock in einen Halboger verwandelt hat. Oder besser gesagt, wie er den Körper mit einem getauscht hat. Was auch immer genau geschehen ist, sie sind beide zu dem in der Nähe ansässigen Magier Thalantyr gegangen, um Hilfe zu holen. Ich sollte da vermutlich auch hingehen.~
 @10006  = ~Brandocks Besitztümer~
-@10007  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen~
-@10008  = ~Brandock der Halboger
+@10007  = ~Brandocks Schreiben von Schriftrollen~
+@10008  = ~Brandocks Halbogerprobleme
 
-Dank Thalantyr hat Brandock nun seinen eigenen Körper wieder.~
+Dank Thalantyr hat Brandock nun seinen eigenen Körper wieder. Hoffen wir mal, dass das damit überstanden ist.~
 @10009  = ~Brandocks Besitztümer
 
 Brandock hat seine fehlenden Besitztümer gefunden - oder besser gesagt, was davon noch übrig ist. Stellt sich heraus, dass es sich um ein sehr wertvolles Buch gehandelt hat, mit dem er Einlass nach Kerzenburg ersuchen wollte! Das Buch wurde von Füchsen zernagt, daher weiß Brandock nicht, wohin er nun gehen soll. Er wird weiter mit mir reisen. Er sagte zwar "vorerst", aber ich habe nicht den Eindruck, dass er es eilig hat, meine Gesellschaft zu verlassen.~
@@ -28,9 +28,14 @@ Brandock hat seine fehlenden Besitztümer gefunden - oder besser gesagt, was davo
 @10011  = ~Ein feines Paar Stiefel
 
 Ich habe das Paar Stiefel beim Travenhurster Herrenhaus abgegeben. Der Diener war angetan davon, dass sie in relativ gutem Zustand sind.~
-@10012  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
+@10012  = ~Brandocks Schreiben von Schriftrollen
 
-Brandock ist bereit, zu Elfenhaar in Beregost zu gehen und das Schreiben von Schriftrollen zu üben.~
+Brandock can scribe scrolls once a day. Scrolls of level 1 are free. Higher level spells will consume gold in the making:
+level 2&3: 100 gold
+level 4&5: 200 gold
+level 6&7: 350 gold
+level 8&9: 500 gold.
+The scrolls he can write depends on his level as a mage and other experiences.~
 @10013  = ~Ein feines Paar Stiefel~
 
 @10014  = ~Brandock in den Slums
@@ -40,17 +45,13 @@ Ich habe Brandock getroffen, er befindet sich in dem Haus seines Großcousins. Es
 @10015  = ~Brandock in den Slums
 
 Wenn ich Brandock suche, dann finde ich ihn in dem Haus seines Großcousins. Es befindet sich nahe der großen Sphäre in den Slums.~
+@10016  = ~Brandock der Magier
 
-@10016  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
-
-Elfenhaar hat Brandock angeboten, mit ihm das Schreiben von magischen Schriftrollen zu üben. Wir sollten zu Elfenhaar zurückkehren, wenn Brandock die Ruhe dazu hat.~ 
-
+Brandock wurde zuletzt vor den Toren des Palastes gesehen.~ 
 @10017  = ~Brandock möchte sein Buch Restaurieren~
-
 @10018  = ~Brandock in den Slums
 
 Brandock wartet auf mich in der Sphäre in den Slums. Er ist in dem Raum mit den Lehrlingen.~
-
 @10019  = ~Brandock möchte sein Buch Restaurieren
 
 Brandock sagte, dass so gut wie alle Zauber des zerstörten Buches in seinem Gedächtnis sind und er das Buch wieder herstellen will. Dafür braucht er die Unterstützung eines freundlichen Magiers... Ich sollte ihn darauf mal ansprechen.~
@@ -63,111 +64,136 @@ Ich habe Brandock versprochen, das wir zu Firebead Elfenhaar in Beregost gehen w
 @10022  = ~Brandock möchte sein Buch Restaurieren
 
 Elfenhaar wird Brandock mit seinem Buch helfen. Dazu braucht er als erstes die folgenden Zutaten: einen Sternensaphier, einen Trank der Regeneration und Tinte eines Oktopus. Diese Tinte sollte es bei Fischern zu kaufen geben, die im Meer ihre Beute fangen. In einem Fischerdorf wie Ulgoths Bart sollten wir fündig werden.~
-
 @10023  = ~Brandock erhöht seine Sagenkunde
 
-Brandock hat das Zauberbuch von Tarnesh studiert, der Magier, der uns an der Treppe zum Freundlichen Arm angriff, und seine Sagenkunde damit erhöht.~
+Brandock seems to have a very inquisitive mind. So far, he managed to learn from most magic book we encounter, but with him getting more well-versed, spellbooks from other mages do not necessarily help him increase his knowledge any more. Giving him the opportunity to study as many books as possible on our travels might still help him to increase his knowledge, but those events will become more rare.~
 @10024  = ~Brandock erhöht seine Sagenkunde
 
-Brandock hat interessante magische Bücher in Elfenhaars Zuhause gefunden und seine Sagenkunde damit erhöht.~
-@10025  = ~Brandock möchte sein Buch Restaurieren
-
-Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implementiert, der das zerstörte Buch wieder in die Form eines Buches brachte, als Elfenhaar und Brandock ihre Restaurationsmagie darauf anwandten. Nun hat es eine Einleitung in einer alten Runensprache der Illusionisten während der Rest aus leeren Seiten zu bestehen scheint. Elfenhaar glaubt jedoch, dass alle Zauber weiterhin darin aufgelistet sind - sie sind nur magisch versteckt. Brandock bräuchte Hilfe, um die Seiten in Ruathlek zu entziffern, aber im Moment können wir nichts tun, da sich die nächsten Übersetzungstafeln in Kerzenburg befinden...~
+Brandock seems to have a very inquisitive mind. He increased his lore by studying his cousin's spellbook. On our travels, I should give him the opportunity to study as many books as possible in the hopes that it will help him increase his knowledge.~
+@10025  = ~Funeral for Brandock's Cousin~
 @10026  = ~Brandock möchte sein Buch Restaurieren
 
 Wir haben alle von Elfenhaar geforderten Zutaten zusammen. Brandock möchte nun zu Elfenhaar nach Beregost gehen, um mit ihm an der Wiederherstellung seines Buches zu arbeiten.~
-@10027  = ~Brandock erhöht seine Sagenkunde
+@10027  = ~Funeral for Brandock's Cousin
 
-Brandock hat seine Sagenkunde durch ein intensives Stöbern in der Kerzenburger Bibliothek erhöht.~
+Brandock wants to go to the Temple of Helm and arrange the funeral of his mother's cousin Ebrel.~
 @10028  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock hat einen Weg gefunden, wie er die Seiten in Ruathlek in seinem Buch übersetzen wird: Sobald wir mit unseren Nachforschungen in Kerzenburg fertig sind, wird er für einen Zehntag dort bleiben und an der Übersetzung arbeiten.~
+Acursed murder accusations! Elvenhair will not help Brandock until we cleared our names from the murder accusation in Candlekeep. I hope once this is resolved, Elvenhair will continue to help Brandock with his troubles.~
 @10029  = ~Brandock erhöht seine Sagenkunde~
 @10030  = ~Brandock erhöht seine Sagenkunde
 
 Brandock scheint einen sehr wachen und neugierigen Geist zu haben wenn es um magisches Wissen geht. Ich sollte ihm auf unseren Reisen die Möglichkeit geben, möglichst häufig magische Bücher und Schriften zu lesen, wenn wir die Gelegenheit haben. Das sollte sich positiv auf seine Sagenkunde auswirken.~
 @10031  = ~Brandock erhöht seine Sagenkunde
 
-Brandock hat seine Sagenkunde erhöht, indem er die Geschichte der Schriftrollen von Nesseril studiert hat, die wir von Herzog Eltan als Eintrittszoll für Kerzenburg erhalten haben.~
-@10032  = ~Brandock erhöht seine Sagenkunde
+Brandock can't increase his lore wisdom by studying random books any more. Maybe he'll find one or two along our travels, but the days where every enemies' spellbook would give him a lore boost are over.~
+@10032  = ~Funeral for Brandock's Cousin
 
-Brandock hat durch das Studium von Baldurans Logbuch seine Sagenkunde erhöht.~
-@10033  = ~Brandock erhöht seine Sagenkunde
+Brandock arranged the funeral of his mother's cousin Ebrel with the Temple of Helm. They will transfer the remains to Ebrel's hometown and hold a ceremony there.~
+//@10033  = ~~
+//@10034  = ~~
+//@10035  = ~~
+//@10036  = ~~
+//@10037  = ~~
+//@10038  = ~~
+//@10039  = ~~
+//@10040  = ~~
+//@10041  = ~~
+//@10042  = ~~
+//@10043  = ~~
+@10044  = ~Brandock Wants to Restore his Book
 
-Brandock hat das Zauberbuch des Magiers aus dem Zelt auf dem Nashkellner Karneval studiert und damit seine Sagenkunde erhöht.~
-@10034  = ~Brandock erhöht seine Sagenkunde
+Elvenhair will bring his lexicon next time he returns from Candlekeep, but when this will be he couldn't tell. He said he will let Brandock know when he has the lexicon.~
+@10045  = ~Brandock and his Half-Ogre 'Twin'
 
-Brandock erhöhte seine Sagenkunde durch das Studium von Yagos Buch der Flüche.~
-@10035  = ~Brandock erhöht seine Sagenkunde
+Malm, the half-ogre who shapeshifted into a human went on a journey to the great library Alisarhold in Amn. I am sure Brandock will meet him again someday.~
 
-Durch das Studium von Dradeels Zauberbuch konnte Brandock seine Sagenkunde nicht erhöhen.~
-
-@10036  = ~Brandock erhöht seine Sagenkunde
-
-Brandock hat das Zauberbuch des Magiers in der Mantelwaldmiene studiert und dadurch seine Sagenkunde erhöht.~
-
-@10037  = ~Brandock erhöht seine Sagenkunde
-
-Brandock hat ein paar interessante Bücher in Durlags alter Bibliothek gefunden und durch deren Studium seine Sagenkunde erhöht.~
-@10038  = ~Brandock erhöht seine Sagenkunde
-
-Die Bücher in Ramaziths Haus haben Brandock geholfen, seine Sagenkunde zu erhöhen.~
-@10039  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte Ragefasts Bibliothek und erhöhte dadurch seine Sagenkunde.~
-@10040  = ~Brandock erhöht seine Sagenkunde
-
-Brandock hat seine Sagenkunde erhöht, indem er das Zauberbuch des Mittelmanns studiert hat, den wir in Beregost gestellt haben.~
-
-@10041  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte die Zauberbücher der vier Magier, die uns im Zauberei Allerlei angegriffen hatten und erhöhte dadurch seine Sagenkunde.~
-@10042  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte das Zauberbuch der verrückten Zauberin, die Leute als "Kunstskulpturen" versteinert hatte und erhöhte dadurch seine Sagenkunde.~
-@10043  = ~Brandock möchte sein Buch Restaurieren
-
-Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implementiert, der das zerstörte Buch wieder in die Form eines Buches brachte, als Elfenhaar und Brandock ihre Restaurationsmagie darauf anwandten. Nun hat es eine Einleitung in einer alten Runensprache während der Rest aus leeren Seiten zu bestehen scheint. Elfenhaar glaubt jedoch, dass alle Zauber weiterhin darin aufgelistet sind - sie sind nur magisch versteckt.~
-@10044  = ~Brandock möchte sein Buch Restaurieren
-
-Brandock wurde mit mir zusammen aus Kerzenburg verbannt... Wir werden sehen, wann und wie er die Möglichkeit finden wird, sein Buch zu übersetzen.~
-@10045  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte ein Zauberbuch mit Hinweisen zum Bauen eines Halruaanschen Himmelsschiff und erhöhte dadurch seine Sagenkunde.~
-
-/* new in vbeta_4 */
-@10046  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte ein Zauberbuch eines Magiers den wir in der Wildnis trafen und damit experimentiert, Schleime zu kontrollieren und erhöhte dadurch seine Sagenkunde.~
-@10047  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte ein Zauberbuch eines Magiers der uns mit Basilisken bedrohte und erhöhte dadurch seine Sagenkunde.~
-@10048  = ~Brandock erhöht seine Sagenkunde
-
-Brandock studierte die Zauberbücher Roter Magier, die uns in dr Wildnis angriffen und erhöhte dadurch seine Sagenkunde.~
-@10049  = ~Brandock erhöht seine Sagenkunde
-
-Brandock hat ein paar alte Buchseiten in den Ruinen der Ulcasterschule gelesen und dadurch seine Sagenkunde erhöht.~
-@10050  = ~Elfenhaar unterrichtet Brandock im Schreiben von Schriftrollen
-
-Elfenhaar hat Brandock angeboten, mit ihm das Schreiben von magischen Schriftrollen zu üben. Sobald wir Gorions Mörder gestellt haben, sollten wir noch einmal zu Alfenhaar nach Beregost zurückkehren.~
+//@10046  = ~~
+//@10047  = ~~
+//@10048  = ~~
+//@10049  = ~~
 
 /* new in vbeta 7 */
 @10050  = ~Elvenhair Offered Brandock to Scribe Scrolls
 
 Elvenhair offered Brandock to scribe scrolls in his home. He is welcome to use Elvenhair's desk any time he wants.~
-/* @10025 rephrased */
-@10051  = ~Brandock Wants to Restore his Book
+@10051  = ~Brandock möchte sein Buch Restaurieren
 
-Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty. Elvenhair believes the spells have to be added back by "a mage of high enough expertise", but to know for sure they need to decipher the pages covered in Ruathlek runes. Elvenhair will bring his lexicon next time he returns from Candlekeep, but when this will be he couldn't tell. He said he will let Brandock know when he has the lexicon.~
-/* @10028 rephrased */
-@10052  = ~Brandock Wants to Restore his Book
+Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implementiert, der das zerstörte Buch wieder in die Form eines Buches brachte, als Elfenhaar und Brandock ihre Restaurationsmagie darauf anwandten. Nun hat es eine Einleitung in einer alten Runensprache der Illusionisten während der Rest aus leeren Seiten zu bestehen scheint. Elfenhaar glaubt, dass die Zauber von einem Magier mit genügend hoher Erfahrung wieder hergestellt werden müssen, aber um das sicher zu wissen, müssen die Seiten übersetzt werden, die in Ruathlek geschrieben sind.~
+@10052  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a visitor and start working on translating the Ruathlek writing in his magic book.~
-/* @10044 rephrased */
+Brandock möchte in Kerzenburg bleiben - zumindest für eine Weile. Er wird mich bei meinen Nachforschungen über die Anführer des Eisenthrons unterstützen. Sobald wir damit fertig sind, wird er für einen Zehntag dort bleiben und an der Übersetzung arbeiten.~
 @10053    = ~Brandock möchte sein Buch Restaurieren
 
 Brandock wurde mit mir zusammen aus Kerzenburg verbannt...~
+@10054  = ~Brandock's Scroll Scribing Skills
+
+Until our names are cleared from the murder accusations, Brandock cannot use Elvenhair's desk to scribe scrolls.~
+@10055  = ~Brandock Wants to Restore his Book
+
+Elvenhair send a messenger: he brought his Ruathlek lexicon from Candlekeep and is waiting in his house in Beregost, ready to help Brandock with the translation. Brandock is eager to go there as soon as possible.~
+@10056  = ~Brandock Wants to Restore his Book
+
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language saying: 
+"Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom.".~
+@10057  = ~Brandock Wants to Restore his Book
+
+Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Amn.~
+@10058  = ~Brandock Wants to Restore his Book
+
+Brandock wants to show his restored book to the priests of Oghma. The Temple of Oghma is in the Dock's District in Athkatla.~
+@10059  = ~Brandock Wants to Restore his Book
+
+Brandock showed his restored book to the priests in the Temple of Oghma is in the Dock's District in Athkatla. They need a King's Tear and 5000 gold to help further with the book.~
+@10060  = ~Brandock Wants to Restore his Book
+
+Brandock wants to return to the Temple of Oghma is in the Dock's District in Athkatla.~
+@10061  = ~Brandock Wants to Restore his Book
+
+The De Simplex Magicae is fully restored. Brandock gave the book to the Temple of Oghma.~
+@10062  = ~Brandock's Scroll Scribing Skills
+
+Brandock möchte, dass wir alle verfluchten Schriftrollen aufbewahren die wir finden, um die Magie darin für etwas Sinnvolles zu nutzen.~
+@10063  = ~Brandock's Scroll Scribing Skills
+
+Brandock promised to scribe a scroll on our next rest - no matter where.~
+@10064  = ~Brandock's Scroll Scribing Skills
+
+Brandock overcame his fear of setting fire to his surroundings when scribing a spell scroll. He is no longer dependent on Master Elvenhair's desc but can write scrolls anywhere.~
+@10065  = ~Brandock Changes the Book of Infinite Spells
+
+Brandock offers to reorganize the Book of Infinite Spells so every page I'll open now can be reopened later.
+I should scroll though the book until I reach the last page. Upon turning a page, Brandock will tell me when he's finished with whatever he's doing to get them to open later. He also said he will not react to pages that were already opened before in case they appear again.~
+@10066  = ~Brandock Changes the Book of Infinite Spells
+
+Brandock finished rewriting the Book of Infinite Spells. Now older pages can be reopened, too.~
+@10067  = ~Brandock Changes the Book of Infinite Spells~
+@10068  = ~~
+@10069  = ~Brandock's Half-Ogre Troubles
+
+Brandock shifted into a half-ogre when we fought doppelgangers inside the Candlekeep Catacombs. He says that it must be connected to the incident where he changed bodies with a half-ogre, but he needs to see Thalantyr about this.~
+@10070  = ~Brandock's Half-Ogre Troubles
+
+Brandock spoke to Thalantyr. The older mage made it clear that Brandock will develop the ability to shapeshift into a half-ogre, and there is nothing that can be done against it - Brandock can only learn to control it.~
+@10071  = ~Brandock's Half-Ogre Troubles
+
+Brandock is now ready to use his ability to shapeshift into a half-ogre.~
+@10072  = ~Brandock's Half-Ogre Troubles
+
+Brandock is no longer afraid to use his ability to shapeshift into a half-ogre.~
+@10073  = ~Brandock and his Half-Ogre 'Twin'
+
+Brandock's body switch with the half-ogre affected the half-ogre, too! Apparently, he can turn into a human who looks a lot like Brandock. Brandock feels responsible for the half-ogre being stuck in human form and wants to search for him. As far as we know he was camping to the west of Thalantyr's abode.~
+@10074  = ~Brandock and his Half-Ogre 'Twin'
+
+Malm, the half-ogre who shapeshifted into a human found a temporary home in the Temple by Beregost. Something tells me Brandock and he will not have met for the last time...~
+@10075  = ~Brandock and his Half-Ogre 'Twin'
+
+Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison! Brandock wants us to go there and see whether Malm needs support.~
+@10076  = ~Brandock and his Half-Ogre 'Twin'~
+@10077  = ~Increase Brandock's Lore Wisdom
+
+The books in Oghma's Temple helped Brandock to increase his lore.~
 
 
 
