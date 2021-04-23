@@ -13,17 +13,17 @@ END
 
 
 
-APPEND c#brandj
 
+CHAIN
 IF WEIGHT #-1
-~Global("C#Br_EldodRestored_CM","GLOBAL",1)~ THEN eldodrestored
-SAY @3 /* ~So the captain was under the influence of mind control! I *knew* people can't be that wicked if in their right mind.~ */
+~Global("C#Br_EldodRestored_CM","GLOBAL",1)~ THEN c#brandj eldodrestored
+@3 /* ~So the captain was under the influence of mind control! I *knew* people can't be that wicked if in their right mind.~ */
 == c#brandj IF ~!Dead("NTKROTAN")~ THEN @4 /* ~<CHARNAME> - you are a genius for figuring that out. I am glad events took this turn and we could free him before this ogre mage made him do more bad things!~ */
 == c#brandj @5 /* ~The poor man... This is like waking up *into* a nightmare - what a nightmare!~ */
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_EldodRestored_CM","GLOBAL",2)~ EXIT
 
-
+APPEND c#brandj
 IF WEIGHT #-1
 ~Global("C#Br_LorePathNTMISC10BG1_CM","GLOBAL",1)~ THEN book_of_the_unknowing
 SAY @6 /* ~"The Great Book of the Unknowing", hmm? I wonder what its magic is like...~ */
@@ -48,3 +48,5 @@ IF ~~ THEN book_of_the_unknowing_03
 SAY @14 /* ~Wow. This is... nothing I can learn from without proper safety measures, of which I have no idea what they would be. I think I have a headache now.~ */
 IF ~~ THEN DO ~SetGlobal("C#Br_LorePathNTMISC10BG1_CM","GLOBAL",2)~ EXIT
 END
+
+END //APPEND

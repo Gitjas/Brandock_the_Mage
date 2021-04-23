@@ -117,7 +117,7 @@ IF ~Global("C#Brandock_ImoenBG1NPC","GLOBAL",4)~ THEN c#brandj brandockimoenbg1n
 = @17 /* ~My magic talent was found out by mere coincidence. "Magic always finds a way", my first teacher said. And if it is not tamed in time, these "ways" are usually hurtful for oneself or other people around.~ */
 = @18 /* ~Untamed magic talent really scares me. <CHARNAME>, we need to let Imoen train magic.~ */
 == %IMOEN_JOINED% @19 /* ~Woooo! Ya hear that, <CHARNAME>?~ */
-== c#brandj @20 /* ~You did something there, without being trained. We should be careful, <CHARNAME>. Don't let her fiddle with it on her own for too long.~
+== c#brandj @20 /* ~You did something there, without being trained. We should be careful, <CHARNAME>. Don't let her fiddle with it on her own for too long.~ */
 = @21 /* ~I'll have an eye on your attempts, Imoen, but unless you start training magic on a serious note, there is only so much damage control I can do.~ */
 == %IMOEN_JOINED% @22 /* ~"Damage control", huh? My, aren't you a real charmer!~ */
 EXIT
