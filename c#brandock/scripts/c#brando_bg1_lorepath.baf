@@ -10,7 +10,7 @@ IF
 THEN
 	RESPONSE #100
 		AddJournalEntry(@10030,QUEST)
-		SetGlobal("C#Br_LorePathJournalEntry","LOCALS",0)
+		SetGlobal("C#Br_LorePathJournalEntry","LOCALS",1)
 END
 
 /* lore path: zordral */
