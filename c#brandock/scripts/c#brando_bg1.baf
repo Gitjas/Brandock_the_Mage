@@ -2746,7 +2746,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
-IncrementGlobal("C#Brandock_Possessions","GLOBAL",1)
+SetGlobal("C#Brandock_AddBookTalk","LOCALS",1)
 END
 
 /* Initiate Brandock ponders about the lost book, #7 */
