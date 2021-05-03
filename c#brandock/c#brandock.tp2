@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_9~ 
+VERSION ~Beta_10pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -241,8 +241,6 @@ COMPILE ~...inlined/bgeefake.d~
 
 
   /* BGT: dream scripts */
-
-
   ACTION_IF GAME_IS ~bgt~ THEN BEGIN /* BGT Versions */
       COPY_EXISTING ~pdialog.2da~ ~override~
       COUNT_2DA_ROWS 8 "cnt_row"
@@ -289,6 +287,16 @@ COMPILE ~...inlined/bgeefake.d~
 
   END // c#brandockinstall.mrk
 
+//reloading of tras ALWAYS:
+  LOAD_TRA ~c#brandock/tra/autotra/english/game.tra~
+  LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/game.tra~
+  ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
+    LOAD_TRA ~c#brandock/tra/autotra/english/game_ee.tra~
+    LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/game_ee.tra~
+  END
+  LOAD_TRA ~c#brandock/tra/autotra/english/journal.tra~
+  LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/journal.tra~
+
 END //ALWAYS
 
 
@@ -313,16 +321,6 @@ BEGIN @55540 /* ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~ */ DES
 REQUIRE_PREDICATE GAME_IS ~bgt bgee bg2ee tob eet~ @55541
 FORBID_COMPONENT ~EET_end.tp2~ ~0~ @55568
 FORBID_COMPONENT ~EET_end.tp2~ ~1~ @55568
-
- //reloading of tras:
-  LOAD_TRA ~c#brandock/tra/autotra/english/game.tra~
-  LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/game.tra~
-  ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
-    LOAD_TRA ~c#brandock/tra/autotra/english/game_ee.tra~
-    LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/game_ee.tra~
-  END
-  LOAD_TRA ~c#brandock/tra/autotra/english/journal.tra~
-  LOAD_TRA ~c#brandock/tra/autotra/%LANGUAGE%/journal.tra~
 
 /* Brandock's dialogue timer */
 APPEND ~gtimes.ids~ ~3600 C#BRANDOCK_TIMERLONG~ UNLESS ~C#BRANDOCK_TIMERLONG~
