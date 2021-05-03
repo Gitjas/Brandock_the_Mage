@@ -66,7 +66,7 @@ SAY ~So, what can I do for you?~ [c#ablank]
 + ~Global("C#BrandockSpawn","GLOBAL",12)~ + ~I was held prisoner by a very powerful mage, Brandock. We just made our escape during a huge fight at the Promenade.~ DO ~SetGlobal("C#Brandock_IrenicusFirstMeeting","LOCALS",1)~ + firstmeeting_07
 + ~Global("C#BrandockSpawn","GLOBAL",12) Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Imoen was taken by Cowled Wizards!~ DO ~SetGlobal("C#Brandock_ImoenFirstMeeting","LOCALS",1)~ + firstmeeting_08
 + ~Global("C#BrandockSpawn","GLOBAL",12)~ + ~I'd prefer not to talk about it, at least not now.~ + firstmeeting_05_out
-+ ~Global("C#BrandockSpawn","GLOBAL",13) PartyHasItem("c#br2001")~ + ~I fear I can answer this question, Brandock. See this ring, I think it was his. Your greatcousin is dead.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
++ ~Global("C#BrandockSpawn","GLOBAL",13) PartyHasItem("c#br2001")~ + ~I fear I can answer this question, Brandock. See this spellbook, I think it was his. Your greatcousin is dead.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
 + ~Global("C#BrandockSpawn","GLOBAL",13) PartyHasItem("c#br2001")~ + ~Ebrel died, Brandock. I am sorry.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
 + ~Global("C#BrandockSpawn","GLOBAL",14) Global("C#Brandock_FirstMeeting1","LOCALS",0)~ + ~Want to join me?~ DO ~SetGlobal("C#Brandock_FirstMeeting1","LOCALS",1)~ + firstmeeting_23
 + ~Global("C#BrandockSpawn","GLOBAL",14) Global("C#Brandock_FirstMeeting1","LOCALS",1)~ + ~Want to join me?~ + firstmeeting_24
@@ -130,7 +130,7 @@ IF ~~ THEN firstmeeting_13
 SAY ~Wait - the fight my greatcousin was summoned to, that was you? I mean not *you*, you know what I meant...~
 = ~Whoa, I have to process what you told me, <CHARNAME>. I had no idea what you had to go through these last weeks. I know your departure from Baldur's Gate was somehow overshadowed, but... And now I am getting nervous concerning the wellbeing of my greatcousin, too.~
 = ~Ebrel, my mother's cousin, didn't return yet from being summoned to a fight at the Promenade. It shouldn't take that long. It never takes that long! I was working with him for six weeks now, and he was summoned two times. It always took one hour, maximum. For him, that is. He doesn't have any authority, he's just called in for numbers and backup, so he is usually the first who can go. If the fight was indeed that violent, I fear for him. I'd need to know whether he made it out alive!~
-+ ~PartyHasItem("c#br2001")~ + ~I fear I can answer this question, Brandock. See this ring, I think it was his. Your greatcousin is dead.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
++ ~PartyHasItem("c#br2001")~ + ~I fear I can answer this question, Brandock. See this spellbook, I think it was his. Your greatcousin is dead.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
 + ~PartyHasItem("c#br2001")~ + ~Ebrel died, Brandock. I am sorry.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",14)~ + firstmeeting_14
 ++ ~We could do that together, if you want.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",13)~ + firstmeeting_13_b
 ++ ~You'll do that, and maybe we'll meet again, later.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",13)~ + firstmeeting_13_b
