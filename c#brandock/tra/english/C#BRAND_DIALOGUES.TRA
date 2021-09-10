@@ -1273,6 +1273,9 @@
 @1474 = ~I knew it! Malm, there is much more to discover - in the cities of people. To the east of here is a great temple. There they will take you in and help you accustom to life as a human, if you want.~
 @1475 = ~[Halboger]Oh. Then Malm wants to go there after all. Will break camp. And clear away litter like other man said.~
 @1476 = ~Hello! Malm is very happy here. I listen to the singing every day. Singing is beautiful!~
+@1477 = ~I just slashed with my hands... slashed and slashed... while feeling how the dopplegangers skin tore, and...~
+@1478 = ~I meant the half-ogre transformation.~
+@1479 = ~Yes, Brandock, I saw *that* part. I meant what happened before. Why are you a half-ogre?~
 
 /* brandock_shapeshifter_sod.d */
 @1480 = ~Ah, found friends already? That's good - I guess. Just make sure you stay out of trouble, yes?~
@@ -1343,6 +1346,7 @@
 @1541 = ~Oooh, I'll help you gladly with that, Master Elvenhair... if I may.~
 @1542 = ~I'd love to say that it was his own fault to being killed for being so aggressive - and arrogant about his own power - but it *was* us barging into his house uninvited - and actually killing him. I'm not sure I like our role in this... I will have a look into his spellbook, though.~
 @1543 = ~Why did we have to barge in like that and kill those young women... <CHARNAME>, if we do not have the means to snatch things from under people's noses without them feeling like defending them with their lives then *maybe* we shouldn't accept such tasks.~
+@1544 = ~This is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most enlightning.~
 
 /* brandock_lorepath_sod.d */
 @1650 = ~Ooh, look at all the books laying on the floor, what a shame... There is good books here, <CHARNAME>.~
@@ -1633,6 +1637,7 @@
 @3539 = ~[Elvenhair]Ah, an old scholar like me cherishes the joys of teaching, my young friend. It makes my heart happy to see the youth being interested in books and magic! See you soon, then.~
 @3540 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Identify. It looks like a real one! I did this!~
 @3541 = ~I will be able to write more scrolls here, <CHARNAME>, once I rested. The weaker spells I can write without special ressources, but the higher spells will consume gold if written. I will be able to write more spells the more experienced I will be. I'll note it down for you so you can look the details up later.~
+@3542 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Protection from Fire. It looks like a real one! I did this!~
 
 /* brandock_scrollscribing_bg2.d */
 @3600 = ~So, here it is - a recharging spell page. We need to try whether it works as intended as soon as possible.~
@@ -1790,7 +1795,7 @@
 @3914 = ~Malm will go back into city. There is so much to see! But I will stay away from sweet-bitter and bitter-bitter liquids that make head spin. Didn't like that at all.~
 @3915 = ~Malm, such a big city is not a good place for you. People are not good with other people who are too curious... and also too old for having what I'd call the 'childhood bonus'. You'd need to spend time at a place that does teaching for a living, so to say. Maybe... a big library. Like Alisarhold!~
 @3916 = ~I still have friends there. I am sure they would love to study you and the magic that transformed us, too. And oh - if you are searching for a cure to Thalantyr's magic so you'll be able to shift into a half-ogre as long as you want again - that's the right place to go. Let me write you a recommendation letter...~
-@3917 = ~Only question is how you'll get there. I can give you gold and a map with directions, but what if you get into danger along the way? Wait - I'm constantly forgetting I am talking to a half-ogre - who is not afraif of people. You will be fine. As long as you do not turn into a half-ogre if people are around, alright? That is really important, if you'll go south.~
+@3917 = ~Only question is how you'll get there. I can give you gold and a map with directions, but what if you get into danger along the way? Wait - I'm constantly forgetting I am talking to a half-ogre - who is not afraid of people. You will be fine. As long as you do not turn into a half-ogre if people are around, alright? That is really important, if you'll go south.~
 @3918 = ~I can't shift when sober, I tried. So, no half-ogre unless Brandock's friends at library can help. Malm will go there.~
 @3919 = ~Ask at a temple whether they know about caravans going south. There should be a lot of travelling nowadays. Say hello to my friends - I am sure they'll be happy to get a librarian who will be strong enough to move shelves on his own, haha! Take care, Malm.~
 @3920 = ~Did I... did I just send Malm - a half-ogre trapped in a weak human body - on a thousand miles journey into a magic hating land he doesn't know anything about and where he knows noone?~

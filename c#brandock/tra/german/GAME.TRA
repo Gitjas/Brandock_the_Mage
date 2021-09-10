@@ -452,6 +452,7 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1034 = ~I'll make sure I'll learn from those mages' spellbooks...~
 @1035 = ~Oh, a library! (Brandock murmurs while scanning book covers.) Hmm, no magic books, as far as I can see.~
 @1036 = ~Didn't seem to have helped him here - but the spellbook is still an interesting read.~
+@1037 = ~Three interesting spellbooks, but I'd prefer I wouldn't have had the chance to go through these...~
 
 /* SoD */
 @1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
@@ -491,8 +492,10 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1282 = ~Another battle! We will prevail! I hope.~
 @1283 = ~It just *had* to die right on top of the castle, hadn't it?~
 @1284 = ~I never thought I'd say that, but those doors look *really* intimidating!~
+
+/* new for vbeta 11 */
+@1285 = ~Bei manchen Gegnern ist das Ergattern ihrer Zauberbücher unbeschreiblich befriedigend. Hephernaan gehört da eindeutig dazu.~
 /*
-@1285 = 
 @1286 = 
 @1287 = 
 @1288 = 

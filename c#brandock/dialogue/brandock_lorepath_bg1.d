@@ -51,10 +51,17 @@ SetGlobal("C#Br_LorePathNiemain","GLOBAL",2)~ EXIT
 END
 
 /* Delorna's Spell Component for Halruaan's Skyship  */
-IF ~Global("C#Br_LorePathDelornaBG1","GLOBAL",1)~ THEN delorna_spellbook
+IF ~Global("C#Br_LorePathHalruaanBG1","GLOBAL",1)
+Global("C#Br_LorePathDelornaBG1","GLOBAL",1)~ THEN delorna_spellbook
 SAY @1543 /* ~Why did we have to barge in like that and kill those young women... <CHARNAME>, if we do not have the means to snatch things from under people's noses without them feeling like defending them with their lives then *maybe* we shouldn't accept such tasks.~ */
 = @1536 /* ~(sigh) Despite the fact how we achieved this, this is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most enlightning. Still... I'd prefer I wouldn't have had the chance to go through these spellbooks...~ */
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1) SetGlobal("C#Br_LorePathDelornaBG1","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1) SetGlobal("C#Br_LorePathHalruaanBG1","GLOBAL",2)~ EXIT
+END
+
+IF ~Global("C#Br_LorePathHalruaanBG1","GLOBAL",1)
+Global("C#Br_LorePathDelornaBG1","GLOBAL",0)~ THEN delorna_spellbook_01
+SAY @1544 /* ~This is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most enlightning.~ */
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1) SetGlobal("C#Br_LorePathHalruaanBG1","GLOBAL",2)~ EXIT
 END
 
 /* Narcillicus Harwilliger Neen (green slimes) */

@@ -1274,6 +1274,9 @@
 @1474 = ~Ich wusste es! Malm, davon gibt es noch viel mehr zu entdecken. In den Städten der Menschen. Im Osten von hier ist ein großer Tempel. Dort werden sie Euch aufnehmen und an das Leben als Mensch gewöhnen, wenn Ihr wollt.~
 @1475 = ~[Halboger]Oh. Dann Malm möchte doch dahin gehen. Werde also aufbrechen. Und auch mein Lager aufräumen, wie anderer Mensch verlangt hat.~
 @1476 = ~Hello! Malm is very happy here. I listen to the singing every day. Singing is beautiful!~
+@1477 = ~Ich habe einfach mit meinen Händen geschlagen... immer und immer wieder... bis der Doppelgänger nicht mehr...~
+@1478 = ~Ich meinte die Verwandlung zum Halboger.~
+@1479 = ~Ja, Brandock, *den* Teil hatte ich mitbekommen. Ich meinte was davor geschah. Warum seid Ihr ein Halboger?~
 
 /* brandock_shapeshifter_sod.d */
 @1480 = ~Ah, found friends already? That's good - I guess. Just make sure you stay out of trouble, yes?~
@@ -1344,6 +1347,7 @@
 @1541 = ~Oooh, I'll help you gladly with that, Master Elvenhair... if I may.~
 @1542 = ~I'd love to say that it was his own fault to being killed for being so aggressive - and arrogant about his own power - but it *was* us barging into his house uninvited - and actually killing him. I'm not sure I like our role in this... I will have a look into his spellbook, though.~
 @1543 = ~Why did we have to barge in like that and kill those young women... <CHARNAME>, if we do not have the means to snatch things from under people's noses without them feeling like defending them with their lives then *maybe* we shouldn't accept such tasks.~
+@1544 = ~This is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most enlightning.~
 
 /* brandock_lorepath_sod.d */
 @1650 = ~Ooh, look at all the books laying on the floor, what a shame... There is good books here, <CHARNAME>.~
@@ -1635,6 +1639,7 @@
 @3539 = ~[Elvenhair]Ah, an old scholar like me cherishes the joys of teaching, my young friend. It makes my heart happy to see the youth being interested in books and magic! See you soon, then.~
 @3540 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Identify. It looks like a real one! I did this!~
 @3541 = ~I will be able to write more scrolls here, <CHARNAME>, once I rested. The weaker spells I can write without special ressources, but the higher spells will consume gold if written. I will be able to write more spells the more experienced I will be. I'll note it down for you so you can look the details up later.~
+@3542 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Protection from Fire. It looks like a real one! I did this!~
 
 /* brandock_scrollscribing_bg2.d */
 @3600 = ~So, here it is - a recharging spell page. We need to try whether it works as intended as soon as possible.~

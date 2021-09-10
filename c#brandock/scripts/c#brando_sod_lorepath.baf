@@ -261,8 +261,8 @@ END
 
 /* Olvenaun, bd4300 DS Castle basement */
 IF %IT_IS_SOD%
-Dead("bdolvena")
-See("bdolvena")
+Dead("bdolvena") Dead("bdesseri")
+OR(2) See("bdolvena") See("bdesseri")
 Global("C#Br_LorePathbdolvenaSoD","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -274,8 +274,8 @@ THEN
 RESPONSE #100
 SetInterrupt(FALSE)
 SetGlobal("C#Br_LorePathbdolvenaSoD","GLOBAL",1)
-DisplayStringHead("C#Brandock",@1028)
-ReallyForceSpellRES("c#brlob1",Myself) 
+DisplayStringHead("C#Brandock",@1029)
+ReallyForceSpellRES("c#brlob2",Myself) 
 SetInterrupt(TRUE)
 END
 
@@ -336,5 +336,25 @@ SetInterrupt(FALSE)
 SetGlobal("C#Br_LorePathbdchal04SoD","GLOBAL",1)
 DisplayStringHead("C#Brandock",@1028)
 ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Hephernaan, bd4700 Avernus Roof */
+IF %IT_IS_SOD%
+Dead("bdhepher")
+See("bdhepher")
+Global("C#Br_LorePathHephernaanSoD","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathHephernaanSoD","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1285)
+ReallyForceSpellRES("c#brlob2",Myself) 
 SetInterrupt(TRUE)
 END
