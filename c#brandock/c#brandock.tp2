@@ -11,7 +11,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_10~ 
+VERSION ~Beta_11pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -318,6 +318,7 @@ LANGUAGE ~Deutsch~
 
 
 BEGIN @55540 /* ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~ */ DESIGNATED 0
+LABEL BrandockTheMage-Main
 REQUIRE_PREDICATE GAME_IS ~bgt bgee bg2ee tob eet~ @55541
 FORBID_COMPONENT ~EET_end.tp2~ ~0~ @55568
 FORBID_COMPONENT ~EET_end.tp2~ ~1~ @55568
@@ -3072,6 +3073,7 @@ END //~tob bg2ee bgt eet~
 
 
 BEGIN @55545 /* ~Alternative #1: Very Friendly, by Acifer~ */ DESIGNATED 20 
+LABEL BrandockTheMage-Portrait_Friendly
 	SUBCOMPONENT @55544 
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
@@ -3103,6 +3105,7 @@ END
 
 
 BEGIN @55546 /* ~Alternative #2: Mischievous, by Acifer~ */ DESIGNATED 21 
+LABEL BrandockTheMage-Portrait_Mischievous
 	SUBCOMPONENT @55544
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
@@ -3132,6 +3135,7 @@ END
 
 BEGIN @55547 /* ~Alternative #3: Juvenile, by Acifer~ */ DESIGNATED 22 
 	SUBCOMPONENT @55544 
+LABEL BrandockTheMage-Portrait_Juvenile
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
 ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
@@ -3162,7 +3166,8 @@ END
 
 
 
-BEGIN @55548 /* ~Default Portrait: Insecure, by Acifer (is included in the main component)~ */ DESIGNATED 23 
+BEGIN @55548 /* ~Default Portrait: Insecure, by Acifer (is included in the main component)~ */ DESIGNATED 23  
+LABEL BrandockTheMage-Portrait_Insecure
 	SUBCOMPONENT @55544
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
@@ -3197,6 +3202,7 @@ END
 
 
 BEGIN @55553 /* ~Use Dialogue Style for SoD Banter~ */ DESIGNATED 30 
+LABEL BrandockTheMage-Dialogue_Style_SoD_Banter
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 REQUIRE_PREDICATE (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) @55554
 
