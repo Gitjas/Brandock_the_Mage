@@ -24,7 +24,8 @@ END
 
 IF ~~ THEN wait_jovial_juggler
 SAY @10 /* ~I'll be in Beregost inn, in case you need me.~ */
-IF ~~ THEN DO ~EscapeAreaMove("%Beregost_JovialJuggler_L1%",479,841,0)~ JOURNAL @10001 /* ~Brandock the Mage
+IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",0)
+EscapeAreaMove("%Beregost_JovialJuggler_L1%",479,841,0)~ JOURNAL @10001 /* ~Brandock the Mage
 
 Brandock is waiting for me in Beregost at the Jovial Juggler.~ */ EXIT
 END
@@ -68,7 +69,8 @@ This sets Global("C#Brandock_kicked_bd4700","global",1) which is used in bdcut59
 IF ~AreaCheck("bd4700")
     GlobalLT("bd_plot","global",570)~ THEN BEGIN kickout_sod_avernus
   SAY ~I, er, I'll stay nearby, alright?~
-  IF ~~ THEN DO ~SetGlobal("C#Brandock_kicked_bd4700","global",1)
+  IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",0)
+SetGlobal("C#Brandock_kicked_bd4700","global",1)
                  SetGlobal("bd_joined","locals",0)~ EXIT
 END
 
