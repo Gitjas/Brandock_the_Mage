@@ -34,8 +34,10 @@ I_C_T ~DRELIK~ 3 C#Brandock_DRELIK
 END
 
 I_C_T ~JARDAK~ 1 C#Brandock_JARDAK_1
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @537 /* ~What? Did everyone lose their minds in this house? We just defeated your b...~ */
-== ~DRELIK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @538 /* ~Stop talking and defend yourself!~ */
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+Global("C#Brandock_DRELIK","GLOBAL",1)~ THEN @537 /* ~What? Did everyone lose their minds in this house? We just defeated your b...~ */
+== ~JARDAK~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+Global("C#Brandock_DRELIK","GLOBAL",1)~ THEN @538 /* ~Stop talking and defend yourself!~ */
 END
 
 
@@ -1091,9 +1093,9 @@ END
 
 /* Cloakwood mines */
 
-IF ~Global("C#Brandock_CloakwoodMines","GLOBAL",1)~ THEN cloakwood_mines
+IF ~Global("C#Brandock_CloakwoodMines","GLOBAL",2)~ THEN cloakwood_mines
 SAY @212
-IF ~~ THEN DO ~SetGlobal("C#Brandock_CloakwoodMines","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_CloakwoodMines","GLOBAL",3)~ EXIT
 END
 
 
