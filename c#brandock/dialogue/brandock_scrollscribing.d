@@ -639,7 +639,7 @@ END
 IF WEIGHT #-1
 ~Global("C#Br_Scrollscribing","GLOBAL",4)~ THEN scribe_scoll_nomore
 SAY @3105 
-IF ~~ THEN EXIT
+IF ~~ THEN DO ~SetGlobal("C#Br_Scrollscribing","GLOBAL",5)~ EXIT
 END
 
 END //APPEND

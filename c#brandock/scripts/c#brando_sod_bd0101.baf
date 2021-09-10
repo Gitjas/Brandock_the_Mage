@@ -58,7 +58,7 @@ IF
 	!InMyArea("C#Brandock")
 	!Dead("C#Brandock")
 	!Allegiance("C#Brandock",ENEMY)
-	GlobalLT("C#BrandockSpawn","GLOBAL",6)	
+	Global("C#BrandockSpawn","GLOBAL",0)	
 	!InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",0)
 THEN
 	RESPONSE #100
@@ -80,7 +80,7 @@ THEN
 		SetGlobal("C#Br_BookRestore","GLOBAL",12)
 
 /* scroll scribing */
-		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",8)
 		EraseJournalEntry(@10050)
 		EraseJournalEntry(@10054)
 		AddJournalEntry(@10012,QUEST_DONE)

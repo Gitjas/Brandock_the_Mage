@@ -2,7 +2,8 @@
 IF
 	%BGT_VAR%
 	GlobalGT("C#Br_Scrollscribing","GLOBAL",0)
-	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+//	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)

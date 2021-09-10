@@ -47,11 +47,11 @@ END
 /* scroll scribing quest line wasn't finished - Brandock will now know how to scribe scrolls */
 IF 
 	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
-	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",7)
+	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",8)
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",8)
 		EraseJournalEntry(@10050)
 		EraseJournalEntry(@10054)
 		AddJournalEntry(@10012,QUEST_DONE)

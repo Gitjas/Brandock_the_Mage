@@ -43,7 +43,7 @@ SAY @3513
 IF ~~ THEN + scribe_scrolls_restbanter_03
 END
 
-IF ~Global("C#Br_ScribeScrollQuest","GLOBAL",3)~ THEN scribe_scrolls_restbanter_06
+IF ~Global("C#Br_ScribeScrollQuest","GLOBAL",7)~ THEN scribe_scrolls_restbanter_06
 SAY @3514
 ++ @3515 + scribe_scrolls_restbanter_08
 ++ @3516 + scribe_scrolls_restbanter_07
@@ -66,7 +66,7 @@ SAY @3520
 IF ~~ THEN DO ~//ReallyForceSpellRES("c#brscra","C#Brandock")
 ActionOverride("C#Brandock",AddSpecialAbility("c#brscrl"))
 EraseJournalEntry(@10063)
-SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",4) RestParty()~ SOLVED_JOURNAL @10064
+SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",8) RestParty()~ SOLVED_JOURNAL @10064
 EXIT
 END
 
@@ -128,16 +128,18 @@ IF ~~ THEN DO ~ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut4")~ 
 
 CHAIN
 IF WEIGHT #-1
-~Global("C#Br_ScribeScrollQuest","GLOBAL",2)~ THEN FIREBE brandock_elvenhair_scrollscribing_02
+~Global("C#Br_ScribeScrollQuest","GLOBAL",3)~ THEN FIREBE brandock_elvenhair_scrollscribing_02
 @3533
 == FIREBE IF ~LevelLT("C#Brandock",5)~ THEN @3534 DO ~GiveItemCreate("SCRL75",Player1,1,0,0)~
 == FIREBE IF ~LevelGT("C#Brandock",4)~ THEN @3535 DO ~GiveItemCreate("SCRL6H",Player1,1,0,0)~
-== c#brandj @3536
+== c#brandj IF ~LevelGT("C#Brandock",4)~ THEN @3536
 == FIREBE @3537
 == c#brandj @3538
 == FIREBE @3539
-== c#brandj @3540
+== c#brandj IF ~LevelLT("C#Brandock",5)~ THEN @3540
+== c#brandj IF ~LevelGT("C#Brandock",4)~ THEN @3542
 = @3541
 END
-IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",3)~ UNSOLVED_JOURNAL @10012 EXIT
+IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",4)
+SetGlobal("C#Br_Scrollscribing","GLOBAL",3)~ UNSOLVED_JOURNAL @10012 EXIT
 

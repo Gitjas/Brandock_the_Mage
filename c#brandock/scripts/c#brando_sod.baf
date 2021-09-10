@@ -35,13 +35,13 @@ END
 
 /* scroll scribing quest line wasn't finished - Brandock will now know how to scribe scrolls */
 IF 
-	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",7)
+	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",8)
 	GlobalGT("C#Br_BookRestore","GLOBAL",0)
 	GlobalGT("bd_plot","global",50)
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",7)
+		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",8)
 		EraseJournalEntry(@10050)
 		EraseJournalEntry(@10054)
 		AddJournalEntry(@10012,QUEST_DONE)
@@ -139,6 +139,9 @@ IF
 	!Detect([ENEMY])
 	!Detect([EVILBUTBLUE])
 	CombatCounter(0)
+	OR(2)
+		AreaCheck("bd0010")
+		AreaCheck("bd0101")
 THEN
 	RESPONSE #100
 		StartDialogueNoSet(Player1)
