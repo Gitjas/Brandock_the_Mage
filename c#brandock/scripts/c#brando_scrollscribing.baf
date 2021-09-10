@@ -108,4 +108,3 @@ THEN
 	RESPONSE #100
 		IncrementGlobal("C#Br_HasScrollSCRL18","LOCALS",1)
 END
-

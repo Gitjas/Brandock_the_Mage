@@ -2,29 +2,41 @@
 
 
 /* When Brandock readies himself to write a scroll: rewrite cursed scrolls on top of it */
+
+APPEND c#brandj 
+
+/* General "I think I can do this now */
+IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
+Global("C#Br_OnceCursedScroll","LOCALS",0)
+LevelGT("C#Brandock",8)
+OR(8)
+GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL12","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)~ THEN scribe_scoll_SCRL10_01
+SAY @3002 /* ~I think I have an idea what to do with cursed scrols - rewrite the magic inside to something useful. Let me know if you want me to try this.~ */
+IF ~~ THEN DO ~SetGlobal("C#Br_OnceCursedScroll","LOCALS",1)~ + scribe_scoll_02
+END
+
+END //APPEND
+
+
 /* Fluch der Schwäche / Cursed Scroll of Weakness (SCRL10) -> Strahl der Schwächung / Ray of Enfeeblement (SCRLAI) L2
 LevelGT("C#Brandock",2) */
 
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL10","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL10
 @3000
-== c#brandj IF ~Global("C#Br_DoOnceSCRL10","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL10","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL10","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL10","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL10","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
-
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL10","LOCALS",0)
-LevelGT("C#Brandock",2)
-GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL10")
-HasItem("SCRL10","C#Brandock")~ THEN scribe_scoll_SCRL10_01
-SAY @3002
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL10","LOCALS",1)~ + scribe_scoll_02
-END
 
 IF ~~ THEN scribe_scoll_SCRL10_02
 SAY @3003
@@ -39,23 +51,12 @@ LevelGT("C#Brandock",2) */
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL13","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL13
 @3004
-== c#brandj IF ~Global("C#Br_DoOnceSCRL13","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL13","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL13","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL13","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL13","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
-
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL13","LOCALS",0)
-LevelGT("C#Brandock",2)
-GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL13")
-HasItem("SCRL13","C#Brandock")~ THEN scribe_scoll_SCRL13_01
-SAY @3005
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL13","LOCALS",1)~ + scribe_scoll_02
-END
 
 IF ~~ THEN scribe_scoll_SCRL13_02
 SAY @3003
@@ -70,23 +71,12 @@ LevelGT("C#Brandock",4) */
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL14","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL14
 @3006
-== c#brandj IF ~Global("C#Br_DoOnceSCRL14","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL14","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL14","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL14","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL14","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
-
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL14","LOCALS",0)
-LevelGT("C#Brandock",4)
-GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL14")
-HasItem("SCRL14","C#Brandock")~ THEN scribe_scoll_SCRL14_01
-SAY @3007
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL14","LOCALS",1)~ + scribe_scoll_02
-END
 
 IF ~~ THEN scribe_scoll_SCRL14_02
 SAY @3003
@@ -102,23 +92,12 @@ LevelGT("C#Brandock",4) */
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL11","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL11
 @3008
-== c#brandj IF ~Global("C#Br_DoOnceSCRL11","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL11","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL11","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL11","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL11","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
-
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL11","LOCALS",0)
-LevelGT("C#Brandock",4)
-GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL11")
-HasItem("SCRL11","C#Brandock")~ THEN scribe_scoll_SCRL11_01
-SAY @3009
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL11","LOCALS",1)~ + scribe_scoll_02
-END
 
 IF ~~ THEN scribe_scoll_SCRL11_02
 SAY @3003
@@ -134,31 +113,18 @@ LevelGT("C#Brandock",6) */
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL12","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL12
 @3010
-== c#brandj IF ~Global("C#Br_DoOnceSCRL12","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL12","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL12","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL12","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL12","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
 
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL12","LOCALS",0)
-LevelGT("C#Brandock",6)
-GlobalGT("C#Br_HasScrollSCRL12","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL12")
-HasItem("SCRL12","C#Brandock")~ THEN scribe_scoll_SCRL12_01
-SAY @3011
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL12","LOCALS",1)~ + scribe_scoll_02
-END
-
 IF ~~ THEN scribe_scoll_SCRL12_02
 SAY @3003
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL12","MYAREA",1)
 CreateCreatureObject("C#Brhelp",Myself,0,0,0)~ EXIT
 END
-
-
 
 END //APPEND
 
@@ -167,30 +133,18 @@ LevelGT("C#Brandock",8) */
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL18","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL18
 @3012
-== c#brandj IF ~Global("C#Br_DoOnceSCRL18","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL18","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL18","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL18","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL18","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
 
-IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL18","LOCALS",0)
-LevelGT("C#Brandock",8)
-GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL18")
-HasItem("SCRL18","C#Brandock")~ THEN scribe_scoll_SCRL18_01
-SAY @3013
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL18","LOCALS",1)~ + scribe_scoll_02
-END
-
 IF ~~ THEN scribe_scoll_SCRL18_02
 SAY @3003
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL18","MYAREA",1)
 CreateCreatureObject("C#Brhelp",Myself,0,0,0)~ EXIT
 END
-
 
 END //APPEND
 
@@ -202,33 +156,18 @@ OR(2)
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL16","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL16
 @3014
-== c#brandj IF ~Global("C#Br_DoOnceSCRL16","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL16","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL16","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL16","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL16","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
 
-IF ~OR(2)
-%IT_IS_BGII% 
-%IT_IS_SOD% 
-Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL16","LOCALS",0)
-LevelGT("C#Brandock",11)
-GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL16")
-HasItem("SCRL16","C#Brandock")~ THEN scribe_scoll_SCRL16_01
-SAY @3015
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL16","LOCALS",1)~ + scribe_scoll_02
-END
-
 IF ~~ THEN scribe_scoll_SCRL16_02
 SAY @3003
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL16","MYAREA",1)
 CreateCreatureObject("C#Brhelp",Myself,0,0,0)~ EXIT
 END
-
 
 END //APPEND
 
@@ -238,32 +177,18 @@ LevelGT("C#Brandock",13)
 CHAIN
 IF ~Global("C#Br_ScribeScrollSCRL17","MYAREA",2)~ THEN c#brandj scribe_scoll_SCRL17
 @3016
-== c#brandj IF ~Global("C#Br_DoOnceSCRL17","LOCALS",1)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL17","LOCALS",2)~
+== c#brandj IF ~Global("C#Br_DoOnceSCRL17","LOCALS",0)~ THEN @3001 DO ~SetGlobal("C#Br_DoOnceSCRL17","LOCALS",1)~
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL17","MYAREA",3)
 ActionOverride("C#Brhelp",DestroySelf())~ + scribe_scoll_another
 
 APPEND c#brandj 
 
-IF ~%IT_IS_BGII%
-Global("C#Br_Scrollscribing","GLOBAL",1)
-Global("C#Br_DoOnceSCRL17","LOCALS",0)
-LevelGT("C#Brandock",13)
-GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
-OR(2)
-PartyHasItemIdentified("SCRL17")
-HasItem("SCRL17","C#Brandock")~ THEN scribe_scoll_SCRL17_01
-SAY @3017
-IF ~~ THEN DO ~SetGlobal("C#Br_DoOnceSCRL17","LOCALS",1)~ + scribe_scoll_02
-END
-
 IF ~~ THEN scribe_scoll_SCRL17_02
 SAY @3003
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollSCRL17","MYAREA",1)
 CreateCreatureObject("C#Brhelp",Myself,0,0,0)~ EXIT
 END
-
-
 
 IF ~~ THEN scribe_scoll_another
 SAY @3018
@@ -309,9 +234,9 @@ SAY @3023
 
 /* cursed scrolls */
 /* "SCRL10" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL10")~ + @3029 DO ~SetGlobal("C#Br_WriteScrollSCRLAI","LOCALS",1)~ + scribe_scoll_SCRL10_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL10")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
@@ -319,9 +244,9 @@ HasItem("SCRL10","C#Brandock")~ + @3029 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL10","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRLAI","LOCALS",1)~ + scribe_scoll_SCRL10_02
 /* "SCRL11" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL11")~ + @3030 DO ~SetGlobal("C#Br_WriteScrollSCRL1O","LOCALS",1)~ + scribe_scoll_SCRL11_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL11")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
@@ -329,9 +254,9 @@ HasItem("SCRL11","C#Brandock")~ + @3030 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL11","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL1O","LOCALS",1)~ + scribe_scoll_SCRL11_02
 /* "SCRL12" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL12")~ + @3031 DO ~SetGlobal("C#Br_WriteScrollSCRL1U","LOCALS",1)~ + scribe_scoll_SCRL12_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL12")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL12","LOCALS",0)
@@ -339,9 +264,9 @@ HasItem("SCRL12","C#Brandock")~ + @3031 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL12","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL1U","LOCALS",1)~ + scribe_scoll_SCRL12_02
 /* "SCRL13" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL13")~ + @3032 DO ~SetGlobal("C#Br_WriteScrollSCRL89","LOCALS",1)~ + scribe_scoll_SCRL13_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL13")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
@@ -349,9 +274,9 @@ HasItem("SCRL13","C#Brandock")~ + @3032 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL13","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL89","LOCALS",1)~ + scribe_scoll_SCRL13_02
 /* "SCRL14" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL14")~ + @3033 DO ~SetGlobal("C#Br_WriteScrollSCRL1L","LOCALS",1)~ + scribe_scoll_SCRL14_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL14")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
@@ -359,9 +284,9 @@ HasItem("SCRL14","C#Brandock")~ + @3033 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL14","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL1L","LOCALS",1)~ + scribe_scoll_SCRL14_02
 /* "SCRL16" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL16")~ + @3034 DO ~SetGlobal("C#Br_WriteScrollSCRL7H","LOCALS",1)~ + scribe_scoll_SCRL16_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL16")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
@@ -369,9 +294,9 @@ HasItem("SCRL16","C#Brandock")~ + @3034 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL16","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL7H","LOCALS",1)~ + scribe_scoll_SCRL16_02
 /* "SCRL17" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL17")~ + @3035 DO ~SetGlobal("C#Br_WriteScrollSCRL8O","LOCALS",1)~ + scribe_scoll_SCRL17_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL17")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
@@ -379,9 +304,9 @@ HasItem("SCRL17","C#Brandock")~ + @3035 DO ~ActionOverride("C#Brandock",GiveItem
 SetGlobal("C#Br_HasScrollSCRL17","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL8O","LOCALS",1)~ + scribe_scoll_SCRL17_02
 /* "SCRL18" */
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL18")~ + @3036 DO ~SetGlobal("C#Br_WriteScrollSCRL5Q","LOCALS",1)~ + scribe_scoll_SCRL18_02
-+ ~LevelGT("C#Brandock",2)
++ ~LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL13")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)
