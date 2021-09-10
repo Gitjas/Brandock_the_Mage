@@ -2873,7 +2873,7 @@ OUTER_SET thalantyr_30 = STATE_WHICH_SAYS 30 IN ~bg1ub/tra/%s/ubvial.tra~ FROM ~
 
 <<<<<<<< ...inlined/bg1ub_vial.d
 //%thalantyr_30%
-I_C_T ~THALAN~ 0 C#Brandock_Mysterious_Vial
+I_C_T ~THALAN~ %thalantyr_30% C#Brandock_Mysterious_Vial
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2015 
 == ~THALAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2016
 END
