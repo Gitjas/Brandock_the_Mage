@@ -457,7 +457,14 @@ END
 IF ~~ THEN half_ogre_02
 SAY @1359
 ++ @1360 + half_ogre_03
-++ @1361 + half_ogre_03
+++ @1361 + half_ogre_02_b
+++ @1362 + half_ogre_04
+END
+
+IF ~~ THEN half_ogre_02_b
+SAY @1477 /* ~I just slashed with my hands... slashed and slashed... while feeling how the dopplegangers skin tore, and...~ */
+++ @1478 /* ~I meant the half-ogre transformation.~ */ + half_ogre_03
+++ @1479 /* ~Yes, Brandock, I *saw* that part. I meant what happened before. Why are you a half-ogre?~ */ + half_ogre_03
 ++ @1362 + half_ogre_04
 END
 
