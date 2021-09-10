@@ -114,6 +114,7 @@ EXIT
 CHAIN
 IF ~Global("C#Brandock_ImoenBG1NPC","GLOBAL",4)~ THEN c#brandj brandockimoenbg1npc_04
 @16 /* ~Imoen, it is imperative that you learn how to handle your magic talent. I feel reminded to the young lad I was, fiddling with magic way over my head - only difference that I didn't know I was actually using magic...~ */
+DO ~SetGlobal("C#Brandock_ImoenBG1NPC","GLOBAL",5)~
 = @17 /* ~My magic talent was found out by mere coincidence. "Magic always finds a way", my first teacher said. And if it is not tamed in time, these "ways" are usually hurtful for oneself or other people around.~ */
 = @18 /* ~Untamed magic talent really scares me. <CHARNAME>, we need to let Imoen train magic.~ */
 == %IMOEN_JOINED% @19 /* ~Woooo! Ya hear that, <CHARNAME>?~ */
