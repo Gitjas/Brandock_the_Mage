@@ -21,6 +21,7 @@ THEN
 		ActionOverride("C#Brandock",ChangeAIScript("BDSHOUT",RACE))
 		ActionOverride("C#Brandock",ChangeAIScript("BDMAGE01",GENERAL))
 		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
-		ActionOverride("C#Brandock",SetDialogue("c#brandP"))
+		SetGlobal("C#BrandockSpawn","GLOBAL",8)
+		ActionOverride("C#Brandock",SetDialog("C#BrandP"))
 		Continue()
 END
