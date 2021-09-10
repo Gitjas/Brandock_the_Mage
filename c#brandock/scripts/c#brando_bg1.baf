@@ -1469,12 +1469,12 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
-SetGlobal("C#Brandock_CloakwoodMines","GLOBAL",1)
+SetGlobal("C#Brandock_CloakwoodMines","GLOBAL",2)
 END
 
 /* Initiate Cloakwood mines */
 IF %BGT_VAR%
-Global("C#Brandock_CloakwoodMines","GLOBAL",1)
+Global("C#Brandock_CloakwoodMines","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
