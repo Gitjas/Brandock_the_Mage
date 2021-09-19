@@ -129,7 +129,7 @@ GlobalLT("ACSTORY","GLOBAL",4)
 Global("C#Brandock_BreagarAccident","GLOBAL",2)
 ~ THEN C#BrandB brandockbreagar_accident_3
 @38 /* Breagar, können wir denn gar nichts für Euch tun?~ */ DO ~SetGlobal("C#Brandock_BreagarAccident","GLOBAL",3)~
-== ~ACBREB~ @39 /* ~[Breagar] /* ~Ja, da könnt Ihr! Schweigen und einen Zwerg seinen Gedanken überlassen.~ */
+== ~ACBREB~ @39 /* ~[Breagar]Ja, da könnt Ihr! Schweigen und einen Zwerg seinen Gedanken überlassen.~ */
 == C#BrandB @40 /* ~Aber Ihr solltet nicht allein vor Euch hin brüten. Gemeinsam können wir eine Lös...~ */
 == ~ACBREB~ @41 /* ~Magier, mein Arm ist dahin. All meine Pläne und Hoffnungen... Ich brauche Euer Mitleid nicht und keine guten Ratschläge!~ */
 == C#BrandB @42 /* Aber... */
@@ -170,7 +170,7 @@ HasItem("ACHAND1","ACBRE") //Breagar hat noch nicht seinen Silberarm
 Global("ACSTORY","GLOBAL",4) //Göttin war da
 Global("C#Brandock_BreagarSilber","GLOBAL",0)
 ~ THEN C#BrandB brandockbreagar_silber
-@46 /* ~Ein Besuch einer göttlichen Gesandten. Eine Andeutung eines Verrats. Breagar, ich glaube, Ihr müsst Eure Situation noch einmal neu bewerten.~ */ DO ~SetGlobal("C#Brandock_BreagarSilber","GLOBAL",1) SetGlobal("C#Brandock_BreagarBG1","GLOBAL",1)~ */
+@46 /* ~Ein Besuch einer göttlichen Gesandten. Eine Andeutung eines Verrats. Breagar, ich glaube, Ihr müsst Eure Situation noch einmal neu bewerten.~ */ DO ~SetGlobal("C#Brandock_BreagarSilber","GLOBAL",1) SetGlobal("C#Brandock_BreagarBG1","GLOBAL",1)~ 
 == ~ACBREB~ @47 /* ~Das muss ich in der Tat, Brandock. Ich würde sagen "zwickt mich mal" wenn ich noch einen Schildarm hätte, den ich Euch dafür hinhalten könnte.~ */
 == C#BrandB @48 /* ~Seid Ihr nervös, was das für Euch bedeutet? Was die Göttin noch mit Euch vorhat und was es mit dem angedeuteten Verrat zu tun hat? Ob es bedeutet, dass Euch Euer Missgeschick vielleicht doch noch verziehen wird und alles gut werden könnte?~ */
 == ~ACBREB~ @49 /* ~Was für bescheuerte Fragen Ihr manchmal stellt! Was glaubt Ihr denn? Ja, natürlich bin ich nervös! Ich habe nicht alle Tage eine Gesandte der Silbernen Göttin, die mir Aufträge erteilt.~ */
