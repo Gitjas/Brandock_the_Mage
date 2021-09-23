@@ -119,10 +119,8 @@ Malm, the half-ogre who shapeshifted into a human went on a journey to the great
 Elvenhair offered Brandock to scribe scrolls in his home. He is welcome to use Elvenhair's desk any time he wants.~
 @10051  = ~Brandock Wants to Restore his Book
 
-Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty. Elvenhair believes the spells have to be added back by "a mage of high enough expertise", but to know for sure they need to decipher the pages covered in Ruathlek runes.~
-@10052  = ~Brandock Wants to Restore his Book
-
-Brandock wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a visitor and start working on translating the Ruathlek writing in his magic book.~
+Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language no one speaks anymore and is seemingly empty. Elvenhair believes the spells have to be added back by a mage of high enough expertise, but to know for sure they need to decipher the pages covered in Ruathlek runes.~
+//@10052  = ~~
 @10053    = ~Brandock Wants to Restore his Book
 
 Brandock got kicked out of Candlekeep with me...~
@@ -135,7 +133,7 @@ Elvenhair send a messenger: he brought his Ruathlek lexicon from Candlekeep and 
 @10056  = ~Brandock Wants to Restore his Book
 
 Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language saying: 
-"Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom.".~
+"So, whoever of you fools damaged the book, you found out that a preservation spell makes the book physically whole again. I expect you to make detailed notes about the process, as I want to expand this spell as a way of preserving magical books in whole. So far it only restores the blank pages. Let it be a lesson to you to take better care of magic books in the future. I expect you to fill the pages with spells again - they should continue to benefit from the magic of the book and should be effective accordingly without cost. But let me tell you: this will be a long road for you, because wih your current experience you don't even need to try. And before you do anything, make sure you seek Oghma's wisdom."~
 @10057  = ~Brandock Wants to Restore his Book
 
 Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Amn.~
@@ -150,7 +148,7 @@ Brandock showed his restored book to the priests in the Temple of Oghma is in th
 Brandock wants to return to the Temple of Oghma is in the Dock's District in Athkatla.~
 @10061  = ~Brandock Wants to Restore his Book
 
-The De Simplex Magicae is fully restored. Brandock gave the book to the Temple of Oghma.~
+Brandock visited the Temple of Oghma to gather more knowledge about what to do with the De Simplex Magicae. "Oghma's Wisdom" as mentioned in the note inside the book should be fulfilled then. What happens next will be up to Brandock. I am sure he will tell me when he decided on what to do with the book now.~
 @10062  = ~Brandock's Scroll Scribing Skills
 
 Brandock wants us to keep any cursed scrolls we find so we can use the magic in them for something useful.~
@@ -159,7 +157,7 @@ Brandock wants us to keep any cursed scrolls we find so we can use the magic in 
 Brandock promised to scribe a scroll on our next rest - no matter where.~
 @10064  = ~Brandock's Scroll Scribing Skills
 
-Brandock overcame his fear of setting fire to his surroundings when scribing a spell scroll. He is no longer dependent on Master Elvenhair's desc but can write scrolls anywhere.~
+Brandock overcame his fear of setting fire to his surroundings when scribing a spell scroll. From now on, he will be able write one scroll per day anywhere.~
 @10065  = ~Brandock Changes the Book of Infinite Spells
 
 Brandock offers to reorganize the Book of Infinite Spells so every page I'll open now can be reopened later.
@@ -168,10 +166,12 @@ I should scroll though the book until I reach the last page. Upon turning a page
 
 Brandock finished rewriting the Book of Infinite Spells. Now older pages can be reopened, too.~
 @10067  = ~Brandock Changes the Book of Infinite Spells~
-//@10068  = ~~
+@10068  = ~Brandock Wants to Restore his Book
+
+After learning in the Temple of Oghma about the preservation magic in the De Simplex Magicae, Brandock decided to keep the book until he can write spells onto the empty pages himself. Once he will be experienced enough to do it, he will let me know when preparing to write spell scrolls.~
 @10069  = ~Brandock's Half-Ogre Troubles
 
-Brandock shifted into a half-ogre when we fought doppelgangers inside the Candlekeep Catacombs. He says that it must be connected to the incident where he changed bodies with a half-ogre, but he needs to see Thalantyr about this.~
+Brandock shifted into a half-ogre during a fight. He says that it must be connected to the incident where he changed bodies with a half-ogre, but he needs to see Thalantyr in High Hedge about this.~
 @10070  = ~Brandock's Half-Ogre Troubles
 
 Brandock spoke to Thalantyr. The older mage made it clear that Brandock will develop the ability to shapeshift into a half-ogre, and there is nothing that can be done against it - Brandock can only learn to control it.~
@@ -189,15 +189,21 @@ Brandock's body switch with the half-ogre affected the half-ogre, too! Apparentl
 Malm, the half-ogre who shapeshifted into a human found a temporary home in the Temple by Beregost. Something tells me Brandock and he will not have met for the last time...~
 @10075  = ~Brandock and his Half-Ogre 'Twin'
 
-Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison! Brandock wants us to go there and see whether Malm needs support.~
+Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison at the Flaming Fist Headquarters! Brandock wants us to go there and see whether Malm needs support.~
 @10076  = ~Brandock and his Half-Ogre 'Twin'~
-@10077  = ~Increase Brandock's Lore Wisdom
+//@10077  = ~##~
+@10078  = ~Brandock Wants to Restore his Book
 
-The books in Oghma's Temple helped Brandock to increase his lore.~
-//@10078  = ~~
-//@10079  = ~~
-//@10080  = ~~
-//@10081  = ~~
+Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and 5000 gold.~
+@10079  = ~Brandock Wants to Restore his Book
+
+Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
+@10080  = ~Brandock Wants to Restore his Book
+
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 5000 gold.~
+@10081  = ~Brandock Wants to Restore his Book
+
+It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~
 //@10082  = ~~
 //@10083  = ~~
 

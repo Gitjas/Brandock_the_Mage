@@ -133,6 +133,7 @@ END
 IF 
 	Global("C#BrandockSpawn","GLOBAL",6)
 	Range(Player1,15)
+	!InParty(Myself)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
@@ -148,6 +149,7 @@ THEN
 END
 
 IF 
+	!InParty(Myself)
 	Global("C#BrandockSpawn","GLOBAL",6)
 	!RealGlobalTimerNotExpired("C#Brandock_SoDSighTimer","GLOBAL")
 	See([PC])
@@ -1328,8 +1330,6 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 THEN
   RESPONSE #100
     RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1800)
-		PlaySong(0)
-		PlaySound("C#BRAND")    //Does not exist (yet)
     StartDialogNoSet(Player1)
 END
 

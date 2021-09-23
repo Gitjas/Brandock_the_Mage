@@ -9,6 +9,11 @@ Global("c#brisog","GLOBAL",0) //Brandock is not half-ogre
 ~ THEN pid_bg2
 SAY @0 
 
+/* PID after seeking "Oghma's Wisdom" in the Temple of Oghma. Brandock remained silent */
++ ~GlobalGT("C#Br_BookRestore","GLOBAL",19) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~[PC Reply]No comment on what happened in the Temple of Oghma? I am surprised.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
++ ~GlobalGT("C#Br_BookRestore","GLOBAL",19) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~*Thank you* for shutting up about your book. You silence after we went to the Temple of Oghma took me by pleasant surprise.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
+
+/* letter from his parents - EET with SoD only */
 + ~GlobalGT("bd_plot","global",0) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end
 
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~So, how came it you ended up doing experiments with your mother's cousin?~ + how_you_fare
@@ -105,6 +110,25 @@ END
 
 
 //----------
+IF ~~ THEN comment_oghmas_wisdom
+SAY ~[Brandock]Oh, I could talk about that a lot. A *lot*. But I still haven't made up my mind what to do with the restored book yet.~
+= ~[Brandock]No - nono. That's not true. I *have* made up my mind, and this decision is scaring me to death, <CHARNAME>. I... I'm not ready to talk about it just yet. Let me ponder this a little longer...~
+++ ~You and keeping thoughts inside your head doesn't fit. I'm always here if you want to talk.~ + comment_oghmas_wisdom_01
+++ ~I appreciate the thought, but if it distracts you like this I'd rather you'd talk about it to someone.~ + comment_oghmas_wisdom_01
+++ ~Well, at least you tried. I'm regretting having asked, you know.~ + comment_oghmas_wisdom_02
+END
+
+IF ~~ THEN comment_oghmas_wisdom_01
+SAY ~[Brandock]Thank you, <CHARNAME>.~
+IF ~~ THEN + comment_oghmas_wisdom_02
+END
+
+IF ~~ THEN comment_oghmas_wisdom_02
+SAY ~[Brandock]You'll hear about it soon enough, I assure you. But I *do* need to clear my thoughts on my own, first.~
+IF ~~ THEN EXIT
+END
+
+
 IF ~~ THEN ebrel
 SAY ~What do you want to know?~
 + ~Global("C#Brando_PIDEbrel1","LOCALS",0)~ + ~I am very sorry he is dead, Brandock.~ DO ~SetGlobal("C#Brando_PIDEbrel1","LOCALS",1)~ + ebrel_04
@@ -155,7 +179,6 @@ EraseJournalEntry(@10026)
 EraseJournalEntry(@10028)
 EraseJournalEntry(@10044)
 EraseJournalEntry(@10051)
-EraseJournalEntry(@10052)
 EraseJournalEntry(@10053)
 EraseJournalEntry(@10055)
 SetGlobal("C#Br_BookRestore","GLOBAL",13)~ UNSOLVED_JOURNAL @10056 + bookrestore_bg2_pid
@@ -212,7 +235,6 @@ EraseJournalEntry(@10026)
 EraseJournalEntry(@10028)
 EraseJournalEntry(@10044)
 EraseJournalEntry(@10051)
-EraseJournalEntry(@10052)
 EraseJournalEntry(@10053)
 EraseJournalEntry(@10055)
 EraseJournalEntry(@10057)

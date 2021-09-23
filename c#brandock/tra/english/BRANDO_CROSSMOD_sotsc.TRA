@@ -6,7 +6,7 @@
 @5  = ~Can we go over there so I can have a look at the covers? Please come with me, <CHARNAME>... I don't dare to do that alone in case Master Thalantyr notices us... Yes, I'm a coward.~
 //@6  = 
 //@7  = 
-@8  = ~[Brandock]Bookshelf? OH MY GOD were you transformed into a shelf? Are you a person?!~
+@8  = ~[Brandock]Bookshelf? OH THE GODS were you transformed into a shelf? Are you a person?!~
 @9  = ~What? Why would I be a person? Look at me closely - do I look like a peson to you? Who is asking this?~
 @10  = ~[Brandock]I think we could do that... yes, <CHARNAME>? I'm talking to a book shelf... Enchanted book shelf, of course, but... well, I guess it *is* fitting for a mage of Master Thalantyr's status.~
 @11  = ~[Brandock]Gods, am I glad I didn't touch *that* shelf when going through Thalantyr's books as a half-ogre. Hearing it talk with my reduced brain capacity would have probably killed me.~
@@ -20,4 +20,4 @@
 @19  = ~Ooh... (For some time Brandock is lost in reading through some of the bigger tomes in Thalantyr's library.)~
 @20  = ~(sigh) Yes, I know what you mean and I guess it's the wiser choice, considering who is the landlord here.~
 @21  = ~[Brandock]Ooh... This is a mighty tome. A very mighty tome. I'd be honored if I could use it, <CHARNAME>. If not - then take it away from me quickly or I'll absorb it anyhow...~
-@22  = ~[Brandock]Oh the GODS - if that is indeed a wardstone to Thalantyr's very private chambers then the *only* right thing we can do with it is to... use it to go there and have a peek at his magic books... I did say that out loud, didn't I...~
+@22  = ~[Brandock]Oh the GODS - if that is indeed a wardstone to Thalantyr's very private chambers then the *only* right thing we can do with it is to... use it to go there and have a peek at his magic books. I did say that out loud, didn't I.~

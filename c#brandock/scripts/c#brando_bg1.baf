@@ -230,6 +230,7 @@ END
 IF 
 %BGT_VAR%
 Global("C#Brandock_Possessions","GLOBAL",3) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
   !StateCheck(Myself,CD_STATE_NOTVALID)
     See(Player1)
@@ -303,6 +304,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Br_BookRestore","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -405,6 +407,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 	Global("C#Brandock_AllIngredientsBG1","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -476,7 +479,7 @@ THEN
 END
 
 
-/* after book restore - Brandock reacts after stepping out of Master Elvenhair's home */
+/* after book restore with Preservation spell - Brandock reacts after stepping out of Master Elvenhair's home */
 /* Activate */
 IF %BGT_VAR%
 	Global("C#Br_BookRestore","GLOBAL",6)
@@ -495,6 +498,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 	Global("C#Br_BookRestore","GLOBAL",7)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -506,7 +510,7 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-/* follow-up after book restore */
+/* follow-up */
 IF %BGT_VAR%
 	RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
 	Global("C#Br_BookRestore","GLOBAL",8)
@@ -524,6 +528,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 	Global("C#Br_BookRestore","GLOBAL",9)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -560,6 +565,37 @@ THEN
 		ActionOverride("c#brmess",Dialogue("C#Brandock"))
 END
 
+/* activation: Brandock ponders about the translatd note inside the restored book, after Book restoration& leaving Elfenhair's home */
+IF %BGT_VAR%
+Global("C#Br_BookRestore","GLOBAL",11)
+!AreaCheck("%Beregost_FirebeadsHouse_L1%")
+Global("C#Brandock_AddBookTalk","LOCALS",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_AddBookTalk","LOCALS",1)
+END
+
+/* Initiate Brandock ponders about the lost book, #7 */
+IF %BGT_VAR%
+Global("C#Brandock_AddBookTalk","LOCALS",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+StartDialogueNoSet(Player1)
+END
+
 
 
 /* BG1 Reactions */
@@ -585,6 +621,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_BeregostAssassin","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -621,6 +658,7 @@ END
 /* initiate */
 IF %BGT_VAR%
 Global("C#Brandock_Nashkel","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -653,6 +691,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_NashkelAssassin","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -681,6 +720,7 @@ END
 /* Initiate: clearing Nashkel mine is a chance */
 IF %BGT_VAR%
 Global("C#Brandock_NashkelMines","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -757,6 +797,7 @@ END
 /* initiate: Brandock remembers his first tutor on ice island */
 IF %BGT_VAR%
 Global("C#Brandock_1stTutor","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -809,6 +850,7 @@ END
 /* initiate: broken weapon or armor */
 IF %BGT_VAR%
 Global("C#Brandock_WeaponBroke","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -897,6 +939,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_SeeCandlekeep","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -949,6 +992,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_SeeCandlekeep","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1002,6 +1046,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_InvitationDP","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1033,16 +1078,14 @@ THEN
 END
 
 IF %BGT_VAR%
- OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
  Global("C#Brandock_PCDream","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
  !StateCheck(Player1,CD_STATE_NOTVALID)
  !StateCheck(Myself,CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
 THEN
  RESPONSE #100
- PlaySong(0)
- PlaySound("C#BRAND")
  StartDialogueNoSet(Player1)
 END
 
@@ -1084,6 +1127,7 @@ END
 IF 
 %BGT_VAR%
 Global("C#Brandock_Thalantyr","GLOBAL",2) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
   !StateCheck(Myself,CD_STATE_NOTVALID)
     See(Player1)
@@ -1135,6 +1179,7 @@ END
 /* Initiate: Bhaal heritage */
 IF %BGT_VAR%
 Global("C#Brandock_KnowBhaal","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1168,6 +1213,7 @@ END
 /* Initiate: Tarnesh */
 IF %BGT_VAR%
 Global("C#Brandock_Tarnesh","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1199,6 +1245,7 @@ END
 /* Initiate Nashkel Carnival */
 IF %BGT_VAR%
 Global("C#Brandock_Carnival","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1230,6 +1277,7 @@ END
 /* Initiate: Area with SorcerersSoundries */
 IF %BGT_VAR%
 Global("C#Brandock_SorSundries","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1259,6 +1307,7 @@ END
 /* Initiate Inside Sorcerous Sundries */
 IF %BGT_VAR%
 Global("C#Brandock_SorSundries","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1288,6 +1337,7 @@ END
 /* Initiate Inside Flaming Fist Headquarters */
 IF %BGT_VAR%
 Global("C#Brandock_FF","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1317,6 +1367,7 @@ END
 /* Initiate: If Joseph's ring in mine is found */
 IF %BGT_VAR%
 Global("C#Brandock_JosephsWife","GLOBAL",2) //Checkvariable
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1347,6 +1398,7 @@ END
 /* Initiate Nashkel Mines: organisation_level */
 IF %BGT_VAR%
 Global("C#Brandock_OrganisationLevel","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1377,6 +1429,7 @@ END
 /* Initiate Nashkel Mines: tainted ore */
 IF %BGT_VAR%
 Global("C#Brandock_TaintedOre","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1414,6 +1467,7 @@ END
 /* Initiate Tranzig dead */
 IF %BGT_VAR%
 Global("C#Brandock_OrganisationLevel","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1446,6 +1500,7 @@ END
 /* Initiate Bandit Camp: next level */
 IF %BGT_VAR%
 Global("C#Brandock_OrganisationLevel","GLOBAL",5)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1475,6 +1530,7 @@ END
 /* Initiate Cloakwood mines */
 IF %BGT_VAR%
 Global("C#Brandock_CloakwoodMines","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1509,6 +1565,7 @@ END
 /* Initiate Sarevok's scheme */
 IF %BGT_VAR%
 Global("C#Brandock_SarevoksScheme","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1541,6 +1598,7 @@ END
 /* Initiate Dopplegangers in Duke's palace */
 IF %BGT_VAR%
 Global("C#Brandock_NobleDopple","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1556,7 +1614,7 @@ END
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 Global("C#Brandock_BountyNote","GLOBAL",0)
-OR(5)
+OR(3)
 GlobalGT("C#Brandock_Tarnesh","GLOBAL",0)
 GlobalGT("C#Brandock_BeregostAssassin","GLOBAL",0)
 GlobalGT("C#Brandock_NashkelAssassin","GLOBAL",0)
@@ -1586,6 +1644,7 @@ END
 /* Initiate: bounty note */
 IF %BGT_VAR%
 Global("C#Brandock_BountyNote","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1618,6 +1677,7 @@ END
 /* Initiate Gorion's deathsite */
 IF %BGT_VAR%
 Global("C#BrandockGorionDS","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1650,6 +1710,7 @@ END
 /* dialogue triggering */
 IF 	%BGT_VAR%
 	See(Player1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	CombatCounter(0)
@@ -1680,6 +1741,7 @@ END
 /* dialogue triggering: inside seven suns */
 IF 	%BGT_VAR%
 	See(Player1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	CombatCounter(0)
@@ -1717,7 +1779,7 @@ IF
 OR(2)
 	Global("C#Brando_SCHLUMSHA","GLOBAL",3)
 	Global("C#Brando_SCHLUMSHA","GLOBAL",4)
-InParty(Myself)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 InMyArea(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1748,6 +1810,7 @@ END
 /* Initiate: reaction to letters of Iron THrone */
 IF %BGT_VAR%
 Global("C#Brandock_ITCkLetters","LOCALS",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1777,6 +1840,7 @@ END
 /* Initiate: reaction to letter of Sarevok */
 IF %BGT_VAR%
 Global("C#Brandock_ITSaLetters","LOCALS",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1861,6 +1925,7 @@ END
 /* Initiate doppelgangers in Candlekeep Library */
 IF %BGT_VAR%
 Global("C#Brandock_Shistal","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1895,6 +1960,7 @@ END
 IF %BGT_VAR%
 !AreaCheck("c#br02")
 Global("C#Brandock_CKeepDoppelgangers","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1929,6 +1995,7 @@ END
 IF %BGT_VAR%
 !AreaCheck("c#br02")
 Global("C#Brandock_DoppelElminster","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1962,6 +2029,7 @@ END
 /* Initiate Pondering about Doppelgangers in Candlekeep Catacombs */
 IF %BGT_VAR%
 Global("C#Brandock_CKeepDoppelgangers","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1997,6 +2065,7 @@ END
 
 /* dialogue triggering */
 IF 	%BGT_VAR%
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	See(Player1)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2031,6 +2100,7 @@ END
 /* Initiate: before entering */
 IF %BGT_VAR%
 Global("C#Brandock_DurlagT","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2062,6 +2132,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_DurlagT","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2093,6 +2164,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_UlcasterSchool","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2124,6 +2196,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_InsideUlcasterSchool","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2156,6 +2229,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_WerewolfIsland","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2188,6 +2262,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_DradeelDead","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2222,6 +2297,7 @@ END
 /* Initiate Dradeel's tale */
 IF %BGT_VAR%
 Global("C#Brandock_WerewolfIsland","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2256,6 +2332,7 @@ END
 /* Initiate "cured lycantrophy" */
 IF %BGT_VAR%
 Global("C#Brandock_WerewolfIsland","GLOBAL",5)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
@@ -2285,6 +2362,7 @@ END
 /* Initiate Balduran's Logbook */
 IF %BGT_VAR%
 Global("C#Brandock_BalduransBook","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
@@ -2315,6 +2393,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#Brandock_CandlekeepBook","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
@@ -2350,6 +2429,7 @@ END
 /* Initiate valuable book in Brandock's inventory */
 IF %BGT_VAR%
 Global("C#Brandock_BookInventory","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
@@ -2460,6 +2540,7 @@ END
 /* Initiate Brandock ponders about the lost book */
 IF %BGT_VAR%
 Global("C#Brandock_Possessions","GLOBAL",5)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2527,6 +2608,7 @@ END
 /* Initiate Brandock ponders about the lost book, #2 */
 IF %BGT_VAR%
 Global("C#Brandock_Possessions","GLOBAL",7)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2598,6 +2680,7 @@ IF %BGT_VAR%
 OR(2)
 	Global("C#Brandock_Possessions","GLOBAL",9)
 	Global("C#Brandock_Possessions","GLOBAL",11)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2606,7 +2689,7 @@ CombatCounter(0)
 THEN
 RESPONSE #100
     RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
-StartDialogueNoSet(Player1)
+    StartDialogueNoSet(Player1)
 END
 
 
@@ -2631,6 +2714,7 @@ END
 /* Initiate: follow-up first tutor */
 IF %BGT_VAR%
 Global("C#Brandock_1stTutor","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2733,39 +2817,6 @@ RESPONSE #100
 StartDialogueNoSet(Player1)
 END
 
-/* activation: Brandock ponders about the lost book, #7 */
-IF %BGT_VAR%
-GlobalGT("C#Brandock_Possessions","GLOBAL",15)
-Global("C#Brandock_AddBookTalk","LOCALS",0)
-RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
-OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-!StateCheck(Myself,CD_STATE_NOTVALID)
-See(Player1)
-!StateCheck(Player1,CD_STATE_NOTVALID)
-CombatCounter(0)
-!See([ENEMY])
-THEN
-RESPONSE #100
-SetGlobal("C#Brandock_AddBookTalk","LOCALS",1)
-END
-
-/* Initiate Brandock ponders about the lost book, #7 */
-IF %BGT_VAR%
-Global("C#Brandock_AddBookTalk","LOCALS",1)
-!StateCheck(Myself,CD_STATE_NOTVALID)
-See(Player1)
-!StateCheck(Player1,CD_STATE_NOTVALID)
-CombatCounter(0)
-!See([ENEMY])
-THEN
-RESPONSE #100
-    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
-StartDialogueNoSet(Player1)
-END
-
-
-
-
 /* Brage */
 /* Activate: Brage */
 IF %BGT_VAR%
@@ -2801,6 +2852,7 @@ END
 /* Initiate: Brage */
 IF %BGT_VAR%
 Global("C#Brandock_Brage","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2869,6 +2921,7 @@ END
 /* Initiate: follow-up Bhaal heritage #1 */
 IF %BGT_VAR%
 Global("C#Brandock_KnowBhaal","GLOBAL",4)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -2908,6 +2961,7 @@ IF
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 //  GlobalLT("Chapter","GLOBAL",##)
   See(Player1) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 CombatCounter(0)
 !See([ENEMY])
@@ -2917,8 +2971,6 @@ CombatCounter(0)
 THEN
   RESPONSE #100
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
-		PlaySong(0)
-		PlaySound("C#BRAND")
     StartDialogNoSet(Player1)
 END
 
@@ -2983,6 +3035,7 @@ END
 /* Initiate Brandock ponders about his bad luck */
 IF %BGT_VAR%
 Global("C#Brandock_PondersBadLuck","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -3015,6 +3068,7 @@ END
 /* Initiate: follow-up PID Bhaal heritage */
 IF %BGT_VAR%
 Global("C#Brandock_KnowBhaal","GLOBAL",6)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)

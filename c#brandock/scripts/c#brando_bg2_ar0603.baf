@@ -1,0 +1,13 @@
+/* AR0602.bcs check for Brandock's book case */
+
+
+
+IF
+	Global("C#Brandock_DestroyBooks","MYAREA",0)
+	PartyHasItem("c#br0003")
+THEN
+	RESPONSE #100
+        ActionOverride("Container3",DestroyItem("c#br0001"))
+        ActionOverride("Container3",DestroyItem("c#br0007"))
+		SetGlobal("C#Brandock_DestroyBooks","MYAREA",1)
+END

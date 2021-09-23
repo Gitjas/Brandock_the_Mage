@@ -230,9 +230,29 @@ END
 /* restored book was collected. set variable to "0" */
 IF 
 	GlobalGT("C#Brandock_BookWarningLokal2","GLOBAL",0)
-	OR(2)
+	OR(22)
 		HasItem("c#br0007",Myself)
 		HasItem("c#br0007",Player1)
+		HasItem("c#brbo01",Myself)
+		HasItem("c#brbo01",Player1)
+		HasItem("c#brbo02",Myself)
+		HasItem("c#brbo02",Player1)
+		HasItem("c#brbo03",Myself)
+		HasItem("c#brbo03",Player1)
+		HasItem("c#brbo04",Myself)
+		HasItem("c#brbo04",Player1)
+		HasItem("c#brbo05",Myself)
+		HasItem("c#brbo05",Player1)
+		HasItem("c#brbo06",Myself)
+		HasItem("c#brbo06",Player1)
+		HasItem("c#brbo07",Myself)
+		HasItem("c#brbo07",Player1)
+		HasItem("c#brbo08",Myself)
+		HasItem("c#brbo08",Player1)
+		HasItem("c#brbo09",Myself)
+		HasItem("c#brbo09",Player1)
+		HasItem("c#brbo10",Myself)
+		HasItem("c#brbo10",Player1)
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	See(Player1)
 	!Detect([ENEMY])
@@ -242,8 +262,8 @@ THEN
 		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",0) 
 END
 
-/* book is not in Brandock's inventory. Warning (no action) */
-/* Activate */
+/* destroyed book is not in Brandock's inventory. Warning (no action) */
+/* Activate timer */
 IF %BGT_VAR%
 	Global("C#Brandock_BookWarningLokal1","GLOBAL",0) 
 	GlobalGT("C#Brandock_Possessions","GLOBAL",1) 
@@ -260,18 +280,66 @@ IF %BGT_VAR%
 	CombatCounter(0)
 THEN
 	RESPONSE #100
+		RealSetGlobalTimer("C#Brandock_BWarningLokal1_T","GLOBAL",15)
 		SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",1) 
 END
+
+/* activate #2: timer run out */
+IF 
+	RealGlobalTimerExpired("C#Brandock_BWarningLokal1_T","GLOBAL")
+	Global("C#Brandock_BookWarningLokal1","GLOBAL",1) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",2) 
+END
 /* restored book is not in Brandock's inventory. Warning (no action) */
-/* Activate */
+/* Activate timer */
 IF 
 	Global("C#Brandock_BookWarningLokal2","GLOBAL",0) 
 	GlobalGT("C#Br_BookRestore","GLOBAL",4)
-	GlobalLT("C#Br_BookRestore","GLOBAL",20)
+	GlobalLT("C#Br_WriteBook","LOCALS",11) //Brandock doesn't care any more when it's finished
 	!InMyArea("DOGHMA")
 	!HasItem("c#br0007",Myself)
 	!HasItem("c#br0007",Player1)
-	PartyHasItem("c#br0007")
+	!HasItem("c#brbo01",Myself)
+	!HasItem("c#brbo01",Player1)
+	!HasItem("c#brbo02",Myself)
+	!HasItem("c#brbo02",Player1)
+	!HasItem("c#brbo03",Myself)
+	!HasItem("c#brbo03",Player1)
+	!HasItem("c#brbo04",Myself)
+	!HasItem("c#brbo04",Player1)
+	!HasItem("c#brbo05",Myself)
+	!HasItem("c#brbo05",Player1)
+	!HasItem("c#brbo06",Myself)
+	!HasItem("c#brbo06",Player1)
+	!HasItem("c#brbo07",Myself)
+	!HasItem("c#brbo07",Player1)
+	!HasItem("c#brbo08",Myself)
+	!HasItem("c#brbo08",Player1)
+	!HasItem("c#brbo09",Myself)
+	!HasItem("c#brbo09",Player1)
+	!HasItem("c#brbo10",Myself)
+	!HasItem("c#brbo10",Player1)
+	OR(11)
+		PartyHasItem("c#br0007")
+		PartyHasItem("c#brbo01")
+		PartyHasItem("c#brbo02")
+		PartyHasItem("c#brbo03")
+		PartyHasItem("c#brbo04")
+		PartyHasItem("c#brbo05")
+		PartyHasItem("c#brbo06")
+		PartyHasItem("c#brbo07")
+		PartyHasItem("c#brbo08")
+		PartyHasItem("c#brbo09")
+		PartyHasItem("c#brbo10")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
@@ -281,13 +349,31 @@ IF
 	CombatCounter(0)
 THEN
 	RESPONSE #100
+		RealSetGlobalTimer("C#Brandock_BWarningLokal2_T","GLOBAL",15)
 		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",1) 
+END
+/* activate #2: timer run out */
+IF 
+	GlobalLT("C#Br_WriteBook","LOCALS",11) //Brandock doesn't care any more when it's finished
+	RealGlobalTimerExpired("C#Brandock_BWarningLokal2_T","GLOBAL")
+	Global("C#Brandock_BookWarningLokal2","GLOBAL",1) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",2) 
 END
 /* Initiate */
 IF 
 	OR(2)
-		Global("C#Brandock_BookWarningLokal1","GLOBAL",1)
-		Global("C#Brandock_BookWarningLokal2","GLOBAL",1) 
+		Global("C#Brandock_BookWarningLokal1","GLOBAL",2)
+		Global("C#Brandock_BookWarningLokal2","GLOBAL",2) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -318,9 +404,29 @@ END
 /* restored book was collected. set variable to "0" */
 IF 
 	GlobalGT("C#Brandock_BookWarning","GLOBAL",0)
-	OR(2)
+	OR(22)
 		HasItem("c#br0007",Myself)
 		PartyHasItem("c#br0007")
+		HasItem("c#brbo01",Myself)
+		PartyHasItem("c#brbo01")
+		HasItem("c#brbo02",Myself)
+		PartyHasItem("c#brbo02")
+		HasItem("c#brbo03",Myself)
+		PartyHasItem("c#brbo03")
+		HasItem("c#brbo04",Myself)
+		PartyHasItem("c#brbo04")
+		HasItem("c#brbo05",Myself)
+		PartyHasItem("c#brbo05")
+		HasItem("c#brbo06",Myself)
+		PartyHasItem("c#brbo06")
+		HasItem("c#brbo07",Myself)
+		PartyHasItem("c#brbo07")
+		HasItem("c#brbo08",Myself)
+		PartyHasItem("c#brbo08")
+		HasItem("c#brbo09",Myself)
+		PartyHasItem("c#brbo09")
+		HasItem("c#brbo10",Myself)
+		PartyHasItem("c#brbo10")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	See(Player1)
 	!Detect([ENEMY])
@@ -347,6 +453,7 @@ IF %BGT_VAR%
 	CombatCounter(0)
 THEN
 	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",15)
 		SetGlobal("C#Brandock_BookWarning","GLOBAL",1) 
 END
 
@@ -355,10 +462,30 @@ END
 IF 
 	Global("C#Brandock_BookWarning","GLOBAL",0) 
 	GlobalGT("C#Br_BookRestore","GLOBAL",4)
-	GlobalLT("C#Br_BookRestore","GLOBAL",20)
+	GlobalLT("C#Br_WriteBook","LOCALS",11) //Brandock doesn't care any more when it's finished
 	!InMyArea("DOGHMA")
 	!HasItem("c#br0007",Myself)
 	!PartyHasItem("c#br0007")
+	!HasItem("c#brbo01",Myself)
+	!PartyHasItem("c#brbo01")
+	!HasItem("c#brbo02",Myself)
+	!PartyHasItem("c#brbo02")
+	!HasItem("c#brbo03",Myself)
+	!PartyHasItem("c#brbo03")
+	!HasItem("c#brbo04",Myself)
+	!PartyHasItem("c#brbo04")
+	!HasItem("c#brbo05",Myself)
+	!PartyHasItem("c#brbo05")
+	!HasItem("c#brbo06",Myself)
+	!PartyHasItem("c#brbo06")
+	!HasItem("c#brbo07",Myself)
+	!PartyHasItem("c#brbo07")
+	!HasItem("c#brbo08",Myself)
+	!PartyHasItem("c#brbo08")
+	!HasItem("c#brbo09",Myself)
+	!PartyHasItem("c#brbo09")
+	!HasItem("c#brbo10",Myself)
+	!PartyHasItem("c#brbo10")
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
@@ -368,14 +495,34 @@ IF
 	CombatCounter(0)
 THEN
 	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",15)
 		SetGlobal("C#Brandock_BookWarning","GLOBAL",2) 
 END
 
-/* Initiate and setting timer */
+/* activate dialogue after short timer run out */
 IF 
+	GlobalTimerExpired("C#BrandockBookTimer","GLOBAL")
+	GlobalLT("C#Br_WriteBook","LOCALS",11) //Brandock doesn't care any more when it's finished
 	OR(2)
 		Global("C#Brandock_BookWarning","GLOBAL",1)
-		Global("C#Brandock_BookWarning","GLOBAL",2) 
+		Global("C#Brandock_BookWarning","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		IncrementGlobal("C#Brandock_BookWarning","GLOBAL",2)
+END
+
+/* Initiate dialogue and setting second timer */
+IF 
+	OR(2)
+		Global("C#Brandock_BookWarning","GLOBAL",3)
+		Global("C#Brandock_BookWarning","GLOBAL",4)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) 
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -391,9 +538,10 @@ END
 /* Activate */
 IF 
 	GlobalTimerExpired("C#BrandockBookTimer","GLOBAL")
+	GlobalLT("C#Br_WriteBook","LOCALS",11) //Brandock doesn't care any more when it's finished
 	OR(2)
-		Global("C#Brandock_BookWarning","GLOBAL",3)
-		Global("C#Brandock_BookWarning","GLOBAL",4) 
+		Global("C#Brandock_BookWarning","GLOBAL",5)
+		Global("C#Brandock_BookWarning","GLOBAL",6) 
 	GlobalGT("C#Br_BookRestore","GLOBAL",4)
 	!HasItem("c#br0001",Myself)
 	!PartyHasItem("c#br0001")
@@ -408,12 +556,13 @@ IF
 	CombatCounter(0)
 THEN
 	RESPONSE #100
-		SetGlobal("C#Brandock_BookWarning","GLOBAL",5) 
+		SetGlobal("C#Brandock_BookWarning","GLOBAL",7) 
 END
 
 /* Initiate */
 IF 
-	Global("C#Brandock_BookWarning","GLOBAL",5) 
+	Global("C#Brandock_BookWarning","GLOBAL",7) 
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)

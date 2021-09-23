@@ -16,17 +16,15 @@
 @15 = ~Also - Pfoten weg! Ich habe nicht die ganzen Mühen auf mich genommen es bis nach Kerzenburg zu tragen, damit es mir jetzt beschmutzt wird.~
 @16 = ~Zwergenrunen! Oh, die muss ich unbedingt lernen, Breagar!~
 @17 = ~Buzzurk. Hätte ich doch besser meine Klappe gehalten!~
-
-/* new for v Beta7 */
 /* @18 is same as @212 in C#BRAND_DIALOGUES.TRA! */
 @18  = ~Eine geheime Mine. Na, das macht doch mal wirklich Sinn. Verseucht das offizielle Erz, aber verwendet gutes für Euch selbst und zum Verkaufen aus einer geheimen Mine. Oh, und schiebt alles auf das Nachbarland und startet einen Krieg. Warum auch kleine Brötchen backen, wenn man das ganz groß aufziehen kann?~ [c#ablank]
-@19  = ~(mumbles) I mean, at least as long as it *is* in my possession...~
+@19  = ~(murmelt) Also, zumindest so lange es bei mir *ist*...~
 @20 = ~Außerdem würdet Ihr wirklich nichts daraus verstehen, Brandock. Nicht nur, dass es über Schmiedekunst ist, es ist auch in Zwergenrunen geschrieben.~
-@21  = ~Candlekeep? Wait, *you* were in Candlekeep?!~
+@21  = ~Kerzenburg? Wartet, *Ihr* wart in Kerzenburg?!~
 @22 = ~Buzzurk! Was hab ich jetzt wieder losgetreten!~
-@23 = ~You are asking me this after what happened to your book?~
-@24 = ~Ouch. I won't fall asleep with your book, Breagar. Plus, I learned my lesson...~
-@25 = ~No, you wouldn't, because I'd see to it. Still, there is other dangers!~
+@23 = ~Das fragt Ihr mich nach dem, was mit Eurem Buch geschehen ist?~
+@24 = ~Autsch. Mit Eurem Buch werde ich nicht einschlafen, Breagar. Außerdem habe ich meine Lektion gelernt...~
+@25 = ~Nein, das würdet Ihr nicht, weil ich das schon sicherstellen würde. Aber das sind nicht die einzigen Gefahren!~
 @26 = ~Breagar, was mit Euch geschehen ist tut mir unglaublich Leid. Ich...~
 @27 = ~Ich brauche Euer Mitleid nicht. Magier... Pah!~
 @28 = ~Aber, ich... ich wollte Euch nur mein Mitgefühl aussprechen. Ich weiß, dass es nicht ungeschehen machen kann, was passiert ist. Aber es ist mir wichtig, dass Ihr wisst, das Ihr nicht alleine seid.~

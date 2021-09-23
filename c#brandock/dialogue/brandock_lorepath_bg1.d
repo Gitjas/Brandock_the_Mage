@@ -135,7 +135,7 @@ END //APPEND
 
 
 /* Firebead Elvenhair's Home */
-/* not triggered by script, when player clicks on Elvenhair's desk */
+/* triggered when player clicks on Elvenhair's desk */
 CHAIN
 IF WEIGHT #-1
 ~Global("C#Br_LorePathElvenhair","GLOBAL",1)~ THEN FIREBE brandock_visits_elvenhair

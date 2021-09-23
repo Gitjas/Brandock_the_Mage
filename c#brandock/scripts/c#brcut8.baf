@@ -14,6 +14,7 @@ THEN
         ActionOverride("C#Brandock",TakePartyItem("c#br0001")) 
 	SmallWait(1)
         ActionOverride("C#Brandock",TakePartyItem("c#br0002")) 
+	SmallWait(1)
 	SetGlobal("C#Brandock_Possessions","GLOBAL",1)
         ActionOverride("C#Brandock",DisplayStringHead(Myself,@1018))
         Wait(2)	

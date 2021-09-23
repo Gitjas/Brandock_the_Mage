@@ -1,15 +1,15 @@
 /* lore path: bst Master Shizell's library */
 /* activation */
-IF %BGT_VAR%
+IF 
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 AreaCheck("bs1011")
 See("bstrmage")
-StateCheck("bstrmage",CD_STATE_NOTVALID)
+!StateCheck("bstrmage",CD_STATE_NOTVALID)
 !Dead("bstrmage")
 Global("C#BrCross_bst_LorePath","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
-StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
 !See([ENEMY])
@@ -19,9 +19,12 @@ SetGlobal("C#BrCross_bst_LorePath","GLOBAL",1)
 END
 
 /* Initiate */
-IF %BGT_VAR%
+IF 
 Global("C#BrCross_bst_LorePath","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
+See("bstrmage")
+!StateCheck("bstrmage",CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)
 !See([ENEMY])

@@ -1,0 +1,42 @@
+/* PartyHasItem("#LF_CKWO") Global("Chapter","GLOBAL",%tutu_chapter_5%) */
+
+/* dialogue activation */
+IF 	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	PartyHasItem("#LF_CKWO") Global("Chapter","GLOBAL",%tutu_chapter_5%)
+	Global("C#Brando_FramedCM_WorkOrder","GLOBAL",0)
+THEN
+  RESPONSE #100
+  	SetGlobal("C#Brando_FramedCM_WorkOrder","GLOBAL",1)
+END
+
+
+/* dialogue triggering */
+IF 	%BGT_VAR%
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	See(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#Brando_FramedCM_WorkOrder","GLOBAL",1)
+THEN
+  RESPONSE #100
+	StartDialogueNoSet(Player1)
+END
+
+/* Prevent one of the follow-up dialogues about Candlekeep to trigger:
+Global("C#Brandock_CKeepDoppelgangers","GLOBAL",4) -> Global("C#Brandock_CKeepDoppelgangers","GLOBAL",6) */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Brandock_CKeepDoppelgangers","GLOBAL",4)
+	GlobalGT("#LF_AllowCKEntry","GLOBAL",0)
+	!See([ENEMY])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",6)
+END

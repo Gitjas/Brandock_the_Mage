@@ -7,7 +7,7 @@
 @4    = ~Do not call me captain. I shamed and lost that title forever. My poor family...~
 @5    = ~Wow, I can't believe we really defeated your 'half-brother'. Hmm. The way that Sarevok was shocked when you struck him down... So much disbelief. He really didn't expect this to happen, it seems. I felt almost little sorry for him. Almost.~
 @6    = ~<CHARNAME>, those might be only snippets and pieces but the remains of that book really mean a lot to me. We need to go back and collect them as soon as possible.~
-@7    = ~<CHARNAME>, that book really means a lot to me. We need to go back and collect it as soon as possible.~
+@7    = ~<CHARNAME>, the De Simplex Magicae really means a lot to me. It's not finished yet and I need to guard it until it will be. We need to go back and collect it as soon as possible.~
 @8    = ~<CHARNAME>, I asked you to return so we could collect my book. This did not happen so I'll have to go search for it myself. Farewell.~
 @9    = ~To be on the look-out for an assassination target in a tavern is understandable. But to actually *attack* inside the tavern speaks of a high opinion of one's fighting prowess.~ [c#ablank]
 @10   = ~Hmm, Nashkel is Amnish soil, <CHARNAME>. Having trouble in the mine - magic trouble, as it seems, surely is of high interest to the Cowled Wizards.~ [c#ablank]
@@ -233,7 +233,7 @@
 @229  = ~Wow, I never thought going with you would turn out like this. You know, ending the bandit threat, which was a great achievement in itself. Stopping the spread of that cursed tainted ore - I would grant us knighthood for that one. But also stopping the rising war between the Sword Coast and my home land, as we striving to do now.~ [c#ablank]
 @230  = ~And I thought it would be a normal adventurer's life giving me opportunity to improve the skills of my profession. I never expected us to become heroes in the real sense.~
 @231  = ~Of course, there's that *tiny* little problem with us still being wanted and accused of murder, but I am sure we will fix this soon, too.~
-/* @232 - @238 in brandock_bookrestore.d */
+/* @232 - @238 in brandock_bookrestore_bg1.d */
 @232  = ~We did it! We cleared our names and saved the Dukes - for now. And we confronted Sarevok! Well, kind of. Sarevok, who apparently is the murderer of your foster father, Gorion! How do you feel?~ [c#ablank]
 @233  = ~Ready to chase him down and end this for good.~
 @234  = ~I am glad we could save the Dukes. I'll go after him, but more because I want to end the threat to the Sword Coast, not out of personal revenge.~
@@ -531,7 +531,7 @@
 @518  = ~[Brandock]I know it's probably too early to think about this - to *worry* about this. But what scares me is the possibility to lose track as to *when* it would be time to worry about it.~
 @519  = ~[Brandock]I surely hope I'll never lose connection to reality like Mister Prism did.~
 @520  = ~[Brandock]Of course the Iron Throne leaders would meet up in Candlekeep! From all places! Oh, *they* do not have a problem to give a book of high value each to get inside, do they? Of course not! (mumbles) Why do the bad guys always seem to have all the fun?~
-@521  = ~[Brandock]That Sarevok is a great liar - or a great schemer. Zhentarim, Chill, Blacktalon. I get a headache by even reading all these.~
+@521  = ~[Brandock]That Sarevok is a great liar - or a great schemer. Zhentarim, The Chill, Blacktalon. I get a headache by even reading all these.~
 @522  = ~[Brandock]And then there is that... incident including a half-ogre, after I cast magic on someone I didn't know anything about, ruining my reputation as a mage around these lands for time to come, and changing something inside me - changing me, *literally* - in a way I haven't yet understood...~
 @523  = ~[Brandock]That... that *slime* was a person once...~
 @524  = ~And from what it hinted at he was in - in Candlekeep? What else could it have meant?~
@@ -600,7 +600,7 @@
 @691  = ~Ouch.~
 @692  = ~I really don't know whether it makes any sense, but I am ... relieved there is such an explanation for the things happening to you. Knowing it's your Bhaal heritage that is drawing all this hostile attention. It does make sense, you know? It is ... less scary, if looked at it like that. At least for me.~
 
-/* brandock_bookrestore.d */
+/* brandock_bookrestore_bg1.d */
 @750  = ~Hello, young adventurers.~
 @751  = ~Ah, the young <CHARNAME> and <PRO_HISHER> unfortunate friend. I see you have ingredients I requested.~
 @752  = ~Master Elvenhair, we came here with a request of, erm, well I would say it is important but that is dependent of perspective, of course, and... ah, blast it! (Brandock takes out the remains of his book, mumbling something about "extremely sorry" and "foxes".)~ [c#ablank]
@@ -836,10 +836,10 @@
 @978  = ~Once you'll retrieve all the ingredients we will first stabilize the book pages before we attempt anything else and I will see how you fare with scroll scribing. Only after that and when I see what you still remember from the book's spells we will work on restoring the book.~
 @979  = ~My time is scarce and I have many obligations, but I understood you are travelling with young <CHARNAME> now, so when we will find time to work on this now and again it will suffice, hm? This is nothing one can accomplish in a tenday. This will keep you busy for years, my young friend, and you will continue to work on it long after I've taught you everything you need to know to work on it.~
 @980  = ~Oh, I didn't expect this to happen. Hmm... Seems the creator of this book included a precautionary enchantment should it be damaged - the enchantment on the destroyed book latched onto our attempts to restore it and transformed back into a book.~ 
-@981  = ~But, since it was heavily damaged, it emptied the pages. Hmm... The spells need to be added back by a mage of high enough expertise... and it also seems to mention Oghma's wisdom. At least I *think* this is what the first pages are saying, but my Ruathlek is not the best. To understand it properly I'd need my lexicon, which is in Candlekeep.~
-@982  = ~But I do recommend you practice your scroll scribing skills so you are prepared for scribing spells into the De Simplex Magicae later. Just come here to do so. You can use my desk and utensils any time you want.~
+@981  = ~But only with empty pages - maybe because it was heavily damaged. Hmm... The spells need to be added back by a mage of high enough expertise... and it also seems to mention Oghma's wisdom. At least I *think* this is what the text is saying, but my Ruathlek is not the best. To understand it properly I'd need my lexicon, which is in Candlekeep.~
+@982  = ~But I do recommend you practice your scroll scribing skills so you are prepared for scribing spells into the De Simplex Magicae later. Just come here to me to do so. I'll supervise your first tries.~
 @983  = ~A powerful magic, and useful in more than one way if you know how.~
-@984  = ~A Star Saphire!~
+@984  = ~A Star Saphire.~
 @985  = ~Always a sight for sore eyes.~
 @986  = ~Come back when you have all needed ingredients.~
 @987  = ~Let us begin with preserving the remaining book snippets against further destruction, shall we?~
@@ -851,38 +851,38 @@
 @993  = ~Please let's hold on to them, until we can go to Master Elvenhair again.~
 @994  = ~Now that we cleared our names, we probably can visit Elvenhair again, what do you think?~
 @995  = ~[Elvenhair]Ah, young <CHARNAME> and <PRO_HISHER> friends. I am very unsettled to say so, but I cannot well be seen with people wanted for murder in Candlekeep. I am sorry. I do know that Tethtoril thinks you do not deserve this, and I trust his judgement, but until this is resolved, I need you to leave.~
-@996  = ~[Elvenhair]Ah, young <CHARNAME> and <PRO_HISHER> friends. I am very unsettled to say so, but I cannot well be seen with people wanted for murder in Candlekeep. I am sorry. I do know that Tethtoril thinks you do not deserve this, and I trust his judgement, but until this is resolved, I need you to leave.~
+@996  = ~The spells are gone? They... they're gone? And need to be rewritten... Not with too little experience... I'll... I will complete the book again! I swear upon my life!~
 @997  = ~[Elvenhair]Ah, young <CHARNAME> and <PRO_HISHER> friends - it is good to see you. With great relieve I heard that the accusations against you were false indeed. I am sorry you were the target of such a misunderstanding and it eases my heart to know that you did not do wrong. Feel welcome in my house any time you wish.~
 @998  = ~We... we understand, Master Elvenhair. You are alive and well - that is the most important thing right now and will hopefully stay that way. Er, I hope that didn't sound like a threat... <CHARNAME>, let us go, please.~
 @999  = ~Thank you so much, Master Elvenhair. Let me stress that I am more than relieved to see you alive and well as well. We killed a doppelganger with your face in Candlekeep!~
 @1000  = ~Yes, Tethtoril wrote to me about doppelgangers inside the keep - nasty, very nasty.~
 @1001  = ~[Messenger]Mister Brandock Deepwater? I have a message from Master Elvenhair in Beregost. He wants me to tell you that he is ready to help you again.~
-@1002  = ~That - that is fantastic! Thank you, good man, for coming all the way to letting me know. Here, take these coins. <CHARNAME> - I guess you know what I'll beg for next: let us return to Master Elvenhair as soon as our tasks will allow!~
+@1002  = ~That - that is fantastic! Thank you, good man, for coming all the way to letting me know. Here, take these coins. <CHARNAME>, I guess you know what I'll beg for next - let us return to Master Elvenhair as soon as our tasks will allow!~
 @1003  = ~[Elvenhair]So, young Brandock. I have here my Ruathlek lexicon, and am ready to translate the note in the De Simplex Magicae with you. Shall we?~
 @1004  = ~[Brandock]Oooh - yes, please!~
 @1005  = ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out - which you already know. I was so devastated, I can't express how thankful I am that you reached out to me so quickly!~
 @1006  = ~[Elvenhair]Yes, this was a most unfortunate affair. But at least your names are cleared now, so do not worry, young mage. If your steps will guide you to Candlekeep again in the future, you will find entry as a seeker again.~
 @1007  = ~[Elvenhair]So, let me see the book. This shouldn't take too long. I already prepared everything we need.~
 @1008  = ~[Elvenhair]"...Oghma's Wisdom". That's it, my young Brandock.~
-@1009  = ~(Brandock reads the finished notes.) "Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom."~
-@1010  = ~This... this a note to one of Bowgentle's apprentices! It's what they wanted to do with the book - apply a restoration procedure that makes it unperishable? This "Seph" never came to casting the restoration spell needed, as it seems - Bowgentle and his apprentices didn't even came to destroying the book. It took me to do that - ahem...~
+@1009  = ~(Brandock reads the translated notes.) "So, whoever of you fools damaged the book, you found out that a preservation spell makes the book physically whole again. I expect you to make detailed notes about the process, as I want to expand this spell as a way of preserving magical books in whole. So far it only restores the blank pages. Let it be a lesson to you to take better care of magic books in the future. I expect you to fill the pages with spells again - they should continue to benefit from the magic of the book and should be effective accordingly without cost. But let me tell you: this will be a long road for you, because wih your current experience you don't even need to try. And before you do anything, make sure you seek Oghma's wisdom."~
+@1010  = ~This... this is a note to one of Bowgentle's apprentices! Seems he never damaged the book, contrary to his master's expectations. It took me to do that - ahem... That's what Bowgentle was researching? A spell that preserves magical books so that they are restored with a preservation spell?~
 @1011  = ~"Oghma's Wisdom". I do not know yet whether this refers to an item, a spell - or just what the name says: wisdom hold by those who worship Oghma. But I already know where I will find an answer to this riddle. The greatest temple of Oghma I know is in my home land, in Athkatla.~
-@1012  = ~<CHARNAME> - this book and my notes about the spells in it will accompany my until I'll return home. Well, and until I'll have 5000 gold and a King's Tear gem to spare, as well. Thank you, Master Elvenhair, for your help in this. I am in your debt.~
-@1013  = ~[Elvenhair]It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that preserved the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep.~
+@1012  = ~<CHARNAME> - this book and any notes I'll write about the spells in it will accompany my until I'll return home. Thank you, Master Elvenhair, for your help in this. I am in your debt.~
+@1013  = ~[Elvenhair]It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that has the potential to preserve the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep.~
 @1014  = ~[Brandock]I will certainly do so, Master Elvenhair. I promise. Just as much as I promise to restore the De Simplex Magicae, even if Oghma's priests will need to extract my brain to get the spell recipes out for restoration.~
 @1015  = ~I did hear the title after Thalantyr helped you with your half-ogre problem, but I still don't know what it was.~
-@1016  = ~<CHARNAME>, I want to clearify something. I went on and on about how powerful the De Simplex Magicae were, and how valuable. It only occurred to me now that this might have lead to a false impression. The spells inside that book aren't great battle magic. It isn't battle magic at all. They do not qualify for use in a fight.~
-@1017  = ~No magic that could be used in battle? None at all?~
-@1018  = ~Why did you call it powerful, then?~
-@1019  = ~It's destroyed, anyway, so who cares.~
-@1020  = ~Well, I definitely do hope that it will be restored... someday.~
-@1021  = ~Well... if you are very desparate I guess there is some use in a very sharpened quill, a candle flame that doesn't flicker, or a pyramid of cards you could sit on...~
-@1022  = ~Because I'm... well, me. I'm a knowledge seeker, and this book - it gives knowledge, a lot.~
-@1023  = ~I'm not saying the spells don't have any practical use.~
-@1024  = ~I tried using its explanations about polymorphing to help Melicamp, after all.~
-@1025  = ~It's just... nothing overly useful when being on the road, fighting foes and monsters. It's more of an academic value - complicated spells, very well explained, broken down so they are manageable by lesser experienced mages.~
-@1026  = ~It gives examples about how to design spells - if read between the lines, of course, but I'm sure I'm not the only one understanding this. It's a template, for those who see the pattern. That's its power - and its danger, would it fall into the wrong hands.~
-@1027  = ~So... *thank the gods* it's no longer a danger, I guess. (moans). No, I didn't mean that... But one thing is clear and I am determined about it, <CHARNAME>: should I manage to restore this precious book, then I will make sure it can't fall into the wrong hands every again. It belongs in a place of scholars and seekers for wisdom. Not... not mages seeking for power.~
+@1016  = ~[Brandock]So, to summarize. The De Simplex Magicae was destroyed - and yet, it wasn't, but transformed into a magic experiment, teaching book of a different kind. It wasn't meant to do that - or it was, with detailed instructions to... whomever about what to do with it afterwards. The whole restoration of the empty book was a prank - and at the same time a serious magical research project. I... my head is spinning.~
+@1017  = ~That note is hilarious. Do you believe it was Bowgentle who wrote that?~
+@1018  = ~What will you do now?~
+@1019  = ~It gave you a clue what to do next! That's helpful.~
+@1020  = ~[Brandock]This is not certain, just as it is not certain that the De Simplex Magicae is really by him - it could also be by one of his students. It would make sense with regard to the preservation magic in the book never getting investigated any further, though - I'm sure I'd lose track of some of my research projects after being stuck in a dog's body for several years, too. As much as I know of him, it would fit, though.~
+@1021  = ~[Brandock]Indeed, it is.~
+@1022  = ~So you'll continue to carry that empty book with you. That's great - it's not like we could use the space.~
+@1023  = ~[Brandock]I will watch it as if my life depends on it until my way leads me back to Athkatla for the wisdom of the Temple of Oghma, as requested in what we think are Bowgentle's notes.~
+@1024  = ~[Brandock]But after that I will search for someone talented enough to refill the pages with spells - and I doubt this will be me, <CHARNAME>. I will continue to make notes of what I remember from the spell recipes - what made them so special that even an unexperienced wizard can cast them, but I start to understand now that most of the magic was inside the book itself. No wonder I couldn't write the spells onto a scroll...~
+@1025  = ~[Brandock]Let us continue our travels. I have a goal now - sort of, it's more like the next milestone. I admit that I appreciate that it leaves me in a state where I know exactly what my next step will be without having the chance to do it right away, giving me some sort of break from this... this extremely fascinating nightmare.~
+@1026  = ~Something else - after witnessing what happened to the De Simplx Magicae when Master Elvenhair cast the preservation spell I think I have an idea what to do with cursed scrolls to rewrite the magic inside to something useful - I just need more experience before I can actually try.~
+//@1027  = ~~
 
 
 /* brandock_candlekeep.d */
@@ -910,7 +910,7 @@
 @1071 = ~Let's move on.~
 @1072 = ~Gods, <CHARNAME>, and here I am, gaping at Candlekeep's towers in the distance, while you lost your father, your home... I am sorry for your loss!~
 @1073 = ~I am glad I can be of service. I really mean it.~
-@1074 = ~Are we going there?~
+@1074 = ~Are we going to the gates?~
 @1075 = ~Do you... do you think they'll open the doors for you again?~
 @1076 = ~You're... you're not planning on showing the book remains, are you?...~
 @1077 = ~Well... (sigh) The doors will remain closed to us, I am sure of that. At least in the near future...~
@@ -922,40 +922,40 @@
 @1083 = ~So it seems.~
 @1084 = ~We are going there on an official investigation, Brandock.~
 @1085 = ~Brandock, I need you as a mage in this group. Promise you will not turn into a knowledge seeking zombie in there.~
-@1086 = ~I... I promise, <CHARNAME>. Although I beg you, don't be too cruel on me once we are inside and I'll turn into an excited adolescent.~
+@1086 = ~I... I promise I will behave in there, <CHARNAME>. Although I beg you, don't be too cruel on me once we are inside and I'll turn into an excited fool.~
 @1087 = ~Of... of course. Although spending a *little* bit of time there would be alright, no? Like... one afternoon. A few hours. *One* hour!~
 @1088 = ~Brandock, this is your chance. This book will give us entry, you have the needed seal and a gift to stay as a seeker.~
 @1089 = ~(smiles) I am sure we could arrange for an extra hour or two while we investigate the place.~
 @1090 = ~We'll see, Brandock.~
 @1091 = ~Just like that...~
 @1092 = ~That would be fabulous!~
-@1093 = ~<CHARNAME>, I have to ask... You know this is all I wanted and worked towards for months. When we will go inside, I need to know what my chances of staying are. I promised I'd support you and I will do so without any regret. But just in case - you know, that you might see a possibility to part with me so I could stay and at least decipher the pages in Ruathlek, I need to know now.~
+@1093 = ~(sigh) This is all I ever wanted, entering Candlekeep. All I wanted and worked towards for months. And now, that it is so close... All I'd do in the tenday is working on the translation of the pages in Ruathlek in the De Simplex Magicae. I have no experience with the language so it would take me the whole time, I am sure. I wouldn't have the nerve to study anything else!~
 @1094 = ~You really mean it? But what about your quest, what about my promise to support you? Candlekeep will stay right here and go nowhere... I guess.~
-@1095 = ~Who knows what will happen. You have what you want now, so hold on to it and stay.~
-@1096 = ~It's your decision, Brandock. I will not stand in your way.~
-@1097 = ~Sure, I'd have a use for a good mage in my group, but it's not that there won't be other possibilities.~
-@1098 = ~On second thought, I'd rather you would restrain yourself and stay with me.~
-@1099 = ~Oh, this is a most unsettling decision to make... Assuming I fulfill the criteria for a seeker, and am not daydreaming again.~
-@1100 = ~A tenday, <CHARNAME>. That is the timespan visitors can stay before they have to leave at least for another month. A tenday should be enough to decipher what is written on the pages in Ruathlek. Then I will come back to you. I promise.~
-@1101 = ~Why only a tenday? Master Elvenhair made it quite clear that you will be able to stay as an acolyte to the monastery.~
-@1102 = ~A tenday sounds like a great compromise. You will get a good idea what to expect when you'll return in the future, and I'll have my mage back quickly.~
-@1103 = ~But... I would abandon you and your search, <CHARNAME>... the Sword Coast, even! My home land, Amn, in the coming war! And all that just to study a book...~
+@1095 = ~Oh, I'll most definitely regret it. But this is not how I anticipated coming here...~
+@1096 = ~I am sure he'll understand. He seemed quite interested in knowing what it says, too.~
+@1097 = ~And now we are here, in front of these impressive walls.~
+@1098 = ~And while it is a valid thing to do, I have Master Elvenhair's word that he'll help me translate it later. Surely he will understand that I feel obliged to accompany you? Candlekeep doesn't go anywhere, but I can't just abandon you and our tasks!~
+@1099 = ~Are you sure you won't regret it later?~
+@1100 = ~What about the people in the keep? Shouldn't we *warn* someone?~
+//@1101 = ~~
+//@1102 = ~~
+@1103 = ~Because... I would abandon you and your search, <CHARNAME>... the Sword Coast, even! My home land, Amn, in the coming war! And all that just to study a book...~
 @1104 = ~(moans) The gods really think this is funny, don't they? I'd have all I wanted, right here... but can't grab it without feeling bad!~
-@1105 = ~I don't think it makes a difference whether you stay a tenday or for a year. I will take care of the coming war, and I have the feeling it might be resolved soon anyways.~
-@1106 = ~You'll have to decide for yourself, Brandock.~
-@1107 = ~If you want to help with that then your stay in Candlekeep has to wait, I fear.~
-@1108 = ~A good mage? Sure, I'll let you know when we meet one! (snort) Sorry, that wasn't even funny.~
-@1109 = ~Then it is decided. I will stick with you inside Candlekeep until we will finish your investigations of the Iron Throne leaders, and then I'll stay for another tenday, digging through Ruathlek lexicon!~
-@1110 = ~Oh, I'm so excited my palms are sweaty!~
-@1111 = ~Hm... You know, that is my feeling, too. And I can't sit in a library, knowing about all this... Candlekeep will have to wait. I will stay with you, <CHARNAME>.~
-@1112 = ~But arrrrgh I really hope some god is enjoying this, so there'd be at least someone having fun here.~
-@1113 = ~Oh, yes, please! Show us our quarters for the next tenday!~
-@1114 = ~I see you are eager to start your studies. Please follow me.~
-@1115 = ~Might I ask a quick question about where the lexicon for Ruathlek would be?~
-@1116 = ~Ruathlek? Yes, we have a lot of books about the old rune language of illusionists. I could show you if you want.~
-@1117 = ~That would be much appreciated! We have something else to finish first, but once I am free I'll come back to you!~
-@1118 = ~You do that. I'll be around.~
-@1119 = ~Ruathlek? Ah, the old rune language of illusionists. I'll be happy to show a fellow wisdom seeker to where they are located.~
+//@1105 = ~~
+//@1106 = ~~
+//@1107 = ~~
+//@1108 = ~~
+//@1109 = ~~
+//@1110 = ~~
+//@1111 = ~~
+@1112 = ~Arrrrgh I really hope some god is enjoying this, so there'd be at least someone having fun here.~
+//@1113 = ~~
+//@1114 = ~~
+//@1115 = ~~
+//@1116 = ~~
+//@1117 = ~~
+//@1118 = ~~
+//@1119 = ~~
 @1120 = ~That... was as awkward as my aunts Elly and March. I feel with you, <CHARNAME>.~
 @1121 = ~Hm? Now, run along and play with your friends, yes?~
 @1122 = ~Wait, what? That was a doppelganger! A doppelganger! They seem to show up everywhere the Iron Throne has their hands on. We have to warn the monks!~ [c#ablank]
@@ -1001,7 +1001,7 @@
 @1162 = ~Was there anything we could have done?~
 @1163 = ~I don't want to talk about this.~
 @1164 = ~Indeed.~
-@1165 = ~Well, we can't save the ones they already killed. And we walked the catacombs, there were no more living people, or we would have found them! But we killed all doppelgangers down in the catacombs. What about the people in the keep? Shouldn't we *warn* someone?~
+@1165 = ~Well, we can't save the ones they already killed. And we walked the catacombs, there were no more living people, or we would have found them! But we killed all doppelgangers down in the catacombs.~
 @1166 = ~You warned Tethtoril. I am sure they will look out for more of them.~
 @1167 = ~We met Arkanis and Deder - they know! I am sure they will be warning the others.~
 @1168 = ~Hm, after we went through the catacombs I don't have the impression there is much left that needs a warning against.~
@@ -1046,6 +1046,8 @@
 @1205 = ~Oh yes, that's... that's actually funny. Still... I don't think it would have saved me in the end from the doppelgangers.~
 
 /* brandock_shapeshifter_bg1.d */
+@1248 = ~Who am I? I am... I mean, theoretically speaking, I *was* the different acquaintance of another polymorphial being of very little intellectual habitus, if phrased in terms of principally conditions...~
+@1249 = ~He not speak clear. He dumb, with my brain! Me... bright, with his dumb brain! And clumsy hands... Need help!~
 @1250 = ~You are a mage? Stuck in form of a chicken! Because a spell went wrong?! - What a nightmare...~
 @1251 = ~<CHARNAME>, I think I know a way to help this poor chicken. I mean man! In my possessions, there is a book with knowledge that might be of help, and I would like to have it, just in case. Please, let us collect my possessions now. The cave is just south east from where we first met, I marked it on your map.~
 @1252 = ~So, Melicamp... Master Thalantyr would be your master? *The* master Thalantyr?~ [c#ablank]
@@ -1103,7 +1105,7 @@
 @1304 = ~How about you do what you do best: magic.~
 @1305 = ~Brandock, you want to get experience and learn to master magic. Come with me, fight with me, and you might become what you wish.~
 @1306 = ~With that attitude, I don't think I'll have a use for you.~
-@1307 = ~You mean 'learning by doing'? Hm. According to my first teacher, I wasn't so bad at that, once. Hey, I even have experience with wild magic! Ha. Ha. Ha. But it's a thought, really.~
+@1307 = ~You mean 'learning by doing'? Hm. According to my first teacher, I wasn't so bad at that, once. Hey, I even have experience with wild magic! Ha. Ha. Ha. Bad joke! But it's a thought, really.~
 @1308 = ~I thank you for your trust, <CHARNAME>. Right now, I do not think I am a good mage. I'm not even sure I should call myself a *mage*... But practice could change that, of course... If I stay away from anything beyond my level of expertise.~
 @1309 = ~I know I have no other option left than becoming a great, well-versed mage adventurer. Trained in combat through the heat of battle. Maybe even save a village or two? This ... this would indeed put me into a position with great opportunities. And I'd have a lot of practice on the way, oh yes.~
 @1310 = ~I am ready, <CHARNAME>, and I know I want to travel with you, and not only because I have no other choice. I am ready for having long, exhausting, tiring days on the road, fighting, instead of... probably long, exhausting, tiring, *and* frustrating days working indoors.~
@@ -1155,7 +1157,7 @@
 @1356 = ~Keep away, foul creature!~
 @1357 = ~That sound... Was that your shirt?...~
 @1358 = ~It's me, it's me, <CHARNAME> - Brandock! At least I think so...~
-@1359 = ~I turned into a half-ogre! And my hands... my hands are full of... I just killed a doppelganger - with my HANDS! Look at this... this... by the gods, is this *my* arm muscles...?~
+@1359 = ~I turned into a half-ogre! And my hands... my hands are full of... I just killed a doppelganger - with my HANDS! Look at this... this... by the gods, is this *my* arm muscles?~
 @1360 = ~Brandock? Why are you a half-ogre?~
 @1361 = ~How did you do that?~
 @1362 = ~Nice. Do you have more of that up your sleeve?~
@@ -1167,7 +1169,7 @@
 @1368 = ~Wait a minute there. You shapeshifted into a half-ogre. Care to explain?~
 @1369 = ~I see you put your magic to good use. Can we get going?~
 @1370 = ~Well, at least I'm no longer green - ah, what a weak attempt of humor.~
-@1371 = ~I am shaking all over, <CHARNAME>... I'm not sure what happened here. All I know is that I need to talk to Thalantyr, and quick. This is connected to the body switch with that half-ogre, I am sure of it.~
+@1371 = ~I am shaking all over, <CHARNAME>... I'm not sure what happened here. All I know is that I need to talk to Master Thalantyr, and quick. This is connected to the body switch with that half-ogre, I am sure of it.~
 @1372 = ~I... I surely hope this doppelganger doesn't mean Master Elvenhair got hurt...~
 @1373 = ~[male Ranger]Hey, I recognize you. Seems like you found some friends now. Still, I need you to clean up your stuff after camping out in the wild!~
 @1374 = ~[Brandock]Oh, I guess you are mistaking me for the man who is camping out to the west of here. We do look astonishingly alike but that's not me, I'm afraid.~
@@ -1176,7 +1178,7 @@
 @1377 = ~[male ranger]Hmm, maybe I did mistake you for someone else who was camping not far from here to the west. No hard feelings, then, and farewell.~
 @1378 = ~My friend has a question with regard to the half-ogre incident that happened a while back. Brandock?~
 @1379 = ~Master Thalantyr, I had a most unfortunate experience: I turned into a half-ogre recently! It left me quite startled, as you can imagine, so I wanted to ask you what is happening to me!~
-@1380 = ~Hmm, you were that mage switching bodies with a half-ogre sooner, weren't you? It was wild magic that lead to your first change. Your brain remembers the change - or the memories of the half-ogre that occupied your body, and your magic made your body atone to this remembrence because you were in some highly emotional state.~
+@1380 = ~Hmm, you were that mage switching bodies with a half-ogre sooner, weren't you? It was wild magic that lead to your first change, and it seems its effect are not completely gone. Your brain remembers the change - or the memories of the half-ogre that occupied your body, and your magic made your body atone to this remembrence because you were in some highly emotional state.~
 @1381 = ~Please, Master Thalantyr - what does it mean? Can it be cured? Will it turn me into a half-ogre completely? Please tell me you know the answers to these questions!~
 @1382 = ~I can tell you with certainty: it is not an ongoing process of permanent transformation. But you will not get rid of it either. You have been given the ability to take on both forms and make use of their advantages. Learn to master it. Some others have used a lot of magic to achieve this.~
 @1383 = ~The reason I know this is not a glorious one for me. Just as you are afflicted with the half-ogre form - the half-ogre is with a human shape. He found his way back to me after accidentally shifting into a man.~
@@ -1204,7 +1206,7 @@
 @1405 = ~Yes, but not while in my group. I hired a mage.~
 @1406 = ~[Brandock]Thank you, <CHARNAME>. But doing magic is my strength. And I can't do that while being in the half-ogre shape. I'm scared I will be in this form when we'd need my magic... and that I might get stuck in that form forever... Because it is *not* a polymorphing spell that will wear off!~
 @1407 = ~I am afraid, <CHARNAME>. Afraid that I won't be able to change back. What if I get stuck?~
-@1408 = ~(Brandock ruffles his hair with both hands.) No, I have to finally admit to myself what my problem is. I... I'm afraid that I won't *want* to change back if I'm a half-ogre.~
+@1408 = ~(Brandock pauses.) No, I have to finally admit to myself what my problem is. I... I'm afraid that I won't *want* to change back if I'm a half-ogre.~
 @1409 = ~What do you mean?~
 @1410 = ~Why wouldn't you?~
 @1411 = ~Hmm, you meantioned how the world seems to be easier for you while being half-ogre. Does it have to do with that?~
@@ -1219,17 +1221,17 @@
 @1420 = ~And why would that be bad, as long as you are happy with it?~
 @1421 = ~You already went through it before. In the catacombs you changed back once the danger was over.~
 @1422 = ~You are right, that's an unreliability. Maybe we should part ways.~
-@1423 = ~Yes... yes I know, but...~
-@1424 = ~There is another problem. I'm an unreliability!~
-@1425 = ~With everything going on - we being accused and searched for murder, Sarevok threatening the whole land - I turn into an unreliability. You can't imagine how mich this mortifies me.~
+@1423 = ~Yes, yes I know, but...~
+@1424 = ~There is another problem. I'm an unreliability for our safety!~
+@1425 = ~With everything going on, I turn into an unreliability. You can't imagine how much this mortifies me.~
 @1426 = ~With Sarevok still being a threat - I turn into an unreliability. You can't imagine how mich this mortifies me.~
 @1427 = ~You go into battle with a mage and find yourself in it with a tank only? This won't do! I might not threaten you in person, but this does!~
-@1428 = ~Only if you aren't master of your shapeshifting - and here the snake bites its own tail.~
+@1428 = ~Only if you aren't master of your shapeshifting.~
 @1429 = ~Duh, Brandock - that's why you need to master this shapeshifting, not trying to suppress it!~
-@1430 = ~You.. you are righ. I need to master it. I will... I will no longer suppress it but shapeshift when you want me to. May the gods help me...~
+@1430 = ~You... you are righ. I need to master it. I will... I will no longer suppress it but shapeshift when you want me to. May the gods help me...~
 @1431 = ~You... you want me to go?~
 @1432 = ~Yes. You are too great an unreliability as a mage. Farewell.~
-@1433 = ~No, not necessarily. But I want you to be in control of your magic if you are going to stay.~
+@1433 = ~No, not necessarily. But I need you to be in control of your magic if you are going to stay.~
 @1434 = ~Then I will go. Farewell to you too, <CHARNAME>. I doubt we will meet again.~
 @1435 = ~There is one more thing... The thought of the half-ogre... human-half-ogre... Half-human-half-oger won't let go. I'm speechless that he would be affected too - but that makes sense, yes. <CHARNAME> - I feel guilty about it, because it was my attempted spell that started the whole thing.~
 @1436 = ~WE have to go look for him - please!~
@@ -1277,7 +1279,7 @@
 @1478 = ~I meant the half-ogre transformation.~
 @1479 = ~Yes, Brandock, I saw *that* part. I meant what happened before. Why are you a half-ogre?~
 
-/* brandock_shapeshifter_sod.d */
+/* brandock_shapeshifter_bg1_sod.d */
 @1480 = ~Ah, found friends already? That's good - I guess. Just make sure you stay out of trouble, yes?~
 @1481 = ~Wait, I mistook you for that other guy for a moment there. The resemblance is striking! Apologies for the confusion.~
 @1482 = ~So, I hope sobering up in here helped you to remember to behave yourself in public... wait, you are not the half-ogre turning man we arrested yesterday.~
@@ -1300,7 +1302,7 @@
 /* brandock_lorepath_bg1.d */
 @1500 = ~What kind of madness was that? I will have a look at this mage's spellbook.~ [c#ablank]
 @1501 = ~Could I have a look at that book? Oh... oh, yes. This is... nothing I will make use of myself, thank you very much.~ [c#ablank]
-@1502 = ~Could I have a look at Dradeel's spell book? Hm... No, I do not think I have an idea how to read this. It would make an interesting object for study, though. Er, I did not intend to suggest that this would be a valid reason to keep it from the poor man. It's not *that* interesting.~ [c#ablank]
+@1502 = ~Could I have a look at Dradeel's spell book? Hmm... No, I do not think I have an idea how to read this. It would make an interesting object for study, though. Er, I did not intend to suggest that this would be a valid reason to keep it from the poor man. It's not *that* interesting.~ [c#ablank]
 @1503 = ~To be attacked out of the blue... I should be used to it by now, shouldn't I? Let me have a look into those mages' spellbooks. They were quite powerful...~ [c#ablank]
 @1504 = ~Look at all this knowledge! Which ... I am ... not here to cherish. <CHARNAME>, let's get on with what we have to do, before I forget my vow to support you no matter what.~ [c#ablank]
 @1505 = ~It's not like we wouldn't have any time at all. Have a stroll around, if you like. I'll wait.~
@@ -1416,62 +1418,77 @@
 
 /* brandock_bookrestore_bg2.d */
 @1900 = ~So, Brandock - here we are. Show your book to the monks to receive "Oghma's Wisdom".~
-@1901 = ~Here is a King's Tear and 5000 gold as requested. Please restore Brandock's book now.~
-@1902 = ~Let me see... Oh, this is very interesting magic indeed. A restoration spell, you say? Yes, we could help reveal the hidden texts. Bring us a King's Tear and 5000 gold and we will restore the book as it is meant to.~
-@1903 = ~Very well. Give the book to me...~
+@1901 = ~Here is a King's Tear and 5000 gold as requested. Please have a look at Brandock's book now.~
+@1902 = ~Let me see... Oh, this is very interesting magic indeed. A preservation spell, you say? Yes, we could seek more wisdom about this magic. Bring us a King's Tear and 5000 gold, and we will investigate the book with all the knowledge Oghma granted us.~
+@1903 = ~Very well. Let me see the book...~
 @1904 = ~Very interesting. Very interesting indeed.~
-@1905 = ~So, this is how the restoration spell worked. This was most enlightening.~
-@1906 = ~Please send a letter with all gathered knowledge about the book restoration to Master Elvenhair in Candlekeep - as well as Master Purgan in Alisarhold.~
-@1907 = ~Please send a letter with all gathered knowledge about the book restoration to Master Purgan in Alisarhold.~
-@1908 = ~Finally, here it is - the fully restored De Simplex Magicae. It's time the book gets to where it is supposed to be.~
-@1909 = ~I want the Temple of Oghma to have this book. Keep it safe - and keep it out of the reach of the Coweld Wizards as well as other megalomaniac mages.~
-@1910 = ~We will do as you ask, Master Brandock. This book will be guarded by the followers of Oghma and a source for those seeking the unmatched wisdom of Bowgentle. We thank you for the trust you put into Oghma to keep this book safe. Fare well.~
-@1911 = ~We have all we need with us! <CHARNAME>... Please?~
+@1905 = ~[Brandock]So, this is how the preservation magic in the book worked. I... I undestood it. I actually understood it. This was most enlightening.~
+@1906 = ~Just a moment... Here, please send this letter with all gathered knowledge about the book's magic to Master Elvenhair in Candlekeep - as well as Master Purgan in Alisarhold.~
+@1907 = ~[Brandock]Just a moment... Here, please send this letter with all gathered knowledge about the book's magic to Master Purgan in Alisarhold.~
+@1908 = ~[Brandock]This is the moment of truth I anticipated for os long. I sought and found "Oghma's Wisdom" about how to write spells into the transformed De Simplex Magicae.~
+@1909 = ~[Brandock]I... I will come back with regard to this for more of your knowledge - probably. But the book will stay with me, for now. I swear I will keep it safe - and keep it out of the reach of the Coweld Wizards as well as other megalomaniac mages.~
+@1910 = ~We will do as you ask. This gathered knowledge is interesting for us as well. Fare well.~
+@1911 = ~[Brandock]We have all we need with us! <CHARNAME>... Please?~
 @1912 = ~Yes, go ahead.~
 @1913 = ~No, not today, Brandock.~
-@1914 = ~Very... very well.~
-@1915 = ~We have a King's Tear - and the needed 5000 gold the Temple of Oghma requested. (Brandock inhales audibly.) Please, let us return to the temple of Oghma as soon as possible, so this whole book... "affair" comes to an end.~
-@1916 = ~<CHARNAME>, this is it. This is the moment I was waiting for, hoping for, *working* for for so long. The De Simplex Magicae is restored - my guilt is quenched.~
-@1917 = ~(teasingly) Oh no! That is horrible! What are you going to do with your time now?~
-@1918 = ~I'm so happy for you, Brandock.~
-@1919 = ~It was your dedication that brought you here.~
-@1920 = ~You gave it out of our hands even before I could have a look at it...~
-@1921 = ~Yes, it's over. I surely hope I don't have to hear that name ever again.~
-@1922 = ~Ha, yes, that is so true... It was my dedication to the book that made me study it until I fell asleep on the road where the foxes could get to it.~
-@1923 = ~You know what I meant.~
-@1924 = ~So, what now?~
-@1925 = ~I did indeed.~
-@1926 = ~I thank you.~
-@1927 = ~Oh... I'm sorry, <CHARNAME>. I only realize now that this was rather rude from my side. I just wanted to know it to be safe - from the Cowled Wizards as well as, well, myself. We both know what I did to it, and I'm pretty sure this wouldn't work out so neatly a second time.~
-@1928 = ~[Brandock]<CHARNAME>, are you mad at me? For giving away the De Simplex Magicae, I mean.~
-@1929 = ~You announced you'd do it so I shouldn't be surprised.~
-@1930 = ~It was your call and I will not question your decision.~
-@1931 = ~No, I think it was a good idea.~
-@1932 = ~No, I just wished I could have seen it before you do.~
-@1933 = ~No - I wouldn't have liked having to watch you destroy it a second time, you know.~
-@1934 = ~Yes, I am. I would have liked to see for myself that it's not useful for our cause.~
-@1935 = ~I don't really have an opinion, to be honest.~
-@1936 = ~Hahaha! I'd have an idea or two, to be honest. Helping out a very good friend without being distracted by a self-sustained guilt trap would be one, for example.~
-@1937 = ~(teasingly) That sounds like a great idea, Brandock. Let's do that! Do I know them?~
-@1938 = ~Hahaha! Gods, <CHARNAME>, how I enjoy your jesting. It feels so good to laugh like this - no matter the sad circumstances which brought us back together.~
-@1939 = ~Now we will continue with what fate forced us to do, I guess... but without this constant nagging in the back of my head that, deep down, I'm nothing but a failure.~
-@1940 = ~I feel like I should hold onto something, or I'll float away - that's how relieved I am.~
-@1941 = ~(teasingly) I could stand on your foot for a little, if it helps.~
-@1942 = ~I can imagine.~
-@1943 = ~Are we done here?~
-@1944 = ~Hahaha! That would definitely distract me, yes.~
-@1945 = ~[Brandock]I'm glad to hear you say this.~
-@1946 = ~I understand. I'm sorry.~
-@1947 = ~[Brandock]...But you are mad.~
-@1948 = ~No, I wouldn't have liked having to watch you destroy it a second time, you know.~
+@1914 = ~[Brandock]Very... very well.~
+@1915 = ~[Brandock]We have a King's Tear - and the needed 5000 gold the Temple of Oghma requested. (Brandock inhales audibly.) Please, let us return to the temple of Oghma as soon as possible, so this whole book... "affair" comes to an end.~
+@1916 = ~[Brandock]<CHARNAME>, this is it. This is the moment I was waiting for, hoping for, *working* for for so long. The De Simplex Magicae is restored - my guilt is quenched.~
+@1917 = ~[PC Reply](teasingly) Oh no! That is horrible! What are you going to do with your time now?~
+@1918 = ~[PC Reply]I'm so happy for you, Brandock.~
+@1919 = ~[PC Reply]It was your dedication that brought you here.~
+@1920 = ~[PC Reply]Ah, so that's what kept you occupied since we visited the monks.~
+@1921 = ~[PC Reply]Yes, it's over. I surely hope I don't have to hear that name ever again.~
+@1922 = ~[Brandock]Ha, yes, that is so true... It was my dedication to the book that made me study it until I fell asleep on the road where the foxes could get to it.~
+@1923 = ~[PC Reply]You know what I meant.~
+@1924 = ~[PC Reply]So, what are you goin to *do* now?~
+@1925 = ~[Brandock]I did indeed.~
+@1926 = ~[Brandock]I thank you.~
+@1927 = ~[Brandock]<CHARNAME>, ever since we left the temple I am trying to wrap my head around a *decision* I already made and that's scaring me to hells. I... I decided to refill the De Simplex Magicae with spells myself.~
+@1928 = ~[PC Reply]That's a great idea! I am sure you can do it.~
+@1929 = ~[PC Reply]Why the shy look? Don't you think you can do it?~
+@1930 = ~[PC Reply]I figured as much, after seeing you holding on to it like that.~
+@1931 = ~[PC Reply]If you think that's a good idea...~
+@1932 = ~[PC Reply]I didn't expect you to. What made you change your mind?~
+@1933 = ~[Brandock]I never said it's a *good* idea.~
+@1934 = ~[Brandock]Yes, I *do* think I can do it. That's what scares me.~
+@1935 = ~[Brandock]Then you have a better judgement of my talent than me until I talked to the monks in the Tmple of Oghma.~
+@1936 = ~[Brandock]Hahaha! I'd have an idea or two, to be honest. Helping out a very good friend without being distracted by a self-sustained guilt trap would be one, for example.~
+@1937 = ~[PC Reply](teasingly) That sounds like a great idea, Brandock. Let's do that! Do I know them?~
+@1938 = ~[Brandock]Hahaha! Gods, <CHARNAME>, how I enjoy your jesting. It feels so good to laugh like this - after all the time that passed.~
+@1939 = ~[Brandock]Now we will continue with what the gods are forcing us to do, I guess... but without this constant nagging in the back of my head that, deep down, I'm nothing but a failure.~
+@1940 = ~[Brandock]I feel like I should hold onto something, or I'll float away - that's how relieved I am.~
+@1941 = ~[PC Reply](teasingly) I could stand on your foot for a little, if it helps.~
+@1942 = ~[PC Reply]I can imagine.~
+@1943 = ~[PC Reply]Are we done here?~
+@1944 = ~[Brandock]Hahaha! That would definitely distract me, yes.~
+@1945 = ~[Bandock]I walked into the temple, convinced that I would not take the book out again. Seeking the wisdom of the monks - Oghma's wisdom - was easy enough. But to refill the pages with spells? Spells that are as easy and cheap to cast as were the ones originally inside? I was *convinced* that I wasn't experienced enough, that I surely would finally destroy it - that I shouldn't even try.~
+@1946 = ~[Brandock]And then I talked to the monks, and... and I started to understand. I started to *understand* the magic in that book, <CHARNAME>.~
+@1947 = ~[Brandock]So - I think I can do this. I *know* I could do this, given a little more experience and some pre-studies before I tackle the real thing. But... but I didn't wrap my mind around the thought that I *will* be doing this. It's... it's the De Simplex Magicae! I'm stuck in a loop where my heart says yes - and my mind yells OH GODS NO.~
+@1948 = ~You should listen to your heart.~
 @1949 = ~[Brandock]Ouch...~
-@1950 = ~I see.~
-@1951 = ~[Brandock]The De Simplex Magicae... I was its owner for too long - I overstressed having it in my possession. Plus - there is nothing else I could learn from it. I studied the spell recipes, I learned about the restoration magic.~
-@1952 = ~Oh wow, this sounded really arrogant. What I meant was: there is nothing more that I could learn from it without the help of wise sages.~
-@1953 = ~It won't be to our disadvantage that I gave away the De Simplex Magicae. (mumbles) On the contrary. Now I'm no longer distracted by having to keep it safe...~
-@1954 = ~I won't be able to write you a book with simplified spells like this, let alone because I lack the resources, but also because *that* is something for which I'd need to be a scholar of wise sages for a time. But I paid *very* close attention to how the book's restoration magic worked.~
-@1955 = ~I want to work with my new knowledge next time I'll sit down for scroll scribing.~
-@1956 = ~I'm not experienced enough to work myself with it yet, but I'll let you know as soon as I will be.~
+@1950 = ~If you feel this insecure then it means something. I wouldn't do this if you feel this way.~
+@1951 = ~[Brandock]The De Simplex Magicae... I was its owner for so long - I learned verything I could from it. I studied the spell recipes, I learned about the restoration magic. There is nothing else I could learn from it.~
+@1952 = ~[Brandock]Oh wow, this sounded really arrogant. But... truth is, there is nothing more that I could learn from it without the help of someone even *more* experienced than me.~
+@1953 = ~The magic in the book was hidden for so long. It really is no problem to wait a little longer.~
+@1954 = ~Just tell me when you'll have something useful coming out of this. I don't want to talk about it any more until then.~
+@1955 = ~[Brandock]This I want, and I *will* write the spells back into the De Simplex Magicae. Eventually... I paid *very* close attention to how the book's preservation magic worked. I want to work with my new knowledge next time I'll sit down for scroll scribing.~
+@1956 = ~[Brandock]This I want, and I *will* write the spells back into the De Simplex Magicae. Eventually... I paid *very* close attention to how the book's preservation magic worked. I'm not experienced enough to work myself with it yet, but I'll let you know as soon as I will be.~
+@1957 = ~[Brandock]That's what I think, too - right before I get the next nervous breakdown.~
+@1958 = ~[Brandock]I definitely will not do anything with the book unless I am really sure about what I'm doing.~
+@1959 = ~[Brandock]My thoughts, exactly. Now I only have to believe them myself.~
+@1960 = ~[Brandock]The book and its magic was hidden so long indeed. The gods put it into my hand... and for some reason, let me, er, "unlock" the hidden magic in it. I *know* I can make it whole again. I just... I just need some more time, and a lot more experience. And - a little more self-confidence would be great, too.~
+@1961 = ~[Brandock]Gods, I really was hoping to be rid of it after the visit to the temple... But nooo, I have to walk this path to the end, there is no easy way out... Oh, who am I kidding! I *want* to do this, <CHARNAME>! I *want* to understand its magic, every little last bit of it! I will never give it out of my hands, unless there is nothing more I could learn from it!~
+@1962 = ~It's a very useful book, though. And it's *complete*! Did I mention that the De Simplex Magicae is *complete* again?~
+@1964 = ~That's... that's it. Here it is - the completed, new version of the De Simplex Magicae.~
+@1965 = ~Well, the books name translates to "of the simple magic". It was even simple for me! I'm *not* referring to how I discovered the preservation magic inside it. I meant for writing the spells back in to make it a powerful magic ressouce again. This book offered a "simple" way all the way through - from writing spells on the pages to casting them.~
+@1966 = ~I'm pretty sure your experience and talent helped quite a bit.~
+@1967 = ~Don't make it sound as if it was really easy. You came a long way until now.~
+@1968 = ~If it was that easy, I wonder why it took so long.~
+/*
+@1969 = 
+@1970 = 
+*/
 
 /* c#brando_bg1end_bgt.d */
 @2000 = ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... Please understand that I need to make my way back to Amn on my own. I cannot return as a representative of Baldur's Gate authorities - I am sure you understand.~
@@ -1487,22 +1504,30 @@
 @2016 = ~And I will be quicker the sooner you all leave me to my work.~
 
 /* brandock_scrollscribing.d */
+/* SCRL6F.itm - Ray of Enfeeblement */
 @3000 = ~I changed it into a scroll of Ray of Enfeeblement.~
 @3001 = ~Turns out this was easily done. I know how to write this now too.~
 @3002 = ~I think I have an idea what to do with cursed scrolls - rewrite the magic inside to something useful. Let me know if you want me to try this.~
 @3003 = ~With pleasure.~
+/* SCRL89.itm - Horror */
 @3004 = ~I changed it into a scroll of Horror.~
 //@3005 = ~~
+/* SCRL1L.itm - Monster Summoning I */
 @3006 = ~I changed it into a scroll of Monster Summoning I.~
 //@3007 = ~~
-@3008 = ~I changed into a scroll of Slow.~
+/* SCRL1O.itm - Slow */
+@3008 = ~I changed it into a scroll of Slow.~
 //@3009 = ~~
+/* SCRL1U.itm - Confusion */
 @3010 = ~I changed it into a scroll of Confusion.~
 //@3011 = ~~
+/* SCRL5Q.itm - Feeblemind */
 @3012 = ~I changed it into a scroll of Feeblemind.~
 //@3013 = ~~
+/* SCRL7H - Flesh to Stone */
 @3014 = ~I changed it into a scroll of Flesh to Stone.~
 //@3015 = ~~
+/* SCRL8O.itm - Finger of Death */
 @3016 = ~I changed it into a scroll of Finger of Death.~
 //@3017 = ~~
 @3018 = ~I can still write a new scroll today, if you want.~
@@ -1511,85 +1536,158 @@
 @3021 = ~Here we are... Boy, good that I'm not nervous at *all*.~
 @3022 = ~It's time to write a scroll again.~
 @3023 = ~What do you want me to scribe, <CHARNAME>?~
-@3024 = ~You mentioned indestructible spell pages?...~
-@3025 = ~Would you write another page into your book of spells?~
+@3024 = ~You mentioned writing spells into the De Simplex Magicae?...~
+@3025 = ~Would you write another page into the De Simplex Magicae?~
 @3026 = ~Sure, go ahead and experiment with durable scrolls, Brandock.~
 @3027 = ~I'm thinking about a durable spell scroll.~
 @3028 = ~Seems we are out of gold for a durable spell scroll...~
+/* SCRL10.itm - Cursed Scroll of Weakness */
 @3029 = ~Please rewrite the Cursed Scroll of Weakness into a spell scroll.~
+/* SCRL11.itm - Cursed Scroll of Clumsiness */
 @3030 = ~Please rewrite the Cursed Scroll of Clumsiness into a spell scroll.~
+/* SCRL12.itm - Cursed Scroll of Foolishness */
 @3031 = ~Please rewrite the Cursed Scroll of Foolishness into a spell scroll.~
+/* SCRL13.itm - Cursed Scroll of Ugliness */
 @3032 = ~Please rewrite the Cursed Scroll of Ugliness into a spell scroll.~
+/* SCRL14.itm - Cursed Scroll of Summon Monster */
 @3033 = ~Please rewrite the Cursed Scroll of Summon Monster into a spell scroll.~
+/* SCRL16.itm - Cursed Scroll of Petrification */
 @3034 = ~Please rewrite the Cursed Scroll of Petrification into a spell scroll.~
+/* SCRL17.itm - Cursed Scroll of Ailment */
 @3035 = ~Please rewrite the Cursed Scroll of Ailment into a spell scroll.~
+/* SCRL18.itm - Cursed Scroll of Stupidity */
 @3036 = ~Please rewrite the Cursed Scroll of Stupidity into a spell scroll.~
+/* SCRL75.itm - Identify */
 @3037 = ~Please scribe a scroll of Identify, Brandock.~
+/* SCRL77.itm - Magic Missile */
 @3038 = ~I'd like you to scribe a scroll of Magic Missile, Brandock.~
+/* SCRL81.itm - Sleep */
 @3039 = ~A scroll of Sleep.~
+/* SCRL5U.itm - Reflected Image */
 @3040 = ~A scroll of Reflected Image.~
+/* SCRL73.itm - Protection From Petrification */
 @3041 = ~A scroll of Protection From Petrification.~
+/* SCRLAI.itm - Ray of Enfeeblement */
 @3042 = ~A scroll of Ray of Enfeeblement.~
+/* SCRL89.itm - Horror */
 @3043 = ~A scroll of Horror.~
+/* SCRL3G.itm - Vocalize */
 @3044 = ~A scroll of Vocalize.~
+/* SCRL90.itm - Invisibility */
 @3045 = ~A scroll of Invisibility.~
+/* SCRLA3.itm - Glitterdust */
 @3046 = ~A scroll of Glitterdust.~
+/* SCRL96.itm - Mirror Image */
 @3047 = ~A scroll of Mirror Image.~
+/* SCRL91.itm - Knock */
 @3048 = ~A scroll of Knock.~
+/* SCRL1O.itm - Slow */
 @3049 = ~A scroll of Slow.~
+/* SCRL1L.itm - Monster Summoning I */
 @3050 = ~A scroll of Monster Summoning I.~
+/* SCRL1P.itm - Skull Trap */
 @3051 = ~A scroll of Skull Trap.~
+/* SCRL1H.itm - Haste */
 @3052 = ~A scroll of Haste.~
+/* SCRL1G.itm - Fireball */
 @3053 = ~A scroll of Fireball.~
+/* SCRL1E.itm - Dispel Magic */
 @3054 = ~A scroll of Dispel Magic.~
+/* SCRLA7.itm - Remove Magic */
 @3055 = ~A scroll of Remove Magic.~
+/* SCRL1S.itm - Dire Charm */
 @3056 = ~A scroll of Dire Charm.~
+/* SCRL1J.itm - Invisibility 10' Radius */
 @3057 = ~A scroll of Invisibility 10' Radius.~
+/* SCRL6L.itm - Hold Undead */
 @3058 = ~A scroll of Hold Undead.~
+/* SCRL6J.itm - Spell Thrust */
 @3059 = ~A scroll of Spell Thrust.~
+/* SCRL6H.itm - Protection from Fire */
 @3060 = ~A scroll of Protection from Fire.~
+/* SCRL5G.itm - Remove Curse */
 @3061 = ~A scroll of Remove Curse.~
+/* SCRL1Y.itm - Improved Invisibility */
 @3062 = ~A scroll of Improved Invisibility.~
+/* SCRL2B.itm - Stoneskin */
 @3063 = ~A scroll of Stoneskin.~
+/* SCRL2A.itm - Monster Summoning II */
 @3064 = ~A scroll of Monster Summoning II.~
-@3065 = ~A scroll of Otiluke's Resilient Sphere.~
+/* SCRL5J.itm - Oliluke's Resilient Sphere */
+@3065 = ~A scroll of Oliluke's Resilient Sphere.~
+/* SCRL6P.itm - Minor Sequencer */
 @3066 = ~A scroll of Minor Sequencer.~
+/* SCRL5Q.itm - Feeblemind */
 @3067 = ~A scroll of Feeblemind.~
+/* SCRL2G.itm - Monster Summoning III */
 @3068 = ~A scroll of Monster Summoning III.~
+/* SCRL5P.itm - Chaos */
 @3069 = ~A scroll of Chaos.~
+/* SCRL2F.itm - Cone of Cold */
 @3070 = ~A scroll of Cone of Cold.~
+/* SCRL6U.itm - Breach */
 @3071 = ~A scroll of Breach.~
+/* SCRL6S.itm - Spell Immunity */
 @3072 = ~A scroll of Spell Immunity.~
+/* SCRL6Y.itm - Protection From Acid */
 @3073 = ~A scroll of Protection From Acid.~
+/* SCRL8X.itm - Spell Shield */
 @3074 = ~A scroll of Spell Shield.~
+/* SCRL7H.itm - Flesh to Stone */
 @3075 = ~A scroll of Flesh to Stone.~
+/* SCRL1U.itm - Confusion */
 @3076 = ~A scroll of Confusion.~
+/* SCRL7V.itm - Spell Deflection */
 @3077 = ~A scroll of Spell Deflection.~
-@3078 = ~A scroll of Summon Nishruu.~
+/* SCRL8B.itm - Summon Nishru */
+@3078 = ~A scroll of Summon Nishru.~
+/* SCRL8O.itm - Finger of Death */
 @3079 = ~A scroll of Finger of Death.~
+/* SCRL8D.itm - Spell Turning */
 @3080 = ~A scroll of Spell Turning.~
+/* SCRL8W.itm - Mass Invisibility */
 @3081 = ~A scroll of Mass Invisibility.~
+/* SCRL8F.itm - Project Image */
 @3082 = ~A scroll of Project Image.~
+/* SCRL8M.itm - Sphere of Chaos */
 @3083 = ~A scroll of Sphere of Chaos.~
-@3084 = ~A scroll of Summon Efreeti.~
+/* SCRL8S.itm - Summon Efreet */
+@3084 = ~A scroll of Summon Efreet.~
+/* SCRLB1.itm - Bigby's Clenched Fist */
 @3085 = ~A scroll of Bigby's Clenched Fist.~
+/* SCRL9A.itm - Pierce Shield */
 @3086 = ~A scroll of Pierce Shield.~
+/* SCRLB2.itm - Bigby's Crushing Hand */
 @3087 = ~A scroll of Bigby's Crushing Hand.~
+/* SCRL9L.itm - Spell Trap */
 @3088 = ~A scroll of Spell Trap.~
+/* SCRL9Q.itm - Chain Contingency */
 @3089 = ~A scroll of Chain Contingency.~
+/* SCRL9Z.itm - Freedom */
 @3090 = ~A scroll of Freedom.~
 @3091 = ~Nothing for now.~
 @3092 = ~Which one do you have in mind?~
+/* SCRL77.itm - Magic Missile */
 @3093 = ~Scribe a durable scroll of Magic Missile.~
+/* SCRL90.itm - Invisibility */
 @3094 = ~Scribe a durable scroll of Invisibility.~
+/* SCRL1H.itm - Haste */
 @3095 = ~Scribe a durable scroll of Haste.~
+/* SCRL1G.itm - Fireball */
 @3096 = ~Scribe a durable scroll of Fireball.~
+/* SCRL1E.itm - Dispel Magic */
 @3097 = ~Scribe a durable scroll of Dispel Magic.~
+/* SCRL1Y.itm - Improved Invisibility */
 @3098 = ~Scribe a durable scroll of Improved Invisibility.~
+/* SCRL2A.itm - Monster Summoning II */
 @3099 = ~Scribe a durable scroll of Monster Summoning II.~
+/* SCRL6U.itm - Breach */
 @3100 = ~Scribe a durable scroll of Breach.~
+/* SCRL6Y.itm - Protection From Acid */
 @3101 = ~Scribe a durable scroll of Protection From Acid.~
+/* SCRL1U.itm - Confusion */
 @3102 = ~Scribe a durable scroll of Confusion.~
+/* SCRL9A.itm - Pierce Shield */
 @3103 = ~Scribe a durable scroll of Pierce Shield.~
 @3104 = ~Maybe not one of these.~
 @3105 = ~[Brandock]I am sorry, <CHARNAME>, but I need rest before I can focus on scribing another scroll.~
@@ -1603,14 +1701,14 @@
 @3505 = ~Gods, is there *nothing* you can do without talking so much?~
 @3506 = ~What? Oh - did I say something? Ah, yes, I was talking... to myself. I'm sorry. It's a bad habit, talking so much if feeling nervous. I know I should just stop and start scribing a scroll but it's hard for me to focus if my hands are nearly shaking and... I'm talking away again. (Brandock exhales audibly.)~
 @3507 = ~You can do this, Brandock. You think you need Elvenhair, but it was you who wrote the scrolls there, not him.~
-@3508 = ~I can stay here if you want me to. I can even ready this drinking pouch with water if you want.~
+@3508 = ~I can stay here if you prefer. I can even ready this drinking pouch with water if you want me to.~
 @3509 = ~Let me know when you're finished. I'll be over there.~
 @3510 = ~As long as you're sure that's water and not some flammable alcoholic beverage...~
 @3511 = ~I think it would help me if you'd keep a little distance. I wouldn't feel like endangering you in case of a fire... and I think I'd work better if noone would watch me.~
-@3512 = ~(Brandock exhales.) Alright, here we go. Please wait up on me, <CHARNAME>... Just in case.~
+@3512 = ~(Brandock exhales.) Alright, here we go. Please don't go too far... Just in case.~
 @3513 = ~I'm sorry you have to babysit me the way you do. I thank you so much, <CHARNAME>.~
 @3514 = ~Here we are - one scroll of Identify. No, no scroll of Protection against Fire, you can spare me the grin. I took an easy one for my first try - my first try all alone. All alone - I did it! I *did* it, and it not only went all well, but it felt... great! I think I like writing scrolls, <CHARNAME>.~
-@3515 = ~Of course you do, Brandock.~
+@3515 = ~Of course you do, Brandock. I didn't expect anything else.~
 @3516 = ~Excuse me while I'll be over there, laughing my ass off.~
 @3517 = ~Finally. Took you long enough to overcome that stupid fear.~
 @3518 = ~Subtle, <CHARNAME>. Very subtle.~
@@ -1632,25 +1730,25 @@
 @3534 = ~One scroll of Identify. I am sorry your skill doesn't suffice to write a scroll of Protection from Fire as you wanted originally - I wouldn't have mind either way although it would have been an unusual choice for a first try.~
 @3535 = ~Protection from Fire - an unusual choice. I would have thought we'd start with a scroll of Identify, but I do not mean to question your decision.~
 @3536 = ~Yes, it's, erm, it's something personal.~
-@3537 = ~This was very good! Alisarhold's scholars teached you well indeed. As I said, feel free to come here and practice as often as you wish - if you can find your way around my desk, that is.~
+@3537 = ~This was very good! Alisarhold's scholars teached you well indeed. As I said, do practice scroll scribing as much as possible. You can use my utensils any time you want. Feel free to come here and practice as often as you wish - if you can find your way around my desk, that is.~
 @3538 = ~[Brandock]I thank you so much for your generosity, Master Elvenhair. I... I don't know what to say.~
 @3539 = ~[Elvenhair]Ah, an old scholar like me cherishes the joys of teaching, my young friend. It makes my heart happy to see the youth being interested in books and magic! See you soon, then.~
-@3540 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Identify. It looks like a real one! I did this!~
+@3540 = ~[Brandock]Farewell, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Identify. It looks like a real one! I did this!~
 @3541 = ~I will be able to write more scrolls here, <CHARNAME>, once I rested. The weaker spells I can write without special ressources, but the higher spells will consume gold if written. I will be able to write more spells the more experienced I will be. I'll note it down for you so you can look the details up later.~
-@3542 = ~[Brandock]Thank you so much, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Protection from Fire. It looks like a real one! I did this!~
+@3542 = ~[Brandock]Farewell, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Protection from Fire. It looks like a real one! I did this!~
 
 /* brandock_scrollscribing_bg2.d */
-@3600 = ~So, here it is - a recharging spell page. We need to try whether it works as intended as soon as possible.~
-@3601 = ~This was the last page. Here is the book. (Brandock pauses.) Book... Book?! Did I... write a magic book? I did, didn't I?~
-@3602 = ~I think I got it now - how to scribe spells onto a page which will not be consumed but regenerates after a day. I need to wrab these pages into a book, though, so only one spell could be used per day in case I write more.~
-@3603 = ~I'd need one normal spell scroll of the spell in question and 5000 gold to scribe one page of such a book of spells. Let me know if you want me to try this.~
-@3604 = ~Yes, I would love to try this. Let me see what I could write, hmm...~
-@3605 = ~Assuming we have the appropriate scroll, I could write the following spells into a book.~
-@3606 = ~I only have ressources for five such pages in total, though, so you should chose carefully.~
-@3607 = ~My ressources allow for four more pages.~
-@3608 = ~My ressources allow for three more pages.~
-@3609 = ~My ressources allow for two more pages.~
-@3610 = ~My ressources allow only for one more page, then the book will be full.~
+@3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~
+@3601 = ~This was the last page I can write for now. Here is the book.~
+@3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~
+@3603 = ~It'll consume one spell scroll of the wanted spell and 5000 gold per page. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~
+@3604 = ~Yes, I would *love* to try this, even though my palms are already sweaty. Let me see what I could write, hmm...~
+@3605 = ~Assuming we have the appropriate scroll, I could write the following spells into it.~
+@3606 = ~I only have five accessible pages in total, though, so you should chose carefully.~
+@3607 = ~My ressources allow for four more spells.~
+@3608 = ~My ressources allow for three more spells.~
+@3609 = ~My ressources allow for two more spells.~
+@3610 = ~My ressources allow only for one more spell, then all pages of the book will be full I have access to.~
 @3611 = ~Fireball.~
 @3612 = ~Minor Sequencer.~
 @3613 = ~Breach.~
@@ -1662,7 +1760,7 @@
 @3619 = ~Bigby's Crushing Hand.~
 @3620 = ~Chain Contingency.~
 @3621 = ~That's all for now... I will be able to write more when I have more experience in spell scribing.~
-@3622 = ~That's all. I won't be able to write any other.~
+@3622 = ~That's the spells I can offer.~
 @3623 = ~Write a page of Fireball.~
 @3624 = ~Write a page of Minor Sequencer.~
 @3625 = ~Write a page of Breach.~
@@ -1675,7 +1773,7 @@
 @3632 = ~Write a page of Chain Contingency.~
 @3633 = ~I'll wait for now until you can write more powerful spells.~
 @3634 = ~Ah, maybe not today.~
-@3635 = ~I will write the page but leave the one open that you chose earlier. Turn the page to see the new one.~
+@3635 = ~I will write the new spell but will leave the page open that you chose earlier. Turn the page to see the newly added spell.~
 @3636 = ~With pleasure.~
 @3637 = ~<CHARNAME>! Look at this! Look! (Brandock waves with a scroll, obviously excited.) It's a durable scroll of Fireball. We need to try whether this works! Er... maybe not here, though.~
 @3638 = ~Fireball! You came a long way, mister "I'm so scared this could go up in flames"!~
@@ -1688,37 +1786,39 @@
 @3645 = ~I would like to experiment with what I have seen being used in the De Simplex Magicae. The magic behind its durability - how it was made into a book which would remain after the spells being cast, making it a source of infinite spell charges.~
 @3646 = ~I have an idea how to increase durability of the scrolls - so they won't be used up after the first use. I'd need to experiment with this a bit, though - and every scroll will consume 1000 gold. Unless you wanted me to scribe some other scroll, of course, then this will have to wait.~
 @3647 = ~Gladly. Make yourself comfortable - this could take a while.~
-@3648 = ~<CHARNAME>, I'm still grabbing the concept of having written a magic book. The book of spells I wrote is a magic book - right?...~
+@3648 = ~<CHARNAME>, I'm still grabbing the concept of having completed the De Simplex Magicae. It's a real magic book of spells again - Wait! (Brandock pauses.) Wow! I could go around, telling people I wrote a magic book! Heh.~
 @3649 = ~Indeed, Brandock. And a handy book it is!~
 @3650 = ~I would say so, yes.~
-@3651 = ~You know the best part? You could feed this to the foxes all you want - all that would happen is me scolding you for wasting so much gold.~
-@3652 = ~You'd better not get any ideas. It's not *that* impressive, just a book of regenerating pages for a mage. There is so much more you could do with this.~
+@3651 = ~Well, if you think it's yours, try feed it to the foxes and see how far you can make yourself do it.~
+@3652 = ~Having written spells back into there is not *that* impressive. There is much more you could do with this, I am sure.~
 @3653 = ~Yeah, great. Let's move on.~
-@3654 = ~Heh, well. Better not.~
+@3654 = ~You are right there, I couldn't... but it still feels like my work - at least partly.~
 @3655 = ~It really is.~
-@3656 = ~I can't believe I'm realizing this only now. I wrote a book with indestructible spell scrolls in it. It's a magic book, a little bit like Bowgentle's - well, only a very little tiny bit. It's not a 10,000 gold book, of course. But I taught it to myself - after seeing how the magic works, of course, and yet...~
+@3656 = ~I can't believe I really restored it. I was *convinced* I'd just keep it safe until a *really* talented sage can deal with cleaning up my mess.~
 @3657 = ~I'm not surprised at all, Brandock, after seeing you absorb knowledge the way you do.~
 @3658 = ~You, my friend, have a serious issue with self-perception, I think.~
 @3659 = ~I could watch you all day, realizing you are actually smart and a well-versed mage.~
 @3660 = ~Yes, it's surprising how daft some really intelligent people can be.~
 @3661 = ~I sense a compliment in there... somewhere.~
 @3662 = ~You know me better than I do sometimes, it seems.~
-@3663 = ~I mean... I know I'm not the same young man staring at magic for the first time any more, but I don't *feel* any different - I still don't feel like I'd know much, it still thrills me to learn about it, and its full potential still scares me.~
-@3664 = ~Suddenly, I'm holding what I'd call a magic book and it was written by me! Should this scare me? I mean... not that I could be scared any further than I already am, it's my usual state of existence.~
+@3663 = ~I know it wasn't "simple" like scribing a normal scroll. I indeed gathered a lot of knowledge to be able to complete it. I mean... I know I'm not the same young man staring at magic for the first time any more, but I don't *feel* any different - I still don't feel like I'd know much, it still thrills me to learn about it, and its full potential still scares me.~
+@3664 = ~But for making a magic book of spells, it was simple enough as a prestudy. Suddenly, I'm holding what I'd call a magic book, and I learned quite a bit on my way here. I feel proud and humble at the same time - as every so often.~
 @3665 = ~Of course, but I'm still trying to grasp the way I came so far.~
 @3666 = ~We don't have to talk about it if you don't feel like it.~
-@3667 = ~What I do know is that I will feel responsible for this knowledge not getting into the wrong hands. I feel proud and humble at the same time - as every so often.~
+@3667 = ~I'm not sure what I'll do with all this knowledge yet - other than I'll write own books, once these times of madness will be over and the gods will grant me a quiet life. What I do know is that I will feel responsible for this knowledge not getting into the wrong hands.~
+
+/* brandock_scrollscribing_bg2.d */
 @3668 = ~Oh, look at this book - it makes casting spells possible for anyone!... This... this is even more powerful than the De Simplex Magicae! I need to study this...~
 @3669 = ~Don't drool on it, please.~
 @3670 = ~Anything you could learn from that?~
-@3671 = ~Yeah, right, just take the book out of my hands and look at it yourself. I can wait.~
+@3671 = ~Yeah, right, just take the book right out of my hands to look at it yourself. I can wait.~
 @3672 = ~Oh, I'm sorry, it's just - I'll be quick.~
-@3673 = ~This looks like a book from Bowgentle, actually. I wonder whether it also has such a safety feature as the De Simplex Magicae had! This would be a great speciment to test a theory of mine. <CHARNAME>, can I subject this book to some destruction experim... - (Brandock's face splits into a wide grin.) Dang it, I knew I couldn't fool you. I can never hold my grin when I try!~
+@3673 = ~I was studying the Book of Infinite Spells, <CHARNAME>. This looks like a book from Bowgentle, actually. I wonder whether it also has such a safety feature as the De Simplex Magicae had! This would be a great specimen to test a theory of mine. <CHARNAME>, can I subject this book to some destruction experim... - (Brandock's face splits into a wide grin.) Dang it, I knew I couldn't fool you. I can never hold my grin when I try!~
 @3674 = ~(smile) You are an honest person through and through, Brandock, and it's one of the things I like about you.~
 @3675 = ~You did have me there for a very short moment, Brandock. Before you started grinning, of course.~
 @3676 = ~Do you really think this is a laughing matter? What came out of the destroyed De Simplex Magicae surely went to your head, it seems.~
 @3677 = ~I don't care. Study the book if you want, but do so in silence.~
-@3678 = ~[Brandock]I was jesting, of course. I would indeed never destroy a book on purpose - unless I'd know *exactly* what I'm doing. (mumbles) Which I usually don't. At least it feels this way...~
+@3678 = ~[Brandock]I was jesting, of course. I would indeed never destroy a book on purpose - unless I'd know *exactly* what I'm doing. (mumbles) Which I usually don't. At least often...~
 @3679 = ~[Brandock]I do hope you'll let me study this in earnest, though.~
 @3680 = ~I'm glad you see it that way. Most people called me a spoilsport.~
 @3681 = ~Hmm... not as well explained as the De Simplex Magicae, though. It focuses on the practical use of throwing the spells. And the magic of the book restricts only random pages being opened, without the possibility to scroll back.~
@@ -1728,37 +1828,37 @@
 @3685 = ~I think it's completely unnecessary and restricts the usage of this book for no obvious reasons.~
 @3686 = ~Once the last page is reached we'll be stuck with whatever spell it holds. All others will be lost forever! How can you find excuses for such a restriction?~
 @3687 = ~Safety feature? I think the mage who implemented this thought they were really funny. Or liked being sadistic.~
-@3688 = ~I think it is very restrictive. But we probably shouldn't change the way it is. This book would be far too powerful otherwise.~
-@3689 = ~You talk as if we could change it?~
-@3690 = ~Wait a minute. Are you saying such a book could be written where I could scroll back and forth?~
-@3691 = ~Ah, no, I don't think I can. I don't know enough for that, yet.~
-@3692 = ~Yes, I believe I could.~
-@3693 = ~<CHARNAME>, I believe I could tamper with the Book of Infinite Spells now - so that the pages once opened could be repopened again.~
-@3694 = ~Seeing the magic behind the De Simplex Magicae teached me a lot of things. But imagine such a book in the wrong hands!~
-@3695 = ~I'm nervous as hell about my own creation where at least basic magic knowledge is still needed!~
-@3696 = ~What would be the problem? There are other means for non-mages to cast magic.~
-@3697 = ~Wrong hands? You mean like ours? Or some other foxes? Because I didn't plan on giving this book away easily.~
-@3698 = ~Then we just have to make sure it doesn't get into the wrong hands.~
-@3699 = ~The spells are available anyhow, are they not? Lifting this restriction would just make it more useful.~
-@3700 = ~Maybe you are right. Maybe we should leave the book as it is.~
-@3701 = ~Yes, and that's dangerous enough as it is, don't you think?~
-@3702 = ~I mean - it's only fair, considering that I could use magic to increase my strength and stomp around as a half-og... I mean fighter! I meant fighter.~
-@3703 = ~I mean - it's only fair, considering that I could use magic to increase my strength and stomp around as a fighter...~
-@3704 = ~Of course we wouldn't let this book be taken away from us - but can you guarantee it won't get stolen... (I won't make references to what happened to me, not this time. Normal thieves could do it as well!) Or maybe we need the gold desperately so we'll sell it. Or the Cowled Wizards request it back - Perth won't do that for sure, but you never know with all of them.~
-@3705 = ~I'm not saying that *we* weren't able to put such a non-restricted book to good use. But what if it doesn't stay in our possession?~
-@3706 = ~It's the "more useful" part I am talking about, <CHARNAME>.~
-@3707 = ~The thought of powerful spells in the hands of non-magic skilled people is frightening... and... so fascinating. Absolutely fascinating. How did they do that?...~
+@3688 = ~I think it is very restrictive. But it would be far too powerful if all pages could be opened at will.~
+@3689 = ~Did you find out anything?~
+@3690 = ~Are you saying such a book could be written where I could scroll back and forth?~
+@3691 = ~Not this book, not like it is now, no. Not me, anyway. As much as it would interest me to know more about it...~
+@3692 = ~That said, I believe I could do... *something* with this book. Seeing the magic behind the De Simplex Magicae teached me a lot of things. I think it should be possible to mark the pages - so that the ones opened could be reopened again.~
+@3693 = ~Could you rewrite this book so the pages can be turned freely?~
+@3694 = ~This book with pages so they could be turned both ways would make the book incradibly poweful. Imagine such a book in the wrong hands!~
+@3695 = ~I would prefer to have such a book.~
+@3696 = ~I agree that it is already a powerful magic item.~
+@3697 = ~I admit all knowledge I so far gathered is that I'll never be able to write something like this - unless I dedicate myself to study the arts of making magic books at Candlekeep or Alisarhold. It is a very powerful book, even with the restriction of pages being closed forwever. I wonder who wrote it - I think making it restricted like this is a rather sensible thing to do. *Or* someone with a lot of power had a lot of fun when doing it.~
+@3698 = ~Is that a question?! YES!~
+@3699 = ~I sense it's not done, though. There is still one empty page, but I can't do anything with it yet. I need more experience before I can write a spell onto it, I guess.~
+@3700 = ~<CHARNAME>, the incredible happened - the last page of the De Simplex Magicae opened up for me. Let me know what you want me to write on it!~
+//@3701 = ~##~
+//@3702 = ~##~
+//@3703 = ~##~
+//@3704 = ~##~
+//@3705 = ~##~
+//@3706 = ~##~
+@3707 = ~The thought of such spells in the hands of non-magic skilled people is already frightening enough... and... so fascinating. Absolutely fascinating. How did they do that?...~
 @3708 = ~Here he goes again. Let me know when you're back to this conversation.~
-@3709 = ~Should I'll leave you two alone for a minute?~
-@3710 = ~Brandock, focus! What does this help us?~
+@3709 = ~Oh - *lots*, I hope!~
+//@3710 = ~##~
 @3711 = ~Can you do anything with this knowledge?~
 @3712 = ~I'll leave you to it, then. Maybe you'll be able to learn something from it for your own work.~
 @3713 = ~What? Oh.~
-@3714 = ~I don't know yet how the magic was done exactly.~
-@3715 = ~It's similar to the magic spell we got as a reward from Thalantyr's bookshelf... This sounds even weirder now that it's so long ago.~
+@3714 = ~I don't care about that book, Brandock.~
+@3715 = ~It's similar to the magic spell we got as a reward from Thalantyr's bookshelf... This sounds even weirder when spoken out loud.~
 @3716 = ~This is *most* fascinating. It uses the wisdom from the De Simplex Magicae, to some extend. And at the same time surpasses it in its implementation... I won't be able to write scrolls that work that way - not anytime soon, anyway.~
 @3717 = ~A pity it is already at the last page. I'd have liked to see the other spell pages...~
-@3718 = ~What I can do right away, though, is mark the opened pages so we can reopen them again. Ah - I'm still unsure this is a good idea, but - do you want me to do that?~
+@3718 = ~Ah - I'm still unsure this is a good idea, but - do you want me to do that?~
 @3719 = ~Yes, please.~
 @3720 = ~No, leave the book as it is.~
 @3721 = ~I'll study the book some more when we'll find the time. Whoever wrote this knew exactly what they were doing...~
@@ -1786,7 +1886,7 @@
 @3905 = ~You could pay a release fee, but it wouldn't be fair to take it from you - he's about to be released shortly anyway. We locked him in the cell to sober up, basically, since he didn't hurt anyone - other than the bartender's pride, I guess. Just go down the aisle.~
 @3906 = ~[Half-Ogre]I know you, you are Brandock's friends. Brandock here also?~
 @3907 = ~Hello! I came to big city. There are so many people! - Malm does not feel well...~
-@3908 = ~Malm! Malm, I am *so* sorry. We will get you out of there. Did they mistreat you in any way? Did they hurt you? Did you, erm, hurt someone?... I heard you could shift into a half-ogre again!~
+@3908 = ~Malm! Malm, I am *so* sorry. You will get you out of there soon. Did they mistreat you in any way? Did they hurt you? Did you, erm, hurt someone?... I heard you could shift into a half-ogre again!~
 @3909 = ~Noone hurt Malm, and Malm hurt noone - I think. I drank - sweet bitter thing that makes head spin. They say Malm turned to half-ogre but I can't really remember. Now head hurts!~
 @3910 = ~Oh! So you mean your head hurts because you drank too much... Yes, I'm sorry to say so, but you chose the wrong template for a career in inn hopping. So you still can't shift at will? But don't be afraid, we will get you out of the prison! This must be devastating for you - so many people, and the hostility, and being imprisoned, and...~
 @3911 = ~Oh, Malm isn't afraid. Malm likes people around. They gave me little secure room to sleep. Without wanting gold!~
@@ -1815,5 +1915,3 @@
 @3934 = ~That might be true, but things *did* happen, and I feel responsible.~
 @3935 = ~Oh, dear. I hope I won't have to add this to my bad consciousness. Please, gods - let him be alright, and not learn about magic in Amn the hard way... and don't let him meet any foxes.~
 @3936 = ~No, even I realize that that would be too much, with or without feeling responsible.~
-
-

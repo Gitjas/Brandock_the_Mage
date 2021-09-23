@@ -132,7 +132,7 @@ IF WEIGHT #-1
 @3533
 == FIREBE IF ~LevelLT("C#Brandock",5)~ THEN @3534 DO ~GiveItemCreate("SCRL75",Player1,1,0,0)~
 == FIREBE IF ~LevelGT("C#Brandock",4)~ THEN @3535 DO ~GiveItemCreate("SCRL6H",Player1,1,0,0)~
-== c#brandj IF ~LevelGT("C#Brandock",4)~ THEN @3536
+== c#brandj @3536
 == FIREBE @3537
 == c#brandj @3538
 == FIREBE @3539

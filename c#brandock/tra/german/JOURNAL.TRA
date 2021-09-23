@@ -30,12 +30,12 @@ Brandock hat seine fehlenden Besitztümer gefunden - oder besser gesagt, was davo
 Ich habe das Paar Stiefel beim Travenhurster Herrenhaus abgegeben. Der Diener war angetan davon, dass sie in relativ gutem Zustand sind.~
 @10012  = ~Brandocks Schreiben von Schriftrollen
 
-Brandock can scribe scrolls once a day. Scrolls of level 1 are free. Higher level spells will consume gold in the making:
-level 2&3: 100 gold
-level 4&5: 200 gold
-level 6&7: 350 gold
-level 8&9: 500 gold.
-The scrolls he can write depends on his level as a mage and other experiences.~
+Brandock kann einmal am Tag eine Schriftrolle schreiben. Die Zauber der untersten Stufe verbrauchen keine Ressourcen. Höherstufige Zauber verbrauchen Gold, wenn sie geschrieben werden:
+Stufe 2&3: 100 Gold
+Stufe 4&5: 200 Gold
+Stufe 6&7: 350 Gold
+Stufe 8&9: 500 Gold.
+Die Schriftrollen, die Brandock schreiben kann, hängen von seiner Zauberstufe und anderen Erfahrungen ab.~
 @10013  = ~Ein feines Paar Stiefel~
 
 @10014  = ~Brandock in den Slums
@@ -66,30 +66,30 @@ Ich habe Brandock versprochen, das wir zu Firebead Elfenhaar in Beregost gehen w
 Elfenhaar wird Brandock mit seinem Buch helfen. Dazu braucht er als erstes die folgenden Zutaten: einen Sternensaphier, einen Trank der Regeneration und Tinte eines Oktopus. Diese Tinte sollte es bei Fischern zu kaufen geben, die im Meer ihre Beute fangen. In einem Fischerdorf wie Ulgoths Bart sollten wir fündig werden.~
 @10023  = ~Brandock erhöht seine Sagenkunde
 
-Brandock seems to have a very inquisitive mind. So far, he managed to learn from most magic book we encounter, but with him getting more well-versed, spellbooks from other mages do not necessarily help him increase his knowledge any more. Giving him the opportunity to study as many books as possible on our travels might still help him to increase his knowledge, but those events will become more rare.~
+Brandock scheint einen sehr neugierigen Geist zu haben. Er hat bisher aus fast allen magischen Büchern etwas lernen können, die uns über den Weg kamen. Mit steigender Erfahrung scheint es ihm nicht mehr vergönnt zu sein, aus jedem Zauberbuch Wissen zu extrahieren. Ihm auf unseren Reisen die Möglichkeit zu geben, so viele magische Bücher wie möglich zu studieren sollte trotzdem noch dazu führen, dass er sein Wissen erweitern kann, auch wenn diese Gelegenheiten seltener werden.~
 @10024  = ~Brandock erhöht seine Sagenkunde
 
-Brandock seems to have a very inquisitive mind. He increased his lore by studying his cousin's spellbook. On our travels, I should give him the opportunity to study as many books as possible in the hopes that it will help him increase his knowledge.~
-@10025  = ~Funeral for Brandock's Cousin~
+Brandock scheint einen sehr neugierigen Geist zu haben. Er hat durch das Studieren des Zauberbuches seines Großcousins seine Sagenkunde erhöht. Ihm auf unseren Reisen die Möglichkeit zu geben, so viele magische Bücher wie möglich zu studieren sollte dazu führen, dass er sein Wissen erweitern kann.~
+@10025  = ~Beeridung für Brandocks Großcousin~
 @10026  = ~Brandock möchte sein Buch Restaurieren
 
 Wir haben alle von Elfenhaar geforderten Zutaten zusammen. Brandock möchte nun zu Elfenhaar nach Beregost gehen, um mit ihm an der Wiederherstellung seines Buches zu arbeiten.~
-@10027  = ~Funeral for Brandock's Cousin
+@10027  = ~Beeridung für Brandocks Großcousin
 
-Brandock wants to go to the Temple of Helm and arrange the funeral of his mother's cousin Ebrel.~
+Brandock möchte zum Tempel des Helm gehen und die Beerdigung seines Großcousins Ebrel arrangieren.~
 @10028  = ~Brandock möchte sein Buch Restaurieren
 
-Acursed murder accusations! Elvenhair will not help Brandock until we cleared our names from the murder accusation in Candlekeep. I hope once this is resolved, Elvenhair will continue to help Brandock with his troubles.~
+Verfluchte Mordanschuldigungen! Elfenhaar wird Brandock nicht helfen, bis wir die Verdächtigungen gegen uns aufklären konnten. Ich hoffe, dass er danach wieder bereit ist, Brandock mit seinem Problem zu helfen.~
 @10029  = ~Brandock erhöht seine Sagenkunde~
 @10030  = ~Brandock erhöht seine Sagenkunde
 
 Brandock scheint einen sehr wachen und neugierigen Geist zu haben wenn es um magisches Wissen geht. Ich sollte ihm auf unseren Reisen die Möglichkeit geben, möglichst häufig magische Bücher und Schriften zu lesen, wenn wir die Gelegenheit haben. Das sollte sich positiv auf seine Sagenkunde auswirken.~
 @10031  = ~Brandock erhöht seine Sagenkunde
 
-Brandock can't increase his lore wisdom by studying random books any more. Maybe he'll find one or two along our travels, but the days where every enemies' spellbook would give him a lore boost are over.~
-@10032  = ~Funeral for Brandock's Cousin
+Brandock kann seine Sagenkunde nicht mehr über das studieren von beliebigen Zauberbüchern erhöhen. Vielleicht finden wir noch ein paar außergewöhnliche magische Bücher, aus denen er noch was lernen kann, aber ansonsten ist diese Zeit nun vorüber.~
+@10032  = ~Beeridung für Brandocks Großcousin
 
-Brandock arranged the funeral of his mother's cousin Ebrel with the Temple of Helm. They will transfer the remains to Ebrel's hometown and hold a ceremony there.~
+Brandock hat mit dem Tempel des Helm die Beerdigung seines Großcousins Ebrel vereinbart. Die Priester werden Ebrels Überreste in dessen Heimatstadt bringen und dort beisetzen.~
 //@10033  = ~~
 //@10034  = ~~
 //@10035  = ~~
@@ -101,12 +101,12 @@ Brandock arranged the funeral of his mother's cousin Ebrel with the Temple of He
 //@10041  = ~~
 //@10042  = ~~
 //@10043  = ~~
-@10044  = ~Brandock Wants to Restore his Book
+@10044  = ~Brandock möchte sein Buch Restaurieren
 
-Elvenhair will bring his lexicon next time he returns from Candlekeep, but when this will be he couldn't tell. He said he will let Brandock know when he has the lexicon.~
-@10045  = ~Brandock and his Half-Ogre 'Twin'
+Elfenhaar wird sein Lexikon mitbringen, wenn er das nächste mal aus Kerzenburg zurückkommt. Wann das der Fall sein wird, konnte er aber noch nicht sagen. Er wird es Brandock wissen lassen, wenn es soweit ist.~
+@10045  = ~Brandock und sein Halboger "Zwilling"
 
-Malm, the half-ogre who shapeshifted into a human went on a journey to the great library Alisarhold in Amn. I am sure Brandock will meet him again someday.~
+Malm, der Halboger, der sich in einen Menschen verwandelt hat, hat sich auf den Weg zur großen Bibliothek Alisarhold in Amn gemacht. Ich bin sicher, dass Brandock ihn eines Tages wiedersehen wird.~
 
 //@10046  = ~~
 //@10047  = ~~
@@ -116,50 +116,48 @@ Malm, the half-ogre who shapeshifted into a human went on a journey to the great
 /* new in vbeta 7 */
 @10050  = ~Elvenhair Offered Brandock to Scribe Scrolls
 
-Elvenhair offered Brandock to scribe scrolls in his home. He is welcome to use Elvenhair's desk any time he wants.~
+Elfenhaar hat Brandock angeboten, mit ihm Schriftrollen zu schreiben. Brandock kann dafür jederzeit Elfenhaars Schreibtisch verwenden.~
 @10051  = ~Brandock möchte sein Buch Restaurieren
 
-Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implementiert, der das zerstörte Buch wieder in die Form eines Buches brachte, als Elfenhaar und Brandock ihre Restaurationsmagie darauf anwandten. Nun hat es eine Einleitung in einer alten Runensprache der Illusionisten während der Rest aus leeren Seiten zu bestehen scheint. Elfenhaar glaubt, dass die Zauber von einem Magier mit genügend hoher Erfahrung wieder hergestellt werden müssen, aber um das sicher zu wissen, müssen die Seiten übersetzt werden, die in Ruathlek geschrieben sind.~
-@10052  = ~Brandock möchte sein Buch Restaurieren
-
-Brandock möchte in Kerzenburg bleiben - zumindest für eine Weile. Er wird mich bei meinen Nachforschungen über die Anführer des Eisenthrons unterstützen. Sobald wir damit fertig sind, wird er für einen Zehntag dort bleiben und an der Übersetzung arbeiten.~
+Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implementiert, der das zerstörte Buch wieder in die Form eines Buches brachte, als Elfenhaar und Brandock ihre Restaurationsmagie auf die verbliebenen Seiten anwandten. Nun hat es eine Einleitung in einer alten Runensprache der Illusionisten während der Rest aus leeren Seiten zu bestehen scheint. Elfenhaar glaubt, dass die Zauber von einem Magier mit genügend hoher Erfahrung wieder hergestellt werden müssen, aber um das sicher zu wissen, müssen die Seiten übersetzt werden, die in Ruathlek geschrieben sind.~
+//@10052  = ~~
 @10053    = ~Brandock möchte sein Buch Restaurieren
 
 Brandock wurde mit mir zusammen aus Kerzenburg verbannt...~
-@10054  = ~Brandock's Scroll Scribing Skills
+@10054  = ~Brandocks Schreiben von Schriftrollens
 
-Until our names are cleared from the murder accusations, Brandock cannot use Elvenhair's desk to scribe scrolls.~
-@10055  = ~Brandock Wants to Restore his Book
+Solange wir unter Mordverdacht stehen, kann Brandock keine Schriftrollen an Elfenhaars Schreibtisch schreiben.~
+@10055  = ~Brandock möchte sein Buch Restaurieren
 
-Elvenhair send a messenger: he brought his Ruathlek lexicon from Candlekeep and is waiting in his house in Beregost, ready to help Brandock with the translation. Brandock is eager to go there as soon as possible.~
-@10056  = ~Brandock Wants to Restore his Book
+Elfenhaar hat einen Boten geschickt: Er hat nun sein Ruathlek-Lexikon aus Kerzenburg nach Beregost mirgenommen und ist bereit, Brandock bei der Übersetzung zu helfen. Brandock möchte, dass wir so schnell wie möglich zu Elfenhaar nach Beregost gehen.~
+@10056  = ~Brandock möchte sein Buch Restaurieren
 
-Apparently, the De Simplex Magicae had some sort of safety feature implemented which transformed the destroyed pages back into a magic book when Elvenhair and Brandock attempted to conserve the remaining pages. Now it has an introduction in a rune language saying: 
-"Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom.".~
-@10057  = ~Brandock Wants to Restore his Book
+Offensichtlich hatte das De Simplex Magicae eine Art Resttungszauber implementiert, der die zerstörten Seiten wieder in ein Buch verwandelt hat, als Elfenhaar den Wiederherstellungszauber darauf wirkte. Es hat nun eine Einleitung in einer Runenschrift, die besagt: 
+"Wer auch immer von euch Deppen das Buch beschädigt hatte, ihr habt also herausgefunden, dass ein Wiederherstellungszauber das Buch wieder physisch ganz macht. Ich erwarte, dass ihr euch genaue Notitzen über den Vorgang macht, da ich diesen Zauber als Möglichkeit der Haltbarmachung magischer Bücher erweitern möchte. Bisher stellt er nur die leeren Seiten wieder her. Lasst es euch eine Lehre sein, in Zukunft besser auf Zauberbücher aufzupassen. Ich erwarte, dass ihr die Seiten wieder mit Zaubern füllt - sie sollten weiterhin von der Magie des Buches profitieren und entprechend ohne Kosten wirkbar sein. Aber lasst euch sagen: das wird ein langer Weg für euch, denn mit eurem momentanen Wissen braucht ihr es erst gar nicht zu versuchen. Noch ein Hinweis, bevor ihr überhaupt wieder Zauber in das Buch schreiben könnt, die tatsächlich bleiben: Sucht euch erst einmal Oghmas Weisheit."~
+@10057  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Amn.~
-@10058  = ~Brandock Wants to Restore his Book
+Brandock wird das Buch und alles, was er sonst dazu aufschreibt bei sich behalten, bis er wieder in seine Heimat zurückkehrt und in Atkatla im Tempel des Oghma nach weiterer Hilfe bezüglich der Buchrestauration fragen kann.~
+@10058  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock wants to show his restored book to the priests of Oghma. The Temple of Oghma is in the Dock's District in Athkatla.~
-@10059  = ~Brandock Wants to Restore his Book
+Brandock möchte das wieder hergestellte Buch den Mönchen im Tempel des Oghma zeigen. Der Tempel befindet sich im Hafenviertel von Atkatla.~
+@10059  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock showed his restored book to the priests in the Temple of Oghma is in the Dock's District in Athkatla. They need a King's Tear and 5000 gold to help further with the book.~
-@10060  = ~Brandock Wants to Restore his Book
+Brandock hat sein wieder hergestelltes Buch den Priestern des Oghma gezeigt. Sie werden ihm weiterhelfen, wenn er eine Königsträne und 5000 Goldmünzen bringt.~
+@10060  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock wants to return to the Temple of Oghma is in the Dock's District in Athkatla.~
-@10061  = ~Brandock Wants to Restore his Book
+Brandock möchte zum Tempel des Oghma im Hafenviertel von Atkatla zurückkehren.~
+@10061  = ~Brandock möchte sein Buch Restaurieren
 
-The De Simplex Magicae is fully restored. Brandock gave the book to the Temple of Oghma.~
-@10062  = ~Brandock's Scroll Scribing Skills
+Brandock hat im Tempel des Oghma die "Weisheit Oghmas" erhalten, wie es in der Notiz im De Simplex Magicae gefordert wurde. Was weiter damit geschieht bleibt Brandock überlassen. Ich bin sicher, dass er es mich wissen lässt, wenn er sich entschieden hat.~
+@10062  = ~Brandocks Schreiben von Schriftrollen
 
 Brandock möchte, dass wir alle verfluchten Schriftrollen aufbewahren die wir finden, um die Magie darin für etwas Sinnvolles zu nutzen.~
-@10063  = ~Brandock's Scroll Scribing Skills
+@10063  = ~Brandocks Schreiben von Schriftrollen
 
-Brandock promised to scribe a scroll on our next rest - no matter where.~
-@10064  = ~Brandock's Scroll Scribing Skills
+Brandock hat sich vorgenommen, dass er bei unserer nächsten Rast alleine eine Schriftrolle schreiben wird - egal wo.~
+@10064  = ~Brandocks Schreiben von Schriftrollen
 
-Brandock overcame his fear of setting fire to his surroundings when scribing a spell scroll. He is no longer dependent on Master Elvenhair's desc but can write scrolls anywhere.~
+Brandock hat seine Angst vor dem Schriftrollenschreiben überwunden. Er wird in Zukunft überall eine Schriftrolle pro Tag schreiben können.~
 @10065  = ~Brandock Changes the Book of Infinite Spells
 
 Brandock offers to reorganize the Book of Infinite Spells so every page I'll open now can be reopened later.
@@ -168,32 +166,44 @@ I should scroll though the book until I reach the last page. Upon turning a page
 
 Brandock finished rewriting the Book of Infinite Spells. Now older pages can be reopened, too.~
 @10067  = ~Brandock Changes the Book of Infinite Spells~
-//@10068  = ~~
-@10069  = ~Brandock's Half-Ogre Troubles
+@10068  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock shifted into a half-ogre when we fought doppelgangers inside the Candlekeep Catacombs. He says that it must be connected to the incident where he changed bodies with a half-ogre, but he needs to see Thalantyr about this.~
-@10070  = ~Brandock's Half-Ogre Troubles
+After learning in the Temple of Oghma about the preservation magic in the De Simplex Magicae, Brandock decided to keep the book until he can write spells onto the empty pages himself. Once he will be experienced enough to do it, he will let me know when preparing to write spell scrolls.~
+@10069  = ~Brandock der Halboger
 
-Brandock spoke to Thalantyr. The older mage made it clear that Brandock will develop the ability to shapeshift into a half-ogre, and there is nothing that can be done against it - Brandock can only learn to control it.~
-@10071  = ~Brandock's Half-Ogre Troubles
+Brandock hat sich in einem Kampf in einen Halboger verwandelt. Er bermutet, dass es mit seinem Körpertausch mit einem Halboger zusammenhängt, aber er muss möglichst bald Thalantyr in der Hohen Hecke dazu befragen.~
+@10070  = ~Brandock der Halboger
 
-Brandock is now ready to use his ability to shapeshift into a half-ogre.~
-@10072  = ~Brandock's Half-Ogre Troubles
+Brandock hat mit Thalantyr gesprochen. Der alte Magier hat klar gemacht, dass Brandock die Fähigkeit entwickeln wird, sich in einen Halboger zu verwandeln, und dass man dagegen nichts tun kann. Brandock kann nur lernen, damit umzugehen.~
+@10071  = ~Brandock der Halboger
 
-Brandock is no longer afraid to use his ability to shapeshift into a half-ogre.~
-@10073  = ~Brandock and his Half-Ogre 'Twin'
+Brandock ist nun bereit, seine Fähigkeit zur Verwandlung in einen Halboger zu verwenden.~
+@10072  = ~Brandock der Halboger
 
-Brandock's body switch with the half-ogre affected the half-ogre, too! Apparently, he can turn into a human who looks a lot like Brandock. Brandock feels responsible for the half-ogre being stuck in human form and wants to search for him. As far as we know he was camping to the west of Thalantyr's abode.~
-@10074  = ~Brandock and his Half-Ogre 'Twin'
+Brandock hat keine Angst mehr davor, seine Fähigkeit zur Verwandlung in einen Halboger zu verwenden.~
+@10073  = ~Brandock und sein Halboger "Zwilling"
 
-Malm, the half-ogre who shapeshifted into a human found a temporary home in the Temple by Beregost. Something tells me Brandock and he will not have met for the last time...~
-@10075  = ~Brandock and his Half-Ogre 'Twin'
+Brandocks Körpertausch hat den Halboger wohl auch verändert! Dieser kann sich nun offensichtlich in einen Menschen verwandeln, der Brandock sehr ähnlich sieht. Brandock fühlt sich für den Halboger gefangen in Menschengestalt verantwortlich und möchte nach ihm suchen. Soweit wir erfahren haben, kampiert er irgendwo westlich von Thalantyrs Feste.~
+@10074  = ~Brandock und sein Halboger "Zwilling"
 
-Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison! Brandock wants us to go there and see whether Malm needs support.~
-@10076  = ~Brandock and his Half-Ogre 'Twin'~
-@10077  = ~Increase Brandock's Lore Wisdom
+Malm, der Halboger, der sich in einen Menschen verwandelt hat hat eine vorübergehende Bleibe im Tempel bei Beregost gefunden. Ich habe so ein Gefühl, dass er und Brandock sich nicht zum letzten mal gesehen haben...~
+@10075  = ~Brandock und sein Halboger "Zwilling"
 
-The books in Oghma's Temple helped Brandock to increase his lore.~
+Malm, der Halboger, der sich in einen Menschen verwandelt hat steckt offensichtlich in Schwierigkeiten - er soll sich im Gefängnis des Hauptquartiers der Flammenden Faust befinden! Brandock möchte, das wir dorthin gehen und sehen, ob er Unterstützung braucht.~
+@10076  = ~Brandock und sein Halboger "Zwilling"~
+//@10077  = ~##~
+@10078  = ~Brandock möchte sein Buch Restaurieren
+
+Brandock ist bereit, Zauber in das De Simplex Magicae zu schreiben! Für jede Seite braucht er eine Schriftrolle des entsprechenden Zaubers und 5000 Münzen in Gold.~
+@10079  = ~Brandock möchte sein Buch Restaurieren
+
+Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
+@10080  = ~Brandock möchte sein Buch Restaurieren
+
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 5000 gold.~
+@10081  = ~Brandock möchte sein Buch Restaurieren
+
+It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~
 
 
 

@@ -183,7 +183,6 @@ SAY @1280
 IF ~~ THEN EXIT
 END
 
-
 /* add reply line to Thalantyr's dialogue to ask about Brandock's cure */
 EXTEND_BOTTOM ~THALAN~ 1 
 + ~Global("C#Brandock_Shapeshift","GLOBAL",6) !Dead("C#Brandock") !Dead("c#brhao2")
@@ -240,9 +239,19 @@ SetGlobal("C#Brandock_Shapeshift","GLOBAL",9)
 ActionOverride("c#brhao2", EscapeArea())
 EraseJournalEntry(@10005)~ UNSOLVED_JOURNAL @10008 EXIT
 
-APPEND c#brandP
+
 
 /* Dialogue for Brandock's cre (is half-ogre) */
+
+CHAIN
+IF ~Global("C#Brandock_Shapeshift","GLOBAL",6)
+Global("C#Br_HalfogrePhilosophy","LOCALS",0)~ THEN c#brandP who_am_i
+@1248 /* ~Who am I? I am... I mean, theoretically speaking, I *was* the different acquaintance of another polymorphial being of very little intellectual habitus, if phrased in terms of principally conditions...~ */
+DO ~SetGlobal("C#Br_HalfogrePhilosophy","LOCALS",1)~
+== c#brhao2 @1249 = ~He not speak clear. He dumb, with my brain! Me... bright, with his dumb brain! And clumsy hands... Need help!~
+END
+
+APPEND c#brandP
 
 IF WEIGHT #-1
 ~Global("C#Brandock_Shapeshift","GLOBAL",6)

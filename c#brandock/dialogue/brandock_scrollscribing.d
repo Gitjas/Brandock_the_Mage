@@ -5,10 +5,13 @@
 
 APPEND c#brandj 
 
-/* General "I think I can do this now */
+/* General "I think I can do this now:
+-level 9 or higher
+-after Elvenhair and Brandock cast preservation spell onto Brandock's book */
 IF ~Global("C#Br_Scrollscribing","GLOBAL",1)
 Global("C#Br_OnceCursedScroll","LOCALS",0)
 LevelGT("C#Brandock",8)
+GlobalGT("C#Br_BookRestore","GLOBAL",5) //he witnessed the preservation spell to his book
 OR(8)
 GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
 GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
@@ -17,7 +20,7 @@ GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
 GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
 GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
 GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
-GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)~ THEN scribe_scoll_SCRL10_01
+GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)~ THEN scribe_cursed_scoll_00
 SAY @3002 /* ~I think I have an idea what to do with cursed scrols - rewrite the magic inside to something useful. Let me know if you want me to try this.~ */
 IF ~~ THEN DO ~SetGlobal("C#Br_OnceCursedScroll","LOCALS",1)~ + scribe_scoll_02
 END

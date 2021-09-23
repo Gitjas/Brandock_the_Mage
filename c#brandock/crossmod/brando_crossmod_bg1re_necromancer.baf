@@ -19,6 +19,7 @@ END
 /* Initiate */
 IF %BGT_VAR%
 Global("C#BrCross_bg1reNecro_LorePath","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 CombatCounter(0)

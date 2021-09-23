@@ -401,6 +401,17 @@ IF ~~ THEN c#brandj transformed_book_10
 @796 /* ~But... to know the book is not lost! And the thought of not being expelled from Candlekeep - that I might be welcome, even! I have a goal again, <CHARNAME>. I will help you with your endeavors, and I will save my gold, and I will buy a new book, valuable enough to get entry into the monastery. Someday, <CHARNAME>. Someday I will be there!~ */
 = @988 /* ~And on top of it all, Master Elvenhair offered me to train scroll scribing with him. I'd be ready to take him up on that offer any time you can spare a moment, <CHARNAME>. I would be daft not to!~ */
 == c#brandj IF ~Global("C#Br_ScribeScrollQuest","GLOBAL",3)~ THEN @989 /* ~Albeit not today any more, of course.~ */
+/* after wirnessing preservation spell: Brandock has an idea what to do but needs more experience if level < 9 */
+== c#brandj IF ~LevelLT("C#Brandock",9)
+OR(8)
+GlobalGT("C#Br_HasScrollSCRL10","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL11","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL12","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL13","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL14","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL16","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)
+GlobalGT("C#Br_HasScrollSCRL18","LOCALS",0)~ THEN @1026 /* ~Something else - after witnessing what happened to the De Simplx Magicae when Master Elvenhair cast the preservation spell I think I have an idea what to do with cursed scrolls to rewrite the magic inside to something useful - I just need more experience before I can actually try.~ */
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_BookRestore","GLOBAL",8)~ EXIT
 
@@ -836,39 +847,33 @@ SAY @929
 IF ~~ THEN + book6_03
 END
 
-/* 7th dialogue book cycle */
+/* after the note got translated, stepping out of Elvenhair's home */
 
 IF ~Global("C#Brandock_AddBookTalk","LOCALS",1)~ THEN book7
-SAY @1016 /* ~<CHARNAME>, I want to clearify something. I went on and on about how powerful the De Simplex Magicae were, and how valuable. It only occurred to me now that this might have lead to a false impression. The spells inside that book aren't great battle magic. It isn't battle magic at all. They do not qualify for use in a fight.~ */
-++ @1017 /* ~No magic that could be used in battle? None at all?~ */ + book7_02
-++ @1018 /* ~Why did you call it powerful, then?~ */ + book7_03
-++ @1019 /* ~It's destroyed, anyway, so who cares.~ */ + book7_01
+SAY @1016 /* ~[Brandock]So, to summarize. The De Simplex Magicae was destroyed - and yet, it wasn't, but transformed into a magic experiment, teaching book of a different kind. It wasn't meant to do that - or it was, with detailed instructions to... whomever about what to do with it afterwards. The whole restoration of the empty book was a prank - and at the same time a serious magical research project. I... my head is spinning.~ */
+++ @1017 /* ~That note was hilarious. Do you believe it was Bowgentle who wrote that?~ */ + book7_01
+++ @1018 /* ~What will you do now?~ */ + book7_03
+++ @1019 /* ~It gave you a clue what to do next! That's helpful.~ */ + book7_02
+++ @1022 /* ~So you'll be carrying that empty book with you in the future, too. That's great, it's not like we could use the space.~ */ + book7_03
 END
 
 IF ~~ THEN book7_01
-SAY @1020 /* ~Well, I definitely do hope that it will be restored... someday.~ */
-IF ~~ THEN + book7_04
+SAY @1020 /* ~[Brandock]It's not really sure. It would make sense with regard to the preservation magic in the book never getting investigated any further, though - I'm sure I'd lose track of some of my research projects after being stuck in a dog's body for several years, too. As much as I know of him, it would fit, though.~ */
+IF ~~ THEN + book7_03
 END
 
 IF ~~ THEN book7_02
-SAY @1021 /* ~Well... if you are very desparate I guess there is some use in a very sharpened quill, a candle flame that doesn't flicker, or a pyramid of cards you could sit on...~ */
-IF ~~ THEN + book7_04
-END
-
-IF ~~ THEN book7_03
-SAY @1022 /* ~Because I'm... well, me. I'm a knowledge seeker, and this book - it gives knowledge, a lot.~ */
-IF ~~ THEN + book7_04
+SAY @1021 /* ~[Brandock]Indeed, it is.~ */
+IF ~~ THEN + book7_03
 END
 
 END //APPEND
 
 CHAIN
-IF ~~ THEN c#brandj book7_04
-@1023 /* ~I'm not saying the spells don't have any practical use.~ */
-== c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ THEN @1024 /* ~I tried using its explanations about polymorphing to help Melicamp, after all.~ */
-== c#brandj @1025 /* ~It's just... nothing overly useful when being on the road, fighting foes and monsters. It's more of an academic value - complicated spells, very well explained, broken down so they are manageable by lesser experienced mages.~ */
-= @1026 /* ~It gives examples about how to design spells - if read between the lines, of course, but I'm sure I'm not the only one understanding this. It's a template, for those who see the pattern. That's its power - and its danger, would it fall into the wrong hands.~ */
-= @1027 /* ~So... *thank the gods* it's no longer a danger, I guess. (moans). No, I didn't mean that... But one thing is clear and I am determined about it, <CHARNAME>: should I manage to restore this precious book, then I will make sure it can't fall into the wrong hands every again. It belongs in a place of scholars and seekers for wisdom. Not... not mages seeking for power.~ */
+IF ~~ THEN c#brandj book7_03
+@1023 /* ~[Brandock]I will watch it as if my life depends on it until my way leads me back to Athkatla for the wisdom of the Temple of Oghma, as requested in what we think are Bowgentle's notes.~ */
+== c#brandj @1024 /* ~[Brandock]But after that I will search for someone talented enough to refill the pages with spells - and I doubt this will be me, <CHARNAME>. I will continue to make notes of what I remember from the spell recipes - what made them so special that even an unexperienced wizard cast use them, but I start to understand now that most of the magic was inside the book itself. No wonder I couldn't write the spells onto a scroll...~ */
+== c#brandj @1025 /* ~[brandock]Let us continue our travels. I have a goal now - sort of, it's more like the next milestone. I admit that I appreciate that it leaves me in a state where I know exactly what my next step will be without having the chance to do it right away, giving me some sort of break from this... this extremely fascinating nightmare.~ */
 END
 IF ~~ THEN DO ~SetGlobal("C#Brandock_AddBookTalk","LOCALS",2)~ EXIT
 
@@ -1034,11 +1039,12 @@ CHAIN
 IF WEIGHT #-1
 ~Global("C#Br_BookRestore","GLOBAL",11)~ THEN FIREBE book_translation_01
 @1008 /* ~[Elvenhair]"...Oghma's Wisdom". That's it, my young Brandock.~ */
-== c#brandj @1009 /* ~(Brandock reads the finished notes.) "Seph, you figured out the restoration spell needed to begin the restoration process, as it seems. Now we will see how good you memorized the spells in it. Make sure to note down your exact progress so we can evaluate the usability of this method to preserve magic books. I'll give you a hint as to what is needed in addition to your work to retore the spell recipes: Oghma's Wisdom."~ */
-= @1010 /* ~This... this a note to one of Bowgentle's apprentices! It's what they wanted to do with the book - apply a restoration procedure that makes it unperishable? This "Seph" never came to casting the restoration spell needed, as it seems - Bowgentle and his apprentices didn't even came to destroying the book. It took me to do that - ahem...~ */
+== c#brandj @1009 
+= @996
+= @1010 
 = @1011 /* ~"Oghma's Wisdom". I do not know yet whether this refers to an item, a spell - or just what the name says: wisdom hold by those who worship Oghma. But I already know where I will find an answer to this riddle. The greatest temple of Oghma I know is in my home land, in Athkatla.~ */
-= @1012 /* ~<CHARNAME> - this book and my notes about the spells in it will accompany my until I'll return home. Well, and until I'll have 5000 gold and a King's Tear gem to spare, as well. Thank you, Master Elvenhair, for your help in this. I am in your debt.~ */
-== FIREBE @1013 /* ~[Elvenhair] It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that preserved the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep.~ */
+= @1012 /* ~<CHARNAME> - this book and any notes I'll write about the spells in it will accompany my until I'll return home. Thank you, Master Elvenhair, for your help in this. I am in your debt.~ */
+== FIREBE @1013 /* ~[Elvenhair]It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that has the potential to preserve the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep~ */
 == c#brandj @1014 /* ~[Brandock]I will certainly do so, Master Elvenhair. I promise. Just as much as I promise to restore the De Simplex Magicae, even if Oghma's priests will need to extract my brain to get the spell recipes out for restoration.~ */
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10044)

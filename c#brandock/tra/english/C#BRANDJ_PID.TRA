@@ -358,11 +358,11 @@
 @414  = ~Brandock, I might know a friendly mage who could help with restoring the book: Firebead Elvenhair. But, considering we are being searched for murder currently, I guess we need to clear our names before this option gets realistic.~
 @415  = ~So - our names are cleared. Time to go to Elvenhair and ask him for help with your book!~
 @416  = ~Scroll scribing with Elvanhair is great, but when will you be able to scribe them without his help?~
-@417  = ~Scribing scrolls at Elvenhair's might be out of the question for some time, but I need scrolls, Brandock. Make it happen.~
-@418  = ~Scribing scrolls at Elvenhair's is not a solution for eternity. I need you to scribe scrolls elsewhere, too. Make it happen.~
+@417  = ~Scribing scrolls at Elvenhair's might be out of the question for some time, but I need scrolls, Brandock.~
+@418  = ~Scribing scrolls at Elvenhair's is not a solution for eternity. I need you to scribe scrolls elsewhere, too.~
 @419  = ~Oh... I'm not sure. I set the table of my parents on fire when I tampered with this alone. That was the spells from the De Simplex Magicae, of course, but still - you don't just shake something like this. Well, I don't, at least. Plus - I am still really very young for this, <CHARNAME>. I'm excited it works so well with Master Elvenhair's guidance. Give me a little time, please.~
 @420  = ~Gladly. Do you know a nearby fire proof desk and a friendly mage to assist me?~
-@421  = ~No, I don't. Neither do you. That's why you need to overcome your fear and start scribing them on your own.~
+@421  = ~No, I don't. Neither do you. That's why you need to overcome your fear and start scribing Scrolls on your own.~
 @422  = ~That's exactly the point, Brandock, that you learn to scribe scrolls *away* from "fire proof desks".~
 @423  = ~So much spite! I didn't know you had it in you.~
 @424  = ~That was not addressed against you, <CHARNAME>... I am sorry.~
@@ -386,8 +386,8 @@
 @442  = ~Do you want to talk about your half-ogre shapeshifting ability now?~
 @443  = ~Do you want to talk more about your half-ogre shapeshifting ability?~
 @444  = ~[Brandock]I... I didn't want to admit it, but since the incident with Melicamp, I felt connected to the form as a half-ogre. Like I was just putting on another coat... I repressed it and ignored it because I hoped it would pass. But it didn't, and it won't...~
-@445  = ~[Brandock]Oh yes, a lot... But I need to sort some thoughts, first. Thank you for asking, <CHARNAME>.~
-@446  = ~[Brandock]When I turned into a half-ogre, it was not fear that overwhelmed me or anything, <CHARNAME>. I... I was angry and wanted to be strong. That is why I turned...~
+@445  = ~[Brandock]Oh yes, a lot... But I need to sort some thoughts, first. Thank you for asking.~
+@446  = ~[Brandock]When I turned into a half-ogre, it was not fear that overwhelmed me or anything. I... I was angry and wanted to be strong. That is why I turned...~
 @447  = ~[Brandock]So, in a moment full of boldness, strength, and determination, I didn't use my real strength - magic! - but chose to be a half-ogre. This is... this is so pathetic, I don't know where to start...~
 @448  = ~Why is it pathetic? You needed to be strong, so you became strong.~
 @449  = ~On the contrary! You found a way to help yourself. That is great! Not everyone can do that.~
@@ -457,7 +457,7 @@
 @5003 = ~You shapeshifted into a half-ogre in Candlekeep, but we didn't have time to deal with it properly. What is the status?~
 @5004 = ~You dealt with your ability to shapeshift into a half-ogre, but what happened to the half-ogre who is in human shape now, did you meet him after we parted ways?~
 @5005 = ~Indeed! Especially considering the kind of magic involved, as we learned through Master Thalantyr. Who knows what would have happened, had I tried!~
-@5006 = ~Indeed! You won't believe this, <CHARNAME>! I actually developped the ability to shapeshift into a half-ogre! It's inbelievable - but true... Just let me know if you want me to. I... I didn't do it yet, I'm scared I won't turn back again because being a half-ogre feels so much easier than being 'Brandock'.~
+@5006 = ~Indeed! You won't believe this, <CHARNAME>! I actually developped the ability to shapeshift into a half-ogre! It's unbelievable - but true... Just let me know if you want me to. I... I didn't do it yet, I'm scared I won't turn back again because being a half-ogre feels so much easier than being "Brandock".~
 @5007 = ~And - can you believe this? The half-ogre shifted into a human now! Which looks almost exactly like me - I have a twin brother!... He is very curious about people and wants to learn to live amongst them.~
 @5008 = ~You already met my half-ogre 'twin brother'... He is very curious about people and wants to learn to live amongst them.~
 @5009 = ~He is on his way to the library in Alisarhold - I know the sages there would be thrilled to work with him, and he needs people who are patient enough to teach his child-like mind.~

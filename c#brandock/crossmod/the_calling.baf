@@ -16,6 +16,7 @@ END
 /* Initiate: Brandock comments on the bracers */
 IF %BGT_VAR%
 Global("C#BR_TheCallingBracers","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)

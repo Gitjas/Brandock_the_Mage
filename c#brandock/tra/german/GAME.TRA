@@ -1,7 +1,7 @@
-@0  = ~Durable Scroll of Dispel Magic~ 
+@0  = ~Haltbare Schriftrolle Magie Bannen~ 
 @1  = ~(gähn)~ 
 @2  = ~(hust)~ 
-@3  = ~Durable Scroll of Fireball~ 
+@3  = ~Haltbare Schriftrolle Feuerball~ 
 @4  = ~Brandocks Mantel~
 @5  = ~Dies ist der wärmste Mantel, den Brandock fand, bevor er sich auf die Reise in den Norden aufmachte. Nicht, dass es in seiner Heimat so viel wärmer wäre, aber "die Nächte hier sind kalt, ließ ich mir sagen." Zusätzlich ist der Mantel so dick, dass er tatsächlich einen Schutz gegen Pfeile und andere Geschosse bietet, was für einen Magier recht praktisch ist.
 
@@ -41,329 +41,375 @@ Gewicht: 1~
 @26  = ~Sagenkunde um 3 erhöht~
 
 /* new for vbeta 7 */
-@27  = ~Durable Scroll of Haste~
-@28  = ~Durable Scroll of Confusion~
-@29  = ~Durable Scroll of Improved Invisibility~
-@30  = ~Durable Scroll of Monster Summoning II~
-@31  = ~Durable Scroll of Breach~
-@32  = ~Durable Scroll of Protection From Acid~
-@33  = ~Durable Scroll of Magic Missile~
-@34  = ~Durable Scroll of Invisibility~
+@27  = ~Haltbare Schriftrolle Hast~
+@28  = ~Haltbare Schriftrolle Verwirrung~
+@29  = ~Haltbare Schriftrolle Verbesserte Unsichtbarkeit~
+@30  = ~Haltbare Schriftrolle Monsterbeschwörung II~
+@31  = ~Haltbare Schriftrolle Bresche~
+@32  = ~Haltbare Schriftrolle Schutz vor Säure~
+@33  = ~Haltbare Schriftrolle Magisches Geschoss~
+@34  = ~Haltbare Schriftrolle Unsichtbarkeit~
 @35  = ~Waldläufer~
 @36  = ~Malm~
 
 
 /* BGII */
 @100 = ~Ebrels Zauberbuch~
-@101 = ~Dieses Zauberbuch gehörte einem der Verhüllten Magier, die Irenicus auf der Promenade tötete. Der Name "Ebrel Furborrow" steht auf der Klappen-Innenseite.~
+@101 = ~Dieses Zauberbuch gehörte einem der Verhüllten Magier, die Irenicus auf der Promenade tötete. Der Name "Ebrel Furborrow" steht auf der Klappeninnenseite.~
 
 
 /* new for vbeta 7 */
-@102 = ~Durable Scroll of Pierce Shield~
-@103 = ~Brandock's Book of Durable Spells~
+@102 = ~Haltbare Schriftrolle Zauberschutz durchdringen~
+@103 = ~De Simplex Magicae~
+
+/* @104 - @124: sind aus der BG:EE kopiert. Falls Änderungen gemacht werden, die hier vorliegenden Texte erst in die game_ee.tra kopieren! */
 /* SCRL1G: Fireball */
-@104 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@104 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Fireball (Evocation) 
-Level: 3
-Range: Visual range of caster 
-Duration: Instantaneous 
-Casting Time: 3 
-Area of Effect: 15-foot radius
-Saving Throw: 1/2 
+Feuerball
 
-A fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it - 1d6 points of damage for each level of experience of the spellcaster (up to a maximum of 10d6). The wizard points his finger and speaks the range (distance and height) at which the fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their saving throws each suffer full damage from the blast. Those who roll successful saving throws manage to dodge, fall flat, or roll aside, each receiving half.~ 
+Grad: 3
+Schule: Hervorrufung
+Reichweite: 12 m
+Dauer: Sofort
+Zeitaufwand: 3
+Bereich: 4,5 m Radius
+Rettungswurf: 1/2 (gg. Zauber)
+
+Dieser Zauber ruft eine Flammenkugel hervor, die sich mit einem dumpfen Grollen ausbreitet und bei jedem im Wirkungsbereich 1W6 Schadenspunkte je Stufe des Anwenders bis zu einem Maximum von 10W6 Schadenspunkten verursacht. Der Anwender zeigt auf das gewünschte Ziel und spricht die Entfernung (Distanz und Höhe) aus, in der der Feuerball explodieren soll. Ein unsichtbarer Energiestrahl schießt aus seinem Finger, der am Zielort in einem Feuerball explodiert. Befindet sich ein festes Hindernis im Weg, explodiert der Feuerball entsprechend früher. Jedes Wesen im Wirkungsbereich, dem ein erfolgreicher Rettungswurf gegen Zauber gelingt, kann sich auf den Boden werfen oder zur Seite wegrollen, und erleidet nur halben Schaden.~ 
 /* SCRL6P: Minor Sequencer */
-@105 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@105 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Minor Sequencer (Invocation/Evocation) 
-Level: 4
-Range: 0
-Duration: Permanent
-Casting Time: 1 round 
-Area of Effect: Special 
-Saving Throw: None 
+Geringerer Kettenzauber
 
-This spell allows a mage to store spells and access them from his special ability button.  This ability, the sequencer, can store two spells to be released simultaneously,  both of which must be of 2nd level or lower.  A mage can only possess one minor spell sequencer at a time, and the sequencer may not be given to other players.  Once the sequencer is used, the special ability icon disappears.~
+Grad: 4
+Schule: Hervorrufung
+Reichweite: Anwender
+Dauer: Permanent
+Zeitaufwand: 9
+Bereich: Speziell
+Rettungswurf: Nein
+
+Mithilfe dieses Zaubers kann der Anwender zwei Zauber des 2. oder eines niedrigeren Grades simultan wirken. Die beiden Zauber werden über die Schaltfläche "Besondere Fähigkeiten" ausgelöst. Um einen Kettenzauber zu wirken, muss sich der Anwender nicht nur "Geringerer Kettenzauber" eingeprägen, sondern ebenso alle Zauber, die er darin speichern will. (Ein Hexenmeister kann Zauber eines Grades speichern, für den er noch anwendbare Zauber zur Verfügung hat.) Nachdem "Geringerer Kettenzauber" gewirkt wurde, muss der Spieler aus den eingeprägten Zaubern diejenigen auswählen, die er im Kettenzauber speichern will.
+
+Ein Kettenzauber hält so lange an, bis er aktiviert wird, und löst seine Zauber daraufhin unmittelbar (ohne Zeitaufwand) aus. Sobald der Kettenzauber eingesetzt wurde, verschwindet die Schaltfläche wieder. Es kann immer nur ein Kettenzauber gleichzeitig aktiv sein und auch nicht auf andere Charaktere übertragen werden.~
 /* SCRL6U: Breach */
-@106 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@106 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Breach (Abjuration) 
-Level: 5
-Range: Visual sight of caster 
-Duration: Instant
-Casting Time: 5
-Area of Effect: Target Creature
-Saving Throw: None
+Bresche
 
-When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature.  Here is a complete list of all the specific protection spells that are dispelled by breach:  Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy.   The combat protection spells dispelled by this spell are: Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magic Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle.  The target's magic resistance, if he has any, does not affect this spell.~
+Grad: 5
+Schule: Bannzauber
+Reichweite: 12 m
+Dauer: Sofort
+Zeitaufwand: 5
+Bereich: 1 Wesen
+Rettungswurf: Nein
+
+Wenn der Zauber gewirkt wird, bannt er eine ganze Reihe verschiedener Schutzzauber, die auf einem Wesen liegen. Die Zauber, die von "Bresche" gebannt werden, sind die folgenden: "Schild", "Schutz vor Bösem", "Furcht bannen", "Schutz vor Feuer", "Schutz vor Kälte", "Feuerschild", "Schutz vor Säure", "Schutz vor Elektrizität", "Schutz vor magischer Energie", "Schutz vor den Elementen", "Schutz vor Energie", "Schutz vor normalen Geschossen", "Schutz vor normalen Waffen", "Schutz vor magischen Waffen", "Steinhaut", "Panzer", "Geisterrüstung", "Seelenrüstung", "Absolute Immunität", "Schutzmantel" und "Verbesserter Schutzmantel". Magiewiderstand schützt nicht vor den Auswirkungen dieses Zaubers.~
 /* SCRL7V: Spell Deflection */
-@107 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@107 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Spell Deflection (Abjuration)
-Level: 6
-Range: 0 
-Duration: 3 rounds/level
-Casting Time: 6
-Area of Effect: The caster 
-Saving Throw: None 
+Zauberabwehr
 
-This powerful abjuration spell causes any spells cast against the wizard to be absorbed and consumed.  This affects a total of 10 spell levels.  This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard as well as area effects that are stationary, such as cloud kill and stinking cloud.  As long as the spell is cast directly at the wizard it will be absorbed.  Something to note is that as long as there are levels remaining then the spell will be absorbed.  For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection.  It is not affected by a dispel magic.~
+Grad: 6
+Schule: Bannzauber
+Reichweite: Anwender
+Dauer: 3 Runden pro Stufe
+Zeitaufwand: 6
+Bereich: Anwender
+Rettungswurf: Nein
+
+Zauber, mit denen das so geschützte Wesen angegriffen wird, werden absorbiert und verpuffen. Dieser Zauber absorbiert insgesamt 10 Zaubergrade. Dies betrifft auch Zauber von Schriftrollen und zauberähnliche Fähigkeiten. Flächendeckende Zauber, die nicht auf das geschützte Wesen zentriert werden, und flächendeckende Zauber, die stationär sind, so wie "Todeswolke" und "Stinkende Wolke", sind nicht betroffen. Der Zauber wirkt so lange, bis der Schutz völlig aufgebraucht wurde, auch dann, wenn der letzte Zauber, der absorbiert wird, die verbleibende Schutzwirkung übersteigt. Wenn beispielsweise nur noch 1 Grad an Zaubern absorbiert werden kann, so wird dennoch ein Zauber des 3. Grades absorbiert werden. Der Zauber kann nicht durch "Magie bannen" aufgehoben werden.~
 /* SCRL8W: Mass Invisibility */
-@108 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@108 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Mass Invisibility 
-(Illusion/Phantasm) 
-Level: 7
-Range: Visual sight of caster 
-Duration: 1 round/level
-Casting Time: 7
-Area of Effect: 15-foot radius
-Saving Throw: None 
+Massenunsichtbarkeit
 
-Upon casting this spell the wizard causes all friendly creatures within the area of effect to be affected by the spell Improved Invisibility.  This spell is similar to the invisibility spell, but the recipient is able to attack, either by missile discharge, melee combat, or spellcasting, and remain unseen. Note, however, that there are sometimes telltale traces, a shimmering, so that an observant opponent can attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made his presence known).  Attacks against the invisible character suffer -4 penalties to the attack rolls, and the invisible character's saving throws are made with a +4 bonus.~
+Grad: 7
+Schule: Illusion
+Reichweite: 9 m (Sichtfeld)
+Dauer: 1 Runde pro Stufe
+Zeitaufwand: 7
+Bereich: 4,5 m Radius
+Rettungswurf: Nein
+
+Auf alle freundlichen Wesen im Wirkungsbereich wird der Zauber "Verbesserte Unsichtbarkeit" gewirkt. Der Zauber ähnelt "Unsichtbarkeit", aber das unsichtbare Wesen kann angreifen (im Nahkampf, Fernkampf oder mit Zaubern) und bleibt dennoch unsichtbar. Manchmal gibt es jedoch Zeichen, die auf den Standort des unsichtbaren Wesens hindeuten, wie beispielsweise ein Flimmern in der Luft. In diesen Momenten ist es einem aufmerksamen Gegner möglich, das unsichtbare Wesen anzugreifen. Diese Zeichen kann man nur erkennen, wenn man danach sucht, und das ist nur möglich, nachdem das unsichtbare Wesen durch seine Aktionen auf sich aufmerksam gemacht hat. Angriffe gegen den Unsichtbaren werden mit einen Malus von -4 auf Trefferwürfe ausgeführt. Der Unsichtbare erhält einen Bonus von +4 auf alle Rettungswürfe.~
 /* SCRL8S: Summon Efreeti */
-@109 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@109 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Summon Efreeti (Conjuration/Summoning) 
-Level: 7
-Range: 40 yards 
-Duration: 8 rounds + 1 round/level
-Casting Time: 1 round
-Area of Effect: Special 
-Saving Throw: None
+Ifrit beschwören
 
-With this spell, the conjurer can cajole an efreeti, a massive genie with powerful abilities, to leave the elemental plane of fire and enter the Prime Material.  The efreeti will serve for the duration indicated above, attacking the enemies of the conjurer.  Mages are warned to be careful of this spell, for a mistreated efreeti will turn on his master at the first available opportunity.~
+Grad: 7
+Schule: Beschwörung
+Reichweite: 36,5 m
+Dauer: 8 Runden + 1 Runde pro Stufe
+Zeitaufwand: 9
+Bereich: Speziell
+Rettungswurf: Nein
+
+Mithilfe dieses Zaubers kann der Anwender einen Ifrit herbeirufen. Der mächtige Genie verlässt seine Heimat, die Feuerebene, um dem Anwender gegen seine Feinde auf der Materiellen Ebene beizustehen. Während der Wirkungsdauer greift der Ifrit alle feindlichen Wesen an.~
 /* SCRLB1: Bigby's Clenched Fist */
-@110 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@110 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Bigby's Clenched Fist (Evocation) 
-Level: 8
-Range: Visual range of caster
-Duration: 4 Rounds  
-Casting Time: 8 
-Area of Effect: 1 creature
-Saving Throw: Special
+Bigbys geballte Faust
 
-This spell causes a giant disembodied hand to squeeze and constrict the target once per round for up to four rounds. It initially smashes the target for 3D6 damage with no save. The target is held. In the second round, the target can save vs. paralyzation at -2 to escape. If they fail to save, the hand does 4D6 damage. The following round, the target can save vs. paralyzation with no penalty. If they make the save, they are free to move, if they fail, the spell does 6D6 damage and holds them for 2 rounds. After the 4th round, the spell is finished. Magic resistance will stop the spell.~
+Grad: 8
+Schule: Hervorrufung
+Reichweite: 10,5 m
+Dauer: 4 Runden
+Zeitaufwand: 8
+Bereich: 1 Wesen
+Rettungswurf: Speziell
+
+Der Zauber erzeugt eine riesige Hand, die das Ziel im schlimmsten Fall bis zu 4 Runden umfasst und zu zerquetschen versucht. Zuerst schlägt die Hand das Ziel und richtet dabei 3W6 Schadenspunkte ohne Rettungswurf an, zusätzlich wird das Ziel festgehalten. In der zweiten Runde steht dem Ziel ein Rettungswurf mit einem Malus von -2 gegen Lähmung zu, um sich aus dem Griff zu befreien. Scheitert es, verursacht die Hand 4W6 Schadenspunkte. In der folgenden Runde steht dem Ziel erneut ein Rettungswurf gegen Lähmung zu, um sich zu befreien. Wenn das Opfer scheitert, erleidet es weitere 6W6 Schadenspunkte und ist für weitere 2 Runden festgehalten. Nach der vierten Runde löst sich die Hand auf. Magiewiderstand kann diesen Zauber aufhalten.~
 /* SCRL9A: Pierce Shield */
-@111 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@111 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Pierce Shield (Abjuration)
-Level: 8
-Range: Visual sight of caster
-Duration: Instantaneous
-Casting Time: 8
-Area of Effect: Special
-Saving Throw: None 
+Zauberschutz durchdringen
 
-When this spell is cast it launches a massive attack on an enemy wizard's spell defenses.  The target's magic resistance will be lowered by 10% + 1% per level of the caster.  Next pierce shield will cancel one spell protection of any level.  For example, if this spell was cast by a 15th-level wizard the target creature would lose 25% magic resistance from his current total, reducing it to 0 if less than that remains, as well as cancelling one spell protection if the mage currently has one.  The list of spells that this includes is: Minor Spell Deflection, Minor Spell Turning, Spell Deflection, Minor Globe of Invulnerability, Spell Immunity, Globe Of Invulnerability, Spell Turning, Spell Shield, and Spell Trap.  Magic resistance does not effect this spell, nor do any of the spell protections.  The resistance remains lowered for 1 round per level of the caster.  It cannot be dispelled.~
+Grad: 8
+Schule: Bannzauber
+Reichweite: 12 m
+Dauer: Sofort
+Zeitaufwand: 8
+Bereich: 1 Wesen
+Rettungswurf: Nein
+
+Der Zauber stellt einen massiven Angriff auf die Zauberabwehr eines Gegners dar. Zuerst wird der Magiewiderstand des Gegners um 10 % plus 1 % je Stufe des Anwenders gesenkt. Dann hebt der Zauber einen Zauberschutz beliebigen Grades auf, als da wären: "Geringere Zauber zurückwerfen", "Geringere Zauberabwehr", "Zauberabwehr", "Zauber zurückwerfen", "Kleinere Kugel der Unverwundbarkeit", "Immunität gegen Zauber", "Kugel der Unverwundbarkeit", "Zauberschild" und "Zauberfalle". Wirkt beispielsweise ein Magier der 15. Stufe "Zauberschutz durchdringen" auf seinen Gegner, wird dessen Magiewiderstand um 25 % gesenkt (Minimum 0 %) und außerdem wird einer der aufgezählten Zauber aufgehoben. Magiewiderstand schützt nicht vor den Auswirkungen dieses Zaubers. Der Magiewiderstand bleibt für 1 Runde je Stufe des Anwenders gesenkt. Die Auswirkung kann nicht durch "Magie bannen" aufgehoben werden.~
 /* SCRLB2: Bigby's Crushing Hand */
-@112 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@112 = ~Dies ist Brandocks Buch der Haltbaren Zauber. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
+Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat.
+Bigbys zermalmende Faust
 
-Bigby's Crushing Hand (Evocation) 
-Level: 9
-Range: Visual range of caster
-Duration: 3 Rounds  
-Casting Time: 9
-Area of Effect: 1 creature
-Saving Throw: Special
+Grad: 9
+Schule: Hervorrufung
+Reichweite: 10,5 m
+Dauer: 3 Runden
+Zeitaufwand: 9
+Bereich: 1 Wesen
+Rettungswurf: Speziell (gg. Lähmung)
 
-This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2D10 damage. The victim can save at -4 vs. paralyzation to avoid being pinned. If they fail, the hand does 3D10 damage the next round. The victim can again save vs. paralyzation at -2. If they fail to save, the hand does a final 4D10 damage and disappears.~
+Der Zauber erzeugt eine riesige Hand, die auf das Opfer herunter donnert und es am Boden festhält. In der ersten Runde erleidet das Opfer 2W10 Schadenspunkte. Ihm steht ein Rettungswurf mit einem Malus von -4 gegen Lähmung zu, um zu vermeiden, festgehalten zu werden. Wenn der Rettungswurf scheitert, erleidet das Opfer in der nächsten Runde 3W10 Schadenspunkte. Das Opfer muss einen Rettungswurf mit einem Malus von -2 gegen Lähmung bestehen. Scheitert es auch bei diesem Rettungswurf, erleidet es in der nächsten Runde nochmals 4W10 Schadenspunkte. Anschließend löst sich die Hand auf.~
 /* SCRL9Q: Chain Contingency */
-@113 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@113 = ~Dies ist eine Zauberseite des De Simplex Magicae, die Brandock in das Buch geschrieben hat. Durch die Magie des Buches bleibt die Seite mit dem Zauberspruch erhalten und regeneriert sich einmal am Tag.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Chain Contingency (Evocation)
-Level: 9
-Range: 0
-Duration: Special
-Casting Time: 1 round
-Area of Effect: The Caster
-Saving Throw: None
+Kombinierter Notfall
 
-Chain contingency channels some of the magical energy of the mage and releases it only under certain circumstances.  Basically, the mage chooses three spells, which will be released under certain conditions, such as being hit by an enemy.  When this condition occurs all three spells are cast immediately.  Spells of 8th level or lower may be used in the contingency.~
-@114  = ~Turn a page.~
+Grad: 9
+Schule: Hervorrufung
+Reichweite: Anwender
+Dauer: Permanent (bis ausgelöst)
+Zeitaufwand: 9
+Bereich: Anwender
+Rettungswurf: Nein
+
+Der kombinierte Notfall kanalisiert einen Teil der magischen Energie des Anwenders und setzt diese unter bestimmten Bedingungen frei. Der Anwender wählt 3 Zauber aus und setzt dann eine Bedingung fest, wann diese 3 Zauber ausgelöst werden. Eine Bedingung wäre beispielsweise, wenn der Anwender von einem Feind verletzt wird. Alle 3 Zauber werden augenblicklich gewirkt, wenn die Bedingung eintritt. Die 3 Zauber müssen den 8. oder einen niedrigeren Grad haben.~
+@114  = ~Ihr bättert um.~
 /* #39427 */
-@115  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@115  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Fireball (Evocation) 
-Level: 3
-Range: Visual range of caster 
-Duration: Instantaneous 
-Casting Time: 3 
-Area of Effect: 15-foot radius
-Saving Throw: 1/2 
+Feuerball
 
-A fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it - 1d6 points of damage for each level of experience of the spellcaster (up to a maximum of 10d6). The wizard points his finger and speaks the range (distance and height) at which the fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their saving throws each suffer full damage from the blast. Those who roll successful saving throws manage to dodge, fall flat, or roll aside, each receiving half.~
+Grad: 3
+Schule: Hervorrufung
+Reichweite: 12 m
+Dauer: Sofort
+Zeitaufwand: 3
+Bereich: 4,5 m Radius
+Rettungswurf: 1/2 (gg. Zauber)
+
+Dieser Zauber ruft eine Flammenkugel hervor, die sich mit einem dumpfen Grollen ausbreitet und bei jedem im Wirkungsbereich 1W6 Schadenspunkte je Stufe des Anwenders bis zu einem Maximum von 10W6 Schadenspunkten verursacht. Der Anwender zeigt auf das gewünschte Ziel und spricht die Entfernung (Distanz und Höhe) aus, in der der Feuerball explodieren soll. Ein unsichtbarer Energiestrahl schießt aus seinem Finger, der am Zielort in einem Feuerball explodiert. Befindet sich ein festes Hindernis im Weg, explodiert der Feuerball entsprechend früher. Jedes Wesen im Wirkungsbereich, dem ein erfolgreicher Rettungswurf gegen Zauber gelingt, kann sich auf den Boden werfen oder zur Seite wegrollen, und erleidet nur halben Schaden.~
 /* #39428 */
-@116  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@116  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Invisibility (Illusion/Phantasm) 
-Level: 2
-Range: Touch 
-Duration: Special 
-Casting Time: 2 
-Area of Effect: Creature touched 
-Saving Throw: None 
+Unsichtbarkeit
 
-This spell causes the creature touched to vanish from sight and be undetectable by normal vision or even infravision. Of course, the invisible creature is not magically silenced, and certain other conditions can render the creature detectable. Even allies cannot see the invisible creature or his gear, unless these allies can normally see invisible things or employ magic to do so.  Items dropped or put down by the invisible creature become visible, items picked up disappear if tucked into the clothing or pouches worn by the creature. The spell remains in effect until it is magically broken or dispelled, until the recipient attacks any creature, or until 24 hours have passed. The invisible being cannot open doors, talk, eat, climb stairs, etc., and if he attacks, he immediately becomes visible, although the invisibility enables him to attack first.~
+Grad: 2
+Schule: Illusion
+Reichweite: Berührung
+Dauer: Speziell
+Zeitaufwand: 2
+Bereich: 1 Wesen
+Rettungswurf: Nein
+
+Das berührte Wesen wird unsichtbar und kann weder mit normaler Sicht noch mit Infravision entdeckt werden. Natürlich macht das unsichtbare Wesen noch immer Geräusche und es gibt verschiedene Bedingungen, unter denen das Wesen wieder sichtbar wird. Selbst die Verbündeten des Unsichtbaren können diesen nicht sehen, außer sie sind normal oder durch Magie dazu fähig, unsichtbare Wesen zu sehen. Lässt der Unsichtbare einen Gegenstand fallen, wird dieser sichtbar. Hebt er einen Gegenstand auf und steckt ihn ein, wird dieser ebenfalls unsichtbar. Der Zauber endet, sobald er auf magische Weise gebannt wird, der Magier oder das betroffene Wesen ihn freiwillig beendet, der Unsichtbare einen Angriff startet oder wenn 24 Stunden verstrichen sind. Der Unsichtbare kann keine Aktionen ausführen, die seine Umgebung unmittelbar verändern, wie z. B. Türen öffnen, Fallen entschärfen oder Truhen öffnen. Allerdings kann er defensive Zauber auf sich selbst oder seine Verbündeten sprechen. Wenn er jedoch angreift, wird er sofort sichtbar. Seine Unsichtbarkeit ermöglicht es ihm aber auf jeden Fall, zuerst zuzuschlagen.~
 /* #39429 */
-@117  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@117  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Protection From Evil (Abjuration) 
-Level: 1
-Range: Touch 
-Duration: 2 rounds/level
-Casting Time: 1
-Area of Effect: Creature touched 
-Saving Throw: None 
+Schutz vor Bösem
 
-When this spell is cast, it creates a magical barrier around the recipient at a distance of one foot. The barrier moves with the recipient and has two major effects: First, all attacks made by evil or evilly enchanted creatures against the protected creature receive a penalty of - 2 to each attack roll, and second, any saving throws caused by such attacks are made by the protected creature with a +2 bonus.~
+Grad: 1
+Schule: Bannzauber
+Reichweite: Berührung
+Dauer: 2 Runden pro Stufe
+Zeitaufwand: 1
+Bereich: 1 Wesen
+Rettungswurf: Nein
+
+Der Zauber erzeugt eine magische Barriere im Abstand von 30 cm rund um den Empfänger. Die Barriere bewegt sich mit dem Empfänger und hat zwei wichtige Auswirkungen: Einerseits erleiden alle Trefferwürfe von bösen oder böse verzauberten Wesen gegen den Empfänger einen Malus von -2, andererseits können beschworene dämonische Kreaturen das geschützte Wesen nicht angreifen.~
 /* #39430 */
-@118  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@118  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-True Seeing (Divination) 
-Level: 5
-Sphere: Divination
-Range: 0
-Duration: 1 turn
-Casting Time: 8
-Area of Effect: 120-foot radius
-Saving Throw: None 
+Wahrer Blick
 
-When this spell is cast, an area roughly 120 feet in radius around the caster will be effected.  Instantly and once each round for 1 turn after this spell is cast, all hostile illusion/phantasm spells in the area of effect will be dispelled.  The spells that are affected by this are: Reflected Image, Invisibility, Mirror Image, Non-detection, Improved Invisibility, Shadow Door, Mislead, Project Image, and Simulacrum.  The area of effect is roughly a 120-foot radius around the caster.  The target's magic resistance, if any, does not come into effect with this spell.  This spell only affects enemies, thus it is unable to dispel the invisibility from a party member.~
+Grad: 5
+Schule: Erkenntniszauber
+Domäne: Wissen
+Reichweite: Anwender
+Dauer: 1 Phase
+Zeitaufwand: 8
+Bereich: 36,5 m Radius
+Rettungswurf: Nein
+
+Dieser Zauber wirkt auf ein Gebiet von ungefähr 36,5 m Radius rund um den Anwender. Wenn der Zauber gewirkt wird, werden alle feindlichen Zauber der Schule Illusion/Hirngespinst im Wirkungsbereich gebannt. Das Bannen wird 1 Phase lang einmal je Runde ausgeführt. Es betrifft die Zauber "Gespiegeltes Ebenbild", "Unsichtbarkeit", "Spiegelbild", "Unauffindbarkeit", "Verbesserte Unsichtbarkeit", "Phantomtor", "Ablenkung", "Projiziertes Ebenbild" und "Abbild". Gegen diesen Zauber wirkt kein Magiewiderstand. Da der Zauber nur auf feindselige Magie wirkt, hebt er beispielsweise die Unsichtbarkeit, die auf einem Gruppenmitglied liegt, nicht auf.~
 /* #39433 */
-@119  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@119  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Farsight (Divination)
-Level: 4
-Range: Special
-Duration: 3 rounds + 1 round/level
-Casting Time: 4 
-Area of Effect: Special
-Saving Throw: None 
+Fernsicht
 
-When Farsight is cast, the caster is able to view an area of an unexplored map.  After casting the spell, simply click on a section of the map that you want to view.  For the duration of the spell, the caster can spy on that area, noting creatures and fortifications.~
+Grad: 4
+Schule: Erkenntniszauber
+Reichweite: Speziell
+Dauer: 3 Runden + 1 Runde pro Stufe
+Zeitaufwand: 4
+Bereich: Speziell
+Rettungswurf: Nein
+
+Mithilfe von Fernsicht kann der Anwender einen noch nicht erforschten Teil der Karte einsehen. Klickt einfach auf jenen Teil der Karte, den Ihr einsehen wollt, nachdem Ihr den Zauber gewirkt habt. Während der Wirkungsdauer kann der Anwender das gewählte Gebiet ausspionieren. Auch die Wesen, die sich in dem Gebiet aufhalten, werden sichtbar.~
 /* #39434 */
-@120  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@120  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Spell Turning (Abjuration) 
-Level: 7
-Range: 0
-Duration: 3 rounds/level
-Casting Time: 7
-Area of Effect: The caster 
-Saving Throw: None 
+Zauber zurückwerfen
 
-This powerful abjuration spell causes the spells cast against the wizard to rebound upon the original caster.  This effects a total of 12 spell levels, for example 4 3rd-level, or 1 6th and 1 7th-level, etc..  This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard as well as area effects that are stationary such as cloud kill and stinking cloud.  As long as the spell is cast directly at the wizard it will be reflected back upon the caster.  Something to note is that as long as there are levels remaining then the spell will be reflected.  For example if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be reflected while canceling the spell turning.  This spell will not protect the caster from dispel magic.  However it will not be affected by dispel magic either.~
+Grad: 7
+Schule: Bannzauber
+Reichweite: Anwender
+Dauer: 3 Runden pro Stufe
+Zeitaufwand: 7
+Bereich: Anwender
+Rettungswurf: Nein
+
+Dieser mächtige Zauber reflektiert Magie, die auf das geschützte Wesen gerichtet wird. Der Zauber wirft insgesamt 12 Zaubergrade zurück. Das betrifft auch Zauber von Schriftrollen und zauberähnliche Fähigkeiten. Flächendeckende Zauber, die nicht auf das geschützte Wesen zentriert werden, und flächendeckende Zauber, die stationär sind, so wie "Todeswolke" und "Stinkende Wolke", sind nicht betroffen. "Zauber zurückwerfen" wirkt so lange, wie der Schutz nicht völlig aufgebraucht wurde. Wenn beispielsweise nur noch 1 Grad an Zaubern zurückgeworfen werden kann, wird dennoch ein Zauber des 3. Grades zurückgeworfen. Der Zauber schützt nicht vor "Magie bannen", kann dadurch aber auch nicht aufgehoben werden.~
 /* #39435 */
-@121  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@121  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Wyvern Call (Conjuration/Summoning) 
-Level: 6
-Range: 40 yards 
-Duration: 1 round/level
-Casting Time: 1 round
-Area of Effect: Special 
-Saving Throw: None 
+Lindwurmruf
 
-When this spell is cast the wizard opens up a magical channel that will summon a wyvern to his aid.  This creature will be totally under his mental control with no chance of it turning on him except, of course, through magical means like charm monster.  The creature will remain under the wizard's control, and will live and die at his command until the spell duration expires.~
+Grad: 6
+Schule: Beschwörung
+Reichweite: 36,5 m
+Dauer: 1 Runde pro Stufe
+Zeitaufwand: 9
+Bereich: Speziell
+Rettungswurf: Nein
+
+Mithilfe dieses Zaubers öffnet der Anwender eine magische Verbindung, durch die ein Lindwurm herbeigerufen wird. Das Wesen steht vollständig unter der Kontrolle des Anwenders. Der Lindwurm kämpft bis zum Tod oder bis die Wirkungsdauer des Zaubers endet.~
 /* #39436 */
-@122  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@122  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
 
-Stinking Cloud (Evocation) 
-Level: 2
-Range: 30 yards 
-Duration: 1 turn
-Casting Time: 2 
-Area of Effect: 15-foot radius
-Saving Throw: Special 
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-When a stinking cloud is cast, the wizard creates a billowing mass of nauseous vapors up to 30 yards away from his position. Any creature caught within the cloud must roll a successful saving throw vs. poison or be reeling and fall down for 1-2 rounds.  Those who make successful saving throws can leave the cloud without suffering any ill effects, although those remaining in the cloud must continue to save each round.  A dispel magic will remove the nasea on a particular character, but if they remain in the cloud then they are still subject to its effects.~
+Stinkende Wolke
+
+Grad: 2
+Schule: Hervorrufung
+Reichweite: 27,5 m
+Dauer: 1 Phase
+Zeitaufwand: 2
+Bereich: 4,5 m Radius
+Rettungswurf: Ja (gg. Gift)
+
+Der Zauber erzeugt eine Wolke aus giftigen Dämpfen, deren Zentrum sich bis zu 27,5 m vom Anwender entfernt befinden kann. Alle Wesen innerhalb der Wolke müssen einen Rettungswurf mit einem Bonus von +2 gegen Gift bestehen. Wer scheitert, wird von Übelkeit und Brechreiz überkommen und ist 1W2 Runden handlungsunfähig. Wesen, deren Rettungswurf gelungen ist, können die Wolke problemlos verlassen. Bleiben sie jedoch im Wirkungsbereich der Wolke, müssen sie in jeder Runde einen weiteren Rettungswurf bestehen. Ein "Magie bannen" kann zwar die Übelkeit von einem Wesen entfernen, aber wenn man die Wolke nicht verlässt, können die Symptome erneut auftreten.~
 /* #39437 */
-@123  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@123  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf dieser Seite lautet:
 
-Lightning Bolt (Evocation) 
-Level: 3
-Range: 40 yards + 10 yards/level
-Duration: Instantaneous 
-Casting Time: 3 
-Area of Effect: Special 
-Saving Throw: 1/2
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Upon casting this spell, the wizard releases a powerful stroke of electrical energy that inflicts 1d6 points of damage per level of the spellcaster (maximum damage of 10d6) to each creature within its area of effect. A successful saving throw vs. spell reduces this damage to half (round fractions down). The bolt begins at a range and height decided by the caster and streaks outward in a direct line from the casting wizard (e.g., if a 40-foot bolt was started at 180 feet from the wizard, the far end of bolt would reach 220 feet (180 + 40).  If the lightning bolt intersects with a wall it will bounce until it reaches its full length.~
+Blitzstrahl
+
+Grad: 3
+Schule: Hervorrufung
+Reichweite: 36,5 m + 9 m pro Stufe
+Dauer: Sofort
+Zeitaufwand: 3
+Bereich: Speziell
+Rettungswurf: 1/2 (gg. Zauber)
+
+Eine mächtige elektrische Entladung in Form eines Blitzstrahls schießt hervor und verursacht bei jedem Wesen, das davon getroffen wird, 1W6 Schadenspunkte je Stufe des Anwenders bis zu einem Maximum von 10W6 Schadenspunkten. Bei einem erfolgreichen Rettungswurf gegen Zauber wird der Schaden halbiert (abgerundet). Der Blitzstrahl beginnt in einer vom Anwender gewählten Entfernung und Höhe, und schlägt von dort in gerader Linie vom Anwender weg. Zum Beispiel reicht ein 12-m-Blitzstrahl, der in einer Entfernung von 55 m vom Anwender erscheint, 67 m weit (12 + 55). Wenn der Blitzstrahl unterwegs auf ein Hindernis trifft, prallt er ab und setzt seinen Weg fort, bis er seine maximale Reichweite erreicht hat.~
 /* #39438 */
-@124  = ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
+@124  = ~Das uralte Buch öffnet sich mit einem vernehmlichen Knirschen. Auf jeder Seite ist ein Zauber niedergeschrieben. Dem Verfasser ist es erstaunlicherweise gelungen, diese Zauber in solch allgemein verständlichen Begriffen zu beschreiben, dass sie von einem Priester, einem Dieb, ja selbst einem Kämpfer verstanden und eingesetzt werden können. Jeder Zauber kann einmal täglich angewandt werden.
 
-Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
+Brandock hat dieses magische Buch so umgeschrieben, so dass Ihr nun die Seiten auch wieder zurückblättern könnt - zumindest für die Zauber, die Ihr im Originalbuch ebenfalls geöffnet hattet.
 
-The spell on this page is:
+Der Zauber auf der aufgeschlagenen Seite ist:
 
-Burning Hands (Alteration) 
-Level: 1
-Range: 5 feet  
-Duration: Instantaneous 
-Casting Time: 1 
-Area of Effect: 60 degree arc
-Saving Throw: 1/2
+Brennende Hände
 
-When the wizard casts this spell, a jet of searing flame shoots from his fingertips. His hands must be held so as to send forth a fanlike sheet of flames: the wizard's thumbs must touch each other and fingers must be spread. The burning hands send out flame jets of five-foot length in a horizontal arc of about 60 degrees in front of the wizard. Any creature in the area of the flames suffers 1d3 hit points of damage, plus 2 points for each level of the spellcaster, to a maximum of 1d3 + 20 points of fire damage. Those successfully saving vs. spell receive half damage.~
+Grad: 1
+Schule: Veränderung
+Reichweite: Anwender
+Dauer: Sofort
+Zeitaufwand: 1
+Bereich: 1,5 m Kegel von 120°
+Rettungswurf: 1/2 (gg. Zauber)
+
+Der Anwender legt seine Hände mit den Daumen aneinander, spreizt die Finger und hält seine Handflächen in Richtung der Gegner. Aus den Handflächen schießen sengend heiße Flammenzungen, die einen Bereich von 120 Grad abdecken und 1,5 m weit reichen. Die Wesen in dem Bereich erleiden 1W3 +2 Schadenspunkte je Stufe des Anwenders mit einem Maximum von 1W3 +20 Schadenspunkten. Bei einem erfolgreichen Rettungswurf gegen Zauber wird dieser Schaden halbiert.~
 
 /* Brandock cre things */
 @500 = ~Brandock~
@@ -422,15 +468,15 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1004 = ~Autsch!~
 @1005 = ~Oh, was ist...~
 @1006 = ~Also, das war wirklich unerwartet!~
-@1007 = ~Magische Bücher! Viele Bücher! Werden helfen ...~
-@1008 = ~Dies sind meine Privaträume. WIE seid Ihr hier reingekommen?! Ich sollte Euch beide einfach ohne Zögern...~
-@1009 = ~Ihr seid nicht am Plündern. Ihr seid am Suchen?!...~
+@1007 = ~Doppelgänger?! Elfenhaar ist auch ein Doppelgänger... Das ist zu viel! Das ist ZU VIEL! Wehe, ihr habt Meister Elfenhaar etwas angetan! HÄNDE WEG von <CHARNAME>!~
+//@1008 = ~~
+//@1009 = ~~
 @1010 = ~Noch nie zuvor habe ich einen Halboger getroffen, der sich für meine magischen Bücher interessierte. Ich bitte um eine Erklärung. Wer seid Ihr?~
 @1011 = ~Ich nicht Halboger. Ich Magier! Ich... Worte lassen Kopf wehtun!~
-@1012 = ~Wer ich bin? Ich bin... ich meine, theoretisch gesprochen *war* ich früher eine Verkörperung eines anderen Lebewesens mit sehr viel begrenzterem intellektuellen Habitus, zumindest wenn man es in prinzipiellen Konditionen auszudrücken versucht...~
-@1013 = ~Er nicht klar sprechen. Er dumm, mit meinem Kopf! Ich... intelligent, mit seinem dummem Kopf! Und plumpe Hände... brauche Hilfe!~
-@1014 = ~Nungut, ich fasse das mal zusammen. Ich sehe einen Magier der sagt, nicht mehr der zu sein, der er war...~
-@1015 = ~Und ich sehe einen Halboger, der angibt, der Magier zu sein.~
+//@1012 = ~~
+//@1013 = ~~
+//@1014 = ~~
+//@1015 = ~~
 @1016 = ~Gerade als ich dachte, es würde ein ruhiger Abend werden. Kommt mit mir. Ich werde sehen, was ich für Euch tun kann.~
 @1017 = ~Oje, ist das ein Gestank!~
 @1018 = ~Hm, mal sehen...~
@@ -441,18 +487,18 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1023 = ~Wir haben einen Sternenssphir! Bitte, lasst ihn uns gut verstauen, ich brauche ihn für die Buchrestauration.~
 @1024 = ~Wir haben einen Regenerationstrank! Bitte, trinkt ihn nicht, ich brauche ihn für die Buchrestauration.~
 @1025 = ~Wir haben Oktopustinte! Elfenhaar braucht sie für die Restauration meines Buches. Dafür ist sie auch gedacht - oder?~
-@1026 = ~I'll have a look into this mage's spellbook - oh yes, that is interesting.~
-@1027 = ~This mage's spellbook is an interesting read indeed.~
-@1028 = ~I can learn from this mage's spellbook.~
-@1029 = ~Two interresting spellbooks! I fear those won't be the last mages we meet.~
-@1030 = ~Hmm... no, nothing to learn from this spellbook. What a pity.~
-@1031 = ~Why did we kill this old woman? I'm not scavenging through possessions of people who did not attack us... ugh, dammit, of course I'll have a look at her spellbook. I'm not proud of what we did here, <CHARNAME>!~
-@1032 = ~Three interesting spellbooks! And I'm sure those won't be the last mages we meet here... (sigh)~
-@1033 = ~Oh, a library? Don't mind me, <CHARNAME>. I'll, er... (Brandock murmurs while scanning book covers.) Er, sorry about that. I'm done here, there's no magic books. At least none as far as I can see...~
-@1034 = ~I'll make sure I'll learn from those mages' spellbooks...~
-@1035 = ~Oh, a library! (Brandock murmurs while scanning book covers.) Hmm, no magic books, as far as I can see.~
-@1036 = ~Didn't seem to have helped him here - but the spellbook is still an interesting read.~
-@1037 = ~Three interesting spellbooks, but I'd prefer I wouldn't have had the chance to go through these...~
+@1026 = ~Ich werfe mal einen Blick in das erbeutete Zauberbuch - oh ja, das ist interessant.~
+@1027 = ~Dieses erbeutete Zauberbuch ist eine interessante Lektüre.~
+@1028 = ~Aus diesem Zaubernuch kann ich noch was lernen.~
+@1029 = ~Zwei interessante Zauberbücher! Ich fürchte, das werden nicht die letzten in Magie bewanderten Gegner sein, die wir treffen.~
+@1030 = ~Hmm... nein, hieraus kann ich keinen Erkenntnisgewinn ziehen. Schade.~
+@1031 = ~Warum haben wir diese alte Frau erschlagen? Ich stöbere nicht durch das Eigentum von Leuten, die uns nicht angegriffen haben... ach, verdammt, natürlich schaue ich in ihr Zauberbuch. Ich bin nicht stolz auf das, was wir hier getan haben, <CHARNAME>!~
+@1032 = ~Drei interessante Zauberbücher! Und ich fürchte, da kommen noch mehr... (sigh)~
+@1033 = ~Oh, eine Bücherei? Nehmt auf mich keine Rücksicht, <CHARNAME>. Ich, äh... (Brandock überfliegt die Buchrücken und murmelt dabei.) Ähem, tut mir Leid. Ich bin schon fertig, es sind keine magischen Bücher hier, die mich interessieren würden. Zumindest keine, die ich auf die Schnelle sehen konnte.~
+@1034 = ~Ich versuche mal, aus diesen Zauberbüchern etwas zu lernen...~
+@1035 = ~Oh, eine Bücherei! (Brandock überfliegt murmelnd die Buchrücken.) Hmm, keine magischen Bücher dabei, soweit ich das sehe.~
+@1036 = ~Es scheint ihm nicht geholfen zu haben - aber das Zauberbuch ist trotzdem insteressant zu lesen.~
+@1037 = ~Drei interessante Zauberbücher, aber mir wäre es lieber gewesen, ich hätte keine Chance erhalten, sie anzusehen...~
 
 /* SoD */
 @1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
@@ -486,12 +532,12 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1278 = ~Mann, freue ich mich für Gavin, dass er gerade nicht hier ist!~
 
 /* new for vbeta 7 */
-@1279 = ~Oh! <CHARNAME>, we are in a dead magic zone.~
-@1280 = ~That... that's a huge beetle. I'm glad there are no Rhinoceros Spiders!~
-@1281 = ~The battle started! Let's fight them!~
-@1282 = ~Another battle! We will prevail! I hope.~
-@1283 = ~It just *had* to die right on top of the castle, hadn't it?~
-@1284 = ~I never thought I'd say that, but those doors look *really* intimidating!~
+@1279 = ~Oh! <CHARNAME>, wie sind in einer Zone ohne Magie.~
+@1280 = ~Das... das war ein riesiger Käfer. Was bin ich froh, dass es keine Rhinozerosspinnen gibt.~
+@1281 = ~Die Schlacht hat begonnen! Lasst uns kämpfen!~
+@1282 = ~Eine weitere Schlacht! Wir werden obsiegen! Hoffe ich.~
+@1283 = ~Der *musste* genau auf der Burg sterben, oder?~
+@1284 = ~Ich hätte nie gedacht, dass ich das mal sage, aber diese Türen sehen *echt* einschüchternd aus!~
 
 /* new for vbeta 11 */
 @1285 = ~Bei manchen Gegnern ist das Ergattern ihrer Zauberbücher unbeschreiblich befriedigend. Hephernaan gehört da eindeutig dazu.~
@@ -502,37 +548,37 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1289 = 
 @1290 = 
 */
-@1291 = ~(Brandock takes a good look at the dropped spellbooks, seemingly interested in what he sees.)~
-@1292 = ~Oh yes. This spellbook is definitely interesting.~
+@1291 = ~(Brandock schaut sich die erbeuteten Zauberbücher aufmerksam an, sichtbar am Inhalt interessiert.)~
+@1292 = ~Oh ja. Dieses Zauberbruch ist definitiv interessant.~
 
 /* BGII */
 @3500 = ~Haus von Brandocks Cousin~
-@3501 = ~"Invisibility". Marked. You can turn to another page of the Book of Infinite Spells.~
-@3502 = ~"Protection From Evil". Marked. You can turn to another page of the Book of Infinite Spells.~
-@3503 = ~"True Seeing". Marked. You can turn to another page.~
-@3504 = ~"Farsight". Marked. You can turn to another page of the Book of Infinite Spells.~
-@3505 = ~"Spell Turning". Marked.~
-@3506 = ~"Wyvern Call". You can turn to another page of the Book of Infinite Spells.~
-@3507 = ~"Stinking Cloud". You can turn to another page.~
-@3508 = ~"Lightning Bolt". Marked. You can turn to another page of the Book of Infinite Spells.~
-@3509 = ~Ooh, some of the book shelves got blood stains. That's a shame... There are some quite interesting books here. I'd like to return here when the keep is cleared.~
-@3510 = ~Hmm. This mage had some intresting spells in his spellbook.~
-@3511 = ~This mage was not bad. Her spellbook surely is interesting.~
-@3512 = ~This mage was not bad at all! I'll have a quick glance at his spellbook.~
-@3513 = ~I'll have a look at this mage's spellbook.~
-@3514 = ~Oh dear. I'll have a look at his spellbook - now that he doesn't need it any more.~
-@3515 = ~Nothing to learn from these spellbooks... at least for me. That's disappointing.~
-@3516 = ~I learn nothing from this spellbook. (sigh)~
-@3517 = ~At least her spellbook is useful.~
-@3518 = ~Finally a mage whos spellbook is a joy to read - and I feel like trespassing while doing it. I feel bad for the man and what happened to him - regardless of all the evil it caused.~
-@3519 = ~Nothing to learn from this spellbook. Why do you even attack if you are such a low level!~
-@3520 = ~No - nothing to learn from this spellbook. (sigh)~
+@3501 = ~"Unsichtbarkeit". Markiert. Ihr könnt nun zu einer anderen Seite des Buch der Unendlichen Zauber blättern.~
+@3502 = ~"Schutz vor Bösem". Markiert. Ihr könnt nun zu einer anderen Seite des Buch der Unendlichen Zauber blättern.~
+@3503 = ~"Wahrer Blick". Markiert. Ihr könnt nun zu einer anderen Seite blättern.~
+@3504 = ~"Fernsicht". Markiert. Ihr könnt nun zu einer anderen Seite des Buch der Unendlichen Zauber blättern.~
+@3505 = ~"Zauber zurückwerfen". Markiert.~
+@3506 = ~"Lindwurmruf". Ihr könnt nun zu einer anderen Seite des Buch der Unendlichen Zauber blättern.~
+@3507 = ~"Stinkende Wolke". Ihr könnt zu einer anderen Seite blättern.~
+@3508 = ~"Blitzstrahl". Markiert. Ihr könnt zu einer anderen Seite des Buch der Unendlichen Zauber blättern.~
+@3509 = ~Ooh, manche der Bücher haben Blutspritzer abbekommen. Das ist sehr schade... Es gibt hier ein paar sehr interessante Bücher. Ich würde gern noch einmal hierher zurückkehren, wenn die Festung befreit ist.~
+@3510 = ~Hmm. Dieser Magier hatte einige interessante Zauber in seinem Zauberbuch.~
+@3511 = ~Diese Magierin war nicht schlecht. Ihr Zauberbuch ist sehr interessant.~
+@3512 = ~Dieser Magier war absolut nicht schlecht! Ich werde einen schnellen Blick in sein Zauberbuch werfen.~
+@3513 = ~Ich werde einen Blick in das Zauberbuch unseres Gegners werfen.~
+@3514 = ~Oje. Ich werfe dann mal einen Blick in sein Zauberbuch - da er es jetzt nicht mehr braucht.~
+@3515 = ~Aus diesen Zauberbüchern kann ich nichts lernen - wie enttäuschend.~
+@3516 = ~Aus diesem Zauberbuch kann ich nichts lernen. (seufz)~
+@3517 = ~Zumindest ist ihr Zauberbuch nützlich.~
+@3518 = ~Endlich ein Zauberbuch, welches eine Freude zu lesen ist - und ich fühle mich wie ein Eindringling, dass ich es in Händen halte. Der Mann und was ihm geschah tut mir Leid - unabhängig zu all' dem Übel, das geschehen ist.~
+@3519 = ~Nichts zu lernen aus diesem Zauberbuch! Warum greift Ihr denn überhaupt an, wenn Ihr so wenig Erfahrung habt!~
+@3520 = ~Nein - nichts zu lernen aus diesem Zauberbuch. (seufz)~
 
 /* Lines that are used at several places, also in d-files */
 
-@100285 = ~Hey, Brandock. What'cha think? I found a teacher for my magic skills in Duke Jannath. Jeeeeealous?~
-@100286 = ~Jealous? Me? Because you found an influencial, well-known, acknowledged teacher for learning and improving your magical skills?~
-@100287 = ~(nods teasingly) U-hu!~
-@100288 = ~Huh?~
-@100289 = ~Not any more, Imoen... I am so much farther than back then when I was pondering which mage could be my teacher. So much farther. Back *then*, though - back *then* I would have been jealous as *hell*.~
+@100285 = ~Heh, Brandock. Und, was denkt Ihr? Ich habe in Herzogin Jannath eine Mentorin für mein magisches Training gefunden. Naaaaaeidisch?~
+@100286 = ~Neidisch? Ich? Weil Ihr eine einflussreiche, bekannte, versierte Lehrerin zum Verbessern Eurer magischen Fähigkeiten gefunden habt?~
+@100287 = ~(Imoen nickt aufziehend.) M-hm!~
+@100288 = ~Hä?~
+@100289 = ~Nicht mehr, Imoen... Ich bin mittlerweile so viel weiter als damals, als ich mir überlegte, ob ich einen Magier als Lehrer finden würde. So viel weiter. Aber *damals*, also *damals* wäre ich *unendlich* neidisch gewesen.~
 @100290 = ~Ha!~

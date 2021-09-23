@@ -1,28 +1,28 @@
-@0    = ~Brage... To kill one's family while under such an evil influence. What a thought. What a horrible, awful, *terrifying* thought. I... I am truly sorry for your loss.~ [c#ablank]
-@1    = ~I thank you, Brandock.~
-@2    = ~I wonder if the righteous, the friendly, the steadfast, fall prey to such magic more easily? Is the effect of corruption stronger for them than for the murderous ones? Imagine an evil blackguard, full of lust for the slaughter taking up such a weapon. Would anyone even *notice*?~
-@3    = ~I hope you don't see this as a laughing matter. Although... the thought had crossed my mind. But it would be self-righteous of me to look for an explanation. I made a mistake... a lot of mistakes.~
-@4    = ~I'm sorry, Brage. I'm just shocked by what happened. I keep on going over it in my mind which seems to produce these thoughts... to distract me from the horrors.~
+@0    = ~[Brandock]Brage... To kill one's family while under such an evil influence. What a thought. What a horrible, awful, *terrifying* thought. I... I am truly sorry for your loss.~ [c#ablank]
+@1    = ~[Brage]I thank you, Brandock.~
+@2    = ~[Brandock]I wonder if the righteous, the friendly, the steadfast, fall prey to such magic more easily? Is the effect of corruption stronger for them than for the murderous ones? Imagine an evil blackguard, full of lust for the slaughter taking up such a weapon. Would anyone even *notice*?~
+@3    = ~[Brage]I hope you don't see this as a laughing matter. Although... the thought had crossed my mind. But it would be self-righteous of me to look for an explanation. I made a mistake... a lot of mistakes.~
+@4    = ~[Brandock]I'm sorry, Brage. I'm just shocked by what happened. I keep on going over it in my mind which seems to produce these thoughts... to distract me from the horrors.~
 
 /* new for vBeta 7 */
-@5    = ~Brage... To kill one's family while under such an evil influence... I already said to <CHARNAME>, what a horrible, terrifying thought. I am truly sorry for your loss.~ [c#ablank]
-@6    = ~I also wondered whether the righteous and steadfast would fall prey to such magic more easily - whether the effect of corruption is stronger for them than for the murderous ones like an evil blackguard, who's behavior might not even *change* after picking up such a sword...~
-@7    = ~I don't see this as a laughing matter at all, although I do agree that where my mind wanders is a bit hard to follow for other people sometimes...~
-@8    = ~Brage, let me stress - all I see in you is a righteous man who was struck by evil fate without his own doing. And I see a man who tries and would give everything to make up for what happened. I... I'm noone to grant you absolution, but to me, you do not have to be ashamed of anything that happened.~
-@9    = ~I appreciate your words, Brandock.~
-@10   = ~The only thing that will noone take from you is the grieve you will be burdened with for the rest of your live. Er. That wasn't very comforting and rather insensitive of me to say...~
-@11    = ~It is the simple truth, and there is no harm in phrasing it in words. I see what you are trying to say, and I thank you for your kind words, Brandock. They were comforting - as much as it is possible for words after what my hands did...~
+@5    = ~[Brandock]Brage... To kill one's family while under such an evil influence... I already said to <CHARNAME>, what a horrible, terrifying thought. I am truly sorry for your loss.~ [c#ablank]
+@6    = ~[Brandock]I also wondered whether the righteous and steadfast would fall prey to such magic more easily - whether the effect of corruption is stronger for them than for the murderous ones like an evil blackguard, who's behavior might not even *change* after picking up such a sword...~
+@7    = ~[Brandock]I don't see this as a laughing matter at all, although I do agree that where my mind wanders is a bit hard to follow for other people sometimes.~
+@8    = ~[Brandock]Brage, let me stress - all I see in you is a righteous man who was struck by evil fate without his own doing. And I see a man who tries and would give everything to make up for what happened. I... I'm noone to grant you absolution, but to me, you do not have to be ashamed of anything that happened.~
+@9    = ~[Brage]I appreciate your words, Brandock.~
+@10   = ~[Brandock]The only thing that will noone take from you is the grieve you will be burdened with for the rest of your live. Er. That wasn't very comforting and rather insensitive of me to say.~
+@11    = ~[Brage]It is the simple truth, and there is no harm in phrasing it in words. I see what you are trying to say, and I thank you for your kind words, Brandock. They were comforting - as much as it is possible for words after what my hands did...~
 @12    = ~[Brage]Brandock... I like the way you deal with magic.~
 @13    = ~[Brandock]You mean the way I mistreat and lose my valuable magic possessions?...~
 @14    = ~[Brandock]You mean the way I mistreat and lose my valuable magic possessions and tamper with wild magic I don't understand?...~
 @15    = ~[Brandock]I'm... I'm sorry, I didn't think before talking. I shouldn't let my self-pity and sarcasm out on you.~
-@16    = ~[Brage]You are a curious mind, Brandock, and you are young and inexperienced. Believe me, this is always a dangerous mixture - some do not survive it. You made mistakes and had bad luck, but I do not see the degree of recklessness and arrogance that would make me fear for your life - and our safety. On the contrary.~
+@16    = ~[Brage]You have a curious mind, Brandock, and you are young and inexperienced. Believe me, this is always a dangerous mixture - some do not survive it. You made mistakes and had bad luck, but I do not see the degree of recklessness and arrogance that would make me fear for your life - and our safety. On the contrary.~
 @17    = ~[Brandock]You mean the way I tamper with wild magic I don't understand?...~
 @18    = ~[Brage]You strive to learn - to *understand* magic, while at the same time knowing how dangerous it is. This is a good approach for a profession that has potential for such powerful - and destructive - outcomes.~
 @19    = ~[Brandock]I thank you, Brage. I... I strive to understand what I'm doing *before* becoming too powerful...~
 @20    = ~[Brage]Brandock, I can only stress what I said recently. Magic is dangerous and needs to be kept under control. To do so we need to know what we are dealing with. Your ability to identify unknown magic is of utmost importance to us to keep us safe.~
 @21    = ~[Brandock]Yes, I can assure you that I do not wish us to repeat what happened to you... I am so sorry, that was rather insensitive of me to say.~
-@22    = ~[Brage]But it is true... it is true what you are saying. You are only phrasing out loud what I thought in my mind. Would we only have had a mage in the Nashkel Guard, all this might not have happened...~
+@22    = ~[Brage]But it is true - it is true what you are saying. You are only phrasing out loud what I thought in my mind. Would we only have had a mage in the Nashkel Guard, all this might not have happened...~
 @23    = ~[Brandock]Brage, I do get what you were saying. Everyone contributes to this group according to his or her prowess. For me it is magic, for you it is with your weapon. I also feel much safer next to your sword when we are in the wilderness.~
 @24    = ~[Brage]Yes, it is my intention to keep harm from us by the use of this sword. (sighs heavily) And yet good people died because they trusted in it...~
 @25    = ~[Brandock]And they were only wrong because evil magic overwhelmed you. I'll do anything in my power to keep evil magic from you, Brage. I swear!~
@@ -33,24 +33,24 @@
 @30    = ~[Brandock]Oh, but... but you are right about my physiology lacking any strength. And my mind - calling me weak is not an insult, it's an understatement...~
 @31    = ~[Brage]Brandock, your mind is not weak! You might be insecure, yes, but never weak! As I said, I misjudged you, and greatly. I looked at you as the former commander I were, and saw a man who would not last the blows of a foe. But how wrong was I to judge you so.~
 @32    = ~[Brage]You are insecure - but you are also cautious. You are inexperienced - but you are well aware of it and free of the arrogance of the ignorant that brings so much peril and evil to this world.~
-@33    = ~[Brage]You are a responsible, reliable person, Brandock. You deal with magic like a smith with fire - understanding its potential as well as knowing about the potential dangers, always learning how to approach and tame it not to threaten you or anyone else.~
+@33    = ~[Brage]You are a responsible, reliable person, Brandock. You deal with magic like a smith with fire - understanding its potential as well as knowing about the dangers, always learning how to approach and tame it not to threaten you or anyone else.~
 @34    = ~[Brandock]I don't know what to say, Brage. I can't blame you for those first thoughts of yours, but hearing what your opinion about me turned into leaves me speechless with emotion. I am moved. Deeply. Not that it takes much to impress me and leave me speechless, but... Thank you, Brage. This means a lot to me.~
 @35    = ~[Brage]I see your continuous search for more wisdom to be able to tame the beast that is arcane magic and it fills my heart with joy to watch it, Brandock.~
-@36    = ~I meant to phrase this for a long time now: Let me give you back what you said recently. I will watch over your physical integrity as best I can. I will take the blows that would strike you down and this sword arm will fight to keep you out of harm's way.~
-@37    = ~[Brandock]I thank you for your kind words, Brage. I mean what you are saying now, not what you thought about me when first we met... I appreciate your words very much. And I will do all in my best so your sword arm won't be corrupted by evil magic again... Argh, I can't believe I keep on bringing that up. I *meant* well by saying that, Brage, I swear!...~
+@36    = ~[Brage]I meant to phrase this for a long time now: Let me give you back what you said recently. I will watch over your physical integrity as best I can. I will take the blows that would strike you down and this sword arm will fight to keep you out of harm's way.~
+@37    = ~[Brandock]I thank you for your kind thoughts, Brage. I mean the ones you are phrasing now, not what you thought about me when first we met, ahem. I appreciate your words very much. And I will do my best so your sword arm won't be corrupted by evil magic again... Argh, I can't believe I keep on bringing that up. I *meant* well by saying that, Brage, I swear!~
 @38    = ~[Imoen, met Minsc and Dynaheir]Brage and Brandock, you were so sweet recently, assuring each other to keep each other safe. Does that mean you are warrior and witch now, like Minsc and Dynaheir?~
 @39    = ~[Brage]Imoen - Brandock and I are not on a quest for some maturing ritual - but I am sure you knew that and only wanted to make fun of us.~
 @40    = ~[Brandock]Yes, Imoen - not fair. At all. And you know very well why!...~
 @41    = ~[Imoen]I'm sorry, Brandock. I know you aren't a woman. Calling you a witch is probably...~
-@42    = ~[Brandock]What? No! I have absolutely no problem with that. But we will never be like Minsc and Dynaheir. Not because Dynaheir is probably 100 times wiser and more deliberate than me but because - Brage doesn't have a fluffy giant miniature space hamster! And probably never will have one!~
+@42    = ~[Brandock]What? No! I have absolutely no problem with that. But we will never be like Minsc and Dynaheir. Not because Dynaheir is probably 100 times wiser and more deliberate than me but because - Brage doesn't have a fluffy giant miniature hamster! And probably never will have one!~
 @43    = ~[Imoen]Oh the gods! Hahahaha! Yes, that's a *major* flaw I didn't even think of! This won't do at *all*!~
 @44    = ~[Imoen, in case there are little hamsters from "Many little Paws" bgqe quest]At least keep one of these, Brage. Just one! You won't be a real warrior to protect your witch without a cuddly hamster in your pocket.~
 @45    = ~[Brage, in case there are little hamsters from "Many little Paws" bgqe quest](sigh)~
 @46    = ~[Brandock]Brage, hearing you say what you said to me recently - you of all people, after what magic did to you - means a lot to me.~
-@47    = ~And not only because you promised to take the blows intended for me - although that of course is also a very nice to hear, ahem.~
+@47    = ~[Brandock]And not only because you promised to take the blows intended for me - although that of course is also a very nice to hear, ahem.~
 @48    = ~[Brage]Having you in this group gives me a feeling of security I cherish and do not want to lose, Brandock. Never would I have thought so possible. I might have said I wished for a mage in the Nashkel Guard but truth be told - he or she would have had a difficult stand amongst the soldiers, and me as the commander would have been amongst the most sceptical.~
-@49    = ~(sigh) This of course also originates from how the Cowled Wizards manage magic affairs in southern Amn, with own rules not being subject to the governmental authorities...~
-@50    = ~Well, magic and mages have a difficult stand in Amn in general, and that's where we originate from, so it's only natural that you share the Amnian mistrust against mages, and the way the Coweld Wizards seem to be above the governmental law is not reassuring to say the least - er, what I meant to say is I have *absolutely* no idea what you are talking about, of course.~
+@49    = ~[Brage](sigh) This of course also originates from how the Cowled Wizards manage magic affairs in southern Amn, with own rules not being subject to the governmental authorities...~
+@50    = ~[Brandock]Well, magic and mages have a difficult stand in Amn in general, and that's where we originate from, so it's only natural that you share the Amnian mistrust against mages. The way the Coweld Wizards seem to be above the governmental law is not reassuring to say the least - er, what I meant to say is I have *absolutely* no idea what you are talking about, of course.~
 @51    = ~[Valerie, if present]You don't have to put a gag onto yourself if criticizing Coweld Wizards, Brandock. There is indeed some things that could use improvement.~ 
 @52    = ~[Brandock, if Valerie is present]The problem is that I don't think it's just *some* things, Valerie.~
 @53    = ~[Brage](smiles) We need mages like you in Amn, Brandock. The more the better.~
@@ -58,9 +58,5 @@
 @55    = ~[Brage]Brandock, the Coweld Wizards will see that they need you. They would be blind if not. And fools - if you succeed in your quest to become a well-versed mage, they won't have a choice but to accept you amongst their powerful.~
 @56    = ~[Brage]Because that is the truth - I might be stronger than you today, and you need protection now. But this will change soon enough when you increase your arkane powers. Not too long from now we might meet foes my sword will not be able to harm unless you make it possible. My hope - my *believe* is that you will not forget where you came from, and what your goals are now.~
 @57    = ~[Brandock]Thank you for your words of encouragement, Brage. I will definitely strive to remain the responsible person I am - not only because I promised and mean it now but because it is who I *am*, at least I hope so. I do not wish to lose myself, no matter how desparate I am to be accepted amongst the Cowled Wizards one day!~
-@58    = ~[Brage]I'm glad we identified them in time. Thank you, Brandock... for keeping such a sharp eye on this.~
+@58    = ~[Brage]I'm glad we identified them in time. Thank you, Brandock - for keeping such a sharp eye on this.~
 @59    = ~[Brandock]You're very welcome, Brage. My... my urge for self-preservation won't ever let me do otherwise.~
-/*
-@60    = 
-*/
-

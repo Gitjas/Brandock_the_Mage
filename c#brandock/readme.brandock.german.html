@@ -46,9 +46,9 @@
 		<li><a href="#generalcontent">Generelles</a> </li>
         <li><a href="#where">Wo man Brandock trifft</a> </li>
 		<li><a href="#content">Beschreibung</a> </li>
-		<li><a href="#7th">7.Gruppenmitglied</a> </li>
 		<li><a href="#stats">Brandocks Eigenschaften und Portrait</a> </li>
 		<li><a href="#spoiler">Walkthrough / Spoilers</a> </li>
+		<li><a href="#7th">7.Gruppenmitglied</a> </li>
       </ul> 
     </li> 
     <li><a href="#issues">Bekannte Probleme</a></li> 
@@ -107,7 +107,7 @@ Brandock Mod installieren BEVOR den folgenden Mods: Grey der Hund.<br />
 <h2> <a name="generalcontent" id="generalcontent">Generelles</a></h2>
 Hinweis: Bisher enth&auml;lt die Mod offiziell nur Inhalte f&uuml;r BG1. Brandock sollte aber auch in SoD voll funktionsf&auml;hig sein und auf die meisten Spielereignisse reagieren, allerdings nur auf Englisch. Ebenfalls nur auf Englisch sind die bisherigen BGII.Inhalte: Brandock kann aufgenommen werden, hat einen Epilog und reagiert auf den Sph&auml;renquest und die Magierstronghold.<br /> 
 Brandock ist ein Magier NPC f&uuml;r Baldur's Gate. In BG1 kann Brandock im Norden der K&uuml;stenstra&szlig;e getroffen werden, wo er nach Hilfe sucht, um einen Oger zu bek&auml;mpfen, der vor einer H&ouml;hle kampiert, in der sich Brandocks verlorene Besitzt&uuml;mer befinden. Wenn er in der Gruppe ist, wenn Melicamp das Huhn zur&uuml;ck zu Thalantyr gebracht wird, kann es zu einem Zwischenfall kommen, der Brandock aus der Gruppe entfernt, bis Melicamp zur&uuml;ckverwandelt wurde.<br />
-Brandock interessiert sich für das Wissen in magischen B&uuml;chern und erh&auml;lt einen Bonus auf Sagenkunde, wenn er sie studieren darf. Er ist freundlich und hilfreich, aber bis er sich &ouml;ffnet und erz&auml;hlt, wo er herkommt und warum er an der Schwertk&uuml;ste unterwegs ist dauert ein bisschen, aus Gr&uuml;nden, die er dann mehr als bereitwillig erkl&auml;rt.<br />
+Brandock interessiert sich f&uuml;r das Wissen in magischen B&uuml;chern und erh&auml;lt einen Bonus auf Sagenkunde, wenn er sie studieren darf. Er ist freundlich und hilfreich, aber bis er sich &ouml;ffnet und erz&auml;hlt, wo er herkommt und warum er an der Schwertk&uuml;ste unterwegs ist dauert ein bisschen, aus Gr&uuml;nden, die er dann mehr als bereitwillig erkl&auml;rt.<br />
 Die Mod besteht aus einer Hauptkomponente und einer optionalen Komponente mit einer Auswahl von 3 alternativen Portraits f&uuml;r Brandock. Die Portraits sind weiter unten abgebildet.<br />
 
 <h2> <a name="where" id="where">Wo man Brandock trifft</a></h2>
@@ -120,14 +120,10 @@ Brandock hat Freundschaftsdialoge, eigene Quests, Banter mit einigen NPCs und Sp
 <br />
 Brandock ist sehr an magischem Wissen in Form von B&uuml;chern interessiert. In jeder Bibliothek und B&uuml;chersammlung, die man im Spiel so findet, wird er darum bitten, sich diese ansehen zu d&uuml;rfen. Wird ihm dies vom HC erluabt, dann erh&auml;lt er einen Bonus auf Sagenkunde.<br />
 
-<h2> <a name="7th" id="7th">7. Gruppenmitglied</a></h2>
-Wenn Ihr einen Gruppenslot f&uuml;r einen anderen NPC ben&ouml;tigt, dann kann Brandock auch als sogenanntes "7. Gruppenmitglied" folgen. Hierf&uuml;r muss er normal aus der Gruppe geworfen werden. Wenn er dann fragt, was Ihr von ihm wollt, dann sagt ihm, dass er weiter hinten folgen soll. Vom Scripting her erh&auml;lt er dann einen &auml;hnlichenn Status wie ein Familiar, das hei&szlig;t er folgt dem HC bei Gebietswechseln &uuml;berall hin, leider auch in Traumsequenzen oder andere Cutscenes. Als 7. Gruppenmitglied kann Brandock Befehle gegeben werden und es kann auf seine Quickslots und Zauber zugegriffen werden. Er muss normal in die Gruppe aufgenommen werden, um hochzuleveln oder um seine Items und Zauberslotbelegungen zu managen. Alle seine Dialoge, Banter und Einmischdialoge werden normal getriggert.<br />
-Um ihn wieder normal in die Gruppe aufzunehmen, sprecht ihn an und w&auml;hlt in den PID-Optionen, dass Ihr Zugang zu seinem Inventar braucht. Dann wird Brandock der Gruppe wieder als normales Mitglied beitreten. Wenn dies durch Dr&uuml;cken der Pausetaste entsprechend zeitlich optimiert wird, dann kann das Management seines Inventars und sein Aufsteigen so erledigt werden, dass ein anderer NPC daf&uuml;r nicht permanent aus der Gruppe entlassen werden muss, sondern dieser wieder in die Gruppe aufgenommen werden kann, wenn er seinen "Kickout"-Dialog startet.<br />
-W&auml;hrend Brandock als 7. Gruppenmitglied folgt, kann er nicht sterben, sondern verbleibt bei 1LP. Fallen seine LP in einem Kampf auf 1 LP dann f&auml;llt er in Ohnmacht und wird "neutral" (blauer Kreis), so dass Feinde ihn nicht weiter als Angriffsziel wahrnehmen. Ihn in diesem Zustand zu heilen &auml;ndert nichts daran, dass er au&szlig;er Gefecht gesetzt ist. Erst nach dem Kampf steht Brandock wieder auf. Aus technischen Gr&uuml;nden wird er vollst&auml;ndig geheilt, bevor er wieder in den 7. Gruppenmitglieds-Modus wechselt. Dies hat mit der Spielengine zu tun und wie sie die LP der Gruppenmitglieder berechnet (Brandock k&ouml;nnte sonst unter Umst&auml;nden an diesem Punkt sterben, wenn die HP zu niedrig sind, obwohl er eigentlich nicht tot war).<br />
-Das Ohn&auml;chtigwerden im Kampf kann verhindert werden, indem Brandock rechtzeitig geheilt wird. &Uuml;ber PID kann ihm gesagt werden, dass er warnen soll, bevor er diesen Punkt erreicht, dann wird das Spiel pausiert wenn Brandock droht, zu wenig LP zu haben. Dies scheint in BGT aber nicht zu funktionieren.<br />
-
 <h2> <a name="stats" id="stats">Brandocks Eigenschaften und Portrait</a></h2>
-Wenn man Brandock in BG1 trifft, ist er ein Magier der Stufe 1 mit den Zaubern "R&uuml;stung", "Brennende H&auml;nde", "Person Bezaubern", "Schutz vor Versteinerung", "Identifizieren", "Magisches Geschoss" und "Chromatische Kugel" im Zauberbuch. Sollte der HC mehr XP haben als Brandock, dann werden Brandocks Erfahrungspunkte beim Beitreten zur Gruppe hochgelevelt. Aufgrund der 7. Gruppenmitglieds-M&ouml;glichkeit erfolgt dies jedes mal, wenn Brandock der Gruppe beitritt.<br /><br />
+Wenn man Brandock in BG1 trifft, ist er ein Magier der Stufe 2 mit den Zaubern "R&uuml;stung", "Brennende H&auml;nde", "Person Bezaubern", "Schutz vor Versteinerung", "Identifizieren", "Magisches Geschoss", "Chromatische Kugel", "Furcht Bannen", "Spiegelbild" und "Schlaf" im Zauberbuch.<br />
+Bei einem neuen SoD- oder BGII-Spiel erhält er entsprechend mehr Erfahrungspunkte und hat mehr Zauber im Zauberbuch. Auch seine Ausrüstung (Mantel, Kampfstab, Schleuder) ist beim Starten in SoD oder BGII entsprechend mächtiger.<br />
+ Sollte der HC mehr XP haben als Brandock, dann werden Brandocks Erfahrungspunkte beim Beitreten zur Gruppe hochgelevelt. Aufgrund der 7. Gruppenmitglieds-M&ouml;glichkeit erfolgt dies jedes mal, wenn Brandock der Gruppe beitritt.<br /><br />
 Brandocks Gesinnung ist Chaotisch Gut.<br /><br />
 Er hat folgende Eigenschaften:
       <ul> 
@@ -151,13 +147,49 @@ Brandocks Besitzt&uuml;mer zu finden startet einen Dialogzyklus, nach dem sein p
 Auch taut Brandock nach dem Finden seiner Sachen merklich auf, weil der HC hierdurch seine Pl&auml;ne f&uuml;r seinen Aufenthalt an der Schwertk&uuml;ste erf&auml;hrt, was viel Gespr&auml;chsstoff bietet.<br />
 <br />
 Wenn man Melicamp das H&uuml;hnchen mit Brandock in der Gruppe zu Thalantyr gebracht wird, m&ouml;chte Brandock ihm helfen. Der HC kann dies verbieten. L&auml;sst er Brandock gew&auml;hren, dann wird Brandock aus der Gruppe entfernt, bis Melicamp von Thalantyr zur&uuml;ckverwandelt wurde. Dieses Event ist zum Spielen der Mod nicht n&ouml;tig, aber f&uuml;r Brandocks pers&ouml;nliche Entwicklung interessant.<br />
+
+<h2> <a name="7th" id="7th">7. Gruppenmitglied</a></h2>
+Wenn Ihr einen Gruppenslot f&uuml;r einen anderen NPC ben&ouml;tigt, dann kann Brandock auch als sogenanntes "7. Gruppenmitglied" folgen. Hierf&uuml;r muss er normal aus der Gruppe geworfen werden. Wenn er dann fragt, was Ihr von ihm wollt, dann sagt ihm, dass er weiter hinten folgen soll. Vom Scripting her erh&auml;lt er dann einen &auml;hnlichenn Status wie ein Familiar, das hei&szlig;t er folgt dem HC bei Gebietswechseln &uuml;berall hin, leider auch in Traumsequenzen oder andere Cutscenes. Als 7. Gruppenmitglied kann Brandock Befehle gegeben werden und es kann auf seine Quickslots und Zauber zugegriffen werden. Er muss normal in die Gruppe aufgenommen werden, um hochzuleveln oder um seine Items und Zauberslotbelegungen zu managen. Alle seine Dialoge, Banter und Einmischdialoge werden normal getriggert.<br />
+Um ihn wieder normal in die Gruppe aufzunehmen, sprecht ihn an und w&auml;hlt in den PID-Optionen, dass Ihr Zugang zu seinem Inventar braucht. Dann wird Brandock der Gruppe wieder als normales Mitglied beitreten. Wenn dies durch Dr&uuml;cken der Pausetaste entsprechend zeitlich optimiert wird, dann kann das Management seines Inventars und sein Aufsteigen so erledigt werden, dass ein anderer NPC daf&uuml;r nicht permanent aus der Gruppe entlassen werden muss, sondern dieser wieder in die Gruppe aufgenommen werden kann, wenn er seinen "Kickout"-Dialog startet.<br />
+W&auml;hrend Brandock als 7. Gruppenmitglied folgt, kann er nicht sterben, sondern verbleibt bei 1LP. Fallen seine LP in einem Kampf auf 1 LP dann f&auml;llt er in Ohnmacht und wird "neutral" (blauer Kreis), so dass Feinde ihn nicht weiter als Angriffsziel wahrnehmen. Ihn in diesem Zustand zu heilen &auml;ndert nichts daran, dass er au&szlig;er Gefecht gesetzt ist. Erst nach dem Kampf steht Brandock wieder auf. Aus technischen Gr&uuml;nden wird er vollst&auml;ndig geheilt, bevor er wieder in den 7. Gruppenmitglieds-Modus wechselt. Dies hat mit der Spielengine zu tun und wie sie die LP der Gruppenmitglieder berechnet (Brandock k&ouml;nnte sonst unter Umst&auml;nden an diesem Punkt sterben, wenn die HP zu niedrig sind, obwohl er eigentlich nicht tot war).<br />
+Das Ohn&auml;chtigwerden im Kampf kann verhindert werden, indem Brandock rechtzeitig geheilt wird. &Uuml;ber PID kann ihm gesagt werden, dass er warnen soll, bevor er diesen Punkt erreicht, dann wird das Spiel pausiert wenn Brandock droht, zu wenig LP zu haben. Dies scheint in BGT aber nicht zu funktionieren.<br />
+<br />
+HINWEIS F&Uuml;R SPIELER:<br />
+Leider ben&ouml;tigt der "7. Gruppenmitglieds-Modus" im Spiel ein besonderes Handling, um alle Einschr&auml;nkungen zu ber&uuml;cksichtigen: 
+(Die Hinweise sind eine Mischung aus den vorhandenen Enginerestriktionen und den von mir verwendeten Workarounds.)<br />
+-Der NPC hat im 7.GM keinen "Clear Fog of War" um sich herum. Er kann also im "schwarzen" Bereich der Karte "verschwinden". (Wenn man die gesamte Gruppe anklickt und zu einer Stelle laufen l&auml;sst, wird er es ebenfalls versuchen, sofern er nicht irgendwo feststeckt o.&auml;. Dann hilft nur noch der Teleportationscheat "Strg+j" um die Gruppe wieder zu versammeln. Mir ist das so noch nicht geschehen, es ist aber theoretisch m&ouml;glich, wenn der NPC z.B. einen Feind verfolgt.)<br />
+-Items im Inventar werden *nicht* als Items im Besitz der Gruppe erkannt. Dies ist ein Engineproblem. Daraus folgt, dass Questitems die im Spiel ben&ouml;tigt werden, nicht im Inventar des NPCs sein sollten, wenn sie vom Questgeber erkannt werden sollen. Beispiele: Elvenhaars Buch, Ankhegpanzer f&uuml;r Taerom etc.<br />
+-Als "critical" getaggte Quest-Items werden beim Wechsel in den 7. GMM in das Inventar des HC verschoben. Dadurch landen eventuell Gegenst&auml;nde aus dem Inventar des HC auf dem Boden. Dies ist ein Engineproblem. Daraus ergibt sich, dass Ihr immer nach Wechsel des NPC in de 7.GMM nachschauen solltet, ob Items auf dem Boden gelandet sind!<br />
+-Wenn bei einem meiner Quests speziell f&uuml;r diesen NPC neue Items &uuml;bergeben werden, erscheinen diese immer im Inventar der Gruppe bzw. HC, auch wenn sie eigentlich der NPC erhalten soll. Dies ist ein Engineproblem. Auch wenn ich es so gescriptet haben sollte, dass die Gegenst&auml;nde schlussendlich im Inventar des NPCs sind, werden sie trotzdem &uuml;ber das Inventar des HC geh&auml;ndelt. Wie sonst auch im Spiel k&ouml;nnen auch hierbei Gegenst&auml;nde aus dem Inventar auf dem Boden gelandet sein.<br />
+-F&uuml;r meine NPCs habe ich versucht, bei den eigenen Questitems (auch wenn es sich um Originalitems des Spiels handelt, sofern sie f&uuml;r den Quest meines NPCs n&ouml;tig sind) diese auch im Inventar des NPC erkennen zu lassen. Das klappt mit folgenden Einschr&auml;nkungen:<br />
+-- Alle Items, um die es geht, werden &uuml;ber das Inventar das HC geh&auml;ndelt bevor sie entweder einem Questgeber gegeben oder von diesem erhalten wurden. Das bedeutet, dass andere Items auf dem Boden gelandet sein k&ouml;nnten.<br />
+-- Befand sich das weggebene Item in einem Nimmervollen Beutel (dazu z&auml;hle ich auch Edelsteinbeutel, Taschen f&uuml;r Flaschen etcpp.), dann wird das Item nicht entfernt. Es ist danach noch immer im Nimmervollen Beutel und kann Probleme bereiten, wenn der Quest nicht stabil gescriptet wurde (und davon ausgeht, dass das Item weg sein sollte).<br />
+-- 2. Problem mit Items im Nimmevollen Beutel: Befand sich das weggebene Item in einem Nimmervollen Beutel, dann st&uuml;rt aus unerfindlichen Gr&uuml;nden das Spiel ab, wenn der NPC danach wieder &uuml;ber die PID-Option als vollwertiges Mitglied in die Gruppe aufgenommen werden soll. Dieser "Absturzbug" l&auml;sst sich umgehen, indem das Spiel gespeichert und wieder geladen wird.<br />
+<br />
+
+HINWEISE F&Uuml;R MODDER / DAS SKRIPTEN DES 7.GMM:</br>
+-Damit der NPC im 7. GM nicht stirbt aber auch nicht als unsterblicher Tank zur Verf&uuml;gung steht verwende ich eine Kombination an Effekten und Skriptbefehlen falls die HP zu niedrig werden. Fragen dazu beantworte ich gerne.</br>
+-Wenn der NPC niedrige Lebenspunkte hat kann er sterben, wenn er wieder in die Gruppe aufgenommen wird. Ich verhindere das, indem er nach jedem Kampf wieder voll geheilt wird.</br>
+-Das enginebedingte Aufrufen der Banter im B.dlg beinhaltet keine Familiars, d.h. die Banter (bzw. Inhalte des B.dlg) m&uuml;ssen &uuml;ber Skript des NPCs "per Hand" getriggert werden.</br>
+-Die Rastdialog d.bcs wird ebenfalls nicht aufgerufen. Rastdialoge m&uuml;ssen zus&auml;tzlich in die des Player1d.bcs eingef&uuml;gt werden, damit sie getriggert werden k&ouml;nnen, wenn der NPC im 7. GMM ist.</br>
+-Das H&auml;ndeln der Dialoge muss von Hand erfolgen, also beim Verlassen der Gruppe zum Wechsel in den 7. GMM muss der Dialog des NPC auf den Joined J.dlg gesetzt werden, damit er an Dialogen etc. teilnehmen kann.</br>
+-Eine einfache Abfrage ob der NPC in der Gruppe ist (InParty("npcname")) reicht nicht aus, weil diese Abfrage f&uuml;r Familiars nicht g&uuml;ltig ist. Das gilt auch for das in der EE verl&auml;sslich funktionierende IfValidForPartyDialog().</br>
+-GiveItemCreate erzeugt das Item im Inventar des Player1 und des 7.GM, wenn der 7.GM als Empf&auml;nger angegeben wurde. Neue Items m&uuml;ssen also immer direkt (und nur) ins Inventar des Player1 gegeben werden.</br>
+-GiveItem vom 7. GM zu einem Questcharakter wird nicht ausgef&uuml;hrt. Der 7.GM muss also Items erst per Skriptbefehl ins Inventar des Player1 geben, von dort aus k&ouml;nnen Questcharaktere sie nehmen.</br>
+-Das Handling von Items &uuml;ber das Inventar des Player1 ist insofern auch vorteilhaft, als dass man nur aus dem Inventar der Gruppenmitglieder eine bestimmte Anzahl entfernen kann (TakePartyItemNum). Der 7.GM kann nur den ganzen Stack weiterreichen.</br>
 </div>
 
 <h1><a name="issues" id="issues">Bekannte Probleme</a></h1>
 <div class="section">
-In manchen Cutscenes und Traumsequenzen wird Brandock als 7. Gruppenmitglied ebenfalls dabei sein. Ich wei&szlig; bisher nicht, wie man das verhindert.</br>
+Nochmal in K&uuml;rze die wichtigsten Tips beim Spielen im 7. GMM zusammengefast:<br />
+-In manchen Cutscenes und Traumsequenzen wird Brandock als 7. Gruppenmitglied ebenfalls dabei sein. Ich habe vor, das in einer späteren Version für die mir bekannten Cutscenes zu beheben.</br>
+-Brandock hat keinen sogenannten "Clear Fog of War"-Effekt, wenn er als 7. Gruppenmitglied mitl&auml;uft. Das hei&szlig;t, dass das Gebiet, in dem er sich befindet, nicht gesehen werden kann und Brandock so im dunklen Bereich "verloren gehen" kann. Durch ein Zusammenrufen der Gruppe sollte er wieder im sichtbaren Bereich auftauchen, falls dies geschieht. (Der Grund hierf&uuml;r ist, dass die Engine nicht mehr als 8 Kreaturen pro Gebiet mit dieser Eigenschaft h&auml;ndeln kann - darin inbegriffen sind die 6 Gruppenmitglieder und eventuelle Cutscene-Spione!)</br>
+-Nach jedem Questereignis und nach dem Wechsel in den 7.GMM nochmal schauen, ob der HC Items aus dem Inventar verloren hat, die wieder vom Boden aufgelesen werden sollten.<br />
+-Es ist n&ouml;tig und auch zu empfehlen, nicht-kritische Questitems nicht im Inventar der 7. GM sondern in dem der normalen Gruppenmitglieder zu haben.<br />
+-Gegenstände im Inventar des 7. GM werden nicht erkannt, das heißt Questgeber reagieren, als hätte die Gruppe den Gegenstand nicht dabei. Für meine eigenen NPCs habe ich die modeigenen Questgegenstände zwar größtenteils über Skript auch in diesem Fall im Inventar des NPC erkennen lassen, aber auch das funktioniert nicht problemlos.</br>
+-Questitems aus Beuteln/Nimmervollen Taschen im Inventar des 7. GM nehmen, bevor man die entsprechenden Questgeber anspricht, um den "Absturzbug" zu verindern.<br />
+-Speichern, bevor ein 7. GM wieder in die Gruppe aufgenommen werden soll. Sollte das Spiel dann abst&uuml;rzen, den Spielstand neu laden. Damit sollte der Absturz nicht auftreten.<br />
 </br>
-Brandock hat keinen sogenannten "Clear Fog of War"-Effekt, wenn er als 7. Gruppenmitglied mitl&auml;uft. Das hei&szlig;t, dass das Gebiet, in dem er sich befindet, nicht gesehen werden kann und Brandock so im dunklen Bereich "verloren gehen" kann. Durch ein Zusammenrufen der Gruppe sollte er wieder im sichtbaren Bereich auftauchen, falls dies geschieht. (Der Grund hierf&uuml;r ist, dass die Engine nicht mehr als 8 Kreaturen pro Gebiet mit dieser Eigenschaft h&auml;ndeln kann - darin inbegriffen sind die 6 Gruppenmitglieder und eventuelle Cutscene-Spione!)</br>
 </div>
 
 <h1><a name="acknow" id="acknow">Danksagungen</a></h1>
@@ -213,20 +245,37 @@ This mod is also not developed, supported, or endorsed by BioWare, Black Isle St
 <h1><a name="version" id="version">Versionshistorie</a></h1>
 <div class="section">
 Version Beta 11:</br>
+- German version (BG1) completed.</br>
+- BG1 content completed. Only thing missing is more crossmod.</br>
+- Crossmod is now separate component.</br>
 - "Brandock scribes his first scroll" quest fixed.</br>
+- "Brandock Restores his Book" quest revised.</br>
 - Added more instances to "Lore Path".</br>
 - Fixed BG1 "go to Beregost" kickout option.</br>
 - Fixed comment on flooded mines: should not be doubled if Breagar is in party.</br>
 - Corrected "BrandockSpawn" variable in SoD.</br>
 - Typo corrections.</br>
 - Brandock should only comment on Jardak and/or Drelik's deaths if they indeed died.</br>
-- Interjection to bg1ub's "Mysterious vial" quest should be at the right state of Thalantyr's dialogue.</br>
+- Brandock should only comment on Delorna + Ithmeera + Helshara being dead if they indeed died.</br>
+- Dialogue about schlumsha the sewer slime king should trigger correctly.</br>
 - Added one more line to Brandock's dialogue after shape shifting in Candlekeep.</br>
+- Brandock's book case should not vanish in Irenicus' Dungeon.</br>
+- Cutscene at Thalantyr's shortened.</br>
+- The area for Cutscene at Thalantyr's should be empty afterwards.</br>
+- Brandock should not read Sunin's spell book twice / find a spell book with Joular.</br>
+- Crossmod interjection to bg1ub's "Mysterious vial" quest should be at the right state of Thalantyr's dialogue.</br>
 - Crossmod with BG1NPC (Imoen's tome) should not stutter.</br>
 - Crossmod with BST: finding spellbook of dead mage should lead to lore increase.</br>
+- Crossmod with Breagar should not skip 1,5 banter.</br>
+- Reworked Brandock's reaction to Cadlekeep to make it better compatible with Framed Mod.</br>
+- Added some Crossmod with Framed Mod.</br>
+- Brandock's book case now takes Miscellaneous items, too, to allow for quest books.</br>
+- Wrong "Slow Poison" spell removed from Brandock's spell book for new SoD or BGII game.</br>
+- Added missing InParty checks to trigger script blocks.</br>
 - Updated credits section.</br>
 - Changed instances of "OSX" to "macOS".</br>
 - Added globally unique LABELs to support Project Infinity.</br>
+- Added more notes about playing in 7th party member mode to readme.</br>
 </br>
 Version Beta 10:</br>
 - Fixed stutter for book restore quest.</br>

@@ -49,38 +49,38 @@ APPEND c#brandj
 
 
 IF ~Global("C#Brandock_SeeCandlekeep","GLOBAL",1)~ THEN seeing_candlekeep
-SAY @1060
-++ @1061 + seeing_candlekeep_01
-++ @1062 + seeing_candlekeep_02
-++ @1063 + seeing_candlekeep_03
-++ @1064 + seeing_candlekeep_04
+SAY @1060 /* ~Oh - my - ... (Brandock stopps talking and just stands there, looking at the towers of Candlekeep, mouth open.)~ */
+++ @1061 /* ~You've never actually seen it, have you?~ */ + seeing_candlekeep_01
+++ @1062 /* ~I agree it's quite impressive, now that I look at it from here.~ */ + seeing_candlekeep_02
+++ @1063 /* ~You alright?~ */ + seeing_candlekeep_03
+++ @1064 /* ~Great. If the walls from here already freeze your brain, then I don't want to know how we'll manage to actually approach the doors.~ */ + seeing_candlekeep_04
 END
 
 IF ~~ THEN seeing_candlekeep_01
-SAY @1065
-++ @1062 + seeing_candlekeep_02
-++ @1063 + seeing_candlekeep_03
-++ @1064 + seeing_candlekeep_04
+SAY @1065 /* ~No, never.~ */
+++ @1062 /* ~I agree it's quite impressive, now that I look at it from here.~ */ + seeing_candlekeep_02
+++ @1063 /* ~You alright?~ */ + seeing_candlekeep_03
+++ @1064 /* ~Great. If the walls from here already freeze your brain, then I don't want to know how we'll manage to actually approach the doors.~ */ + seeing_candlekeep_04
 END
 
 IF ~~ THEN seeing_candlekeep_02
-SAY @1066
-++ @1063 + seeing_candlekeep_03
-++ @1064 + seeing_candlekeep_04
+SAY @1066 /* ~It *is*, isn't it?~ */
+++ @1063 /* ~You alright?~ */ + seeing_candlekeep_03
+++ @1064 /* ~Great. If the walls from here already freeze your brain, then I don't want to know how we'll manage to actually approach the doors.~ */ + seeing_candlekeep_04
 END
 
 IF ~~ THEN seeing_candlekeep_03
-SAY @1067
+SAY @1067 /* ~Oh yes, yes, I am alright.~ */
 IF ~~ THEN + seeing_candlekeep_05
 END
 
 IF ~~ THEN seeing_candlekeep_04
-SAY @1068
+SAY @1068 /* ~Whut? Oh, yes, you are right.~ */
 IF ~~ THEN + seeing_candlekeep_05
 END
 
 IF ~~ THEN seeing_candlekeep_05
-SAY @1069
+SAY @1069 /* ~Isn't it *marvelous*? This is by far the most impressive monastery I've ever seen. Well, what am I saying. It's Candlekeep!~ */
 IF ~Global("C#BR_KnowGorionsDeath","GLOBAL",1) GlobalLT("Chapter","GLOBAL",%tutu_chapter_6%)~ + seeing_candlekeep_12
 IF ~Global("C#BR_KnowGorionsDeath","GLOBAL",1) !GlobalLT("Chapter","GLOBAL",%tutu_chapter_6%)~ + seeing_candlekeep_13
 + ~!Global("C#BR_KnowGorionsDeath","GLOBAL",1)~ + @1070 + seeing_candlekeep_06
@@ -97,7 +97,7 @@ SAY @324
 END
 
 IF ~~ THEN seeing_candlekeep_07
-SAY @1072
+SAY @1072 /* ~Gods, <CHARNAME>, and here I am, gaping at Candlekeep's towers in the distance, while you lost your father, your home... I am sorry for your loss!~ */
 + ~Global("C#BR_seeing_candlekeep_09","LOCALS",0)~ + @165 + seeing_candlekeep_11
 + ~Global("C#BR_seeing_candlekeep_09","LOCALS",1) GlobalLT("Chapter","GLOBAL",%tutu_chapter_6%)~ + @165 + seeing_candlekeep_12
 + ~Global("C#BR_seeing_candlekeep_09","LOCALS",1) !GlobalLT("Chapter","GLOBAL",%tutu_chapter_6%)~ + @165 + seeing_candlekeep_13
@@ -138,7 +138,8 @@ END //APPEND
 /* before chapter 6 */
 CHAIN
 IF ~~ THEN c#brandj seeing_candlekeep_12
-@1074
+@1097 /* And now we are here, in front of these impressive walls.~ */
+== c#brandj @1074 /* ~Are we going to the gates?~ */
 == c#brandj IF ~GlobalLT("C#Brandock_Dialog","GLOBAL",6)~ THEN @1075 
 == c#brandj IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",5)~ THEN @1077
 == c#brandj IF ~OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
@@ -147,7 +148,7 @@ END
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",2)~ EXIT
 
 
-/* chapter 6 */
+/* chapter 6 [or access via Framed mod] */
 CHAIN
 IF ~~ THEN c#brandj seeing_candlekeep_13
 @1078 DO ~SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",4)~ 
@@ -162,167 +163,61 @@ IF ~GlobalGT("C#Br_BookRestore","GLOBAL",5)~ THEN + approaching_candlekeep
 
 APPEND c#brandj 
 IF ~Global("C#Brandock_SeeCandlekeep","GLOBAL",3)~ THEN approaching_candlekeep
-SAY @1081
-++ @1082 + approaching_candlekeep_03
-++ @1083 + approaching_candlekeep_03
-++ @1084 + approaching_candlekeep_02
-++ @1085 + approaching_candlekeep_01
+SAY @1081 /* ~We are going to Candlekeep! We are going *into* Candlekeep!~ */
+++ @1082 /* ~Yes, we are, my friend!~ */ + approaching_candlekeep_03
+++ @1083 /* ~So it seems.~ */ + approaching_candlekeep_03
+++ @1084 /* ~We are going there on an official investigation, Brandock.~ */ + approaching_candlekeep_02
+++ @1085 /* ~Brandock, I need you as a mage in this group. Promise you will not turn into a knowledge seeking zombie in there.~ */ + approaching_candlekeep_01
 END
 
 IF ~~ THEN approaching_candlekeep_01
-SAY @1086
+SAY @1086 /* ~I... I promise I will behave in there, <CHARNAME>. Although I beg you, don't be too cruel on me once we are inside and I'll turn into an excited adolescent.~ */
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",4)~ EXIT
 END
 
 IF ~~ THEN approaching_candlekeep_02
-SAY @1087
-++ @1088 + approaching_candlekeep_06
-++ @1089 + approaching_candlekeep_04
-++ @1090 + approaching_candlekeep_05
-++ @1085 + approaching_candlekeep_01
+SAY @1087 /* ~Of... of course. Although spending a *little* bit of time there would be alright, no? Like... one afternoon. A few hours. *One* hour!~ */
++ ~Global("Chapter","GLOBAL",%tutu_chapter_6%)~ + @1088 /* ~Brandock, this is your chance. This book will give us entry, you have the needed seal and a gift to stay as a seeker.~ */ + approaching_candlekeep_06
+++ @1089 /* ~(smiles) I am sure we could arrange for an extra hour or two while we investigate the place.~ */ + approaching_candlekeep_04
+++ @1090 /* ~We'll see, Brandock.~ */ + approaching_candlekeep_05
+++ @1085 /* ~Brandock, I need you as a mage in this group. Promise you will not turn into a knowledge seeking zombie in there.~ */ + approaching_candlekeep_01
 END
 
 IF ~~ THEN approaching_candlekeep_03
-SAY @1091
-++ @1088 + approaching_candlekeep_06
-++ @1089 + approaching_candlekeep_04
-++ @1085 + approaching_candlekeep_01
+SAY @1091 /* ~Just like that...~ */ 
++ ~Global("Chapter","GLOBAL",%tutu_chapter_6%)~ + @1088 /* ~Brandock, this is your chance. This book will give us entry, you have the needed seal and a gift to stay as a seeker.~ */ + approaching_candlekeep_06
+++ @1089 /* ~(smiles) I am sure we could arrange for an extra hour or two while we investigate the place.~ */ + approaching_candlekeep_04
+++ @1085 /* ~Brandock, I need you as a mage in this group. Promise you will not turn into a knowledge seeking zombie in there.~ */ + approaching_candlekeep_01
 END
 
 IF ~~ THEN approaching_candlekeep_04
-SAY @1092
+SAY @1092 /* ~That would be fabulous!~ */
 IF ~~ THEN + approaching_candlekeep_05
 END
 
 IF ~~ THEN approaching_candlekeep_05
-SAY @1093
-++ @1088 + approaching_candlekeep_06
-++ @1085 + approaching_candlekeep_01
+SAY @1093 /* ~(sigh) This is all I ever wanted, entering Candlekeep. All I wanted and worked towards for months. And now, that it is so close... All I'd do in the tenday is working on the translation of the pages in Ruathlek in the De Simplex Magicae. I have no experience with the language so it would take me the whole time, I am sure. I wouldn't have the nerve to study anything else!~ */
+= @1098 /* And while it is a valid thing to do, I have Master Elvenhair's word that he'll help me translate it later. Surely he will understand that I feel obliged to accompany you? Candlekeep doesn't go anywhere, but I can't just abandon you and our tasks! */
+= @1103 /* ~Because... I would abandon you and your search, <CHARNAME>... the Sword Coast, even! My home land, Amn, in the coming war! And all that just to study a book...~ */
+= @1112 /* ~Arrrrgh I really hope some god is enjoying this, so there'd be at least someone having fun here.~ */
++ ~Global("Chapter","GLOBAL",%tutu_chapter_6%)~ + @1099 /* ~Are you sure you won't regret it later?~ */ + approaching_candlekeep_07
+++ @1096 /* I am sure he'll understand. He seemed quite interested in knowing what it says, too.~ */ + approaching_candlekeep_01
+++ @1085 /* ~Brandock, I need you as a mage in this group. Promise you will not turn into a knowledge seeking zombie in there.~ */ + approaching_candlekeep_01
 END
 
 IF ~~ THEN approaching_candlekeep_06
-SAY @1094
-++ @1095 + approaching_candlekeep_07
-++ @1096 + approaching_candlekeep_07
-++ @1097 + approaching_candlekeep_10
-++ @1098 + approaching_candlekeep_01
+SAY @1094 /* ~You really mean it? But what about your quest, what about my promise to support you? Candlekeep will stay right here and go nowhere... I guess.~ */
+IF ~~ THEN + approaching_candlekeep_05
 END
 
 IF ~~ THEN approaching_candlekeep_07
-SAY @1099
-IF ~~ THEN + approaching_candlekeep_08
-END
-
-IF ~~ THEN approaching_candlekeep_08
-SAY @1100
-++ @1101 + approaching_candlekeep_09
-++ @1102 + approaching_candlekeep_11
-++ @1098 + approaching_candlekeep_01
-END
-
-IF ~~ THEN approaching_candlekeep_09
-SAY @1103
-= @1104
-++ @1105 + approaching_candlekeep_13
-++ @1102 + approaching_candlekeep_11
-++ @1106 + approaching_candlekeep_11
-++ @1107 + approaching_candlekeep_13
-++ @1098 + approaching_candlekeep_01
-END
-
-IF ~~ THEN approaching_candlekeep_10
-SAY @1108
-IF ~~ THEN + approaching_candlekeep_07
-END
-
-IF ~~ THEN approaching_candlekeep_11
-SAY @1109
-IF ~~ THEN + approaching_candlekeep_12
-END
-
-IF ~~ THEN approaching_candlekeep_12
-SAY @1110
-IF ~~ THEN DO ~SetGlobal("C#Br_InsideCandlekeep","GLOBAL",1) SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",4)~ UNSOLVED_JOURNAL @10052 /* ~Brandock Wants to Restore his Book
-
-Brandock wants to stay in Candlekeep once we are inside - at least for a tenday. He'll support me with the investigation of the Iron Throne leaders, but once that's done, he will stay as a visitor and start working on translating the Ruathlek writing in his magic book.~ */ EXIT
-END
-
-IF ~~ THEN approaching_candlekeep_13
-SAY @1111
-= @1112
+SAY @1095 /* ~Oh, I'll most definitely regret it. But this is not how I anticipated coming here...~ */
+= @1104 /* ~(moans) The gods really think this is funny, don't they? I'd have all I wanted, right here... but can't grab it without feeling bad!~ */
 IF ~~ THEN + approaching_candlekeep_01
 END
 
 END //APPEND
 
-/* Gatewarden */
-I_C_T ~%tutu_var%GATEWA2~ 1 C#Brandock_GATEWA2_1
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1113
-== ~%tutu_var%GATEWA2~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1114
-END
-
-/* Brandock will ask the first appropriate monk about the books (will fire only once) */
-I_C_T ~%tutu_var%KARAN~ 3 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1116
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%BENDAL~ 2 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%BENDAL~ 3 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%BENDAL~ 4 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%BENDAL~ 5 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%PIATO~ 1 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%PIATO~ 2 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
-
-I_C_T ~%tutu_var%PIATO~ 3 C#Brandock_RuathlekBooks
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1115
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1119
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1117
-== ~%tutu_var%KARAN~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID) Global("C#Br_InsideCandlekeep","GLOBAL",1)~ THEN @1118
-END
 
 /* WILLIA & : CHARNAME on the buff */
 I_C_T ~%tutu_scriptbg%WILLIA%eet_var%~ 10 C#Brandock_WILLIA10
@@ -366,6 +261,9 @@ IF ~~ THEN DO ~SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",2)~ EXIT
 
 
 ADD_TRANS_ACTION TETHTO2 BEGIN 2 END BEGIN END ~SetGlobal("C#Brandock_KnowSarevokName","GLOBAL",1)~
+
+/* detect whether CHARNAME spoke to Arkanis and Deder */
+ADD_TRANS_ACTION ARKANI3 BEGIN 0 END BEGIN END ~SetGlobal("C#Brandock_MetArkanis","GLOBAL",1)~
 
 
 
@@ -430,7 +328,7 @@ APPEND c#brandj
 
 IF ~~ THEN candlekeep_catacombs_expelled_05
 SAY @1149
-IF ~~ THEN DO ~EraseJournalEntry(@10052) AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
 END
 
 END //APPEND
@@ -457,7 +355,7 @@ IF ~~ THEN c#brandj candlekeep_catacombs_expelled_08
 @1154
 == c#brandj IF ~GlobalGT("C#Brandock_Dialog","GLOBAL",6)~ THEN @1155
 END
-IF ~~ THEN DO ~EraseJournalEntry(@10052) AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~AddJournalEntry(@10053,QUEST) SetGlobal("C#Brandock_Expelled","GLOBAL",2)~ EXIT
 
 
 APPEND c#brandj
@@ -482,8 +380,10 @@ END
 
 IF ~~ THEN catacombs_doppelgangers_02
 SAY @1165
+= @1100
 + ~Global("C#Brandock_Tethtoril","GLOBAL",1)~ + @1166 + catacombs_doppelgangers_03
-+ ~!Allegiance("Arkanis",ENEMY)
++ ~Global("C#Brandock_MetArkanis","GLOBAL",1)
+!Allegiance("Arkanis",ENEMY)
 !Allegiance("Deder",ENEMY)
 OR(2)
 !Dead("Arkanis")

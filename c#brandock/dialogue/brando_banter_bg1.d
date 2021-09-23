@@ -141,7 +141,7 @@ EXIT
 /* Brandock - Xan 1 */
 
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -160,7 +160,7 @@ EXIT
 
 /* Brandock - Imoen 2 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -200,7 +200,7 @@ EXIT
 
 /* Brandock - Ajantis 2 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY])
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -220,7 +220,7 @@ EXIT
 
 /* Brandock - Xan 2 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -242,7 +242,7 @@ EXIT
 
 /* Brandock - Neera 4 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 Global("C#BR_KnowsAmn","GLOBAL",1) //After his home is revealed 
@@ -284,7 +284,7 @@ EXIT
 /* Brandock - Xan 3 */
 
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -324,7 +324,7 @@ EXIT
 
 /* Brandock - Imoen 3 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -369,7 +369,7 @@ EXIT
 /* Brandock - Xan 4 */
 
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -430,7 +430,7 @@ EXIT
 /* Brandock - Xan 5 */
 
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -450,7 +450,7 @@ EXIT
 
 /* Brandock - Neera 7 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 See("C#Brandock") See(Player1)
@@ -485,7 +485,7 @@ EXIT
 
 /* Brandock - Ajantis 7 */
 CHAIN
-IF WEIGHT #-1 
+IF  
 ~%BG1_BEFORE_TRANSITION%
 CombatCounter(0) !See([ENEMY]) 
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)

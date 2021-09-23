@@ -1,17 +1,8 @@
-/* known issues:
-
--c#thal: man sieht die Gruppe in der Ecke stehen...
-
-
-
-*/
-
-
 BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_11pre~ 
+VERSION ~Beta_11~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -349,20 +340,28 @@ ACTION_IF GAME_IS ~eet bgee~ THEN BEGIN
 /* ~A Fine Pair of Boots~ */
   ADD_JOURNAL TITLE (@10013) @10002 @10003 @10004 @10011 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Brandock Wants to Restore his Book~ */
-  ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10026 @10028 @10044 @10051 @10052 @10053 @10055 @10056 @10057 @10058 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10017) @10019 @10020 @10021 @10022 @10026 @10028 @10044 @10051 @10053 @10055 @10056 @10057 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Increase Brandock's Lore Wisdom~ */
-  ADD_JOURNAL TITLE (@10029) @10023 @10024 @10030 @10031 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10029) @10030 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Brandock's Scroll Scribing Skills~ */
   ADD_JOURNAL TITLE (@10007) @10012 @10050 @10054 @10062 @10063 @10064 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+END
+
+/* Journal Entries for BGII part ## */
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  ADD_JOURNAL @10014 @10018 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Brandock's Half-Ogre Troubles~ */
+  ADD_JOURNAL TITLE (@10010) @10071 @10072 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Brandock Wants to Restore his Book~ */
+  ADD_JOURNAL TITLE (@10017) @10058 @10059 @10060 @10061 @10068 @10078 @10079 @10080 @10081 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Increase Brandock's Lore Wisdom~ */
+  ADD_JOURNAL TITLE (@10029) @10023 @10024 @10031 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Brandock Changes the Book of Infinite Spells~ */
   ADD_JOURNAL TITLE (@10067) @10065 @10066 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* Funeral for Brandock's Cousin */
-  ADD_JOURNAL TITLE (@10025) @10027 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
-END
-
-/* Journal Entries for BGII part */
-ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
-  ADD_JOURNAL @10014 @10018 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+  ADD_JOURNAL TITLE (@10025) @10027 @10032 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Brandock's Scroll Scribing Skills~ */
+  ADD_JOURNAL TITLE (@10007) @10012 @10062 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 END
 
 
@@ -377,17 +376,21 @@ END
 ACTION_IF GAME_IS ~bgee eet bgt~ THEN BEGIN
 
 /* Give the ogre in AR2800 (Coastway) a unique DV (possessions quest) */
-COPY_EXISTING ~%tutu_scripto%GREUNSH.CRE~ ~override/%tutu_scripto%GREUNSH.CRE~
+COPY_EXISTING ~%tutu_scripto%GREUNSH.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~OGREUNSH~ #32 // script name / DV
 WRITE_EVALUATED_ASCII 0x268 ~%tutu_scriptw%TASIGHT~ #8 // Default script
 
+
+COPY_EXISTING ~%tutu_var%LENDAR.CRE~ ~override~
+WRITE_EVALUATED_ASCII 0x280 ~Lendarn~ #32 // script name / DV
+
 /* doppelgangers in Candlekeep: Shistal */
 ACTION_IF GAME_IS ~bgt bgee~ THEN BEGIN
-COPY_EXISTING ~%tutu_var%SHISTA.CRE~ ~override/%tutu_var%SHISTA.CRE~
+COPY_EXISTING ~%tutu_var%SHISTA.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~Shistal~ #32 // script name / DV
 
 /* doppelgangers in Candlekeep: Monk */
-COPY_EXISTING ~%tutu_var%POGHM9.CRE~ ~override/%tutu_var%POGHM9.CRE~
+COPY_EXISTING ~%tutu_var%POGHM9.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~POGHM9~ #32 // script name / DV
 END /* ~bgt bgee~ */
 END /* ~bgee eet bgt~ */
@@ -395,7 +398,7 @@ END /* ~bgee eet bgt~ */
 /* BG2 */
 /* Priest of Oghma in Temple (Docks District) */
 ACTION_IF GAME_IS ~tob bg2ee eet bgt~ THEN BEGIN
-COPY_EXISTING ~DOGHMA.CRE~ ~override/DOGHMA.CRE~
+COPY_EXISTING ~DOGHMA.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~DOGHMA~ #32 // script name / DV
 
 END /* BG2 */
@@ -467,7 +470,7 @@ ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_bg1.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter.tra~
 /* book restore quest: BG1 part */
-COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore.d~
+COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg1.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 /* Candlekeep reactions */
 COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_candlekeep.d~
@@ -1206,7 +1209,7 @@ SAY NAME2 @102 /* ~Durable Scroll of Pierce Shield~ */
 WRITE_BYTE 0x94 3 // charges
 
 
-/* book pages - Brandocks own book */
+/* book pages - the restored De Simplex Magicae */
 OUTER_SET BookString = RESOLVE_STR_REF (@114)
 APPEND itemdial.2da ~c#brbo01 %BookString% c#brbok1~ UNLESS ~c#brbo01~
 APPEND itemdial.2da ~c#brbo02 %BookString% c#brbok1~ UNLESS ~c#brbo02~
@@ -1230,9 +1233,9 @@ APPEND itemdial.2da ~c#brboA9 %BookString% c#brbok2~ UNLESS ~c#brboA9~
 APPEND itemdial.2da ~c#brboAA %BookString% c#brbok2~ UNLESS ~c#brboAA~
 
 COPY ~C#Brandock/items/c#brbo01.itm~ ~override/c#brbo01.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @104 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103
+SAY UNIDENTIFIED_DESC @104 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1246,10 +1249,11 @@ Saving Throw: 1/2
 
 A fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it - 1d6 points of damage for each level of experience of the spellcaster (up to a maximum of 10d6). The wizard points his finger and speaks the range (distance and height) at which the fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their saving throws each suffer full damage from the blast. Those who roll successful saving throws manage to dodge, fall flat, or roll aside, each receiving half.~ */
 SAY IDENTIFIED_DESC @104
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo02.itm~ ~override/c#brbo02.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @105 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @105 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1263,10 +1267,11 @@ Saving Throw: None
 
 This spell allows a mage to store spells and access them from his special ability button.  This ability, the sequencer, can store two spells to be released simultaneously,  both of which must be of 2nd level or lower.  A mage can only possess one minor spell sequencer at a time, and the sequencer may not be given to other players.  Once the sequencer is used, the special ability icon disappears.~ */
 SAY IDENTIFIED_DESC @105
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo03.itm~ ~override/c#brbo03.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @106 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @106 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1280,10 +1285,11 @@ Saving Throw: None
 
 When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature.  Here is a complete list of all the specific protection spells that are dispelled by breach:  Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy.   The combat protection spells dispelled by this spell are: Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magic Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle.  The target's magic resistance, if he has any, does not affect this spell.~ */
 SAY IDENTIFIED_DESC @106
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo04.itm~ ~override/c#brbo04.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @107 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @107 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1297,10 +1303,11 @@ Saving Throw: None
 
 This powerful abjuration spell causes any spells cast against the wizard to be absorbed and consumed.  This affects a total of 10 spell levels.  This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard as well as area effects that are stationary, such as cloud kill and stinking cloud.  As long as the spell is cast directly at the wizard it will be absorbed.  Something to note is that as long as there are levels remaining then the spell will be absorbed.  For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection.  It is not affected by a dispel magic.~ */
 SAY IDENTIFIED_DESC @107
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo05.itm~ ~override/c#brbo05.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @108 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @108 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1315,10 +1322,11 @@ Saving Throw: None
 
 Upon casting this spell the wizard causes all friendly creatures within the area of effect to be affected by the spell Improved Invisibility.  This spell is similar to the invisibility spell, but the recipient is able to attack, either by missile discharge, melee combat, or spellcasting, and remain unseen. Note, however, that there are sometimes telltale traces, a shimmering, so that an observant opponent can attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made his presence known).  Attacks against the invisible character suffer -4 penalties to the attack rolls, and the invisible character's saving throws are made with a +4 bonus.~ */
 SAY IDENTIFIED_DESC @108
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo06.itm~ ~override/c#brbo06.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @109 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @109 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1332,10 +1340,11 @@ Saving Throw: None
 
 With this spell, the conjurer can cajole an efreeti, a massive genie with powerful abilities, to leave the elemental plane of fire and enter the Prime Material.  The efreeti will serve for the duration indicated above, attacking the enemies of the conjurer.  Mages are warned to be careful of this spell, for a mistreated efreeti will turn on his master at the first available opportunity.~ */
 SAY IDENTIFIED_DESC @109
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo07.itm~ ~override/c#brbo07.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @110 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @110 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1349,10 +1358,11 @@ Saving Throw: Special
 
 This spell causes a giant disembodied hand to squeeze and constrict the target once per round for up to four rounds. It initially smashes the target for 3D6 damage with no save. The target is held. In the second round, the target can save vs. paralyzation at -2 to escape. If they fail to save, the hand does 4D6 damage. The following round, the target can save vs. paralyzation with no penalty. If they make the save, they are free to move, if they fail, the spell does 6D6 damage and holds them for 2 rounds. After the 4th round, the spell is finished. Magic resistance will stop the spell.~ */
 SAY IDENTIFIED_DESC @110
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo08.itm~ ~override/c#brbo08.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @111 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @111 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1366,10 +1376,11 @@ Saving Throw: None
 
 When this spell is cast it launches a massive attack on an enemy wizard's spell defenses.  The target's magic resistance will be lowered by 10% + 1% per level of the caster.  Next pierce shield will cancel one spell protection of any level.  For example, if this spell was cast by a 15th-level wizard the target creature would lose 25% magic resistance from his current total, reducing it to 0 if less than that remains, as well as cancelling one spell protection if the mage currently has one.  The list of spells that this includes is: Minor Spell Deflection, Minor Spell Turning, Spell Deflection, Minor Globe of Invulnerability, Spell Immunity, Globe Of Invulnerability, Spell Turning, Spell Shield, and Spell Trap.  Magic resistance does not effect this spell, nor do any of the spell protections.  The resistance remains lowered for 1 round per level of the caster.  It cannot be dispelled.~ */
 SAY IDENTIFIED_DESC @111
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo09.itm~ ~override/c#brbo09.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @112 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @112 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1383,10 +1394,11 @@ Saving Throw: Special
 
 This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2D10 damage. The victim can save at -4 vs. paralyzation to avoid being pinned. If they fail, the hand does 3D10 damage the next round. The victim can again save vs. paralyzation at -2. If they fail to save, the hand does a final 4D10 damage and disappears.~ */
 SAY IDENTIFIED_DESC @112
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brbo10.itm~ ~override/c#brbo10.itm~
-SAY NAME1 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY NAME2 @103 /* ~Brandock's Book of Durable Spells~ */
-SAY UNIDENTIFIED_DESC @113 /* ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+SAY NAME1 @103 /* ~De Simplex Magicae~ */
+SAY NAME2 @103 /* ~De Simplex Magicae~ */
+SAY UNIDENTIFIED_DESC @113 /* ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -1402,6 +1414,7 @@ Chain contingency channels some of the magical energy of the mage and releases i
 SAY IDENTIFIED_DESC @113
 
 /* book of Infinite Spells */
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 COPY ~C#Brandock/items/c#brboAA.itm~ ~override/c#brboAA.itm~
 SAY UNIDENTIFIED_DESC @115 /* ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
 
@@ -1453,7 +1466,7 @@ Saving Throw: None
 
 When this spell is cast, it creates a magical barrier around the recipient at a distance of one foot. The barrier moves with the recipient and has two major effects: First, all attacks made by evil or evilly enchanted creatures against the protected creature receive a penalty of - 2 to each attack roll, and second, any saving throws caused by such attacks are made by the protected creature with a +2 bonus.~ */
 SAY IDENTIFIED_DESC @117
-COPY ~C#Brandock/items/c#brboA3.itm~ ~override/c#brboA3.itm~
+WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
 SAY UNIDENTIFIED_DESC @118 /* ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
 
 Brandock changed the magic of the book, so now you can turn the pages back and forth - at least between the ones you opened for the original tome.
@@ -1646,9 +1659,6 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bgt.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 
-/* detection: did PC have Brandock's book case with him - will be behind the picture */
-  LAF extend_area_script STR_VAR area="aram00" top="C#Brandock/scripts/c#brando_bg2_ar0602.baf" END
-
 /* Brandock was dead but in party: resurrection and move to C#br03.are - ++has to be compiled AFTER c#brando_bg2_ar0602.baf */
   EXTEND_TOP ~ARAM00.bcs~   ~C#Brandock/scripts/c#brando_bg1_transition.baf~    EVALUATE_BUFFER
 END
@@ -1665,19 +1675,21 @@ END //~eet~
 /* transition from SoD to BGII for EET */
 /* [done] transition from SoD to BGII [done in dialogue after brandock received his letter ] */
 
-/* detection: did player1 take Brandock's book case with him? 
-## did EET change this to somewhere else like BGT? */
+/* detection: did player1 take Brandock's book case with him? */
 ACTION_IF GAME_IS ~eet~ THEN BEGIN
   LAF extend_area_script STR_VAR area="ar0602" bottom="C#Brandock/scripts/c#brando_bg2_ar0602_eet.baf" END
+END
 
-
+/* failsafe in case Brandock's books were stuck in PC's inventory (because item handling doesn't really work in 7th party member mode) and player has a tweak to import all items into BGII */
+ACTION_IF GAME_IS ~eet bgt~ THEN BEGIN
+  LAF extend_area_script STR_VAR area="ar0603" top="C#Brandock/scripts/c#brando_bg2_ar0603.baf" END
 END
 
 
-/* SoD */
+/* SoD and BG1 */
 
-/* messenger for Brandock's letter from home */
-ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+/* messenger -for Brandock's letter from home and - for letter from Thalantyr */
+ACTION_IF (GAME_IS ~bgee eet bgt~) THEN BEGIN
   COPY ~c#brandock/cre/c#brmess.cre~ ~override/c#brmess.cre~
 WRITE_ASCII 0x2cc ~c#brmess~  #8  // dialogue
 WRITE_ASCII 0x280 ~c#brmess~ #32  // death variable
@@ -1690,8 +1702,12 @@ WRITE_BYTE 0x30 16 // Leather color
 WRITE_BYTE 0x31 30 // Armor color
 WRITE_BYTE 0x32 41 // Hair color
 
+END
 
 
+
+/* SoD */
+ACTION_IF (GAME_INCLUDES ~sod~) THEN BEGIN
 /* SoD: scripts */
 
 /* SoD specific banter scripts */
@@ -2648,7 +2664,7 @@ SAY SELECT_COMMON2 @523 /* ~~ [c#bran12] */
 SAY SELECT_COMMON3 @524 /* ~~ [c#bran14] */
 SAY SELECT_COMMON4 @534 /* ~M-hm?~ [c#bran33] */  
 SAY SELECT_COMMON5 @535 /* ~Ich höre?~ [c#bran34] */  
-SAY SELECT_COMMON6 @536 /* ~[als freundliche Aufforerung] Sagt, was Ihr wollt!~ [c#bran35] */
+SAY SELECT_COMMON6 @536 /* ~[als freundliche Aufforderung] Sagt, was Ihr wollt!~ [c#bran35] */
 SAY SELECT_ACTION1 @525 /* ~~ [c#bran15] */ 
 SAY SELECT_ACTION2 @526 /* ~~ [c#bran13] */ 
 SAY SELECT_ACTION3 @527 /* ~~ [c#bran16] */ 
@@ -2667,14 +2683,13 @@ SAY BIO @533 /* ~When asked about his past, BRANDOCK DEEPWATER smiles apologetic
 
 ADD_KNOWN_SPELL ~SPWI210~ #1 ~wizard~ //Resist Fear
 ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~ //Mirror Image
-ADD_KNOWN_SPELL ~SPWI213~ #1 ~wizard~ //Stinking Cloud
+ADD_KNOWN_SPELL ~SPWI116~ #1 ~wizard~ //Sleep
 
 
 
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
 /* c#bran02.cre is for a new SoD start: more spells memorized */
 COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran02.cre~
-  ADD_KNOWN_SPELL ~SPPR212~ #0 ~wizard~ //Slow Poison
   ADD_KNOWN_SPELL ~SPWI106~ #0 ~wizard~ //Blindness
   ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield
   ADD_KNOWN_SPELL ~SPWI201~ #1 ~wizard~ //Blurr
@@ -2707,7 +2722,6 @@ END
 ACTION_IF GAME_IS ~tob bgt bg2ee eet~ BEGIN
 /* c#bran03.cre is for a new SoA start: more spells memorized */
 COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran03.cre~
-  ADD_KNOWN_SPELL ~SPPR212~ #0 ~wizard~ //Slow Poison
   ADD_KNOWN_SPELL ~SPWI106~ #0 ~wizard~ //Blindness
   ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield
   ADD_KNOWN_SPELL ~SPWI201~ #1 ~wizard~ //Blurr
@@ -2781,8 +2795,14 @@ END
 
 
 
-
+///////////////////////////////////////////////////////////////
 /* Crossmod */
+//////////////////////////////////////////////////////////////
+
+BEGIN @55579 /* ~Brandock the Mage: Crossmod Content~ */ DESIGNATED 10 
+LABEL BrandockTheMage-Crossmod
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+
 
 /* BG1 */
 
@@ -2922,6 +2942,20 @@ PRINT @55561 /* ~Brage's Redemption detected.~ */
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brage_brandock.d~
 END /* Brage */
 
+/* Framed */
+ACTION_IF FILE_EXISTS_IN_GAME ~#LF_CKWO.ITM~ THEN BEGIN 
+PRINT @55578 /* ~Framed Mod detected.~ */
+/* @1097 = ~And now we are here, in front of these impressive walls.~ */
+OUTER_SET brandj_1097 = STATE_WHICH_SAYS 1097 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+/* @1078 = ~And we are going there. To say I'm nervous is, well... a huge understatement.~ */
+OUTER_SET brandj_1078 = STATE_WHICH_SAYS 1078 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+/* @1165 = ~Well, we can't save the ones they already killed. And we walked the catacombs, there were no more living people, or we would have found them! But we killed all doppelgangers down in the catacombs.~ */
+OUTER_SET brandj_1165 = STATE_WHICH_SAYS 1165 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+/* @1173 = ~(sigh) To know that Candlekeep was about to be infiltrated by doppelgangers! The mighty library... I need to ponder this, <CHARNAME>. And what this must mean to you, I can only guess!~ */
+OUTER_SET brandj_1173 = STATE_WHICH_SAYS 1173 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_framed.d~
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_framed.baf~ EVALUATE_BUFFER
+END /* Framed */
 
 /* Gavin BG1 */
 ACTION_IF FILE_EXISTS_IN_GAME ~BB!GAVIN.dlg~ THEN BEGIN 

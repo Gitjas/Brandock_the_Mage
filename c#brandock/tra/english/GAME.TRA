@@ -60,9 +60,9 @@ Weight: 1~
 
 /* new for vbeta 7 */
 @102 = ~Durable Scroll of Pierce Shield~
-@103 = ~Brandock's Book of Durable Spells~
+@103 = ~De Simplex Magicae~
 /* SCRL1G: Fireball */
-@104 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@104 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -76,7 +76,7 @@ Saving Throw: 1/2
 
 A fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it - 1d6 points of damage for each level of experience of the spellcaster (up to a maximum of 10d6). The wizard points his finger and speaks the range (distance and height) at which the fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their saving throws each suffer full damage from the blast. Those who roll successful saving throws manage to dodge, fall flat, or roll aside, each receiving half.~ 
 /* SCRL6P: Minor Sequencer */
-@105 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@105 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -90,7 +90,7 @@ Saving Throw: None
 
 This spell allows a mage to store spells and access them from his special ability button.  This ability, the sequencer, can store two spells to be released simultaneously,  both of which must be of 2nd level or lower.  A mage can only possess one minor spell sequencer at a time, and the sequencer may not be given to other players.  Once the sequencer is used, the special ability icon disappears.~
 /* SCRL6U: Breach */
-@106 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@106 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -104,7 +104,7 @@ Saving Throw: None
 
 When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature.  Here is a complete list of all the specific protection spells that are dispelled by breach:  Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy.   The combat protection spells dispelled by this spell are: Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magic Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle.  The target's magic resistance, if he has any, does not affect this spell.~
 /* SCRL7V: Spell Deflection */
-@107 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@107 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -118,7 +118,7 @@ Saving Throw: None
 
 This powerful abjuration spell causes any spells cast against the wizard to be absorbed and consumed.  This affects a total of 10 spell levels.  This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard as well as area effects that are stationary, such as cloud kill and stinking cloud.  As long as the spell is cast directly at the wizard it will be absorbed.  Something to note is that as long as there are levels remaining then the spell will be absorbed.  For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection.  It is not affected by a dispel magic.~
 /* SCRL8W: Mass Invisibility */
-@108 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@108 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -133,7 +133,7 @@ Saving Throw: None
 
 Upon casting this spell the wizard causes all friendly creatures within the area of effect to be affected by the spell Improved Invisibility.  This spell is similar to the invisibility spell, but the recipient is able to attack, either by missile discharge, melee combat, or spellcasting, and remain unseen. Note, however, that there are sometimes telltale traces, a shimmering, so that an observant opponent can attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made his presence known).  Attacks against the invisible character suffer -4 penalties to the attack rolls, and the invisible character's saving throws are made with a +4 bonus.~
 /* SCRL8S: Summon Efreeti */
-@109 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@109 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -147,7 +147,7 @@ Saving Throw: None
 
 With this spell, the conjurer can cajole an efreeti, a massive genie with powerful abilities, to leave the elemental plane of fire and enter the Prime Material.  The efreeti will serve for the duration indicated above, attacking the enemies of the conjurer.  Mages are warned to be careful of this spell, for a mistreated efreeti will turn on his master at the first available opportunity.~
 /* SCRLB1: Bigby's Clenched Fist */
-@110 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@110 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -161,7 +161,7 @@ Saving Throw: Special
 
 This spell causes a giant disembodied hand to squeeze and constrict the target once per round for up to four rounds. It initially smashes the target for 3D6 damage with no save. The target is held. In the second round, the target can save vs. paralyzation at -2 to escape. If they fail to save, the hand does 4D6 damage. The following round, the target can save vs. paralyzation with no penalty. If they make the save, they are free to move, if they fail, the spell does 6D6 damage and holds them for 2 rounds. After the 4th round, the spell is finished. Magic resistance will stop the spell.~
 /* SCRL9A: Pierce Shield */
-@111 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@111 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -175,7 +175,7 @@ Saving Throw: None
 
 When this spell is cast it launches a massive attack on an enemy wizard's spell defenses.  The target's magic resistance will be lowered by 10% + 1% per level of the caster.  Next pierce shield will cancel one spell protection of any level.  For example, if this spell was cast by a 15th-level wizard the target creature would lose 25% magic resistance from his current total, reducing it to 0 if less than that remains, as well as cancelling one spell protection if the mage currently has one.  The list of spells that this includes is: Minor Spell Deflection, Minor Spell Turning, Spell Deflection, Minor Globe of Invulnerability, Spell Immunity, Globe Of Invulnerability, Spell Turning, Spell Shield, and Spell Trap.  Magic resistance does not effect this spell, nor do any of the spell protections.  The resistance remains lowered for 1 round per level of the caster.  It cannot be dispelled.~
 /* SCRLB2: Bigby's Crushing Hand */
-@112 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@112 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -189,7 +189,7 @@ Saving Throw: Special
 
 This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2D10 damage. The victim can save at -4 vs. paralyzation to avoid being pinned. If they fail, the hand does 3D10 damage the next round. The victim can again save vs. paralyzation at -2. If they fail to save, the hand does a final 4D10 damage and disappears.~
 /* SCRL9Q: Chain Contingency */
-@113 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@113 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -420,15 +420,15 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1004 = ~Ouch!~
 @1005 = ~Oh, what is...~
 @1006 = ~Now, this was most unexpected!~
-@1007 = ~Magic books! Great books! Will help ...~
-@1008 = ~This is my private quarters! HOW did you get in here? What are you doing?! I should smite you both without ...~
-@1009 = ~You are not plundering. You are searching?!...~
+@1007 = ~Doppelganger?! Elvenhair is a doppelganger, too... This is is too much! This is TOO MUCH! Don't you dare having done anything to Master Elvenhair! Don't you DARE touch <CHARNAME>!~
+//@1008 = ~##~
+//@1009 = ~##~
 @1010 = ~I never saw a half-ogre go through my library. Care to explain? Who are you?~
 @1011 = ~Me not half-ogre. Me mage. Me... (sigh) Words make head burn!~
-@1012 = ~Who am I? I am... I mean, theoretically speaking, I *was* the different acquaintance of another polymorphial being of very little intellectual habitus, if phrased in terms of principally conditions...~
-@1013 = ~He not speak clear. He dumb, with my brain! Me... bright, with his dumb brain! And clumsy hands... Need help!~
-@1014 = ~Alright, let me summarize. I see a mage who proclaims that he is not who he was.~
-@1015 = ~And I see a half-ogre who states that he would be the mage.~
+//@1012 = ~##~
+//@1013 = ~##~
+//@1014 = ~##~
+//@1015 = ~##~
 @1016 = ~And just when I thought the <DAYNIGHT> was getting dull. Come with me, then. Let me see what I can do for you.~
 @1017 = ~Oh dear, what a stink!~
 @1018 = ~Hm, let's see...~
@@ -446,7 +446,7 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1030 = ~Hmm... no, nothing to learn from this spellbook. What a pity.~
 @1031 = ~Why did we kill this old woman? I'm not scavenging through possessions of people who did not attack us... ugh, dammit, of course I'll have a look at her spellbook. I'm not proud of what we did here, <CHARNAME>!~
 @1032 = ~Three interesting spellbooks! And I'm sure those won't be the last mages we meet here... (sigh)~
-@1033 = ~Oh, a library? Don't mind me, <CHARNAME>. I'll, er... (Brandock murmurs while scanning book covers.) Er, sorry about that. I'm done here, there's no magic books. At least none as far as I can see...~
+@1033 = ~Oh, a library? Don't mind me, <CHARNAME>. I'll, er... (Brandock murmurs while scanning book covers.) Er, sorry about that. I'm done here, there's no magic books. At least none as far as I can see.~
 @1034 = ~I'll make sure I'll learn from those mages' spellbooks...~
 @1035 = ~Oh, a library! (Brandock murmurs while scanning book covers.) Hmm, no magic books, as far as I can see.~
 @1036 = ~Didn't seem to have helped him here - but this spellbook is still an interesting read.~
@@ -488,11 +488,12 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1280 = ~That... that's a huge beetle. I'm glad there are no Rhinoceros Spiders!~
 @1281 = ~The battle started! Let's fight them!~
 @1282 = ~Another battle! We will prevail! I hope.~
+/* talking about the dragon (skeleton) at Dragonspear Castle */
 @1283 = ~It just *had* to die right on top of the castle, hadn't it?~
 @1284 = ~I never thought I'd say that, but those doors look *really* intimidating!~
 
 /* new for vbeta 11 */
-@1285 = ~For some opponents, getting to their spellbooks is utterly satisfactory. Hephernaan is one of those.~
+@1285 = ~For some opponents, getting to their spellbooks is utterly satisfying. Hephernaan is one of those.~
 /*
 @1286 = 
 @1287 = 

@@ -17,6 +17,7 @@ END
 /* Initiate */
 IF %IT_IS_BGII%
 Global("C#Br_LorePathOghmaBG2","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -86,6 +87,7 @@ IF %IT_IS_BGII%
 OR(2)
 Global("C#Br_LorePathDArnis1BG2","GLOBAL",2)
 Global("C#Br_LorePathDArnis1BG2","GLOBAL",3)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -119,6 +121,7 @@ END
 /* Initiate */
 IF %IT_IS_BGII%
 Global("C#Br_LorePathBodhisBG2","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -415,6 +418,7 @@ END
 /* Initiate */
 IF %IT_IS_BGII%
 Global("C#Brandock_IrenicusSpellbook","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -445,6 +449,7 @@ END
 /* Initiate */
 IF %IT_IS_BGII%
 Global("C#Brandock_LorePathStop","GLOBAL",3)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -474,6 +479,7 @@ END
 /* Initiate */
 IF %IT_IS_BGII%
 Global("C#Br_LorePathLazarusBG2","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)

@@ -46,9 +46,9 @@
 		<li><a href="#generalcontent">General Info</a> </li>
         <li><a href="#where">Where to meet in Game</a> </li>
 		<li><a href="#content">Content</a> </li>
-		<li><a href="#7th">7th Party Member Mode</a> </li>
 		<li><a href="#stats">Brandock's Stats and Portrait</a> </li>
 		<li><a href="#spoiler">Walkthrough / Spoilers</a> </li>
+		<li><a href="#7th">7th Party Member Mode</a> </li>
       </ul> 
     </li> 
     <li><a href="#issues">Known Issues</a></li> 
@@ -119,14 +119,10 @@ Brandock comes with friendship talks, own quests, and banters with some NPCs, an
 <br />
 Brandock is very interested in magic books and wisdom. He will ask for time to go through every library found in game. If granted, this will give him a bonus to his lore score.<br />
 
-<h2> <a name="7th" id="7th">7th Party Member Mode</a></h2>
-If you need the party slot for someone else, Brandock can be kicked out of the party and told to "stay close", then he will follow as a "familiar" or, as I call it "7th party member". If in 7th party member mode he needs to join the group from time to time to level up. In 7th party member mode Brandock can be selected and given commands, as well as told to use quick slot items. All his dialogues, banters, and interjections will trigger as normal.<br />
-To rejoin the group, talk to him and tell him you need "access to (his) inventory", and he will rejoin as a full party member. If you time this accordingly, the moment he is in group before any other kicked out NPC reaches the PC for his post-kickout dialogue is sufficient to let Brandock level up and rearrange his spells and items, without having to finally kick out any other party NPC to achieve this. (Unless those just leave without a follow-up dialogue, of course.)<br />
-He cannot die while following as a 7th party member, but will remain at 1 HP. If Brandock's HP fall to 1 HP during a fight, he will pass out. Healing him then will not change this. His alignment will change to "neutral" so enemies stop attacking him. Once the fight is over, he will regain consciousness, be healed fully, and rejoin the party as an ally/familiar. The full healing might be seen as a cheat, but it's one way to fix the engine behavior (not to call it bug) with Brandock dying upon rejoining if his HP are too low.<br />
-The 1 HP drop out can be prevented if Brandock is healed in time during a fight. If told to he will give a warning before his HP drop too low, but this seems to be buggy in BGT.<br />
-
 <h2> <a name="stats" id="stats">Brandock's Stats and Portrait</a></h2>
-When first met in BG1, he will be a first level mage with the known spells Armor, Burning Hands, Charm Person, Protection from Petrification, Identify, Magic Missile, and Chromatic Orb. Brandock will level up upon first joining when the PC's HP are higher than his. This will also every time Brandock's XP are much lower than the PC's because of the 7th Party Member mode.<br /><br />
+When first met in BG1, he will be a second level mage with the spells Armor, Burning Hands, Charm Person, Protection from Petrification, Identify, Magic Missile, Chromatic Orb, Resist Fear, Mirror Image, and Sleep in his spell book.<br />
+When starting a new SoD or BGII game, he receives correspondingly more experience points and has more spells in his spellbook. Also his equipment (cloak, staff, sling) is more powerful when starting in SoD or BGII.<br />
+ Brandock will level up upon first joining when the PC's HP are higher than his. This will also every time Brandock's XP are much lower than the PC's because of the 7th Party Member mode.<br /><br />
 Brandock's alignment is Chaotic Good.<br /><br />
 His stats are the following:
       <ul> 
@@ -149,13 +145,39 @@ Insecure (Default portrait) ----- Friendly (Alternate 1) ----- Mischevious (Alte
 Finding Brandock's possessions will start a cycle of dialogues and after that his quest. Retrieving his possessions as early as possible will make sure the quest will start before going to Candlekeep, which gives more content. <br />
 <br />
 Having Brandock in party when bringing Melicamp to Thalantyr will trigger an event which will remove Brandock from the party until Melicamp is restored. This event is interesting for Brandock's personal development, but the mod can also played without it. The event can be prevented by forbitting Brandock to help Melicamp with a spell.<br />
+
+
+<h2> <a name="7th" id="7th">7th Party Member Mode</a></h2>
+If you need the party slot for someone else, Brandock can be kicked out of the party and told to "stay close", then he will follow as a "familiar" or, as I call it "7th party member". If in 7th party member mode he needs to join the group from time to time to level up. In 7th party member mode Brandock can be selected and given commands, as well as told to use quick slot items. All his dialogues, banters, and interjections will trigger as normal.<br />
+To rejoin the group, talk to him and tell him you need "access to (his) inventory", and he will rejoin as a full party member. If you time this accordingly, the moment he is in group before any other kicked out NPC reaches the PC for his post-kickout dialogue is sufficient to let Brandock level up and rearrange his spells and items, without having to finally kick out any other party NPC to achieve this. (Unless those just leave without a follow-up dialogue, of course.)<br />
+He cannot die while following as a 7th party member, but will remain at 1 HP. If Brandock's HP fall to 1 HP during a fight, he will pass out. Healing him then will not change this. His alignment will change to "neutral" so enemies stop attacking him. Once the fight is over, he will regain consciousness, be healed fully, and rejoin the party as an ally/familiar. The full healing might be seen as a cheat, but it's one way to fix the engine behavior (not to call it bug) with Brandock dying upon rejoining if his HP are too low.<br />
+The 1 HP drop out can be prevented if Brandock is healed in time during a fight. If told to he will give a warning before his HP drop too low, but this seems to be buggy in BGT.<br />
+<br />
+NOTE TO PLAYERS: <br />
+Unfortunately, the "7th party member mode" in the game requires special handling to accommodate all restrictions: 
+(The hints are a mix of the existing engine restrictions and the workarounds I used).<br />
+-The NPC has no "Clear Fog of War" around him in the 7th GM. So he can "disappear" in the "black" area of the map. (If you click on the whole group and let them gather at one place, the NPC will also try to do so, if they are not stuck somewhere. In that case only the teleportation cheat "Ctrl+j" helps to gather the group again. This has not happened to me yet, but it is theoretically possible if the NPC is chasing an enemy, for example).<br />
+-Items in the NPC's inventory are *not* recognized as items owned by the group. This is an engine problem. It follows that quest items that are needed in the game should not be in the NPC's inventory if they are to be recognized by the quest giver. Examples: Elvenhair's book, Ankheg shell for Taerom, etc.<br />
+-Quest items tagged as "critical" will be moved to the PC's inventory when moving to the 7th PMM. This may cause items from the PC's inventory to end up on the floor. This is an engine problem. As a result, you should always check after switching the NPC to the 7th PMM to see if items have landed on the floor!<br />
+-When new items are given to one of my NPCs in 7th PMM in a quest specifically for this NPC, they always appear in the inventory of the group or PC, even if the NPC is supposed to receive them. This is an engine problem. Even if I scripted it so that the items would end up in the NPC's inventory after the encounter, they would still be handled via the PC's inventory. And thus, items from the inventory may have ended up on the floor.<br />
+-For my NPCs, I have tried to have their own quest items (even if they are original in-game items, as long as they are necessary for my NPC's quest) recognized in the NPC's inventory as well. This works with the following restrictions:<br />
+-- All items in question are handled through the PC's inventory before they are either given to or received from a quest giver. This means that other items may have ended up on the floor.<br />
+-- If the item was in a bottomless bag (this includes all kind of bags, gem bags, bags for bottles etcpp.), then the item will not be removed in a dialogue with the quest giver. It is still in the bottomless bag afterwards and can cause problems if the scripting of the quest does not consider this (and assumes that the item should be gone).<br />
+-- 2. Problem with items in bottomless bags: If the item was in a bottomless bag, then the game crashes for unknown reasons if the NPC is to be taken afterwards into the group as a full member. This "crash bug" can be worked around by saving the game and reloading it.<br />
+<br />
 </div>
 
 <h1><a name="issues" id="issues">Known Issues</a></h1>
 <div class="section">
+<br />
+Short summary of things to keep in mind while playing in 7th party member mode:<br />
+-After each quest event and after moving to the 7th PMM, check whether the PC has lost items from the inventory that should be picked back up from the floor.<br />
+-Save before adding a 7th PM back to the group. If the game then crashes, reload the save game. This should prevent the crash from occurring.<br />
+-Es ist nötig und auch zu empfehlen, nicht-kritische Questitems nicht im Inventar der 7. GM sondern in dem der normalen Gruppenmitglieder zu haben.<br />
+-Take quest items out of bottomless bags in the 7th PM's inventory before approaching the appropriate quest givers, or at least save the game to prevent the "crash bug" before taking the NPC back as a full PM.<br />
 In some game cutscenes, Brandock might be visible at places where he shouldn't be as 7th party member. I'm not sure how to solve this.</br>
-</br>
-Brandock has no clear fog of war effect, so when following as 7th party member, he might "vanish" behind the line of sight. Rearranging the whole group's position should bring him back at the PC's side. (The reason is that the engines cannot handle more than 8 creatures with CFoW - and that includes the 6 party members and cutscene spies.)</br>
+-Items in Brandock's inventory will not be recognized by quest givers. Exception is some custom mod items for which I specifically scripted in that they are being noticed.</br>
+-Brandock has no clear fog of war effect, so when following as 7th party member, he might "vanish" behind the line of sight. Rearranging the whole group's position should bring him back at the PC's side. (The reason is that the engines cannot handle more than 8 creatures with CFoW - and that includes the 6 party members and cutscene spies.)</br>
 </div>
 
 <h1><a name="acknow" id="acknow">Credits</a></h1>
@@ -211,20 +233,37 @@ This mod is also not developed, supported, or endorsed by BioWare, Black Isle St
 <h1><a name="version" id="version">Version History</a></h1>
 <div class="section">
 Version Beta 11:</br>
+- German version (BG1) completed.</br>
+- BG1 content completed. Only thing missing is more crossmod.</br>
+- Crossmod is now separate component.</br>
 - "Brandock scribes his first scroll" quest fixed.</br>
+- "Brandock Restores his Book" quest revised.</br>
 - Added more instances to "Lore Path".</br>
 - Fixed BG1 "go to Beregost" kickout option.</br>
 - Fixed comment on flooded mines: should not be doubled if Breagar is in party.</br>
 - Corrected "BrandockSpawn" variable in SoD.</br>
 - Typo corrections.</br>
 - Brandock should only comment on Jardak and/or Drelik's deaths if they indeed died.</br>
-- Interjection to bg1ub's "Mysterious vial" quest should be at the right state of Thalantyr's dialogue.</br>
+- Brandock should only comment on Delorna + Ithmeera + Helshara being dead if they indeed died.</br>
+- Dialogue about schlumsha the sewer slime king should trigger correctly.</br>
 - Added one more line to Brandock's dialogue after shape shifting in Candlekeep.</br>
+- Brandock's book case should not vanish in Irenicus' Dungeon.</br>
+- Cutscene at Thalantyr's shortened.</br>
+- The area for Cutscene at Thalantyr's should be empty afterwards.</br>
+- Brandock should not read Sunin's spell book twice / find a spell book with Joular.</br>
+- Crossmod interjection to bg1ub's "Mysterious vial" quest should be at the right state of Thalantyr's dialogue.</br>
 - Crossmod with BG1NPC (Imoen's tome) should not stutter.</br>
 - Crossmod with BST: finding spellbook of dead mage should lead to lore increase.</br>
+- Crossmod with Breagar should not skip 1,5 banter.</br>
+- Reworked Brandock's reaction to Cadlekeep to make it better compatible with Framed Mod.</br>
+- Added some Crossmod with Framed Mod.</br>
+- Brandock's book case now takes Miscellaneous items, too, to allow for quest books.</br>
+- Wrong "Slow Poison" spell removed from Brandock's spell book for new SoD or BGII game.</br>
+- Added missing InParty checks to trigger script blocks.</br>
 - Updated credits section.</br>
 - Changed instances of "OSX" to "macOS".</br>
 - Added globally unique LABELs to support Project Infinity.</br>
+- Added more notes about playing in 7th party member mode to readme.</br>
 </br>
 Version Beta 10:</br>
 - Fixed stutter for book restore quest.</br>
