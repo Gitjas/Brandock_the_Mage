@@ -40,3 +40,58 @@ THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",6)
 END
+
+/* Going to Candlekeep woth work order in case brandock saw the monastery before */
+/* Activate */
+IF %BGT_VAR%
+Global("Chapter","GLOBAL",%tutu_chapter_5%)
+OR(5)
+		PartyHasItem("#LF_CKWO") 
+		HasItem("#LF_CKWO","C#Solaufein")
+		HasItem("#LF_CKWO","C#Grey")
+		HasItem("#LF_CKWO","C#Husam1")
+		HasItem("#LF_CKWO","C#Brandock")
+	OR(3)
+		!HasItem("#LF_CKWO","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("#LF_CKWO","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("#LF_CKWO","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam")
+	OR(3)
+		!HasItem("#LF_CKWO","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")
+OR(2)
+	AreaCheck("%Candlekeep%") //before chapter 6 ??
+	AreaCheck("%Candlekeep_Ch6%") //chapter 6
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+Global("C#Brandock_SeeCandlekeep","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_SeeCandlekeep","GLOBAL",3)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Brandock_SeeCandlekeep","GLOBAL",3)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

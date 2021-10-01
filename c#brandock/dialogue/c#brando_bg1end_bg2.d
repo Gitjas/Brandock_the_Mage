@@ -1,9 +1,12 @@
 
 
 /* BGT transition. BGT only. Not to trigger in EET */
+/* this will also trigger in case of EndlessBG1 in case the player choses to skip SoD!
+BELT.dlg
+@8 /* ~I see. Still, the city is in your debt. Fare well, Hero of Baldur's Gate.~ */ */
 
 
-I_C_T3 ~BELTBRD~ 12 C#Brandock_BGTTOBG2
+I_C_T3 ~%BELTBRD_or_BELT%~ %BELTBRD12_BELT8% C#Brandock_BGTTOBG2
 == C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 InMyArea("C#Brandock")
 !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2000 /* ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... Please understand that I need to take my way back to Amn on my own. I cannot return as a representative of Baldur's Gate authorities - I am sure you understand.~ */

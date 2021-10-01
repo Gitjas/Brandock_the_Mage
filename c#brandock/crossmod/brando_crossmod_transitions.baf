@@ -10,16 +10,15 @@ THEN
 		SetGlobal("#L_SoDExitModded","LOCALS",1)
 END
 
-/* Transitions. BGII transition. Brandock will leave. */
+/* Transitions. SoD transition. Brandock will say something. */
 
 IF	%BGT_VAR%
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-	OR(4)
+	OR(3)
 		Global("#L_StartCaelarAttack","GLOBAL",1) 
 		Global("#L_StartCaelarAttack","GLOBAL",2) 
-		Global("#L_StartCaelarAttack","GLOBAL",3) 
-		Global("#L_StartBG2","GLOBAL",1) 
+		Global("#L_StartCaelarAttack","GLOBAL",3)
 	Global("C#Brando_TransitionsLeave","GLOBAL",0)
 THEN
 	RESPONSE #100
@@ -35,23 +34,23 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
+/* Transitions. BGII transition. Brandock will leave. */
 
-/* After timer run out, player had time to snatch some items */
-IF
+IF	%BGT_VAR%
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-	Global("C#Brando_TransitionsLeave","GLOBAL",2)
-	GlobalTimerExpired("C#Brando_TransitionsLeaveTmr","GLOBAL")
+	Global("#L_StartBG2","GLOBAL",1) 
+	GlobalLT("C#Brando_TransitionsLeave","GLOBAL",4)
 THEN
 	RESPONSE #100
-		SetGlobal("C#Brando_TransitionsLeave","GLOBAL",3)
+		SetGlobal("C#Brando_TransitionsLeave","GLOBAL",4)
 END
 
 IF
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
-	Global("C#Brando_TransitionsLeave","GLOBAL",3)
+	Global("C#Brando_TransitionsLeave","GLOBAL",4)
 THEN
 	RESPONSE #100
-		Dialog(Player1)
+		StartDialogueNoSet(Player1)
 END

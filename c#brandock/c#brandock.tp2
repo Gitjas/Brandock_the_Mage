@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_11~ 
+VERSION ~Beta_12~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -1643,6 +1643,17 @@ ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
 /* Brandock was dead but in party: resurrection and move to BD0010 */
   EXTEND_TOP ~bd0103.bcs~   ~C#Brandock/scripts/c#brando_bg1_transition.baf~    EVALUATE_BUFFER
 
+/* he will say a line after Korlasz' crypt is cleared */
+/* needs to be called twice: for bdimeon 53 and 54 */
+  OUTER_SPRINT ~BDImoen_or_belt~ ~bdimoen~
+  OUTER_SPRINT ~bdimoen53_54_belt_13~ ~53~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+
+  OUTER_SPRINT ~bdimoen53_54_belt_13~ ~54~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+
 /* spawn him in BD0010.are */
 
   EXTEND_BOTTOM ~bd0010.bcs~   ~C#Brandock/scripts/c#brando_sod_bd0010.baf~    EVALUATE_BUFFER
@@ -1656,7 +1667,9 @@ END
 /* Brandock leaves the group by himself before Duke Belt sends the group to Athkatla */
 
 ACTION_IF GAME_IS ~bgt~ THEN BEGIN
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bgt.d~
+  OUTER_SPRINT ~BELTBRD_or_BELT~ ~BELTBRD~
+  OUTER_SPRINT ~BELTBRD12_BELT8~ ~12~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 
 /* Brandock was dead but in party: resurrection and move to C#br03.are - ++has to be compiled AFTER c#brando_bg2_ar0602.baf */
@@ -2803,6 +2816,28 @@ BEGIN @55579 /* ~Brandock the Mage: Crossmod Content~ */ DESIGNATED 10
 LABEL BrandockTheMage-Crossmod
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
+/* EndlessBG1 - handled indivicually */
+ACTION_IF FILE_EXISTS_IN_GAME ~c#stdstr.bcs~ THEN BEGIN 
+PRINT @55580 /* ~EndlessBG1 detected.~ */
+
+/* direct transition to BGII */
+ACTION_IF GAME_INCLUDES ~sod~ THEN BEGIN
+// Get state @8 for BELT %BELTBRD12_BELT8% 
+/* ~I see. Still, the city is in your debt. Fare well, Hero of Baldur's Gate.~ */
+  OUTER_SET BELTBRD12_BELT8 = STATE_WHICH_SAYS 8 IN ~c#endlessbg1/translations/%s/DIALOGUES.TRA~ FROM ~BELT~
+  OUTER_SPRINT ~BELTBRD_or_BELT~ ~BELT~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bg2.d~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
+/* transition to SoD */
+// Get state @13 for BELT %bdimoen53_54_belt_13%
+/* ~The city is in your debt, Hero of Baldur's Gate. Please follow me, the Flaming Fist soldiers will guide you to the hide-out of Sarevok's last follower.~ */
+  OUTER_SET bdimoen53_54_belt_13 = STATE_WHICH_SAYS 13 IN ~c#endlessbg1/translations/%s/DIALOGUES.TRA~ FROM ~BELT~
+  OUTER_SPRINT ~BDImoen_or_belt~ ~BELT~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+END //
+END /* EndlessBG1 */
+
 
 /* BG1 */
 
@@ -3043,11 +3078,14 @@ END //I4E
 /* Transitions */
 
 ACTION_IF (MOD_IS_INSTALLED ~transitions/setup-transitions.tp2~ ~0~) THEN BEGIN
+PRINT @55581 /* ~Transitions Mod detected.~ */
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_transitions.d~
 	USING ~c#brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
-  EXTEND_TOP ~c#brando.bcs~ ~c#brandock/crossmod/brando_crossmod_transitions.baf~
+  EXTEND_TOP ~c#brando.bcs~ ~c#brandock/crossmod/brando_crossmod_transitions.baf~ 
+EVALUATE_BUFFER
   EXTEND_TOP ~c#brands.bcs~ ~c#brandock/crossmod/brando_crossmod_transitions.baf~
-    EVALUATE_BUFFER /* Brandock should not remain dead in case he was upon transition */
+    EVALUATE_BUFFER 
+/* Brandock should not remain dead in case he was upon transition */
   EXTEND_TOP ~#L_CUT09.bcs~ ~c#brandock/crossmod/brando_crossmod_transitions_eet.baf~ 
     EVALUATE_BUFFER
 END

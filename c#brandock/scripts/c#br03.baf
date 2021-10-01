@@ -28,6 +28,7 @@ THEN
 		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 	    	ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
 		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
+		ActionOverride("C#Brandock",SetGlobal("C#LevelUp","LOCALS",0))
 		SetGlobal("C#BrandockJoined","GLOBAL",0)
 /* shape shifter quest: reset variable so it can be 'updated' via PID if necessary */
 		SetGlobal("C#Brandock_UpdateShapeshift","LOCALS",0)

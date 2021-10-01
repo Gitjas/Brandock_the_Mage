@@ -21,6 +21,7 @@ IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",2)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
 SetGlobal("C#Brandock_Dialog","GLOBAL",1)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",400)
+RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)
 AddMapNote([4580.1525],@18)
 JoinParty()~ UNSOLVED_JOURNAL @10000 /* ~Brandock's Magic Book

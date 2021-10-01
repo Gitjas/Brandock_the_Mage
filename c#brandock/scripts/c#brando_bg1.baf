@@ -3,6 +3,7 @@
 /* dialogue activation */
 IF 	%BGT_VAR%
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	See(Player1)
@@ -26,6 +27,7 @@ IF 	%BGT_VAR%
 	Global("C#Brando_Book40","GLOBAL",1)
 THEN
   RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 	StartDialogueNoSet(Player1)
 END
 
@@ -121,6 +123,7 @@ END
 IF
 
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
@@ -146,6 +149,7 @@ IF
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+		RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 		StartDialogNoSet(Player1)
 END
 
@@ -183,6 +187,7 @@ Global("C#BrandockSpawn","GLOBAL",3)
     CombatCounter(0)
 THEN
 	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 		StartDialogueNoSet(Player1)
 END
 
@@ -828,6 +833,7 @@ END
 /* Activate: broken weapon or armor */
 IF %BGT_VAR%
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)
@@ -858,6 +864,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1032,6 +1039,7 @@ OR(5)
 		Global("C#BrandockJoined","GLOBAL",2)
 		InParty("C#Brandock")
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1055,6 +1063,7 @@ CombatCounter(0)
 THEN
 RESPONSE #100
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1063,6 +1072,7 @@ END
 /* Dream talks in BG1 */
 IF %BGT_VAR%
  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
  CombatCounter(0)
  See(Player1)
  !See([ENEMY])
@@ -1073,7 +1083,6 @@ IF %BGT_VAR%
  Global("C#Brandock_PCDream","GLOBAL",0)
 THEN
  RESPONSE #100
-		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
  SetGlobal("C#Brandock_PCDream","GLOBAL",1)
 END
 
@@ -1086,6 +1095,8 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
  RESPONSE #100
+ RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+ RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
  StartDialogueNoSet(Player1)
 END
 
@@ -1114,6 +1125,7 @@ Global("C#Brandock_Thalantyr","GLOBAL",1)
 GlobalGT("C#Brandock_Possessions","GLOBAL",3)
 GlobalLT("C#Brandock_Shapeshift","GLOBAL",5)
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
   !StateCheck(Player1,CD_STATE_NOTVALID)
   !StateCheck(Myself,CD_STATE_NOTVALID)
     See(Player1)
@@ -1135,6 +1147,7 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
     CombatCounter(0)
 THEN
 	RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 		StartDialogueNoSet(Player1)
 END
 
@@ -1156,7 +1169,6 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
  RESPONSE #100
-    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
     SetGlobal("C#Brandock_KnowBhaal","GLOBAL",1)
 END
 
@@ -1166,6 +1178,7 @@ IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 Global("C#Brandock_KnowBhaal","GLOBAL",1)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1187,6 +1200,8 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1354,6 +1369,7 @@ AreaCheck("%NashkelMines_L3%")
 PartyHasItem("%tutu_var%RINGJOS")
 Global("C#Brandock_JosephsWife","GLOBAL",1) //Checkvariable
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1375,6 +1391,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1385,6 +1402,7 @@ AreaCheck("%NashkelMines_L4%")
 Global("Chapter","GLOBAL",%tutu_chapter_3%)
 Global("C#Brandock_OrganisationLevel","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1406,6 +1424,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1416,6 +1435,7 @@ IF %BGT_VAR%
 Global("Chapter","GLOBAL",%tutu_chapter_3%)
 Global("C#Brandock_TaintedOre","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1437,6 +1457,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1552,6 +1573,7 @@ IF %BGT_VAR%
 Global("NobleDopple","GLOBAL",1)
 Global("C#Brandock_SarevoksScheme","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1574,6 +1596,7 @@ CombatCounter(0)
 THEN
 RESPONSE #100
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG) 
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Myself)
 END
 
@@ -1628,6 +1651,7 @@ HasItem("%tutu_var%SCRL3B","C#Brandock")
 HasItem("%tutu_var%SCRLNEI","C#Brandock")
 HasItem("%tutu_var%SCRLKAR","C#Brandock")
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1652,6 +1676,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1797,6 +1822,7 @@ OR(2)
 PartyHasItem("%tutu_var%SCRL3C")
 Global("C#Brandock_DELTAN_10","GLOBAL",1)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1818,6 +1844,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 
@@ -1827,6 +1854,7 @@ IF %BGT_VAR%
 Global("C#Brandock_ITSaLetters","LOCALS",0)
 PartyHasItem("%tutu_var%SCRL3A")
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -1848,6 +1876,7 @@ CombatCounter(0)
 !See([ENEMY])
 THEN
 RESPONSE #100
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 StartDialogueNoSet(Player1)
 END
 

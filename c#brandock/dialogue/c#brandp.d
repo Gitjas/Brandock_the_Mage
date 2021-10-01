@@ -17,6 +17,7 @@ SAY @3 /* ~Great! Well, then let's go!~ */
 
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Shapeshift","GLOBAL",11)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
+RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 EraseJournalEntry(@10001) 
 JoinParty()~ EXIT
 
@@ -173,6 +174,7 @@ ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",400)
 SetGlobal("C#BrandockJoined","GLOBAL",2)
+SetGlobal("C#LevelUp","LOCALS",0)
 SetInterrupt(TRUE)
 ~ EXIT
 IF ~%BGT_VAR%~ THEN DO ~SetInterrupt(FALSE)
@@ -187,6 +189,7 @@ ChangeAIScript("",GENERAL)
 ChangeAIScript("",DEFAULT)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",400)
 SetGlobal("C#BrandockJoined","GLOBAL",2)
+SetGlobal("C#LevelUp","LOCALS",0)
 SetInterrupt(TRUE)~ EXIT
 END
 
@@ -204,9 +207,11 @@ IF ~~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",1)
 EraseJournalEntry(@10015)
 EraseJournalEntry(@10018)
 ActionOverride("C#Brandock",ChangeAIScript("c#brand2",OVERRIDE))
+RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 JoinParty()~ EXIT
 IF ~%BGT_VAR%~ THEN DO ~SetGlobal("C#BrandockJoined","GLOBAL",1)
 EraseJournalEntry(@10001)
+RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 JoinParty()~ EXIT
 END
 
