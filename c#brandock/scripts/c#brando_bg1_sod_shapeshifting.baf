@@ -10,13 +10,13 @@ IF
 	Global("C#Brando_VisitedMalm","GLOBAL",2)
 	OR(3)
 		Dead("Sarevok")
-		GlobalGT("BD_plot","global",10)
+		GlobalGT("bd_plot","global",10)
 		Global("ENDOFBG1","GLOBAL",1)
 	!See([ENEMY])
 	See(Player1) 
 	CombatCounter(0)
 	AreaType(OUTDOOR)
-	GlobalLT("BD_plot","global",54)
+	GlobalLT("bd_plot","global",54)
 	Global("C#Brandock_Shapeshift","GLOBAL",21)
 THEN
   RESPONSE #100

@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_12~ 
+VERSION ~Beta_13pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -160,8 +160,6 @@ END
 /* all BG:EE with/without SoD */
   ACTION_IF (GAME_IS ~bgee~) THEN BEGIN
     INCLUDE ~c#brandock/lib/g3_bgee_cpmvars.tpa~
-    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("BD_PLOT","GLOBAL",0)~
-    OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("BD_PLOT","GLOBAL",0)~
     OUTER_SPRINT "IMOEN_DV_SOD" "imoen"
     OUTER_SPRINT ~IT_IS_BGII~ ~False()~ 
     OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
@@ -172,7 +170,18 @@ END
     OUTER_SPRINT ~Door5506~ ~Door5506~
     OUTER_SPRINT ~Door2619~ ~Door2619~
     OUTER_SPRINT ~IMOEN_DV_SOD~ ~IMOEN~
-  END
+
+ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("BD_PLOT","GLOBAL",41)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",40)~
+END ELSE ACTION_IF (MOD_IS_INSTALLED ~transitions.tp2~ ~0~) BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("BD_PLOT","GLOBAL",41)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",40)~
+END ELSE BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("BD_PLOT","GLOBAL",0)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",0)~
+END
+END
 
 /* SoD and EET */
   ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
@@ -194,8 +203,6 @@ END
     /* Tell the player it is using eet */
     PRINT @55552
 	INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
-    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",0)~
-    OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1)~
     OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
     OUTER_SPRINT "IMOEN_DV_SOD" "imoen2"
 
@@ -207,6 +214,17 @@ END
     OUTER_SPRINT ~Door5506~ ~Door5506~
     OUTER_SPRINT ~Door2619~ ~Door2619~
     OUTER_SPRINT ~IMOEN_DV_SOD~ ~IMOEN2~
+
+ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",0) GlobalLT("BD_PLOT","GLOBAL",41)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1) GlobalGT("bd_plot","global",40)~
+END ELSE ACTION_IF (MOD_IS_INSTALLED ~transitions.tp2~ ~0~) BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",0) GlobalLT("BD_PLOT","GLOBAL",41)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1) GlobalGT("bd_plot","global",40)~
+END ELSE BEGIN
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",0)~
+    OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1)~
+END
   END
 
 
@@ -532,7 +550,7 @@ END //GAME_IS ~bgee bgt eet~
 
 /* SoD (SoD specific dialogues) */
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
+//  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
 /* Lorepath: SoD content */
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_lorepath_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
@@ -720,6 +738,9 @@ END
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#_lvl_ee.baf~ EVALUATE_BUFFER
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+
+/* contents for Korlasz Tomb - added to BG1 script! */
+EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_sod_korlaszcrypt.baf~ EVALUATE_BUFFER
 
 /* specific additions to scripts for sod */
 	<<<<<<<< ...inlined/c#brands.baf
@@ -1631,11 +1652,6 @@ COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brftb.baf~
 
 /* transition from BG1 */
 
-/* EET and SoD: transition from BG:EE to SoD campaign */
-/* transition from BG:EE to SoD: change Joined dialogue and OVERRIDE script */
-EXTEND_TOP ~bdintro.bcs~ ~%MOD_FOLDER%/scripts/c#brando_sod_bdintro.baf~
-  EVALUATE_BUFFER
-
 /* EET, BG:EE: Transition AFTER Korlasz' Dungeon */
 
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
@@ -1645,12 +1661,6 @@ ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
 
 /* he will say a line after Korlasz' crypt is cleared */
 /* needs to be called twice: for bdimeon 53 and 54 */
-  OUTER_SPRINT ~BDImoen_or_belt~ ~bdimoen~
-  OUTER_SPRINT ~bdimoen53_54_belt_13~ ~53~
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
-     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
-
-  OUTER_SPRINT ~bdimoen53_54_belt_13~ ~54~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
 
@@ -2816,26 +2826,35 @@ BEGIN @55579 /* ~Brandock the Mage: Crossmod Content~ */ DESIGNATED 10
 LABEL BrandockTheMage-Crossmod
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
-/* EndlessBG1 - handled indivicually */
-ACTION_IF FILE_EXISTS_IN_GAME ~c#stdstr.bcs~ THEN BEGIN 
+/* EndlessBG1 - handled individually */
+ACTION_IF (GAME_INCLUDES ~sod~ AND FILE_EXISTS_IN_GAME ~c#stdstr.bcs~) BEGIN 
 PRINT @55580 /* ~EndlessBG1 detected.~ */
 
 /* direct transition to BGII */
-ACTION_IF GAME_INCLUDES ~sod~ THEN BEGIN
 // Get state @8 for BELT %BELTBRD12_BELT8% 
 /* ~I see. Still, the city is in your debt. Fare well, Hero of Baldur's Gate.~ */
   OUTER_SET BELTBRD12_BELT8 = STATE_WHICH_SAYS 8 IN ~c#endlessbg1/translations/%s/DIALOGUES.TRA~ FROM ~BELT~
   OUTER_SPRINT ~BELTBRD_or_BELT~ ~BELT~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
-/* transition to SoD */
-// Get state @13 for BELT %bdimoen53_54_belt_13%
-/* ~The city is in your debt, Hero of Baldur's Gate. Please follow me, the Flaming Fist soldiers will guide you to the hide-out of Sarevok's last follower.~ */
-  OUTER_SET bdimoen53_54_belt_13 = STATE_WHICH_SAYS 13 IN ~c#endlessbg1/translations/%s/DIALOGUES.TRA~ FROM ~BELT~
-  OUTER_SPRINT ~BDImoen_or_belt~ ~BELT~
+
+/* transition to SoD for "Korlasz Tomb is in BG1" */
+ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
+// Get state @215 for BELT %belt_ebg1_215%
+/* @215 /* ~A well earned rest. Make yourself at home on the top floor of the palace as much as you like.~ */ */
+  OUTER_SET belt_ebg1_215 = STATE_WHICH_SAYS 215 IN ~c#endlessbg1/translations/%s/DIALOGUES.TRA~ FROM ~BELT~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/c#brando_bg1end_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
-END //
+<<<<<<<< ...inlined/ebg1_goodbye_sod.d
+I_C_T BELT %belt_ebg1_215% C#Brandock_BG1Leaving
+== C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	InMyArea("C#Brandock") 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @3 /* ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... I will stay in the region and continue to study the De Simplex Magicae with Master Elvenhair's help. I'll come and visit you before I'll return home for good. It should be easy to find you - hero of Baldur's Gate!~ */ 
+END
+>>>>>>>>
+COMPILE EVALUATE_BUFFER ~...inlined/ebg1_goodbye_sod.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+END //~c#endlessbg1.tp2~ ~14~
+
 END /* EndlessBG1 */
 
 

@@ -25,8 +25,11 @@ THEN
 		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
 		SetGlobal("C#BrandockJoined","GLOBAL",0)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		SmallWait(1)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		SmallWait(1)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		SmallWait(1)
 		ActionOverride("C#Brandock",DestroySelf())
 END
 
@@ -57,8 +60,11 @@ THEN
 		ActionOverride("C#Brandock",ChangeAIScript("",DEFAULT))
 		SmallWait(10)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0003")) 
+		SmallWait(1)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0001"))
+		SmallWait(1)
 		ActionOverride("C#Brandock",TakePartyItem("c#br0007"))
+		SmallWait(1)
 		ActionOverride("C#Brandock",SetGlobal("bd_joined","locals",0))
 		SetGlobal("C#BrandockJoined","GLOBAL",0)
 		ActionOverride("C#Brandock",DestroySelf())

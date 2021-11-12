@@ -111,7 +111,7 @@ OR(2)
 + ~%BG1_BEFORE_TRANSITION%~ + @18 /* ~Brandock, it's been great and all, but I don't need you any more.~ */ + farewell
 
 //##other inaccessible areas?
-+ ~GlobalGT("bd_plot","global",0) //SoD
++ ~%IT_IS_SOD%
 !AreaCheck("bd4700")
 !GlobalLT("bd_plot","global",570)~ + @18 /* ~Brandock, it's been great and all, but I don't need you any more.~ */ + farewell_sod
 

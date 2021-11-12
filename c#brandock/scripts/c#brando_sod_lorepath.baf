@@ -1,25 +1,7 @@
 /* Lore Path SoD contents */
 
+/* Korlasz Crypt -> extra file */
 
-/* Korlasz */
-IF %IT_IS_SOD%
-Dead("bdkorlas")
-See("bdkorlas")
-Global("C#Br_LorePathbdkorlasSoD","GLOBAL",0)
-OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-!StateCheck(Myself,CD_STATE_NOTVALID)
-!StateCheck(Player1,CD_STATE_NOTVALID)
-See(Player1)
-CombatCounter(0)
-!See([ENEMY])
-THEN
-RESPONSE #100
-SetInterrupt(FALSE)
-SetGlobal("C#Br_LorePathbdkorlasSoD","GLOBAL",1)
-DisplayStringHead("C#Brandock",@1292)
-ReallyForceSpellRES("c#brlob1",Myself) 
-SetInterrupt(TRUE)
-END
 
 /* Teleri -> inside brandock_sod.d */
 

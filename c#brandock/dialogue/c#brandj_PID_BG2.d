@@ -14,7 +14,7 @@ SAY @0
 + ~GlobalGT("C#Br_BookRestore","GLOBAL",19) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~*Thank you* for shutting up about your book. You silence after we went to the Temple of Oghma took me by pleasant surprise.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
 
 /* letter from his parents - EET with SoD only */
-+ ~GlobalGT("bd_plot","global",0) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end
++ ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end
 
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~So, how came it you ended up doing experiments with your mother's cousin?~ + how_you_fare
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~How did you fare after we parted at the Sword Coast, Brandock?~ + how_you_fare
@@ -269,7 +269,7 @@ IF ~~ THEN how_you_fare_01
 SAY ~I returned to Amn, directly to my family, after receiving note that my mom was ill.~
 = ~You know what? My parents thought I could heal my mother. I'm a magic wielder, right? So I should be able to heal. Because, you don't explain the difference between arcane and divine magic to carpenders and farmers in Amnian countryland.~
 ++ ~Ouch.~ + how_you_fare_00
-+ ~GlobalGT("bd_plot","global",0)~ + ~So, that was the reason they called you back?~ + how_you_fare_00_2
++ ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1)~ + ~So, that was the reason they called you back?~ + how_you_fare_00_2
 ++ ~But surely they understood?~ + how_you_fare_00_1
 ++ ~It wasn't for the worse for your mother's health, though?~ + how_you_fare_00_3
 ++ ~Brandock, you are right, I don't want to hear it. Let's go.~ + later
@@ -277,7 +277,7 @@ END
 
 IF ~~ THEN how_you_fare_00
 SAY ~That's what I thought, too... Amongst a lot of other emotions.~
-+ ~GlobalGT("bd_plot","global",0)~ + ~So, that was the reason they called you back?~ + how_you_fare_00_2
++ ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1)~ + ~So, that was the reason they called you back?~ + how_you_fare_00_2
 ++ ~But surely they understood?~ + how_you_fare_00_1
 ++ ~It wasn't for the worse for your mother's health, though?~ + how_you_fare_00_3
 ++ ~Brandock, you are right, I don't want to hear it. Let's go.~ + later
@@ -360,7 +360,7 @@ END
 
 IF ~~ THEN how_you_fare_03
 SAY ~Well... there *was* talk about a murder accusation but different informants told different kind of stories, some taking your side and some accusing you to be the next Sarevok, so it was a bit hard to tell.~
-= ~Did Skie... did she really die due to a soul taker dagger?~
+= ~Did Skie... did she really die due to a Soultaker dagger?~
 ++ ~Yes, she did, but not by my hands. I was tricked by Irenicus!~ + how_you_fare_04
 ++ ~I see you heard the whole story, oh well.~ + how_you_fare_05
 END

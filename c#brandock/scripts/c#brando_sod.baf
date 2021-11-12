@@ -91,42 +91,6 @@ THEN
 		StartDialogNoSet(Player1)
 END
 
-/* Korlasz is defeated */
-
-IF
-
-	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
-	See(Player1)
-	!Detect([ENEMY])
-	!Detect([EVILBUTBLUE])
-	CombatCounter(0)
-	AreaCheck("BD0130")  // 
-	!See("bdkorlas")
-	%IT_IS_SOD%  // BG1 is over, we are in SoD
-	OR(2)
-		Global("BD_KORLASZ_SURRENDER","GLOBAL",1)
-		Dead("bdkorlas")
-	Global("C#Brando_SoDKorlaszDefeated","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobal("C#Brando_SoDKorlaszDefeated","GLOBAL",1)
-END
-
-IF
-
-	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	Global("C#Brando_SoDKorlaszDefeated","GLOBAL",1)
-THEN
-	RESPONSE #100
-		StartDialogNoSet(Player1)
-END
-
-
-
 
 /* before joining - Brandock is outside the Ducal Palace */
 
@@ -186,42 +150,6 @@ THEN
 		DisplayStringHead(Myself,@1254)
 END
 
-
-
-/* note about Sarevok's Sword in Korlash's Tomb (bdshkoro.itm) */
-/* activate */
-IF
-    OR(2) 
-	PartyHasItem("bdshkoro")
-	PartyHasItem("bdshkorj")
-    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-  !StateCheck(Player1,CD_STATE_NOTVALID)
-  !StateCheck(Myself,CD_STATE_NOTVALID)
-    See(Player1)
-    !Detect([ENEMY])
-    !Detect([EVILBUTBLUE])
-    CombatCounter(0)
-	Global("C#Brando_bdshkoro","LOCALS",0)
-THEN
-	RESPONSE #100
-		SetGlobal("C#Brando_bdshkoro","LOCALS",1)
-END
-
-/* initiate */
-IF 
-  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-  Global("C#Brando_bdshkoro","LOCALS",1) 
-  !StateCheck(Player1,CD_STATE_NOTVALID)
-  !StateCheck(Myself,CD_STATE_NOTVALID)
-    See(Player1)
-    !Detect([ENEMY])
-    !Detect([EVILBUTBLUE])
-    CombatCounter(0)
-THEN
-	RESPONSE #100
-    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
-		StartDialogueNoSet(Player1)
-END
 
 /* after the sign incident at the Boareskyr bridge */
 /* activate */
@@ -1080,11 +1008,11 @@ IF
 	!StateCheck(PLAYER1,CD_STATE_NOTVALID)
 	GlobalGT("bd_plot","global",401)
 	AreaCheck("bd3000")
-	Global("C#Brandock_SoDMessenger","BD3000",0)
+	Global("C#Brandock_SoDMessenger","GLOBAL",0)
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		SetGlobal("C#Brandock_SoDMessenger","BD3000",1)
+		SetGlobal("C#Brandock_SoDMessenger","GLOBAL",1)
 		CreateCreatureObject("c#brmess","C#Brandock",0,0,0)  // Messenger
 		ActionOverride("c#brmess",Dialogue("C#Brandock"))
 		SetInterrupt(TRUE)
