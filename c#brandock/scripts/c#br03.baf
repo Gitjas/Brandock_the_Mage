@@ -63,7 +63,6 @@ THEN
 		EraseJournalEntry(@10050)
 		EraseJournalEntry(@10054)
 		AddJournalEntry(@10012,QUEST_DONE)
-		ActionOverride("C#Brandock",ReallyForceSpellRES("c#brscra","C#Brandock"))		
 
 /* ## find Brandock's first tutor quest 
 		ActionOverride("C#Brandock",SetGlobal("##","GLOBAL",##)) 

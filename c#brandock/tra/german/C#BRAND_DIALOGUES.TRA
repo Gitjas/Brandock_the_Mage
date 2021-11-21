@@ -1688,6 +1688,10 @@
 @3103 = ~Schreibt eine haltbare Schriftrolle Zauberschutz durchdringen.~
 @3104 = ~Vielleicht doch keine von denen.~
 @3105 = ~[Brandock]Habt bitte Verständnis, <CHARNAME>, aber bevor ich eine weitere Schriftrolle schreiben kann, brauche ich eine gute Rast mit entsprechender Erholung.~
+/* @3106 - @3108 used in tp2 (crossmod with Tweaks */
+@3106 = ~Ich möchte eine anderen Zauber zum Schreiben auswählen, Brandock.~
+@3107 = ~Schreibt eine Schriftrolle für einen Zauber, den Ihr auswendig gelernt habt.~
+
 
 /* brandock_scrollscribing_bg1.d */
 @3500 = ~(Brandock atmet hörbar ein.) Da sind wir also. Ich sagte ja, dass ich es tun würde. Egal wo... also kann ich es auch genauso gut hier tun. Und hier...~
@@ -1738,9 +1742,9 @@
 @3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~
 @3601 = ~This was the last page I can write for now. Here is the book.~
 @3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~
-@3603 = ~It'll consume one spell scroll of the wanted spell and 5000 gold per page. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~
+@3603 = ~Per page, it'll consume one spell scroll of the wanted spell and tenth the sum in gold a normal spell scroll of the according spell would cost when writing it. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~
 @3604 = ~Yes, I would *love* to try this, even though my palms are already sweaty. Let me see what I could write, hmm...~
-@3605 = ~Assuming we have the appropriate scroll, I could write the following spells into it.~
+@3605 = ~Assuming we have the appropriate scroll and gold, I could write the following spells into the De Simplex Magicae.~
 @3606 = ~I only have five accessible pages in total, though, so you should chose carefully.~
 @3607 = ~My ressources allow for four more spells.~
 @3608 = ~My ressources allow for three more spells.~
@@ -1781,7 +1785,7 @@
 @3643 = ~I can't make all spell scrolls work like this. The ones I can I'll happily scribe for you in the future!~
 @3644 = ~I need to study this further. I am *so* close to understanding how to make a scroll that regenerates once a day.~
 @3645 = ~I would like to experiment with what I have seen being used in the De Simplex Magicae. The magic behind its durability - how it was made into a book which would remain after the spells being cast, making it a source of infinite spell charges.~
-@3646 = ~I have an idea how to increase durability of the scrolls - so they won't be used up after the first use. I'd need to experiment with this a bit, though - and every scroll will consume 1000 gold. Unless you wanted me to scribe some other scroll, of course, then this will have to wait.~
+@3646 = ~I have an idea how to increase durability of the scrolls - so they won't be used up after the first use. I'd need to experiment with this a bit, though - and every scroll will consume thrice the amount of a normal scroll in gold. Unless you wanted me to scribe some other scroll, of course, then this will have to wait.~
 @3647 = ~Gladly. Make yourself comfortable - this could take a while.~
 @3648 = ~<CHARNAME>, I'm still grabbing the concept of having completed the De Simplex Magicae. It's a real magic book of spells again - Wait! (Brandock pauses.) Wow! I could go around, telling people I wrote a magic book! Heh.~
 @3649 = ~Indeed, Brandock. And a handy book it is!~

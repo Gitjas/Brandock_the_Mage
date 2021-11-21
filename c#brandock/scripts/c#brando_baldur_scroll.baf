@@ -1,13 +1,13 @@
 /* party rested: reset scroll scribing variable. */
 IF
 	%BGT_VAR%
-	GlobalGT("C#Br_Scrollscribing","GLOBAL",0)
+	GlobalGT("c#brscrl","GLOBAL",0)
 //	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
-		SetGlobal("C#Br_Scrollscribing","GLOBAL",0)
+		SetGlobal("c#brscrl","GLOBAL",0)
 		Continue()	
 END
 

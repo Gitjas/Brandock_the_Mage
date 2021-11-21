@@ -30,11 +30,16 @@ Brandock found his missing possessions - or what is left of them, to be precise.
 I returned the pair of boots to Travenhurst Manor. The servant was quite happy they were in such good condition.~
 @10012  = ~Brandock's Scroll Scribing Skills
 
-Brandock can scribe scrolls once a day. Scrolls of level 1 are free. Higher level spells will consume gold in the making:
-level 2&3: 100 gold
-level 4&5: 200 gold
-level 6&7: 350 gold
-level 8&9: 500 gold.
+Brandock can scribe scrolls once a day. Scrolls will consume gold in the making depending on the spell level:
+1st level spells: 50 gold
+2nd level spells: 100 gold
+3rd level spells: 150 gold
+4th level spells: 250 gold
+5th level spells: 500 gold
+6th level spells: 1000 gold
+7th level spells: 1500 gold
+8th level spells: 2500 gold
+9th level spells: 5000 gold.
 The scrolls he can write depends on his level as a mage and other experiences.~
 @10013  = ~A Fine Pair of Boots~
 
@@ -136,7 +141,7 @@ Apparently, the De Simplex Magicae had some sort of safety feature implemented w
 "So, whoever of you fools damaged the book, you found out that a preservation spell makes the book physically whole again. I expect you to make detailed notes about the process, as I want to expand this spell as a way of preserving magical books in whole. So far it only restores the blank pages. Let it be a lesson to you to take better care of magic books in the future. I expect you to fill the pages with spells again - they should continue to benefit from the magic of the book and should be effective accordingly without cost. But let me tell you: this will be a long road for you, because wih your current experience you don't even need to try. And before you do anything, make sure you seek Oghma's wisdom."~
 @10057  = ~Brandock Wants to Restore his Book
 
-Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Amn.~
+Brandock will keep the book and his notes about its former contents until he returns into his home land Amn, where he will ask for further help in the Temple of Oghma in Athkatla.~
 @10058  = ~Brandock Wants to Restore his Book
 
 Brandock wants to show his restored book to the priests of Oghma. The Temple of Oghma is in the Dock's District in Athkatla.~
@@ -194,13 +199,13 @@ Malm, the half-ogre who shapeshifted into a human got into trouble and was appar
 //@10077  = ~##~
 @10078  = ~Brandock Wants to Restore his Book
 
-Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and 5000 gold.~
+Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost.~
 @10079  = ~Brandock Wants to Restore his Book
 
 Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
 @10080  = ~Brandock Wants to Restore his Book
 
-Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 5000 gold.~
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 50,000 gold.~
 @10081  = ~Brandock Wants to Restore his Book
 
 It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~

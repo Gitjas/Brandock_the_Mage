@@ -13,6 +13,21 @@ THEN
 		SetGlobal("C#Br_LorePathJournalEntry","LOCALS",1)
 END
 
+/* Firebeads desk. Dialogue didn't always trigger so I'll put it here. Variable is set by clicking on Firebead's desk (c#bredsk.baf) */
+IF
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	Global("C#Br_LorePathElvenhair","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
+END
+
+
 /* lore path: zordral */
 /* activation */
 IF %BGT_VAR%

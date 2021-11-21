@@ -411,6 +411,34 @@ Rettungswurf: 1/2 (gg. Zauber)
 
 Der Anwender legt seine Hände mit den Daumen aneinander, spreizt die Finger und hält seine Handflächen in Richtung der Gegner. Aus den Handflächen schießen sengend heiße Flammenzungen, die einen Bereich von 120 Grad abdecken und 1,5 m weit reichen. Die Wesen in dem Bereich erleiden 1W3 +2 Schadenspunkte je Stufe des Anwenders mit einem Maximum von 1W3 +20 Schadenspunkten. Bei einem erfolgreichen Rettungswurf gegen Zauber wird dieser Schaden halbiert.~
 
+/* new for v13 */
+//70300
+@125  = ~Schriftrollen anfertigen
+Es hat etwas gedauert bis er seinen Mut zusammen hatte, aber nun ist Brandock in der Lage, Schriftrollen anzufertigen. 
+Die Kosten einer Schriftrolle werden beim Erstellen komplett verbraucht. Je nach Zaubergrad belaufen sich diese auf:
+Zaubergrad 1: 50 gold
+Zaubergrad 2: 100 gold
+Zaubergrad 3: 150 gold
+Zaubergrad 4: 250 gold
+Zaubergrad 5: 500 gold
+Zaubergrad 6: 1000 gold
+Zaubergrad 7: 1500 gold
+Zaubergrad 8: 2500 gold
+Zaubergrad 9: 5000 gold.
+Die Schriftrollen, die Brandock schreiben kann, hängen von seiner Zauberstufe und anderen Erfahrungen ab. Nachdem sein Buch restauriert ist und er eine Weile mit <CHARNAME> unterwegs war, wird er auch anfangen, mit verbesserten Schriftrollen oder Buchseiten zu experimentieren.~
+//100389
+@126  = ~Gestaltwandlung: Halboger
+
+Stärke: auf 18/00 gesetzt
+Geschicklichkeit: auf 9 gesetzt
+
+Rüstungsklasse: 5
+Angriffe pro Runde: 1
+Schaden: 4W6 (Wucht), trifft wie eine magische Waffe +1~
+//100387
+@127  = ~Gestaltwandlung: Natürliche Gestalt
+Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. Entegegn allen seinen Ängesten und Panikattacken ist er in der Lage, sich jederzeit nach Belieben wieder zurückzuverwandeln.~
+
 /* Brandock cre things */
 @500 = ~Brandock~
 @501 = ~[panisch]Ich... ich schaff's nicht mehr!~ [c#bran01] //SAY MORALE
@@ -499,6 +527,8 @@ Der Anwender legt seine Hände mit den Daumen aneinander, spreizt die Finger und 
 @1035 = ~Oh, eine Bücherei! (Brandock überfliegt murmelnd die Buchrücken.) Hmm, keine magischen Bücher dabei, soweit ich das sehe.~
 @1036 = ~Es scheint ihm nicht geholfen zu haben - aber das Zauberbuch ist trotzdem insteressant zu lesen.~
 @1037 = ~Drei interessante Zauberbücher, aber mir wäre es lieber gewesen, ich hätte keine Chance erhalten, sie anzusehen...~
+@1038 = ~Heute ist der Schreibtisch von Elfenhaar voll mit magischen Büchern, Folianten und Schriftrollen, einige davon in Sprachen, die Ihr nicht kennt. Brandock mustert bereits die Titel, wobei er sich sichtlich zurückhält, um die Bücher nicht anzufassen.~
+@1039 = ~Dies ist der Schreibtisch von Elfenhaar. Er ist voll mit Stapeln von Büchern, Schriftrollen und einem Satz unterschiedlich geformter Federkiele.~
 
 /* SoD */
 @1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
@@ -541,8 +571,10 @@ Der Anwender legt seine Hände mit den Daumen aneinander, spreizt die Finger und 
 
 /* new for vbeta 11 */
 @1285 = ~Bei manchen Gegnern ist das Ergattern ihrer Zauberbücher unbeschreiblich befriedigend. Hephernaan gehört da eindeutig dazu.~
+
+/* @1286 in c#brando_scrollscribing.baf */
+@1286 = ~Es tut mir Leid - hier kann ich das nicht!~
 /*
-@1286 = 
 @1287 = 
 @1288 = 
 */

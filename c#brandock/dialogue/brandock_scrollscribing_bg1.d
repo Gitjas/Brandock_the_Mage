@@ -63,9 +63,7 @@ END
 IF ~~ THEN scribe_scrolls_restbanter_09
 SAY @3520
 = @3521
-IF ~~ THEN DO ~//ReallyForceSpellRES("c#brscra","C#Brandock")
-ActionOverride("C#Brandock",AddSpecialAbility("c#brscrl"))
-EraseJournalEntry(@10063)
+IF ~~ THEN DO ~EraseJournalEntry(@10063)
 SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",8) RestParty()~ SOLVED_JOURNAL @10064
 EXIT
 END
@@ -141,5 +139,5 @@ IF WEIGHT #-1
 = @3541
 END
 IF ~~ THEN DO ~SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",4)
-SetGlobal("C#Br_Scrollscribing","GLOBAL",3)~ UNSOLVED_JOURNAL @10012 EXIT
+SetGlobal("c#brscrl","GLOBAL",3)~ UNSOLVED_JOURNAL @10012 EXIT
 

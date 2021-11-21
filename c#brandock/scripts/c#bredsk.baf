@@ -53,10 +53,9 @@ IF
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		DisplayString(Myself,~Today, Elvenhair's desk is loaded with magic books, tomes, and scrolls, some in languages you do not know. Brandock is already eyeing the titles, restraining himself visibly from touching the books.~)
+		DisplayString(Myself,@1038)
 		Wait(2)
 		SetGlobal("C#Br_LorePathElvenhair","GLOBAL",1)
-		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
 		SetInterrupt(TRUE)
 END
 
@@ -72,8 +71,9 @@ IF
 	!Global("C#Brando_BookquestHold","GLOBAL",1)
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		SetGlobal("C#Br_ScribeScrollQuest","GLOBAL",2)
-		ActionOverride("firebe", StartDialogNoSet("C#Brandock"))
+		SetInterrupt(TRUE)
 END
 
 IF
@@ -84,18 +84,15 @@ IF
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	Global("C#Br_ScribeScrollQuest","GLOBAL",4)
 	!Global("C#Brando_BookquestHold","GLOBAL",1)
-//?	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",2)
 	OR(2)
-		Global("C#Br_Scrollscribing","GLOBAL",0)
-		Global("C#Br_Scrollscribing","GLOBAL",3)
+		Global("c#brscrl","GLOBAL",0)
+		Global("c#brscrl","GLOBAL",3)
 THEN
 	RESPONSE #100
-		IncrementGlobal("C#Br_Scrollscribing","GLOBAL",1)
-		ActionOverride("C#Brandock", StartDialogNoSet("C#Brandock"))
+		SetInterrupt(FALSE)
+		IncrementGlobal("c#brscrl","GLOBAL",1)
+		SetInterrupt(TRUE)
 END
-
-
-
 
 
 
@@ -104,5 +101,5 @@ IF
 	Clicked([ANYONE])
 THEN
 	RESPONSE #100
-		DisplayString(Myself,~This is Elvenhair's desk. You see piles of books, scrolls, and a set of differently shaped quills.~)
+		DisplayString(Myself,@1039)
 END

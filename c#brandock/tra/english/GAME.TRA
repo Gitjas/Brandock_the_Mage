@@ -365,6 +365,34 @@ Saving Throw: 1/2
 
 When the wizard casts this spell, a jet of searing flame shoots from his fingertips. His hands must be held so as to send forth a fanlike sheet of flames: the wizard's thumbs must touch each other and fingers must be spread. The burning hands send out flame jets of five-foot length in a horizontal arc of about 60 degrees in front of the wizard. Any creature in the area of the flames suffers 1d3 hit points of damage, plus 2 points for each level of the spellcaster, to a maximum of 1d3 + 20 points of fire damage. Those successfully saving vs. spell receive half damage.~
 
+/* new for v13 */
+@125  = ~Scribe Scrolls
+It took Brandock a while to gather his courage but now he is able to scribe a scroll once a day. 
+The cost of any raw materials that are used in the process must be covered in full. Scrolls will consume gold in the making depending on the spell level:
+1st level spells: 50 gold
+2nd level spells: 100 gold
+3rd level spells: 150 gold
+4th level spells: 250 gold
+5th level spells: 500 gold
+6th level spells: 1000 gold
+7th level spells: 1500 gold
+8th level spells: 2500 gold
+9th level spells: 5000 gold.
+The scrolls he can write depends on his level as a mage and other experiences. He will also use these times to scribe any advanced scrolls or book pages he thought of after his book is restored and travelling a while with <CHARNAME>.~
+@126  = ~Shapeshift: Half-Ogre
+
+Strength: 18/85
+Dexterity: 9
+
+Base Armor Class: 5
+Number of Attacks: 1
+Attack Damage: 4d6 (crushing), strikes as +1 weapon
+
+Special Abilities: 
+– Increased movement rate~
+@127  = ~Shapeshift: Natural Form
+This will transform Brandock back into his human form. Despite his fears and panic attacks, he is able to return to his natural shape any time he wants.~
+
 /* Brandock cre things */
 @500 = ~Brandock~
 @501 = ~~ [c#bran01] //SAY MORALE  
@@ -451,6 +479,8 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 @1035 = ~Oh, a library! (Brandock murmurs while scanning book covers.) Hmm, no magic books, as far as I can see.~
 @1036 = ~Didn't seem to have helped him here - but this spellbook is still an interesting read.~
 @1037 = ~Three interesting spellbooks, but I'd prefer I wouldn't have had the chance to go through these...~
+@1038 = ~Today, Elvenhair's desk is loaded with magic books, tomes, and scrolls, some in languages you do not know. Brandock is already eyeing the titles, restraining himself visibly from touching the books.~
+@1039 = ~This is Elvenhair's desk. You see piles of books, scrolls, and a set of differently shaped quills.~
 
 /* SoD */
 @1250 = ~Hey, <CHARNAME>! <CHARNAME>, over here!~
@@ -494,8 +524,9 @@ When the wizard casts this spell, a jet of searing flame shoots from his fingert
 
 /* new for vbeta 11 */
 @1285 = ~For some opponents, getting to their spellbooks is utterly satisfying. Hephernaan is one of those.~
+/* @1286 in c#brando_scrollscribing.baf */
+@1286 = ~I'm sorry - can't do this here!~
 /*
-@1286 = 
 @1287 = 
 @1288 = 
 */

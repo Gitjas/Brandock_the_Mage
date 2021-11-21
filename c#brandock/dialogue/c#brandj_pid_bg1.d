@@ -173,19 +173,20 @@ Global("C#Br_BookRestore","GLOBAL",0)
 Global("Chapter","GLOBAL",%tutu_chapter_7%)
 Global("DukeThanks","GLOBAL",0)
 GlobalGT("C#Brandock_Possessions","GLOBAL",15)
+Global("C#Br_BookRestore","GLOBAL",0)
 Global("C#Br_BookRestoreCH7","LOCALS",0)
 !Dead("FIREB1")
-!Dead("FIREBE")~ + @414 /* ~Brandock, I might know a friendly mage who could help with restoring the book: Firebead Elvenhair. But, considering we are being searched for murder currently, I guess we need to clear our names before this option gets realistic.~ */ DO ~SetGlobal("C#Br_BookRestoreCH7","LOCALS",1)~ EXIT
+!Dead("FIREBE")~ + @414 /* ~Brandock, I might know a friendly mage who could help with restoring the book: Firebead Elvenhair. But, considering we are being searched for murder currently, I guess we need to clear our names before this option gets realistic.~ */ DO ~SetGlobal("C#Br_BookRestoreCH7","LOCALS",1)~ + elvenhair_pid
 
 + ~%BG1_BEFORE_TRANSITION%
 OR(2)
 	!Global("Chapter","GLOBAL",%tutu_chapter_7%)
 	!Global("DukeThanks","GLOBAL",0)
 GlobalGT("C#Brandock_Possessions","GLOBAL",15)
-Global("C#Br_BookRestoreCH7","LOCALS",1)
 Global("C#Br_BookRestore","GLOBAL",0)
+Global("C#Br_BookRestoreCH7","LOCALS",1)
 !Dead("FIREB1")
-!Dead("FIREBE")~ + @415 /* ~So - our names are cleared. Time to go to Elvenhair and ask him for help with your book!~ */ + elvenhair_pid
+!Dead("FIREBE")~ + @415 /* ~So - our names are cleared. Time to go to Elvenhair and ask him for help with your book!~ */ + elvenhair_pid_00
 
 + ~%BG1_BEFORE_TRANSITION%
 Global("C#Br_BookRestore","GLOBAL",4)
@@ -767,7 +768,14 @@ IF ~~ THEN c#brandj elvenhair_pid
 @100 
 == c#brandj IF ~GlobalGT("C#Br_LorePathElvenhair","GLOBAL",0)~ THEN @101
 == c#brandj IF ~Global("C#Br_LorePathElvenhair","GLOBAL",0)~ THEN @102
-== c#brandj @103
+END
+IF ~~ THEN + elvenhair_pid_00
+IF ~Global("Chapter","GLOBAL",%tutu_chapter_7%)
+Global("DukeThanks","GLOBAL",0)~ THEN + elvenhair_pid_07
+
+CHAIN
+IF ~~ THEN c#brandj elvenhair_pid_00
+@103
 END
 ++ @104 + elvenhair_pid_01
 ++ @105 + elvenhair_pid_02
@@ -816,6 +824,11 @@ EraseJournalEntry(@10019)
 SetGlobal("C#Br_BookRestore","GLOBAL",1)~ SOLVED_JOURNAL @10021 /* ~Brandock Wants to Restore his Book
 
 I promised Brandock that we'd go to Firebead Elvenhair in Beregost. Brandock wants to ask him for help with retoring his destroyed book.~ */ EXIT
+END
+
+IF ~~ THEN elvenhair_pid_07
+SAY @478
+IF ~~ THEN EXIT
 END
 
 

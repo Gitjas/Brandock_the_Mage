@@ -1,0 +1,31 @@
+/* Firebeads desk. Dialogue didn't always trigger so I'll put it here. Variable is set by clicking on Firebead's desk (c#bredsk.baf) */
+IF
+	InMyArea(Player1)
+	InMyArea("firebe")
+	!StateCheck("firebe",CD_STATE_NOTVALID)
+	InMyArea("C#Brandock")
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	Global("C#Br_ScribeScrollQuest","GLOBAL",2)
+THEN
+	RESPONSE #100
+		ActionOverride("firebe",StartDialogNoSet("C#Brandock"))
+END
+
+IF
+	AreaCheck("%Beregost_FirebeadsHouse_L1%")
+	InMyArea(Player1)
+	!Dead("firebe")
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_ScribeScrollQuest","GLOBAL",4)
+	!Global("C#Brando_BookquestHold","GLOBAL",1)
+	OR(2)
+		Global("c#brscrl","GLOBAL",1)
+		Global("c#brscrl","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		StartDialogNoSet("C#Brandock")
+		SetInterrupt(TRUE)
+END

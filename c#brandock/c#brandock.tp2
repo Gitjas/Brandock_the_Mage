@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_13pre~ 
+VERSION ~Beta_13~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -124,8 +124,6 @@ END
 
     OUTER_SPRINT ~eet_var~ ~~
 
-    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("ENDOFBG1","GLOBAL",2)~
-
     OUTER_SPRINT ~BG1_transition_area~ ~"c#br03"~
     OUTER_SPRINT ~BG1_transition_coord~ ~[390.250]~ 
     OUTER_SPRINT ~BG1_transition_face~ ~0~ 
@@ -134,6 +132,7 @@ END
     OUTER_SPRINT ~BG1_transition_dlg~ ~c#brand2~
 
     OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
+    OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("ENDOFBG1","GLOBAL",2)~
 
     OUTER_SPRINT ~OHDradeelInfo~ ~C#Bandock_DradeelInfo~
     OUTER_SPRINT ~CELLDOOR~ ~c#brcelldoor~
@@ -448,14 +447,19 @@ SAY NAME2 @2 /* ~(cough)~ */
 
 /* scroll scribing ability */
 COPY ~C#Brandock/spells/c#brscrl.spl~ ~override/c#brscrl.spl~ //should have correct name
-COPY ~C#Brandock/spells/c#brscra.spl~ ~override/c#brscra.spl~
+SAY UNIDENTIFIED_DESC  @125 
+SAY DESC  @125 
 
 /* Quest: Brandock's shapeshifting: Half-Oger */
 /* innate ability: polymorph into self */
 COPY ~C#Brandock/spells/c#brshnf.spl~ ~override/c#brshnf.spl~ 
+SAY UNIDENTIFIED_DESC  @126  
+SAY DESC  @126 
 /* innate ability: Shapeshift Half-Ogre */
 COPY ~C#Brandock/spells/c#brshog.spl~ ~override/c#brshog.spl~
   SAY NAME1 ~Shapeshift Half-Ogre~ 
+SAY UNIDENTIFIED_DESC  @127 
+SAY DESC  @127 
 /* grant the innate ability "c#brshog" -> shapeshift Half-ogre */
 COPY ~C#Brandock/spells/c#brsh01.spl~ ~override/c#brsh01.spl~
 
@@ -691,6 +695,7 @@ ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_cursedscrolls.baf~ EVALUATE_BUFFER
 /* script addition to trigger Brandock's scroll scribing dialogue */
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_scrollscribing.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing.baf~ EVALUATE_BUFFER
 /* Brandock's Half-Ogre quest */
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_shapeshifting.baf~ EVALUATE_BUFFER
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVALUATE_BUFFER
@@ -3362,3 +3367,119 @@ COPY ~c#brandock/2da/c#brbxxx.2da~ ~c#brandock/install~
       	END
 	END
 BUT_ONLY
+
+
+///////////////////////////////////////////////////////////////
+/* Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls" */
+//////////////////////////////////////////////////////////////
+
+/* First option: deactivate aTweak's scribe scroll ability for Brandock */
+BEGIN @55582 /* ~Deactivate aTweak's scribe scroll ability for Brandock~ */ DESIGNATED 40  
+LABEL BrandockTheMage-aTweaks-Crossmod-Option1
+	SUBCOMPONENT @55584 /* Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls" */
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~115~) OR (MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~117~) @55585 /* aTweaks "Allow Mages to scribe memorized spells onto scrolls" needs to be installed. */
+
+<<<<<<<< .../c#brand_atweaks.baf
+/* remove the extra ability button from aTweaks */
+/* needs to run every day anew or any time Brandock gets the ability assigned via the engine (e.g. upon levelling up), so no variable */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Class(Myself,MAGE_ALL)
+//	LevelGT(Myself,8)
+	HaveSpellRES("fl#MSCRL")
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		RemoveSpellRES("fl#MSCRL")
+END
+>>>>>>>>
+ACTION_IF GAME_IS ~bgee eet bgt~ BEGIN
+  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER 
+END
+ACTION_IF GAME_INCLUDES ~sod~ BEGIN
+  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+END
+ACTION_IF GAME_IS ~tob bg2ee eet~ BEGIN
+  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+END
+
+
+/* Second option: integrate aTweak's scribe scroll ability into Brandock's original one */
+BEGIN @55583 /* ~Integrate aTweak's scribe scroll ability into Brandock's original one~ */ DESIGNATED 41  
+LABEL BrandockTheMage-aTweaks-Crossmod-Option2
+	SUBCOMPONENT @55584 /* Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls" */
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~115~) OR (MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~117~) @55585 /* aTweaks "Allow Mages to scribe memorized spells onto scrolls" needs to be installed. */
+
+<<<<<<<< .../c#brand_atweaks.baf
+/* remove the extra ability button from aTweaks */
+/* needs to run every day anew or any time Brandock gets the ability assigned via the engine (e.g. upon levelling up), so no variable */
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Class(Myself,MAGE_ALL)
+//	LevelGT(Myself,8)
+	HaveSpellRES("fl#MSCRL")
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		RemoveSpellRES("fl#MSCRL")
+		DisplayStringHead(Myself,~Testline: removed Scribe Scroll Ability from aTweaks.~)
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)
+END
+
+/* Close aTweaks variable so it's not true for other NPCs */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	GlobalTimerExpired("C#Br_ScrScrTimer_aTweaks","GLOBAL")
+	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
+	Global("c#brscrl","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)
+END
+>>>>>>>>
+ACTION_IF GAME_IS ~bgee eet bgt~ BEGIN
+  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER 
+END
+ACTION_IF GAME_INCLUDES ~sod~ BEGIN
+  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+END
+ACTION_IF GAME_IS ~tob bg2ee eet~ BEGIN
+  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+END
+
+<<<<<<<< .../inlined/c#brand_atweaks.d
+
+ADD_STATE_TRIGGER fl#SCRL 0 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~
+
+ADD_STATE_TRIGGER fl#SCRL 1 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~
+
+ADD_STATE_TRIGGER fl#SCRL 2 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)~
+
+ADD_TRANS_TRIGGER fl#SCRL 2 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~ DO 9
+
+EXTEND_BOTTOM fl#SCRL 2
++ ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)~ + @3106 DO ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1) 
+SetGlobal("c#brscrl","GLOBAL",1)
+SetGlobalTimer("C#Br_ScrScrTimer_aTweaks","GLOBAL",5)
+StartDialogNoSet("C#Brandock")~ EXIT
+END
+
+EXTEND_BOTTOM c#brandj %scribe_scoll_02% #2
++ ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",1)~ + @3107 DO ~SetGlobal("c#brscrl","GLOBAL",3) SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
+ActionOverride("C#Brandock",StartDialogOverride("fl#SCRL","C#Brandock"))~ EXIT
+END
+>>>>>>>>
+
+// Get state for c#brandj %scribe_scoll_02% 
+/* ~What do you want me to scribe, <CHARNAME>?~
+*/
+OUTER_SET scribe_scoll_02 = STATE_WHICH_SAYS 3023 IN ~c#brandock/tra/autotra/%s/C#BRAND_DIALOGUES.tra~ FROM ~c#brandj~
+
+COMPILE EVALUATE_BUFFER ~.../inlined/c#brand_atweaks.d~ USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
+

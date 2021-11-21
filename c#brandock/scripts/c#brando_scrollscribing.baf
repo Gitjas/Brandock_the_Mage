@@ -1,6 +1,7 @@
 /* scroll scribing: variable is set via "Scribe Scolls" ability */
 /* Initiation */
 IF
+  !AreaCheck("%Beregost_FirebeadsHouse_L1%")
   OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !See([ENEMY])
   CombatCounter(0)
@@ -11,6 +12,22 @@ IF
 THEN
   RESPONSE #100
     StartDialogNoSet(Myself)
+END
+
+/* not in a hostile environment */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  OR(3)
+  See([ENEMY])
+  !CombatCounter(0)
+  StateCheck(Myself,CD_STATE_NOTVALID)
+//  See(Player1) 
+//  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("c#brscrl","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@1286) 
+    SetGlobal("c#brscrl","GLOBAL",3)   
 END
 
 /* Party has Cursed Scroll of Weakness: identified */
@@ -107,4 +124,14 @@ IF
 THEN
 	RESPONSE #100
 		IncrementGlobal("C#Br_HasScrollSCRL18","LOCALS",1)
+END
+
+/* gains scroll scribing ability - also always for newly spawned cre in SoD / BGII */
+IF
+	GlobalGT("C#Br_ScribeScrollQuest","GLOBAL",7)
+	Global("C#Br_GiveScribeAbility","LOCALS",0)
+THEN
+	RESPONSE #100
+		AddSpecialAbility("c#brscrl")
+		SetGlobal("C#Br_GiveScribeAbility","LOCALS",1)
 END

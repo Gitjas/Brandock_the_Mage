@@ -45,7 +45,6 @@ THEN
 		EraseJournalEntry(@10050)
 		EraseJournalEntry(@10054)
 		AddJournalEntry(@10012,QUEST_DONE)
-		ReallyForceSpellRES("c#brscra","C#Brandock")
 		SetInterrupt(TRUE)
 END
 

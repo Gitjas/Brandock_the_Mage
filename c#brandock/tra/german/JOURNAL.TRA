@@ -30,11 +30,16 @@ Brandock hat seine fehlenden Besitztümer gefunden - oder besser gesagt, was davo
 Ich habe das Paar Stiefel beim Travenhurster Herrenhaus abgegeben. Der Diener war angetan davon, dass sie in relativ gutem Zustand sind.~
 @10012  = ~Brandocks Schreiben von Schriftrollen
 
-Brandock kann einmal am Tag eine Schriftrolle schreiben. Die Zauber der untersten Stufe verbrauchen keine Ressourcen. Höherstufige Zauber verbrauchen Gold, wenn sie geschrieben werden:
-Stufe 2&3: 100 Gold
-Stufe 4&5: 200 Gold
-Stufe 6&7: 350 Gold
-Stufe 8&9: 500 Gold.
+Brandock kann einmal am Tag eine Schriftrolle schreiben. Die Zauber verbrauchen abhängig ihrer Zauberstufe Gold, wenn sie geschrieben werden:
+Zauberstufe 1: 50 gold
+Zauberstufe 2: 100 gold
+Zauberstufe 3: 150 gold
+Zauberstufe 4: 250 gold
+Zauberstufe 5: 500 gold
+Zauberstufe 6: 1000 gold
+Zauberstufe 7: 1500 gold
+Zauberstufe 8: 2500 gold
+Zauberstufe 9: 5000 gold.
 Die Schriftrollen, die Brandock schreiben kann, hängen von seiner Zauberstufe und anderen Erfahrungen ab.~
 @10013  = ~Ein feines Paar Stiefel~
 
@@ -194,13 +199,13 @@ Malm, der Halboger, der sich in einen Menschen verwandelt hat steckt offensichtl
 //@10077  = ~##~
 @10078  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock ist bereit, Zauber in das De Simplex Magicae zu schreiben! Für jede Seite braucht er eine Schriftrolle des entsprechenden Zaubers und 5000 Münzen in Gold.~
+Brandock ist bereit, Zauber in das De Simplex Magicae zu schreiben! Für jede Seite braucht er eine Schriftrolle des entsprechenden Zaubers und die zehnfache Menge an Münzen in Gold, die eine normale Schriftrolle des entsprechenden Zaubers kosten würde.~
 @10079  = ~Brandock möchte sein Buch Restaurieren
 
 Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
 @10080  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 5000 gold.~
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 50.000 gold.~
 @10081  = ~Brandock möchte sein Buch Restaurieren
 
 It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~

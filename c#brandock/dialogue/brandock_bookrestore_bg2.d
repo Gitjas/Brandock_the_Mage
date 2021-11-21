@@ -319,7 +319,7 @@ APPEND c#brandj
 /* ToB - De Simplex Magicae is finally fully restored */
 
 IF WEIGHT #-1
-~Global("C#Br_Scrollscribing","GLOBAL",2)
+~Global("c#brscrl","GLOBAL",2)
 Global("C#Br_WriteBook","LOCALS",10)~ THEN scribe_book_last
 SAY @1964
 IF ~~ THEN + bookrestore_completed
@@ -357,7 +357,7 @@ SAY @1951 /* ~[Brandock]The De Simplex Magicae... I was its owner for so long - 
 = @1962 /* ~It's a very useful book, though. And it's *complete*! Did I mention that the De Simplex Magicae is *complete* again?~ */
 IF ~~ THEN DO ~EraseJournalEntry(@10080)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
-SetGlobal("C#Br_Scrollscribing","GLOBAL",3)
+SetGlobal("c#brscrl","GLOBAL",3)
 SetGlobal("C#Br_WriteBook","LOCALS",11)
 ActionOverride("C#Brhelp",DestroySelf())~ SOLVED_JOURNAL @10081 EXIT
 END
