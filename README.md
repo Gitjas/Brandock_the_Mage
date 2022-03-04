@@ -12,5 +12,11 @@ So far, only the BG1 content of the mod is finished.
 
 [Detailed readme in German](https://htmlpreview.github.io/?https://github.com/Gitjas/Brandock_the_Mage/blob/master/c%23brandock/readme.brandock.german.html)
 
+[Discussion Thread at Gibberlings3](https://www.gibberlings3.net/forums/topic/34687-brandock-the-mage-npc-mod-kerzenburgforum/)
+
+[German Discussion Thread at Kerzenburgforum](https://baldurs-gate.de/index.php?threads/brandock-der-magier-npc-mod-f%C3%BCr-baldurs-gate.44913/)
+
+[Modpage](https://www.baldurs-gate.de/index.php?resources/brandock-der-magier.48/)
+
 ## Copyright
 This mod is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. This mod is also not developed, supported, or endorsed by BioWare, Black Isle Studios, Interplay Entertainment Corp., Overhaul Games or Beamdog. All other trademarks and copyrights are property of their respective owners. 
