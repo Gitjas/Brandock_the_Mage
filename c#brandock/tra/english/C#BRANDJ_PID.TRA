@@ -34,7 +34,7 @@
 @31   = ~I am glad to have you here, Brandock. Regardless of how this came to be.~
 @32   = ~I need a mage in this group, and you will do. It's fortunate you have a reason to stay.~
 @33   = ~Something on your mind?~
-@34   = ~Want to talk more about how you feel with your new book?~
+@34   = ~Want to talk more about how you feel with your restored book?~
 @35   = ~Want to talk more about being expelled from Candlekeep?~
 @36   = ~You want to talk more about your first teacher?~
 @37   = ~You worked at a carnival?~
@@ -420,6 +420,10 @@
 @476  = ~[Brandock]I need to use the bushes... I probably shouldn't have said that.~
 @477  = ~[PC Reply]Seems like you found a quiet place for scroll scribing!~
 @478  = ~[Brandock]Well, "luckily" we do not have to worry about that just now, do we...~
+@479  = ~[PC Reply]Want to talk more about your retored book and the note from Bowegentle in it?~
+@480  = ~[Brandock]It's... it's hilarious, <CHARNAME>. I don't even know where to start. I don't know what to think - I'm not even sure whether I should feel blessed, cursed - or mocked by the gods. But thanks for asking.~
+@481  = ~[Brandock]I'm still trying to pretend this empty, accusing book in my backpack is not my problem... I am *so* glad there is basicaly nothing I can do about it currently, this whole affair just blows my mind. And yet, I am *so* excited about bringing this to the monks in Oghma's Temple in Athkatla. I am sure they'll know what to do with it - they'll have to know.~
+@482  = ~[Brandock]Only, that I will guard this like my eyeballs until I can bring it to the temple. This book will not come to harm again, and I will see to it. Everything else - time will tell.~
 
 
 /* SoD */

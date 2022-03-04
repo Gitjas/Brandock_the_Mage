@@ -421,7 +421,10 @@
 @476  = ~Ich muss hinter die Büsche... das hättte ich nicht sagen sollen.~
 @477  = ~[PC Reply]Scheint, als hättet Ihr einen ruhigen Platz für das Schriftrollenschreiben gefunden!~
 @478  = ~[Brandock]Was für ein "Glück", dass ich mir darüber momentan wohl keine Gedanken machen muss...~
-
+@479  = ~[PC Reply]Möchtet Ihr mehr über Euer wiederhergestelltes Buch mit der übersetzten Notiz von Bowgentle sprechen?~
+@480  = ~[Brandock]Es... es ist unbeschreiblich, <CHARNAME>. Ich weiß gar nicht, wo ich anfangen soll. Ich möchte am liebsten gar nicht darüber nachdenken - ich bin mir noch nicht mal im Klaren, ob ich mich von den Göttern gesegnet, verflucht - oder einfach nur *veralbert* vorkommen soll. Ich danke Euch trotzdem sehr, dass Ihr nachfragt.~
+@481  = ~[Brandock]Ich versuche mir einzureden, dass dieses leere, vorwurfsvolle Buch in meinem Gepäck nicht wirklich mein Problem wäre... Ich bin *so* froh, dass ich momentan im Grunde nichts diesbezüglich tun kann, um nicht zu sagen muss, so sehr überwältigt mich das ganze. Und doch bin ich *so* versessen darauf, es zu den Mönchen im Tempel von Oghma in Atkatla zu bringen. Ich bin mir sicher dass sie wissen, was damit zu tun ist - sie müssen es wissen.~
+@482  = ~[Brandock]Nur, dass ich dieses Buch wie meine Augäpfel hüten werde, bis ich es den Mönchen zeigen kann. Diesem Buch wird nichts Übles mehr geschehen, dafür werde ich sorgen. Alles weitere wird die Zeit zeigen.~
 
 /* SoD */
 /* @1000 - @1002, @1004, @1007 also used for "c#brandj_PID_BG2.d" */

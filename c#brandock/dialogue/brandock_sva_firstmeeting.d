@@ -16,7 +16,7 @@
 BEGIN c#brand2 
 
 IF ~Global("C#BrandockSpawn","GLOBAL",11)~ THEN firstmeeting
-SAY ~Ebrel, I think I need some more of the boracic acid, if we intend to... Er, you are not Ebrel. Do I...? Wait - <CHARNAME>?! <CHARNAME>, it is you, isn't it?~ [c#ablank]
+SAY ~Ebrel, I think I need some more of the boracic acid, if we intend to... Er, you are not Ebrel. Do I...? Wait - <CHARNAME>?! <CHARNAME>, it is you, isn't it?~ [c#bran0x]
 ++ ~Hello Brandock! Nice to see you again.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_02
 ++ ~Yes, it's me.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_02
 ++ ~And you were...?~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_03
@@ -99,7 +99,7 @@ END
 
 IF ~~ THEN firstmeeting_09
 SAY ~W... why would you ask that?~
-IF ~~ THEN + firstmeeting_10
+IF ~~ THEN DO ~SetGlobal("C#BR_KnowsNameSpellhold","GLOBAL",1)~ + firstmeeting_10
 END
 
 IF ~~ THEN firstmeeting_10
@@ -215,7 +215,8 @@ CHAIN
 IF ~~ THEN c#brand2 firstmeeting_23
 ~And I would like to come with you. I need to ask what to do now. I am ssigned to these experiments, but... without Ebrel it doesn't make any sense to continue.~
 == c#brand2 IF ~Global("C#BrandockSpawn","GLOBAL",14)~ THEN ~I need to know what happened to him - find the one who is responsible for his death!~
-== c#brand2 IF ~Global("C#IM_ImoenStays","GLOBAL",0)~ THEN ~And I think I could be of help - if only little, in your investigation about Imoen.~
+== c#brand2 IF ~Global("C#IM_ImoenStays","GLOBAL",0)
+Global("C#Brandock_ImoenFirstMeeting","LOCALS",1)~ THEN ~And I think I could be of help - if only little, in your investigation about Imoen.~
 END
 ++ ~Join me, Brandock. I'll need your help.~ + firstmeeting_24
 + ~Global("C#BrandockSpawn","GLOBAL",14)~ + ~You talk as much as ever. I don't think I'll want your help.~ + firstmeeting_25

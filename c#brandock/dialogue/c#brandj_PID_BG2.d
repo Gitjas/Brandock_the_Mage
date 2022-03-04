@@ -23,7 +23,8 @@ SAY @0
 
 + ~GlobalGT("C#Brando_PIDHowYouFared","LOCALS",0) Global("C#Brando_PIDParents2","LOCALS",0)~ + ~Didn't you tell your parents that you prevented a war?~ DO ~SetGlobal("C#Brando_PIDParents2","LOCALS",1)~ + parents_war
 
-+ ~Global("C#Brando_PIDSpellhold","LOCALS",0)~ + ~Aything you want to say about 'Spellhold'?~ DO ~SetGlobal("C#Brando_PIDSpellhold","LOCALS",1)~ + spellhold
++ ~Global("C#Brando_PIDSpellhold","LOCALS",0)
+Global("C#BR_KnowsNameSpellhold","GLOBAL",1)~ + ~Aything you want to say about 'Spellhold'?~ DO ~SetGlobal("C#Brando_PIDSpellhold","GLOBAL",1)~ + spellhold
 
 + ~Global("C#Brando_PIDExperiments","LOCALS",0)~ + ~What kind of experiments were you doing here? Why did the Cowled Wizards had such an interest in you mixing substances?~ DO ~SetGlobal("C#Brando_PIDExperiments","LOCALS",1)~ + experiments
 

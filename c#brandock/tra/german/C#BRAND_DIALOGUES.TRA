@@ -861,11 +861,11 @@
 @1002  = ~Dast - das ist großartig! Habt Dank, guter Mann. Hier, nehmt diese Münzen. <CHARNAME>, ich vermute Ihr wisst, worum ich als nächstes bitte - lasst uns so schnell zu Meister Elfenhaar zurückkehren, wie es uns möglich ist!~
 @1003  = ~[Elvenhair]So, junger Brandock. Ich habe hier mein Lexikon des Ruathlek und bin bereit, den Text im De Simplex Magicae mit Euch zu übersetzen. Sollen wir?~
 @1004  = ~[Brandock]Oooh - ja, bitte!~
-@1005  = ~[Brandock]Master Elvenhair, ich war in Kerzenburg - aber wir wurden verstoßen - was Ihr sicherlich schon wisst. Ich war so verzweifelt, ich kann gar nicht in Worte fassen wie dankbar ich bin, dass Ihr so schnell nach mir geschickt habt!~
+@1005  = ~[Brandock]Master Elvenhair, ich war in Kerzenburg - aber wir wurden verstoßen - was Ihr sicherlich schon wisst. Ich war so verzweifelt!~
 @1006  = ~[Elvenhair]Ja, das war eine äußert unschöne Sache. Aber Eure Namen sind wieder reingewaschen. Macht Euch keine Sorgen, junger Magier. Wenn Eure Schritte Euch in Zukunft wieder nach Kerzenburg führen, dann werdet Ihr wieder als Suchender willkommen sein.~
 @1007  = ~[Elvenhair]So, dann lasst mich das Buch mal sehen. Das sollte nicht zu lange dauern. Ich habe bereits alles was wir brauchen vorbereitet.~
 @1008  = ~[Elvenhair]"...Oghmas Weisheit". Das war's, junger Brandock.~
-@1009  = ~(Brandock liest die übersetzten Notitzen.) "Wer auch immer von Euch Deppen das Buch beschädigt hatte, Ihr habt also herausgefunden, dass ein Restaurationszauber das Buch wieder physisch ganz macht. Ich erwarte, dass Ihr Euch genaue Notitzen über den Vorgang macht, da ich diesen Zauber als Möglichkeit der Haltbarmachung magischer Bücher erweitern möchte. Bisher stellt er nur die leeren Seiten wieder her. Lasst es Euch eine Lehre sein, in Zukunft besser auf Zauberbücher aufzupassen. Ich erwarte, dass Ihr die Seiten wieder mit Zaubern füllt - sie sollten weiterhin von der Magie des Buches profitieren und entprechend ohne Kosten wirkbar sein. Aber lasst Euch sagen: das wird ein langer Weg für Euch, denn mit eurem momentanen Wissen braucht Ihr es erst gar nicht zu versuchen. Noch ein Hinweis, bevor Ihr überhaupt wieder Zauber in das Buch schreiben könnt, die tatsächlich bleiben: Sucht Euch erst einmal Oghmas Weisheit."~
+@1009  = ~(Brandock liest die übersetzten Notitzen.) "Wer auch immer von Euch Stümpern das Buch beschädigt hatte, Ihr habt also herausgefunden, dass ein Restaurationszauber das Buch wieder physisch ganz macht. Ich erwarte, dass Ihr Euch genaue Notitzen über den Vorgang macht, da ich diesen Zauber als Möglichkeit der Haltbarmachung magischer Bücher erweitern möchte. Bisher stellt er nur die leeren Seiten wieder her. Lasst es Euch eine Lehre sein, in Zukunft besser auf Zauberbücher aufzupassen. Ich erwarte, dass Ihr die Seiten wieder mit Zaubern füllt - sie sollten weiterhin von der Magie des Buches profitieren und entprechend ohne Kosten wirkbar sein. Aber lasst Euch sagen: das wird ein langer Weg für Euch, denn mit Eurem momentanen Wissen braucht Ihr es erst gar nicht zu versuchen. Noch ein Hinweis, bevor Ihr überhaupt wieder Zauber in das Buch schreiben könnt, die tatsächlich bleiben: Sucht Euch erst einmal Oghmas Weisheit."~
 @1010  = ~Das... das ist ein Hinweis an einen von Bowgentles Schüler! Scheint so, als hätte er das Buch niemals beschädigt, entgegen den Erwartungen seines Meisters. Dazu war ich vonnöten... ähem. Daran hat Bowgentle geforscht? Ein Zauber, der magische Bücher so konserviert, dass sie mit einem Restaurationszauber wieder hergestellt werden?~
 @1011  = ~"Oghmas Weisheit". Noch weiß ich nicht, was damit gemeint ist - ein Artefakt, ein Zauber  - oder das, was der Name sagt: Weisheit des Oghma, zu erfragen bei denen, die ihn verehren. Ich weiß aber bereits, wo ich eine Antwort auf diese Frage erhalten werde. Der größte Tempel des Oghma den ich kenne ist in meiner Heimat - in Atkatla.~
 @1012  = ~<CHARNAME>, dieses Buch wird mich von nun an begleiten - nicht nur, bis mein Weg mich zurück nach Amn führt. Meister Elfenhaar, ich danke Euch von Herzen für Eure Hilfe hiermit. Ich stehe in Eurer Schuld.~
@@ -883,7 +883,8 @@
 @1024  = ~[Brandock]Aber danach werde ich nach jemandem suchen, der talentiert genug ist, um die Seiten wieder mit Zaubern zu füllen - ich bezweifle, dass ich das sein werde. Ich werde meine Notizen über das, was ich aus dem Buch noch weiß vervollständigen, aber ich beginne zu verstehen, dass die eigentliche Magie, also der eigentliche Grund, warum die Zauber so leicht zu wirken waren eigentlich im selbst Buch steckt. Kein Wunder ist es mir nicht gelungen, sie auf Schriftrollen zu schreiben...~
 @1025  = ~[Brandock]Lasst uns unsere Reise fortsetzen. Ich habe nun ein Ziel - oder zumindest Klarheit über den nächsten Schritt. Ich gebe zu, dass mir die Pause ganz recht ist, die dadurch entsteht, dass ich nicht sofort nach Atkatla aufbrechen kann. Es gibt mir Zeit, das Vorgefallene etwas sacken zu lassen... ohne das Gefühl zu haben, ich würde Zeit vertrödeln. Und mehr Zeit kann ich brauchen, um diesen... wirklich extrem faszinierenden Albtraum für eine kurze Weile anzuhalten.~
 @1026  = ~Nochwas - nachdem ich gesehen habe, was der Wiederherstellungszauber mit dem De Simplex Magicae tat habe ich eine idee, wie ich verfluchte Schriftrollen so umschreiben könnte, dass etwas sinnvolles dabei heraus kommt. Ich brauche nur noch mehr Erfahrung, bevor ich es probieren kann.~
-//@1027  = ~~
+@1027  = ~Ich kann gar nicht in Worte fassen wie dankbar ich bin, dass Ihr so schnell nach mir geschickt habt!~
+
 
 
 /* brandock_candlekeep.d */
@@ -1377,6 +1378,8 @@
 @1672 = ~Or maybe that, yes. Although I'd *be* interested what language this is.~
 @1673 = ~I understand. Unfortunately, I'd need time and ressources to study the books to guess their worth - so unless we were planning on stuffing our backpacks with lots of them to make sure, I fear we will leave without such a valuable book.~
 
+@1674 = ~Ifearnans Ritualnotizen? Das ist... wow. Wow. Steckt das weg, <CHARNAME>. Ich... ich habe genug gesehen.~
+
 /* brandock_lorepath_bg2 */
 @1800 = ~No, nothing to learn for me from that assassin's mage spellbook - even though she was quite powerful. These days are really over now.~
 @1801 = ~You know what got to me? I couldn't even look at Irenicus' spellbook! Because of battling him in hell, I wasn't able to look at his spellbook. That surely would have been an interesting read!~
@@ -1502,37 +1505,37 @@
 
 /* brandock_scrollscribing.d */
 /* SCRL6F.itm - Ray of Enfeeblement */
-@3000 = ~Ich habe es in eine Schriftrolle des Zaubers Strahl der Schwächung umgeschrieben.~
+@3000 = ~Ich habe es in eine Schriftrolle des Zaubers Strahl der Schwächung umgeschrieben.~ [c#ablank]
 @3001 = ~Stellt sich raus, dass das recht einfach war. Ich kann diesen Zauber nun auch auf eine Schriftrolle schreiben.~
-@3002 = ~Ich habe eine Idee, wie ich verfluchte Schriftrollen umschreiben könntec- so dass die Magie darin für etwas sinnvolles verwendet wird. Lasst mich wissen, wenn ich es versuchen soll.~
+@3002 = ~Ich habe eine Idee, wie ich verfluchte Schriftrollen umschreiben könntec- so dass die Magie darin für etwas sinnvolles verwendet wird. Lasst mich wissen, wenn ich es versuchen soll.~ [c#ablank]
 @3003 = ~Mit Vergnügen.~
 /* SCRL89.itm - Horror */
-@3004 = ~Ich habe es in eine Schriftrolle des Zaubers Schrecken umgeschrieben.~
+@3004 = ~Ich habe es in eine Schriftrolle des Zaubers Schrecken umgeschrieben.~ [c#ablank]
 //@3005 = ~~
 /* SCRL1L.itm - Monster Summoning I */
-@3006 = ~Ich habe es in eine Schriftrolle des Zaubers Monster herbeirufen I umgeschrieben.~
+@3006 = ~Ich habe es in eine Schriftrolle des Zaubers Monster herbeirufen I umgeschrieben.~ [c#ablank]
 //@3007 = ~~
 /* SCRL1O.itm - Slow */
-@3008 = ~Ich habe es in eine Schriftrolle des Zaubers Verlangsamen umgeschrieben.~
+@3008 = ~Ich habe es in eine Schriftrolle des Zaubers Verlangsamen umgeschrieben.~ [c#ablank]
 //@3009 = ~~
 /* SCRL1U.itm - Confusion */
-@3010 = ~Ich habe es in eine Schriftrolle des Zaubers Verwirrung umgeschrieben.~
+@3010 = ~Ich habe es in eine Schriftrolle des Zaubers Verwirrung umgeschrieben.~ [c#ablank]
 //@3011 = ~~
 /* SCRL5Q.itm - Feeblemind */
-@3012 = ~Ich habe es in eine Schriftrolle des Zaubers Schwachsinn umgeschrieben.~
+@3012 = ~Ich habe es in eine Schriftrolle des Zaubers Schwachsinn umgeschrieben.~ [c#ablank]
 //@3013 = ~~
 /* SCRL7H - Flesh to Stone */
-@3014 = ~Ich habe es in eine Schriftrolle des Zaubers Fleisch zu Stein umgeschrieben.~
+@3014 = ~Ich habe es in eine Schriftrolle des Zaubers Fleisch zu Stein umgeschrieben.~ [c#ablank]
 //@3015 = ~~
 /* SCRL8O.itm - Finger of Death */
-@3016 = ~Ich habe es in eine Schriftrolle des Zaubers Finger des Todes umgeschrieben.~
+@3016 = ~Ich habe es in eine Schriftrolle des Zaubers Finger des Todes umgeschrieben.~ [c#ablank]
 //@3017 = ~~
 @3018 = ~Das war nicht so ermüdend. Ich kann noch eine Schriftrolle schreiben, wenn Ihr wollt.~
-@3019 = ~So, fertig. Das sollte so funktionieren... hoffentlich. Sieht jedenfalls richtig aus.~
-@3020 = ~Bitte sehr.~
+@3019 = ~So, fertig. Das sollte so funktionieren... hoffentlich. Sieht jedenfalls richtig aus.~ [c#ablank]
+@3020 = ~Bitte sehr.~ [c#ablank]
 @3021 = ~Los geht's. Zum Glück bin ich *kein* bisschen nervös...~
-@3022 = ~Zeit, eine weitere Schriftrolle zu schreiben.~
-@3023 = ~Was soll ich Eurer Meinung nach schreiben, <CHARNAME>?~
+@3022 = ~Zeit, eine weitere Schriftrolle zu schreiben.~ [c#ablank]
+@3023 = ~Was soll ich Eurer Meinung nach schreiben, <CHARNAME>?~ [c#ablank]
 @3024 = ~Ihr erwähntet die Möglichkeit, Zauber in das De Simplex Magicae zu schreiben?...~
 @3025 = ~Schreibt Ihr eine weitere Seite in das De Simplex Magicae?~
 @3026 = ~Ja, macht Eure Experimente mit haltbaren Schriftrollen, Brandock.~
@@ -1694,21 +1697,21 @@
 
 
 /* brandock_scrollscribing_bg1.d */
-@3500 = ~(Brandock atmet hörbar ein.) Da sind wir also. Ich sagte ja, dass ich es tun würde. Egal wo... also kann ich es auch genauso gut hier tun. Und hier...~
+@3500 = ~(Brandock atmet hörbar ein.) Da sind wir also. Ich sagte ja, dass ich es tun würde. Egal wo... also kann ich es auch genauso gut hier tun. Und hier...~ [c#ablank]
 @3501 = ~Nun, hier hat es sicher Vorteile, denn *falls* ein Feuer ausbricht, können wir es sicher schnell austreten, bevor jemand in Gefahr gerät, und... und...~
 @3502 = ~Nun, hier hat es sicher Vorteile, denn *falls* ein Feuer ausbricht, sind sicher schnell viele Leute da, um es zu löschen, bevor jemand in Gefahr gerät, und... und...~
 @3503 = ~Ihr schafft das, Brandock.~
 @3504 = ~Hört auf zu plappern, das hilft nicht wirklich.~
 @3505 = ~Meine Güte, gibt es wirklich *nichts* was Ihr tun könnt, ohne so viel dabei zu reden?~
 @3506 = ~Was? Oh - habe ich laut gesprochen? Ah, ja, das habe ich... ich habe Selbstgespräche geführt. Verzeiht. Es ist eine schlechte Angewohnheit, viel zu reden, wenn man nervös ist. Ich weiß, dass ich aufhören sollte zu reden und mit Schriftrollenschreiben anfangen, aber es fällt mir schwer mich zu konzentrieren, wenn meine Hände beinahe zittern... und ich rede schon wieder vor mich in. (Brandock atmet hörbar aus.)~
-@3507 = ~Ihr schafft das, Brandock. Ihr glaubt vielleicht Ihr bräuchtet Elfenhaar, aber es war immer Ihr, der die Schriftrollen geschrieben hat, nicht er.~
+@3507 = ~Ihr schafft das, Brandock. Ihr glaubt vielleicht Ihr bräuchtet Elfenhaar, aber es ward immer Ihr, der die Schriftrollen geschrieben hat, nicht er.~
 @3508 = ~Ich kann dabei bleiben, wenn Euch das lieber ist. Ich kann sogar die Trinkflasche mit Wasser bereit halten, wenn Ihr wollt.~
 @3509 = ~Lasst mich wissen, wenn Ihr fertig seid. Ich bin solange da drüben.~
 @3510 = ~Solange Ihr sicher seid, dass das auch wirklich Wasser ist und nicht ein leicht entflammbares alkoholisches Getränk...~
 @3511 = ~Ich denke wenn Ihr etwas Abstand haltet würde mich das doppelt entspannen - erstens wärt Ihr dann nicht direkt vor einer möglichen Stichflamme in Gefahr, und zweitens fühle ich mich dann nicht so beobachtet, was meine Nervosität deutlich reduzieren wird.~
 @3512 = ~(Brandock atmet aus.) Nun gut, dann wollen wir mal. Bitte geht nicht zu weit weg... Nur für den Fall.~
 @3513 = ~Es ist mir wirklich unangenehm, dass ich so viel persönliche Betreuung benötige, <CHARNAME>. Ich bin Euch unendlich dankbar, dass Ihr Euch mit mir abgebt.~
-@3514 = ~So, da ist sie - eine Schriftrolle Identifizieren. Nein, ich habe keine Schutzformel gegen Feuer geschrieben, Ihr braucht gar nicht erst zu grinsen. Ich habe einen leichten Zauber für meinen ersten Versuch gewählt - mein erster Versuch ganz alleine. Und ich habe es *geschafft*, und es ist nicht nur alles gut geangen, sondern es war auch... unproblematisch, ja gerade zu angenehm. Ich glaube, ich mag es, Schriftrollen zu scheiben, <CHARNAME>.~
+@3514 = ~So, da ist sie - eine Schriftrolle Identifizieren. Nein, ich habe keine Schutzformel gegen Feuer geschrieben, Ihr braucht gar nicht erst zu grinsen. Ich habe einen leichten Zauber für meinen ersten Versuch gewählt - mein erster Versuch ganz alleine. Und ich habe es *geschafft*, und es ist nicht nur alles gut geangen, sondern es war auch... unproblematisch, ja gerade zu angenehm. Ich glaube, ich mag es, Schriftrollen zu scheiben, <CHARNAME>.~ [c#ablank]
 @3515 = ~Das war mir klar, Brandock. Natürlich mögt Ihr das.~
 @3516 = ~Entschuldigt mich kurz, ich geh nur schnell da rüber, mich totlachen!~
 @3517 = ~Na endlich. Hat ja auch lang genug gedauert, dass Ihr diese unnötige Angst überwindet.~
@@ -1716,20 +1719,20 @@
 @3519 = ~War es für Euch so offensichtlich? Ich bin hier drüben fast gestorben!~
 @3520 = ~Von nun an bin ich jederzeit zum Schreiben von Schriftrollen bereit - wo auch immer Ihr wollt. Also, zumindest, wenn es realistisch ist, dass ich an dem entsprechenden Ort etwas schreiben kann, natürlich - Ihr wisst, was ich meine.~
 @3521 = ~Ich fühle mich allerdings wie ausgelaugt. Ich brauche dringend Schlaf. Ich bin so müde, dass ich gut werde schlafen können, und das, obwohl ich gleichzeitig völlig aufgeregt bin. Schlaft gut, <CHARNAME>. Und danke - dass Ihr mich hierzu überredet habt... und Euch das angetan habt.~
-@3522 = ~Etwas ist komisch an dieser Schutzformel. Ich würde sie gerne behalten, bis wir sie richtig bestimmen konten.~
-@3523 = ~[Brandock]Eine verfluchte Schriftrolle! Ich *wusste* es.~
+@3522 = ~Etwas ist komisch an dieser Schutzformel. Ich würde sie gerne behalten, bis wir sie richtig bestimmen konten.~ [c#ablank]
+@3523 = ~[Brandock]Eine verfluchte Schriftrolle! Ich *wusste* es.~ [c#ablank]
 @3524 = ~[Brandock]Uuh, ich kann es nicht fassen, dass sich jemand die Mühe macht, eine verfluchte Schriftrolle zu kreieren, die den Anwender so schädigt! Wozu soll die gut sein?! Manchmal schäme ich mich für meine Magierkollegen, <CHARNAME>. So eine Verschwendung von magischen Ressourcen, und wofür - damit sich jemand irgendwo eins ins Fäustchen lachen kann, weil sich jemand damit selbst schädigt?~
 @3525 = ~[Brandock]Selbst an Stellen, wo man denkt genau zu wissen, was der Zauber ist, muss man erst einmal genau identifizieren, womit man es zu tun hat. So eine verflixt gut kaschierte Fluchrolle!~
 @3526 = ~Ich würde gerne daran festhalten und sie eingehender studieren wenn ich dazu Zeit habe, <CHARNAME>. Die Magie darin soll nicht umsonst verwendet worden sein. Tut Ihr sie einfach in meine Buchtasche? Das würde mich freuen.~
-@3527 = ~[Elvenhair]Seid Ihr bereit für eine Lektion im Schriftrollenschreiben, junger Brandock?~
+@3527 = ~[Elvenhair]Seid Ihr bereit für eine Lektion im Schriftrollenschreiben, junger Brandock?~ [c#ablank]
 @3528 = ~[Brandock]*Liebend* gerne, Meister Elfenhaar.~
 @3529 = ~Ja, nur zu, Brandock.~
 @3530 = ~Ah, besser nicht, wir haben dafür gerade nicht wirklich Zeit.~
 @3531 = ~[Elvenhair]Nun gut, Brandock, dann lasst mich sehen, was Ihr bereits könnt. Ihr könnt diesen Federkiel verwenden...~
 @3532 = ~[Brandock]Äh, oh - Ihr wollt, dass ich selbst eine schreibe? Jetzt gleich? Äh, natürlich... Ihr bleibt aber dicht bei, ja? Ich weiß genau, was ich schreiben möchte - wenn das für Euch in Ordnung ist, natürlich.~
-@3533 = ~[Elvenhair]So, das hätten wir. Eine Zauberschriftrolle, geschrieben von Euch, junger Brandock.~
-@3534 = ~Einmal Identifizieren. Es tut mir Leid, dass Eure Erfahrung noch nicht das Schreiben einer Schutzformel vor Feuer zulässt, was Ihr eigentlich gerne erstellt hättet - mir wäre das genauso recht gewesen, obwohl ich es für eine ungewöhnliche Wahl für die erste eigene Schriftrolle halte.~
-@3535 = ~Schutz vor Feuer - eine ungewöhnliche Wahl. Ich hätte gedacht, dass wir mit Identifizieren beginnen, aber ich stelle Eure Entscheidung nicht infrage.~
+@3533 = ~[Elvenhair]So, das hätten wir. Eine Zauberschriftrolle, geschrieben von Euch, junger Brandock.~ [c#ablank]
+@3534 = ~Einmal Identifizieren. Es tut mir Leid, dass Eure Erfahrung noch nicht das Schreiben einer Schutzformel vor Feuer zulässt, was Ihr eigentlich gerne erstellt hättet - mir wäre das genauso recht gewesen, obwohl ich es für eine ungewöhnliche Wahl für die erste eigene Schriftrolle halte.~ [c#ablank]
+@3535 = ~Schutz vor Feuer - eine ungewöhnliche Wahl. Ich hätte gedacht, dass wir mit Identifizieren beginnen, aber ich stelle Eure Entscheidung nicht infrage.~ [c#ablank]
 @3536 = ~Ja, mein Interesse an Schutz vor Feuer hat, äh, persönliche Gründe.~
 @3537 = ~Das war sehr gut! Die Gelehrten in Alisarhold haben Euch gut unterrichtet. Wie ich bereits sagte, übt das Schriftrollenschreiben so häufig wie möglich. Ihr könnt jederzeit meine Utensilien dafür verwenden - wenn Ihr Euch auf der Unordnung auf meinem Schreibtisch zurechtfindet, versteht sich.~
 @3538 = ~[Brandock]Ich danke Euch sehr für Eure Großzügigkeit, Meister Elfenhaar - ich weiß gar nicht, was ich sagen soll.~
@@ -1739,10 +1742,10 @@
 @3542 = ~[Brandock]Auf Wiedersehen, Meister Elfenhaar. <CHARNAME>, schaut Euch das an! Es ist eine Schriftrolle "Schutz vor Feuer". Und sie sieht richtig echt aus! Die habe ich geschrieben!~
 
 /* brandock_scrollscribing_bg2.d */
-@3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~
-@3601 = ~This was the last page I can write for now. Here is the book.~
-@3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~
-@3603 = ~Per page, it'll consume one spell scroll of the wanted spell and tenth the sum in gold a normal spell scroll of the according spell would cost when writing it. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~
+@3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~ [c#ablank]
+@3601 = ~This was the last page I can write for now. Here is the book.~ [c#ablank]
+@3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~ [c#ablank]
+@3603 = ~Per page, it'll consume one spell scroll of the wanted spell and tenth the sum in gold a normal spell scroll of the according spell would cost when writing it. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~ [c#ablank]
 @3604 = ~Yes, I would *love* to try this, even though my palms are already sweaty. Let me see what I could write, hmm...~
 @3605 = ~Assuming we have the appropriate scroll and gold, I could write the following spells into the De Simplex Magicae.~
 @3606 = ~I only have five accessible pages in total, though, so you should chose carefully.~

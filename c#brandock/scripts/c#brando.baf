@@ -1,5 +1,6 @@
 /* Brandock's main script - valid for BG1 and BGII */
 
+/* party rested: reset variables */
 /* in case Brandock follows as 7th party member and Player1 was rested via script and not via  RestParty() */
 
 /* spell and priciple taken from Zed Nocear's BG1 Trigger Simulations! */
@@ -184,31 +185,13 @@ THEN
   RESPONSE #100
 		SetInterrupt(FALSE)
 		ReallyForceSpellRES("C#MIN0HP","C#Brandock")
-		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",0)	
+		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",0)
 		IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",-1)
 		SetInterrupt(TRUE)
 END
 
 
 /* more general stuff. Could happen in BG1 (SoD) or BGII */
-
-/* scroll scribing: detect whether it's a new day */
-/* we use the "7th party member restdetection" for this: increase varaible once so script block in baldur.bcs gets executed */
-IF 	
-	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	See(Player1)
-	!See([ENEMY])
-	CombatCounter(0)
-	GlobalGT("C#Br_BookRestore","GLOBAL",0) //Brandock scribes scrolls
-	Global("C#Br_ScrollRestDetection","LOCALS",0)
-THEN
-  RESPONSE #100
-	IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1)
-	SetGlobal("C#Br_ScrollRestDetection","LOCALS",1)
-END
-
 
 /* possessions/ bookrestore: book is not in Brandock's inventory */
 

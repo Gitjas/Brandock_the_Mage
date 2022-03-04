@@ -860,7 +860,7 @@
 @1002  = ~That - that is fantastic! Thank you, good man, for coming all the way to letting me know. Here, take these coins. <CHARNAME>, I guess you know what I'll beg for next - let us return to Master Elvenhair as soon as our tasks will allow!~
 @1003  = ~[Elvenhair]So, young Brandock. I have here my Ruathlek lexicon, and am ready to translate the note in the De Simplex Magicae with you. Shall we?~
 @1004  = ~[Brandock]Oooh - yes, please!~
-@1005  = ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out - which you already know. I was so devastated, I can't express how thankful I am that you reached out to me so quickly!~
+@1005  = ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out - which you already know. I was so devastated!~
 @1006  = ~[Elvenhair]Yes, this was a most unfortunate affair. But at least your names are cleared now, so do not worry, young mage. If your steps will guide you to Candlekeep again in the future, you will find entry as a seeker again.~
 @1007  = ~[Elvenhair]So, let me see the book. This shouldn't take too long. I already prepared everything we need.~
 @1008  = ~[Elvenhair]"...Oghma's Wisdom". That's it, my young Brandock.~
@@ -882,7 +882,7 @@
 @1024  = ~[Brandock]But after that I will search for someone talented enough to refill the pages with spells - and I doubt this will be me, <CHARNAME>. I will continue to make notes of what I remember from the spell recipes - what made them so special that even an unexperienced wizard can cast them, but I start to understand now that most of the magic was inside the book itself. No wonder I couldn't write the spells onto a scroll...~
 @1025  = ~[Brandock]Let us continue our travels. I have a goal now - sort of, it's more like the next milestone. I admit that I appreciate that it leaves me in a state where I know exactly what my next step will be without having the chance to do it right away, giving me some sort of break from this... this extremely fascinating nightmare.~
 @1026  = ~Something else - after witnessing what happened to the De Simplx Magicae when Master Elvenhair cast the preservation spell I think I have an idea what to do with cursed scrolls to rewrite the magic inside to something useful - I just need more experience before I can actually try.~
-//@1027  = ~~
+@1027  = ~I can't express how thankful I am that you reached out to me so quickly!~
 
 
 /* brandock_candlekeep.d */
@@ -1375,6 +1375,7 @@
 @1671 = ~Or maybe not, and you'll have spent lots of time to find out.~
 @1672 = ~Or maybe that, yes. Although I'd *be* interested what language this is.~
 @1673 = ~I understand. Unfortunately, I'd need time and ressources to study the books to guess their worth - so unless we were planning on stuffing our backpacks with lots of them to make sure, I fear we will leave without such a valuable book.~
+@1674 = ~Hephernaan's Ritual Notes? This is... wow. Wow. Put that away, <CHARNAME>. I... I saw enough.~
 
 /* brandock_lorepath_bg2 */
 @1800 = ~No, nothing to learn for me from that assassin's mage spellbook - even though she was quite powerful. These days are really over now.~
@@ -1505,37 +1506,37 @@
 
 /* brandock_scrollscribing.d */
 /* SCRL6F.itm - Ray of Enfeeblement */
-@3000 = ~I changed it into a scroll of Ray of Enfeeblement.~
+@3000 = ~I changed it into a scroll of Ray of Enfeeblement.~ [c#ablank]
 @3001 = ~Turns out this was easily done. I know how to write this now too.~
-@3002 = ~I think I have an idea what to do with cursed scrolls - rewrite the magic inside to something useful. Let me know if you want me to try this.~
+@3002 = ~I think I have an idea what to do with cursed scrolls - rewrite the magic inside to something useful. Let me know if you want me to try this.~ [c#ablank]
 @3003 = ~With pleasure.~
 /* SCRL89.itm - Horror */
-@3004 = ~I changed it into a scroll of Horror.~
+@3004 = ~I changed it into a scroll of Horror.~ [c#ablank]
 //@3005 = ~~
 /* SCRL1L.itm - Monster Summoning I */
-@3006 = ~I changed it into a scroll of Monster Summoning I.~
+@3006 = ~I changed it into a scroll of Monster Summoning I.~ [c#ablank]
 //@3007 = ~~
 /* SCRL1O.itm - Slow */
-@3008 = ~I changed it into a scroll of Slow.~
+@3008 = ~I changed it into a scroll of Slow.~ [c#ablank]
 //@3009 = ~~
 /* SCRL1U.itm - Confusion */
-@3010 = ~I changed it into a scroll of Confusion.~
+@3010 = ~I changed it into a scroll of Confusion.~ [c#ablank]
 //@3011 = ~~
 /* SCRL5Q.itm - Feeblemind */
-@3012 = ~I changed it into a scroll of Feeblemind.~
+@3012 = ~I changed it into a scroll of Feeblemind.~ [c#ablank]
 //@3013 = ~~
 /* SCRL7H - Flesh to Stone */
-@3014 = ~I changed it into a scroll of Flesh to Stone.~
+@3014 = ~I changed it into a scroll of Flesh to Stone.~ [c#ablank]
 //@3015 = ~~
 /* SCRL8O.itm - Finger of Death */
-@3016 = ~I changed it into a scroll of Finger of Death.~
+@3016 = ~I changed it into a scroll of Finger of Death.~ [c#ablank]
 //@3017 = ~~
 @3018 = ~I can still write a new scroll today, if you want.~
-@3019 = ~So, here it is. This should work... hopefully. It does look right, though.~
-@3020 = ~Here you are.~
-@3021 = ~Here we are... Boy, good that I'm not nervous at *all*.~
-@3022 = ~It's time to write a scroll again.~
-@3023 = ~What do you want me to scribe, <CHARNAME>?~
+@3019 = ~So, here it is. This should work... hopefully. It does look right, though.~ [c#ablank]
+@3020 = ~Here you are.~ [c#ablank]
+@3021 = ~Here we are... Boy, good that I'm not nervous at *all*.~ [c#ablank]
+@3022 = ~It's time to write a scroll again.~ [c#ablank]
+@3023 = ~What do you want me to scribe, <CHARNAME>?~ [c#ablank]
 @3024 = ~You mentioned writing spells into the De Simplex Magicae?...~
 @3025 = ~Would you write another page into the De Simplex Magicae?~
 @3026 = ~Sure, go ahead and experiment with durable scrolls, Brandock.~
@@ -1697,7 +1698,7 @@
 
 /* brandock_scrollscribing_bg1.d */
 @3500 = ~(Brandock takes a deep breath.) Here we are. I said I'd do it. Anywhere... so I can as well just do it here. Here, of all places...~
-@3501 = ~Well, I guess it is advantageous, because in case there *is* a fire, we can just stomp on it and noone else is being theatened, and... and...~
+@3501 = ~Well, I guess it is advantageous, because in case there *is* a fire, we can just stomp on it and noone else is being theatened, and... and...~ [c#ablank]
 @3502 = ~Well, I guess it is advantageous, because in case there *is* a fire, there will be enough people around to come help extinguish it and... and...~
 @3503 = ~You can do this, Brandock.~
 @3504 = ~Stop babbling, that's not helpful.~
@@ -1710,7 +1711,7 @@
 @3511 = ~I think it would help me if you'd keep a little distance. I wouldn't feel like endangering you in case of a fire... and I think I'd work better if noone would watch me.~
 @3512 = ~(Brandock exhales.) Alright, here we go. Please don't go too far... Just in case.~
 @3513 = ~I'm sorry you have to babysit me the way you do. I thank you so much, <CHARNAME>.~
-@3514 = ~Here we are - one scroll of Identify. No, no scroll of Protection against Fire, you can spare me the grin. I took an easy one for my first try - my first try all alone. All alone - I did it! I *did* it, and it not only went all well, but it felt... great! I think I like writing scrolls, <CHARNAME>.~
+@3514 = ~Here we are - one scroll of Identify. No, no scroll of Protection against Fire, you can spare me the grin. I took an easy one for my first try - my first try all alone. All alone - I did it! I *did* it, and it not only went all well, but it felt... great! I think I like writing scrolls, <CHARNAME>.~ [c#ablank]
 @3515 = ~Of course you do, Brandock. I didn't expect anything else.~
 @3516 = ~Excuse me while I'll be over there, laughing my ass off.~
 @3517 = ~Finally. Took you long enough to overcome that stupid fear.~
@@ -1718,20 +1719,20 @@
 @3519 = ~Was it that obvious to you? I was dying over here!~
 @3520 = ~From now on, I'll be ready to do so any time you want, anywhere you want. Well, at least everywhere it's realistic I can write on a piece of parchment, that is - you know what I mean.~
 @3521 = ~I feel drained, though. I need rest... I'm so exhausted I'll be able to sleep although I'm feeling completely excited. Good night, <CHARNAME>. And, thank you - for making me do this. And in genreal - for putting up with me.~
-@3522 = ~Something feels off about this protection scroll. Let's hold on to it until we have a chance to identify it.~
-@3523 = ~[Brandock]A cursed scroll! I *knew* it.~
+@3522 = ~Something feels off about this protection scroll. Let's hold on to it until we have a chance to identify it.~ [c#ablank]
+@3523 = ~[Brandock]A cursed scroll! I *knew* it.~ [c#ablank]
 @3524 = ~[Brandock]Ugh, I can't believe anyone would go through the hassle of creating such a cursed scroll that gives so much damage to the caster. What good is it for? I feel ashamed of my fellow mages sometimes, <CHARNAME>. Such a waste of magical ressources, and what for - being able to laugh about someone else hurting themselves?~
 @3525 = ~[Brandock]Even if you think you know what you are dealing with, you always need to have a sharp eye if it is magic we are talking about. Such an accursed well-done cursed scroll.~
 @3526 = ~I'd like to keep it and study it more intensely when time allows, <CHARNAME>. Its magic ressources should not go to waste. Would you put it into my book case? I would like that very much.~
-@3527 = ~[Elvenhair]Are you ready for a lesson in scroll scribing, young Brandock?~
+@3527 = ~[Elvenhair]Are you ready for a lesson in scroll scribing, young Brandock?~ [c#ablank]
 @3528 = ~[Brandock]I'd *love* to, Master Elvenhair.~
 @3529 = ~Sure, go ahead, Brandock.~
 @3530 = ~Ah, no, we don't have time for that now.~
 @3531 = ~[Elvenhair]Very well, Brandock, then let me see how much you already know. You can use this quill...~
 @3532 = ~[Brandock]Er, oh - you want me to scribe one? Now? Er, of course... You will be close by, yes? I know exactly what I would like to write, if that's alright with you, of course...~
 @3533 = ~[Elvenhair]Here we are - a new spell scroll, written by you, my young Brandock.~
-@3534 = ~One scroll of Identify. I am sorry your skill doesn't suffice to write a scroll of Protection from Fire as you wanted originally - I wouldn't have mind either way although it would have been an unusual choice for a first try.~
-@3535 = ~Protection from Fire - an unusual choice. I would have thought we'd start with a scroll of Identify, but I do not mean to question your decision.~
+@3534 = ~One scroll of Identify. I am sorry your skill doesn't suffice to write a scroll of Protection from Fire as you wanted originally - I wouldn't have mind either way although it would have been an unusual choice for a first try.~ [c#ablank]
+@3535 = ~Protection from Fire - an unusual choice. I would have thought we'd start with a scroll of Identify, but I do not mean to question your decision.~ [c#ablank]
 @3536 = ~Yes, it's, erm, it's something personal.~
 @3537 = ~This was very good! Alisarhold's scholars teached you well indeed. As I said, do practice scroll scribing as much as possible. You can use my utensils any time you want. Feel free to come here and practice as often as you wish - if you can find your way around my desk, that is.~
 @3538 = ~[Brandock]I thank you so much for your generosity, Master Elvenhair. I... I don't know what to say.~
@@ -1741,9 +1742,9 @@
 @3542 = ~[Brandock]Farewell, Master Elvenhair. <CHARNAME>, look at this! It's a scroll of Protection from Fire. It looks like a real one! I did this!~
 
 /* brandock_scrollscribing_bg2.d */
-@3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~
-@3601 = ~This was the last page I can write for now. Here is the book.~
-@3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~
+@3600 = ~So, here it is - the De Simplex Magicae, with one spell. We should try whether it works as intended as soon as possible. I'm drained... I should go wash up, I'm sweated through!~ [c#ablank]
+@3601 = ~This was the last page I can write for now. Here is the book.~ [c#ablank]
+@3602 = ~<CHARNAME> - about the De Simplex Magicae. I know I've carried this around a lot for no appaerent reason, and it gave us - me, at least - some headaches in the past. I think, I... I think, I mean... (exhales) I think I know how to scribe spells into it now.~ [c#ablank]
 @3603 = ~Per page, it'll consume one spell scroll of the wanted spell and tenth the sum in gold a normal spell scroll of the according spell would cost when writing it. Let me know if you want me to try this... You'll find me in that corner over there, having a fit of panic about my own courage.~
 @3604 = ~Yes, I would *love* to try this, even though my palms are already sweaty. Let me see what I could write, hmm...~
 @3605 = ~Assuming we have the appropriate scroll and gold, I could write the following spells into the De Simplex Magicae.~

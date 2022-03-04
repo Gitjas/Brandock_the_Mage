@@ -1,0 +1,44 @@
+/* party rested: reset book. BGII only */
+
+/*
+IF
+	CheckStat(Player1,0,FATIGUE)
+	GlobalGT("c#brbok1","GLOBAL",0)
+	Global("c#brbok1_Reset","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("c#brbok1","GLOBAL",0) 
+		SetGlobal("c#brbok1_Reset","GLOBAL",1) 
+		Continue()	
+END
+
+IF
+	CheckStatGT(Player1,0,FATIGUE)
+	Global("c#brbok1_Reset","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("c#brbok1_Reset","GLOBAL",0) 
+		Continue()	
+END
+*/
+//book "De Simplex Magicae" will be refreshed
+IF
+	GlobalGT("c#brbok1","GLOBAL",0)
+	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
+		SetGlobal("c#brbok1","GLOBAL",0) 
+		Continue()	
+END
+
+//rewritten book of infinite spells will be refreshed
+IF
+	GlobalGT("c#brbok2","GLOBAL",0)
+	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
+		SetGlobal("c#brbok2","GLOBAL",0) 
+		Continue()	
+END

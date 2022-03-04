@@ -29,3 +29,30 @@ THEN
 		StartDialogNoSet("C#Brandock")
 		SetInterrupt(TRUE)
 END
+
+/* scroll scribing: detect whether it's a new day */
+/* we use the "7th party member restdetection" for this: increase variable once so script block in baldur.bcs gets executed */
+IF 	
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	!See([ENEMY])
+	CombatCounter(0)
+	GlobalGT("C#Br_BookRestore","GLOBAL",0) //Brandock scribes scrolls at Firebead's desk
+	Global("C#Br_GiveScribeAbility","LOCALS",0)
+	Global("C#Br_ScrollRestDetection","LOCALS",0)
+THEN
+  RESPONSE #100
+	IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1)
+	SetGlobal("C#Br_ScrollRestDetection","LOCALS",1)
+END
+
+IF
+	GlobalGT("C#Br_GiveScribeAbility","LOCALS",0)
+	Global("C#Br_ScrollRestDetection","LOCALS",1)
+THEN
+  RESPONSE #100
+	IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",-1)
+	SetGlobal("C#Br_ScrollRestDetection","LOCALS",2)
+END

@@ -40,6 +40,7 @@ END
 IF %IT_IS_SOD%
 AreaCheck("bd1200")
 !Range("Bookshelf",20)
+PartyHasItem("bdmisc53")
 Global("C#Br_LorePathbdmisc53SoD","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -55,6 +56,35 @@ END
 /* Initiate */
 IF %IT_IS_SOD%
 Global("C#Br_LorePathbdmisc53SoD","GLOBAL",1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+/* BDMISC21 Hephernaan's Ritual Notes */
+/* activation */
+IF %IT_IS_SOD%
+Global("C#Br_LorePath_BDMISC21","GLOBAL",0)
+PartyHasItem("BDMISC21")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePath_BDMISC21","GLOBAL",1)
+END
+
+/* Initiate */
+IF %IT_IS_SOD%
+Global("C#Br_LorePath_BDMISC21","GLOBAL",1)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 See(Player1)

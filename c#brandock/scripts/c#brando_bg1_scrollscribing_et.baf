@@ -1,0 +1,32 @@
+/* reset scroll scribing variable (for BG1 only). */
+/*
+IF
+	CheckStat(Player1,0,FATIGUE)
+	GlobalGT("c#brscrl","GLOBAL",2)
+	Global("c#brscrl_Reset","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("c#brscrl","GLOBAL",0)
+		SetGlobal("c#brscrl_Reset","GLOBAL",1)
+		Continue()	
+END
+
+IF
+	CheckStatGT(Player1,0,FATIGUE)
+	Global("c#brscrl_Reset","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("c#brscrl_Reset","GLOBAL",0) 
+		Continue()	
+END
+*/
+
+IF
+	GlobalGT("c#brscrl","GLOBAL",2)
+	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",10)
+		SetGlobal("c#brscrl","GLOBAL",0)
+		Continue()	
+END

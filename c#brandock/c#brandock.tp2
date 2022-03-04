@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_13~ 
+VERSION ~Beta_14~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -554,7 +554,7 @@ END //GAME_IS ~bgee bgt eet~
 
 /* SoD (SoD specific dialogues) */
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
-//  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
 /* Lorepath: SoD content */
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_lorepath_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
@@ -656,10 +656,9 @@ EVALUATE_BUFFER
 /* bgee, bgt, eet, tob, bg2:ee */
 ACTION_IF GAME_IS ~bgee bgt tob bg2ee eet~ THEN BEGIN
   EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_scroll.baf~ EVALUATE_BUFFER
   ACTION_IF !(FILE_CONTAINS_EVALUATED (~baldur.BCS~ ~"C#FATIG1"~))
     THEN BEGIN
-        EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_add.baf~
+        EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
         COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
   END
 END //~bgee bgt tob bg2ee eet~
@@ -667,21 +666,21 @@ END //~bgee bgt tob bg2ee eet~
 /* SoD, eet */
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
   EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_scroll.baf~ EVALUATE_BUFFER
   ACTION_IF !(FILE_CONTAINS_EVALUATED (~bdbaldur.BCS~ ~"C#FATIG1"~))
     THEN BEGIN
-        EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_add.baf~
+        EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
         COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
   END
 END
 
 /* bgt, eet, tob, bg2:ee */
 ACTION_IF GAME_IS ~bgt tob bg2ee eet~ THEN BEGIN
+  EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_book.baf~ EVALUATE_BUFFER
   EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_scroll.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_book.baf~ EVALUATE_BUFFER
   ACTION_IF !(FILE_CONTAINS_EVALUATED (~baldur25.BCS~ ~"C#FATIG1"~))
     THEN BEGIN
-        EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_add.baf~
+        EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
         COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
   END
 END
@@ -696,6 +695,7 @@ ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
 /* script addition to trigger Brandock's scroll scribing dialogue */
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_scrollscribing.baf~ EVALUATE_BUFFER
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing_et.baf~ EVALUATE_BUFFER
 /* Brandock's Half-Ogre quest */
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_shapeshifting.baf~ EVALUATE_BUFFER
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVALUATE_BUFFER
@@ -2621,12 +2621,27 @@ END
 
 /* sounds */
 
-/* this is a protagonist soundset from IWD */
+ACTION_IF FILE_EXISTS ~c#brandock/sounds/%LANGUAGE%/c#bran01.ogg~ THEN BEGIN
+  LAF HANDLE_AUDIO 
+	STR_VAR audio_path = EVAL ~c#brandock/sounds/%LANGUAGE%~ 
+		oggdec_path = ~c#brandock/sounds~ 
+		sox_path = ~c#brandock/sounds~ END 
+END
+
 ACTION_IF FILE_EXISTS ~C#Brandock/sounds/%LANGUAGE%/c#bran01.wav~ THEN BEGIN
   COPY ~C#Brandock/sounds/%LANGUAGE%~ ~override~
-END ELSE BEGIN
-  COPY ~C#Brandock/sounds/english~ ~override~
+END 
+
+ACTION_IF NOT FILE_EXISTS ~c#brandock/sounds/%LANGUAGE%/c#bran01.ogg~ AND
+NOT FILE_EXISTS ~C#Brandock/sounds/%LANGUAGE%/c#bran01.wav~ THEN BEGIN
+  LAF HANDLE_AUDIO 
+	STR_VAR audio_path = EVAL ~c#brandock/sounds/english~ 
+		oggdec_path = ~c#brandock/sounds~ 
+		sox_path = ~c#brandock/sounds~ END 
 END
+
+// use new macro to handle all audio installation
+
 
 /* mute Brandock's "start dialogue" sound */
   COPY ~C#Brandock/Sounds/C#ABLANK.wav~ ~override~
@@ -2711,7 +2726,7 @@ SAY BIO @533 /* ~When asked about his past, BRANDOCK DEEPWATER smiles apologetic
 
 ADD_KNOWN_SPELL ~SPWI210~ #1 ~wizard~ //Resist Fear
 ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~ //Mirror Image
-ADD_KNOWN_SPELL ~SPWI116~ #1 ~wizard~ //Sleep
+ADD_KNOWN_SPELL ~SPWI116~ #0 ~wizard~ //Sleep
 
 
 
@@ -2832,7 +2847,7 @@ LABEL BrandockTheMage-Crossmod
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
 /* EndlessBG1 - handled individually */
-ACTION_IF (GAME_INCLUDES ~sod~ AND FILE_EXISTS_IN_GAME ~c#stdstr.bcs~) BEGIN 
+ACTION_IF (GAME_INCLUDES ~sod~ AND FILE_EXISTS_IN_GAME ~c#stdst2.bcs~) BEGIN 
 PRINT @55580 /* ~EndlessBG1 detected.~ */
 
 /* direct transition to BGII */

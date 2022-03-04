@@ -157,10 +157,6 @@ Global("C#Br_ScribeScrollQuest","GLOBAL",4)~ + @418 /* ~Scribing scrolls at Elve
 /* friendly mage who would help Brandock with his book? */
 
 + ~%BG1_BEFORE_TRANSITION%
-Global("C#Br_BookRestore","GLOBAL",6)
-Global("C#Br_BookRestorePID","LOCALS",0)~ + @2 + transformed_book_pid
-
-+ ~%BG1_BEFORE_TRANSITION%
 OR(2)
 	!Global("Chapter","GLOBAL",%tutu_chapter_7%)
 	!Global("DukeThanks","GLOBAL",0)
@@ -327,69 +323,44 @@ Global("C#Br_PIDPuppiesNGrannies","LOCALS",1)~ + @25 DO ~SetGlobal("C#Br_PIDPupp
 Global("C#Br_PIDPuppiesNGrannies","LOCALS",1)~ + @26 DO ~SetGlobal("C#Br_PIDPuppiesNGrannies","LOCALS",2)~ + puppies_01
 
 
-/* general things */
+/* book restored iteself - not translated yet */
+/* So, your book is a book again? What happened back there? */
++ ~%BG1_BEFORE_TRANSITION%
+Global("C#Br_BookRestore","GLOBAL",6)
+Global("C#Br_BookRestorePID","LOCALS",0)~ + @2 + transformed_book_pid
 
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @27 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @28 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup1
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @29 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup2
-
-
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% 
-	Global("SOD_fromimport","GLOBAL",1)
-GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @30 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_01
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% 
-	Global("SOD_fromimport","GLOBAL",1)
-GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @31 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_01
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% 
-	Global("SOD_fromimport","GLOBAL",1)
-GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @32 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_02
-
-
-
-
-
-/* Something on your mind? */
-
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% //still BG1
-	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
-Global("C#BRPID_OnYourMind","LOCALS",0)
-Global("C#Brandock_Thalantyr","GLOBAL",1)
-GlobalGT("C#Brandock_Possessions","GLOBAL",3)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMind","LOCALS",1)~ + on_your_mind_03
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% 
-	Global("SOD_fromimport","GLOBAL",1)
-Global("C#BRPID_OnYourMind","LOCALS",1)
-GlobalGT("C#Brandock_Possessions","GLOBAL",3)
-GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMind","LOCALS",1)~ + on_your_mind_04
-
-/* SoD content */
-
-/* Elandro and the Feyr */
-
-+ ~%IT_IS_SOD% Dead("bdfeyr")
-OR(2)
-	Global("SOD_fromimport","GLOBAL",0)
-	Global("C#BRPID_OnYourMind","LOCALS",2)
-Global("C#BRPID_OnYourMindSoD","LOCALS",0)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",1)~ + on_your_mind_sod_01
-
-/* Want to talk more about how you feel with your new book? */
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% //still BG1
-	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
+/* Want to talk more about how you feel with your restored book? */
++ ~%BG1_BEFORE_TRANSITION% //still BG1
 Global("C#BRPID_HappyNewBook","LOCALS",0)
-GlobalGT("C#Br_BookRestore","GLOBAL",9)
+Global("C#Br_BookRestore","GLOBAL",10)
 Global("C#Brandock_Expelled","GLOBAL",0)~ + @34 DO ~IncrementGlobal("C#BRPID_HappyNewBook","LOCALS",1)~ + transformed_book3
-+ ~OR(2)
-	%BG1_BEFORE_TRANSITION% //still BG1
-	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
++ ~%BG1_BEFORE_TRANSITION% //still BG1
 Global("C#BRPID_HappyNewBook","LOCALS",1)
-GlobalGT("C#Br_BookRestore","GLOBAL",9)
+Global("C#Br_BookRestore","GLOBAL",10)
 Global("C#Brandock_Expelled","GLOBAL",0)~ + @34 DO ~IncrementGlobal("C#BRPID_HappyNewBook","LOCALS",1)~ + transformed_book3_01
 
+/* after the note in the book is translated - Brandock gets very quiet about it until after they were in the temple of Oghma in Athkatla */
+/* ~Want to talk more about your retored book and the note from Bowegentle in it?~ */
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% //still BG1
+	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
+Global("C#BRPID_TranslatedNewBook","LOCALS",0)
+GlobalGT("C#Br_BookRestore","GLOBAL",10)
+Global("C#Brandock_Expelled","GLOBAL",0)~ + @479 /* ~Want to talk more about your retored book and the note from Bowegentle in it?~ */ DO ~IncrementGlobal("C#BRPID_TranslatedNewBook","LOCALS",1)~ + book_translated_note
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% //still BG1
+	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
+Global("C#BRPID_TranslatedNewBook","LOCALS",1)
+GlobalGT("C#Br_BookRestore","GLOBAL",10)
+Global("C#Brandock_Expelled","GLOBAL",0)~ + @479 /* ~Want to talk more about your retored book and the note from Bowegentle in it?~ */ DO ~IncrementGlobal("C#BRPID_TranslatedNewBook","LOCALS",1)~ + book_translated_note_01
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% //still BG1
+	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
+Global("C#BRPID_TranslatedNewBook","LOCALS",2)
+GlobalGT("C#Br_BookRestore","GLOBAL",10)
+Global("C#Brandock_Expelled","GLOBAL",0)~ + @479 /* ~Want to talk more about your retored book and the note from Bowegentle in it?~ */ DO ~IncrementGlobal("C#BRPID_TranslatedNewBook","LOCALS",1)~ + book_translated_note_02
+
+/* ~Want to talk more about being expelled from Candlekeep?~ */
 + ~OR(2)
 	%BG1_BEFORE_TRANSITION% //still BG1
 	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
@@ -537,6 +508,54 @@ Global("C#BR_KnowsAmn","GLOBAL",1) Global("C#Brandock_MageInAmnPID","LOCALS",1)~
 	%BG1_BEFORE_TRANSITION% 
 	Global("SOD_fromimport","GLOBAL",1)
 Global("C#BR_KnowsAmn","GLOBAL",1) Global("C#Brandock_MageInAmnPID","LOCALS",2)~ + @49 DO ~IncrementGlobal("C#Brandock_MageInAmnPID","LOCALS",1)~ + amn_and_mages3
+
+/* general things */
+
++ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @27 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup
++ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @28 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup1
++ ~GlobalGT("C#Br_BookRestore","GLOBAL",9) Global("C#Brandock_PID_BookRestore10","LOCALS",0)~ + @29 DO ~SetGlobal("C#Brandock_PID_BookRestore10","LOCALS",1)~ + bookrestore10_followup2
+
+
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% 
+	Global("SOD_fromimport","GLOBAL",1)
+GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @30 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_01
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% 
+	Global("SOD_fromimport","GLOBAL",1)
+GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @31 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_01
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% 
+	Global("SOD_fromimport","GLOBAL",1)
+GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS",0)~ + @32 DO ~SetGlobal("C#Brandock_PID_01","LOCALS",1)~ + happy_be_here_02
+
+
+
+
+
+/* Something on your mind? */
+
+/* SoD content */
+/* Elandro and the Feyr */
+
++ ~%IT_IS_SOD% Dead("bdfeyr")
+OR(2)
+	Global("SOD_fromimport","GLOBAL",0)
+	Global("C#BRPID_OnYourMind","LOCALS",2)
+Global("C#BRPID_OnYourMindSoD","LOCALS",0)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",1)~ + on_your_mind_sod_01
+
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% //still BG1
+	Global("SOD_fromimport","GLOBAL",1) //SoD AFTER transition from BG1
+Global("C#BRPID_OnYourMind","LOCALS",0)
+Global("C#Brandock_Thalantyr","GLOBAL",1)
+GlobalGT("C#Brandock_Possessions","GLOBAL",3)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMind","LOCALS",1)~ + on_your_mind_03
++ ~OR(2)
+	%BG1_BEFORE_TRANSITION% 
+	Global("SOD_fromimport","GLOBAL",1)
+Global("C#BRPID_OnYourMind","LOCALS",1)
+GlobalGT("C#Brandock_Possessions","GLOBAL",3)
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",10)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMind","LOCALS",1)~ + on_your_mind_04
 
 
 
@@ -710,6 +729,24 @@ IF ~~ THEN transformed_book_pid_02
 SAY @99
 IF ~~ THEN DO ~SetGlobal("C#Br_BookRestorePID","LOCALS",1)~ EXIT
 END
+
+
+
+IF ~~ THEN book_translated_note
+SAY @480 /* ~It's... it's hilarious, <CHARNAME>. I don't even know where to start. I don't know what to think - I'm not even sure whether I should feel blessed, cursed - or mocked by the gods. But thanks for asking.~ */
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN book_translated_note_01
+SAY @481 /* ~I'm still trying to pretend this empty, accusing book in my backpack is not my problem... I am *so* glad there is basicaly nothing I can do about it currently, this whole affair just blows my mind. And yet, I am *so* excited about bringing this to the monks in Oghma's Temple in Athkatla. I am sure they'll know what to do with it - they'll have to know.~ */
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN book_translated_note_02
+SAY @482 /* ~Only, that I will guard this like my eyeballs until I can bring it to the temple. This book will not come to harm again, and I will see to it. Everything else - time will tell.~ */
+IF ~~ THEN EXIT
+END
+
 
 IF ~~ THEN scroll_scribing_alone_pid
 SAY @419 /* ~Oh... I'm not sure. I set the table of my parents on fire when I tampered with this alone. That was the spells from the De Simplex Magicae, of course, but still - you don't just shake something like this. Well, I don't, at least. Plus - I am still really very young for this, <CHARNAME>. I'm excited it works so well with Master Elvenhair's guidance. Give me a little time, please.~ */
@@ -1422,6 +1459,8 @@ IF ~~ THEN on_your_mind_04
 SAY @260
 IF ~~ THEN EXIT
 END
+
+/* after book "restored" - not translated yet */
 
 IF ~~ THEN transformed_book3
 SAY @261

@@ -76,7 +76,8 @@ IF WEIGHT #-1
 InMyArea("C#Brhelp")
 Global("C#Br_ScribeBookComment","LOCALS",1)~ THEN scribe_book
 SAY @3600
-IF ~~ THEN DO ~SetGlobal("c#brscrl","GLOBAL",3)
+IF ~~ THEN DO ~IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1)
+SetGlobal("c#brscrl","GLOBAL",3)
 SetGlobal("C#Br_ScribeBookComment","LOCALS",2)
 ActionOverride("C#Brhelp",DestroySelf())~ EXIT
 END
@@ -525,7 +526,8 @@ END
 
 IF ~Global("C#Br_Rewrite_BoIS","LOCALS",3)~ THEN book_infinite_spells_rewritten
 SAY @3735
-IF ~~ THEN DO ~ActionOverride(Player1,TakePartyItem("MISC3A9"))
+IF ~~ THEN DO ~IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1)
+ActionOverride(Player1,TakePartyItem("MISC3A9"))
 ActionOverride(Player1,DestroyItem("MISC3A9"))
 GiveItemCreate("c#brboA9",Player1,1,0,0)
 EraseJournalEntry(@10065)

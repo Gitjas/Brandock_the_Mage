@@ -20,7 +20,10 @@ EXIT
 
 INTERJECT BHOISIG 19 C#Brando_EbrelFuneral
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
+END 
+IF ~~ THEN DO ~SetGlobal("BeholderPlot","GLOBAL",1)
+EraseJournalEntry(34386)~ EXTERN c#brandj ebrel_funeral
+
 INTERJECT BHOISIG 42 C#Brando_EbrelFuneral
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
 END c#brandj ebrel_funeral
@@ -133,7 +136,8 @@ END
 
 IF ~~ THEN ebrel_house_19
 SAY ~You shouldn't picture the Cowled Wizards to be a well organised, hirarchical organisation. Well, they surely do have hirarchy. But apart from that, organisation is not centralized.~
-IF ~~ THEN + ebrel_house_21
+IF ~~ THEN + ebrel_house_22
+IF ~Global("C#BR_KnowsNameSpellhold","GLOBAL",1)~ THEN + ebrel_house_21
 END
 
 IF ~~ THEN ebrel_house_20
@@ -142,7 +146,12 @@ IF ~~ THEN + ebrel_house_19
 END
 
 IF ~~ THEN ebrel_house_21
-SAY ~You have to keep in mind that Spellhold is run by its own organization. Take this and the way the Cowled Wizards are organised, it is well possible noone we ask will be able to give us answers that would actually help us.~
+SAY ~You have to keep in mind that Spellhold is run by its own Coweld Wizards who are not subject to directives of any other organizational branch.~
+IF ~~ THEN + ebrel_house_22
+END
+
+IF ~~ THEN ebrel_house_22
+SAY ~It is well possible noone we ask will be able to give us answers that would actually help us.~
 IF ~~ THEN DO ~SetGlobal("C#BrandockAboutTeos","GLOBAL",2)~ EXIT
 END
 
@@ -163,10 +172,14 @@ I_C_T ~CORNEIL~ 0 C#Brandock_CORNEIL_0
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh, <PRO_HESHE> has very pressing business I assure you!~
 END
 
-I_C_T ~CORNEIL~ 1 C#Brandock_CORNEIL_1
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Well, yes and no. The person in question used magic for the first time in this town and therefore was supposed to receive a warning, maybe a fee. She was, however, taken by the Cowled Wizards and did not return yet.~
-== ~CORNEIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~(snort!) If she was taken, she was a deviant and was brought to her rightful place. Do you mean to question the Cowled Wizards' authority in the matter?!~
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~No, only their performance. We seek an audience with the emissary about this!~
+I_C_T3 ~CORNEIL~ 1 C#Brandock_CORNEIL_1
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Well, yes and no. We seek an audience with the emissary about what happened at the Promenade.~
+== ~c#brandj~ IF ~Global("C#IM_ImoenStays","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~The young woman in question used magic for the first time in this town and therefore was supposed to receive a warning, maybe a fee. She was, however, taken by the Cowled Wizards and did not return yet.~
+== ~CORNEIL~ IF ~Global("C#IM_ImoenStays","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~(snort!) If she was taken, she was a deviant and was brought to her rightful place. Do you mean to question the Cowled Wizards' authority in the matter?!~
+== ~c#brandj~ IF ~Global("C#IM_ImoenStays","GLOBAL",0)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~No, only their performance!~
 == ~CORNEIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
 InMyArea("Tolger")~ THEN ~I do not hand out audiences. You are lucky there is a Cowled Wizard present currently! Turn around, he is right there!~
 == ~CORNEIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
@@ -188,7 +201,8 @@ END
 
 /* Tolgerias, inside Councellor's Building */
 I_C_T ~TOLGER~ 0 C#Brandock_TOLGER_0
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~My Lord Tolgerias! We are so thankful you come to us in this very urgent matter! Please, do tell us what exactly happened at the promenade? How was Ebrel killed? Where was the young w...~
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~My Lord Tolgerias! We are so thankful you come to us in this very urgent matter! Please, do tell us what exactly happened at the promenade? How was Ebrel killed?~
+== ~c#brandj~ IF ~Global("C#IM_ImoenStays","GLOBAL",0)~ THEN ~Where did they take the young wom...~
 == ~TOLGER~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Ach, this constant babbling! Brandock, I am not here to talk to you about the fight at the promenade. I was not there, I do not know what happened!~
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~You are here for a completely different matter? And here I was, thinking you came *because* of what happened... Then, please tell the emissary that <CHARNAME> is seeking an audience, will you do so? And... and what should I do now? You *know* Ebrel's dead, right?~
 == ~TOLGER~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have a far better task for you to prove yourself than mixing alchemicals, young wizard - seeing you accompanying <CHARNAME>, the task I offer <PRO_HIMHER> will also be your next assignment. Do as I request, and I see to an audience with Teos in return!~
@@ -283,7 +297,7 @@ SAY ~But never I would have imagined your return to be such a disaster, with you
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~You haven't applied yet?~ + first_join_05
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~What where you up to since we parted?~ + first_join_06
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~Let's go on, Brandock.~ + first_join_04
-IF ~Global("C#Brando_PIDHowYouFared","LOCALS",1)~ THEN + first_join_04
+IF ~GlobalGT("C#Brando_PIDHowYouFared","LOCALS",0)~ THEN + first_join_04
 END
 
 IF ~~ THEN first_join_03
@@ -356,13 +370,22 @@ SAY ~If I'd known about this when first we met, I wouldn't have talked about Imo
 IF ~~ THEN + gaelan_04
 END
 
-IF ~~ THEN gaelan_04
-SAY ~By the sound of it, we need to break into Spellhold. I... I am so much hoping there is a less destructive way. A way that doesn't need us to cross the Cowled Wizards. But it surely doesn't sound like that... What will we do now? Other than earning gold to pay some shady figure from some shady organization to help us to get to the place we need to go, probably a magic asylum designed to hold defiant mages.~
+END //APPEND
+
+CHAIN
+IF ~~ THEN C#BrandJ gaelan_04
+~By the sound of it, we need to break into Spellhold.~
+== C#BrandJ IF ~Global("C#BR_KnowsNameSpellhold","GLOBAL",0)~ THEN ~Spellhold is where the Coweld Wizards bring the magically defiant. They call it a prison if they want to frighten the young mages. Officially, it's an asylum, I think.~
+== C#BrandJ IF ~Global("C#BR_KnowsNameSpellhold","GLOBAL",0)~ THEN ~I don't know where it is, but it's definitely not in Athkatla or any place easy accessible. And... it's also not a place where people come back from. Not that I'd *knew* anything about it, but you can't help to overhear things if you train with Cowled Wizard masters for nearly a decade.~ DO ~SetGlobal("C#BR_KnowsNameSpellhold","GLOBAL",1)~
+== C#BrandJ ~I... I am so much hoping there is a less destructive way. A way that doesn't need us to cross the Cowled Wizards. But it surely doesn't sound like that... What will we do now? Other than earning gold to pay some shady figure from some shady organization to help us to get to the place we need to go, probably a magic asylum designed to hold defiant mages.~
+END
 + ~Global("TalkedToTolgerias","GLOBAL",1)~ + ~Talking to a Cowled Wizard in the Counsel Building didn't bring much information. Maybe there's other possibilities to speak to one?~ + ebrel_house_10_0
 + ~Global("TalkedToTolgerias","GLOBAL",0)~ + ~I still want to find a Cowled Wizard I can ask directly.~ + ebrel_house_10
 ++ ~Well, I am still hoping for alternatives, to be honest.~ + ebrel_house_08_04
 ++ ~I guess that sums it up, yes.~ + ebrel_house_09
-END
+
+
+APPEND C#BrandJ
 
 IF ~~ THEN ebrel_house_08_04
 SAY ~What would they be? Other than asking the Cowled Wizards directly or playing along with a powerful organisation's game. Because as much as I'm hoping for things to settle by themselves, my gut feeling tells me that we will have to fight for what we try to achieve.~
@@ -486,8 +509,9 @@ END //APPEND
 
 
 /* ~"Spellhold". I know you have other means for finding your friend, and I suggest you exploit them. The Cowled Wizards are no longer in control of the situation.~ */
+ADD_TRANS_ACTION ~MGTEOS01~ BEGIN 88 END BEGIN END ~SetGlobal("C#BR_KnowsNameSpellhold","GLOBAL",1)~
 I_C_T ~MGTEOS01~ 88 C#Brandock_MGTEOS01_88
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~What do you mean, 'The Cowled Wizards are no longer in control of the situation'?!~
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Spellhold - I *knew* ist! But - what do you mean, 'The Cowled Wizards are no longer in control of the situation'?!~
 END
 
 

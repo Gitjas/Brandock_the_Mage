@@ -847,38 +847,7 @@ SAY @929
 IF ~~ THEN + book6_03
 END
 
-/* after the note got translated, stepping out of Elvenhair's home */
-
-IF ~Global("C#Brandock_AddBookTalk","LOCALS",1)~ THEN book7
-SAY @1016 /* ~[Brandock]So, to summarize. The De Simplex Magicae was destroyed - and yet, it wasn't, but transformed into a magic experiment, teaching book of a different kind. It wasn't meant to do that - or it was, with detailed instructions to... whomever about what to do with it afterwards. The whole restoration of the empty book was a prank - and at the same time a serious magical research project. I... my head is spinning.~ */
-++ @1017 /* ~That note was hilarious. Do you believe it was Bowgentle who wrote that?~ */ + book7_01
-++ @1018 /* ~What will you do now?~ */ + book7_03
-++ @1019 /* ~It gave you a clue what to do next! That's helpful.~ */ + book7_02
-++ @1022 /* ~So you'll be carrying that empty book with you in the future, too. That's great, it's not like we could use the space.~ */ + book7_03
-END
-
-IF ~~ THEN book7_01
-SAY @1020 /* ~[Brandock]It's not really sure. It would make sense with regard to the preservation magic in the book never getting investigated any further, though - I'm sure I'd lose track of some of my research projects after being stuck in a dog's body for several years, too. As much as I know of him, it would fit, though.~ */
-IF ~~ THEN + book7_03
-END
-
-IF ~~ THEN book7_02
-SAY @1021 /* ~[Brandock]Indeed, it is.~ */
-IF ~~ THEN + book7_03
-END
-
-END //APPEND
-
-CHAIN
-IF ~~ THEN c#brandj book7_03
-@1023 /* ~[Brandock]I will watch it as if my life depends on it until my way leads me back to Athkatla for the wisdom of the Temple of Oghma, as requested in what we think are Bowgentle's notes.~ */
-== c#brandj @1024 /* ~[Brandock]But after that I will search for someone talented enough to refill the pages with spells - and I doubt this will be me, <CHARNAME>. I will continue to make notes of what I remember from the spell recipes - what made them so special that even an unexperienced wizard cast use them, but I start to understand now that most of the magic was inside the book itself. No wonder I couldn't write the spells onto a scroll...~ */
-== c#brandj @1025 /* ~[brandock]Let us continue our travels. I have a goal now - sort of, it's more like the next milestone. I admit that I appreciate that it leaves me in a state where I know exactly what my next step will be without having the chance to do it right away, giving me some sort of break from this... this extremely fascinating nightmare.~ */
-END
-IF ~~ THEN DO ~SetGlobal("C#Brandock_AddBookTalk","LOCALS",2)~ EXIT
-
-APPEND c#brandj 
-/* Brandock wants to write down his own wisdom -> rest dialogue: */
+/* Brandock falls asleep with his notes -> rest dialogue: */
 
 IF ~Global("C#Brandock_Possessions","GLOBAL",17)~ THEN book_rest
 SAY @930
@@ -1018,7 +987,7 @@ IF ~Global("C#Brandock_BG1BookMessenger","GLOBAL",1)~ THEN c#brmess letter
 == c#brandj @1002 /* ~That - that is fantastic! Thank you, good man, for coming all the way to letting me know. Here, take these coins. <CHARNAME> - I guess you know what I'll beg for next: let us return to Master Elvenhair as soon as our tasks will allow!~ */
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10044)
-ActionOverride("c#brmess",EscapeAreaDestroy(5)) SetGlobal("C#Brandock_BG1BookMessenger","GLOBAL",2)~ UNSOLVED_JOURNAL @10055 EXIT
+ActionOverride("c#brmess",EscapeAreaDestroy(5)) SetGlobal("C#Brandock_BG1BookMessenger","GLOBAL",3)~ UNSOLVED_JOURNAL @10055 EXIT
 
 CHAIN
 IF WEIGHT #-1
@@ -1029,7 +998,8 @@ Global("C#Brando_BookquestHold","GLOBAL",2)
 Global("C#Br_BookRestore","GLOBAL",10)~ THEN FIREBE book_translation
 @1003 /* ~[Elvenhair]So, young Brandock. I have here my Ruathlek lexicon, and am ready to translate the note in the De Simplex Magicae with you. Shall we?~ */
 == c#brandj @1004 /* ~[Brandock]Oooh - yes, please!~ */
-== c#brandj IF ~GlobalGT("C#Brandock_Expelled","GLOBAL",0)~ THEN @1005 /* ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out -which you already know. I was so devastated, I can't express how thankful I am that you reached out to me so quickly!~ */
+== c#brandj IF ~GlobalGT("C#Brandock_Expelled","GLOBAL",0)~ THEN @1005 /* ~[Brandock]Master Elvenhair, I was in Candlekeep - but we got kicked out -which you already know. I was so devastated!~ */
+== c#brandj IF ~Global("C#Brandock_BG1BookMessenger","GLOBAL",3)~ THEN @1027 /* ~I can't express how thankful I am that you reached out to me so quickly!~ */
 == FIREBE IF ~GlobalGT("C#Brandock_Expelled","GLOBAL",0)~ THEN @1006 /* ~[Elvenhair]Yes, this was a most unfortunate affair. But at least your names are cleared now, so do not worry, young mage. If your steps will guide you to Candlekeep again in the future, you will find entry as a seeker again.~ */ DO ~EraseJournalEntry(@10053)~
 == FIREBE @1007 /* ~[Elvenhair]So, let me see the book. This shouldn't take too long. I already prepared everything we need.~ */
 END
@@ -1053,7 +1023,35 @@ EraseJournalEntry(@10055)
 AddJournalEntry(@10057,QUEST)
 SetGlobal("C#Br_BookRestore","GLOBAL",13)~ UNSOLVED_JOURNAL @10056 EXIT
 
+APPEND c#brandj
+/* after the note got translated, stepping out of Elvenhair's home */
 
+IF ~Global("C#Brandock_AddBookTalk","LOCALS",1)~ THEN book7
+SAY @1016 /* ~[Brandock]So, to summarize. The De Simplex Magicae was destroyed - and yet, it wasn't, but transformed into a magic experiment, teaching book of a different kind. It wasn't meant to do that - or it was, with detailed instructions to... whomever about what to do with it afterwards. The whole restoration of the empty book was a prank - and at the same time a serious magical research project. I... my head is spinning.~ */
+++ @1017 /* ~That note was hilarious. Do you believe it was Bowgentle who wrote that?~ */ + book7_01
+++ @1018 /* ~What will you do now?~ */ + book7_03
+++ @1019 /* ~It gave you a clue what to do next! That's helpful.~ */ + book7_02
+++ @1022 /* ~So you'll be carrying that empty book with you in the future, too. That's great, it's not like we could use the space.~ */ + book7_03
+END
 
+IF ~~ THEN book7_01
+SAY @1020 /* ~[Brandock]It's not really sure. It would make sense with regard to the preservation magic in the book never getting investigated any further, though - I'm sure I'd lose track of some of my research projects after being stuck in a dog's body for several years, too. As much as I know of him, it would fit, though.~ */
+IF ~~ THEN + book7_03
+END
+
+IF ~~ THEN book7_02
+SAY @1021 /* ~[Brandock]Indeed, it is.~ */
+IF ~~ THEN + book7_03
+END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj book7_03
+@1023 /* ~[Brandock]I will watch it as if my life depends on it until my way leads me back to Athkatla for the wisdom of the Temple of Oghma, as requested in what we think are Bowgentle's notes.~ */
+== c#brandj @1024 /* ~[Brandock]But after that I will search for someone talented enough to refill the pages with spells - and I doubt this will be me, <CHARNAME>. I will continue to make notes of what I remember from the spell recipes - what made them so special that even an unexperienced wizard cast use them, but I start to understand now that most of the magic was inside the book itself. No wonder I couldn't write the spells onto a scroll...~ */
+== c#brandj @1025 /* ~[brandock]Let us continue our travels. I have a goal now - sort of, it's more like the next milestone. I admit that I appreciate that it leaves me in a state where I know exactly what my next step will be without having the chance to do it right away, giving me some sort of break from this... this extremely fascinating nightmare.~ */
+END
+IF ~~ THEN DO ~SetGlobal("C#Brandock_AddBookTalk","LOCALS",2)~ EXIT
 
 

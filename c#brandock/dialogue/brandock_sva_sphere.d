@@ -268,7 +268,7 @@ END
 /* GlobalGT("C#Brandock_TOLGER_refused","GLOBAL",0) */
 CHAIN
 IF ~Global("C#Brandock_VALYGAR_0","GLOBAL",6) GlobalGT("C#Brandock_TOLGER_refused","GLOBAL",0)~ THEN c#brandj valygar_joined
-~Well, yes, I guess this is only natural. If we are about to cross the Cowled Wizards, let's do it *properly* and investigate the sphere on our own! Gods. This could shatter everything I was trying to accomplish... <CHARNAME>, I am all for protecting an innocent man, even against the Cowled Wizards. Just keep in mind that this could get us to Spellhold very fast, and on a different route than we would like it.~ [c#ablank]
+~Well, yes, I guess this is only natural. If we are about to cross the Cowled Wizards, let's do it *properly* and investigate the sphere on our own! Gods. This could shatter everything I was trying to accomplish... <CHARNAME>, I am all for protecting an innocent man, even against the Cowled Wizards. Just keep in mind that this could get us the Coweld Wizards' attention very fast, but on a different way than we would like it.~ [c#ablank]
 = ~Don't get me wrong, though. I *am* thrilled to investigate anything related to the sphere. I did some research regarding on how to get in there, after all.~
 END
 IF ~~ THEN EXTERN VALYGARJ valygar_interject
