@@ -8,6 +8,10 @@ Brandock is very interested in magic books. Every time he gets time to study mag
 
 So far, only the BG1 content of the mod is finished.
 
+[Detailed readme in English](https://htmlpreview.github.io/?https://github.com/Gitjas/Brandock_the_Mage/blob/master/c%23brandock/readme.brandock.english.html)
+
+[Detailed readme in German](https://htmlpreview.github.io/?https://github.com/Gitjas/Brandock_the_Mage/blob/master/c%23brandock/readme.brandock.german.html)
+
 [Discussion Thread at Gibberlings3](https://www.gibberlings3.net/forums/topic/34687-brandock-the-mage-npc-mod-kerzenburgforum/)
 
 [German Discussion Thread at Kerzenburgforum](https://baldurs-gate.de/index.php?threads/brandock-der-magier-npc-mod-f%C3%BCr-baldurs-gate.44913/)
