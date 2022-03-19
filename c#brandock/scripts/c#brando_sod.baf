@@ -650,6 +650,146 @@ THEN
 END
 
 
+/* Coroniir boardgame PartyHasItem("bdmisc22") */
+/* activate */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	PartyHasItemIdentified("bdmisc22") 
+	Global("C#Brando_SoDbdmisc22","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDbdmisc22","GLOBAL",1)
+END
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDbdmisc22","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+/* bdamul02 "Archer's Eyes" */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	PartyHasItemIdentified("bdamul02") 
+	Global("C#Brando_SoDbdamul02","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDbdamul02","GLOBAL",1)
+END
+
+/* trigger */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDbdamul02","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+/* bdclck06 "Cloak of Minor Arkana" */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	PartyHasItemIdentified("bdclck06") 
+	Global("C#Brando_SoDbdclck06","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDbdclck06","GLOBAL",1)
+END
+
+/* trigger */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDbdclck06","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(Player1)
+END
+
+
+/* Alveus Notes */
+/* activate no. 1 ("bdalnt01", "bdalnt05", "bdalnt07") */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	OR(3)
+		PartyHasItemIdentified("bdalnt01")
+		PartyHasItemIdentified("bdalnt05") 
+		PartyHasItemIdentified("bdalnt07")  
+	Global("C#Brando_SoDbdalnt01","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDbdalnt01","LOCALS",1)
+		IncrementGlobal("C#Brando_SoDbdalnt","GLOBAL",1)
+END
+/* activate no. 2 ("bdalnt02", "bdalnt03", "bdalnt04", "bdalnt06") */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	See(Player1)
+	!Detect([ENEMY])
+	CombatCounter(0)
+	OR(4)
+		PartyHasItemIdentified("bdalnt02")
+		PartyHasItemIdentified("bdalnt03") 
+		PartyHasItemIdentified("bdalnt04") 
+		PartyHasItemIdentified("bdalnt06")   
+	Global("C#Brando_SoDbdalnt02","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brando_SoDbdalnt02","LOCALS",1)
+		IncrementGlobal("C#Brando_SoDbdalnt","GLOBAL",1)
+END
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  Global("C#Brando_SoDbdalnt","GLOBAL",2) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
 
 
 /* Morentherene - green dragon */
@@ -770,6 +910,41 @@ THEN
 		SetGlobal("C#Brando_SoDKillSpikes","bd7230",2)
 		SetGlobalTimer("C#SoD_spiketrap_timer","MYAREA",ONE_ROUND)
 		DisplayStringHead(Myself,@1258)
+END
+
+
+/* Ophyllis dead */
+/* activate */
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+	See("bdophyll")
+	Dead("bdophyll")
+	Global("C#BR_OphyllisDead","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BR_OphyllisDead","GLOBAL",1)
+END
+
+/* initiate */
+IF 
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+Global("C#BR_OphyllisDead","GLOBAL",1) 
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+    See(Player1)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
 END
 
 
@@ -1111,7 +1286,9 @@ IF
   !StateCheck(Player1,CD_STATE_NOTVALID)
   CombatCounter(0)
   Global("C#Brandock_CaelarCoB","GLOBAL",0)
-  GlobalGT("bd_mdd018","global",0) //Caelar told she is no child of Bhaal
+  OR(2)
+  	GlobalGT("bd_mdd018","global",0) //Caelar told she is no child of Bhaal
+	GlobalGT("C#RtD_CaelarBhaalChild","GLOBAL",1) //from Road to Discovery
   !AreaType(DUNGEON)
 THEN
   RESPONSE #100

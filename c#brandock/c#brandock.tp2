@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_14~ 
+VERSION ~Beta_15~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -1129,6 +1129,7 @@ WRITE_EVALUATED_ASCII 0x248 ~c#brhadr~ #8   // Override script
 	REMOVE_CRE_ITEMS
 
 /* clean up FF Headquarters after scene in Palace */
+/* will only be applied if EndlessBG1 didn't already do it  (checks for "c#stdst2.bcs") */
 INCLUDE ~C#Brandock/tpa/cleanup_ff_hq.tpa~
 
 /* despawn Malm in the Temple of the Morninglord */
@@ -1182,56 +1183,67 @@ ACTION_IF GAME_IS ~tob eet bg2ee bgt~ THEN BEGIN
 COPY_EXISTING ~scrl1e.itm~ ~override/c#br1e.itm~
 SAY NAME1 @0 /* ~Durable Scroll of Dispel Magic~ */
 SAY NAME2 @0 /* ~Durable Scroll of Dispel Magic~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl1g.itm~ ~override/c#br1g.itm~
 SAY NAME1 @3 /* ~Durable Scroll of Fireball~ */
 SAY NAME2 @3 /* ~Durable Scroll of Fireball~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl1h.itm~ ~override/c#br1h.itm~
 SAY NAME1 @27 /* ~Durable Scroll of Haste~ */
 SAY NAME2 @27 /* ~Durable Scroll of Haste~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl1u.itm~ ~override/c#br1u.itm~
 SAY NAME1 @28 /* ~Durable Scroll of Confusion~ */
 SAY NAME2 @28 /* ~Durable Scroll of Confusion~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl1y.itm~ ~override/c#br1y.itm~
 SAY NAME1 @29 /* ~Durable Scroll of Improved Invisibility~ */
 SAY NAME2 @29 /* ~Durable Scroll of Improved Invisibility~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl2a.itm~ ~override/c#br2a.itm~
 SAY NAME1 @30 /* ~Durable Scroll of Monster Summoning II~ */
 SAY NAME2 @30 /* ~Durable Scroll of Monster Summoning II~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl6u.itm~ ~override/c#br6u.itm~
 SAY NAME1 @31 /* ~Durable Scroll of Breach~ */
 SAY NAME2 @31 /* ~Durable Scroll of Breach~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl6y.itm~ ~override/c#br6y.itm~
 SAY NAME1 @32 /* ~Durable Scroll of Protection From Acid~ */
 SAY NAME2 @32 /* ~Durable Scroll of Protection From Acid~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl77.itm~ ~override/c#br77.itm~
 SAY NAME1 @33 /* ~Durable Scroll of Magic Missile~ */
 SAY NAME2 @33 /* ~Durable Scroll of Magic Missile~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl90.itm~ ~override/c#br90.itm~
 SAY NAME1 @34 /* ~Durable Scroll of Invisibility~ */
 SAY NAME2 @34 /* ~Durable Scroll of Invisibility~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 COPY_EXISTING ~scrl9a.itm~ ~override/c#br9a.itm~
 SAY NAME1 @102 /* ~Durable Scroll of Pierce Shield~ */
 SAY NAME2 @102 /* ~Durable Scroll of Pierce Shield~ */
+WRITE_BYTE 0x38 1 // stackability
 WRITE_BYTE 0x94 3 // charges
 
 
@@ -2847,7 +2859,7 @@ LABEL BrandockTheMage-Crossmod
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
 /* EndlessBG1 - handled individually */
-ACTION_IF (GAME_INCLUDES ~sod~ AND FILE_EXISTS_IN_GAME ~c#stdst2.bcs~) BEGIN 
+ACTION_IF (GAME_INCLUDES ~sod~ AND MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~0~) BEGIN 
 PRINT @55580 /* ~EndlessBG1 detected.~ */
 
 /* direct transition to BGII */

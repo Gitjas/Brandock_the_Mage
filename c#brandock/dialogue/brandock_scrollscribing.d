@@ -503,59 +503,59 @@ SAY @3092
 
 /* spell level 1 */
 + ~GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)
-PartyGoldGT(149)~ + @3093 DO ~GiveItemCreate("C#BR77",Player1,1,0,0)
+PartyGoldGT(149)~ + @3093 DO ~GiveItemCreate("C#BR77",Player1,3,1,0)
 DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 2: wizard level 3 */
 + ~LevelGT("C#Brandock",2)
 PartyGoldGT(299)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3094 DO ~GiveItemCreate("C#BR90",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3094 DO ~GiveItemCreate("C#BR90",Player1,3,1,0)
 DestroyGold(300) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 3: wizard level 5 */
 + ~LevelGT("C#Brandock",4)
 PartyGoldGT(449)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3095 DO ~GiveItemCreate("C#BR1H",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3095 DO ~GiveItemCreate("C#BR1H",Player1,3,1,0)
 DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 + ~LevelGT("C#Brandock",4)
 PartyGoldGT(449)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3096 DO ~GiveItemCreate("C#BR1G",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3096 DO ~GiveItemCreate("C#BR1G",Player1,3,1,0)
 DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 + ~LevelGT("C#Brandock",4)
 PartyGoldGT(449)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3097 DO ~GiveItemCreate("C#BR1E",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3097 DO ~GiveItemCreate("C#BR1E",Player1,3,1,0)
 DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 4: wizard level 7 */
 + ~LevelGT("C#Brandock",6)
 PartyGoldGT(749)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3098 DO ~GiveItemCreate("C#BR1Y",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3098 DO ~GiveItemCreate("C#BR1Y",Player1,3,1,0)
 DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 + ~LevelGT("C#Brandock",6)
 PartyGoldGT(749)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3099 DO ~GiveItemCreate("C#BR2A",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3099 DO ~GiveItemCreate("C#BR2A",Player1,3,1,0)
 DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 5: wizard level 9 */
 + ~LevelGT("C#Brandock",8)
 PartyGoldGT(1499)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3100 DO ~GiveItemCreate("C#BR6U",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3100 DO ~GiveItemCreate("C#BR6U",Player1,3,1,0)
 DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 + ~LevelGT("C#Brandock",8)
 PartyGoldGT(1499)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3101 DO ~GiveItemCreate("C#BR6Y",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3101 DO ~GiveItemCreate("C#BR6Y",Player1,3,1,0)
 DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 6: wizard level 12 */
 + ~Global("C#Br_WriteScrollSCRL1U","LOCALS",1)
 PartyGoldGT(2999)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3102 DO ~GiveItemCreate("C#BR1U",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3102 DO ~GiveItemCreate("C#BR1U",Player1,3,1,0)
 DestroyGold(3000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* spell level 8: wizard level 16 */
 + ~%IT_IS_BGII% LevelGT("C#Brandock",15)
 PartyGoldGT(7499)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3103 DO ~GiveItemCreate("C#BR9A",Player1,1,0,0)
+GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3103 DO ~GiveItemCreate("C#BR9A",Player1,3,1,0)
 DestroyGold(7500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 
 /* or not */

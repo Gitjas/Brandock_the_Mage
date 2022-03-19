@@ -16,7 +16,7 @@
 BEGIN c#brand2 
 
 IF ~Global("C#BrandockSpawn","GLOBAL",11)~ THEN firstmeeting
-SAY ~Ebrel, I think I need some more of the boracic acid, if we intend to... Er, you are not Ebrel. Do I...? Wait - <CHARNAME>?! <CHARNAME>, it is you, isn't it?~ [c#bran0x]
+SAY ~Oh! Ebrel, I got it. I think I need some more of the boracic acid, if we intend to... Er, you are not Ebrel. Do I...? Wait - <CHARNAME>?! <CHARNAME>, it is you, isn't it?~ [c#bran0x]
 ++ ~Hello Brandock! Nice to see you again.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_02
 ++ ~Yes, it's me.~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_02
 ++ ~And you were...?~ DO ~SetGlobal("C#BrandockSpawn","GLOBAL",12)~ + firstmeeting_03
@@ -74,7 +74,7 @@ SAY ~So, what can I do for you?~ [c#ablank]
 END
 
 IF ~~ THEN firstmeeting_06
-SAY ~(pout) You didn't lose your humor. That's a good sign!~
+SAY ~Haha! Very true. You didn't lose your humor. That's a good sign!~
 ++ ~I was held prisoner by a very powerful mage, Brandock. We just made our escape during a huge fight at the Promenade.~ DO ~SetGlobal("C#Brandock_IrenicusFirstMeeting","LOCALS",1)~ + firstmeeting_07
 + ~Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Imoen was taken by Cowled Wizards!~ DO ~SetGlobal("C#Brandock_ImoenFirstMeeting","LOCALS",1)~ + firstmeeting_08
 ++ ~Brandock, where do the Cowled Wizards take their prisoners?~ + firstmeeting_09
