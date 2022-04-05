@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_15~ 
+VERSION ~Beta_16~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -73,6 +73,7 @@ END
     OUTER_SPRINT ~IT_IS_SOD~ ~False()~
     OUTER_SPRINT ~IT_IS_BGII~ ~~
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~~
 
     /* BGT Chapters - this doesn't have any significance, it is only needed so the d-files compile */
     OUTER_SPRINT "tutu_prologue" "-1"
@@ -99,6 +100,7 @@ END
     OUTER_SPRINT ~IT_IS_SOD~ ~False()~
     OUTER_SPRINT ~IT_IS_BGII~ ~~ //will be overwritten for BGT below
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~~
 
     /* BGT Chapters - this doesn't have any significance, it is only needed so the d-files compile */
     OUTER_SPRINT "tutu_prologue" "-1"
@@ -133,6 +135,7 @@ END
 
     OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("ENDOFBG1","GLOBAL",2)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",2)~
 
     OUTER_SPRINT ~OHDradeelInfo~ ~C#Bandock_DradeelInfo~
     OUTER_SPRINT ~CELLDOOR~ ~c#brcelldoor~
@@ -145,8 +148,6 @@ END
     OUTER_SPRINT ~Door2619~ ~Door6519~
   END
 
-
-  /* EET version! ---------------------- */
 
   /* BG:EE version without SoD ---------------------- */
   ACTION_IF (GAME_IS ~bgee~ AND NOT FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
@@ -173,12 +174,15 @@ END
 ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("BD_PLOT","GLOBAL",41)~
     OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",40)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~GlobalGT("bd_plot","global",40)~
 END ELSE ACTION_IF (MOD_IS_INSTALLED ~transitions.tp2~ ~0~) BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~GlobalLT("BD_PLOT","GLOBAL",41)~
     OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",40)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~GlobalGT("bd_plot","global",40)~
 END ELSE BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("BD_PLOT","GLOBAL",0)~
     OUTER_SPRINT ~IT_IS_SOD~ ~GlobalGT("bd_plot","global",0)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~GlobalGT("bd_plot","global",0)~
 END
 END
 
@@ -217,17 +221,50 @@ END
 ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",0) GlobalLT("BD_PLOT","GLOBAL",41)~
     OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1) GlobalGT("bd_plot","global",40)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",2) GlobalGT("bd_plot","global",40)~
 END ELSE ACTION_IF (MOD_IS_INSTALLED ~transitions.tp2~ ~0~) BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",0) GlobalLT("BD_PLOT","GLOBAL",41)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~OR(2) Global("ENDOFBG1","GLOBAL",2) GlobalGT("bd_plot","global",40)~
     OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1) GlobalGT("bd_plot","global",40)~
 END ELSE BEGIN
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",0)~
     OUTER_SPRINT ~IT_IS_SOD~ ~Global("ENDOFBG1","GLOBAL",1)~
+    OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~GlobalGT("ENDOFBG1","GLOBAL",0)~
 END
   END
 
+/* Some more definitions, mainly to distinguich between classic engine / EE: */
+ACTION_IF GAME_IS ~tob~ THEN BEGIN
+  OUTER_SPRINT ~HASSPELL_WIZARD_DETECT_INVISIBILITY~ ~LevelGT("C#Brandock",2)~
+OUTER_SPRINT ~HASSPELL_WIZARD_HASTE~ ~LevelGT("C#Brandock",4)~
+OUTER_SPRINT ~HASSPELL_WIZARD_FIREBALL~ ~LevelGT("C#Brandock",4)~
+OUTER_SPRINT ~HASSPELL_WIZARD_TRUE_DISPEL_MAGIC~ ~LevelGT("C#Brandock",4)~
+OUTER_SPRINT ~HASSPELL_WIZARD_IMPROVED_INVISIBILITY~ ~LevelGT("C#Brandock",6)~
+OUTER_SPRINT ~HASSPELL_WIZARD_MONSTER_SUMMONING_2~ ~LevelGT("C#Brandock",6)~
+OUTER_SPRINT ~HASSPELL_WIZARD_PROTECTION_FROM_ACID~ ~LevelGT("C#Brandock",8)~
+OUTER_SPRINT ~HASSPELL_WIZARD_PIERCE_SHIELD~ ~LevelGT("C#Brandock",15)~
+END
 
+/* we make Breach not available in BG1 */
+ACTION_IF GAME_IS ~bg2~ THEN BEGIN
+  OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~LevelGT("C#Brandock",8)~
+END
+ACTION_IF GAME_IS ~bgt~ THEN BEGIN
+  OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~LevelGT("C#Brandock",8) Global("ENDOFBG1","GLOBAL",2)~
+END
 
+/* in EE, we can check whether Brandock has the spell in his spellbook */
+ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
+  OUTER_SPRINT ~HASSPELL_WIZARD_DETECT_INVISIBILITY~ ~HaveKnownSpell(WIZARD_MAGIC_MISSILE)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_HASTE~ ~HaveKnownSpell(WIZARD_HASTE)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_FIREBALL~ ~HaveKnownSpell(WIZARD_FIREBALL)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_TRUE_DISPEL_MAGIC~ ~HaveKnownSpell(WIZARD_TRUE_DISPEL_MAGIC)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_IMPROVED_INVISIBILITY~ ~HaveKnownSpell(WIZARD_IMPROVED_INVISIBILITY)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_MONSTER_SUMMONING_2~ ~HaveKnownSpell(WIZARD_MONSTER_SUMMONING_2)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~HaveKnownSpell(WIZARD_BREACH)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_PROTECTION_FROM_ACID~ ~HaveKnownSpell(WIZARD_PROTECTION_FROM_ACID)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_PIERCE_SHIELD~ ~HaveKnownSpell(WIZARD_PIERCE_SHIELD)~
+END
 
 //////////////////////////////////////////////////////////////////////
 /* all following actions are only processed ONCE for the whole mod, independent of un- and reinstalling of single components */
@@ -694,7 +731,7 @@ ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_cursedscrolls.baf~ EVALUATE_BUFFER
 /* script addition to trigger Brandock's scroll scribing dialogue */
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_scrollscribing.baf~ EVALUATE_BUFFER
-  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing.baf~ EVALUATE_BUFFER 
   EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_scrollscribing_et.baf~ EVALUATE_BUFFER
 /* Brandock's Half-Ogre quest */
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_shapeshifting.baf~ EVALUATE_BUFFER
@@ -1042,6 +1079,36 @@ COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brhao2.baf~
 COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut1.baf~
 COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut2.baf~
 COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut3.baf~
+/* ~Make Cutscene in Thalantyr's Abode Skippable~ */
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brskp1.baf~
+
+COPY_EXISTING ~c#brcut3.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(MultiPlayerSync()\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 
+		SetAreaScript("c#brskp1",OVERRIDE)
+		SetGlobal("C#BR_CUTSCENE_BREAKABLE","GLOBAL",1) 				SetCutSceneBreakable(TRUE)~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(SmallWait(10)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 
+		SetCutSceneBreakable(FALSE)
+		SetGlobal("C#BR_CUTSCENE_BREAKABLE","GLOBAL",0)
+		SetAreaScript("",OVERRIDE)~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+END
 COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcut9.baf~
 COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brcu10.baf~
 
@@ -1851,7 +1918,7 @@ EXTEND_TOP ~bdcut08.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut08.baf~
 
 /* PC gave Bridgefort Castle to the crusaders */
 /* & Battle at Bridgefort starts */
-EXTEND_BOTTOM ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
+EXTEND_TOP ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
   EVALUATE_BUFFER
 
 /* portal opened */
@@ -2541,56 +2608,15 @@ APPEND ~bddialog.2da~
 ~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
 UNLESS ~C#Brandock~
 
-  ACTION_IF (FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
+    COPY ~c#brandock/2da/BDBANTER.2DA~ ~override~ 
+  END
 
+  ACTION_IF (FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
 	APPEND ~bdbanter.2da~
 		~C#Brandock 	C#BrandB~
-	UNLESS ~C#Brandock~
-        
-  END ELSE BEGIN 
-
-<<<<<<<< .../BDBANTER.2DA
-2DA      V1.0
-NONE
-         FILE
-KIVAN    BDKIVANB
-ALORA    BDALORAB
-MINSC    BDMINSCB
-DYNAHEIR BDDYNAHB
-YESLICK  BDYESLIB
-CORAN    BDCORANB
-AJANTIS  BDAJANTB
-KHALID   BDKHALIB
-JAHEIRA  BDJAHEIB
-GARRICK  BDGARRIB
-SAFANA   BDSAFANB
-FALDORN  BDFALDOB
-BRANWEN  BDBRANWB
-QUAYLE   BDQUAYLB
-XAN      BDXANB
-SKIE     BDSKIEB
-ELDOTH   BDELDOTB
-XZAR     BDXZARB
-MONTARON BDMONTAB
-TIAX     BDTIAXB
-KAGAIN   BDKAGAIB
-SHARTEEL BDSHARTB
-EDWIN    BDEDWINB
-VICONIA  BDVICONB
-IMOEN    BDIMOENB
-NEERA    BDNEERAB
-DORN     BDDORNB
-RASAAD   BDRASAAB
-BAELOTH  BDBAELOB
-VOGHILN  BDVOGHIB
-MKHIIN   BDMKHIIB
-CORWIN   BDCORWIB
-GLINT    BDGLINTB
-C#Brandock 	C#BrandB
->>>>>>>>
-
-    COPY ~.../BDBANTER.2DA~ ~override~ 
-  END
+	UNLESS ~C#Brandock~        
+  END 
 END //SoD
 
 /* BG1:EET */
@@ -2881,7 +2907,9 @@ ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
 I_C_T BELT %belt_ebg1_215% C#Brandock_BG1Leaving
 == C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
 	InMyArea("C#Brandock") 
-!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @3 /* ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... I will stay in the region and continue to study the De Simplex Magicae with Master Elvenhair's help. I'll come and visit you before I'll return home for good. It should be easy to find you - hero of Baldur's Gate!~ */ 
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+/* remain silent in case possessions weren't collected */
+GlobalGT("C#Brandock_Possessions","GLOBAL",0)~ THEN @3 /* ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... I will stay in the region and continue to study the De Simplex Magicae with Master Elvenhair's help. I'll come and visit you before I'll return home for good. It should be easy to find you - hero of Baldur's Gate!~ */ 
 END
 >>>>>>>>
 COMPILE EVALUATE_BUFFER ~...inlined/ebg1_goodbye_sod.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
@@ -3355,25 +3383,26 @@ END //I4E
 
 // --- end crossmod
 
-/* Create Corwin's Banter file if not present */
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~BDCORWIB.dlg~ THEN BEGIN
-<<<<<<<< .../banterfiles-inlined/BDCORWIB.d
- BEGIN BDCORWIB
->>>>>>>>
-COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/BDCORWIB.d~ 
-END
 
-/* Create M'Khiin's Banter file if not present */
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~BDMKHIIB.dlg~ THEN BEGIN
-<<<<<<<< .../banterfiles-inlined/BDMKHIIB.d
- BEGIN BDMKHIIB
->>>>>>>>
-COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/BDMKHIIB.d~ 
-END
+/* Create NPCs' Banter files if not present */
+COPY ~c#brandock/2da/BDBANTER.2DA~ ~c#brandock/install~
+	COUNT_2DA_COLS cols
+	COUNT_2DA_ROWS cols rows
+	FOR ( row = 2 ; row < rows ; row = row + 1 ) BEGIN
+		READ_2DA_ENTRY %row% 0 2 npc_dv
+    	READ_2DA_ENTRY %row% 1 2 banterfile
+      	INNER_ACTION BEGIN
+		ACTION_IF NOT FILE_EXISTS_IN_GAME ~%banterfile%.dlg~ THEN BEGIN
+		  <<<<<<<< .../banterfiles-inlined/%banterfile%.d
+		  BEGIN %banterfile%
+		  >>>>>>>>
+		  COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/%banterfile%.d~ 
+		END
+      	END
+	END
+BUT_ONLY
 
-
-  COMPILE EVALUATE_BUFFER ~c#brandock/dialogue/brando_banter_sod.d~
-
+COMPILE EVALUATE_BUFFER ~c#brandock/dialogue/brando_banter_sod.d~
 
 /* change the calling of the scripts to "Interact("npc") for all banters (including crossmod)
 Code taken from AstroBryGuy's "SoD Dialog Banters" mod with many thanks! */
@@ -3394,6 +3423,7 @@ COPY ~c#brandock/2da/c#brbxxx.2da~ ~c#brandock/install~
       	END
 	END
 BUT_ONLY
+
 
 
 ///////////////////////////////////////////////////////////////
@@ -3421,17 +3451,118 @@ IF
 THEN
 	RESPONSE #100
 		RemoveSpellRES("fl#MSCRL")
+//		DisplayStringHead(Myself,~Testline: removed Scribe Scroll Ability from aTweaks.~)
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)
+END
+
+/* Brandock made memorized spell scroll - we are not done yet. Restart dialogue: */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
+	Global("c#brscrl","GLOBAL",3)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,@3020)
+		StartDialogOverride("c#brfl#s","C#Brandock")
 END
 >>>>>>>>
 ACTION_IF GAME_IS ~bgee eet bgt~ BEGIN
-  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER 
+  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
 END
 ACTION_IF GAME_INCLUDES ~sod~ BEGIN
-  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
 END
 ACTION_IF GAME_IS ~tob bg2ee eet~ BEGIN
-  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
 END
+
+/* double the aTweaks spell dialogue so we can work with it */
+COPY_EXISTING ~fl#SCRL.dlg~ ~override/c#brfl#s.dlg~
+      PATCH_IF SOURCE_SIZE > 0x34 BEGIN
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~fl#SCRL~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~c#brfl#s~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~Myself~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~Player1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(GiveItemCreate\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
+\1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+END
+BUT_ONLY
+<<<<<<<< .../inlined/c#brand_atweaks.d
+
+REPLACE_STATE_TRIGGER c#brfl#s 0 ~False()~
+
+REPLACE_STATE_TRIGGER c#brfl#s 1 ~False()~
+
+ADD_STATE_TRIGGER c#brfl#s 2 ~True()~
+
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",2)~ DO 1
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",4)~ DO 2
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",6)~ DO 3
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",8)~ DO 4
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",11)~ DO 5
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",13)~ DO 6
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",15)~ DO 7
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",17)~ DO 8
+ADD_TRANS_TRIGGER c#brfl#s 2 ~False()~ DO 9
+
+EXTEND_BOTTOM c#brfl#s 2
+++ @3106 DO ~SetGlobal("c#brscrl","GLOBAL",1)
+StartDialogNoSet("C#Brandock")
+~ EXIT
+END
+
+APPEND c#brfl#s 
+IF WEIGHT #-1
+~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)~ atweaks_again
+SAY @3018
+IF ~~ THEN DO ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)~ + 2
+END
+END //APPEND
+
+EXTEND_TOP c#brandj %scribe_scoll_02%
++ ~Global("C#Br_Scrollscr_aTweaks_Info","LOCALS",0)~ + @3107 DO ~SetGlobal("C#Br_Scrollscr_aTweaks_Info","LOCALS",1)~ + atweaks_info
++ ~Global("C#Br_Scrollscr_aTweaks_Info","LOCALS",1)~ + @3107 DO ~SetGlobal("c#brscrl","GLOBAL",3)
+ActionOverride("C#Brandock",StartDialogOverride("c#brfl#s","C#Brandock"))~ EXIT
+END
+
+APPEND c#brandj
+IF ~~ THEN atweaks_info
+SAY @3108 /* ~Yes, I can do that. It means I'll have one spell less memorized for today, but it won't drain me so I could write another scroll after that. It will cost gold, though.~ */
+IF ~~ THEN DO ~SetGlobal("c#brscrl","GLOBAL",3)
+ActionOverride("C#Brandock",StartDialogOverride("c#brfl#s","C#Brandock"))~ EXIT
+END
+END //APPEND
+>>>>>>>>
+
+// Get state for c#brandj %scribe_scoll_02% 
+/* ~What do you want me to scribe, <CHARNAME>?~
+*/
+OUTER_SET scribe_scoll_02 = STATE_WHICH_SAYS 3023 IN ~c#brandock/tra/autotra/%s/C#BRAND_DIALOGUES.tra~ FROM ~c#brandj~
+
+COMPILE EVALUATE_BUFFER ~.../inlined/c#brand_atweaks.d~ USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
+
+
 
 
 /* Second option: integrate aTweak's scribe scroll ability into Brandock's original one */
@@ -3443,8 +3574,19 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~115~) OR (MOD_IS_INSTAL
 
 <<<<<<<< .../c#brand_atweaks.baf
 /* remove the extra ability button from aTweaks */
-/* needs to run every day anew or any time Brandock gets the ability assigned via the engine (e.g. upon levelling up), so no variable */
+/* disable normal spell choices from meue for level < 9 */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Class(Myself,MAGE_ALL)
+	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",3)
+END
 
+/* needs to run every day anew or any time Brandock gets the ability assigned via the engine (e.g. upon levelling up), so no variable */
 IF
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	Class(Myself,MAGE_ALL)
@@ -3455,51 +3597,203 @@ IF
 THEN
 	RESPONSE #100
 		RemoveSpellRES("fl#MSCRL")
-		DisplayStringHead(Myself,~Testline: removed Scribe Scroll Ability from aTweaks.~)
-		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)
+//		DisplayStringHead(Myself,~Testline: removed Scribe Scroll Ability from aTweaks.~)
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",3)
 END
 
-/* Close aTweaks variable so it's not true for other NPCs */
+/* Brandock made memorized spell scroll - we are not done yet. Restart dialogue: */
 IF
 	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	GlobalTimerExpired("C#Br_ScrScrTimer_aTweaks","GLOBAL")
-	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
+	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",4)
 	Global("c#brscrl","GLOBAL",3)
 THEN
 	RESPONSE #100
-		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1)
+		DisplayStringHead(Myself,@3020)
+		StartDialogOverride("c#brfl#s","C#Brandock")
+END
+
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Br_Scrollscribing_aTweaks","GLOBAL",5)
+	Global("c#brscrl","GLOBAL",3)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,@3020)
+		SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",3)
 END
 >>>>>>>>
 ACTION_IF GAME_IS ~bgee eet bgt~ BEGIN
-  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER 
+  EXTEND_BOTTOM ~c#brando.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
 END
 ACTION_IF GAME_INCLUDES ~sod~ BEGIN
-  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brands.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
 END
 ACTION_IF GAME_IS ~tob bg2ee eet~ BEGIN
-  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~c#brand2.bcs~ ~.../c#brand_atweaks.baf~ EVALUATE_BUFFER USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
+END
+
+/* double the aTweaks spell dialogue so we can work with it */
+COPY_EXISTING ~fl#SCRL.dlg~ ~override/c#brfl#s.dlg~
+      PATCH_IF SOURCE_SIZE > 0x34 BEGIN
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~fl#SCRL~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~c#brfl#s~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~Myself~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~Player1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(GiveItemCreate\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",4)
+\1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+END
+BUT_ONLY
+
+/* trible the aTweaks spell dialogue so we can work with it */
+COPY_EXISTING ~fl#SCRL.dlg~ ~override/c#brfl#2.dlg~
+      PATCH_IF SOURCE_SIZE > 0x34 BEGIN
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~fl#SCRL~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~c#brfl#2~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~Myself~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~Player1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~RemoveSpell~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~//RemoveSpell~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(GiveItemCreate\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",5)
+\1~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+END
+BUT_ONLY
+
+ACTION_IF GAME_IS ~eet bg2ee bgee~ THEN BEGIN
+
+COPY_EXISTING ~c#brfl#2.dlg~ ~override~
+      PATCH_IF SOURCE_SIZE > 0x34 BEGIN
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~HaveSpell~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~HaveKnownSpell~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+      END
+END
+BUT_ONLY
+
 END
 
 <<<<<<<< .../inlined/c#brand_atweaks.d
 
-ADD_STATE_TRIGGER fl#SCRL 0 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~
+REPLACE_STATE_TRIGGER c#brfl#s 0 ~False()~
 
-ADD_STATE_TRIGGER fl#SCRL 1 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~
+REPLACE_STATE_TRIGGER c#brfl#s 1 ~False()~
 
-ADD_STATE_TRIGGER fl#SCRL 2 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)~
+ADD_STATE_TRIGGER c#brfl#s 2 ~True()~
 
-ADD_TRANS_TRIGGER fl#SCRL 2 ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",0)~ DO 9
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",2)~ DO 1
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",4)~ DO 2
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",6)~ DO 3
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",8)~ DO 4
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",11)~ DO 5
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",13)~ DO 6
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",15)~ DO 7
+ADD_TRANS_TRIGGER c#brfl#s 2 ~LevelGT("C#Brandock",17)~ DO 8
+ADD_TRANS_TRIGGER c#brfl#s 2 ~False()~ DO 9
 
-EXTEND_BOTTOM fl#SCRL 2
-+ ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",2)~ + @3106 DO ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",1) 
-SetGlobal("c#brscrl","GLOBAL",1)
-SetGlobalTimer("C#Br_ScrScrTimer_aTweaks","GLOBAL",5)
-StartDialogNoSet("C#Brandock")~ EXIT
+EXTEND_BOTTOM c#brfl#s 2
+++ @3106 DO ~SetGlobal("c#brscrl","GLOBAL",1)
+StartDialogNoSet("C#Brandock")
+~ EXIT
 END
 
-EXTEND_BOTTOM c#brandj %scribe_scoll_02% #2
-+ ~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",1)~ + @3107 DO ~SetGlobal("c#brscrl","GLOBAL",3) SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",2)
-ActionOverride("C#Brandock",StartDialogOverride("fl#SCRL","C#Brandock"))~ EXIT
+APPEND c#brfl#s 
+IF WEIGHT #-1
+~Global("C#Br_Scrollscribing_aTweaks","GLOBAL",4)~ atweaks_again
+SAY @3018
+IF ~~ THEN DO ~SetGlobal("C#Br_Scrollscribing_aTweaks","GLOBAL",3)~ + 2
+END
+END //APPEND
+
+EXTEND_TOP c#brandj %scribe_scoll_02%
++ ~Global("C#Br_Scrollscr_aTweaks_Info","LOCALS",0)~ + @3107 DO ~SetGlobal("C#Br_Scrollscr_aTweaks_Info","LOCALS",1)~ + atweaks_info
++ ~Global("C#Br_Scrollscr_aTweaks_Info","LOCALS",1)~ + @3107 DO ~SetGlobal("c#brscrl","GLOBAL",3)
+ActionOverride("C#Brandock",StartDialogOverride("c#brfl#s","C#Brandock"))~ EXIT
+++ @3109 DO ~SetGlobal("c#brscrl","GLOBAL",3)
+ActionOverride("C#Brandock",StartDialogOverride("c#brfl#2","C#Brandock"))~ EXIT
+END
+
+APPEND c#brandj
+IF ~~ THEN atweaks_info
+SAY @3108 /* ~Yes, I can do that. It means I'll have one spell less memorized for today, but it won't drain me so I could write another scroll after that. It will cost gold, though.~ */
+IF ~~ THEN DO ~SetGlobal("c#brscrl","GLOBAL",3)
+ActionOverride("C#Brandock",StartDialogOverride("c#brfl#s","C#Brandock"))~ EXIT
+END
+END //APPEND
+
+REPLACE_STATE_TRIGGER c#brfl#2 0 ~False()~
+
+REPLACE_STATE_TRIGGER c#brfl#2 1 ~False()~
+
+ADD_STATE_TRIGGER c#brfl#2 2 ~True()~
+
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",2)~ DO 1
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",4)~ DO 2
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",6)~ DO 3
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",8)~ DO 4
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",11)~ DO 5
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",13)~ DO 6
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",15)~ DO 7
+ADD_TRANS_TRIGGER c#brfl#2 2 ~LevelGT("C#Brandock",17)~ DO 8
+
+ADD_TRANS_TRIGGER c#brfl#2 2 ~False()~ DO 9
+
+EXTEND_BOTTOM c#brfl#2 2
+++ @3104 DO ~SetGlobal("c#brscrl","GLOBAL",1)
+StartDialogNoSet("C#Brandock")
+~ EXIT
 END
 >>>>>>>>
 
@@ -3509,4 +3803,47 @@ END
 OUTER_SET scribe_scoll_02 = STATE_WHICH_SAYS 3023 IN ~c#brandock/tra/autotra/%s/C#BRAND_DIALOGUES.tra~ FROM ~c#brandj~
 
 COMPILE EVALUATE_BUFFER ~.../inlined/c#brand_atweaks.d~ USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.tra~
+
+///////////////////////////////////////////////////////////////
+/* Make Cutscene in Thalantyr's Abode Short */
+//////////////////////////////////////////////////////////////
+
+BEGIN @55586 /* ~Make Cutscene in Thalantyr's Abode Short~ */ DESIGNATED 50 
+LABEL BrandockTheMage-Make_Cutscene_Short
+REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
+REQUIRE_PREDICATE (GAME_IS ~bgee eet~) @55541
+
+COPY ~c#brandock/scripts/c#brcut3_short.baf~ ~c#brandock/install/c#brcut3.baf~
+COMPILE EVALUATE_BUFFER ~c#brandock/install/c#brcut3.baf~
+
+/* Make Cutscene in Thalantyr's Abode Skippable. We need to patch this one, too. */
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+
+COPY_EXISTING ~c#brcut3.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(MultiPlayerSync()\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 
+		SetAreaScript("c#brskp1",OVERRIDE)
+		SetGlobal("C#BR_CUTSCENE_BREAKABLE","GLOBAL",1) 				SetCutSceneBreakable(TRUE)~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+		SPRINT textToReplace ~\(SmallWait(10)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1 
+		SetCutSceneBreakable(FALSE)
+		SetGlobal("C#BR_CUTSCENE_BREAKABLE","GLOBAL",0)
+		SetAreaScript("",OVERRIDE)~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+END
+
 

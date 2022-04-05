@@ -73,14 +73,13 @@ IF ~!Dead("C#Brandock") !InPartyAllowDead("C#Brandock")
 OR(2)
 	Global("C#BrandockSpawn","GLOBAL",0)
 	GlobalGT("C#BrandockSpawn","GLOBAL",4)
-Global("C#Brandock_Gone","GLOBAL",0)
-!Allegiance("C#Brandock",ENEMY)~ THEN JOURNAL @10016 + mynpc
+Global("C#Brandock_Gone","GLOBAL",0)~ THEN JOURNAL @10016 + mynpc
 END
 
 APPEND bdschael
 
 IF ~~ THEN mynpc
-SAY ~There is a mage names Brandock who claimed to know you. He was last seen outside the Palace's gates. I think he also slept there last night.~
+SAY ~There is a mage named Brandock who claimed to know you. He was last seen outside the Palace's gates. I think he also slept there last night.~
 COPY_TRANS bdschael 39 
 END
 

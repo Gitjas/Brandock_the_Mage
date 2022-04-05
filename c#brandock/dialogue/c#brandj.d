@@ -1116,7 +1116,7 @@ IF ~~ THEN DO ~SetGlobal("C#Brandock_ITCkLetters","LOCALS",2)~ EXIT
 END
 
 IF ~Global("C#Brandock_ITSaLetters","LOCALS",1)~ THEN ironthrone_candlekeep_letters_01
-SAY @521 /* ~That Sarevok is a great liar - or a great schemer. Zhentarim, Chill, Blacktalon. I get a headache by even reading all these.~ */
+SAY @521 /* ~Seeing that journal - Sarevok is a great liar, or a great schemer. Zhentarim, Chill, Blacktalon. I get a headache by even reading all these.~ */
 IF ~~ THEN DO ~SetGlobal("C#Brandock_ITSaLetters","LOCALS",2)~ EXIT
 END
 

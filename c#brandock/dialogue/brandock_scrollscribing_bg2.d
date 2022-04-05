@@ -1,17 +1,17 @@
 EXTEND_TOP c#brandj scribe_scoll_02
 /* Brandock writes in the De Simplex Magicae */
-+ ~LevelGT("C#Brandock",8)
-GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)
-GlobalLT("C#Br_WriteBook","LOCALS",2)~ + @3024 DO ~SetGlobal("C#Br_WriteBook","LOCALS",2)~ + scribe_book_01
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",1)
++ ~Global("C#Brandock_BookWarningLokal2","GLOBAL",0) Global("C#Brandock_BookWarningLokal1","GLOBAL",0) Global("C#Brandock_BookWarning","GLOBAL",0) //book is in inventory
+Global("C#Br_WriteBook","LOCALS",1)~ + @3024 DO ~SetGlobal("C#Br_WriteBook","LOCALS",2)~ + scribe_book_01
++ ~Global("C#Brandock_BookWarningLokal2","GLOBAL",0) Global("C#Brandock_BookWarningLokal1","GLOBAL",0) Global("C#Brandock_BookWarning","GLOBAL",0) //book is in inventory
+GlobalGT("C#Br_WriteBook","LOCALS",1)
 GlobalLT("C#Br_WriteBook","LOCALS",7)~ + @3025 + scribe_book_02
 /* one more page in ToB */
-+ ~Global("C#Br_WriteBook","LOCALS",9)~ + @3025 + scribe_book_02
++ ~Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
+Global("C#Br_WriteBook","LOCALS",9)~ + @3025 + scribe_book_02
 
 /* durable scrolls */
 + ~PartyGoldGT(449)
-GlobalLT("C#Br_WriteDurableScrolls","LOCALS",2)
-GlobalGT("C#Br_BookRestore","GLOBAL",21)~ + @3026 + scribe_durable_scoll_02
+Global("C#Br_WriteDurableScrolls","LOCALS",1)~ + @3026 + scribe_durable_scoll_02
 + ~GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3027 + scribe_durable_scoll_03
 END
 
@@ -24,7 +24,8 @@ APPEND c#brandj
 /* De Simplex Magicae received Oghma's Wisdom & Brandock is level 5. Brandock writes scrolls with several charges 
 GlobalGT("C#Br_BookRestore","GLOBAL",21) */
 
-IF ~Global("C#Br_WriteDurableScrolls","LOCALS",3)~ THEN scribe_durable_scoll
+IF WEIGHT #-1
+~Global("C#Br_WriteDurableScrolls","LOCALS",3)~ THEN scribe_durable_scoll
 SAY @3637
 ++ @3638 + scribe_durable_scoll_00
 ++ @3639 + scribe_durable_scoll_00_b
@@ -48,20 +49,25 @@ IF ~~ THEN DO ~SetGlobal("C#Br_WriteDurableScrolls","LOCALS",4)
 SetGlobal("c#brscrl","GLOBAL",3)~ EXIT
 END
 
+END //APPEND
+
+
+CHAIN
 IF WEIGHT #-1
 ~LevelGT("C#Brandock",4)
 Global("c#brscrl","GLOBAL",1)
 Global("C#Br_WriteDurableScrolls","LOCALS",0)
-GlobalGT("C#Br_BookRestore","GLOBAL",21)~ THEN scribe_durable_scoll_01
-SAY @3645
+GlobalGT("C#Br_BookRestore","GLOBAL",21)~ THEN c#brandj scribe_durable_scoll_01
+@3645 DO ~SetGlobal("C#Br_WriteDurableScrolls","LOCALS",1)~ 
 = @3646
-IF ~~ THEN DO ~SetGlobal("C#Br_WriteDurableScrolls","LOCALS",1)~ + scribe_scoll_02
 END
+IF ~~ THEN + scribe_scoll_02
 
+APPEND c#brandj
 IF ~~ THEN scribe_durable_scoll_02
 SAY @3647
 IF ~~ THEN DO ~GiveItemCreate("C#BR1G",Player1,3,1,0) 
-DestroyGold(450) SetGlobal("C#Br_WriteDurableScrolls","LOCALS",3) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) SetGlobal("C#Br_WriteDurableScrolls","LOCALS",3) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 END
 
 
@@ -96,25 +102,30 @@ END
 /* wrote very last page (in ToB) */
 /* -> in brandock_bookrestore_bg2.d */
 
+END //APPEND
+
 /* Brandock offers to write spells into the De Simple Magicae */
 /* SoA */
+CHAIN
 IF WEIGHT #-1
-~LevelGT("C#Brandock",14)
+~LevelGT("C#Brandock",11)
 Global("c#brscrl","GLOBAL",1)
-Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
+Global("C#Brandock_BookWarningLokal2","GLOBAL",0) Global("C#Brandock_BookWarningLokal1","GLOBAL",0) Global("C#Brandock_BookWarning","GLOBAL",0) //book is in inventory
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)
-Global("C#Br_WriteBook","LOCALS",0)~ THEN scribe_book_00
-SAY @3602
+Global("C#Br_WriteBook","LOCALS",0)~ THEN c#brandj scribe_book_00
+@3602 DO ~EraseJournalEntry(@10068)
+SetGlobal("C#Br_WriteBook","LOCALS",1)~ 
 = @3603
-IF ~~ THEN DO ~EraseJournalEntry(@10068)
-SetGlobal("C#Br_WriteBook","LOCALS",1)~ UNSOLVED_JOURNAL @10078 + scribe_scoll_02
 END
+IF ~~ THEN UNSOLVED_JOURNAL @10078 + scribe_scoll_02
+
+APPEND c#brandj
 
 /* ToB */
 IF WEIGHT #-1
 ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)
 Global("c#brscrl","GLOBAL",1)
-Global("C#Br_WriteBook","LOCALS",8)~ THEN scribe_book_00
+Global("C#Br_WriteBook","LOCALS",8)~ THEN scribe_book_tob
 SAY @3700 /* ~<CHARNAME>, the incredible happened - the last page of the De Simplex Magicae opened up for me. Let me know what you want me to write on it!~  */
 IF ~~ THEN DO ~EraseJournalEntry(@10078)
 EraseJournalEntry(@10079)
@@ -151,27 +162,32 @@ Global("C#Br_WriteBookPage07","GLOBAL",0)~ THEN @3617
 Global("C#Br_WriteBookPage08","GLOBAL",0)~ THEN @3618
 == c#brandj IF ~LevelGT("C#Brandock",17)
 Global("C#Br_WriteBookPage09","GLOBAL",0)~ THEN @3619
-== c#brandj IF ~Global("C#Br_WriteBookPage10","GLOBAL",0)~ THEN @3620
+== c#brandj IF ~LevelGT("C#Brandock",17)
+Global("C#Br_WriteBookPage10","GLOBAL",0)~ THEN @3620
 == c#brandj IF ~LevelLT("C#Brandock",18)~ THEN @3621
 == c#brandj IF ~LevelGT("C#Brandock",17)~ THEN @3622
 END
 /* "c#brbo01" - Fireball (spell level 3) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage01","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL1G")
 PartyGoldGT(1499)~ + @3623 DO ~GiveItemCreate("c#brbo01",Player1,1,0,0) DestroyGold(1500) SetGlobal("C#Br_WriteBookPage01","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage01","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL1G")
 PartyGoldGT(1499)~ + @3623 DO ~DestroyGold(1500) SetGlobal("C#Br_WriteBookPage01","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage01","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL1G")
 HasItem("SCRL1G","C#Brandock")
 PartyGoldGT(1499)~ + @3623 DO ~GiveItemCreate("c#brbo01",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL1G",Player1))
 DestroyGold(1500) SetGlobal("C#Br_WriteBookPage01","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage01","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL1G")
 HasItem("SCRL1G","C#Brandock")
@@ -179,22 +195,26 @@ PartyGoldGT(1499)~ + @3623 DO ~ActionOverride("C#Brandock",GiveItem("SCRL1G",Pla
 DestroyGold(1500) SetGlobal("C#Br_WriteBookPage01","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo02" - Minor Sequencer (spell level 4) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage02","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL6P")
 PartyGoldGT(2499)~ + @3624 DO ~GiveItemCreate("c#brbo02",Player1,1,0,0) DestroyGold(2500) SetGlobal("C#Br_WriteBookPage02","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage02","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL6P")
 PartyGoldGT(2499)~ + @3624 DO ~DestroyGold(2500) SetGlobal("C#Br_WriteBookPage02","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage02","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL6P")
 HasItem("SCRL6P","C#Brandock")
 PartyGoldGT(2499)~ + @3624 DO ~GiveItemCreate("c#brbo02",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL6P",Player1))
 DestroyGold(2500) SetGlobal("C#Br_WriteBookPage02","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage02","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL6P")
 HasItem("SCRL6P","C#Brandock")
@@ -202,22 +222,26 @@ PartyGoldGT(2499)~ + @3624 DO ~ActionOverride("C#Brandock",GiveItem("SCRL6P",Pla
 DestroyGold(2500) SetGlobal("C#Br_WriteBookPage02","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo03" - Breach (spell level 5) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage03","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL6U")
 PartyGoldGT(4999)~ + @3625 DO ~GiveItemCreate("c#brbo03",Player1,1,0,0) DestroyGold(5000) SetGlobal("C#Br_WriteBookPage03","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage03","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL6U")
 PartyGoldGT(4999)~ + @3625 DO ~DestroyGold(5000) SetGlobal("C#Br_WriteBookPage03","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage03","GLOBAL",0)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL6U")
 HasItem("SCRL6U","C#Brandock")
 PartyGoldGT(4999)~ + @3625 DO ~GiveItemCreate("c#brbo03",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL6U",Player1))
 DestroyGold(5000) SetGlobal("C#Br_WriteBookPage03","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage03","GLOBAL",0)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL6U")
 HasItem("SCRL6U","C#Brandock")
@@ -225,22 +249,30 @@ PartyGoldGT(4999)~ + @3625 DO ~ActionOverride("C#Brandock",GiveItem("SCRL6U",Pla
 DestroyGold(5000) SetGlobal("C#Br_WriteBookPage03","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo04" - Spell Deflection (spell level 6) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage04","GLOBAL",0)
+LevelGT("C#Brandock",11)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL7V")
 PartyGoldGT(9999)~ + @3626 DO ~GiveItemCreate("c#brbo04",Player1,1,0,0) DestroyGold(10000) SetGlobal("C#Br_WriteBookPage04","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage04","GLOBAL",0)
+LevelGT("C#Brandock",11)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL7V")
 PartyGoldGT(9999)~ + @3626 DO ~DestroyGold(10000) SetGlobal("C#Br_WriteBookPage04","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage04","GLOBAL",0)
+LevelGT("C#Brandock",11)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL7V")
 HasItem("SCRL7V","C#Brandock")
 PartyGoldGT(9999)~ + @3626 DO ~GiveItemCreate("c#brbo04",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL7V",Player1))
 DestroyGold(10000) SetGlobal("C#Br_WriteBookPage04","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage04","GLOBAL",0)
+LevelGT("C#Brandock",11)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL7V")
 HasItem("SCRL7V","C#Brandock")
@@ -248,22 +280,30 @@ PartyGoldGT(9999)~ + @3626 DO ~ActionOverride("C#Brandock",GiveItem("SCRL7V",Pla
 DestroyGold(10000) SetGlobal("C#Br_WriteBookPage04","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo05" - Mass Invisibility (spell level 7) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage05","GLOBAL",0)
+LevelGT("C#Brandock",13)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL8W")
 PartyGoldGT(14999)~ + @3627 DO ~GiveItemCreate("c#brbo05",Player1,1,0,0) DestroyGold(15000) SetGlobal("C#Br_WriteBookPage05","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage05","GLOBAL",0)
+LevelGT("C#Brandock",13)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL8W")
 PartyGoldGT(14999)~ + @3627 DO ~DestroyGold(15000) SetGlobal("C#Br_WriteBookPage05","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage05","GLOBAL",0)
+LevelGT("C#Brandock",13)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL8W")
 HasItem("SCRL8W","C#Brandock")
 PartyGoldGT(14999)~ + @3627 DO ~GiveItemCreate("c#brbo05",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL8W",Player1))
 DestroyGold(15000) SetGlobal("C#Br_WriteBookPage05","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage05","GLOBAL",0)
+LevelGT("C#Brandock",13)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL8W")
 HasItem("SCRL8W","C#Brandock")
@@ -271,22 +311,30 @@ PartyGoldGT(14999)~ + @3627 DO ~ActionOverride("C#Brandock",GiveItem("SCRL8W",Pl
 DestroyGold(15000) SetGlobal("C#Br_WriteBookPage05","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo06" - Summon Efreeti (spell level 7) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage06","GLOBAL",0)
+LevelGT("C#Brandock",13)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL8S")
 PartyGoldGT(14999)~ + @3628 DO ~GiveItemCreate("c#brbo06",Player1,1,0,0) DestroyGold(15000) SetGlobal("C#Br_WriteBookPage06","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage06","GLOBAL",0)
+LevelGT("C#Brandock",13)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL8S")
 PartyGoldGT(14999)~ + @3628 DO ~DestroyGold(15000) SetGlobal("C#Br_WriteBookPage06","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage06","GLOBAL",0)
+LevelGT("C#Brandock",13)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL8S")
 HasItem("SCRL8S","C#Brandock")
 PartyGoldGT(14999)~ + @3628 DO ~GiveItemCreate("c#brbo06",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL8S",Player1))
 DestroyGold(15000) SetGlobal("C#Br_WriteBookPage06","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage06","GLOBAL",0)
+LevelGT("C#Brandock",13)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL8S")
 HasItem("SCRL8S","C#Brandock")
@@ -294,22 +342,30 @@ PartyGoldGT(14999)~ + @3628 DO ~ActionOverride("C#Brandock",GiveItem("SCRL8S",Pl
 DestroyGold(15000) SetGlobal("C#Br_WriteBookPage06","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo07" - Bigby's Clenched Fist (spell level 8) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage07","GLOBAL",0)
+LevelGT("C#Brandock",15)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRLB1")
 PartyGoldGT(24999)~ + @3629 DO ~GiveItemCreate("c#brbo07",Player1,1,0,0) DestroyGold(25000) SetGlobal("C#Br_WriteBookPage07","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage07","GLOBAL",0)
+LevelGT("C#Brandock",15)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRLB1")
 PartyGoldGT(24999)~ + @3629 DO ~DestroyGold(25000) SetGlobal("C#Br_WriteBookPage07","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage07","GLOBAL",0)
+LevelGT("C#Brandock",15)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRLB1")
 HasItem("SCRLB1","C#Brandock")
 PartyGoldGT(24999)~ + @3629 DO ~GiveItemCreate("c#brbo07",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRLB1",Player1))
 DestroyGold(25000) SetGlobal("C#Br_WriteBookPage07","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage07","GLOBAL",0)
+LevelGT("C#Brandock",15)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRLB1")
 HasItem("SCRLB1","C#Brandock")
@@ -317,22 +373,30 @@ PartyGoldGT(24999)~ + @3629 DO ~ActionOverride("C#Brandock",GiveItem("SCRLB1",Pl
 DestroyGold(25000) SetGlobal("C#Br_WriteBookPage07","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo08" - Pierce Shield (spell level 8) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage08","GLOBAL",0)
+LevelGT("C#Brandock",15)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL9A")
 PartyGoldGT(24999)~ + @3630 DO ~GiveItemCreate("c#brbo08",Player1,1,0,0) DestroyGold(25000) SetGlobal("C#Br_WriteBookPage08","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage08","GLOBAL",0)
+LevelGT("C#Brandock",15)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL9A")
 PartyGoldGT(24999)~ + @3630 DO ~DestroyGold(25000) SetGlobal("C#Br_WriteBookPage08","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage08","GLOBAL",0)
+LevelGT("C#Brandock",15)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL9A")
 HasItem("SCRL9A","C#Brandock")
 PartyGoldGT(24999)~ + @3630 DO ~GiveItemCreate("c#brbo08",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL9A",Player1))
 DestroyGold(25000) SetGlobal("C#Br_WriteBookPage08","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage08","GLOBAL",0)
+LevelGT("C#Brandock",15)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL9A")
 HasItem("SCRL9A","C#Brandock")
@@ -340,22 +404,30 @@ PartyGoldGT(24999)~ + @3630 DO ~ActionOverride("C#Brandock",GiveItem("SCRL9A",Pl
 DestroyGold(25000) SetGlobal("C#Br_WriteBookPage08","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo09" - Bigby's Crushing Hand (spell level 9) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage09","GLOBAL",0)
+LevelGT("C#Brandock",17)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRLB2")
 PartyGoldGT(49999)~ + @3631 DO ~GiveItemCreate("c#brbo09",Player1,1,0,0) DestroyGold(50000) SetGlobal("C#Br_WriteBookPage09","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage09","GLOBAL",0)
+LevelGT("C#Brandock",17)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRLB2")
 PartyGoldGT(49999)~ + @3631 DO ~DestroyGold(50000) SetGlobal("C#Br_WriteBookPage09","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage09","GLOBAL",0)
+LevelGT("C#Brandock",17)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRLB2")
 HasItem("SCRLB2","C#Brandock")
 PartyGoldGT(49999)~ + @3631 DO ~GiveItemCreate("c#brbo09",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRLB2",Player1))
 DestroyGold(50000) SetGlobal("C#Br_WriteBookPage09","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage09","GLOBAL",0)
+LevelGT("C#Brandock",17)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRLB2")
 HasItem("SCRLB2","C#Brandock")
@@ -363,22 +435,30 @@ PartyGoldGT(49999)~ + @3631 DO ~ActionOverride("C#Brandock",GiveItem("SCRLB2",Pl
 DestroyGold(50000) SetGlobal("C#Br_WriteBookPage09","GLOBAL",1)~ + scribe_book_03
 
 /* "c#brbo10" - Chain Contingency (spell level 9) */
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage10","GLOBAL",0)
+LevelGT("C#Brandock",17)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL9Q")
 PartyGoldGT(49999)~ + @3632 DO ~GiveItemCreate("c#brbo10",Player1,1,0,0) DestroyGold(50000) SetGlobal("C#Br_WriteBookPage10","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage10","GLOBAL",0)
+LevelGT("C#Brandock",17)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 PartyHasItem("SCRL9Q")
 PartyGoldGT(49999)~ + @3632 DO ~DestroyGold(50000) SetGlobal("C#Br_WriteBookPage10","GLOBAL",1)~ + scribe_book_03
-+ ~Global("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage10","GLOBAL",0)
+LevelGT("C#Brandock",17)
+Global("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL9Q")
 HasItem("SCRL9Q","C#Brandock")
 PartyGoldGT(49999)~ + @3632 DO ~GiveItemCreate("c#brbo10",Player1,1,0,0) 
 ActionOverride("C#Brandock",GiveItem("SCRL9Q",Player1))
 DestroyGold(50000) SetGlobal("C#Br_WriteBookPage10","GLOBAL",1)~ + scribe_book_04
-+ ~GlobalGT("C#Br_WriteBook","LOCALS",2)
++ ~Global("C#Br_WriteBookPage10","GLOBAL",0)
+LevelGT("C#Brandock",17)
+GlobalGT("C#Br_WriteBook","LOCALS",2)
 Global("C#Brandock_BookWarningLokal2","GLOBAL",0) //book is in inventory
 !PartyHasItem("SCRL9Q")
 HasItem("SCRL9Q","C#Brandock")
@@ -408,7 +488,7 @@ IF ~~ THEN DO ~IncrementGlobal("C#Br_WriteBook","LOCALS",1)
 IncrementGlobal("C#Br_ScribeBookComment","LOCALS",1)
 SetGlobal("c#brscrl","GLOBAL",2) 
 CreateCreatureObject("C#Brhelp",Myself,0,0,0)~ EXIT
-IF ~HasItem("c#br0007","C#Brandock")~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0007",Player1))
+IF ~HasItem("c#br0007","C#Brandock") !PartyHasItem("c#br0007")~ THEN DO ~ActionOverride("C#Brandock",GiveItem("c#br0007",Player1))
 IncrementGlobal("C#Br_WriteBook","LOCALS",1)
 IncrementGlobal("C#Br_ScribeBookComment","LOCALS",1)
 SetGlobal("c#brscrl","GLOBAL",2) 

@@ -14,6 +14,7 @@ THEN
 		SetGlobal("C#Brando_bd_betrayal_discussion","bd2000",1)
 		SetGlobalTimer("bd_betrayal_discuss_timer","bd2000",ONE_MINUTE)
 		DisplayStringHead("C#Brandock",@1268)
+		Continue()
 END
 
 /* Battle at Bridgefort starts */
@@ -28,4 +29,5 @@ THEN
 		SetGlobalTimer("bd_mdd410z_ot_timer","bd2000",THREE_MINUTES)  // Boareskyr Bridge & Bridgefort
 		SetGlobal("C#Brando_bd_ot","bd2000",1)  // Boareskyr Bridge & Bridgefort
 		DisplayStringHead("C#Brandock",@1281)  
+		Continue()
 END

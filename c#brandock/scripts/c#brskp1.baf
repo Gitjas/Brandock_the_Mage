@@ -1,0 +1,33 @@
+IF
+	CutSceneBroken()
+THEN
+	RESPONSE #100
+		SetCutSceneBreakable(FALSE)
+		StartCutSceneMode()
+		ClearAllActions()
+		FadeToColor([0.0],0)
+		SetCursorState(FALSE)
+		SetAreaScript("",OVERRIDE)
+		SetGlobal("C#BR_CUTSCENE_BREAKABLE","GLOBAL",0)
+		Continue()
+END
+IF
+	CutSceneBroken()
+	Switch("C#BR_CUTSCENE_BREAKABLE","GLOBAL")
+THEN
+	RESPONSE #1
+		Wait(1)
+		ActionOverride("cutspy",DestroySelf())
+		SmallWait(7)
+		ActionOverride("C#brthal",DestroySelf())
+		SmallWait(7)
+		ActionOverride("c#brhao2",DestroySelf())
+		SmallWait(7)
+		ActionOverride("C#Brandock",LeaveAreaLUA("%HighHedge_ThalanthyrsAbode%","",[313.226],0))
+		Wait(1)
+		RestorePartyLocations()
+		MultiPlayerSync()
+		FadeFromColor([30.0],0)
+		SetInterrupt(TRUE)
+		EndCutSceneMode()
+END

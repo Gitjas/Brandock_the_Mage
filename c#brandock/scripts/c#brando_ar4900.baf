@@ -1,4 +1,6 @@
 IF %BGT_VAR%
+   OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
+   InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
       Global("C#Brandock_Carnival","GLOBAL",0)	
 THEN
 	RESPONSE #100

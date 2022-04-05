@@ -1,5 +1,5 @@
 @55540  = ~Brandock the Mage~
-@55541  = ~This mod is not compatible with your game.~
+@55541  = ~This mod/component is not compatible with your game.~
 @55542  = ~You need to modmerge your SoD game before installing any mods.~
 @55543 = ~Brandock the Mage main component is required.~
 @55544 = ~Install Alternate Portrait~
@@ -44,7 +44,9 @@
 @55580  = ~EndlessBG1 detected.~
 @55581  = ~Transitions Mod detected.~
 
-@55582  = ~Deactivate aTweak's scribe scroll ability for Brandock~
-@55583  = ~Integrate aTweak's scribe scroll ability into Brandock's original one~
-@55584  = ~Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls"~
+@55582  = ~Cosmetic: integrate without changing original scribe scroll possibilities~
+@55583  = ~Substantial: integrate with changing original ability so Brandock can only scribe spells he knows (NOT recommended for classic BG2/BGT)~
+@55584  = ~Integrate aTweaks "Allow Mages to scribe memorized spells onto scrolls" possibilities into Brandock's Scribe Scroll Ability~
 @55585  = ~aTweaks "Allow Mages to scribe memorized spells onto scrolls" needs to be installed.~
+
+@55586  = ~Use Short Cutscene in Thalantyr's Abode~

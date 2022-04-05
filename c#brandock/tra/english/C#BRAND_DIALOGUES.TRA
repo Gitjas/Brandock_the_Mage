@@ -531,7 +531,7 @@
 @518  = ~[Brandock]I know it's probably too early to think about this - to *worry* about this. But what scares me is the possibility to lose track as to *when* it would be time to worry about it.~
 @519  = ~[Brandock]I surely hope I'll never lose connection to reality like Mister Prism did.~
 @520  = ~[Brandock]Of course the Iron Throne leaders would meet up in Candlekeep! From all places! Oh, *they* do not have a problem to give a book of high value each to get inside, do they? Of course not! (mumbles) Why do the bad guys always seem to have all the fun?~
-@521  = ~[Brandock]That Sarevok is a great liar - or a great schemer. Zhentarim, The Chill, Blacktalon. I get a headache by even reading all these.~
+@521  = ~[Brandock]Seeing that journal - Sarevok is a great liar, or a great schemer. Zhentarim, Chill, Blacktalon. I get a headache by even reading all these.~
 @522  = ~[Brandock]And then there is that... incident including a half-ogre, after I cast magic on someone I didn't know anything about, ruining my reputation as a mage around these lands for time to come, and changing something inside me - changing me, *literally* - in a way I haven't yet understood...~
 @523  = ~[Brandock]That... that *slime* was a person once...~
 @524  = ~And from what it hinted at he was in - in Candlekeep? What else could it have meant?~
@@ -846,7 +846,7 @@
 @988  = ~And on top of it all, Master Elvenhair offered me to train scroll scribing with him. I'd be ready to take him up on that offer any time you can spare a moment, <CHARNAME>. I would be daft not to!~
 @989  = ~Albeit not today any more, of course.~
 @990  = ~Please, <CHARNAME>, let us return to Master Elvenhair as soon as possible!~
-@991  = ~Having out names cleared takes a huge weight from my shoulders.~
+@991  = ~Having our names cleared takes a huge weight from my shoulders.~
 @992  = ~Oh yes, I can very much relate to that!~
 @993  = ~Please let's hold on to them, until we can go to Master Elvenhair again.~
 @994  = ~Now that we cleared our names, we probably can visit Elvenhair again, what do you think?~
@@ -1252,7 +1252,7 @@
 @1451 = ~[Halboger]Sitting here and thinking.~
 @1452 = ~[Brandock]You are the half-ogre... Do you remember me? How are you?~
 @1453 = ~Malm as human being has a very different approach to colors, thoughts, language... all very fascinating. Sits here and ponders about being and the meaning of life. Uses words like "ponders"...~
-@1454 = ~[Brandock]Malm... I feel responsible for what happened to you. You seem to enjoy your human shape. We could help you to settle in with people. Being alone in teh wild is not good for a human.~
+@1454 = ~[Brandock]Malm... I feel responsible for what happened to you. You seem to enjoy your human shape. We could help you to settle in with people. Being alone in the wild is not good for a human.~
 @1455 = ~Malm doesn't want to leave. Malm here at home. Likes it here. Thoughts are spinning...~
 @1456 = ~[Brandock]By the gods, this is like watching a child learn to walk.... Malm, now you still like being alone. But at some point that won't be enough any more, and then you'll need other people around you with whom you can exchange ideas.~
 @1457 = ~I need something to peak his curiosity to go amongst people. Wait a moment, <CHARNAME>.~
@@ -1652,8 +1652,8 @@
 @3082 = ~A scroll of Project Image.~
 /* SCRL8M.itm - Sphere of Chaos */
 @3083 = ~A scroll of Sphere of Chaos.~
-/* SCRL8S.itm - Summon Efreet */
-@3084 = ~A scroll of Summon Efreet.~
+/* SCRL8S.itm - Summon Efreeti */
+@3084 = ~A scroll of Summon Efreeti.~
 /* SCRLB1.itm - Bigby's Clenched Fist */
 @3085 = ~A scroll of Bigby's Clenched Fist.~
 /* SCRL9A.itm - Pierce Shield */
@@ -1692,9 +1692,11 @@
 @3103 = ~Scribe a durable scroll of Pierce Shield.~
 @3104 = ~Maybe not one of these.~
 @3105 = ~[Brandock]I am sorry, <CHARNAME>, but I need rest before I can focus on scribing another scroll.~
-/* @3106 - @3108 used in tp2 (crossmod with Tweaks */
-@3106 = ~I want to chose a different spell for you to write, Brandock.~
-@3107 = ~Write one of your memorized spells, instead.~
+/* @3106 - @3111 used in tp2 (crossmod with aTweaks) */
+@3106 = ~[PC Reply]I don't want you to use a memorized spell charge, Brandock. Write a scroll from scratch.~
+@3107 = ~[PC Reply]I want you to use your memorized spell charges for scrolls.~
+@3108 = ~[Brandock]Yes, I can do that. It means I'll have one spell less memorized for today, but it won't drain me so I could write another scroll after that. It will cost gold, though.~
+@3109 = ~[PC Reply]Write a spell scroll, but not by using one of your memorized charges.~
 
 /* brandock_scrollscribing_bg1.d */
 @3500 = ~(Brandock takes a deep breath.) Here we are. I said I'd do it. Anywhere... so I can as well just do it here. Here, of all places...~
@@ -1843,9 +1845,9 @@
 @3698 = ~Is that a question?! YES!~
 @3699 = ~I sense it's not done, though. There is still one empty page, but I can't do anything with it yet. I need more experience before I can write a spell onto it, I guess.~
 @3700 = ~<CHARNAME>, the incredible happened - the last page of the De Simplex Magicae opened up for me. Let me know what you want me to write on it!~
-//@3701 = ~##~
-//@3702 = ~##~
-//@3703 = ~##~
+@3701 = ~That ... might be true. Or the weel-known sage would have been busy with other, more important stuff. - You do understand that I wanted to finish this myself, though? Fix what I broke?~
+@3702 = ~Well, seems you were sufficient, in the end.~
+@3703 = ~It might have gone a lot quicker if you had, you know.~
 //@3704 = ~##~
 //@3705 = ~##~
 //@3706 = ~##~

@@ -23,7 +23,7 @@ END
 
 IF
 	GlobalGT("c#brscrl","GLOBAL",2)
-	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",10)

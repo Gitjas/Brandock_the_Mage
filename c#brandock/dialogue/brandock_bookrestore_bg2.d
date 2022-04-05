@@ -425,6 +425,8 @@ SAY @3656 /* ~I can't believe I really restored it. I was *convinced* I'd just k
 ++ @3658 /* ~You, my friend, have a serious issue with self-perception, I think.~ */ + finished_book_03
 ++ @3659 /* ~I could watch you all day, realizing you are actually smart and a well-versed mage.~ */ + finished_book_04
 ++ @3660 /* ~Yes, it's surprising how daft some really intelligent people can be.~ */ + finished_book_03
+++ @3702 /* ~Well, seems you were sufficient, in the end.~ */ + finished_book_05
+++ @3703 /* ~It might have gone a lot quicker if you had, you know.~ */ + finished_book_10
 END
 
 IF ~~ THEN finished_book_03
@@ -466,4 +468,8 @@ SAY @3663 /* ~I know it wasn't "simple" like scribing a normal scroll. I indeed 
 IF ~~ THEN + finished_book_08
 END
 
+IF ~~ THEN finished_book_10
+SAY @3701 /* ~That ... might be true. Or the weel-known sage would have been busy with other, more important stuff. - You do understand that I wanted to finish this myself, though? Fix what I broke?~ */
+IF ~~ THEN + finished_book_05
+END
 END //APPEND

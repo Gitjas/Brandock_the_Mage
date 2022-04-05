@@ -14,12 +14,12 @@ THEN
     StartDialogNoSet(Myself)
 END
 
-/* not in a hostile environment */
+/* in a hostile environment */
 IF
   OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-  OR(3)
+  OR(2)
   See([ENEMY])
-  !CombatCounter(0)
+//  !CombatCounter(0)
   StateCheck(Myself,CD_STATE_NOTVALID)
 //  See(Player1) 
 //  !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -134,4 +134,34 @@ THEN
 	RESPONSE #100
 		AddSpecialAbility("c#brscrl")
 		SetGlobal("C#Br_GiveScribeAbility","LOCALS",1)
+END
+
+/* initiate dialogue for some generic scribe scroll actions */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Global("c#brscrl","GLOBAL",2)
+	Global("C#Br_ScrollComment","LOCALS",0)
+	!Global("C#Br_ScribeBookComment","LOCALS",1)
+	!Global("C#Br_WriteDurableScrolls","LOCALS",3)
+	!Global("C#Br_WriteBook","LOCALS",7)
+	!InMyArea("C#Brhelp")
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_ScrollComment","LOCALS",1)
+		SetGlobal("c#brscrl","GLOBAL",3)
+		StartDialogNoSet([PC])
+END
+
+/* after generic scribe scroll actions: DisplayStringHead */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	Global("c#brscrl","GLOBAL",2)
+	!Global("C#Br_ScribeBookComment","LOCALS",1)
+	!Global("C#Br_WriteDurableScrolls","LOCALS",3)
+	!Global("C#Br_WriteBook","LOCALS",7)
+	!InMyArea("C#Brhelp")
+THEN
+	RESPONSE #100
+		SetGlobal("c#brscrl","GLOBAL",3)
+		DisplayStringHead(Myself,@1287)
 END

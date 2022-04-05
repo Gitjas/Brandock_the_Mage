@@ -1173,39 +1173,6 @@ THEN
 END
 
 
-/* Activate: Bhaal heritage */
-IF %BGT_VAR%
-!Global("C#Brandock_Shapeshift","GLOBAL",5)
-Global("C#Brandock_KnowBhaal","GLOBAL",1)
-OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
-!StateCheck(Myself,CD_STATE_NOTVALID)
-See(Player1)
-!StateCheck(Player1,CD_STATE_NOTVALID)
-CombatCounter(0)
-!See([ENEMY])
-THEN
-RESPONSE #100
-SetGlobal("C#Brandock_KnowBhaal","GLOBAL",2)
-END
-
-/* Initiate: Bhaal heritage */
-IF %BGT_VAR%
-Global("C#Brandock_KnowBhaal","GLOBAL",2)
-OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-!StateCheck(Myself,CD_STATE_NOTVALID)
-See(Player1)
-!StateCheck(Player1,CD_STATE_NOTVALID)
-CombatCounter(0)
-!See([ENEMY])
-THEN
-RESPONSE #100
-    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
-	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
-StartDialogueNoSet(Player1)
-END
-
-
 
 /* Tarnesh */
 /* Activate: Tarnesh */
@@ -1755,8 +1722,9 @@ IF 	%BGT_VAR%
 	See(Player1)
 	!See([ENEMY])
 	CombatCounter(0)
-	!AreaCheck("%SWBaldursGate_SevenSuns_L1%")
+	AreaCheck("%SWBaldursGate_SevenSuns_L1%")
 	Dead("SSDopple")
+	inMyArea("SSDopple")
 	Global("C#Brandock_Sevensuns","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -1818,6 +1786,7 @@ END
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 Global("C#Brandock_ITCkLetters","LOCALS",0)
+Global("Chapter","GLOBAL",%tutu_chapter_5%)
 OR(2)
 PartyHasItem("%tutu_var%SCRL3C")
 Global("C#Brandock_DELTAN_10","GLOBAL",1)
@@ -2489,6 +2458,39 @@ END
 /////////////////////////////////////////////////////////////
 /* dialogues that use the same counter as the friendship ones */
 
+
+/* Activate: Bhaal heritage */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Global("C#Brandock_KnowBhaal","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+	RealGlobalTimerExpired("C#BrandockSpaceTimer","GLOBAL")
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_KnowBhaal","GLOBAL",2)
+END
+
+/* Initiate: Bhaal heritage */
+IF %BGT_VAR%
+Global("C#Brandock_KnowBhaal","GLOBAL",2)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+	RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
+StartDialogueNoSet(Player1)
+END
 
 
 

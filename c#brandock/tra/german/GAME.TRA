@@ -497,14 +497,14 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1005 = ~Oh, was ist...~
 @1006 = ~Also, das war wirklich unerwartet!~
 @1007 = ~Doppelgänger?! Elfenhaar ist auch ein Doppelgänger... Das ist zu viel! Das ist ZU VIEL! Wehe, ihr habt Meister Elfenhaar etwas angetan! HÄNDE WEG von <CHARNAME>!~
-//@1008 = ~~
-//@1009 = ~~
+@1008 = ~Dies sind meine Privaträume. WIE seid Ihr hier reingekommen?! Ich sollte Euch beide einfach ohne Zögern...~
+@1009 = ~Ihr seid nicht am Plündern. Ihr seid am Suchen?!...~
 @1010 = ~Noch nie zuvor habe ich einen Halboger getroffen, der sich für meine magischen Bücher interessierte. Ich bitte um eine Erklärung. Wer seid Ihr?~
 @1011 = ~Ich nicht Halboger. Ich Magier! Ich... Worte lassen Kopf wehtun!~
-//@1012 = ~~
-//@1013 = ~~
-//@1014 = ~~
-//@1015 = ~~
+@1012 = ~Wer ich bin? Ich bin... ich meine, theoretisch gesprochen *war* ich früher eine Verkörperung eines anderen Lebewesens mit sehr viel begrenzterem intellektuellen Habitus, zumindest wenn man es in prinzipiellen Konditionen auszudrücken versucht...~
+@1013 = ~Er nicht klar sprechen. Er dumm, mit meinem Kopf! Ich... intelligent, mit seinem dummem Kopf! Und plumpe Hände... brauche Hilfe!~
+@1014 = ~Nungut, ich fasse das mal zusammen. Ich sehe einen Magier der sagt, nicht mehr der zu sein, der er war...~
+@1015 = ~Und ich sehe einen Halboger, der angibt, der Magier zu sein.~
 @1016 = ~Gerade als ich dachte, es würde ein ruhiger Abend werden. Kommt mit mir. Ich werde sehen, was ich für Euch tun kann.~
 @1017 = ~Oje, ist das ein Gestank!~
 @1018 = ~Hm, mal sehen...~
@@ -529,6 +529,7 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1037 = ~Drei interessante Zauberbücher, aber mir wäre es lieber gewesen, ich hätte keine Chance erhalten, sie anzusehen...~
 @1038 = ~Heute ist der Schreibtisch von Elfenhaar voll mit magischen Büchern, Folianten und Schriftrollen, einige davon in Sprachen, die Ihr nicht kennt. Brandock mustert bereits die Titel, wobei er sich sichtlich zurückhält, um die Bücher nicht anzufassen.~
 @1039 = ~Dies ist der Schreibtisch von Elfenhaar. Er ist voll mit Stapeln von Büchern, Schriftrollen und einem Satz unterschiedlich geformter Federkiele.~
+@1040 = ~Magische Bücher! Viele Bücher! Werden helfen ...~
 
 /* SoD */
 @1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
@@ -574,8 +575,8 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 
 /* @1286 in c#brando_scrollscribing.baf */
 @1286 = ~Es tut mir Leid - hier kann ich das nicht!~
+@1287 = ~Hier, bitteschön.~ [c#ablank]
 /*
-@1287 = 
 @1288 = 
 */
 @1289 = ~Eine versteckte Bibliothek! Das wird immer besser. Oh ja, die Bücher sind in der Tat interessant.~

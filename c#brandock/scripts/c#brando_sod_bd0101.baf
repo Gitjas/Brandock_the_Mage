@@ -30,28 +30,6 @@ THEN
 		Continue()
 END
 
-IF
-	Global("bd_mdd010z_ot","bd0101",1)
-	!GlobalTimerNotExpired("bd_mdd010z_ot_timer","bd0101")
-	InMyArea("C#Brandock") 
-	!Dead("C#Brandock") 
-//	!InParty("C#Brandock")  
-THEN
-	RESPONSE #10
-		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
-		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~So many people! So, so many people.~)  
-	RESPONSE #10
-		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
-		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~I won't panic. I am all calm. Aaaaaall calm.~)  
-	RESPONSE #10
-		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
-		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~I now I'll regret this, but I say it anyway. I'll be glad to get out of here.~)  
-	RESPONSE #160
-		Continue()
-END
 
 /* Player went without recruiting NPC in Baldur's Gate OR didn't talk to Brandock at all OR it's a new game */
 IF 
@@ -94,4 +72,31 @@ THEN
 	  GiveItemCreate("POTN52","C#Brandock",5,0,0)
 	  GiveItemCreate("c#br0003","C#Brandock",0,0,0)
 	  GiveItemCreate("c#br0007","C#Brandock",0,0,0)
+		Continue()
+END
+
+IF
+	Global("bd_mdd010z_ot","bd0101",1)
+	!GlobalTimerNotExpired("bd_mdd010z_ot_timer","bd0101")
+	InMyArea("C#Brandock") 
+	!Dead("C#Brandock") 
+//	!InParty("C#Brandock")  
+THEN
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~So many people! So, so many people.~)  
+		Continue()
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~I won't panic. I am all calm. Aaaaaall calm.~) 
+		Continue() 
+	RESPONSE #10
+		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
+		SetGlobal("bd_mdd010z_ot","bd0101",0)
+		DisplayStringHead("C#Brandock",~I now I'll regret this, but I say it anyway. I'll be glad to get out of here.~) 
+		Continue() 
+	RESPONSE #160
+		Continue()
 END

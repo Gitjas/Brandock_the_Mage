@@ -1,6 +1,7 @@
 /* book quest. in case old book is still there, remove it */
 IF
 	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#BrandockSpawn","GLOBAL",10) //only directly after spawning!
 	Global("C#Br_BookRemoveOld","MYAREA",0)
 	HasItem("C#br0001","C#Brandock")
 THEN
@@ -12,6 +13,7 @@ END
 /* create restored book - failsafe in case it was stuck with PC (blasted 7th party member mode) */
 IF
 	!InParty(Myself) !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#BrandockSpawn","GLOBAL",10) //only directly after spawning!
 	Global("C#Br_BookGiveNew","MYAREA",0)
 	!HasItem("C#br0007","C#Brandock")
 THEN

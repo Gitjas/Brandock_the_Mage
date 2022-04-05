@@ -199,13 +199,35 @@ Malm, the half-ogre who shapeshifted into a human got into trouble and was appar
 //@10077  = ~##~
 @10078  = ~Brandock Wants to Restore his Book
 
-Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost.~
+Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost. Brandock is able to write 5 pages now, but there will be a 6th page when he has more experience.
+Depending on Brandock's level, spells available will be:
+-Fireball (1500 gold)
+-Minor Sequencer (2500 gold)
+-Breach (5000 gold)
+-Spell Deflection (10,000 gold)
+-Mass Invisibility (15,000 gold)
+-Summon Efreeti (15,000 gold)
+-Bigby's Clenched Fist (25,000 gold)
+-Pierce Shield (25,000 gold)
+-Bigby's Crushing Hand (50,000 gold)
+-Chain Contingency (50,000 gold).~
 @10079  = ~Brandock Wants to Restore his Book
 
 Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
 @10080  = ~Brandock Wants to Restore his Book
 
-Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 50,000 gold.~
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost.
+Spells available will be:
+-Fireball (1500 gold)
+-Minor Sequencer (2500 gold)
+-Breach (5000 gold)
+-Spell Deflection (10,000 gold)
+-Mass Invisibility (15,000 gold)
+-Summon Efreeti (15,000 gold)
+-Bigby's Clenched Fist (25,000 gold)
+-Pierce Shield (25,000 gold)
+-Bigby's Crushing Hand (50,000 gold)
+-Chain Contingency (50,000 gold).~
 @10081  = ~Brandock Wants to Restore his Book
 
 It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~

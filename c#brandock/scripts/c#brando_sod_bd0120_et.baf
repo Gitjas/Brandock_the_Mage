@@ -14,4 +14,5 @@ THEN
 		SetGlobal("C#Brandock_bd_mdd000te_ot","bd0120",1)
 		DisplayStringHead("C#Brandock",@1266)
 		Wait(5)
+		Continue()
 END

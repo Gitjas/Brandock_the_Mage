@@ -279,7 +279,6 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!See([ENEMY])
 THEN
 	RESPONSE #100
-		StartDialogueNoSet(Player1)
 		SetGlobal("C#Brandock_BookWarningLokal1","GLOBAL",2) 
 END
 /* restored book is not in Brandock's inventory. Warning (no action) */
@@ -348,7 +347,6 @@ OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 	!See([ENEMY])
 THEN
 	RESPONSE #100
-		StartDialogueNoSet(Player1)
 		SetGlobal("C#Brandock_BookWarningLokal2","GLOBAL",2) 
 END
 /* Initiate */

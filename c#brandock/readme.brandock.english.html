@@ -100,9 +100,9 @@ The mod is compatible with Imoen 4 Ever.<br />
 The mod is compatible with Endless BG1.<br />
 As an NPC mod, this mod should be installed after quest mods and before tweak mods. There is crossmod content included in the mod which should show if the install order suggestions are being followed.<br />
 To see most cross mod content, install the mod in the following order (other mods listed in alphabetical order!):<br />
-(at least the Crossmod component:) AFTER: Alternatives, BGQE, BG1NPC, Brage's Redemption, EndlessBG1, Gavin BG1, Imoen4Ever, NPC Strongholds, Solaufein's Rescue, The Calling, Transitions, Valerie NPC.<br /> 
+(at least the Crossmod component:) AFTER: Alternatives, BGQE, BG1NPC, Brage's Redemption, EndlessBG1, EET, Gavin BG1, Imoen4Ever, NPC Strongholds, Solaufein's Rescue, The Calling, The Lure of Sirine's Call, Transitions, Valerie NPC.<br /> 
 (main Brandock component:) BEFORE: Grey the Dog.<br />
-Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls": for aTweaks component "Allow Mages to scribe memorized spells onto scrolls" there is an own compatibility component in the Brandock mod with two options. Option 1 will disable the aTweaks scribe scroll ability completely. Option 2 will integrate the aTweaks option into Brandock's original scroll scribing ablity. This means the following: with option 2, Brandock will only gain the ability like in his original quest, not necessarily at level 9, and he will only be able to write one scroll per day. Do not install the compatibility component to have the original aTweaks ability alongside Brandock's own scribe scroll ability.<br />
+Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls": for aTweaks component "Allow Mages to scribe memorized spells onto scrolls" there is an own compatibility component in the Brandock mod with two options. Install this after aTweaks. Both options will integrate the aTweaks option into Brandock's original scroll scribing ablity. This means the following: 1. Brandock will only gain the overall ability to scribe scrolls like in his original quest, i.e. not necessarily at level 9, and 2. He will only be able to start writing scrolls once per day. He can write all memorized spells onto scrolls per session, but the actual ability will only reset after the next rest. Refer to the descriptions of the components to see the details of the two options.<br />
 
 </div>
 
@@ -110,6 +110,13 @@ Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls": for
 <div class="section">
 <h2> <a name="generalcontent" id="generalcontent">General Info</a></h2>
 Brandock is a mage NPC for Baldur's Gate. He is curious, friendly and helpful, but it will take a little time until he opens up and tells the PC where he originates from, for reasons he will readily explain once he is ready to.<br />
+The mod contains of 6 components:<br />
+Component 1 is the main component that will insert Brandock into the game. All other components are dependent on this one but optional.<br />
+The second component contains all crossmod content and should be installed as late as possible.<br />
+The third component gives a choice of 3 alternate portraits by Acifer. See below to have a look at the portraits.<br />
+The 4th component is for SoD and EET and transfers the "SoD style banter2 to "dialogue style banter" like they are common for BGII. Without this component, Brandock's banter in SoD will be in SoD style with floating texts above the NPCs' heads.<br />
+The 5th component integrates the ability to scribe scrolls from aTweaks' component "Allow Mages to scribe memorized spells onto scrolls" into Brandock's own scribe scroll ability. There is two options: Option 1 just adds the aTweaks possibility to write all memorized spells onto scolls but leaves the original fixed spells list for the normal scroll scribing. Option 2 not only adds the possibility to write all memorized spells onto scrolls but also replaces the fixed spell list with what Brandock actually has in his spellbook. This only works properly for the EE games because there is no check for "spells inside the spell book" in the classic engine, so for original BG2/BGT this option replaces the list with what Brandock has memorized which might be a bit meager, so I do not recommend this option for original BG2/BGT.<br />
+The 6th component replaces the (long) cutscene in Thalantyr's abode with a short version. Note that both cutscene versions are skippable for the EE games.<br />
 
 <h2> <a name="where" id="where">Where to meet in Game</a></h2>
 In BG1 Brandock will wait at the Coast Way in the north. He needs help to fight an Ogre who is camping in front of a cave where Brandock needs to go in and retrieve some of his possessions. The Ogre can also be killed without Brandock in party but he will only recognize it after joining. The Ogre is the one that has Unshey's girdle.<br />
@@ -237,6 +244,10 @@ This mod is also not developed, supported, or endorsed by BioWare, Black Isle St
 
 <h1><a name="version" id="version">Version History</a></h1>
 <div class="section">
+Version Beta 16:</br>
+- Fixed compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": other mages should be able to write their spells onto scrolls, too; written spell will not be erased from memorized spells.</br>
+- Brandock's special ability "Write Scrolls": some higher spells will not be available in BG1 even though Brandock reached spell level.</br>
+</br>
 Version Beta 15:</br>
 - Fixed install error if EndlessBG1 is not installed.</br>
 - More SoD content, with checks for Road to Discovery mod.</br>

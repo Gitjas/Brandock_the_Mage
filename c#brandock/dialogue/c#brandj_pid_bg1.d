@@ -66,7 +66,7 @@ SAY @0
 /* half-ogre shapeshift quest */
 /* quest was not finished in BG1 - bring quest to same level: SoD */
 + ~%IT_IS_SOD%
-!Global("C#Brandock_Shapeshift","GLOBAL",1)
+GlobalGT("C#Brandock_Shapeshift","GLOBAL",2)
 GlobalLT("C#Brandock_Shapeshift","GLOBAL",21)
 Global("C#Brandock_UpdateShapeshift","LOCALS",0)~ + @1004 /* ~About your attempt to help Melicamp 'the chicken' with a spell out of your magic book...~ */ DO ~SetGlobal("C#Brandock_UpdateShapeshift","LOCALS",1)~ + update_shapeshift
 + ~%IT_IS_SOD%

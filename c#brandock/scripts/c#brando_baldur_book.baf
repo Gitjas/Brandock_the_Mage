@@ -24,7 +24,7 @@ END
 //book "De Simplex Magicae" will be refreshed
 IF
 	GlobalGT("c#brbok1","GLOBAL",0)
-	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)
@@ -35,7 +35,7 @@ END
 //rewritten book of infinite spells will be refreshed
 IF
 	GlobalGT("c#brbok2","GLOBAL",0)
-	RealGlobalTimerNotExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
+	!RealGlobalTimerExpired("C#7thPartyMemberRestAfterTimer","GLOBAL")
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#7thPartyMemberRestAfterTimer","GLOBAL",15)

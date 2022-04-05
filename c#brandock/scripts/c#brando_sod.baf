@@ -33,6 +33,7 @@ THEN
 		SetGlobal("C#Br_BookRestoreAlone","GLOBAL",1)
 END
 
+
 /* scroll scribing quest line wasn't finished - Brandock will now know how to scribe scrolls */
 IF 
 	GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",8)

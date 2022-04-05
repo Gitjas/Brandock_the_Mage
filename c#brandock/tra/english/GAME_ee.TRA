@@ -53,7 +53,7 @@ STATISTICS:
 Weight: 2~
 
 /* SCRL1G: Fireball */
-@104 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@104 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -69,7 +69,7 @@ Saving Throw: 1/2
 
 A Fireball is an explosive burst of flame, which detonates with a low roar and delivers damage proportional to the level of the wizard who cast it—1d6 points of damage for each level of experience of the caster (up to a maximum of 10d6). The wizard points <PRO_HISHER> finger and speaks the range (distance and height) at which the Fireball is to burst. A streak flashes from the pointing digit and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, blossoms into the fireball (an early impact results in an early detonation). Creatures failing their Saving Throws each suffer full damage from the blast. Those who roll successful Saving Throws manage to dodge, fall flat, or roll aside, each receiving half.~ 
 /* SCRL6P: Minor Sequencer */
-@105 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@105 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -87,7 +87,7 @@ This spell allows a wizard to store two spells and activate them both at the sam
 
 A sequencer lasts until activated and, once used, releases its spells immediately (no casting time). The Special Ability icon also disappears until the next time a sequencer is formed. A wizard can possess only one Minor Sequencer at a time, and it may not be given to other characters.~
 /* SCRL6U: Breach */
-@106 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@106 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -103,7 +103,7 @@ Saving Throw: None
 
 When this spell is cast at a creature, it breaches and dispels all of the specific and combat protections on the target creature. Here is a complete list of all the specific protection spells that are dispelled by Breach: Shield, Protection Circle, Resist Fear, Protection From Fire/Cold, Fireshield, Protection From Acid, Protection From Electricity, Protection From Magic Energy, Protection From The Elements, and Protection From Energy. The combat protection spells dispelled by Breach are Protection From Normal Missiles, Protection From Normal Weapons, Protection From Magical Weapons, Stoneskin, Armor, Ghost Armor, Spirit Armor, Absolute Immunity, Mantle, and Improved Mantle. The target's Magic Resistance, if any, does not affect this spell.~
 /* SCRL7V: Spell Deflection */
-@107 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@107 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -119,7 +119,7 @@ Saving Throw: None
 
 This powerful abjuration spell causes any spells cast against the wizard to be absorbed and consumed. This affects a total of 10 spell levels. This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard, as well as area effects that are stationary, such as Cloudkill and Stinking Cloud. As long as the spell is cast directly at the wizard it will be absorbed. Something to note is that as long as there are levels remaining, then the spell will be absorbed. For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection. It is not affected by a Dispel Magic.~
 /* SCRL8W: Mass Invisibility */
-@108 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@108 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -135,7 +135,7 @@ Saving Throw: None
 
 Upon casting this spell, the wizard causes all friendly creatures within the area of effect to be affected by the spell Improved Invisibility. This spell is similar to the Invisibility spell, but the recipient is able to attack, either by missile discharge, melee combat, or spellcasting, and remain unseen. Note, however, that there are sometimes telltale traces, a shimmering, so that an observant opponent can attack the invisible spell recipient. These traces are only noticeable when specifically looked for (after the invisible character has made <PRO_HISHER> presence known). Attacks against the invisible character suffer -4 penalties to the attack rolls, and the invisible character's Saving Throws are made with a +4 bonus.~
 /* SCRL8S: Summon Efreeti */
-@109 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@109 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -151,7 +151,7 @@ Saving Throw: None
 
 With this spell, the wizard can cajole an efreeti—a massive genie with powerful abilities—to leave the Elemental Plane of Fire and enter the Prime Material. The efreeti will serve the caster for the duration of the spell, attacking <PRO_HISHER> enemies.~
 /* SCRLB1: Bigby's Clenched Fist */
-@110 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@110 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -167,7 +167,7 @@ Saving Throw: Special
 
 This spell causes a giant disembodied hand to squeeze and constrict the target once per round for up to 4 rounds. It initially smashes the target for 3d6 damage with no save, and the target is held. In the second round, the target can save vs. Paralysis at -2 to escape. If they fail to save, the hand does 4d6 damage. The following round, the target can save vs. Paralysis with no penalty. If they make the save, they are free to move, if they fail, the spell does 6d6 damage and holds them for 2 rounds. After the 4th round, the spell is finished. Magic Resistance will stop the spell.~
 /* SCRL9A: Pierce Shield */
-@111 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@111 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -183,7 +183,7 @@ Saving Throw: None
 
 When this spell is cast, it launches a massive attack on an enemy wizard's spell defenses. The target's Magic Resistance will be lowered by 10% + 1% per level of the caster. Next, Pierce Shield will cancel one spell protection of any level. For example, if this spell was cast by a 15th-level wizard, the target creature would lose 25% Magic Resistance from its current total, reducing it to 0 if less than that remains, as well as canceling one spell protection if the Mage currently has one. The list of spells that this includes: Minor Spell Deflection, Minor Spell Turning, Spell Deflection, Minor Globe of Invulnerability, Spell Immunity, Globe Of Invulnerability, Spell Turning, Spell Shield, and Spell Trap. Magic Resistance does not affect this spell, nor do any of the spell protections. The resistance remains lowered for 1 round per level of the caster. It cannot be dispelled.~
 /* SCRLB2: Bigby's Crushing Hand */
-@112 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@112 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 
@@ -199,7 +199,7 @@ Saving Throw: Special
 
 This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2d10 damage. The victim can save at -4 vs. Paralysis to avoid being pinned. If they fail, the hand does 3d10 damage the next round. The victim can again save vs. Paralysis at -2. If they fail to save, the hand does a final 4d10 damage and disappears.~
 /* SCRL9Q: Chain Contingency */
-@113 = ~This is Brandock's own book of spells. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
+@113 = ~This is a spell page Brandock wrote into the restored De Simplex Magicae. The magic of the book lets the page remain unharmed and the spell on it recharge once a day. 
 
 The spell on this page is:
 

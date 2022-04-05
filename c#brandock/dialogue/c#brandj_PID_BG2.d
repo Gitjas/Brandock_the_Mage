@@ -10,8 +10,8 @@ Global("c#brisog","GLOBAL",0) //Brandock is not half-ogre
 SAY @0 
 
 /* PID after seeking "Oghma's Wisdom" in the Temple of Oghma. Brandock remained silent */
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",19) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~[PC Reply]No comment on what happened in the Temple of Oghma? I am surprised.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",19) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~*Thank you* for shutting up about your book. You silence after we went to the Temple of Oghma took me by pleasant surprise.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
++ ~Global("C#Br_BookRestore","GLOBAL",20) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~[PC Reply]No comment on what happened in the Temple of Oghma? I am surprised.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
++ ~Global("C#Br_BookRestore","GLOBAL",20) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~*Thank you* for shutting up about your book. You silence after we went to the Temple of Oghma took me by pleasant surprise.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
 
 /* letter from his parents - EET with SoD only */
 + ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end

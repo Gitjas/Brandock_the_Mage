@@ -1,5 +1,5 @@
 @55540  = ~Brandock der Magier, NPC fuer BG:EE, BGII:EE, EET und BGT~
-@55541  = ~Diese Modifikation ist nicht mit diesem Spiel kompatibel.~
+@55541  = ~Diese Modifikation bzw. Komponente ist nicht mit diesem Spiel kompatibel.~
 @55542  = ~Ihr muesst Euer SoD Spiel erst einmal mit dem DLC Merger oder Modmerge vorbereiten, bevor Ihr es modden koennt.~
 @55543 = ~Die Hauptkomponente von Brandock der Magier wird hierfuer benoetigt.~
 @55544 = ~Alternatives Portrait installieren?~
@@ -44,7 +44,9 @@
 @55580  = ~EndlessBG1 detektiert.~
 @55581  = ~Transitions Mod detektiert.~
 
-@55582  = ~Deactivate aTweak's scribe scroll ability for Brandock~
-@55583  = ~Integrate aTweak's scribe scroll ability into Brandock's original one~
-@55584  = ~Crossmod with aTweaks "Allow Mages to scribe memorized spells onto scrolls"~
-@55585  = ~aTweaks "Allow Mages to scribe memorized spells onto scrolls" needs to be installed.~
+@55582  = ~Kosmetisch: originale vorgegebene Zauberliste wird weiterhin verwendet~
+@55583  = ~Substantiell: Zauberauswahl besteht nur aus Zaubern, die Brandock weiss (NICHT fuer klassisches BGII und BGT empfohlen)~
+@55584  = ~Moeglichkeiten von aTweaks "Allow Mages to scribe memorized spells onto scrolls" in Brandocks Schriftrollenschreiben-Faehigkeit integrieren~
+@55585  = ~aTweaks "Allow Mages to scribe memorized spells onto scrolls" muss installiert sein.~
+
+@55586  = ~Kurze Version der Cutscene in Thalantyrs Festung~

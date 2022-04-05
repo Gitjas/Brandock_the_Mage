@@ -531,7 +531,7 @@
 @518  = ~[Brandock]Ich weiß, dass es wohl noch zu früh ist, sich darüber Gedanken - *Sorgen* zu machen. Was mir Angst macht ist die Möglichkeit, dass ich den richtigen Zeitpunkt verpassen könnte, wann ich damit anfangen sollte.~
 @519  = ~[Brandock]Ich hoffe sehr, dass ich niemals den Bezug zur Realität verliere, wie es Herrn Prism passiert ist.~
 @520  = ~[Brandock]Natürlich treffen sich die Anführer des Eisenthrons in Kerzenburg! Von allen möglichen Orten! Oh, für *sie* ist wohl es kein Problem, jeweils ein wertvolles Buch für den Einlass mitzubringen, oder? Natürlich nicht! (murmelt) Warum scheinen die bösen Leute immer den meisten Spaß zu haben?~
-@521  = ~[Brandock]Dass Sarevok ein großer Lügner ist - oder ein sehr gute Fädenzieher, Zhentarim, die Chill, Blacktalon. Ich kriege Kopfschmerzen, wenn ich das nur lese.~
+@521  = ~[Brandock]Sarevok ist entweder ein großer Lügner - oder ein sehr gute Fädenzieher. Zhentarim, die Chill, Blacktalon - ich kriege Kopfschmerzen, wenn ich sein Tagebuch nur lese.~
 @522  = ~[Brandock]Und dann ist da noch der... Vorfall mit einem Halboger, nachdem ich Magie auf jemanden ohne ausreichende Vorrecherche geworfen habe und dadurch sowohl meine Reputation als Magier auf Jahr*zehnte* ruiniert habe, als auch etwas in mir geändert wurde - ich selbst geändert wurde, wörtlich gesprochen - auf eine Art und Weise, die ich noch immer nicht vollends verstanden habe...~
 @523  = ~[Brandock]Dieser... dieser *Schleim* war mal eine Person...~
 @524  = ~Und was er sagte lässt den Schluss zu, dass er in Kerzenburg war? Was sonst könnte er gemeint haben?~
@@ -1691,9 +1691,11 @@
 @3103 = ~Schreibt eine haltbare Schriftrolle Zauberschutz durchdringen.~
 @3104 = ~Vielleicht doch keine von denen.~
 @3105 = ~[Brandock]Habt bitte Verständnis, <CHARNAME>, aber bevor ich eine weitere Schriftrolle schreiben kann, brauche ich eine gute Rast mit entsprechender Erholung.~
-/* @3106 - @3108 used in tp2 (crossmod with Tweaks */
-@3106 = ~Ich möchte eine anderen Zauber zum Schreiben auswählen, Brandock.~
-@3107 = ~Schreibt eine Schriftrolle für einen Zauber, den Ihr auswendig gelernt habt.~
+/* @3106 - @3111 used in tp2 (crossmod with Tweaks */
+@3106 = ~[PC Reply]Ich möchte nicht, dass Ihr einen Eurer Zauberchargen für heute dafür verbraucht, Brandock. Schreibt einfach so eine Schriftrolle.~
+@3107 = ~[PC Reply]Ich möchte, dass Ihr Eure gelernten Zauberladungen auf Schriftrollen schreibt.~
+@3108 = ~[Brandock]Ja, das kann ich machen. Das bedeutet, dass ich danach einen Zauber weniger auswendig gelernt habe, aber dafür laugt mich das Schreiben nicht so aus und ich kann danach noch eine weitere Schriftrolle erstellen. Es kostet trotzdem die normale Menge an Gold.~
+@3109 = ~[PC Reply]Schreibt eine Schriftrolle, aber ohne eine Eurer gelernten Zauberladungen dabei zu verbrauchen.~
 
 
 /* brandock_scrollscribing_bg1.d */
@@ -1845,9 +1847,9 @@
 @3698 = ~Is that a question?! YES!~
 @3699 = ~I sense it's not done, though. There is still one empty page, but I can't do anything with it yet. I need more experience before I can write a spell onto it, I guess.~
 @3700 = ~<CHARNAME>, the incredible happened - the last page of the De Simplex Magicae opened up for me. Let me know what you want me to write on it!~
-//@3701 = ~##~
-//@3702 = ~##~
-//@3703 = ~##~
+@3701 = ~That ... might be true. Or the weel-known sage would have been busy with other, more important stuff. - You do understand that I wanted to finish this myself, though? Fix what I broke?~
+@3702 = ~Well, seems you were sufficient, in the end.~
+@3703 = ~It might have gone a lot quicker if you had, you know.~
 //@3704 = ~##~
 //@3705 = ~##~
 //@3706 = ~##~

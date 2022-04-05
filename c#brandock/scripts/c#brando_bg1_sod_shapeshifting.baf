@@ -10,7 +10,7 @@ IF
 	Global("C#Brando_VisitedMalm","GLOBAL",2)
 	OR(3)
 		Dead("Sarevok")
-		GlobalGT("bd_plot","global",10)
+		GlobalGT("bd_plot","global",40)
 		Global("ENDOFBG1","GLOBAL",1)
 	!See([ENEMY])
 	See(Player1) 

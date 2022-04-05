@@ -318,184 +318,187 @@ SetGlobal("C#Br_HasScrollSCRL18","LOCALS",0)
 SetGlobal("C#Br_WriteScrollSCRL5Q","LOCALS",1)~ + scribe_scoll_SCRL18_02
 
 /* spell level 1 */
-+ ~PartyGoldGT(49)~ + @3037 DO ~GiveItemCreate("SCRL75",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(49)~ + @3038 DO ~GiveItemCreate("SCRL77",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(49)~ + @3039 DO ~GiveItemCreate("SCRL81",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(49)~ + @3040 DO ~GiveItemCreate("SCRL5U",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(49)~ + @3041 DO ~GiveItemCreate("SCRL73",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(49)~ + @3037 DO ~GiveItemCreate("SCRL75",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(49)~ + @3038 DO ~GiveItemCreate("SCRL77",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(49)~ + @3039 DO ~GiveItemCreate("SCRL81",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(49)~ + @3040 DO ~GiveItemCreate("SCRL5U",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(49)~ + @3041 DO ~GiveItemCreate("SCRL73",Player1,1,0,0) DestroyGold(50) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 2: wizard level 3 */
-+ ~PartyGoldGT(99)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 Global("C#Br_WriteScrollSCRLAI","LOCALS",1)~ + @3042 DO ~GiveItemCreate("SCRLAI",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 Global("C#Br_WriteScrollSCRL89","LOCALS",1)~ + @3043 DO ~GiveItemCreate("SCRL89",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 LevelGT("C#Brandock",2)~ + @3044 DO ~GiveItemCreate("SCRL3G",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 LevelGT("C#Brandock",2)~ + @3045 DO ~GiveItemCreate("SCRL90",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 LevelGT("C#Brandock",2)~ + @3046 DO ~GiveItemCreate("SCRLA3",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 LevelGT("C#Brandock",2)~ + @3047 DO ~GiveItemCreate("SCRL96",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(99)
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(99)
 LevelGT("C#Brandock",2)~ + @3048 DO ~GiveItemCreate("SCRL91",Player1,1,0,0) 
-DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(100) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 
 /* spell level 3: wizard level 5 */
-+ ~PartyGoldGT(149)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 Global("C#Br_WriteScrollSCRL1O","LOCALS",1)~ + @3049 DO ~GiveItemCreate("SCRL1O",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 Global("C#Br_WriteScrollSCRL1L","LOCALS",1)~ + @3050 DO ~GiveItemCreate("SCRL1L",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3051 DO ~GiveItemCreate("SCRL1P",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3052 DO ~GiveItemCreate("SCRL1H",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3053 DO ~GiveItemCreate("SCRL1G",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3054 DO ~GiveItemCreate("SCRL1E",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3055 DO ~GiveItemCreate("SCRLA7",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3056 DO ~GiveItemCreate("SCRL1S",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3057 DO ~GiveItemCreate("SCRL1J",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3058 DO ~GiveItemCreate("SCRL6L",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3059 DO ~GiveItemCreate("SCRL6J",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(149)
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(149)
 LevelGT("C#Brandock",4)~ + @3060 DO ~GiveItemCreate("SCRL6H",Player1,1,0,0) 
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 4: wizard level 7 */
-+ ~PartyGoldGT(249)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3061 DO ~GiveItemCreate("SCRL5G",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(249)
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3062 DO ~GiveItemCreate("SCRL1Y",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(249)
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3063 DO ~GiveItemCreate("SCRL2B",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(249)
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3064 DO ~GiveItemCreate("SCRL2A",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(249)
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3065 DO ~GiveItemCreate("SCRL5J",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(249)
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(249)
 LevelGT("C#Brandock",6)~ + @3066 DO ~GiveItemCreate("SCRL6P",Player1,1,0,0) 
-DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(250) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 5: wizard level 9 */
-+ ~PartyGoldGT(499)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(499)
 Global("C#Br_WriteScrollSCRL5Q","LOCALS",1)~ + @3067 DO ~GiveItemCreate("SCRL5Q",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3068 DO ~GiveItemCreate("SCRL2G",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3069 DO ~GiveItemCreate("SCRL5P",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3070 DO ~GiveItemCreate("SCRL2F",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) %AFTER_BG1_TRANSITION%
+PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3071 DO ~GiveItemCreate("SCRL6U",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) %AFTER_BG1_TRANSITION%
+PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3072 DO ~GiveItemCreate("SCRL6S",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3073 DO ~GiveItemCreate("SCRL6Y",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(499)
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) %AFTER_BG1_TRANSITION% 
+PartyGoldGT(499)
 LevelGT("C#Brandock",8)~ + @3074 DO ~GiveItemCreate("SCRL8X",Player1,1,0,0) 
-DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 6: wizard level 12 */
-+ ~PartyGoldGT(999)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) %AFTER_BG1_TRANSITION% 
+PartyGoldGT(999)
 Global("C#Br_WriteScrollSCRL7H","LOCALS",1)~ + @3075 DO ~GiveItemCreate("SCRL7H",Player1,1,0,0) 
-DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(999)
+DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) %AFTER_BG1_TRANSITION% 
+PartyGoldGT(999)
 Global("C#Br_WriteScrollSCRL1U","LOCALS",1)~ + @3076 DO ~GiveItemCreate("SCRL1U",Player1,1,0,0) 
-DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(999)
-OR(2)
-%IT_IS_BGII% 
-%IT_IS_SOD% 
+DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(999)
+%AFTER_BG1_TRANSITION% 
 LevelGT("C#Brandock",11)~ + @3077 DO ~GiveItemCreate("SCRL7V",Player1,1,0,0) 
-DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(999)
-OR(2)
-%IT_IS_BGII% 
-%IT_IS_SOD% 
+DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(999)
+%AFTER_BG1_TRANSITION% 
 LevelGT("C#Brandock",11)~ + @3078 DO ~GiveItemCreate("SCRL8B",Player1,1,0,0) 
-DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(1000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 7: wizard level 14 */
-+ ~PartyGoldGT(1499)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 Global("C#Br_WriteScrollSCRL8O","LOCALS",1)~ + @3079 DO ~GiveItemCreate("SCRL8O",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1499)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 %IT_IS_BGII% LevelGT("C#Brandock",13)~ + @3080 DO ~GiveItemCreate("SCRL8D",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1499)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 %IT_IS_BGII% LevelGT("C#Brandock",13)~ + @3081 DO ~GiveItemCreate("SCRL8W",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1499)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 %IT_IS_BGII% LevelGT("C#Brandock",13)~ + @3082 DO ~GiveItemCreate("SCRL8F",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1499)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 %IT_IS_BGII% LevelGT("C#Brandock",13)~ + @3083 DO ~GiveItemCreate("SCRL8M",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1499)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1499)
 %IT_IS_BGII% LevelGT("C#Brandock",13)~ + @3084 DO ~GiveItemCreate("SCRL8S",Player1,1,0,0) 
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 8: wizard level 16 */
-+ ~PartyGoldGT(1999)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1999)
 LevelGT("C#Brandock",15)~ + @3085 DO ~GiveItemCreate("SCRLB1",Player1,1,0,0) 
-DestroyGold(2500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(1999)
+DestroyGold(2500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(1999)
 %IT_IS_BGII% LevelGT("C#Brandock",15)~ + @3086 DO ~GiveItemCreate("SCRL9A",Player1,1,0,0) 
-DestroyGold(2500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(2500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 9: wizard level 18 */
-+ ~PartyGoldGT(4999)
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(4999)
 LevelGT("C#Brandock",17)~ + @3087 DO ~GiveItemCreate("SCRLB2",Player1,1,0,0) 
-DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(4999)
+DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(4999)
 %IT_IS_BGII% LevelGT("C#Brandock",17)~ + @3088 DO ~GiveItemCreate("SCRL9L",Player1,1,0,0) 
-DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(4999)
+DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(4999)
 %IT_IS_BGII% LevelGT("C#Brandock",17)~ + @3089 DO ~GiveItemCreate("SCRL9Q",Player1,1,0,0) 
-DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~PartyGoldGT(4999)
+DestroyGold(5000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~GlobalLT("C#Br_Scrollscribing_aTweaks","GLOBAL",3) PartyGoldGT(4999)
 %IT_IS_BGII% LevelGT("C#Brandock",17)~ + @3090 DO ~GiveItemCreate("SCRL9Z",Player1,1,0,0) 
 DestroyGold(5000)
-SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
+/* not enough gold for anything */
++ ~PartyGoldLT(50)~ + @3028 EXIT 
 /* nothing. set variable back to "0" for BG1 where the player can click on Elvenhair's desk again. No relevance once Brandock gains ability to scribe scrolls. */
-++ @3091 DO ~SetGlobal("c#brscrl","GLOBAL",0)~ EXIT
++ ~GlobalLT("C#Br_ScribeScrollQuest","GLOBAL",6)~ + @3091 DO ~SetGlobal("c#brscrl","GLOBAL",0)~ EXIT
 END
 
 IF ~~ THEN scribe_durable_scoll_03
@@ -504,63 +507,64 @@ SAY @3092
 /* spell level 1 */
 + ~GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)
 PartyGoldGT(149)~ + @3093 DO ~GiveItemCreate("C#BR77",Player1,3,1,0)
-DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(150) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 2: wizard level 3 */
-+ ~LevelGT("C#Brandock",2)
++ ~%HASSPELL_WIZARD_DETECT_INVISIBILITY%
 PartyGoldGT(299)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3094 DO ~GiveItemCreate("C#BR90",Player1,3,1,0)
-DestroyGold(300) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(300) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 3: wizard level 5 */
-+ ~LevelGT("C#Brandock",4)
++ ~%HASSPELL_WIZARD_HASTE%
 PartyGoldGT(449)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3095 DO ~GiveItemCreate("C#BR1H",Player1,3,1,0)
-DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~LevelGT("C#Brandock",4)
+DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~%HASSPELL_WIZARD_FIREBALL%
 PartyGoldGT(449)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3096 DO ~GiveItemCreate("C#BR1G",Player1,3,1,0)
-DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~LevelGT("C#Brandock",4)
+DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~%HASSPELL_WIZARD_TRUE_DISPEL_MAGIC%
 PartyGoldGT(449)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3097 DO ~GiveItemCreate("C#BR1E",Player1,3,1,0)
-DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(450) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 4: wizard level 7 */
-+ ~LevelGT("C#Brandock",6)
++ ~%HASSPELL_WIZARD_IMPROVED_INVISIBILITY%
 PartyGoldGT(749)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3098 DO ~GiveItemCreate("C#BR1Y",Player1,3,1,0)
-DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~LevelGT("C#Brandock",6)
+DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~%HASSPELL_WIZARD_MONSTER_SUMMONING_2%
 PartyGoldGT(749)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3099 DO ~GiveItemCreate("C#BR2A",Player1,3,1,0)
-DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(750) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 5: wizard level 9 */
-+ ~LevelGT("C#Brandock",8)
++ ~%HASSPELL_WIZARD_BREACH%
 PartyGoldGT(1499)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3100 DO ~GiveItemCreate("C#BR6U",Player1,3,1,0)
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
-+ ~LevelGT("C#Brandock",8)
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
++ ~%HASSPELL_WIZARD_PROTECTION_FROM_ACID%
 PartyGoldGT(1499)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3101 DO ~GiveItemCreate("C#BR6Y",Player1,3,1,0)
-DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(1500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 6: wizard level 12 */
 + ~Global("C#Br_WriteScrollSCRL1U","LOCALS",1)
 PartyGoldGT(2999)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3102 DO ~GiveItemCreate("C#BR1U",Player1,3,1,0)
-DestroyGold(3000) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(3000) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* spell level 8: wizard level 16 */
-+ ~%IT_IS_BGII% LevelGT("C#Brandock",15)
++ ~%HASSPELL_WIZARD_PIERCE_SHIELD%
+%IT_IS_BGII%
 PartyGoldGT(7499)
 GlobalGT("C#Br_WriteDurableScrolls","LOCALS",3)~ + @3103 DO ~GiveItemCreate("C#BR9A",Player1,3,1,0)
-DestroyGold(7500) SetGlobal("c#brscrl","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
+DestroyGold(7500) SetGlobal("c#brscrl","GLOBAL",2)~ EXIT
 
 /* or not */
 + ~PartyGoldLT(150)~ + @3028 + scribe_scoll
-++ @3104 + scribe_scoll
+++ @3104 + scribe_scoll_02
 END
 
 /* Brandock just made a scroll and needs to rest now. (only relevant for BG1 where the player can click on Elvenhair's desk again) */
