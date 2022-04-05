@@ -114,7 +114,7 @@ The mod contains of 6 components:<br />
 Component 1 is the main component that will insert Brandock into the game. All other components are dependent on this one but optional.<br />
 The second component contains all crossmod content and should be installed as late as possible.<br />
 The third component gives a choice of 3 alternate portraits by Acifer. See below to have a look at the portraits.<br />
-The 4th component is for SoD and EET and transfers the "SoD style banter2 to "dialogue style banter" like they are common for BGII. Without this component, Brandock's banter in SoD will be in SoD style with floating texts above the NPCs' heads.<br />
+The 4th component is for SoD and EET and transfers the "SoD style banter" to "dialogue style banter" like they are common for BGII. Without this component, Brandock's banter in SoD will be in SoD style with floating texts above the NPCs' heads.<br />
 The 5th component integrates the ability to scribe scrolls from aTweaks' component "Allow Mages to scribe memorized spells onto scrolls" into Brandock's own scribe scroll ability. There is two options: Option 1 just adds the aTweaks possibility to write all memorized spells onto scolls but leaves the original fixed spells list for the normal scroll scribing. Option 2 not only adds the possibility to write all memorized spells onto scrolls but also replaces the fixed spell list with what Brandock actually has in his spellbook. This only works properly for the EE games because there is no check for "spells inside the spell book" in the classic engine, so for original BG2/BGT this option replaces the list with what Brandock has memorized which might be a bit meager, so I do not recommend this option for original BG2/BGT.<br />
 The 6th component replaces the (long) cutscene in Thalantyr's abode with a short version. Note that both cutscene versions are skippable for the EE games.<br />
 
@@ -245,8 +245,18 @@ This mod is also not developed, supported, or endorsed by BioWare, Black Isle St
 <h1><a name="version" id="version">Version History</a></h1>
 <div class="section">
 Version Beta 16:</br>
-- Fixed compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": other mages should be able to write their spells onto scrolls, too; written spell will not be erased from memorized spells.</br>
-- Brandock's special ability "Write Scrolls": some higher spells will not be available in BG1 even though Brandock reached spell level.</br>
+- New component "Make Cutscene in Thalantyr's Abode Short" added, including description in readme.</br>
+- Cutscene in main component is long again, and skippable for EE (in both versions).</br>
+- Added more reply options to the "book is finished" dialogue in ToB.</br>
+- Brandock's special ability "Scribe Spell Scrolls": some higher spells will not be available in BG1 even though Brandock reached appropriate spell level; for EE, he will only be able to write durable scrolls for spells he has in his spellbook; Fixed minor bugs in Brandock's restored book dialogue and handling; removed fade-to-black cutscene for normal scrolls.</br>
+- Brandock's restored book: he will offer at lower level to write pages; same spells should not be offered more than once; added available spells to journal entry; corrected description of book pages for EE.</br>
+- Added more trigger to some comments so Brandock will not say them upon joining late in game when he wasn't present when it happened.</br>
+- Invisible helper cre will only spawn if Brandock is in party (Gorion's death site, Nashkel Carnival).</br>
+- Fixed compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": other mages should be able to write their spells onto scrolls.</br>
+- Compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": rewritten the two options and added description to readme.</br>
+- SoD optimizations: changed how bdbanter.2da is created; all banter files of NPCs will be created if not present; updates and improvements with regard to my updated SoD NPC Tutorials.</br>
+- Updated install order syntax in the .ini.</br>
+- Typo corrections.</br>
 </br>
 Version Beta 15:</br>
 - Fixed install error if EndlessBG1 is not installed.</br>

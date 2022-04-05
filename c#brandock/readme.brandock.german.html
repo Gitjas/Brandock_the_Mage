@@ -113,8 +113,8 @@ Die Mod besteht aus sechs Komponenten:<br />
 Komponente 1 ist die Hauptkomponente, die Brandock in das Spiel einf&uuml;gt. Alle anderen Komponenten sind auf diese angewiesen aber selbst optional.<br />
 Die zweite Komponente enth&auml;lt die Crossmod-Inhalte und sollte m&ouml;glichst sp&auml;t installiert werden.<br />
 Die dritte Komponente bietet eine Auswahl von 3 alternativen Portraits f&uuml;r Brandock von Acifer. Die Portraits sind weiter unten abgebildet.<br />
-Die vierte Komponente ist f&uuml;r SoD und EET und &auml;ndert Brandocks NPC-Banter im SoD-Teil zum in BGII gebr&auml;uchlichen "Dialogstil". In der Hauptkomponente sind die Banter in SoD &uuml;ber Dialogzeilen &uuml;ber den K&ouml;pfen der Avatare realisiert, wie es im originalspiel &uuml;blich ist.<br />
-Die 5. Komponente integriert die aTweaks-Option "Allow Mages to scribe memorized spells onto scrolls" in Brandocks eigene Schriftrollenschreib-F&auml;higkeit ein. Installiert sie nach aTweaks. Es gibt zwei M&ouml;glichkeiten zur Auswahl: Die erste bel&auml;sst die in der Brandockmod vorgegebene Zauberliste f&uuml;r die normalen Schriftrollen, und f&uuml;gt die M&ouml;glichkeit aus aTweaks, alle gelernten Zauber auf Schriftrollen zu schreiben, in Brandocks F&auml;higkeit ein. Die zweite Option ersetzt f&uuml;r die EE-Spiele die starre Liste aus der Mod mit den Zaubern, die Brandock tats&auml;chlich im Zaubrbuch hat. Diese Option ist f&uuml;r BGT nicht zu empfehlen, da hier nicht die im Zauberbuch befindlichen sondern nur die *gelernten* Zauber zur Verf&uuml;gung stehen, was eine etwas d&uuml;nne Auswahl sein k&ouml;nnte.<br />
+Die vierte Komponente ist f&uuml;r SoD und EET und &auml;ndert Brandocks NPC-Banter im SoD-Teil zum in BGII gebr&auml;uchlichen "Dialogstil". In der Hauptkomponente sind die Banter in SoD &uuml;ber "schwebenden Zeilen" &uuml;ber den K&ouml;pfen der Avatare realisiert, wie es im Originalspiel &uuml;blich ist.<br />
+Die 5. Komponente integriert die aTweaks-Option "Allow Mages to scribe memorized spells onto scrolls" in Brandocks eigene Schriftrollenschreib-F&auml;higkeit ein. Installiert sie nach aTweaks. Es gibt zwei M&ouml;glichkeiten zur Auswahl: Die erste bel&auml;sst die in der Brandockmod vorgegebene Zauberliste f&uuml;r die normalen Schriftrollen, und f&uuml;gt die M&ouml;glichkeit aus aTweaks, alle gelernten Zauber auf Schriftrollen zu schreiben, in Brandocks F&auml;higkeit ein. Die zweite Option ersetzt zus&auml;tzlich f&uuml;r die EE-Spiele die starre Liste aus der Mod mit den Zaubern, die Brandock tats&auml;chlich im Zaubrbuch hat. Diese Option ist f&uuml;r BGT nicht zu empfehlen, da hier nicht die im Zauberbuch befindlichen sondern nur die *gelernten* Zauber zur Verf&uuml;gung stehen, was eine etwas d&uuml;nne Auswahl sein k&ouml;nnte.<br />
 Die sechste Komponente macht die (lange) Cutscene in Thalantyrs Festung nach Brandocks "Halbogermaleur" sehr viel k&uuml;rzer. F&uuml;r die EE-Spiele sind beide Cutsceneversionen &uuml;ber die Esc-Taste abbrechbar.<br />
 
 <h2> <a name="where" id="where">Wo man Brandock trifft</a></h2>
@@ -253,10 +253,18 @@ This mod is also not developed, supported, or endorsed by BioWare, Black Isle St
 <h1><a name="version" id="version">Versionshistorie</a></h1>
 <div class="section">
 Version Beta 16:</br>
-- Fixed compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": other mages should be able to write their spells onto scrolls, too; written spell will not be erased from memorized spells.</br>
-- Brandock's special ability "Write Scrolls": some higher spells will not be available in BG1 even though Brandock reached spell level.</br>
-- SoD optimizations: changed how bdbanter.2da is created; updates with regard to my SoD NPC Tutorials, .</br>
+- New component "Make Cutscene in Thalantyr's Abode Short" added, including description in readme.</br>
+- Cutscene in main component is long again, and skippable for EE (in both versions).</br>
+- Added more reply options to the "book is finished" dialogue in ToB.</br>
+- Brandock's special ability "Scribe Spell Scrolls": some higher spells will not be available in BG1 even though Brandock reached appropriate spell level; for EE, he will only be able to write durable scrolls for spells he has in his spellbook; Fixed minor bugs in Brandock's restored book dialogue and handling; removed fade-to-black cutscene for normal scrolls.</br>
+- Brandock's restored book: he will offer at lower level to write pages; same spells should not be offered more than once; added available spells to journal entry; corrected description of book pages for EE.</br>
+- Added more trigger to some comments so Brandock will not say them upon joining late in game when he wasn't present when it happened.</br>
+- Invisible helper cre will only spawn if Brandock is in party (Gorion's death site, Nashkel Carnival).</br>
+- Fixed compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": other mages should be able to write their spells onto scrolls.</br>
+- Compatibility with aTweaks component "Allow Mages to scribe memorized spells onto scrolls": rewritten the two options and added description to readme.</br>
+- SoD optimizations: changed how bdbanter.2da is created; all banter files of NPCs will be created if not present; updates and improvements with regard to my updated SoD NPC Tutorials.</br>
 - Updated install order syntax in the .ini.</br>
+- Typo corrections.</br>
 </br>
 Version Beta 15:</br>
 - Fixed install error if EndlessBG1 is not installed.</br>
