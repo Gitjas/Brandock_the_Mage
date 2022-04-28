@@ -4,7 +4,7 @@ AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~
 
 VERSION ~Testversion_NVLOR_220428~ 
 
-README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
+//README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
 
 AUTO_TRA ~C#Brandock/tra/autotra/%s~
@@ -360,12 +360,13 @@ LANGUAGE ~English~
          ~C#Brandock/tra/english/game.tra~
 	 ~C#Brandock/tra/english/journal.tra~
 
-
+/*
 LANGUAGE ~Deutsch~
          ~german~   
          ~C#Brandock/tra/german/setup.tra~
          ~C#Brandock/tra/german/game.tra~
 	 ~C#Brandock/tra/german/journal.tra~
+*/
 
 
 
@@ -2984,7 +2985,7 @@ END
 
 
 
-
+/*
 ///////////////////////////////////////////////////////////////
 /* Crossmod */
 //////////////////////////////////////////////////////////////
@@ -3979,5 +3980,5 @@ COPY_EXISTING ~c#brcut3.BCS~ ~override~
 	END
 BUT_ONLY
 END
-
+*/
 
