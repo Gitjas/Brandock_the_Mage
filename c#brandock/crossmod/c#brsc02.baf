@@ -1,4 +1,4 @@
-/* c#brsc01 - Crossmod Banter SoD Brandock Imoen (I4E) */
+/* c#brsc02 - Crossmod Banter SoD Brandock Imoen (I4E) */
 IF
 	InMyArea(Player1)
 	!ActuallyInCombat()
@@ -19,19 +19,19 @@ THEN
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
 		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("C#Brandock",~You mean the one you left to follow <CHARNAME> into adventure? That well-known magic teacher?... NonoNONO! Keep your hands away. You know I'm ticklish as hell.~)
+		DisplayStringHead("C#Brandock",@4)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",40)
 	RESPONSE #40
-		DisplayStringHead("%IMOEN_DV%",~Still she chose me!~)
+		DisplayStringHead("%IMOEN_DV%",@5)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
 		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",50)
 	RESPONSE #50
-		DisplayStringHead("C#Brandock",~I know, Imoen. And she had all reason to. I never doubted your talent.~)
+		DisplayStringHead("C#Brandock",@6)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",60)
 	RESPONSE #60
-		DisplayStringHead("C#Brandock",~I... don't think I was jealous.~)
+		DisplayStringHead("C#Brandock",@7)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Imoen02","MYAREA",70)
 	RESPONSE #70

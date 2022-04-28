@@ -1,0 +1,45 @@
+IF
+//   GlobalGT("bd_rayphus_plot","global",0)
+   Allegiance(Myself,NEUTRAL)
+//   OR(2)
+//	   AreaCheck("bd1000")
+//	   AreaCheck("bd7100")
+//	   AreaCheck("bd3000")
+   !StateCheck(Myself,CD_STATE_NOTVALID)
+   !StateCheck(Player1,CD_STATE_NOTVALID)
+   See("C#Brandock")
+/*
+   OR(3)
+	Global("C#Brandock_Gone","GLOBAL",1)
+	Dead("C#Brandock")
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+   OR(4)
+	Global("C#Brandock_Gone","GLOBAL",1)
+	!InPartyAllowDead("C#Brandock")
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+   InMyArea(Player1)
+   !Range(Player1,15)
+*/
+   Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",0)	
+THEN
+	RESPONSE #100
+//	    CreateCreature("c#brsqu1",[534.3686],10) 
+//	    CreateCreature("c#brsqu2",[527.3725],10)
+	    CreateCreatureObjectOffset("c#brsqu1",Myself,[10.10])
+	    CreateCreatureObjectOffset("c#brsqu2",Myself,[-10.-10])
+            SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",1)
+END
+
+IF
+   Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",1)
+   !StateCheck(Myself,CD_STATE_NOTVALID)
+   !StateCheck(Player1,CD_STATE_NOTVALID)
+   !StateCheck("c#brsqu1",CD_STATE_NOTVALID)
+   !StateCheck("c#brsqu2",CD_STATE_NOTVALID)
+   !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+   Detect(Player1)
+   Range(Player1,15)
+THEN
+	RESPONSE #100
+	    StartDialogNoSet(Player1)
+END

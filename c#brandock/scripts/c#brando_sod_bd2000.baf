@@ -17,7 +17,7 @@ THEN
 		Continue()
 END
 
-/* Battle at Bridgefort starts */
+/* Battle at Bridgefort starts/ crusader camp turned hostile */
 IF
 	Global("bd_plot","global",250)
 	!GlobalTimerNotExpired("bd_mdd410z_ot_timer","bd2000")  //Boareskyr Bridge & Bridgefort

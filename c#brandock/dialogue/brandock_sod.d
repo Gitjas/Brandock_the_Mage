@@ -172,7 +172,7 @@ END
 /* Imoen - without I4E the only chance we have to let those two banter is when Brandock comes with CHARNAME before the last night in the Ducal Palace 
 Interjection will be short if Imoen rejoins later (I4E is detected, i.e. Global("C#IM_ImoenComesBackSoD","GLOBAL",0) is not set to 1 ) */
 
-I_C_T BDIMOEN 85 C#Brandock_ImoenSoD_Palace
+I_C_T3 BDIMOEN 85 C#Brandock_ImoenSoD_Palace
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) !StateCheck("C#Brandock",CD_STATE_NOTVALID) InMyArea("C#Brandock")~ THEN ~Imoen, I can't tell you how glad I am to see you alive and well.~
 == BDIMOEN IF ~Global("C#IM_ImoenComesBackSoD","GLOBAL",0)
 OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) 
@@ -396,118 +396,6 @@ SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutScen
 END
 
 
-/* after meeting C. at the bridge 
-GlobalGT("bd_plot","global",170)
-*/
-
-IF ~Global("C#Brando_SoDCaelarBridge","GLOBAL",1)~ THEN caelar_bridge
-SAY ~So, this is Caelar? Did she just give that 'I sacrificed a lot of people but it's all justified for a greater good because I will save a few (I'm personally interested in)' speech? She really thinks she's righteous and doing good, doesn't she? She is actually *believing* she is doing good... Gnah. This woman is deluded to a point where it leaves a real bitter taste in the mouth to hear her talk.~ [c#ablank]
-++ ~Bitter is a mild description for the taste I have in my mouth after talking to this deluded madwoman...~ + caelar_bridge_01_01
-++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
-++ ~I'm not sure what to make of her just yet. She talks with much confidence, but her grand words do not add up with her actions.~ + caelar_bridge_01_02
-++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
-++ ~Sometimes a lesser evil has to be accepted to do greater good.~ DO ~SetGlobal("C#Brandock_SoDlesserEvil","LOCALS",1)~ + caelar_bridge_02
-END
-
-IF ~~ THEN caelar_bridge_01_01
-SAY ~Ha!...~
-++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
-++ ~I'm not sure what to make of her just yet. She talks with much confidence, but her grand words do not add up with her actions.~ + caelar_bridge_01_02
-++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
-END
-
-IF ~~ THEN caelar_bridge_01_02
-SAY ~No, they do not.~
-++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
-++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
-++ ~There's nothing we can do about her now, I'm afraid.~ + caelar_bridge_03
-END
-
-END //APPEND
-
-CHAIN
-IF ~~ THEN c#brandj caelar_bridge_01
-~*Cause*, maybe - when it was still an idea in someone's head or written on a piece of paper. But now? With all the death and destruction she and her blasted crusade already cost?~
-/* know Caelar will open portal - from Road to Discovery */
-== c#brandj IF ~GlobalGT("C#RtD_CaelarPlan","GLOBAL",3)~ THEN ~And with the knowledge that her glorious plan is just opening the portal - again?...~
-== c#brandj ~No way, <CHARNAME>. No way this is still a righteous cause!~
-END
-++ ~You are right, I was only judging the idea, not the execution.~ + caelar_bridge_03
-++ ~How about: "Sometimes a lesser evil has to be accepted to do greater good"?~ DO ~SetGlobal("C#Brandock_SoDlesserEvil","LOCALS",1)~ + caelar_bridge_02
-++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
-
-CHAIN
-IF ~~ THEN c#brandj caelar_bridge_02
-~A lesser... a *lesser* evil? You mean all the death, destruction, evictions were not enough to call it a greater evil?~
-/* know Caelar will open portal - from Road to Discovery */
-== c#brandj IF ~GlobalGT("C#RtD_CaelarPlan","GLOBAL",3)~ THEN ~Plus, you know, the fact that she is planning on letting hell loose on the Sword Coast - again?!~
-END
-++ ~You are right, I was only judging the idea, not the execution.~ + caelar_bridge_04_a
-++ ~I was jesting with you, Brandock. We share the same opinion on this. I only wanted to see you go all red and puffy again.~ + caelar_bridge_04
-++ ~There are thousands of people thinking that way, Brandock - the wole crusade! They joined her out of free will, or do you think all of them were forced to follow her?~ + caelar_bridge_05
-++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
-
-APPEND c#brandj 
-
-IF ~~ THEN caelar_bridge_03
-SAY ~I can't believe that she is this deluded. Surely she knows about the destruction the crusade is causing? I mean, how could she not?~
-IF ~~ THEN + caelar_bridge_08
-END 
-
-IF ~~ THEN caelar_bridge_04
-SAY ~You... (scoffs)~
-IF ~~ THEN + caelar_bridge_04_a
-END
-
-IF ~~ THEN caelar_bridge_04_a
-SAY ~Well, thank you for that, <CHARNAME>. For a moment I really thought I had lost you there.~
-IF ~~ THEN + caelar_bridge_03
-END
-
-END //APPEND
-
-CHAIN
-
-IF ~~ THEN c#brandj caelar_bridge_05
-~Because they are all deluded? Because they are expecting to be rewarded in some way? Because people believe what they want to believe - and they do it thankfully if it spares them to have to think by themselves? Because not everyone of them has the right moral compass...~
-== c#brandj IF ~Global("C#Brandock_SoDlesserEvil","LOCALS",1)~ THEN ~And, and... and they use the same argument about the lesser and greater evil like you just did to justify it to themselves?!~
-END
-+ ~Global("C#Brandock_SoDlesserEvil","LOCALS",1)~ + ~Hm, alright, alright, I am convinced.~ + caelar_bridge_04_a
-+ ~Global("C#Brandock_SoDlesserEvil","LOCALS",0)~ + ~I fear you are right about that.~ + caelar_bridge_03
-++ ~I am not convinced, Brandock. I think Caelar is on the right path, even if the execution of her plan is lacking.~ + caelar_bridge_07
-++ ~Not everyone who is not of your opinion is necessarily deluded, Brandock.~ + caelar_bridge_06
-
-
-APPEND c#brandj
-
-IF ~~ THEN caelar_bridge_06
-SAY ~No - but people who accept plundering and murder and whatnot because they are serving a 'greater good' definitely are! Please tell me we are on the same page here.~
-++ ~Hm, alright, alright, I am convinced.~ + caelar_bridge_04_a
-++ ~I am not convinced, Brandock. I think Caelar is on the right path, even if the execution of her plan is lacking.~ + caelar_bridge_07
-END
-
-END //APPEND
-
-CHAIN
-IF ~~ THEN c#brandj caelar_bridge_07
-~I... I can't believe to hear you talk like this. Not after what we already saw and heard. Think of what the city turned into with all the refugees! Saving some souls is never a valid reason to condemn others for it.~
-== c#brandj IF ~Class(Player1,PALADIN_ALL)
-!Kit(Player1,Blackguard)~ THEN ~You of all people, <CHARNAME>, as a paladin! You should know!~
-== c#brandj ~Well, let's go on with our cause and see what we'll see next of the crusade. I am *sure* we'll come to a point where I will be tempted to say 'I told you so'... (mutters) I'm afraid I will.~
-END
-IF ~~ THEN + caelar_bridge_08
-
-
-APPEND c#brandj
-
-IF ~~ THEN caelar_bridge_08
-SAY ~Anyways - this bridge will no longer give passage across this river. Seems we need to take a detour.~
-IF ~~ THEN DO ~SetGlobal("C#Brando_SoDCaelarBridge","GLOBAL",2)~ EXIT
-END
-
-
-
-
 /* Bridgefort */
 
 /* Arcane Scroll of Impactful Doom, PartyHasItem("BDSCRL02") */
@@ -573,7 +461,6 @@ END
 
 /* Elandro and the Feyr */
 /* bdelandr.d */
-
 I_C_T bdelandr 1 C#Brando_bdelandr_1
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~There is a difference in doing experiments and doing things where you *know* it will go wrong... But yes, I'm definitely the wrong to talk to here.~
 END
@@ -584,6 +471,10 @@ END
 
 I_C_T bdelandr 12 C#Brando_bdelandr_12
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Oh, how I do know how that feels... <CHARNAME>, the atmosphere is thick with despair, I'm barely holding it together myself. Gods, why do I have to be so receptive towards people's emotions...~
+END
+
+I_C_T bdelandr 18 C#Brando_bdelandr_18
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Good gods - what a nightmare...~
 END
 
 /* chicken in the well easter egg */
@@ -625,33 +516,74 @@ IF ~~ THEN DO ~SetGlobal("C#Brando_BD_SDD317_WYRMS","GLOBAL",3)~ EXIT
 END
 
 /* after Bhaal sign incident at bridge */
-IF ~Global("C#Brandock_SoDSignDialog","GLOBAL",1)~ THEN bhaal_bridge
-SAY ~What in the nine hells' name was that? <CHARNAME>, are you alright?~
+IF ~Global("C#Brandock_SoDBoareskyrBridgeScene","GLOBAL",1)
+Global("C#Brandock_c#stff24_10","GLOBAL",0)~ THEN bhaal_bridge
+SAY @50 /* ~What in the nine hells' name was that? <CHARNAME>, are you alright?~ */
 ++ ~What can I say. I fainted, there was Bhaal's sign on the ground...~ + bhaal_bridge_02
 ++ ~I feel a bit dizzy.~ + bhaal_bridge_02
 ++ ~That is a very good question, indeed.~ + bhaal_bridge_02
 ++ ~It's nothing, Brandock. Let's move on.~ + bhaal_bridge_01
 END
 
-IF ~~THEN bhaal_bridge_01
-SAY ~Well, it was a *lot* to see for "nothing", but fine, I'll be quiet.~
-IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",2)~ EXIT
+IF ~Global("C#Brandock_SoDBoareskyrBridgeScene","GLOBAL",1)
+Global("C#Brandock_c#stff24_10","GLOBAL",1)~ THEN bhaal_bridge_00
+SAY ~What happened back on the Boareskyr Bridge... You know, the surge of divine energy, the symbol of Bhaal burning itself into the ground - I'm not sure why I'm repeating this, I'm pretty sure you didn't forget about it yet.~
+IF ~~ THEN + bhaal_bridge_02
 END
 
-IF ~~THEN bhaal_bridge_02
-SAY ~It sure as hell looked very impressive. It was a real show off, now that I think about it. So much unlike your Bhaal dreams. Do you feel any different? Any new abilities or somesuch?~
-++ ~Not that I notice, no.~ + bhaal_bridge_03
-++ ~Nothing yet.~ + bhaal_bridge_03
+IF ~~ THEN bhaal_bridge_01
+SAY ~Well, it was a *lot* to take in for "nothing", but fine, I'll be quiet.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDBoareskyrBridgeScene","GLOBAL",2)~ EXIT
+END
+
+IF ~~ THEN bhaal_bridge_02
+SAY ~It sure as hell looked very impressive. Not to say frightening. Good that I know you so well already, or my imagination would go wild. It was a real show off, now that I think about it. So much unlike your Bhaal dreams. And *so* scary.~
+= ~I wonder what kind of magic that was. Divine, for sure. But is was not only a vision, because we all saw it - and *felt* it. Did something happen to you?~
+++ ~You catched the part where the sign of Bhaal appeared around me in a pile of smoke?...~ + bhaal_bridge_07
+++ ~Well, I do feel like I'm the stare of everyone these days.~ + bhaal_bridge_04
+++ ~What do you mean?~ + bhaal_bridge_08
 ++ ~It's nothing, Brandock. Let's move on.~ + bhaal_bridge_01
 END
 
-IF ~~THEN bhaal_bridge_03
-SAY ~Hm. Weird. One thing is for sure: the way people will perceive you might have changed, though. It was really impressive. Not to say frightening. Good that I know you so well already, or my imagination would go wild. Almost as if someone planned it to give you a worse stand with people...~
-= ~... Still I'd prefer it to be the explanation for this, because this arising out of godly intervention would be even scarier.~
-IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDSignDialog","GLOBAL",2)~ EXIT
+IF ~~ THEN bhaal_bridge_03
+SAY ~This is where Bhaal was killed, after all. Best you go and see a priest soon. I can judge the magic involved and see that there is no spell on you, but I do not know how it could have affected your health. Maybe... it did drain you somehow?~
+= ~The thought of this magic arising out of godly magic stored at this spot is pretty scary, and that it did nothing to you is even more frightening, because I expect it to having done *something* we just do not know yet.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDBoareskyrBridgeScene","GLOBAL",2)~ EXIT
 END
 
+IF ~~ THEN bhaal_bridge_04
+SAY ~Yes, I know what you mean... but that's not what I meant.~
+IF ~~ THEN + bhaal_bridge_08
+END
+
+IF ~~ THEN bhaal_bridge_05
+SAY ~Oh, that's good. Right? I mean it has to be good. This is where Bhaal was killed, after all. Best you go and see a priest soon. I can judge the magic involved and see that there is no more spell on you *now*, so how it could have affected your health is something we will only be able to tell in time.~
+= ~The thought of this magic arising out of godly magic stored at this spot is pretty scary, and I am not sure I like that it did something to you, because I expect it to having done *something* so I hope that was it and there won't be a follow-up we just do not know about yet.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDBoareskyrBridgeScene","GLOBAL",2)~ EXIT
+END
+
+IF ~~ THEN bhaal_bridge_06
+SAY ~Nothing *yet*? That's exactly what I am talking about, you know?~
+IF ~~ THEN + bhaal_bridge_03
+END
+
+IF ~~ THEN bhaal_bridge_07
+SAY ~Yes! I didn't mean *that*. I meant to *you*! Did something happen to you?~
+IF ~~ THEN + bhaal_bridge_08
+END
+
+IF ~~ THEN bhaal_bridge_08
+SAY ~Do you feel any different? Any new abilities or somesuch?~
++ ~Global("C#stbb_StatChange","GLOBAL",0)~ + ~Not that I notice, no.~ + bhaal_bridge_03
++ ~Global("C#stbb_StatChange","GLOBAL",0)~ + ~Nothing yet.~ + bhaal_bridge_06
++ ~GlobalGT("C#stbb_StatChange","GLOBAL",0)~ + ~Something has changed, yes...~ + bhaal_bridge_05
++ ~Global("C#stbb_StatChange","GLOBAL",1)~ + ~Well, I see things more clearly...~ + bhaal_bridge_05
++ ~Global("C#stbb_StatChange","GLOBAL",2)~ + ~Well, I do feel more skilled...~ + bhaal_bridge_05
++ ~Global("C#stbb_StatChange","GLOBAL",3)~ + ~Well, I do feel more resolute...~ + bhaal_bridge_05
+++ ~It's nothing, Brandock. Let's move on.~ + bhaal_bridge_01
+END
 END //APPEND
+
 
 /* coalition camp - training the recruits */
 /* Hester */
@@ -662,6 +594,7 @@ END
 CHAIN
 IF ~~ THEN c#brandj teach_hester
 ~[Brandock]What? Just because I'm nervous as hell and fought - haha, what a game of words! - my way into not losing my head in battle (and over a lot of trivial things for that matter) doesn't make me a good advisor! I'd rather suggest I'll keep my distance to this poor chap until he learned how to focus positive energy to overcome the feelings of inevitable doom...~
+== c#brandj IF ~GlobalGT("C#Brandock_XanBG1","GLOBAL",0)~ THEN ~(Great... now I even sound like Xan!)~
 == BDHESTER ~[Hester]That's it! I feel absolutely and utterly doomed... like the sword is already at my throat, no matter what I'll do.~
 == bdimoen IF ~IsValidForPartyDialogue("%IMOEN_DV_SOD%")~ THEN ~[Imoen]Uh-oh... I'm not sure this conversation is going the direction it should.~
 == c#brandj ~[Brandock]And so weak that anything you'll do won't change a thing, right? Anyone could do this better - just being on the battle field will probably lead to allies dying because we do not really belong there.~
@@ -727,7 +660,7 @@ SAY ~Oh, another fallen foe who gets into an alleged dialogue with you? How orig
 END
 
 IF ~~ THEN first_nightmare_02
-SAY ~Sounds a bit like the slayer, avatar of your father.~
+SAY ~Hmmm ... Sounds a bit like the slayer, avatar of your father.~
 IF ~~ THEN + first_nightmare_03
 END
 
@@ -1079,6 +1012,108 @@ END
 
 END //APPEND
 
+/* bdbook11 "A Historical Treatise of Dragonspear Castle" */
+/* noone else mentions anything (Stat-based reply options from Themed Tweaks is not active) */
+
+/* Global("#L_SoDStat_TreatiseFound","GLOBAL",0)
+GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3) 
+
+SetGlobal("C#RtD_KnowsPortalBlood_SET","GLOBAL",3)
+SetGlobal("C#RtD_VariableEvaluation","GLOBAL",1) */
+
+CHAIN
+IF ~Global("C#Brandock_SoDbdbook11","LOCALS",2)~ THEN c#brandj treatise
+~"A Historical Treatise of Dragonspear Castle", that sounds interesting, considering that's where Caelar set camp ... wait, there is handwritten notes in it.~
+= ~Those... those were written by a crusader. A portal to Avernus - beneath Dragonspear Castle, to be opened with blood tainted by god's influence...~
+== c#brandj IF ~Global("C#RtD_HephernaanIdentity","GLOBAL",1)~ THEN ~A mysterious "H" who wants them to secure the portal room... H like Hephernaan, Caelar's advisor?~
+== c#brandj IF ~GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2)
+GlobalGT("bd_plot","global",409)~ THEN ~Yep, it all fits. They knew it all along - of course they did, Caelar wove her whole plan of madness around this information. (sigh)~ 
+== c#brandj IF ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3)
+GlobalLT("bd_plot","global",410)~ THEN ~It has to be! They are planning on opening that portal to Avernus! With... blood from... from you, <CHARNAME>. The blood can't get any more tainted than if you are a direct offspring of a god, can it?~ 
+END
+IF ~GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2)~ THEN EXIT
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3)
+GlobalLT("bd_plot","global",410)~ + ~By the Gods.~ + treatise_04
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3)
+GlobalLT("bd_plot","global",410)~ + ~Goddammit.~ + treatise_04
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3) Global("C#RtD_KnowsPortalBlood","GLOBAL",1)
+GlobalLT("bd_plot","global",410)~ + ~So, I would be one source to open the portal...~ + treatise_01
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3) Global("C#RtD_CaelarWantsPC","GLOBAL",0)
+GlobalLT("bd_plot","global",410)~ + ~So they need me for *this* - or my blood, to be precise.~ + treatise_01
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3) GlobalGT("C#RtD_CaelarWantsPC","GLOBAL",0)
+GlobalLT("bd_plot","global",410)~ + ~So that's what they need me for - or my blood, to be precise.~ + treatise_01
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3)
+GlobalLT("bd_plot","global",410)~ + ~The more reason to stop Caelar in time.~ + treatise_02
++ ~GlobalLT("C#RtD_KnowsPortalBlood","GLOBAL",3)
+GlobalLT("bd_plot","global",410)~ + ~We can't be sure.~ + treatise_01
+
+APPEND c#brandj
+IF ~~ THEN treatise_01
+SAY ~It has to be, <CHARNAME>. They want to free the souls from Avernus, that much is clear. So they need to get to them. And so they are planning on... on...~
+IF ~~ THEN + treatise_03
+END
+
+IF ~~ THEN treatise_02
+SAY ~Oh, yes. Not that we'd *need* another reason...~
+IF ~~ THEN + treatise_03
+END
+
+IF ~~ THEN treatise_03
+SAY ~I'm out of words. I need a moment to digest this.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDbdbook11","LOCALS",3)
+SetGlobal("C#RtD_KnowsPortalBlood_SET","GLOBAL",3)
+SetGlobal("C#RtD_VariableEvaluation","GLOBAL",1)~ EXIT
+END
+
+IF ~~ THEN treatise_04
+SAY ~I couldn't have put it better.~
+IF ~~ THEN + treatise_01
+END
+END //APPEND
+
+/* bdrobe02 "Robe of Arcane Aptitude" */
+CHAIN
+IF ~Global("C#Br_SoDbdrobe02","LOCALS",1)~ THEN c#brandj robe_arcane_aptitude
+~[Brandock]Argh, this Robe of Arcane Aptitude is also a mighty robe - but in a negative sense. Who would put effort into cursing a *robe*? The thought of being stuck in that thing is... unsettling.~ DO ~SetGlobal("C#Br_SoDbdrobe02","LOCALS",2)~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Imoen]Well, at least it's clothes. Much better than being stuck to a weapon in your hand.~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+InParty("c#brage")
+See("c#brage") !StateCheck("c#brage",CD_STATE_NOTVALID)~ THEN ~[Imoen]Oops, sorry, Brage.~
+== IF_FILE_EXISTS c#brage IF ~InParty("c#brage")
+See("c#brage") !StateCheck("c#brage",CD_STATE_NOTVALID)
+InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Brage]Do not heed me, Imoen. What you said is true.~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Imoen]At least the robe would keep you warm!~
+== c#brandj IF ~OR(3) !InParty("%IMOEN_DV%")
+!See("%IMOEN_DV%") StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Brandock]Disables spellcasting! No more words needed!~
+== c#brandj IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Brandock]Disables spellcasting! Yes, I would get really *heated up* over that one.~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Imoen]Hehe!~
+EXIT
+
+/* Floss and Gurgle */
+I_C_T BDFLOSS 6 C#Brando_BDFLOSS_6
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~That was hilarious. Why do I feel bad about tricking them into letting us pass?~
+END
+
+I_C_T BDFLOSS 27 C#Brando_BDFLOSS_27
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have to say - when I expected travelling with you would give measures to drive away foes I never imagined it would be by telling your story.~
+END
+
+I_C_T BDGURGLE 18 C#Brando_BDGURGLE_18
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have to say - when I expected travelling with you would give measures to drive away foes I never imagined it would be by telling your story.~
+END
+
+/* BDURE10B bandits that flee when they recognize CHARNAME */
+I_C_T BDURE10B 1 C#Brando_BDURE10B_1
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Finally! Your deeds are remembered and make life easier for us. It can't be that your power only draws more powerful enemies, right? We *have* to profit from it sometimes, too!~
+END
+
+
 /* Inside Boareskyr Bridge: "Tender of the Dead"
 BDJUNIA
 
@@ -1174,6 +1209,43 @@ I_C_T BDDELANC 79 C#Brando_BDDELANC_79
 == c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Is... is this really over? Like, *over* over? I feel so sick...~
 END
 
+/* Barrel of Bwoosh, Andrus, and the instable explosives in the camp main attack */
+
+/* bdbwoosh.itm. barrel is in invetory */
+CHAIN
+IF ~Global("C#Br_SoDBarrelBwoosh","GLOBAL",1)~ THEN c#brandj barrel_bwoosh
+~[Brandock]Blessed be magic. A barrel full of explosives that will *only* explode when it's supposed to. That is an advantage of magic my family would understand.~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Imoen]Haha! Imagine the *boom* that would make if this barrel would be to explode before it's meant to be.~
+== bdimoen IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Imoen]Although - the boom would be as big as it would be if it explodes when it should - I guess...~
+== c#brandj IF ~InParty("%IMOEN_DV%")
+See("%IMOEN_DV%") !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)~ THEN ~[Brandock]No - exploding right next to you usually makes a much, *much* bigger 'boom', Imoen. Much bigger.~
+== c#brandj ~[Brandock]I have full trust that this barrel of "Bwoosh!" will not explode before it is supposed to. What I do fear though is what happened to the rest - the explosive material Phossey did not manage to stabilize magically. Well, I am sure they knew what they were doing.~
+EXIT
+
+I_C_T BDANDRUS 3 C#Brando_BDANDRUS_3
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+GlobalGT("C#Br_SoDBarrelBwoosh","GLOBAL",0)~ THEN ~Goddammit - why am I always right with these kind of doomsayings.~
+END
+
+/* comment on Glints comment */
+/* ~Potion of explosion. That's a funny name, isn't it? Potion of explosion. Potion of explosion. Potion of explosion.~ [BD40791] */
+I_C_T BDGLINTJ 129 C#Brando_BDGLINTJ_129
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It *is* - considering "potion" is usually something one would consume. I think the one for explosion is the only one that uses the word without being drinkable. I never took notice of that before.~
+END
+
+/* in Dragonspear Castle, doors are still closed */
+
+/* Range("bdffmage",25)
+Global("bd_plot","global",485) 
+Global("bd_illusion_magic_response","GLOBAL",0) */
+CHAIN
+IF ~Global("C#Br_SoD_DetectHephsIllu","LOCALS",1)~ THEN c#brandj detect_hephs_illusion
+~Erm, what was that about a strange magical aura behind the door, could we get some more information, please?~
+== BDANDRUS #%eet_2%65606
+END
+IF ~~ THEN DO ~SetGlobal("bd_illusion_magic_response","GLOBAL",1) SetGlobal("C#Br_SoD_DetectHephsIllu","LOCALS",2)~ EXTERN BDFFMAGE 0
 
 APPEND c#brandj 
 
@@ -1182,7 +1254,7 @@ APPEND c#brandj
 IF ~Global("C#Brandock_SoDCaelarSarevok","GLOBAL",1)~ THEN caelar_sarevok
 SAY ~(All of a sudden, Brandock starts to laugh.)~ [c#ablank]
 ++ ~What is it, Brandock?~ + caelar_sarevok_01
-++ ~If you see anything funny in here, let me know. I want to know, too.~ + caelar_sarevok_01
+++ ~If you see anything funny in here, let me know. I want to laugh, too.~ + caelar_sarevok_01
 ++ ~You alright?~ + caelar_sarevok_01
 ++ ~Brandock, get a grib on yourself. We need to focus!~ + caelar_sarevok_01
 END
@@ -1381,83 +1453,143 @@ END
 /* back from Avernus. Brandock takes his leave */
 
 IF ~Global("C#Brandock_SoDEnd","GLOBAL",1)~ THEN back_hell
-SAY ~We... Excuse me a moment.~ [c#ablank]
-IF ~~ THEN DO ~	FadeToColor([20.0],0)
-	SetGlobal("C#Brandock_SoDEnd","GLOBAL",2)
-	Wait(1)
-	FadeFromColor([20.0],0)~ + back_hell_00
+SAY ~Back! We are... Excuse me a moment.~ [c#ablank]
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDEnd","GLOBAL",2)
+ClearAllActions() StartCutSceneMode() StartCutScene("c#brcut5")~ EXIT
 END
 
 IF ~Global("C#Brandock_SoDEnd","GLOBAL",2)~ THEN back_hell_00
 SAY ~Aplogies... I am really sorry. I *will* clean this up if anyone requests I do it myself.~
 ++ ~Did you just empty your stomach in that corner over there?~ + back_hell_01
 ++ ~Feeling better now?~ + back_hell_02
-++ ~I can't believe what a wimp you are.~ + back_hell_03
++ ~GlobalGT("C#Brando_bdelandr_18","global",0)~ + ~You know, next time I'll prefer a feyr to fight.~ + back_hell_05
+++ ~Why did you do that - I'm barely holding it together myself...~ + back_hell_03
+++ ~Don't take it to heart, Brandock. This was no standard fighting excursion, for none of us.~ + back_hell_04
+++ ~I can't believe what a wimp you are.~ + back_hell_06
 END
 
 IF ~~ THEN back_hell_01
-SAY ~Your power of observation is astounding. Yes, that's what I did.~
+SAY ~You have the power of observation. Yes, that's what I did.~
 ++ ~Feeling better now?~ + back_hell_02
-++ ~I can't believe what a wimp you are.~ + back_hell_03
++ ~GlobalGT("C#Brando_bdelandr_18","global",0)~ + ~You know, next time I'll prefer a feyr to fight.~ + back_hell_05
+++ ~Why did you do that - I'm barely holding it together myself...~ + back_hell_03
+++ ~Don't take it to heart, Brandock. This was no standard fighting excursion, for none of us.~ + back_hell_04
+++ ~I can't believe what a wimp you are.~ + back_hell_06
 END
 
 IF ~~ THEN back_hell_02
-SAY ~Very much so, thank you. I don't think I will eat much tonight, though. Celebrations or no.~
-IF ~~ THEN + back_hell_03
+SAY ~Very much so, thank you. I don't think I will be able to eat much tonight, though. Celebrations or no.~
++ ~GlobalGT("C#Brando_bdelandr_18","global",0)~ + ~You know, next time I'll prefer a feyr to fight.~ + back_hell_05
+++ ~Why did you do that - I'm barely holding it together myself...~ + back_hell_03
+++ ~Don't take it to heart, Brandock. This was no standard fighting excursion, for none of us.~ + back_hell_04
+++ ~I can't believe what a wimp you are.~ + back_hell_06
 END
 
 IF ~~ THEN back_hell_03
-SAY ~I wasn't prepared for going into Avernus and back again. Not that I'd complain about the coming back part.~
-IF ~~ THEN + back_hell_04
+SAY ~I'm sorry... If you'll use the same corner I'll cover for you - noone will know.~
+IF ~~ THEN + back_hell_07
 END
 
 IF ~~ THEN back_hell_04
-SAY ~That reminds me - I said I would leave as soon as it's all over. And I really think it's all over now, don't you?~
-++ ~You want to go right away? No celebrations? No rest?~ + back_hell_05
-++ ~I'd say it's over, yes.~ + back_hell_06
-++ ~Yes, go! Your family is waiting.~ + back_hell_07
+SAY ~No, that it wasn't.~
+IF ~~ THEN + back_hell_07
 END
 
 IF ~~ THEN back_hell_05
-SAY ~If I rest now my brain might catch up with my memories. And as soon as that'll happen I don't know whether I might be able to get myself moving or whether I'll be paralysed for the rest of the tenday.~
+SAY ~Noted. I'll - I'll work on it. That was meant to be a joke.~
 IF ~~ THEN + back_hell_07
 END
 
 IF ~~ THEN back_hell_06
-SAY ~It is, indeed. I still can't believe where we went and what we did.~
+SAY ~Well, I'm obviously a wimp with a weak stomach.~
 IF ~~ THEN + back_hell_07
 END
 
 IF ~~ THEN back_hell_07
-SAY ~My family is waiting and I surely hope they are alright, letter or no. It's time to find out.~
-++ ~Thank you for staying with me, Brandock.~ + back_hell_08
-++ ~Would you mind waiting a tad longer? There are some things I would like to take off your backpack before you go.~ + back_hell_10
-++ ~I rally think you should stay for a bit. You seem a bit in shock, actually.~ + back_hell_10
-++ ~I wish you a good journey, Brandock.~ + back_hell_09
-++ ~Go then. More ale for me!~ + back_hell_09
+SAY ~I wasn't prepared for going into Avernus and back again. Not that I'd complain about the coming back part.~
+= ~And - it *was* all for saving her uncle...~
+++ ~I need to time to digest all what happened. It was a bit much.~ + back_hell_10
+++ ~Well, it was a righteous cause. The execution, though...~ + back_hell_08
++ ~OR(2) !InMyArea("bdaun") Dead("bdaun")~ + ~*And* it was all for nothing, because he chose to remain there.~ + back_hell_10
+++ ~Her desperation was understandable. But she created hundrets of no less desperate relatives with her crusade. If only one of them goes the same path...~ + back_hell_09
+++ ~I think we are all happy to be back.~ + back_hell_11
+++ ~Let's not waste any more time with talking.~ + back_hell_12
 END
 
 IF ~~ THEN back_hell_08
-SAY ~My pleasure, <CHARNAME>. Although - a visit in hell is something we won't do again, alright?~
-++ ~Would you mind waiting a tad longer? There are some things I would like to take off your backpack before you go.~ + back_hell_10
-++ ~I rally think you should stay for a bit. You seem a bit in shock, actually.~ + back_hell_10
-++ ~I wish you a good journey, Brandock.~ + back_hell_09
-++ ~Go then. More ale for me!~ + back_hell_09
+SAY ~The execusion was lacking, to say it politely.~
+IF ~~ THEN + back_hell_10
 END
 
 IF ~~ THEN back_hell_09
-SAY ~I... I will go. Or maybe I won't...~
-IF ~~ THEN + back_hell_11
+SAY ~We will be far, far away from here, hopefully. Your words are very true, though.~
+IF ~~ THEN + back_hell_10
 END
 
 IF ~~ THEN back_hell_10
-SAY ~No, I really should go right away. Really.. or maybe I shouldn't...~
+SAY ~A very noble Argent knight - the uncle, not the niece. Sacrificing himself like this ... for that, that *brat*.~
 IF ~~ THEN + back_hell_11
 END
 
 IF ~~ THEN back_hell_11
+SAY ~What a life's "work" Caelar will be judged by when she faces the gods... Fortunately, that is no longer our problem.~
+IF ~~ THEN + back_hell_12
+END
+
+IF ~~ THEN back_hell_12
+SAY ~For us, it will be celebrations and rest now! And nothing, absolutely *nothing* can stop us from having a good... Ah, dang.~
+= ~I said I would leave as soon as it's all over. And I really think it's all over now, don't you?~
+++ ~You want to go right away? No celebrations? No rest?~ + back_hell_13
+++ ~I'd say it's over, yes.~ + back_hell_14
++ ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",0)~ + ~The letter about your mom's health! Yes, go! Your family is waiting.~ + back_hell_15
++ ~Global("C#Brandock_SoDMessenger","GLOBAL",0)~ + ~You did? What did I miss?~ + back_hell_20
+END
+
+IF ~~ THEN back_hell_13
+SAY ~If I rest now my brain might catch up with my memories. And as soon as that'll happen I don't know whether I might be able to get myself moving or whether I'll be paralysed for the rest of the tenday.~
+IF ~~ THEN + back_hell_15
+END
+
+IF ~~ THEN back_hell_14
+SAY ~It is, indeed. I still can't believe where we went and what we did.~
+IF ~~ THEN + back_hell_15
+END
+
+IF ~~ THEN back_hell_15
+SAY ~My family is waiting and I surely hope they are alright, letter or no. It's time to find out.~
+++ ~Thank you for staying with me and going through this, Brandock.~ + back_hell_16
+++ ~Would you mind waiting a tad longer? There are some things I would like to take off your backpack before you go.~ + back_hell_10
+++ ~I rally think you should stay for a bit. You seem a bit in shock, actually.~ + back_hell_18
+++ ~I wish you a good journey, Brandock.~ + back_hell_17
+++ ~Go then. More ale for me!~ + back_hell_17
+END
+
+IF ~~ THEN back_hell_16
+SAY ~My pleasure, <CHARNAME>. Although - a visit in hell is something we won't do again, alright?~
+++ ~Would you mind waiting a tad longer? There are some things I would like to take off your backpack before you go.~ + back_hell_18
+++ ~I rally think you should stay for a bit. You seem a bit in shock, actually.~ + back_hell_18
+++ ~I wish you a good journey, Brandock.~ + back_hell_17
+++ ~Go then. More ale for me!~ + back_hell_17
+END
+
+IF ~~ THEN back_hell_17
+SAY ~I... I will go. Or maybe I won't... My legs are still a bit jelly-ish, when I'm honest.~
+IF ~~ THEN + back_hell_11
+END
+
+IF ~~ THEN back_hell_18
+SAY ~No, I really should go right away. Really.. or maybe I shouldn't... My legs are still a bit jelly-ish, when I'm honest.~
+IF ~~ THEN + back_hell_19
+END
+
+IF ~~ THEN back_hell_19
 SAY ~I will stay a bit longer. But I will go before the night.~
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDEnd","GLOBAL",3)~ EXIT
+END
+
+IF ~~ THEN back_hell_20
+SAY ~Oh, right! You weren't there when I received a letter from my parents, stating my mom fell sick. They are asking me to come home as soon as I could - which would be now.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDMessenger","GLOBAL",2)~ + back_hell_15
 END
 
 END //APPEND
@@ -1575,8 +1707,179 @@ SAY ~Thanks!~
 END
 
 
+/* after meeting C. at the bridge 
+GlobalGT("bd_plot","global",170)
+*/
+
+IF ~Global("C#Brando_SoDCaelarBridge","GLOBAL",1)~ THEN caelar_bridge
+SAY ~So, this is Caelar? Did she just give that 'I sacrificed a lot of people but it's all justified for a greater good because I will save a few (I'm personally interested in)' speech? She really thinks she's righteous and doing good, doesn't she? She is actually *believing* she is doing good... Gnah. This woman is deluded to a point where it leaves a real bitter taste in the mouth to hear her talk.~ [c#ablank]
+++ ~Bitter is a mild description for the taste I have in my mouth after talking to this deluded madwoman...~ + caelar_bridge_01_01
+++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
+++ ~I'm not sure what to make of her just yet. She talks with much confidence, but her grand words do not add up with her actions.~ + caelar_bridge_01_02
+++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
+++ ~Sometimes a lesser evil has to be accepted to do greater good.~ DO ~SetGlobal("C#Brandock_SoDlesserEvil","LOCALS",1)~ + caelar_bridge_02
+END
+
+IF ~~ THEN caelar_bridge_01_01
+SAY ~Ha!...~
+++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
+++ ~I'm not sure what to make of her just yet. She talks with much confidence, but her grand words do not add up with her actions.~ + caelar_bridge_01_02
+++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
+END
+
+IF ~~ THEN caelar_bridge_01_02
+SAY ~No, they do not.~
+++ ~Well, if she really found a way to rescue all those souls from avernus it would *be* a righteous cause...~ + caelar_bridge_01
+++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
+++ ~There's nothing we can do about her now, I'm afraid.~ + caelar_bridge_03
+END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj caelar_bridge_01
+~*Cause*, maybe - when it was still an idea in someone's head or written on a piece of paper. But now? With all the death and destruction she and her blasted crusade already cost?~
+/* know Caelar will open portal - from Road to Discovery */
+== c#brandj IF ~GlobalGT("C#RtD_CaelarPlan","GLOBAL",3)~ THEN ~And with the knowledge that her glorious plan is just opening the portal - again?...~
+== c#brandj ~No way, <CHARNAME>. No way this is still a righteous cause!~
+END
+++ ~You are right, I was only judging the idea, not the execution.~ + caelar_bridge_03
+++ ~How about: "Sometimes a lesser evil has to be accepted to do greater good"?~ DO ~SetGlobal("C#Brandock_SoDlesserEvil","LOCALS",1)~ + caelar_bridge_02
+++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
+
+CHAIN
+IF ~~ THEN c#brandj caelar_bridge_02
+~A lesser... a *lesser* evil? You mean all the death, destruction, evictions were not enough to call it a greater evil?~
+/* know Caelar will open portal - from Road to Discovery */
+== c#brandj IF ~GlobalGT("C#RtD_CaelarPlan","GLOBAL",3)~ THEN ~Plus, you know, the fact that she is planning on letting hell loose on the Sword Coast - again?!~
+END
+++ ~You are right, I was only judging the idea, not the execution.~ + caelar_bridge_04_a
+++ ~I was jesting with you, Brandock. We share the same opinion on this. I only wanted to see you go all red and puffy again.~ + caelar_bridge_04
+++ ~There are thousands of people thinking that way, Brandock - the wole crusade! They joined her out of free will, or do you think all of them were forced to follow her?~ + caelar_bridge_05
+++ ~But how can it be wrong if so many people believe in her?~ + caelar_bridge_05
+
+APPEND c#brandj 
+
+IF ~~ THEN caelar_bridge_03
+SAY ~I can't believe that she is this deluded. Surely she knows about the destruction the crusade is causing? I mean, how could she not?~
+IF ~~ THEN + caelar_bridge_08
+END 
+
+IF ~~ THEN caelar_bridge_04
+SAY ~You... (scoffs)~
+IF ~~ THEN + caelar_bridge_04_a
+END
+
+IF ~~ THEN caelar_bridge_04_a
+SAY ~Well, thank you for that, <CHARNAME>. For a moment I really thought I had lost you there.~
+IF ~~ THEN + caelar_bridge_03
+END
+
+END //APPEND
+
+CHAIN
+
+IF ~~ THEN c#brandj caelar_bridge_05
+~Because they are all deluded? Because they are expecting to be rewarded in some way? Because people believe what they want to believe - and they do it thankfully if it spares them to have to think by themselves? Because not everyone of them has the right moral compass...~
+== c#brandj IF ~Global("C#Brandock_SoDlesserEvil","LOCALS",1)~ THEN ~And, and... and they use the same argument about the lesser and greater evil like you just did to justify it to themselves?!~
+END
++ ~Global("C#Brandock_SoDlesserEvil","LOCALS",1)~ + ~Hm, alright, alright, I am convinced.~ + caelar_bridge_04_a
++ ~Global("C#Brandock_SoDlesserEvil","LOCALS",0)~ + ~I fear you are right about that.~ + caelar_bridge_03
+++ ~I am not convinced, Brandock. I think Caelar is on the right path, even if the execution of her plan is lacking.~ + caelar_bridge_07
+++ ~Not everyone who is not of your opinion is necessarily deluded, Brandock.~ + caelar_bridge_06
 
 
+APPEND c#brandj
+
+IF ~~ THEN caelar_bridge_06
+SAY ~No - but people who accept plundering and murder and whatnot because they are serving a 'greater good' definitely are! Please tell me we are on the same page here.~
+++ ~Hm, alright, alright, I am convinced.~ + caelar_bridge_04_a
+++ ~I am not convinced, Brandock. I think Caelar is on the right path, even if the execution of her plan is lacking.~ + caelar_bridge_07
+END
+
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj caelar_bridge_07
+~I... I can't believe to hear you talk like this. Not after what we already saw and heard. Think of what the city turned into with all the refugees! Saving some souls is never a valid reason to condemn others for it.~
+== c#brandj IF ~Class(Player1,PALADIN_ALL)
+!Kit(Player1,Blackguard)~ THEN ~You of all people, <CHARNAME>, as a paladin! You should know!~
+== c#brandj ~Well, let's go on with our cause and see what we'll see next of the crusade. I am *sure* we'll come to a point where I will be tempted to say 'I told you so'... (mutters) I'm afraid I will.~
+END
+IF ~~ THEN + caelar_bridge_08
+
+
+APPEND c#brandj
+
+IF ~~ THEN caelar_bridge_08
+SAY ~Anyways - this bridge will no longer give passage across this river. Seems we need to take a detour.~
+IF ~~ THEN DO ~SetGlobal("C#Brando_SoDCaelarBridge","GLOBAL",2)~ EXIT
+END
+
+END //APPEND
+
+
+/* general reactions: */
+/* Caelar wants to open a portal */
+/* GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2) 
+"C#RtD_CaelarPlan" = 3/4 */
+CHAIN
+IF ~Global("C#Brandock_PortalAvernus","GLOBAL",1)~ THEN c#brandj knows_avernus_portal
+~Caelar wants to open a portal to Avernus! Which was the reason the first Dragonspear War took place at all - because of an open portal to Avernus where the devils came out, with forces from Waterdeep and Baldur’s Gate eventually marched on the castle in the first Dragonspear War. And now she's repeating it all over again? And the people *fell* for that?~
+== c#brandj ~Please tell me we will stop this madness. Please tell me we will do so soon!~
+END
+++ ~We will stop this madness, and we will do so soon.~ + knows_avernus_portal_01
+++ ~We will do what we can. That's the best I'm afraid.~ + knows_avernus_portal_02
+++ ~We will see, Brandock.~ + knows_avernus_portal_02
+++ ~Brandock, get a grib! You losing your head is the last thing I'd need right now!~ + knows_avernus_portal_03
+
+APPEND c#brandj
+IF ~~ THEN knows_avernus_portal_01
+SAY ~(Exhales) Thanks, but it didn't work. Please, say it again...~
+++ ~Brandock, look at me. We will do anything in our power to stop Caelar.~ + knows_avernus_portal_02 
+++ ~We will do what we can. That's the best I'm afraid.~ + knows_avernus_portal_02
+++ ~We will see, Brandock.~ + knows_avernus_portal_02
+++ ~Brandock, get a grib! You losing your head is the last thing I'd need right now!~ + knows_avernus_portal_03
+END
+
+IF ~~ THEN knows_avernus_portal_02
+SAY ~I... I guess that's the best I can get.~
+IF ~~ THEN + knows_avernus_portal_04
+IF ~GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2)~ THEN + portal_needs_pc_blood
+END
+
+IF ~~ THEN knows_avernus_portal_03
+SAY ~I'm... I'm *trying*.~
+IF ~~ THEN + knows_avernus_portal_04
+IF ~GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2)~ THEN + portal_needs_pc_blood
+END
+
+IF ~~ THEN knows_avernus_portal_04
+SAY ~I am not comfortable about the thought of hell creatures coming into this plane. This is bad. Worse than bad. And I am *babbling* again because I am scared. (inhales)~
+= ~We should get going. And stop this madness... May the gods help us.~
+IF ~~ THEN DO ~SetGlobal("C#Brandock_PortalAvernus","GLOBAL",2)~ EXIT
+END
+
+END //APPEND
+
+/*
+SetGlobal("C#Brandock_PortalPCBlood","GLOBAL",2)
+*/
+
+/* general reactions: */
+/* Caelar needs the PC's blood to open the portal (if knowledge is gained before Hephernaan's betrayal) */
+/* GlobalGT("C#RtD_KnowsPortalBlood","GLOBAL",2) */
+CHAIN
+IF ~Global("C#Brandock_PortalPCBlood","GLOBAL",1)~ THEN c#brandj portal_needs_pc_blood
+~Caelar wants to open the portal using your blood of all things. And suddenly it is crystal clear why Caelar has such an interest in you, <CHARNAME>.~
+== c#brandj IF ~Global("C#RtD_CaelarKidnap","GLOBAL",0)~ THEN ~And that the assassin attack at the palace wasn't one to kill you...~ DO ~SetGlobal("C#RtD_CaelarKidnap_SET","GLOBAL",1) SetGlobal("C#RtD_VariableEvaluation","GLOBAL",1)~
+== c#brandj IF ~Global("C#RtD_CaelarBhaalChild","GLOBAL",0)~ THEN ~Oh, and I think we can assume Caelar not to be a child of Bhaal. She *knows* about the portal - but nothing happened at Dragonspear Castle yet that would imply that there is an open portal to (shudders)... to Avernus. That and her increased interest in you... No, she is probably no child of Bhaal.~ DO ~SetGlobal("C#RtD_CaelarBhaalChild_SET","GLOBAL",1) SetGlobal("C#RtD_VariableEvaluation","GLOBAL",1)~
+END
+IF ~~ THEN DO ~SetGlobal("C#Brandock_PortalPCBlood","GLOBAL",2)~ EXIT
+IF ~GlobalGT("C#Brandock_PortalAvernus","GLOBAL",2)~ THEN DO ~SetGlobal("C#Brandock_PortalPCBlood","GLOBAL",2)~ + knows_avernus_portal_04
+
+
+APPEND c#brandj
 
 /////////////////////////////////////////////////////////////////////////
 /* Friendship dialogues */
@@ -1756,7 +2059,7 @@ IF ~~ THEN bounty_notice_05
 SAY ~Ha! Make sure you get a bag of holding for those.~
 + ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
 + ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
-
++ ~OR(2) PartyHasItem("c#br0003") HasItem("C#Brandock","c#br0003")~ + ~Nah, I'll just stuff all of them into your book bag. Did you need this for anything important?~ + bounty_notice_11
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
 
@@ -1869,6 +2172,14 @@ OR(5)
 
 ++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
 END
+
+IF ~~ THEN bounty_notice_11
+SAY ~Well, I guess I provoked that. Sure, go ahead - more choice for the foxes next time.~
++ ~Global("C#Brando_SoDDPEvents1","LOCALS",0)~ + ~These were assassins, probably sent by Caelar Agent.~ DO ~SetGlobal("C#Brando_SoDDPEvents1","LOCALS",1)~ + bounty_notice_03
++ ~Global("C#Brando_SoDDPEvents2","LOCALS",0) GlobalLT("BD_plot","global",54)~ + ~They poisoned Imoen. She is not well - at all.~ DO ~SetGlobal("C#Brando_SoDDPEvents2","LOCALS",1)~ + bounty_notice_04
+++ ~Lets stop talking and return to doing something.~ + bounty_notice_08
+END
+
 
 /* Imoen down - first dialogue starts here if PC didn't pick up bounty notice */
 IF ~Global("C#Brandock_Dialog","GLOBAL",102) GlobalLT("BD_plot","global",54)
@@ -2049,11 +2360,15 @@ GlobalLT("C#RtD_CoalCaelarBhaalChild","GLOBAL",2)~ + ~I wonder whether this rumo
 END
 
 
-/* 5th FP:  after first meeting of Caelar - Why a crusade? */
+/* 5th FP:  Why a crusade? */
 
 IF ~Global("C#Brandock_Dialog","GLOBAL",108)
+OR(2)
 GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ THEN why_crusade
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ THEN why_crusade
 SAY ~I don't get it, <CHARNAME>... Why a crusade?~ [c#ablank]
 ++ ~What?~ + why_crusade_02
 ++ ~You are wondering why Caelar is marching with a crusade to get to her goal?~ + why_crusade_01
@@ -2063,7 +2378,10 @@ END
 IF ~Global("C#Brandock_Dialog","GLOBAL",108)
 OR(2)
 GlobalGT("bd_plot","GLOBAL",390)
-GlobalGT("C#RtD_CaelarPlan","GLOBAL",2)~ THEN why_crusade_00
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalGT("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ THEN why_crusade_00
 SAY ~At the beginning, when we started marching against the crusade, I was asking myself...~
 IF ~~ THEN + why_crusade_02
 END
@@ -2077,21 +2395,50 @@ END //APPEND
 
 CHAIN
 IF ~~ THEN c#brandj why_crusade_02
-~What does Caelar need a crusade for? Why a crusade, why all these angry people, why all the followers - why? What is she marching against? It's not necessary to get into Dragonspear Castle - she could have travelled there in peace, before stomping the lands with thousands of people. So why?~
+~What does Caelar need a crusade for? Why a crusade, why all these angry people, why all the followers - what is she marching against? It's not necessary to get into Dragonspear Castle - she could have travelled there in peace, before stomping the lands with thousands of people.~
 == c#brandj IF ~OR(2)
 GlobalGT("bd_plot","GLOBAL",390)
-GlobalGT("C#RtD_CaelarPlan","GLOBAL",2)~ THEN ~Well, that was before I heard that she's planning on *marching into Avernus*, of course.~
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalGT("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ THEN ~Well, that was before I heard that she's planning on *marching into Avernus*, of course.~
 END
-+ ~GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ + ~Because many people are power!~ + why_crusade_03
-+ ~GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ + ~I think they just kind of followed her after she told them what she's up to.~ DO ~SetGlobal("C#Brandock_WhyCrusade4","LOCALS",1)~ + why_crusade_04
-+ ~GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ + ~You think it's more than just to stress her point and to force authorities to listen to her?~ DO ~SetGlobal("C#Brandock_WhyCrusade6","LOCALS",1)~ + why_crusade_06
-+ ~GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ + ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
-+ ~GlobalLT("bd_plot","GLOBAL",391)
-GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)~ + ~I don't want to talk about it, Brandock.~ + why_crusade_07
++ ~OR(2)
+GlobalLT("bd_plot","GLOBAL",391)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~Because many people are power!~ + why_crusade_03
++ ~OR(2)
+GlobalLT("bd_plot","GLOBAL",391)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~I think they just kind of followed her after she told them what she's up to.~ DO ~SetGlobal("C#Brandock_WhyCrusade4","LOCALS",1)~ + why_crusade_04
++ ~OR(2)
+GlobalLT("bd_plot","GLOBAL",391)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~You think it's more than just to stress her point and to force authorities to listen to her?~ DO ~SetGlobal("C#Brandock_WhyCrusade6","LOCALS",1)~ + why_crusade_06
++ ~OR(2)
+GlobalLT("bd_plot","GLOBAL",391) //not after meeting her at dead man's pass
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)
+OR(2)
+GlobalGT("bd_plot","global",170) //not before meeting her at Coastway Bridge
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~OR(2)
+GlobalLT("bd_plot","GLOBAL",391)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+GlobalLT("C#RtD_CaelarPlan","GLOBAL",3)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~I don't want to talk about it, Brandock.~ + why_crusade_07
 
 + ~OR(2)
 GlobalGT("bd_plot","GLOBAL",390)
@@ -2106,14 +2453,26 @@ IF ~~ THEN why_crusade_03
 SAY ~Definitely. But what are they for?~
 ++ ~I think they just kind of followed her after she told them what she's up to.~ DO ~SetGlobal("C#Brandock_WhyCrusade4","LOCALS",1)~ + why_crusade_04
 ++ ~You think it's more than just to stress her point and to force authorities to listen to her?~ DO ~SetGlobal("C#Brandock_WhyCrusade6","LOCALS",1)~ + why_crusade_06
-++ ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~OR(2)
+GlobalGT("bd_plot","global",170)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~GlobalLT("C#RtD_CaelarPlan","GLOBAL",2)~ + ~We will see, I guess.~ + why_crusade_07
 ++ ~I don't want to talk about it, Brandock.~ + why_crusade_07
 END
 
 IF ~~ THEN why_crusade_04
 SAY ~I don't know... I had the impression she set out to gather all these people around her. No, it was definitely her aim to collect all the disappointed and hurting.~
 + ~Global("C#Brandock_WhyCrusade6","LOCALS",0)~ + ~You think it's more than just to stress her point and to force authorities to listen to her?~ DO ~SetGlobal("C#Brandock_WhyCrusade6","LOCALS",1)~ + why_crusade_06
-++ ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~OR(2)
+GlobalGT("bd_plot","global",170)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~GlobalLT("C#RtD_CaelarPlan","GLOBAL",2)~ + ~We will see, I guess.~ + why_crusade_07
 ++ ~I don't want to talk about it, Brandock.~ + why_crusade_07
 END
 
@@ -2124,8 +2483,14 @@ END
 
 IF ~~ THEN why_crusade_06
 SAY ~She definitely has the authorities' attention with a thousand people in her follow...~
-+ ~Global("C#Brandock_WhyCrusade4","LOCALS",1)~ + ~I think they just kind of followed her after she told them what she's up to.~ DO ~SetGlobal("C#Brandock_WhyCrusade4","LOCALS",1)~ + why_crusade_04
-++ ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~Global("C#Brandock_WhyCrusade4","LOCALS",0)~ + ~I think they just kind of followed her after she told them what she's up to.~ DO ~SetGlobal("C#Brandock_WhyCrusade4","LOCALS",1)~ + why_crusade_04
++ ~OR(2)
+GlobalGT("bd_plot","global",170)
+Global("C#RtD_RoadToDiscovery","GLOBAL",1)
+OR(2)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+Global("C#RtD_RoadToDiscovery","GLOBAL",0)~ + ~Well, she *was* talking about freeing souls from Avernus...~ + why_crusade_05
++ ~GlobalLT("C#RtD_CaelarPlan","GLOBAL",2)~ + ~We will see, I guess.~ + why_crusade_07
 ++ ~I don't want to talk about it, Brandock.~ + why_crusade_07
 END
 
@@ -2144,6 +2509,83 @@ SAY ~If I'm honest, I don't want to talk about this. I don't want to have to *th
 IF ~~ THEN DO ~IncrementGlobal("C#Brandock_Dialog","GLOBAL",1)~ EXIT
 END
 
+
+/* 6th FP dialogue: after first meeting of Caelar */
+/* knowing that Caelar wants to free the souls from Avernus */
+
+/*
+GlobalGT("bd_plot","global",160)
+Global("C#RtD_CaelarPlan","GLOBAL",2)
+*/
+IF ~Global("C#Brandock_Dialog","GLOBAL",110)~ THEN know_freeing_souls_from_avernus
+SAY ~So, Caelar wants to "free the souls from Avernus". That is ... a noble idea ... but ...~
+= ~<CHARNAME>, I am scared.~
+++ ~Who wouldn't be, when facing a crazed warlady who is planning on meddling with fiends.~ + know_freeing_souls_from_avernus_01
++ ~GlobalLT("chapter","global",10)~ + ~It's a little early for that. We haven't even reached the large war camp yet.~ + know_freeing_souls_from_avernus_04
+++ ~We are strong, Brandock. The whole Sword Coast is fighting this with us.~ + know_freeing_souls_from_avernus_04
+++ ~What of, exactly?~ + know_freeing_souls_from_avernus_05
+++ ~No surprise there. Anything new you'd want to tell me?~ + know_freeing_souls_from_avernus_02
++ ~GlobalGT("C#Brando_bdelandr_18","global",0)~ + ~So you seem. Remember what happened at Bridgefort when one of the soldiers lost it?~ + know_freeing_souls_from_avernus_11
+++ ~Brandock, suck it up.~ + know_freeing_souls_from_avernus_03
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_01
+SAY ~I am relieved you see it that way, too.~
+IF ~~ THEN + know_freeing_souls_from_avernus_04
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_02
+SAY ~A-haha, yes, I deserve that.~
+IF ~~ THEN + know_freeing_souls_from_avernus_04
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_03
+SAY ~A-haha, yes, I guess I deserve that.~
+IF ~~ THEN DO ~IncrementGlobal("C#Brandock_Dialog","GLOBAL",1)~ EXIT
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_04
+SAY ~Aren't you scared?~
+++ ~Yes, I am, Brandock.~ + know_freeing_souls_from_avernus_06
+++ ~This whole affair has a magnitude that is kind of intimidating, I agree to that.~ + know_freeing_souls_from_avernus_06
+++ ~It doesn't matter, Brandock. We need to get through this, no matter how we are feeling about it.~ + know_freeing_souls_from_avernus_08
+++ ~No, I'm not. Not from this.~ + know_freeing_souls_from_avernus_07
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_05
+SAY ~The crusade ... that madwoman who clearly lost it ... fiends ... more fiends ...~
+IF ~~ THEN + know_freeing_souls_from_avernus_04
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_06
+SAY ~Alright, that's not reassuring at all. I don't know why I asked. I appreciate you not lying to me, though.~
+IF ~~ THEN + know_freeing_souls_from_avernus_09
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_07
+SAY ~I envy you. I do believe you are blind to the dangers at hand, but I do envy you.~
+IF ~~ THEN + know_freeing_souls_from_avernus_10
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_08
+SAY ~Yes, that's what I keep telling myself.~
+IF ~~ THEN + know_freeing_souls_from_avernus_10
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_09
+SAY ~And still you keep it together.~
+IF ~~ THEN + know_freeing_souls_from_avernus_10
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_10
+SAY ~Whatever it will be - I fear there will be fiends and demons, and more than we would like to be facing.~
+IF ~~ THEN DO ~IncrementGlobal("C#Brandock_Dialog","GLOBAL",1)~ EXIT
+END
+
+IF ~~ THEN know_freeing_souls_from_avernus_11
+SAY ~You mean Elandro and the Feyr? Yes, I do! That's why I am talking about it, because not experiencing something like this ever again is a good motivation.~
+IF ~~ THEN + know_freeing_souls_from_avernus_04
+END
 
 
 END //APPEND

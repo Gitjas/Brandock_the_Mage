@@ -561,29 +561,22 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1276 = ~Das ganze wäre noch viel besser ohne zusätzliche Höhenangst...~
 @1277 = ~Oje... Jetzt geht's los!~
 @1278 = ~Mann, freue ich mich für Gavin, dass er gerade nicht hier ist!~
-
-/* new for vbeta 7 */
 @1279 = ~Oh! <CHARNAME>, wie sind in einer Zone ohne Magie.~
 @1280 = ~Das... das war ein riesiger Käfer. Was bin ich froh, dass es keine Rhinozerosspinnen gibt.~
-@1281 = ~Die Schlacht hat begonnen! Lasst uns kämpfen!~
+@1281 = ~Oje, genau das hatte ich befürchtet... Die Schlacht hat begonnen! Lasst uns kämpfen!~
 @1282 = ~Eine weitere Schlacht! Wir werden obsiegen! Hoffe ich.~
 @1283 = ~Der *musste* genau auf der Burg sterben, oder?~
 @1284 = ~Ich hätte nie gedacht, dass ich das mal sage, aber diese Türen sehen *echt* einschüchternd aus!~
-
-/* new for vbeta 11 */
 @1285 = ~Bei manchen Gegnern ist das Ergattern ihrer Zauberbücher unbeschreiblich befriedigend. Hephernaan gehört da eindeutig dazu.~
-
 /* @1286 in c#brando_scrollscribing.baf */
 @1286 = ~Es tut mir Leid - hier kann ich das nicht!~
 @1287 = ~Hier, bitteschön.~ [c#ablank]
-/*
-@1288 = 
-*/
+@1288 = ~[Brandock]Das ist ein mächtiger Mantel, vor allem für einen Magier.~
 @1289 = ~Eine versteckte Bibliothek! Das wird immer besser. Oh ja, die Bücher sind in der Tat interessant.~
 @1290 = ~Ooh, eine Bibliothek! Kümmert Euch nicht ummich, ich schaue mich nur mal kurz um.~
-
 @1291 = ~(Brandock schaut sich die erbeuteten Zauberbücher aufmerksam an, sichtbar am Inhalt interessiert.)~
 @1292 = ~Oh ja. Dieses Zauberbruch ist definitiv interessant.~
+@1293 = ~Ist das Euer Ernst?! Holt mich aus diesem Ding raus, so schnell wie möglich! So bin ich doch zu nichts nutze!~
 
 /* BGII */
 @3500 = ~Haus von Brandocks Cousin~

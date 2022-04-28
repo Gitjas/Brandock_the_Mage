@@ -853,8 +853,8 @@ IF ~Global("C#Brandock_Possessions","GLOBAL",17)~ THEN book_rest
 SAY @930
 ++ @931 + book_rest_01
 ++ @932 + book_rest_01
-++ @933 DO ~SetGlobal("C#Brandock_Possessions","GLOBAL",17)~ + book_rest_02
-++ @934 DO ~SetGlobal("C#Brandock_Possessions","GLOBAL",19)~ + book_rest_02
+++ @933 DO ~SetGlobal("C#Brandock_Possessions","GLOBAL",18)~ + book_rest_02
+++ @934 DO ~SetGlobal("C#Brandock_Possessions","GLOBAL",20)~ + book_rest_02
 END
 
 IF ~~ THEN book_rest_01

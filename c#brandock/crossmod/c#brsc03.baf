@@ -1,0 +1,62 @@
+/* c#brsc03 - Crossmod Banter SoD Brandock Imoen (I4E) */
+
+/* this script block toggles Brandock's line if they bantered via bg1npc already */
+IF
+	Global("C#Br_bd_banter_Imoen03","MYAREA",50)
+	Global("C#Br_bd_banter_Imoen03_2","MYAREA",0)
+	GlobalGT("C#Brandock_ImoenBG1NPC","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",40)
+		SetGlobal("C#Br_bd_banter_Imoen03_2","MYAREA",1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	Global("C#Br_bd_banter_Imoen03","MYAREA",-1)
+	Switch("C#Br_bd_banter_Imoen03","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("%IMOEN_DV%",@8)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("C#Brandock",@9)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("%IMOEN_DV%",@10)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("C#Brandock",@11)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",50)
+	RESPONSE #40
+		DisplayStringHead("C#Brandock",@12)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",50)
+	RESPONSE #50
+		DisplayStringHead("C#Brandock",@13)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",60)
+	RESPONSE #60
+		DisplayStringHead("%IMOEN_DV%",@14)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",70)
+	RESPONSE #70
+		DisplayStringHead("C#Brandock",@15)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_ROUND)
+		SetGlobal("C#Br_bd_banter_Imoen03","MYAREA",-1)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",9)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

@@ -1,0 +1,75 @@
+IF
+	Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",2)	
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("c#brsqu1",MoveToPoint([1567.1825])
+		ActionOverride("c#brsqu2",MoveToPoint([1506.1727])
+		SmallWait(10)
+		ActionOverride("c#brsqu1",JumpToPoint([1567.1825])
+		ActionOverride("c#brsqu2",JumpToPoint([1506.1727])
+		SmallWait(2)
+		ActionOverride("c#brsqu1",FaceObject("bdrayphu"))
+		ActionOverride("c#brsqu2",FaceObject("bdrayphu"))
+		SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",3)
+		SetInterrupt(TRUE)
+END
+
+IF
+   Global("C#Brando_SoD_SpawnSQU","MYAREA",0)
+   !Dead("c#brsqu2")
+   GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",9)	
+THEN
+	RESPONSE #100
+	    CreateCreature("c#brsqu2",[1774.1713],4)
+            SetGlobal("C#Brando_SoD_SpawnSQU","MYAREA",1)
+END
+
+IF
+   Global("C#Brando_SoD_SpawnSQU","MYAREA",0)
+   !Dead("c#brsqu1")
+   !Dead("c#brsqu2")
+   GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",0)
+   GlobalLT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",6)	
+THEN
+	RESPONSE #100
+	    CreateCreature("c#brsqu1",[1482.1753],0) 
+	    CreateCreature("c#brsqu2",[1539.1765],0)
+            SetGlobal("C#Brando_SoD_SpawnSQU","MYAREA",1)
+END
+
+IF
+	GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",5)
+	InMyArea("c#brsqu1")	
+THEN
+	RESPONSE #100
+		ActionOverride("c#brsqu1",EscapeArea())
+		Continue()
+END
+
+IF
+	OR(3)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",6)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",7)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",8)
+	InMyArea("c#brsqu2")	
+THEN
+	RESPONSE #100
+		ActionOverride("c#brsqu2",EscapeArea())
+		Continue()
+END
+
+IF
+	Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",9)
+	InMyArea("c#brsqu2")	
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("c#brsqu2",MoveToPoint([1774.1713])
+		SmallWait(10)
+		ActionOverride("c#brsqu2",JumpToPoint([1774.1713])
+		SmallWait(2)
+		ActionOverride("c#brsqu2",Face(4))
+		SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",10)
+		SetInterrupt(TRUE)
+END

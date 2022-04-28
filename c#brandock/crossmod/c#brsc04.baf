@@ -1,0 +1,53 @@
+/* c#brsc04 - Crossmod Banter SoD Brandock Imoen (I4E) */
+
+/* this script block toggles Brandock's line: last line will only show if Imoen is not a mage yet. */
+IF
+	Global("C#Br_bd_banter_Imoen04","MYAREA",50)
+	Class("%IMOEN_DV%",MAGE_ALL)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",12)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",-1)
+END
+
+IF
+	InMyArea(Player1)
+	!ActuallyInCombat()
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+	!Global("C#Br_bd_banter_Imoen04","MYAREA",-1)
+	Switch("C#Br_bd_banter_Imoen04","MYAREA")
+THEN
+	RESPONSE #0
+		DisplayStringHead("C#Brandock",@16)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",10)
+	RESPONSE #10
+		DisplayStringHead("%IMOEN_DV%",@17)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",20)
+	RESPONSE #20
+		DisplayStringHead("C#Brandock",@18)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",30)
+	RESPONSE #30
+		DisplayStringHead("%IMOEN_DV%",@19)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",40)
+	RESPONSE #40
+		DisplayStringHead("C#Brandock",@20)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",50)
+	RESPONSE #50
+		DisplayStringHead("C#Brandock",@21)
+		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
+		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",12)
+		SetGlobal("C#Br_bd_banter_Imoen04","MYAREA",-1)
+END
+
+IF
+	!GlobalTimerNotExpired("BD_BANTER_DELAY","MYAREA")
+THEN
+	RESPONSE #100
+		SetAreaScript("",GENERAL)
+END
+

@@ -6,4 +6,5 @@ THEN
 	RESPONSE #100
             SetGlobal("C#BrandockGorionDS","GLOBAL",1)
 	    CreateCreature("c#brspy1",[2865.1462],13) 
+	    Continue()
 END

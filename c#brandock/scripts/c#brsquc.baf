@@ -1,0 +1,145 @@
+/* normal arrows */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",21)
+	NumItemsPartyGT("AROW01",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("AROW01",10)
+		SmallWait(2)
+		DestroyItem("AROW01")
+		SmallWait(2)
+		GiveItemCreate("AROW02",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* arrow +1 */	
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",22)
+	NumItemsPartyGT("AROW02",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("AROW02",10)
+		SmallWait(2)
+		DestroyItem("AROW02")
+		SmallWait(2)
+		GiveItemCreate("AROW11",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* arrow +2 */	
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",23)
+	NumItemsPartyGT("AROW11",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("AROW11",10)
+		SmallWait(2)
+		DestroyItem("AROW11")
+		SmallWait(2)
+		GiveItemCreate("bdarow04",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* normal bolts */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",11)
+	NumItemsPartyGT("BOLT01",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BOLT01",10)
+		SmallWait(2)
+		DestroyItem("BOLT01")
+		SmallWait(2)
+		GiveItemCreate("BOLT02",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* bolts +1 */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",12)
+	NumItemsPartyGT("BOLT02",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BOLT02",10)
+		SmallWait(2)
+		DestroyItem("BOLT02")
+		SmallWait(2)
+		GiveItemCreate("BOLT06",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* bolts +2 */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",13)
+	NumItemsPartyGT("BOLT06",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BOLT06",10)
+		SmallWait(2)
+		DestroyItem("BOLT06")
+		SmallWait(2)
+		GiveItemCreate("bdbolt03",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* normal bullets */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",31)
+	NumItemsPartyGT("BULL01",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BULL01",10)
+		SmallWait(2)
+		DestroyItem("BULL01")
+		SmallWait(2)
+		GiveItemCreate("BULL02",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* bullets +1 */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",32)
+	NumItemsPartyGT("BULL02",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BULL02",10)
+		SmallWait(2)
+		DestroyItem("BULL02")
+		SmallWait(2)
+		GiveItemCreate("BULL03",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+/* bullets +2 */
+IF
+	Global("C#Brando_SoD_squ2","GLOBAL",33)
+	NumItemsPartyGT("BULL03",9)
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		TakePartyItemNum("BULL03",10)
+		SmallWait(2)
+		DestroyItem("BULL03")
+		SmallWait(2)
+		GiveItemCreate("bdbull03",LastTalkedToBy(Myself),1,0,0)
+		StartCutSceneEx("c#brsquc",TRUE)
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneID("c#brsqu2")
+		FadeFromColor([20.0],0)
+		Wait(1)
+		SetGlobal("C#Brando_SoD_squ2","GLOBAL",2)
+		StartDialogNoSet([PC])
+END

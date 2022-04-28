@@ -29,7 +29,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_MoveCamp","bd1000",1)
-		MoveGlobal("bd1000","C#Brandock",[245.3745])
+		MoveGlobal("bd1000","C#Brandock",[455.3745])
 		ActionOverride("C#Brandock",Face(S)) 
 		SetGlobal("C#BrandockJoined","GLOBAL",0)
 		ReallyForceSpellDeadRES("bdrejuve","C#Brandock")  // No such index

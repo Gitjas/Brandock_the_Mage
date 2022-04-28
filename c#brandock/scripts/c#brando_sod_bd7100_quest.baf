@@ -1,0 +1,61 @@
+
+IF
+   Global("C#Brando_SoD_SpawnSQU","MYAREA",0)
+   !Dead("c#brsqu2")
+   GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",9)	
+THEN
+	RESPONSE #100
+	    CreateCreature("c#brsqu2",[336.3344],10)
+            SetGlobal("C#Brando_SoD_SpawnSQU","MYAREA",1)
+END
+
+/* Rayphus is not in bd7100!
+IF
+   Global("C#Brando_SoD_SpawnSQU","MYAREA",0)
+   !Dead("c#brsqu1")
+   !Dead("c#brsqu2")
+   GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",0)
+   GlobalLT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",6)	
+THEN
+	RESPONSE #100
+	    CreateCreature("c#brsqu1",[xx.yy],10) 
+	    CreateCreature("c#brsqu2",[xx.yy],10)
+            SetGlobal("C#Brando_SoD_SpawnSQU","MYAREA",1)
+END
+
+IF
+	GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",5)
+	InMyArea("c#brsqu1")	
+THEN
+	RESPONSE #100
+		ActionOverride("c#brsqu1",EscapeArea())
+		Continue()
+END
+
+IF
+	OR(3)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",6)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",7)
+		Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",8)
+	InMyArea("c#brsqu2")	
+THEN
+	RESPONSE #100
+		ActionOverride("c#brsqu2",EscapeArea())
+		Continue()
+END
+
+IF
+	Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",9)
+	InMyArea("c#brsqu2")	
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		ActionOverride("c#brsqu2",MoveToPoint([336.3344])
+		SmallWait(10)
+		ActionOverride("c#brsqu2",JumpToPoint([336.3344])
+		SmallWait(2)
+		ActionOverride("c#brsqu2",Face(12))
+		SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",10)
+		SetInterrupt(TRUE)
+END
+*/

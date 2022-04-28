@@ -11,6 +11,16 @@ THEN
 		SetGlobal("C#Br_bd_banter_Imoen01_2","MYAREA",1)
 END
 
+IF
+	Global("C#Br_bd_banter_Imoen01","MYAREA",20)
+	Global("C#Br_bd_banter_Imoen01_2","MYAREA",0)
+	GlobalGT("C#Brandock_ImoenSoD_Palace","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",10)
+		SetGlobal("C#Br_bd_banter_Imoen01_2","MYAREA",1)
+END
+
 
 IF
 	InMyArea(Player1)
@@ -20,19 +30,19 @@ IF
 	Switch("C#Br_bd_banter_Imoen01","MYAREA")
 THEN
 	RESPONSE #0
-		DisplayStringHead("C#Brandock",~Imoen, I am happy that you are back with us now.~)
+		DisplayStringHead("C#Brandock",@0)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",20)
 	RESPONSE #10
-		DisplayStringHead("C#Brandock",~I'm really glad to see you alive and well.~)
+		DisplayStringHead("C#Brandock",@1)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",30)
 	RESPONSE #20
-		DisplayStringHead("C#Brandock",~I can't tell you how glad I am to see you alive and well.~)
+		DisplayStringHead("C#Brandock",@2)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",ONE_MINUTE)
 		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",30)
 	RESPONSE #30
-		DisplayStringHead("%IMOEN_DV%",~[Imoen] Oh, me too! Being poisoned was scary. Having trembling hands was scary! Letting <CHARNAME> go without me was very scary! I'm glad I'm back.~)
+		DisplayStringHead("%IMOEN_DV%",@3)
 		SetGlobalTimer("BD_BANTER_DELAY","MYAREA",TWO_MINUTES)
 		SetGlobal("C#Br_bd_banter_Imoen01","MYAREA",-1)
 		SetGlobal("C#Brandock_ImoenSoD","GLOBAL",3)

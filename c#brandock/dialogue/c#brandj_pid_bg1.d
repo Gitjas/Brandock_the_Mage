@@ -63,6 +63,9 @@ SAY @0
 
 /* SoD (put the more recent reply options on top) */
 
+/* SoD game events */
+//##
+
 /* half-ogre shapeshift quest */
 /* quest was not finished in BG1 - bring quest to same level: SoD */
 + ~%IT_IS_SOD%
@@ -323,7 +326,7 @@ Global("C#Br_PIDPuppiesNGrannies","LOCALS",1)~ + @25 DO ~SetGlobal("C#Br_PIDPupp
 Global("C#Br_PIDPuppiesNGrannies","LOCALS",1)~ + @26 DO ~SetGlobal("C#Br_PIDPuppiesNGrannies","LOCALS",2)~ + puppies_01
 
 
-/* book restored iteself - not translated yet */
+/* book restored itself - not translated yet */
 /* So, your book is a book again? What happened back there? */
 + ~%BG1_BEFORE_TRANSITION%
 Global("C#Br_BookRestore","GLOBAL",6)
@@ -536,13 +539,27 @@ GlobalGT("C#Brandock_Possessions","GLOBAL",3) Global("C#Brandock_PID_01","LOCALS
 /* Something on your mind? */
 
 /* SoD content */
-/* Elandro and the Feyr */
 
+/* burnt inn in bd1000 */
++ ~%IT_IS_SOD% 
+GlobalGT("bd_plot","global",150)
+OR(2)
+	Global("SOD_fromimport","GLOBAL",0)
+	Global("C#BRPID_OnYourMind","LOCALS",2)
+Global("C#BRPID_OnYourMindSoD","LOCALS",0)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",1)~ + burnt_inn_bd1000
+
++ ~%IT_IS_SOD% 
+OR(2)
+	Global("SOD_fromimport","GLOBAL",0)
+	Global("C#BRPID_OnYourMind","LOCALS",2)
+Global("C#BRPID_OnYourMindSoD","LOCALS",1)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",2)~ + burnt_inn_bd1000_follow_up
+
+/* Elandro and the Feyr */
 + ~%IT_IS_SOD% Dead("bdfeyr")
 OR(2)
 	Global("SOD_fromimport","GLOBAL",0)
 	Global("C#BRPID_OnYourMind","LOCALS",2)
-Global("C#BRPID_OnYourMindSoD","LOCALS",0)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",1)~ + on_your_mind_sod_01
+Global("C#BRPID_OnYourMindSoD","LOCALS",2)~ + @33 DO ~IncrementGlobal("C#BRPID_OnYourMindSoD","LOCALS",3)~ + on_your_mind_sod_01
 
 + ~OR(2)
 	%BG1_BEFORE_TRANSITION% //still BG1
@@ -1780,6 +1797,20 @@ EraseJournalEntry(@10055)
 AddJournalEntry(@10057,QUEST)
 SetGlobal("C#Br_BookRestore","GLOBAL",13)~ UNSOLVED_JOURNAL @10056 EXIT
 END 
+
+/* burnt inn in bd1000.are */
+IF ~~ THEN burnt_inn_bd1000
+SAY @1009 /* ~That burnt inn we passed at Coastway Crossing... that would be my home town, would the crusade march down in the south. Farmers, carpenders, bakers, and one smith - for horseshoes and repairing farmer tools. One watch man, no local Cowled Wizard, at least none I know of.~ */
+= @1010 /* ~They all know how to use their tools to drive away vagabonds and the occasional wolves alright, but there would be noone who could even *try* to stop such a mob. Not to mention no town or city can stop an army like this on its own. Would the crusade march down there, I guess my brothers would have been forced to join and my father and mother... would probably be dead.~ */
+IF ~~ THEN EXIT
+END
+
+/* follow-up to burnt inn in bd1000.are */
+IF ~~ THEN burnt_inn_bd1000_follow_up
+SAY @1011 /* ~I'm pondering about the... let's call it "mage situation" in my home town. They do not even have a local mage there! I mean... that would be me, wouldn't it... had I returned to my family and lived the life of a Cowled Wizard after my apprenticeship was over, farmer by day, mage by night...~ */
+= @1012 /* ~I could live there and... and protect them. Not from a crusade, of course, but... Is it egoistic of me that I want to learn more, study more, understand more about magic? Instead of working with what I have and put it to use for my home. What is the optimum to which I have an excuse to optimize my skills before it could be seen as an excuse to get away from a life that was not only happy?...~ */
+IF ~~ THEN EXIT
+END
 
 /* Elandro and the Feyr - follow-up dialogue */
 IF ~~ THEN on_your_mind_sod_01

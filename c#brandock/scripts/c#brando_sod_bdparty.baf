@@ -9,7 +9,7 @@ IF
 		!TriggerOverride("ff_camp",IsOverMe("C#Brandock"))  
 THEN
 	RESPONSE #2
-		EscapeAreaMove("bd1000",648,3782,N) 
+		EscapeAreaMove("bd1000",455,3745,N) 
 	RESPONSE #3
 		EscapeAreaMove("bd7100",330,3434,E) 
 	RESPONSE #4
@@ -25,7 +25,7 @@ IF
 THEN
 	RESPONSE #2
 		SetGlobal("bd_npc_camp","locals",2)
-		SaveLocation("LOCALS","bd_default_loc",[648.3782])
+		SaveLocation("LOCALS","bd_default_loc",[455.3745])
 	RESPONSE #3
 		SetGlobal("bd_npc_camp","locals",2)
 		SaveLocation("LOCALS","bd_default_loc",[330.3434])

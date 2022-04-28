@@ -196,7 +196,10 @@ Malm, the half-ogre who shapeshifted into a human found a temporary home in the 
 
 Malm, the half-ogre who shapeshifted into a human got into trouble and was apparently thrown into prison at the Flaming Fist Headquarters! Brandock wants us to go there and see whether Malm needs support.~
 @10076  = ~Brandock and his Half-Ogre 'Twin'~
-//@10077  = ~##~
+@10077  = ~Quarrel about a Magic Book
+
+Sir Rayphus approached me with a request: two refugees are fighting over a magic book of which both say it belongs to them. As the hero of Baldur's Gate they will accept my verdict. I should talk to them and see whether I can decide who the book really belongs to.
+The refugees' names are Mander and Eldom. Mander says Eldom stole the book, but Eldom says he only took it back from Mander who stole it first. They should both be near Sir Rayphus in the camp.~
 @10078  = ~Brandock Wants to Restore his Book
 
 Brandock is ready to write spells into the De Simplex Magicae! For every page, he'll need one spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost. Brandock is able to write 5 pages now, but there will be a 6th page when he has more experience.
@@ -231,9 +234,33 @@ Spells available will be:
 @10081  = ~Brandock Wants to Restore his Book
 
 It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~
-//@10082  = ~~
-//@10083  = ~~
+@10082  = ~Quarrel about a Magic Book~
+@10083  = ~Quarrel about a Magic Book
 
+I gave the magic book back to Mander. It's rediculous that Eldom claimed a book as his he didn't even knew the title of! - For some reason Eldom's reaction gave me a bad feeling about whether it was the correct decision, though... But what's done is done.~
+@10084  = ~Quarrel about a Magic Book
+
+I left the book with Eldom. The way Brandock discussed the contents with him made it clear that Eldom studied this book extensively, more than he could have done in the one day he had it after Mander proclaimed he "stole" it from him.~
+@10085  = ~Eldom's Munition Enchantments
+
+Eldom offered to enchant munitions for me. For arrows, bullets, and bolts without special spell effects, he can make one piece with higher enchantment out of 10 pieces. I should be able to find him near my chest in the camp.
+So far, he can do this for normal and +1 arrows, bullets, and bolts.~
+@10086  = ~Eldom's Munition Enchantments~
+@10087  = ~Eldom's Munition Enchantments
+
+Eldom offered to enchant munitions for me. For arrows, bullets, and bolts without special spell effects, he can make one piece with higher enchantment out of 10 pieces. I should be able to find him near my chest in the camp.
+He can do this for normal, +1, and +2 arrows, bullets, and bolts.~
+@10088  = ~Eldom's Missing Book Page
+
+The half-elf Eldom is missing a page from his magical book about item enchantments. It was probably sold by Mander after he stole the book. I should find the page near other mages or smiths.
+Eldom needs the page to enchant +3 munition.~
+@10089  = ~Eldom's Missing Book Page~
+@10090  = ~Eldom's Missing Book Page
+
+I brought Eldom the missing book page. It was in bad shape but still readable. He will be able to create +3 arrows, bullets, and bolts now if I bring him tenth the amount of +2 enchanted ammo.~
+@10091  = ~Quarrel about a Magic Book
+
+I left the book with Eldom.~
 
 
 /* Epilogue(s) */

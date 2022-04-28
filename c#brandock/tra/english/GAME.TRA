@@ -513,29 +513,23 @@ This will transform Brandock back into his human form. Despite his fears and pan
 @1276 = ~This would be so much better without being afraid of heights...~
 @1277 = ~Oh dear... Here we go!~
 @1278 = ~Boy, I'm happy for Gavin that he's not here!~
-
-/* new for vbeta 7 */
 @1279 = ~Oh! <CHARNAME>, we are in a dead magic zone.~
 @1280 = ~That... that's a huge beetle. I'm glad there are no Rhinoceros Spiders!~
-@1281 = ~The battle started! Let's fight them!~
+@1281 = ~Uh-oh... that's exactly what I feared would happen. The battle started! Let's fight them!~
 @1282 = ~Another battle! We will prevail! I hope.~
 /* talking about the dragon (skeleton) at Dragonspear Castle */
 @1283 = ~It just *had* to die right on top of the castle, hadn't it?~
 @1284 = ~I never thought I'd say that, but those doors look *really* intimidating!~
-
-/* new for vbeta 11 */
 @1285 = ~For some opponents, getting to their spellbooks is utterly satisfying. Hephernaan is one of those.~
 /* @1286 + @1287 in c#brando_scrollscribing.baf */
 @1286 = ~I'm sorry - can't do this here!~
 @1287 = ~Here you are.~ [c#ablank]
-/*
-@1288 = 
-*/
+@1288 = ~[Brandock]This is a mighty robe, especially for a mage.~
 @1289 = ~A hidden library! This is getting better and better. Oh yes, these are very interesting, indeed.~
 @1290 = ~Ooh, a library! Don't mind me, I'll have a quick peek around.~
-
 @1291 = ~(Brandock takes a good look at the dropped spellbooks, seemingly interested in what he sees.)~
 @1292 = ~Oh yes. This spellbook is definitely interesting.~
+@1293 = ~Are you serious?! Get this thing off me, and quickly! I'm no use like this.~
 
 /* BGII */
 @3500 = ~House of Brandock's Cousin~

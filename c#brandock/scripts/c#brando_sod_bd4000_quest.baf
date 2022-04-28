@@ -1,0 +1,13 @@
+/* AR4000.bcs - move missing pages from Eldom's magic book in container "Crate 1" if player didn't find them yet */
+
+
+IF 
+    GlobalGT("C#Brando_SoD_squ2","GLOBAL",0)
+    !Dead("c#brsqu2")
+    GlobalLT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",11)
+    Global("C#Brando_SoD_QuestPages","MYAREA",0)
+THEN 
+    RESPONSE #100 
+        ActionOverride("Ale Crate",CreateItem("c#brsql1",1,0,0))
+        SetGlobal("C#Brando_SoD_QuestPages","MYAREA",1) 
+END 

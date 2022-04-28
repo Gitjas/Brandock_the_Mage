@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Beta_16~ 
+VERSION ~Testversion_NVLOR_220428~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -17,6 +17,15 @@ ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN 
   FAIL @55542
 END
 
+/* unify string ref numbers */
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+  OUTER_SPRINT ~eet_2~ ~~
+  INCLUDE ~sodrtd/lib/g3_bgee_cpmvars.tpa~
+END
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+  OUTER_SPRINT ~eet_2~ ~2~
+  INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+END
 
 
 /* continuous chapter for EET */
@@ -243,12 +252,10 @@ OUTER_SPRINT ~HASSPELL_WIZARD_IMPROVED_INVISIBILITY~ ~LevelGT("C#Brandock",6)~
 OUTER_SPRINT ~HASSPELL_WIZARD_MONSTER_SUMMONING_2~ ~LevelGT("C#Brandock",6)~
 OUTER_SPRINT ~HASSPELL_WIZARD_PROTECTION_FROM_ACID~ ~LevelGT("C#Brandock",8)~
 OUTER_SPRINT ~HASSPELL_WIZARD_PIERCE_SHIELD~ ~LevelGT("C#Brandock",15)~
+  OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~LevelGT("C#Brandock",8)~
 END
 
 /* we make Breach not available in BG1 */
-ACTION_IF GAME_IS ~bg2~ THEN BEGIN
-  OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~LevelGT("C#Brandock",8)~
-END
 ACTION_IF GAME_IS ~bgt~ THEN BEGIN
   OUTER_SPRINT ~HASSPELL_WIZARD_BREACH~ ~LevelGT("C#Brandock",8) Global("ENDOFBG1","GLOBAL",2)~
 END
@@ -399,6 +406,16 @@ ACTION_IF GAME_IS ~eet bgee~ THEN BEGIN
   ADD_JOURNAL TITLE (@10029) @10030 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Brandock's Scroll Scribing Skills~ */
   ADD_JOURNAL TITLE (@10007) @10012 @10050 @10054 @10062 @10063 @10064 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+END
+
+/* Journal Entries for SoD part */
+ACTION_IF GAME_INCLUDES ~sod~ THEN BEGIN
+/* ~Quarrel about a Magic Book~ */
+  ADD_JOURNAL TITLE (@10082) @10077 @10083 @10084 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Eldom's Munition Enchantments~ */
+  ADD_JOURNAL TITLE (@10086) @10085 @10087 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Eldom's Missing Book Page~ */
+  ADD_JOURNAL TITLE (@10089) @10088 @10090 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 END
 
 /* Journal Entries for BGII part ## */
@@ -591,7 +608,8 @@ END //GAME_IS ~bgee bgt eet~
 
 /* SoD (SoD specific dialogues) */
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~ 
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_quest.d~ 
 /* Lorepath: SoD content */
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_lorepath_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
@@ -921,7 +939,7 @@ WRITE_EVALUATED_ASCII 0x248 ~c#brspy1~ #8   // Override script
 WRITE_EVALUATED_ASCII 0x260 ~~ #8   // General script
 
 /* place invisible creature onto Gorion's death site */
-LAF extend_area_script STR_VAR area="%LionsWay%" bottom="C#Brandock/scripts/c#brando_ar2700.baf" END
+LAF extend_area_script STR_VAR area="%LionsWay%" top="C#Brandock/scripts/c#brando_ar2700.baf" END
 
 /* place invisible cre so Brandock recognizes the carnival */
 LAF extend_area_script STR_VAR area="%NashkelCarnival%" bottom="C#Brandock/scripts/c#brando_ar4900.baf" END
@@ -1815,6 +1833,34 @@ END
 
 /* SoD */
 ACTION_IF (GAME_INCLUDES ~sod~) THEN BEGIN
+
+/* items */
+/* missing book page for quest "book quarrel" */
+COPY_EXISTING ~bdure2a.itm~ ~override/c#brsql1.itm~
+SAY NAME1 ~Old Torn Out Book Page~
+SAY NAME2 ~Old Torn Out Book Page~
+SAY UNIDENTIFIED_DESC ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
+You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~
+SAY IDENTIFIED_DESC ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
+You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~
+
+/* cres */
+/* refugees for bd1000.are quest "book quarrel" */
+COPY_EXISTING ~bdrefy2.cre~ ~override/c#brsqu1.cre~ //
+   SAY NAME1 ~Mander~ 
+   SAY NAME2 ~Mander~ 
+WRITE_EVALUATED_ASCII 0x280 ~c#brsqu1~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu1~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brsqu1~ #8   // Override script
+
+COPY_EXISTING ~bdrefy8.cre~ ~override/c#brsqu2.cre~ //
+   SAY NAME1 ~Eldom~ 
+   SAY NAME2 ~Eldom~ 
+WRITE_EVALUATED_ASCII 0x280 ~c#brsqu2~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu2~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brsqu2~ #8   // Override script
+
+
 /* SoD: scripts */
 
 /* SoD specific banter scripts */
@@ -1827,8 +1873,25 @@ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
 COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb04.baf~
 USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
 
+/* quest "book quarrel" enchantment cutscene */
+COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsquc.baf~
+
 
 //Extend existing Scripts for SoD
+
+/* quest "book quarrel" area extentions */
+EXTEND_BOTTOM ~bd1000.bcs~ ~c#brandock/scripts/c#brando_sod_bd1000_quest.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000_quest.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd3000.bcs~ ~c#brandock/scripts/c#brando_sod_bd3000_quest.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd4000.bcs~ ~c#brandock/scripts/c#brando_sod_bd4000_quest.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bd7100.bcs~ ~c#brandock/scripts/c#brando_sod_bd7100_quest.baf~
+  EVALUATE_BUFFER
+EXTEND_BOTTOM ~bdrayphu.bcs~ ~c#brandock/scripts/c#brando_sod_bdrayphu.baf~
+  EVALUATE_BUFFER
 
 /* after Korlasz is defeated: DisplayStringHead */
 EXTEND_BOTTOM ~bd0120.bcs~ ~c#brandock/scripts/c#brando_sod_bd0120.baf~
@@ -2000,6 +2063,52 @@ END //SoD
 /* BGII */
 
 ACTION_IF GAME_IS ~bg2ee tob bgt eet~ THEN BEGIN
+
+/* this was for testing, remove before release */
+/* ## */
+
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_quest_test.d~ 
+EXTEND_BOTTOM ~bdrayphu.bcs~ ~c#brandock/scripts/c#brando_sod_bdrayphu_test.baf~
+  EVALUATE_BUFFER
+
+<<<<<<<< ...inlined/spawn_rayphus.baf
+IF 
+	Global("TestSpawn_Rayphus","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CreateCreatureObjectOffScreen("bdrayphu","C#Brandock",0,0,0)
+		SetGlobal("TestSpawn_Rayphus","GLOBAL",2)
+END
+
+>>>>>>>>
+EXTEND_BOTTOM ~c#brand2.bcs~ ~...inlined/spawn_rayphus.baf~
+
+
+/* cres */
+COPY_EXISTING ~MTOWN1.cre~ ~override/bdrayphu.cre~ //
+   SAY NAME1 ~Rayphus~ 
+   SAY NAME2 ~Rayphus~ 
+WRITE_EVALUATED_ASCII 0x280 ~bdrayphu~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~bdrayphu~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~bdrayphu~ #8   // Override script
+
+COPY_EXISTING ~MTOWN1.cre~ ~override/c#brsqu1.cre~ //
+   SAY NAME1 ~Mander~ 
+   SAY NAME2 ~Mander~ 
+WRITE_EVALUATED_ASCII 0x280 ~c#brsqu1~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu1~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brsqu1~ #8   // Override script
+
+COPY_EXISTING ~MTOWN1.cre~ ~override/c#brsqu2.cre~ //
+   SAY NAME1 ~Eldom~ 
+   SAY NAME2 ~Eldom~ 
+WRITE_EVALUATED_ASCII 0x280 ~c#brsqu2~ #8   // Death variable
+WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu2~ #8   // dialogue
+WRITE_EVALUATED_ASCII 0x248 ~c#brsqu2~ #8   // Override script
+
+/* ## */
+
+
 
 /* new BGII game or tob, bgii:ee: spawn Brandock in C#br03.are */
 // happens in c#br03.baf compiled below
@@ -3148,11 +3257,32 @@ END //~b!gavin.cre~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~c#imback.bcs~ THEN BEGIN
 PRINT @55565 /* ~Imoen 4 Ever: SoD detected.~ */
-  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc01.baf~
+//WITH_TRA ~brando_crossmod_I4E_sod_main.tra~ BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc01.baf~ 
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc02.baf~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc03.baf~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc04.baf~
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
+//END
   EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/crossmod/brando_crossmod_i4e_sod.baf~  EVALUATE_BUFFER
   EXTEND_BOTTOM ~bdimoens.bcs~   ~C#Brandock/crossmod/brando_crossmod_i4e_sod_im.baf~  EVALUATE_BUFFER
 END //I4E
+
+
+/* The Boareskyr Bridge Scene */
+ACTION_IF (MOD_IS_INSTALLED ~c#sodboabri/setup-c#sodboabri.tp2~ ~0~) THEN BEGIN
+PRINT @55587 /* The Boareskyr Bridge Scene mod detected. */
+
+// Get state for c#stff24 %after_incident_at_bridge_10% (in c#sodboabri/dialogues/bhaalheritage_boareskyr_bridge.d)
+/* @76  = ~[FF Healer (female)]Everyone saw the sign of Bhaal painting itself on the ground around you. I fear what happened here will be the source of much speculation and rumors. Let us move on and leave this place.~
+*/
+OUTER_SET after_incident_at_bridge_10 = STATE_WHICH_SAYS 76 IN ~c#sodboabri/translations/autotra/%s/dialogues.tra~ FROM ~c#stff24~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_boareskyrbridge.d~ 
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+END
 
 /* Transitions */
 
@@ -3372,12 +3502,16 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~BDIMOENB.dlg~ THEN BEGIN
 COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/BDIMOENB.d~ 
 END
 
-  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_I4E_sod_main.d~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_I4E_sod_main.d~ 
   
 APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
 ~c#brsc01	c#brands	%IMOEN_DV%~
 APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
 ~c#brsc02	BDIMOENS	C#Brandock~
+APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
+~c#brsc03	BDIMOENS	C#Brandock~
+APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
+~c#brsc04	c#brands	%IMOEN_DV%~
 
 END //I4E
 
