@@ -37,7 +37,7 @@ SAY ~[Brandock]Ooh - is that the book? Let me have a look... It's a book that de
 ++ ~Why do I even think I could hold a magic book for longer than 3 seconds if Brandock is around?~ + book_quarrel_brando_01 
 ++ ~You want to settle this dispute, Brandock?~ + book_quarrel_brando_02
 ++ ~You two - just tell me whatever you can about that book so I can make a decision.~ + book_quarrel_brando_03
-++ ~We don't have time for this. Get help elsewhere.~ DO ~SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ EXTERN bdrayphu book_quarrel_05  
+++ ~We don't have time for this. Get help elsewhere.~ DO ~SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ FLAGS 0x400 EXTERN bdrayphu book_quarrel_05  
 END
 
 IF ~~ THEN book_quarrel_brando_01 
@@ -48,7 +48,7 @@ END
 IF ~~ THEN book_quarrel_brando_02
 SAY ~[Brandock]Oh, I'm not sure I can... but I can surely judge their knowledge about the book's content, if you'll have me around for the investigation.~
 ++ ~You two - just tell me whatever you can about that book so I can make a decision.~ + book_quarrel_brando_03
-++ ~We don't have time for this. Get help elsewhere.~ DO ~SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ EXTERN bdrayphu book_quarrel_05  
+++ ~We don't have time for this. Get help elsewhere.~ DO ~SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ FLAGS 0x400 EXTERN bdrayphu book_quarrel_05  
 END
 
 IF ~~ THEN book_quarrel_brando_03
@@ -197,7 +197,17 @@ IF ~~ THEN bdrayphu book_quarrel_08
 == c#brsqu2 IF ~GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~Thank you, thank you, *thank you*! The first thing I'll do now will be making a copy of the contents - I do not care about having the original book, it's about what is written inside that interests me. I nearly lost this knowledge - never again.~
 == c#brsqu2 IF ~GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~Oh, take this as a thank you for believing me. When I realized I do not remember the exact title I started sweating quite a bit. These are just a few of my ingredients, I hope they can be of use to you.~ DO ~GiveItemCreate("POTN37",[PC],2,0,0)~
 == c#brsqu2 IF ~Global("C#brando_SoD_TalkedToEldom2","GLOBAL",2)
-GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~Talking to - Haddock, I think it was? - already cleared up my problem to put this guide to use. Come and talk to me later. I might have something for you.~
+GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~Talking to - Haddock, I think it was? - already cleared up my problem to put this guide to use.~ 
+== c#brandj IF ~Global("C#brando_SoD_TalkedToEldom2","GLOBAL",2)
+GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~It's *Brandock*, but - er, yes.~
+== c#brsqu2 IF ~Global("C#brando_SoD_TalkedToEldom2","GLOBAL",2)
+GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~Brandock! Right, right.~
+== c#brsqu2 IF ~Global("C#brando_SoD_TalkedToEldom2","GLOBAL",2)
+GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~Come and talk to me later, <CHARNAME>. I might have something for you.~
 == c#brsqu2 IF ~GlobalLT("C#brando_SoD_TalkedToEldom2","GLOBAL",2)
 GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~I'll have to go now and see how to put it to use. There is still some things I didn't quite get and I probably won't understand them trying to read in this bustle.~
 == c#brsqu1 IF ~Global("C#Brando_SoD_QuestBookQuarrel","GLOBAL",4)~ THEN ~This is settled - at *last*! Give me the book - thank you, goodbye.~
@@ -361,8 +371,8 @@ Bullets +3: bdbull03.itm */
 IF ~GlobalGT("C#Brando_SoD_QuestBookQuarrel","GLOBAL",9)
 Global("C#Brando_SoD_squ2","GLOBAL",0)
 Detect(Player1)~ THEN munition_shop
-SAY ~Ah, it is you. I think I can put the knowledge of the book to good use and would offer you my services - and for you, I'll do it for free! Bring me 10 pieces of any munition and I will transform it into 1 piece of higher enchantment. I won't be able to do it for all, of course, but normal bolts, arrows, and bullets should be easy enough.~
-= ~I have a problem, though. It seems Mander took out the recipes for the +3 enchantments - tore the pages out, that fool! He'll probably try to sell it separately. It's interesting to a mage or a smith - only that it's of no use without the ingredients list in the appendix. You get around quite a bit, just in case you find the page, bring it to me and I'll be able to enchant +2 munition to +3 munition, too!~
+SAY ~Ah, it is you. I think I can put the knowledge of the book to good use and would offer you my services - and for you, I'll do it without further cost! Bring me 10 pieces of any munition I will transform it into 1 piece with higher enchantment. I won't be able to do it for all sorts of ammo, of course, but normal bolts, arrows, and bullets should be easy enough.~
+= ~I have a problem, though. +2 enchantement is the highest I can do currently. It seems Mander took out the recipes for the +3 enchantments - tore the pages out, that fool! He'll probably try to sell it separately. It's interesting to a mage or a smith - only that it's of no use without the ingredients list in the appendix. You get around quite a bit, just in case you find the page, bring it to me and I'll be able to enchant +2 munition to +3 munition, too!~
 IF ~~ THEN DO ~SetGlobal("C#Brando_SoD_squ2","GLOBAL",1) AddJournalEntry(@10088,QUEST)~ JOURNAL @10085 + munition_shop_00
 END
 
@@ -396,7 +406,7 @@ IF ~~ THEN DO ~ClearAllActions() StartCutSceneMode() FadeToColor([20.0],0) Start
 END
 
 IF ~~ THEN munition_shop_02
-SAY ~Really? That - that's *awesome*! I didn't think you would, to be honest. That is really a miracle. Well, I guess there is a lot of mages and smiths busy in the area currently... Take these as a reward.~
+SAY ~Really? That - that's *awesome*! I didn't think you would, to be honest. That is really a miracle. Well, I guess it's no wonder that scoundrel found a buyer nearby considering there is a lot of mages and smiths busy in the area currently... Take these as a reward.~
 IF ~~ THEN DO ~EraseJournalEntry(@10088) EraseJournalEntry(@10085) AddJournalEntry(@10087,INFO) GiveItemCreate("POTN37",[PC],2,0,0) GiveItemCreate("BULL03",[PC],20,0,0)~ SOLVED_JOURNAL @10090 EXIT
 END
 

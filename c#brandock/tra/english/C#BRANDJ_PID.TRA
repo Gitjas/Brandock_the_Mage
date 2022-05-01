@@ -366,7 +366,7 @@
 @422  = ~That's exactly the point, Brandock, that you learn to scribe scrolls *away* from "fire proof desks".~
 @423  = ~So much spite! I didn't know you had it in you.~
 @424  = ~That was not addressed against you, <CHARNAME>... I am sorry.~
-@425  = ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile. Plus, it could hurt people. Us. You! I really don't want to put you into danger.~
+@425  = ~I already started a fire when I tried this alone. Plus, it could hurt people. Us. You! I really don't want to put you into danger.~
 @426  = ~And... and I could turn into a half-ogre half the way through...~
 @427  = ~I'm sorry I'm putting so much pressure on you. But it went fine with Elvenhair, and all he did was watch over your shoulder, if at all. You can do this.~
 @428  = ~I'll be here, ready with a bucket full of water if it helps. Please, Brandock. I want you to scribe scrolls for me.~
@@ -424,6 +424,7 @@
 @480  = ~[Brandock]It's... it's hilarious, <CHARNAME>. I don't even know where to start. I don't know what to think - I'm not even sure whether I should feel blessed, cursed - or mocked by the gods. But thanks for asking.~
 @481  = ~[Brandock]I'm still trying to pretend this empty, accusing book in my backpack is not my problem... I am *so* glad there is basicaly nothing I can do about it currently, this whole affair just blows my mind. And yet, I am *so* excited about bringing this to the monks in Oghma's Temple in Athkatla. I am sure they'll know what to do with it - they'll have to know.~
 @482  = ~[Brandock]Only, that I will guard this like my eyeballs until I can bring it to the temple. This book will not come to harm again, and I will see to it. Everything else - time will tell.~
+@483  = ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile!~
 
 
 /* SoD */

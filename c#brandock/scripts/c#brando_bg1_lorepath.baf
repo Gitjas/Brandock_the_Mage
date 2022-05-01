@@ -618,6 +618,27 @@ ReallyForceSpellRES("c#brlob1",Myself)
 SetInterrupt(TRUE)
 END
 
+/* Venkt, Tazok's tent Bandit Camp */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("VENKT")
+See("VENKT")
+Global("C#Br_LorePathVENKTBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathVENKTBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
 /* Natasha, Cloakwood Mine (NATASHA) */
 IF 
 !Global("C#Brandock_Shapeshift","GLOBAL",5)

@@ -786,7 +786,8 @@ END //APPEND
 
 CHAIN
 IF ~~ THEN c#brandj scroll_scribing_alone_pid_03
-@425 /* ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile - I already started a fire when I tried this alone. Plus, it could hurt people. Us. You! I really don't want to put you into danger.~ */
+@425 /* ~I already started a fire when I tried this alone. Plus, it could hurt people. Us. You! I really don't want to put you into danger.~ */
+== c#brandj IF ~!Global("DukeThanks","GLOBAL",1)~ THEN @483 /* ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile!~ */
 == c#brandj IF ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",17)~ THEN @426 /* ~And... and I could turn into a half-ogre half the way through...~ */
 END
 ++ @427 /* ~I'm sorry I'm putting so much pressure on you. But it went fine with Elvenhair, and all he did was watch over your shoulder, if at all. You can do this.~ */ + scroll_scribing_alone_pid_05

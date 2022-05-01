@@ -367,7 +367,7 @@
 @422  = ~Darum geht es doch gerade, Brandock, dass Ihr lernt, Schriftrollen *ohne* "feuerfesten Schreibplatz" zu schreiben.~
 @423  = ~So viel Boshaftigkeit! Ich wusste gar nicht, dass Ihr das draufhabt.~
 @424  = ~Das war nicht gegen Euch gerichtet, <CHARNAME>... Verzeiht.~
-@425  = ~Wir werden wegen Mordes gesucht - in Baldurs Tor, zumindest. Jetzt ein Leuchtfeuer zu provozieren ist sicher keine so gute Idee, wenn wir versuchen, uns versteckt zu halten. Zudem könnte es Leute verletzen. Uns. Euch! Ich möchte Euch wirklich nicht in Gefahr bringen.~
+@425  = ~Ich habe bereits einmal ein Feuer gestartet, als ich es alleine versuchte. Zudem könnte es Leute verletzen. Uns. Euch! Ich möchte Euch wirklich nicht in Gefahr bringen.~
 @426  = ~Und... ich könnte mich auf halber Strecke in einen Halboger verwandeln...~
 @427  = ~Es tut mir Leid, dass ich Euch so unter Druck setze. Aber mit Elfenhaar an Eurer Seite verlief alles reibungslos, und er hat Euch höchstens über die Schulter geschaut, wenn überhaupt. Ihr schafft das.~
 @428  = ~Ich kann dabei bleiben, bereit mit einem Eimer voller Wasser, wenn das hilft. Bitte, Brandock. Ich möchte, dass Ihr uns Schriftrollen schreibt.~
@@ -425,6 +425,7 @@
 @480  = ~[Brandock]Es... es ist unbeschreiblich, <CHARNAME>. Ich weiß gar nicht, wo ich anfangen soll. Ich möchte am liebsten gar nicht darüber nachdenken - ich bin mir noch nicht mal im Klaren, ob ich mich von den Göttern gesegnet, verflucht - oder einfach nur *veralbert* vorkommen soll. Ich danke Euch trotzdem sehr, dass Ihr nachfragt.~
 @481  = ~[Brandock]Ich versuche mir einzureden, dass dieses leere, vorwurfsvolle Buch in meinem Gepäck nicht wirklich mein Problem wäre... Ich bin *so* froh, dass ich momentan im Grunde nichts diesbezüglich tun kann, um nicht zu sagen muss, so sehr überwältigt mich das ganze. Und doch bin ich *so* versessen darauf, es zu den Mönchen im Tempel von Oghma in Atkatla zu bringen. Ich bin mir sicher dass sie wissen, was damit zu tun ist - sie müssen es wissen.~
 @482  = ~[Brandock]Nur, dass ich dieses Buch wie meine Augäpfel hüten werde, bis ich es den Mönchen zeigen kann. Diesem Buch wird nichts Übles mehr geschehen, dafür werde ich sorgen. Alles weitere wird die Zeit zeigen.~
+@483  = ~Wir werden wegen Mordes gesucht - in Baldurs Tor, zumindest. Jetzt ein Leuchtfeuer zu provozieren ist sicher keine so gute Idee, wenn wir versuchen, uns versteckt zu halten.~
 
 /* SoD */
 /* @1000 - @1002, @1004, @1007 also used for "c#brandj_PID_BG2.d" */

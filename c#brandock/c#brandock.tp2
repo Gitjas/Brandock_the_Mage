@@ -2,9 +2,9 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~Testversion_NVLOR_220428~ 
+VERSION ~v1_220430~ 
 
-//README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
+README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
 
 AUTO_TRA ~C#Brandock/tra/autotra/%s~
@@ -360,13 +360,12 @@ LANGUAGE ~English~
          ~C#Brandock/tra/english/game.tra~
 	 ~C#Brandock/tra/english/journal.tra~
 
-/*
+
 LANGUAGE ~Deutsch~
          ~german~   
          ~C#Brandock/tra/german/setup.tra~
          ~C#Brandock/tra/german/game.tra~
 	 ~C#Brandock/tra/german/journal.tra~
-*/
 
 
 
@@ -2065,52 +2064,6 @@ END //SoD
 
 ACTION_IF GAME_IS ~bg2ee tob bgt eet~ THEN BEGIN
 
-/* this was for testing, remove before release */
-/* ## */
-
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_quest_test.d~ 
-EXTEND_BOTTOM ~bdrayphu.bcs~ ~c#brandock/scripts/c#brando_sod_bdrayphu_test.baf~
-  EVALUATE_BUFFER
-
-<<<<<<<< ...inlined/spawn_rayphus.baf
-IF 
-	Global("TestSpawn_Rayphus","GLOBAL",1)
-THEN
-	RESPONSE #100
-		CreateCreatureObjectOffScreen("bdrayphu","C#Brandock",0,0,0)
-		SetGlobal("TestSpawn_Rayphus","GLOBAL",2)
-END
-
->>>>>>>>
-EXTEND_BOTTOM ~c#brand2.bcs~ ~...inlined/spawn_rayphus.baf~
-
-
-/* cres */
-COPY_EXISTING ~MTOWN1.cre~ ~override/bdrayphu.cre~ //
-   SAY NAME1 ~Rayphus~ 
-   SAY NAME2 ~Rayphus~ 
-WRITE_EVALUATED_ASCII 0x280 ~bdrayphu~ #8   // Death variable
-WRITE_EVALUATED_ASCII 0x2cc ~bdrayphu~ #8   // dialogue
-WRITE_EVALUATED_ASCII 0x248 ~bdrayphu~ #8   // Override script
-
-COPY_EXISTING ~MTOWN1.cre~ ~override/c#brsqu1.cre~ //
-   SAY NAME1 ~Mander~ 
-   SAY NAME2 ~Mander~ 
-WRITE_EVALUATED_ASCII 0x280 ~c#brsqu1~ #8   // Death variable
-WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu1~ #8   // dialogue
-WRITE_EVALUATED_ASCII 0x248 ~c#brsqu1~ #8   // Override script
-
-COPY_EXISTING ~MTOWN1.cre~ ~override/c#brsqu2.cre~ //
-   SAY NAME1 ~Eldom~ 
-   SAY NAME2 ~Eldom~ 
-WRITE_EVALUATED_ASCII 0x280 ~c#brsqu2~ #8   // Death variable
-WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu2~ #8   // dialogue
-WRITE_EVALUATED_ASCII 0x248 ~c#brsqu2~ #8   // Override script
-
-/* ## */
-
-
-
 /* new BGII game or tob, bgii:ee: spawn Brandock in C#br03.are */
 // happens in c#br03.baf compiled below
 /* Add map note to AR0400 */
@@ -2985,7 +2938,7 @@ END
 
 
 
-/*
+
 ///////////////////////////////////////////////////////////////
 /* Crossmod */
 //////////////////////////////////////////////////////////////
@@ -3980,5 +3933,5 @@ COPY_EXISTING ~c#brcut3.BCS~ ~override~
 	END
 BUT_ONLY
 END
-*/
+
 
