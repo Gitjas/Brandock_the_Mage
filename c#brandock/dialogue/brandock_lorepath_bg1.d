@@ -10,7 +10,6 @@ For every library, Brandock's Lore will increase by +2, except Candlekeep
 
 For Candlekeep, Lore will increase by +3
 
-This should somehow be reflected in Brandock - Dynaheir banters, and maybe also Brandock - Jaheira (for BG1)
 */
 
 APPEND c#brandj
@@ -174,7 +173,8 @@ IF ~Global("C#Br_LorePathRagefast","GLOBAL",1)~ THEN c#brandj lorepath_ragefast
 @1522
 == c#brandj IF ~!Dead("Ragefast") InMyArea("Ragefast") !StateCheck("Ragefast",CD_STATE_NOTVALID)~ THEN @1523
 == RAGEFA IF ~!Dead("Ragefast") InMyArea("Ragefast") !StateCheck("Ragefast",CD_STATE_NOTVALID)~ THEN @1524
-== c#brandj IF ~OR(3) Dead("Ragefast") !InMyArea("Ragefast") StateCheck("Ragefast",CD_STATE_NOTVALID)~ THEN @1525
+== c#brandj @1525
+== c#brandj IF ~Global("C#BE_bg1re_C#LCTHBO","GLOBAL",0) Global("C#LC_ThalantyrAsked","GLOBAL",2)~ THEN @1545 DO ~SetGlobal("C#BE_bg1re_C#LCTHBO","GLOBAL",2)~
 END
 ++ @1526 + lorepath_ragefast_02
 ++ @1527 + lorepath_ragefast_01
@@ -211,8 +211,6 @@ IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) IncrementGlobal("C#Br_Lore
 SetGlobal("C#Br_LorePathRamazith","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ EXIT
 END
 
-
-
 /* Durlag's Tower DurlagsTower_L3 */
 
 IF ~Global("C#Br_LorePathDurlagsTower","GLOBAL",1)~ THEN lorepath_durlagstower
@@ -232,12 +230,4 @@ IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob2",Myself) IncrementGlobal("C#Br_Lore
 SetGlobal("C#Br_LorePathDurlagsTower","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutScene("c#brftb")~ EXIT
 END
 
-
 END //APPEND
-
-
-
-
-/* ------------------------------------------*/
-/* evtl. banter with Dynaheir, Edwin..., Xzar... */
-

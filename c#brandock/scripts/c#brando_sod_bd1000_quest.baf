@@ -44,8 +44,6 @@ THEN
 		SetInterrupt(FALSE)
 		ActionOverride("c#brsqu2",MoveToPoint([142.3607])
 		SmallWait(10)
-		ActionOverride("c#brsqu2",JumpToPoint([142.3607])
-		SmallWait(2)
 		ActionOverride("c#brsqu2",Face(12))
 		SetGlobal("C#Brando_SoD_QuestBookQuarrel","GLOBAL",10)
 		SetInterrupt(TRUE)

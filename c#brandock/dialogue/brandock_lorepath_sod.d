@@ -57,7 +57,7 @@ END
 IF ~~ THEN tome_ancient_knoweldge_04
 SAY @1667
 = @1668
-IF ~~ THEN DO ~SetGlobal("C#Br_LorePathbdmisc53SoD","GLOBAL",2)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Br_LorePathbdmisc53SoD","GLOBAL",3)~ EXIT
 END
 
 IF ~~ THEN tome_ancient_knoweldge_05

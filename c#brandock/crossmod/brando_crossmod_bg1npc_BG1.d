@@ -1,5 +1,14 @@
 /* Imoen: efforts to become a wizard */
 
+/* no BioWare mage around - Brandock warns about traps on spellbooks */
+/* @201  = ~Though, this stuff IS kinda complicated...~ */
+I_C_T ~%IMOEN_JOINED%~ %BG1NPC_IM201% C#Brando_BG1NPC_IM201
+== C#BrandJ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+See("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+OR(3) !InParty("xzar") !InMyArea("xzar") StateCheck("xzar",CD_STATE_NOTVALID) OR(3) !InParty("edwin") !InMyArea("edwin") StateCheck("edwin",CD_STATE_NOTVALID) OR(3) !InParty("dynaheir") !InMyArea("dynaheir") StateCheck("dynaheir",CD_STATE_NOTVALID)~ THEN @23 /* ~[Brandock]Wait - alright, it's safe. Imoen, don't just take and open a mage's spellbook. Some secure theirs with spells - traps, so to say, but magic ones so I fear you won't be able to detect them with your abilities.~ */
+== ~%IMOEN_JOINED%~ @25 /* @238  = ~Oh! Uh... heh. Guess I never thought of that. *sigh* 'Spose I shouldn't fool 'round with it, huh?~ */
+== C#BrandJ @24 /* ~Fooling around is never a good idea if it comes to magic, but if you have an inner urge to engage in it, then it would be unwise to surpress it. Just be careful... Please.~ */
+END 
 
 /* Brandock - Imoen after her look into Tarnesh's spell book */
 
@@ -44,7 +53,7 @@ IF WEIGHT #-1
 == c#brandJ @10
 == %IMOEN_JOINED% @11
 == c#brandJ @14 /* ~You don't... Ah, Imoen, this won't do. You are scaring me! Let me have a look at it...~ */
-= @15 /* ~Oh, wow! You created this? This is not one of your tricks? Imoen, this tome will give you even better dexterousness for some amount of time. But... there is also some slight chance of some unwanted outcome - I'm not sure, it looks lie a polymorphing spell... You'll use this at your own risk. I'm not sure you should use it, to be honest. Still, this is... impressive! And scary.~ */
+= @15 /* ~Oh, wow! You created this? This is not one of your tricks? Imoen, this tome will give you even better dexterousness for some amount of time. But... there is also some slight chance of some unwanted outcome - I'm not sure, it looks like a polymorphing spell... You'll use this at your own risk. I'm not sure you should use it, to be honest. Still, this is... impressive! And scary.~ */
 == c#brandJ IF ~OR(30)
 AreaCheck("%FireLeafForest%") //Cloud Peaks - Amnish soil
 AreaCheck("%Nashkel%")

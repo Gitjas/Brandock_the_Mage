@@ -208,15 +208,32 @@ SAY @1283
 IF ~~ THEN + 1
 END
 
+IF WEIGHT #-1
+~Global("C#BrandockShapeshift1","LOCALS",1)
+Global("C#BrandockShapeshift","LOCALS",0)~ THEN add_workaround
+SAY @1487
+IF ~~ THEN + add_workaround_01
+END
+
+IF WEIGHT #-1
+~Global("C#BrandockShapeshift1","LOCALS",1)
+Global("C#BrandockShapeshift","LOCALS",1)~ THEN add_workaround_01
+SAY @1285
+IF ~~ THEN DO ~SetGlobal("C#BrandockShapeshift1","LOCALS",2)~ EXIT
+END
+
 END //APPEND
 
+/*
 I_C_T ~THALAN~ 25 C#BrandockThalan25
 == ~THALAN~ IF ~Global("C#Brandock_Shapeshift","GLOBAL",6) !Dead("C#Brandock") !Dead("c#brhao2")~ THEN @1285
 END
+*/
 
 I_C_T ~THALAN~ 26 C#BrandockThalan26
 == ~THALAN~ IF ~Global("C#Brandock_Shapeshift","GLOBAL",6) !Dead("C#Brandock") !Dead("c#brhao2")~ THEN @1286
 END
+
 
 /* Dialogue after Brandock was restored */
 CHAIN
@@ -512,7 +529,8 @@ IF ~~ THEN c#brandj half_ogre_08
 == c#brandj IF ~GlobalGT("C#Br_BookRestore","GLOBAL",1)~ THEN @1372
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10008)
-SetGlobal("C#Brandock_Shapeshift","GLOBAL",19)~ UNSOLVED_JOURNAL @10069 EXIT
+SetGlobal("C#Brandock_Shapeshift","GLOBAL",19)
+RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)~ UNSOLVED_JOURNAL @10069 EXIT
 
 
 
@@ -563,8 +581,7 @@ IF ~~ THEN c#brandj halfogre_change
 == c#brandj @1390
 END
 IF ~~ THEN DO ~EraseJournalEntry(@10069)
-SetGlobal("C#Brandock_Shapeshift","GLOBAL",20)
-AddJournalEntry(@10071,QUEST)~ UNSOLVED_JOURNAL @10070 EXIT
+SetGlobal("C#Brandock_Shapeshift","GLOBAL",20)~ UNSOLVED_JOURNAL @10070 EXIT
 
 
 /* easter egg: dialogue with Melicamp after Thalantyr's help */
@@ -607,7 +624,7 @@ IF ~~ THEN DO ~SetGlobal("C#Brando_ShapeFollowup","LOCALS",2)~ EXIT
 END
 
 
-/* later, regardless whether group was already by Thalantyr */
+/* after being to Thalantyr and stepping out of his abode */
 IF ~Global("C#Brando_ShapeFollowup","LOCALS",3)~ THEN after_change_02
 SAY @1400
 = @1401

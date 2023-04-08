@@ -45,5 +45,5 @@ END
 /* Seatower Mage's "Mimic Powder" */
 I_C_T ~BSTRMAGE~ 17 C#Brando_BSTRMAGE_17
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @14 /* ~Wow, you developped this yourself? That's impressive!... Your naming scheme is as intelligent as I'd imagined mine to be, though...~ */
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @15 /* ~Yes, I know, I didn't have time to think about a proper name yet... but I do admit that I also think that's not important, as long as it works!~ */
+== ~BSTRMAGE~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @15 /* ~Yes, I know, I didn't have time to think about a proper name yet... but I do admit that I also think that's not important, as long as it works!~ */
 END

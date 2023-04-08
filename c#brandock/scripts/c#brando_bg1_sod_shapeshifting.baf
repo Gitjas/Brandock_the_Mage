@@ -55,7 +55,7 @@ IF
   Global("C#Brandock_Shapeshift","GLOBAL",24)
 THEN
   RESPONSE #100
-    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMER_SOD)
     SetGlobal("C#Brandock_Shapeshift","GLOBAL",25)
 END
 

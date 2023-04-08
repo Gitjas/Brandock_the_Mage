@@ -16,46 +16,18 @@ IF ~Global("C#Brandock_SlumSphere","GLOBAL",1)~ THEN C#BrandJ slum_sphere
 EXIT
 
 
-/* High Priest Oisig - ask for Ebrel's funeral */
-
-INTERJECT BHOISIG 19 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END 
-IF ~~ THEN DO ~SetGlobal("BeholderPlot","GLOBAL",1)
-EraseJournalEntry(34386)~ EXTERN c#brandj ebrel_funeral
-
-INTERJECT BHOISIG 42 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
-INTERJECT BHOISIG 43 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
-INTERJECT BHOISIG 48 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
-INTERJECT BHOISIG 49 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
-INTERJECT BHOISIG 59 C#Brando_EbrelFuneral
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN ~I have need of the temple services, High Priest Oisig.~
-END c#brandj ebrel_funeral
-
-EXTEND_BOTTOM BHOISIG 23
-+ ~Global("C#Brando_EbrelFuneral","GLOBAL",0)
-OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~My friend Brandock wants to ask fo his cousin's funeral. Brandock?~ DO ~SetGlobal("C#Brando_EbrelFuneral","GLOBAL",1)~ EXTERN c#brandj ebrel_funeral
-END
-EXTEND_BOTTOM BHOISIG 24
-+ ~Global("C#Brando_EbrelFuneral","GLOBAL",0)
-OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ + ~My friend Brandock wants to ask fo his cousin's funeral. Brandock?~ DO ~SetGlobal("C#Brando_EbrelFuneral","GLOBAL",1)~ EXTERN c#brandj ebrel_funeral
-END
-
+/* Dawnmaster of Lathander - ask for Ebrel's funeral */
 
 CHAIN
-IF ~~ THEN c#brandj ebrel_funeral
-~My cousin died in the fight at the Promenade - he performed his duties as a Coweld Wizard. I am here to ask for the temple to arrange for his remains to be transferred to his hometown and give him a proper funeral.~
-== BHOISIG ~Of course, my son. We will see to the needed arrangements and will perform the last service for our lost son and his family. Go with a peaceful mind.~
+IF WEIGHT #-1
+~Global("C#Brando_EbrelFuneral","GLOBAL",1)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN DAWNMAS ebrel_funeral
+#32300 /* ~Blessed be the dawn! Do you require the services of Lathander?~ */
+== c#brandj ~I have need of the temple services, Dawnmaster. My cousin died in the fight at the Promenade - he performed his duties as a Coweld Wizard. I am here to ask for the temple to arrange for his remains to be transferred to his hometown and give him a proper funeral.~
+== DAWNMAS ~Of course, my son. We will see to the needed arrangements and will perform the last service for our lost son and his family. Go with a peaceful mind.~
 END
-IF ~~ THEN DO ~EraseJournalEntry(@10027)~ SOLVED_JOURNAL @10032 EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brando_EbrelFuneral","GLOBAL",2)
+EraseJournalEntry(@10027)~ SOLVED_JOURNAL @10032 EXIT
 
 
 APPEND C#BrandJ
@@ -461,7 +433,7 @@ OR(5)
 	OR(3)
 		!HasItem("c#br0003","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#br0003","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -483,7 +455,7 @@ IF ~Global("C#Brandock_BGTTOBG2","GLOBAL",5)
 	OR(3)
 		!HasItem("c#br0003","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",0)
-		!InParty("C#Husam")
+		!InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#br0003","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",0)
@@ -651,7 +623,7 @@ END
 
 
 I_C_T ~JUGJER01~ 2 C#Brandock_JUGJER01_2
-== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock")~ THEN ~Report you? We would never... hold on. The thought that *I* could hold the power of denunciation over a Cowled Wizard is an intriguing thought... until the fact that it's the Cowled Wizards the report would go to comes to mind. Nah, we won't do that.~
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock")~ THEN ~Report you? We would never... hold on. The thought that *I* could hold the power of denunciation over a Cowled Wizard is an intriguing thought... until the fact comes to mind that it's the Cowled Wizards the report would go to. Nah, we won't do that.~
 END
 
 

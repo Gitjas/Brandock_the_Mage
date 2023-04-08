@@ -23,3 +23,11 @@
 @20   = ~Was Ihr da kreiert habt ist wirklich beeindruckend. Wir sollten vorsichtig sein, <CHARNAME>. Lasst Imoen nicht zu lange ohne Anleitung mit Magie rumprobieren.~
 @21   = ~Ich werde Eure Versuche im Auge behalten, aber solange Ihr nicht ernsthaft anfangt als Magierin zu lernen, kann ich nur eine gewisse Schadensbegrenzung machen.~
 @22   = ~"Schadensbegrenzung", ja? Ihr seid heute ja sehr charmant!~
+
+/* new for v1 */
+@23   = ~[Brandock]Wartet - gut, es scheint alles in Ordnung zu sein. Imoen, Ihr könnt nicht einfach das Zauberbuch eines Magiers nehmen und aufklappen. Manche sind dagegen gesichert, mit Zaubern. Also sie haben Fallen, sozusagen, aber ich fürchte, Ihr könnt sie mit Euren momentanen Möglichkeiten nicht entdecken.~
+@24   = ~[Brandock]Rumzualbern ist bei Magie nie eine gute Idee, aber wenn Ihr einen inneren Drang vrspürt, Euch mit Magie zu beschäftigen, dann solltet Ihr diesen nicht unterdrücken. Seid einfach nur vorsichtig... bitte.~
+/* This is @238 from ~bg1npc/tra/%s/x#imoen.tra~ */
+@25   = ~[Imoen]Oha! Äh... hm. Daran hab ich gar nicht gedacht. (seufz) Ich nehme an, ich sollte nicht damit rumalbern, was?~
+
+

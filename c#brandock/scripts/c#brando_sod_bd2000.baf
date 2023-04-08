@@ -11,7 +11,7 @@ IF
 		Global("bd_betrayal_discussion","bd2000",1)
 THEN
 	RESPONSE #100
-		SetGlobal("C#Brando_bd_betrayal_discussion","bd2000",1)
+		SetGlobal("C#Brando_bd_betrayal_discussion","GLOBAL",1)
 		SetGlobalTimer("bd_betrayal_discuss_timer","bd2000",ONE_MINUTE)
 		DisplayStringHead("C#Brandock",@1268)
 		Continue()

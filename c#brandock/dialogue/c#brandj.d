@@ -7,9 +7,30 @@ ADD_TRANS_ACTION ~%tutu_var%TAMOKO~ BEGIN 14 15 16 17 18 END BEGIN END
 ADD_TRANS_ACTION ~%tutu_scriptbg%FTOWN2~ BEGIN 3 END BEGIN END
 ~SetGlobal("C#Brandock_JosephsWife","GLOBAL",1)~
 
+/* Fahrington - cursed scroll of foolishness */
+I_C_T FAHRIN 1 C#Brandock_FAHRIN_1
+== ~c#brandj~ IF ~PartyHasItemIdentified("SCRL12")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @545 /* ~[Brandock]Well, I guess using a cursed scroll of Foolishness would be a very impressive experience, although one I would rather avoid! You can't call this scroll of "wisdom" - unless you want to mislead people, of course.~ */
+END
+
+I_C_T FAHRIN 4 C#Brandock_FAHRIN_1
+== ~c#brandj~ IF ~PartyHasItemIdentified("SCRL12")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @545 /* ~[Brandock]Well, I guess using a cursed scroll of Foolishness would be a very impressive experience, although one I would rather avoid! You can't call this scroll of "wisdom" - unless you want to mislead people, of course.~ */
+END
+
+I_C_T FAHRIN 7 C#Brandock_FAHRIN_1
+== ~c#brandj~ IF ~PartyHasItemIdentified("SCRL12")
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @545 /* ~[Brandock]Well, I guess using a cursed scroll of Foolishness would be a very impressive experience, although one I would rather avoid! You can't call this scroll of "wisdom" - unless you want to mislead people, of course.~ */
+END
+
+/* GAZIB (Nashkel Carnival) */
+I_C_T GAZIB 0 C#Brandock_GAZIB_0
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @546 /* Oh, yes. This raises bad memories. Very bad memories. Well, not only bad. But I know how you feel... Here, have some coins, friend.~ */
+== GAZIB IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @544 /* Thank you, sir! You're the first today who actually cares. Er, maybe you should step away a bit...~ */
+END
 
 /* Narcillicus Harwilliger Neen (green slimes) */
-I_C_T ~%tutu_var%NARCIL~ 0 C#Brandock_NARCIL_0
+I_C_T ~%tutu_var%NARCIL~ 1 C#Brandock_NARCIL_1
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @465
 == ~%tutu_var%NARCIL~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @466
 END
@@ -470,9 +491,11 @@ CHAIN
 IF ~~ THEN c#brandj baldurans_book_01
 @59 DO ~SetGlobal("C#Brandock_ValuableBookComment","GLOBAL",1)~
 == c#brandj IF ~OR(2) HasItem("BOOK87","C#Brandock") HasItem("BOOK68","C#Brandock")
-Global("C#Brandock_AjantisBOOKBG1","GLOBAL",1) InParty("Ajantis") See("Ajantis")~ THEN @60 DO ~SetGlobal("C#Brandock_AjantisBOOKBG1","GLOBAL",2)~
+Global("C#Brandock_AjantisBOOKBG1","GLOBAL",1) InParty("Ajantis") See("Ajantis")
+Global("C#Br_AjantisAskedBOOKBG1","LOCALS",0)~ THEN @60 DO ~SetGlobal("C#Br_AjantisAskedBOOKBG1","LOCALS",1)~
 == c#brandj IF ~OR(2) HasItem("BOOK87","C#Brandock") HasItem("BOOK68","C#Brandock")
-Global("C#Brandock_AjantisBOOKBG1","GLOBAL",2) InParty("Ajantis") See("Ajantis")~ THEN @61
+InParty("Ajantis") See("Ajantis")
+Global("C#Br_AjantisAskedBOOKBG1","LOCALS",1)~ THEN @61 DO ~SetGlobal("C#Br_AjantisAskedBOOKBG1","LOCALS",2)~
 EXIT
 
 
@@ -489,15 +512,41 @@ CHAIN
 IF ~Global("C#Brandock_BookInventory","GLOBAL",1)~ THEN c#brandj valuable_book_inventory
 @63 DO ~SetGlobal("C#Brandock_BookInventory","GLOBAL",3)~ 
 == c#brandj IF ~Global("C#Brandock_AjantisBOOKBG1","GLOBAL",1) InParty("Ajantis")
-See("Ajantis")~ THEN @60 DO ~SetGlobal("C#Brandock_AjantisBOOKBG1","GLOBAL",2)~
-== c#brandj IF ~Global("C#Brandock_AjantisBOOKBG1","GLOBAL",2) InParty("Ajantis")
-See("Ajantis")~ THEN @61
+See("Ajantis")
+Global("C#Br_AjantisAskedBOOKBG1","LOCALS",0)~ THEN @60 DO ~SetGlobal("C#Br_AjantisAskedBOOKBG1","LOCALS",1)~
+== c#brandj IF ~Global("C#Br_AjantisAskedBOOKBG1","LOCALS",1) InParty("Ajantis")
+See("Ajantis")~ THEN @61 DO ~SetGlobal("C#Br_AjantisAskedBOOKBG1","LOCALS",2)~
 == c#brandj @64
 EXIT
 
+/* Balduran's Logbook is still in party's inventory */
 
+APPEND C#BrandJ
 
+IF ~Global("C#Brandock_BalduransBook","GLOBAL",3)~ THEN logbook_still_here
+SAY @548 /* ~We still have Balduran's Logbook. Any idea what we will do with it?~ */
+++ @551 /* ~I thought we leave it with you, since it worked so well last time.~ */ + logbook_still_here_01
++ ~OR(2)
+!Global("Chapter","GLOBAL",5) 
+!Global("Teth","GLOBAL",3)~ + @552 /* ~I think I will keep it, for now. It might open the way to Candlekeep at some point, who knows.~ */ + logbook_still_here_02
+/* compatibility with framed */
++ ~Global("Chapter","GLOBAL",5) Global("Teth","GLOBAL",3)~ + @555 /* ~I think I will keep it, for now.~ */ + logbook_still_here_02
+++ @553 /* ~I want it to be in Candlekeep, it's the only place for such a book. I'll see when I'll be able to get it there.~ */ + logbook_still_here_02
++ ~GlobalGT("C#q14SeeCharts_Aldeth","GLOBAL",1)~ + @556 /* ~Well, Aldeth offered to buy it, and I think it's worth a thought.~ */ + logbook_still_here_02
+++ @554 /* ~Just leave it where it is for now. I'll deal with it later.~ */ + logbook_still_here_02
+END
 
+IF ~~ THEN logbook_still_here_01
+SAY @549 /* ~(ack) I know I deserve this... Keep it coming... But yes, that's what's my book case is for.~ */
+IF ~~ THEN + logbook_still_here_02
+END
+
+IF ~~ THEN logbook_still_here_02
+SAY @550 /* ~It's definitely a treasure. The logbook from the founder of Baldur's Gate! I hope we'll find a suitable place for it.~ */
+IF ~~ THEN DO ~SetGlobal("C#Brandock_BalduransBook","GLOBAL",4)~ EXIT
+END
+
+END //APPEND
 
 /* werewolf island, in case of shapeshifting quest */
 /* follow up, after M. is defeated 
@@ -691,40 +740,28 @@ END
 
 /* Player made Brandock drunk - I really don't think anyone will make him drunk 5 times but these lines just more or less wrote themselves */
 
-IF ~RandomNum(5,1) Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",16)~ THEN drunk
+IF ~RandomNum(5,1) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk
 SAY @118
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
 END
 
-IF ~RandomNum(5,2) Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",16)~ THEN drunk_02
+IF ~RandomNum(5,2) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_02
 SAY @119
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
 END
 
-IF ~RandomNum(5,3) Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",16)~ THEN drunk_03
+IF ~RandomNum(5,3) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_03
 SAY @120
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
 END
 
-IF ~RandomNum(5,4) Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",16)~ THEN drunk_04
+IF ~RandomNum(5,4) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_04
 SAY @121
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
 END
 
-IF ~RandomNum(5,5) Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalLT("C#Brandock_Shapeshift","GLOBAL",16)~ THEN drunk_04
+IF ~RandomNum(5,5) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_04
 SAY @122
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
-END
-
-/* traces of a quest removed */
-IF ~Global("C#Brandock_Drunk","GLOBAL",1)
-GlobalGT("C#Brandock_Shapeshift","GLOBAL",15)~ THEN drunk_after
-SAY @123
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
 END
 
@@ -1154,26 +1191,41 @@ APPEND c#brandj
 /* after being arrested - BG prison */
 
 IF ~Global("C#Brandock_Arrested","GLOBAL",1)~ THEN arrested
-SAY @213
-= @214
-++ @215 + arrested_01
-++ @216 + arrested_02
-++ @217 + arrested_01
-++ @218 + arrested_01
-++ @219 + arrested_01
+SAY @213 /* ~Being arrested for murder - fals accusations, I might add - is scaring me more than any monster thread could have. More than being trapped inside a foe's dungeon, even. - I know it's no surprise to anyone that I feel scared. But... this is more intense.~ */
++ ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ + @214 /* ~Any chance half-ogre Brandock could break us out of here?~ */ + arrested_03
+++ @215 /* ~Well, in a way this *is* an evil foe's dungeon... But I know what you mean.~ */ + arrested_01
+++ @216 /* ~Why, I think 'being arrested for murder' would be something you still needed to add to your list of failures.~ */ + arrested_02
+++ @217 /* ~Just give me time to work this out. We will get out of here.~ */ + arrested_01
+++ @218 /* ~Believe me, I'm not satisfied either.~ */ + arrested_01
+++ @220 /* ~Is that an accusation? What would you have me do?~ */ + arrested_01
 END
 
 IF ~~ THEN arrested_01
-SAY @220
-= @221
+SAY @221 /* ~(sigh) And it worked so well until now! For a moment, I really felt like we were saving the Sword Coast... Now I'm not even sure we can save ourselves.~ */
 IF ~~ THEN DO ~SetGlobal("C#Brandock_Arrested","GLOBAL",2)~ EXIT
 END
 
 IF ~~ THEN arrested_02
-SAY @222
-IF ~~ THEN + arrested_01
+SAY @222 /* ~Ouch, <CHARNAME>!~ */
++ ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",8)~ + @214 /* ~Any chance half-ogre Brandock could break us out of here?~ */ + arrested_03
+++ @215 /* ~Well, in a way this *is* an evil foe's dungeon... But I know what you mean.~ */ + arrested_01
+++ @217 /* ~Just give me time to work this out. We will get out of here.~ */ + arrested_01
+++ @218 /* ~Believe me, I'm not satisfied either.~ */ + arrested_01
+++ @220 /* ~Is that an accusation? What would you have me do?~ */ + arrested_01
 END
 
+IF ~~ THEN arrested_03
+SAY @547 /* ~Oh, I *feel* strong as a half-ogre, but - no. Look at these walls. They are build to keep much stronger prisoners in.~ */
+++ @215 /* ~Well, in a way this *is* an evil foe's dungeon... But I know what you mean.~ */ + arrested_01
+++ @217 /* ~Just give me time to work this out. We will get out of here.~ */ + arrested_01
+++ @218 /* ~Believe me, I'm not satisfied either.~ */ + arrested_01
+++ @220 /* ~Is that an accusation? What would you have me do?~ */ + arrested_01
+END
+
+IF ~~ THEN arrested_04
+SAY @219 /* Of course not. I know how we got here. I am counting on you to get *out* of here, though.~ */
+IF ~~ THEN + arrested_01
+END
 
 /* before entering Durlag's Tower */
 
@@ -1258,7 +1310,7 @@ OR(5)
 	OR(3)
 		!HasItem("c#br0002","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#br0002","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -1294,7 +1346,7 @@ OR(3)
 	OR(3)
 		!HasItem("c#br0002","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",0)
-		!InParty("C#Husam")
+		!InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#br0002","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",0)
@@ -1321,7 +1373,7 @@ OR(5)
 	OR(3)
 		!HasItem("c#br0002","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#br0002","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -1390,6 +1442,58 @@ END
 
 
 /* quest: possessions! -I didn't put this into a separate .d from the start and now it stays here. */
+
+/* nagging timer: Brandock wants to get his things */
+APPEND C#Brandj
+IF ~Global("C#BrandoBG1QuestNagging","LOCALS",1)~ THEN quest_nagging
+SAY @557 /* ~<CHARNAME>, I said I'll understand if we take our time to retreave my possessions, but I am getting nervous, and anxious, and - yes, I admit I'm getting impatient. Please let us return to Lion's Way and face whatever awaits in that cave - and in front of it, and around it, and... please let us go there soon. It's really important to me.~ */
+IF ~~ THEN DO ~SetGlobal("C#BrandoBG1QuestNagging","LOCALS",2)~ EXIT
+END
+
+IF ~Global("C#BrandoBG1QuestNagging","LOCALS",3)~ THEN quest_nagging_01
+SAY @558 /* ~<CHARNAME>, I have full understanding if you don't want to take the time to retrieve my possessions, although I'd hope you would tell me so honestly. I really need to get my things - or what is left of them. Do I go and try to find help elsewhere?~ */
+++ @559 /* ~I'm sorry it took so long, Brandock, but we are kind of caught up in something currently. We'll go there as soon as possible, I promise.~ */ + quest_nagging_02
+++ @560 /* ~Woops, completely forgot about that. Of course we'll head there right away.~ */ + quest_nagging_02
+++ @561 /* ~Yes, go and look for help elsewhere, Brandock. Having you here doesn't seem to work out.~ */ + quest_nagging_03
+END
+
+IF ~~ THEN quest_nagging_02
+SAY @562 /* ~Thank you! You can't imagine how relieved I am to hear that.~ */
+IF ~~ THEN DO ~SetGlobal("C#BrandoBG1QuestNagging","LOCALS",4)~ EXIT
+END
+
+IF ~~ THEN quest_nagging_03
+SAY @563 /* ~Thank you for being honest. Although I would have hoped you'd tell me sooner.~ */
+IF ~~ THEN + quest_nagging_05
+END
+
+IF ~Global("C#BrandoBG1QuestNagging","LOCALS",5)~ THEN quest_nagging_04
+SAY @564 /* ~I... I can't postbone this any longer, I'll go now and retrieve my posessions on my own, or at least I'll try. I did enjoy travelling with you - except for the detail that you didn't keep your promise, of course.~ */ 
+IF ~~ THEN + quest_nagging_05
+END
+
+IF ~~ THEN quest_nagging_05
+SAY @565 /* ~Fare well.~ */
+IF ~Global("C#BrandockJoined","GLOBAL",1)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#BrandoBG1QuestNagging","LOCALS",6)
+GivePartyAllEquipment()
+SetGlobal("C#Brandock_Gone","GLOBAL",1)
+SetGlobal("C#BrandockJoined","GLOBAL",0) ChangeAIScript("",DEFAULT)
+SetLeavePartyDialogFile() LeaveParty() EscapeArea() SetInterrupt(TRUE)~ EXIT
+IF ~Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~SetInterrupt(FALSE)
+SetGlobal("C#BrandoBG1QuestNagging","LOCALS",6)
+GivePartyAllEquipment()
+SetGlobal("C#Brandock_Gone","GLOBAL",1)
+SetGlobal("C#BrandockJoined","GLOBAL",0)
+RemoveFamiliar()
+ChangeAIScript("",DEFAULT)
+ChangeEnemyAlly(Myself,NEUTRAL)
+EscapeArea() SetInterrupt(TRUE)~ EXIT
+END
+
+
+
+END //APPEND
 
 
 CHAIN

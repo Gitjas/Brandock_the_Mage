@@ -85,17 +85,17 @@ THEN
 	RESPONSE #10
 		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
 		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~So many people! So, so many people.~)  
+		DisplayStringHead("C#Brandock",@1298)  
 		Continue()
 	RESPONSE #10
 		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
 		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~I won't panic. I am all calm. Aaaaaall calm.~) 
+		DisplayStringHead("C#Brandock",@1299) 
 		Continue() 
 	RESPONSE #10
 		SetGlobalTimer("bd_mdd010z_ot_timer","bd0101",ONE_ROUND)
 		SetGlobal("bd_mdd010z_ot","bd0101",0)
-		DisplayStringHead("C#Brandock",~I now I'll regret this, but I say it anyway. I'll be glad to get out of here.~) 
+		DisplayStringHead("C#Brandock",@1300) 
 		Continue() 
 	RESPONSE #160
 		Continue()

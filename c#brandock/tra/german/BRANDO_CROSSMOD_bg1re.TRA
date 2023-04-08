@@ -42,7 +42,7 @@
 @36  = ~Oh. OH! I am sorry, <CHARNAME>! I didn't mean to imply... the gods, now I feel embarassed. I *was* talking about having a long conversation with a well-versed mage like Thalantyr. Nothing else. Uhm...~
 @37  = ~I am a bit scared, <CHARNAME>. If you can charm this old "grumpyhead" - then you are really poweful. I am kidding of course... and yet - he surrounded himself with flesh golems. People who do that usually aren't the most social type.~
 @38  = ~Of course not. You are right. I'm just jealous of you getting some of his private time... he *is* the most powerful mage around after all.~
-/*
-@39  =
-@40  = 
-*/
+
+/* new in v1 */
+@39  = ~"Fon der Alden Magye: Band II" sieht wie ein hochinteressantes Buch aus. Leider müsste ich erstmal die Schrift lernen, in der es geschrieben ist...~ 
+@40  = ~Das ist das Buch, das Meister Thalantyr sucht, oder?~

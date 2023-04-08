@@ -123,7 +123,7 @@
 @120  = ~<CHARNAME>, I'd rather you wouldn't have me do this. I think being drunk is a bit (hiccup) humililililating.~ [c#ablank]
 @121  = ~Ah. I just saw too many good people ruining themselves with too much ale, you know. But I'm not saying this doesn't taste well, oh no.~ [c#ablank]
 @122  = ~Oh... I think that was one too many. Because, I think, if I see everything twice, tha-tha-that's one time too many.~ [c#ablank]
-@123  = ~I shouldn't do this, <CHARNAME>. Not after what happened last time.~ [c#ablank]
+//@123  = 
 @124  = ~Cells! And so many. How charming. Entering the headquarters through the cells. How fitting. Bring the citizens into line without doing much, huh? Or, demonstrating what the Flaming Fist are for. Or, that working here is all about duty! 'Stand away, citizen!'~ [c#ablank]
 @125  = ~I have a bad feeling standing between all these cells. I feel ... threatened. I guess that is what happens if you grow up being a mage in Amn.~
 @126  = ~Ah, a carnival... yes, they look the same everywhere, I guess. I spent quite some time with one myself, performing. With the blessing of the city's officials, of course. The pay was quite good, considering the circumstances.~ [c#ablank]
@@ -214,16 +214,16 @@
 @211  = ~Doppelgangers. Doppelgangers! I hate it if they cooperate. Why are they here?~ [c#ablank]
 /* same as @18 in BRANDO_CROSSMOD_BREAGAR.TRA! */
 @212  = ~Secret mines! Secret mines, now *that* makes sense. Taint the official ore, use and sell the good ore yourself, from a secret mine. Oh, and blame everything onto the neighboring lands and stir up a war. Who would play little, if he can play big?~ [c#ablank]
-@213  = ~Considering I joined your forces to gain experience and reputation for the position I had in mind, the current situation somehow fails to satisfy me in this regard.~ [c#ablank]
-@214  = ~(sigh) And it worked so well until now! For a moment, I really felt like we were saving the Sword Coast... Now I'm not even sure we can save ourselves.~
-@215  = ~But we are! Just give me time to work this out.~
+@213  = ~Being arrested for murder - fals accusations, I might add - is scaring me more than any monster threat could have. More than being trapped inside a foe's dungeon, even. - I know it's no surprise to anyone that I feel scared. But... this is more intense.~
+@214  = ~Any chance half-ogre Brandock could break us out of here?~
+@215  = ~Well, in a way this *is* an evil foe's dungeon... But I know what you mean.~
 @216  = ~Why, I think 'being arrested for murder' would be something you still needed to add to your list of failures.~
-@217  = ~Believe me, I'm not satisfied either.~
-@218  = ~Is that an accusation? What would you have me do?~
-@219  = ~Not our fault that the evil organization we are trying to expose took over half of the land, is it?~
-@220  = ~Of course I know they do us wrong. And gods know I do not blame you for anything that's happening.~
-@221  = ~But we need to get out of here first. Then we have to convince the authorities we aren't the murderers they think we are or that someone wants us to appear to be. I'd appreciate starting soon, because this is going to be a hell of a task.~
-@222  = ~Hmm. Ouch.~
+@217  = ~Just give me time to work this out. We will get out of here.~
+@218  = ~Believe me, I'm not satisfied either.~
+@219  = ~[Brandock]Of course not. I know how we got here. I am counting on us to get *out* of here, though.~
+@220  = ~Is that an accusation? What would you have me do?~
+@221  = ~(sigh) And it worked so well until now! For a moment, I really felt like we were saving the Sword Coast... Now I'm not even sure we can save ourselves.~
+@222  = ~Ouch, <CHARNAME>!~
 @223  = ~Er, <CHARNAME>, are we to enter Durlag's Tower? I heard tales about it when I was young. Stories of unthinkable riches, traps, monsters and the adventurers who went in and never found their way out.~ [c#ablank]
 @224  = ~Just saying.~
 @225  = ~(sigh) Poor people. Doppelgangers infiltrating the family clan! A home, invaded by doppelgangers, slowly taking over the population, the remaining going mad in their despair and terror. This tower tells of a terrifying, and also very, very sad story.~ [c#ablank]
@@ -554,6 +554,30 @@
 @541  = ~And now we are here... send just because someone didn't like out demeanor. What a fate!~
 @542  = ~I need to have a look at that wardstone again, now that I know what it is *for*... No, I don't really see how it works.~
 @543  = ~(moans) Let's hope that crazy man wants his cloak back bad enough then... and that it won't be the only thing he brings back from here! Excuse me, <CHARNAME>, I feel like I need to throw up...~
+
+/* new for v1 */
+@544  = ~[Gazib]Thank you, sir! You're the first today who actually cares. Er, maybe you should step away a bit...~
+@545  = ~[Brandock]Well, I guess using a cursed scroll of Foolishness would be a very impressive experience, although one I would rather avoid! You can't call this scroll of "wisdom" - unless you want to mislead people, of course.~
+@546  = ~[Brandock]Oh, yes. This raises bad memories. Very bad memories. Well, not only bad. But I know how you feel... Here, have some coins, friend.~
+@547  = ~[Brandock]Oh, I *feel* strong as a half-ogre, but - no. Look at these walls. They are build to keep much stronger prisoners in.~
+@548  = ~[Brandock]We still have Balduran's Logbook. Any idea what we will do with it?~
+@549  = ~[Brandock](ack) I know I deserve this... Keep it coming... But yes, that's what's my book case is for.~
+@550  = ~[Brandock]It's definitely a treasure. The logbook from the founder of Baldur's Gate! I hope we'll find a suitable place for it.~
+@551  = ~[PC Reply]I thought we leave it with you, since it worked so well last time.~
+@552  = ~[PC Reply]I think I will keep it, for now. It might open the way to Candlekeep at some point, who knows.~
+@553  = ~[PC Reply]I want it to be in Candlekeep, it's the only place for such a book. I'll see when I'll be able to get it there.~
+@554  = ~[PC Reply]Just leave it where it is for now. I'll deal with it later.~
+@555  = ~[PC Reply]I think I will keep it, for now.~
+@556  = ~[PC Reply]Well, Aldeth offered to buy it, and I think it's worth a thought.~
+@557  = ~[Brandock]<CHARNAME>, I said I'll understand if we take our time to retreave my possessions, but I am getting nervous, and anxious, and - yes, I admit I'm getting impatient. Please let us return to Lion's Way and face whatever awaits in that cave - and in front of it, and around it, and... please let us go there soon. It's really important to me.~
+@558  = ~[Brandock]<CHARNAME>, I have full understanding if you don't want to take the time to retrieve my possessions, although I'd hope you would tell me so honestly. I really need to get my things - or what is left of them. Do I go and try to find help elsewhere?~
+@559  = ~[PC Reply]I'm sorry it took so long, Brandock, but we are kind of caught up in something currently. We'll go there as soon as possible, I promise.~
+@560  = ~[PC Reply]Woops, completely forgot about that. Of course we'll head there right away.~
+@561  = ~[PC Reply]Yes, go and look for help elsewhere, Brandock. Having you here doesn't seem to work out.~
+@562  = ~[Brandock]Thank you! You can't imagine how relieved I am to hear that.~
+@563  = ~[Brandock]Thank you for being honest. Although I would have hoped you'd tell me sooner.~
+@564  = ~[Brandock]I... I can't postbone this any longer, I'll go now and retrieve my posessions on my own, or at least I'll try. I did enjoy travelling with you - except for the detail that you didn't keep your promise, of course.~
+@565  = ~[Brandock]Fare well.~
 
 /* brandock_Bhaalreaction.d */
 @650  = ~Bhaal would be your father, you were sired by a god? Who is now dead, I might add. You didn't know this, I take it?~ [c#ablank]
@@ -1191,7 +1215,7 @@
 @1390 = ~Let's get out of here, my head is spinning. Thank you, Master Thalantyr. I will try to make the best of it....~
 @1391 = ~Melicamp, do you... Do you sometimes still turn into a chicken?~
 @1392 = ~I *cluck* I do not turn into one! This is still no laughing matter, why do you ask?~
-@1393 = ~No, I'm not making fun of you - half-ogre guy here, you surely remember... (mumbles) But you seem to have some remains of your time as a bird, nontheless... (Brandock clears his throat.) Did you ever... erm, have the impression your body still thinks it's a chicken... somehow?~
+@1393 = ~No, I'm not making fun of you - half-ogre guy here, as you surely remember... (mumbles) But you seem to have some remains of your time as a bird, nontheless... (Brandock clears his throat.) Did you ever... erm, have the impression your body still thinks it's a chicken... somehow?~
 @1394 = ~Ah, right, it's you. That's absolutely hilarious, by the way - the half-ogre looks exactly like you now!~
 @1395 = ~Wait - w...?~
 @1396 = ~Ah, right, it's you. Should have guessed, haha!~
@@ -1233,10 +1257,10 @@
 @1432 = ~Yes. You are too great an unreliability as a mage. Farewell.~
 @1433 = ~No, not necessarily. But I need you to be in control of your magic if you are going to stay.~
 @1434 = ~Then I will go. Farewell to you too, <CHARNAME>. I doubt we will meet again.~
-@1435 = ~There is one more thing... The thought of the half-ogre... human-half-ogre... Half-human-half-oger won't let go. I'm speechless that he would be affected too - but that makes sense, yes. <CHARNAME> - I feel guilty about it, because it was my attempted spell that started the whole thing.~
-@1436 = ~WE have to go look for him - please!~
+@1435 = ~There is one more thing... I can't shake the thought of the half-ogre... human-half-ogre... Half-human-half-oger. I'm speechless that he would be affected too - but that makes sense, yes. <CHARNAME> - I feel guilty about it, because it was my attempted spell that started the whole thing.~
+@1436 = ~We have to go look for him - please!~
 @1437 = ~We have to go to him again. He may still feel comfortable in his camp, but that will change eventually.~
-@1438 = ~At some point, he *will* want to connect with people, and I'd rather he have a good start when that happens.~
+@1438 = ~At some point, he *will* want to connect with people, and I'd rather he'll have a good start when that happens.~
 @1439 = ~Thalantyr mentioned the Morning Temple at Beregost where he could go to until he gets settled in. I have an idea how I could peak his interest....~
 @1440 = ~[Halboger]You visiting?~
 @1441 = ~Er... hello there.~
@@ -1257,12 +1281,12 @@
 @1456 = ~[Brandock]By the gods, this is like watching a child learn to walk.... Malm, now you still like being alone. But at some point that won't be enough any more, and then you'll need other people around you with whom you can exchange ideas.~
 @1457 = ~I need something to peak his curiosity to go amongst people. Wait a moment, <CHARNAME>.~
 @1458 = ~What are you tinkering?~
-@1459 = ~Yes, go ahead and handle sticks and stones, we have nothing else to do.~
+@1459 = ~Yes, go ahead and fiddle with sticks and stones, we have nothing else to do.~
 @1460 = ~Here, already finished.~
 @1461 = ~What is it?~
 @1462 = ~Is this some kind of puzzle toy?~
 @1463 = ~And you think this will gain a half-ogres interest?~
-@1464 = ~My father is a carpenter, <CHARNAME>. I worked more with wood and my hands than was good for the workshop... I have not been good at it, but some things I remember.~
+@1464 = ~My father is a carpenter, <CHARNAME>. I worked more on wood with my hands than was good for the workshop... I was never good at it, but some things I remember.~
 @1465 = ~You think this will lure him out of the wilderness?~
 @1466 = ~Exactly.~
 @1467 = ~It's a toy for skill and patience both.~
@@ -1287,6 +1311,9 @@
 @1484 = ~No offence taken, really. But I am looking for that man you were referring to. He's, er, my cousin. So he was released already? Where did he go?~
 @1485 = ~Not yet, but he's to be released any minute. He's in the second last cell on the left.~
 @1486 = ~Hmph. If you insist, he's just down the aisle. Be sure to make it quick! I want all of you out in ten.~
+
+/* new for v1 */
+@1487 = ~[Thalantyr]Ah, yes, you look like the friend this unfortunate man tried to describe after barging in here with that... man in tow.~
 
 /* brandock_shapeshifter_bg1_sod_bartender.d */
 @1490 = ~Alright, pal, seems they let you go again. That's great and all, but I don't want you anywhere near my liqueur... wait, you aren't the one that caused trouble here recently. Sorry for mistaking you for someone else, although you do look very alike.~
@@ -1350,12 +1377,15 @@
 @1543 = ~Why did we have to barge in like that and kill those young women... <CHARNAME>, if we do not have the means to snatch things from under people's noses without them feeling like defending them with their lives then *maybe* we shouldn't accept such tasks.~
 @1544 = ~This is definitely a very interesting book. I don't think I'll be able to build a skyship, but reading about it is most enlightning.~
 
+/* new for v1 */
+@1545 = ~Ooh, I also see the book Master Thalantyr was looking for - "Thee Oldde Magyck: Volume II". Maybe we could have it?~
+
 /* brandock_lorepath_sod.d */
 @1650 = ~Ooh, look at all the books laying on the floor, what a shame... There is good books here, <CHARNAME>.~
 @1651 = ~Go ahead and have a look around. That is what we are here for, after all.~
 @1652 = ~There's enemies nearby, Brandock. We need to move.~
 @1653 = ~Hmm, this is frustrating. How can the title be readable, but the content is not? I've never seen this language before. There is even a note: "wise to think backwards." But without the needed lexicon, even that note is not helpful for deciphering the book.~
-@1654 = ~This is one of the moments where curiosity takes me over. I'm tempted to grab some of the old tomes laying around in the hopes they are worth enough, head to Candlekeep, and study this book just to know what it says or whether it's a hoax. Er... I'm not saying I'd *do* that...~
+@1654 = ~This is one of the moments where curiosity takes me over. I'm tempted to grab some of the old tomes laying around in the hopes they are worth enough, head to the great librabry Candlekeep, and study this book just to know what it says or whether it's a hoax. Er... I'm not saying I'd *do* that...~
 @1655 = ~You want us to keep that tome?~
 @1656 = ~I understand the feeling. Maybe you'll have time for that later.~
 @1657 = ~Do you see books here that are valuable enough to grant entrance to Candlekeep?~
@@ -1363,7 +1393,7 @@
 @1659 = ~Focus, Brandock. If you can't learn from this book, then leave it.~
 @1660 = ~We can't talk now. We need to move on.~
 @1661 = ~I wouldn't mind just keeping it in my bookcase, but I'm not sure when I'd be able to study it. Looking at the others we found here I guess it deals with liches, heh.~
-@1662 = ~I'd be surprised if there would *not be such valuable books here. They all look rather old, not to say ancient. Would you like the books to grant you entrance to Candlekeep?~
+@1662 = ~I'd be surprised if there would *not* be such valuable books here. They all look rather old, not to say ancient. Would you like the books to grant you entrance to Candlekeep?~
 @1663 = ~It would be nice to have one, just in case.~
 @1664 = ~No, I'd rather sell it.~
 @1665 = ~Not necessarily. I was just curious.~
@@ -1426,7 +1456,7 @@
 @1905 = ~[Brandock]So, this is how the preservation magic in the book worked. I... I undestood it. I actually understood it. This was most enlightening.~
 @1906 = ~Just a moment... Here, please send this letter with all gathered knowledge about the book's magic to Master Elvenhair in Candlekeep - as well as Master Purgan in Alisarhold.~
 @1907 = ~[Brandock]Just a moment... Here, please send this letter with all gathered knowledge about the book's magic to Master Purgan in Alisarhold.~
-@1908 = ~[Brandock]This is the moment of truth I anticipated for os long. I sought and found "Oghma's Wisdom" about how to write spells into the transformed De Simplex Magicae.~
+@1908 = ~[Brandock]This is the moment of truth I anticipated for so long. I sought and found "Oghma's Wisdom" about how to write spells into the transformed De Simplex Magicae.~
 @1909 = ~[Brandock]I... I will come back with regard to this for more of your knowledge - probably. But the book will stay with me, for now. I swear I will keep it safe - and keep it out of the reach of the Coweld Wizards as well as other megalomaniac mages.~
 @1910 = ~We will do as you ask. This gathered knowledge is interesting for us as well. Fare well.~
 @1911 = ~[Brandock]We have all we need with us! <CHARNAME>... Please?~
@@ -1469,7 +1499,7 @@
 @1948 = ~You should listen to your heart.~
 @1949 = ~[Brandock]Ouch...~
 @1950 = ~If you feel this insecure then it means something. I wouldn't do this if you feel this way.~
-@1951 = ~[Brandock]The De Simplex Magicae... I was its owner for so long - I learned verything I could from it. I studied the spell recipes, I learned about the restoration magic. There is nothing else I could learn from it.~
+@1951 = ~[Brandock]The De Simplex Magicae... I was its owner for so long - I learned everything I could from it. I studied the spell recipes, I learned about the restoration magic. There is nothing else I could learn from it.~
 @1952 = ~[Brandock]Oh wow, this sounded really arrogant. But... truth is, there is nothing more that I could learn from it without the help of someone even *more* experienced than me.~
 @1953 = ~The magic in the book was hidden for so long. It really is no problem to wait a little longer.~
 @1954 = ~Just tell me when you'll have something useful coming out of this. I don't want to talk about it any more until then.~
@@ -1486,10 +1516,16 @@
 @1966 = ~I'm pretty sure your experience and talent helped quite a bit.~
 @1967 = ~Don't make it sound as if it was really easy. You came a long way until now.~
 @1968 = ~If it was that easy, I wonder why it took so long.~
-/*
-@1969 = 
-@1970 = 
-*/
+@1969 = ~My friend Brandock wanted to show you a tome of "Ancient Wisdom" he can't read himself.~
+@1970 = ~Thank you for taking the time, <CHARNAME>. Here it is.~
+@1971 = ~Oh, how very interesting. This is a very ancient language, not many are able to decipher it any more. You do not read it like Common, but more like this - you start here ... and then it goes here... For anything more, we would need to study it using the old lexica.~
+@1972 = ~Ooh, I see! That was already very interesting. Thank you for sharing your wisdom!~
+
+/* brandock_bookrestore_eet.d */
+@1973 = ~[Brandock]I can't *wait* to tell Master Elvenhair about this. - If we'll ever come back to him, that is.~
+@1974 = ~[Brandock]That's *exactly* what I came here for, Master Elvenhair! Er, you remember me?... Unfortunate mage you so kindly volunteered to help some while ago with this scrumbled book that restored itself because of a spell by Master Bowgentle? - See this? This is the book! It's complete again! Er, I wrote in the spells that are inside now.~
+@1975 = ~[Elvenhair]Oh, what a view for sore eyes. Beautifully done, young mage. I can tell the difference to the original, of course, but I would say you definitely restored it to its former level of power.~
+@1976 = ~[Brandock]I... I thank you, Master Elvenhair. Thank you. You saying this, this-this means so much to me, you have no idea how much this means to me. I thank you so much for saying this - <CHARNAME>, let's get out of here, or I'll add "burst into tears of gratitude in front of a well-versed master" to my list of failures.~
 
 /* c#brando_bg1end_bgt.d */
 @2000 = ~<CHARNAME>, I think this is a good time to say good bye. We both reached our goals. Sarevok is stopped, and I learned a lot about wielding magic... Please understand that I need to make my way back to Amn on my own. I cannot return as a representative of Baldur's Gate authorities - I am sure you understand.~
@@ -1497,8 +1533,8 @@
 
 /* new for vbeta 4 */
 /* .../add_taerom_vial.d */
-@2010 = ~But that... that is fantastic news! I am deeply impressed by your friend's knowledge, Master Taerom.~
-@2011 = ~It is indeed, young man.~
+@2010 = ~I am deeply impressed by your and your friend's knowledge, Master Taerom.~
+@2011 = ~It was indeed a fruitful collaboration, young man. And quite to my own advantage.~
 
 /* .../add_thalantyr_vial.d */
 @2015 = ~Oh, that would be fantastic indeed! A solution to this cursed breaking iron! I wish you all the success you need, Master Thalantyr.~

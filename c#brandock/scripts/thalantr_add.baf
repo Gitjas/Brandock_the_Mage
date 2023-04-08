@@ -47,3 +47,30 @@ THEN
 	StartDialogueNoSet(Player1)
 END 
 
+/* Kompatibility workaround for Kit Tome mod (because it adds dialogue in an incompaible way) */
+
+IF
+	InMyArea(Player1)
+	See(Player1)
+	InMyArea("C#Brandock")
+	!InParty("C#Brandock") !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Brandock_Shapeshift","GLOBAL",6)
+	Global("HelpThalantyr","GLOBAL",1)
+	Global("C#BrandockShapeshift1","LOCALS",0)
+THEN
+	RESPONSE #100
+            SetGlobal("C#BrandockShapeshift1","LOCALS",1)
+END
+
+IF
+	InMyArea(Player1)
+	See(Player1)
+	InMyArea("C#Brandock")
+	!InParty("C#Brandock") !Global("C#BrandockJoined","GLOBAL",2)
+	Global("C#Brandock_Shapeshift","GLOBAL",6)
+	Global("C#BrandockShapeshift1","LOCALS",1)
+THEN
+	RESPONSE #100
+	    StartDialogueNoSet(Player1)
+END
+

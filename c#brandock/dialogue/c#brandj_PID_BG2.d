@@ -101,8 +101,8 @@ SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
 + ~!InParty(Myself) NumInParty(6)~ + @50 /* ~Brandock, would you grant me access to your inventory?~ */ + join
 
 
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",0) Global("C#BrandockJoined","GLOBAL",2)~ + @51 /* ~Brandock, please warn me if your health gets too low in the next fight.~ */ + hp_alarm_on
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",1) Global("C#BrandockJoined","GLOBAL",2)~ + @52 /* ~Brandock, I want you to stop warning me about your health conditions in our fights.~ */ + hp_alarm_off
++ ~Global("C#%NPCname%Joined","GLOBAL",2)~ + @200020 /* ~I want to give you orders how to follow me.~ */ + script_chose
+
 
 
 ++ @53 /* ~Nothing at the moment.~ */ EXIT

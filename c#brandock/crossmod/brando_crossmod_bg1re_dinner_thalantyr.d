@@ -15,6 +15,16 @@ I_C_T ~Thalan~ %Thalan_340% C#Brando_Thalan_340
 See("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @21 /* ~Did I mention before that I am jealous? Well, now I am even more. Yes, just go and spend the *second* evening in private conversation with the most powerful mage in these parts of the Sword Coast and - enjoy yourself, <CHARNAME>, alright?~ */
 END
 
+/* Reaktion, enn man das Buch findet, das Thalantyr haben wollte PartyHasItem("C#LCTHBO") */
+
+CHAIN
+IF WEIGHT #-1
+~Global("C#Br_LorePathC#LCTHBO","GLOBAL",1)~ THEN C#BrandJ has_thalantyrs_book
+@39 /* ~"Thee Oldde Magyck: Volume II" surely looks like a very interesting book. It's a pity I'd have to study the language it is written in first, though.~ */
+DO ~SetGlobal("C#Br_LorePathC#LCTHBO","GLOBAL",2)~
+== C#BrandJ IF ~Global("C#LC_ThalantyrAsked","GLOBAL",2)
+GlobalLT("C#BE_bg1re_C#LCTHBO","GLOBAL",2)~ THEN @40 /* ~This is the book Master Thalantyr was looking after, is it not?~ */ DO ~SetGlobal("C#BE_bg1re_C#LCTHBO","GLOBAL",2)~
+EXIT
 
 
 /* Reaktion zu Thalantyrs Bücherei - in case SotSC isn't active (Brandock wasn't in Thalantyr's PQ himself */

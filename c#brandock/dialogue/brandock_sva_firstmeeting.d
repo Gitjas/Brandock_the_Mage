@@ -214,7 +214,7 @@ END
 CHAIN
 IF ~~ THEN c#brand2 firstmeeting_23
 ~And I would like to come with you. I need to ask what to do now. I am ssigned to these experiments, but... without Ebrel it doesn't make any sense to continue.~
-== c#brand2 IF ~Global("C#BrandockSpawn","GLOBAL",14)~ THEN ~I need to know what happened to him - find the one who is responsible for his death!~
+== c#brand2 IF ~Global("C#BrandockSpawn","GLOBAL",14)~ THEN ~I need to know what exactly happened - find the one who is responsible for his death!~
 == c#brand2 IF ~Global("C#IM_ImoenStays","GLOBAL",0)
 Global("C#Brandock_ImoenFirstMeeting","LOCALS",1)~ THEN ~And I think I could be of help - if only little, in your investigation about Imoen.~
 END
@@ -228,7 +228,7 @@ APPEND c#brand2
 
 IF ~~ THEN firstmeeting_24
 SAY ~With pleasure! I'll do as best I can. Let us go to the Councellor's Building, I need to talk to the Cowled Wizard Emissary!~
-= ~And also... Please let us go to the Temple of Helm in the Temple District. I need to arrange for Ebrel's funeral... Oh, Ebrel. I'll learn from your spellbook as much as I can. Your wisdom will not be lost...~
+= ~And also... Please let us go to the Temple of Lathander in the Temple District. I need to arrange for Ebrel's funeral... Oh, Ebrel. I'll learn from your spellbook as much as I can. Your wisdom will not be lost...~
 IF ~~ THEN DO ~EraseJournalEntry(@10030)
 EraseJournalEntry(@10014)
 EraseJournalEntry(@10015)
@@ -238,6 +238,7 @@ SetGlobal("C#Br_LorePathIncrease","GLOBAL",2)
 SetGlobal("C#BrandockSpawn","GLOBAL",15)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
 SetGlobal("C#Brandock_Dialog","GLOBAL",201)
+SetGlobal("C#Brando_EbrelFuneral","GLOBAL",1)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",400)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",1800)
 ReallyForceSpellRES("c#brlob1",Myself)

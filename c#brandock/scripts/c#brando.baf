@@ -26,7 +26,7 @@ THEN
 		SetInterrupt(FALSE)
 		SetGlobal("C#BrandockRestCounter","GLOBAL",1)
 		Rest()
-		ReallyForceSpellRES("C#BRREST",Myself)
+		ReallyForceSpellRES("c#7rest",Myself)
 		SetInterrupt(TRUE)	
 END
 
@@ -68,7 +68,7 @@ IF
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		ReallyForceSpellRES("C#BRREST","C#Brandock")    // Cures effects and restores health - taken from Argent77's Djinni Companion with many thanks	
+		ReallyForceSpellRES("c#7rest","C#Brandock")    // Cures effects and restores health - taken from Argent77's Djinni Companion with many thanks	
 		SetGlobal("C#Brandock_IsUnconscious","GLOBAL",0)		
 		DisplayStringHead(Myself,@1001)
 		MakeGlobal()
@@ -96,7 +96,7 @@ END
 /* follows as familiar: Brandock warns about HP too low: auto pause. This can be switsched on and off via PID */
 
 IF
-	Global("C#Brandock_HPAlarm","GLOBAL",1)  //PC told Brandock to warn
+	Global("C#HPAlarm","LOCALS",1)  //PC told Brandock to warn
 	Global("C#Brandock_HPAlarmDone","LOCALS",0)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
 	!CombatCounter(0)
@@ -111,7 +111,7 @@ END
 /* follows as familiar: Brandock warns about HP too low: no auto pause. This can be switsched on and off via PID */
 
 IF
-	Global("C#Brandock_HPAlarm","GLOBAL",0)  //PC told Brandock not to warn
+	Global("C#HPAlarm","LOCALS",0)  //PC told Brandock not to warn
 	Global("C#Brandock_HPAlarmDone","LOCALS",0)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
 	!CombatCounter(0)
@@ -168,7 +168,7 @@ IF
 THEN
   RESPONSE #100
 		SetInterrupt(FALSE)
-		ReallyForceSpellRES("C#BRREST","C#Brandock") //make sure there is no negative effect
+		ReallyForceSpellRES("c#7rest","C#Brandock") //make sure there is no negative effect
 		ReallyForceSpellRES("C#MIN5HP","C#Brandock") //give him min 5 HP and immunities
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",1)
 		IncrementGlobal("C#7thPartyMemberRestCounter","GLOBAL",1) //needed for Brandock's spell regeneration
@@ -367,25 +367,12 @@ END
 
 /* possessions/ bookrestore: book is gone from group's inventory */
 
-/* destroyed book was collected. set variable to "0" */
+/* destroyed or restored book was collected. set variable to "0" */
 IF %BGT_VAR%
 	GlobalGT("C#Brandock_BookWarning","GLOBAL",0) 
-	OR(2)
+	OR(24)
 		HasItem("c#br0001",Myself)
 		PartyHasItem("c#br0001")
-	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-	See(Player1)
-	!Detect([ENEMY])
-	CombatCounter(0)
-THEN
-	RESPONSE #100
-		SetGlobal("C#Brandock_BookWarning","GLOBAL",0) 
-END
-
-/* restored book was collected. set variable to "0" */
-IF 
-	GlobalGT("C#Brandock_BookWarning","GLOBAL",0)
-	OR(22)
 		HasItem("c#br0007",Myself)
 		PartyHasItem("c#br0007")
 		HasItem("c#brbo01",Myself)
@@ -434,7 +421,7 @@ IF %BGT_VAR%
 	CombatCounter(0)
 THEN
 	RESPONSE #100
-		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",15)
+		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",30)
 		SetGlobal("C#Brandock_BookWarning","GLOBAL",1) 
 END
 
@@ -476,7 +463,7 @@ IF
 	CombatCounter(0)
 THEN
 	RESPONSE #100
-		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",15)
+		RealSetGlobalTimer("C#BrandockBookTimer","GLOBAL",30)
 		SetGlobal("C#Brandock_BookWarning","GLOBAL",2) 
 END
 
@@ -487,7 +474,7 @@ IF
 	OR(2)
 		Global("C#Brandock_BookWarning","GLOBAL",1)
 		Global("C#Brandock_BookWarning","GLOBAL",2)
-OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) 
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) 
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
@@ -558,15 +545,26 @@ END
 
 
 /* start banter script if not in party */
+/* SoD: faster timer */
+IF
+	%IT_IS_SOD%
+	Global("C#BrandockJoined","GLOBAL",2)
+	RealGlobalTimerExpired("C#BrandockNPCBanterTimer","GLOBAL")
+	CombatCounter(0)
+	!See([ENEMY])
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",1800)
+		Interact(Player1)
+END
 
 IF
 	Global("C#BrandockJoined","GLOBAL",2)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	InMyArea(Player1)  
-	!StateCheck(Player1,CD_STATE_NOTVALID)
+	RealGlobalTimerExpired("C#BrandockNPCBanterTimer","GLOBAL")
 	CombatCounter(0)
 	!See([ENEMY])
-	RealGlobalTimerExpired("C#BrandockNPCBanterTimer","GLOBAL")
+	ActionListEmpty()
 THEN
 	RESPONSE #100
 		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3000)

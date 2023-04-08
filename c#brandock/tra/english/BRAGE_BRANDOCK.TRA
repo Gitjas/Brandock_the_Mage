@@ -19,7 +19,7 @@
 @16    = ~[Brage]You have a curious mind, Brandock, and you are young and inexperienced. Believe me, this is always a dangerous mixture - some do not survive it. You made mistakes and had bad luck, but I do not see the degree of recklessness and arrogance that would make me fear for your life - and our safety. On the contrary.~
 @17    = ~[Brandock]You mean the way I tamper with wild magic I don't understand?...~
 @18    = ~[Brage]You strive to learn - to *understand* magic, while at the same time knowing how dangerous it is. This is a good approach for a profession that has potential for such powerful - and destructive - outcomes.~
-@19    = ~[Brandock]I thank you, Brage. I... I strive to understand what I'm doing *before* becoming too powerful...~
+@19    = ~[Brandock]I thank you, Brage. I... I strive to understand what I'm doing *before* becoming too powerful... And most definitely before it gets destructive.~
 @20    = ~[Brage]Brandock, I can only stress what I said recently. Magic is dangerous and needs to be kept under control. To do so we need to know what we are dealing with. Your ability to identify unknown magic is of utmost importance to us to keep us safe.~
 @21    = ~[Brandock]Yes, I can assure you that I do not wish us to repeat what happened to you... I am so sorry, that was rather insensitive of me to say.~
 @22    = ~[Brage]But it is true - it is true what you are saying. You are only phrasing out loud what I thought in my mind. Would we only have had a mage in the Nashkel Guard, all this might not have happened...~
@@ -60,3 +60,33 @@
 @57    = ~[Brandock]Thank you for your words of encouragement, Brage. I will definitely strive to remain the responsible person I am - not only because I promised and mean it now but because it is who I *am*, at least I hope so. I do not wish to lose myself, no matter how desparate I am to be accepted amongst the Cowled Wizards one day!~
 @58    = ~[Brage]I'm glad we identified them in time. Thank you, Brandock - for keeping such a sharp eye on this.~
 @59    = ~[Brandock]You're very welcome, Brage. My... my urge for self-preservation won't ever let me do otherwise.~
+
+
+/* new for v1 */
+
+/* SoD */
+/* brage_brandock_sod.d */
+@500  = ~[Brandock]I am glad you do, Brage. As embarrassed as I am to say it, but I don't know this song. My family... are not great singers, and they don't teach you lullabies with the Cowled Wizards.~
+@501  = ~[Brandock]As embarrassed as I am to say it, but I don't know this song. My family... are not great singers, and they don't teach you lullabies with the Cowled Wizards.~
+/* The German version contains an idiom: "sich benehmen wie die Axt im Walde" ("behave like an axe in the woods") - the PC just threatened to cut down the tree, so if you have some similar idiom feel free to use it. */
+@502  = ~[Brandock]<CHARNAME>, don't act like a brute... I mean, don't scare her. How are we supposed to get her to her uncle if she doesn't trust us?~
+@503  = ~[Brandock]Brage, do you really see anything positive in this crusade? All the destruction - all the refugees...~
+@504  = ~[Brage]I do see those, but I see what the crusaders are trying to accomplish and I think it's a noble goal.~
+@505  = ~[Brage]Well, before I knew that they were just planning to open a way to Avernus and leave the Sword Coast defenseless to the fiends, I was more inclined to the plans of the crusade. But still, I think it's a noble goal.~
+@506  = ~[Brage]On the destruction - don't think an army that size could march without there being unwanted incidents, Brandock.~
+@507  = ~[Brandock]Incidents? Almost whole villages are destroyed. Those who do not join the crusade are driven out or worse. What the crusade is doing is as if I would go ravaging through a library in the attempt to restore my book. The actions of the crusade are in complete contradiction to the goal of saving lives. And I surely hope what is happening in the villages is not the kind of "incidents" you mean from organized armies!~
+@508  = ~[Brage]Definitely not. But war destroys many things, even if it was started with the best intentions. I've seen enough as a captain to know that even the most noble goals, the earnest promises, the most fervently delivered pledges were lost in the reality of war. I do agree with you on one thing: That the crusade who set out to liberate lost souls turned into a hostile army is the great mistake of Caelar which I also cannot understand.~
+/*
+@509  =
+@510  =
+*/
+
+@520  = ~[Brandock]Brage, since both our ways seem to lead us to Amn - and rather sooner than later after all this is done - maybe we could combine forces for the journey after saying good-bye to <CHARNAME>?~
+@521  = ~[Brage]I would like so, Brandock - well, at least... How should I put this without sounding heartless to a compangion's trouble. I would very much rather not be involved into any of your inevitable mage dealings when reaching Amnian borders.~
+@522  = ~[Brandock]Oh - of course not. I would never dare to bother you with any of it. Especially since I have no idea what will await me. I need to make my presence known, so much for sure, and await any instructions from the Cowled Wizards. I hope they will accept that I will travel to my mother without delay and await their answer there, though.~
+@523  = ~[Brage]Let us travel until we passed the Cloud Peaks, and then say farewell. We all know the north is not as critical about your profession, and travelling the mountains is better done in company. After that, coming "home" will provide its very own and personal hardships for both of us, which will make splitting up the wiser choice.~
+@524  = ~[Brandock]This sounds good, Brage. I am looking foreward to having you around a bit longer.~
+/*
+@525  =
+@526  =
+*/

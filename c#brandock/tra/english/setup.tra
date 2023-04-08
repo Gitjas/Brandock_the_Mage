@@ -25,7 +25,7 @@
 @55562  = ~Gavin BG1 detected.~
 @55563  = ~The Calling detected.~
 @55564  = ~Valerie detected.~
-@55565  = ~Imoen 4 Ever: SoD detected.~
+@55565  = ~Imoen 4 Ever SoD component "Give Imoen dialogue content during chapters 8 to 12" detected.~
 @55566  = ~Alternatives detected.~
 @55567  = ~NPC Strongholds detected.~
 @55568  = ~This mod needs to be installed before EET_End on your EET install.~
@@ -52,3 +52,11 @@
 @55586  = ~Use Short Cutscene in Thalantyr's Abode~
 
 @55587  = ~The Boareskyr Bridge Scene mod detected.~
+@55588  = ~bgqe - slimequest detected.~
+
+@55589  = ~Ajantis SoD detected.~
+@55590  = ~This component needs to be installed after "Brandock the Mage: Crossmod Content".~
+
+/* new for v1 */
+@55591  = ~Finch NPC detected.~
+@55592  = ~This component has been deprecated.~

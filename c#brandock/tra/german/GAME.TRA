@@ -1,6 +1,6 @@
 @0  = ~Haltbare Schriftrolle Magie Bannen~ 
-@1  = ~(gähn)~ 
-@2  = ~(hust)~ 
+//@1  = 
+//@2  =  
 @3  = ~Haltbare Schriftrolle Feuerball~ 
 @4  = ~Brandocks Mantel~
 @5  = ~Dies ist der wärmste Mantel, den Brandock fand, bevor er sich auf die Reise in den Norden aufmachte. Nicht, dass es in seiner Heimat so viel wärmer wäre, aber "die Nächte hier sind kalt, ließ ich mir sagen." Zusätzlich ist der Mantel so dick, dass er tatsächlich einen Schutz gegen Pfeile und andere Geschosse bietet, was für einen Magier recht praktisch ist.
@@ -531,6 +531,9 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1039 = ~Dies ist der Schreibtisch von Elfenhaar. Er ist voll mit Stapeln von Büchern, Schriftrollen und einem Satz unterschiedlich geformter Federkiele.~
 @1040 = ~Magische Bücher! Viele Bücher! Werden helfen ...~
 
+/* new for v# */
+@1041 = ~Moment - WAS? Ein Teufel? Der Junge war ein *Teufel*?~
+
 /* SoD */
 @1250 = ~Heh, <CHARNAME>! <CHARNAME>, hier drüben!~
 @1251 = ~Bei den Göttern, ich hoffe <PRO_HESHE> sieht mich!~
@@ -553,7 +556,7 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1268 = ~Uah, <CHARNAME>, das hat viele Leben gekostet... Aber waren es mehr als wenn wir gekämpft hätten - ich weiß es nicht, und ich bin froh, dass ich die Entscheidung nicht treffen musste.~
 @1269 = ~Oh, wir erhalten eine Möglichkeit, zu entkommen. Das ist... schön.~
 @1270 = ~Wir stehen... wir stehen auf einem... (Brandock schluckt hart.) Bei den Göttern, <CHARNAME>, seid Ihr in Ordnung?~
-@1271 = ~Mussten wir diesen Mann töten? Ich meine, nunja, das mussten wir wohl.~
+@1271 = ~Mussten wir diese Leute töten? Ich meine, nunja, das mussten wir wohl.~
 @1272 = ~Oje, oje... Wenn wir dieses Portal nicht geschlossen kriegen, dann können wir uns auch gleich selbst töten. Also sollten wir besser bei dem Versuch sterben, es zu schließen... oder? Ich hätte nie gedacht, dass ich mal wie ein Paladin klingen würde...~
 @1273 = ~Wir... wir sind zurück, und das Portal ist geschlossen... <CHARNAME>? <CHARNAME>?! Ihr blutet nicht etwa?!~
 @1274 = ~Mir... mir ist übel.~
@@ -577,6 +580,14 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @1291 = ~(Brandock schaut sich die erbeuteten Zauberbücher aufmerksam an, sichtbar am Inhalt interessiert.)~
 @1292 = ~Oh ja. Dieses Zauberbruch ist definitiv interessant.~
 @1293 = ~Ist das Euer Ernst?! Holt mich aus diesem Ding raus, so schnell wie möglich! So bin ich doch zu nichts nutze!~
+@1294 = ~Alte ausgerissene Buchseite~
+@1295 = ~Dies scheint die fehlende Seite aus dem Zauberbuch zu sein, um die Eldom Euch gebeten hat Ausschau zu halten. Sie enthält Anweisungen, wie man durch Nutzen von geringer verzauberter Munition welche mit einer Verzauberung +3 herstellen kann. 
+Auf der Seite sind handschriftliche Notizen zu sehen, von denen die offensichtlichste in großen Buchstaben auf die Seite gekritzelt ist: "Dies ist ohne das Buch, aus dem es stammt, *nicht* zu gebrauchen!!!"~
+@1296 = ~Mander~
+@1297 = ~Eldom~
+@1298 = ~So viele Leute! So unglaublich viele Leute.~
+@1299 = ~Ich kriege keine Panik. Ich bin ganz ruhig. Gaaaaaanz ruhig.~
+@1300 = ~Ich werde bereuen, es gesagt zu haben, aber ich sage es trotzdem: Ich bin froh, bald von hier wegzukommen.~
 
 /* BGII */
 @3500 = ~Haus von Brandocks Cousin~
@@ -609,3 +620,28 @@ Diese Fähigkeit bewirkt, dass Brandock seine natürliche Gestalt wieder annimmt. 
 @100288 = ~Hä?~
 @100289 = ~Nicht mehr, Imoen... Ich bin mittlerweile so viel weiter als damals, als ich mir überlegte, ob ich einen Magier als Lehrer finden würde. So viel weiter. Aber *damals*, also *damals* wäre ich *unendlich* neidisch gewesen.~
 @100290 = ~Ha!~
+
+
+
+/* c#7thpmm_thingies.tpa */
+@200000 = ~(gähn)~
+@200001 = ~Bleibt immer in meiner Sichtweite.~
+@200002 = ~Ihr müsst nicht mehr in meiner Sichtweite bleiben.~
+@200003 = ~Sucht nach Fallen.~ 
+@200004 = ~Sucht nicht mehr nach Fallen.~
+@200005 = ~Für den Fall, dass wir auf Feinde treffen...~
+@200006 = ~Wir belassen es, wie es ist.~
+@200007 = ~Bekämpft Feinde mit Euren Zaubern.~
+@200008 = ~Schützt Euch mit Schutzzaubern und bekämpft dann Feinde mit Euren Zaubern.~
+@200009 = ~Ich möchte, dass Ihr Euch immer so von Feinden entfernt, dass Ihr sie nicht bekämpfen müsst.~
+@200010 = ~Wenn wir auf Feinde stoßen, bekämpft sie mit Nahkampfwaffen.~
+@200011 = ~Wenn Feinde da sind, bekämpft sie mit Eurer Fernkampfwaffe.~
+@200012 = ~Verteidigt Euch wirklich nur, wenn Ihr angegriffen werdet.~
+@200013 = ~Kämpft in einem Kampf überhaupt nicht.~
+@200014 = ~Ich habe keine neuen Anweisungen für Euer Verhalten in einem Kampf.~
+@200015 = ~Was soll ich tun?~
+@200016 = ~Ja?~
+@200017   = ~Brandock, warnt mich bitte, wenn Ihr im nächsten Kampf zu sehr verletzt werdet.~
+@200018   = ~Brandock, warnt mich bitte nicht mehr, wenn Ihr im Kampf zu sehr verletzt werdet.~
+@200019   = ~Das werde ich!~
+@200020   = ~[PC Reply]Ich möchte Euch Anweisungen geben, wie Ihr mir folgen sollt.~

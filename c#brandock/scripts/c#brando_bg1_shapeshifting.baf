@@ -24,7 +24,7 @@ OR(5)
 	OR(3)
 		!HasItem("%tutu_var%MISC49","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("%tutu_var%MISC49","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -71,6 +71,7 @@ CombatCounter(0)
 Global("C#Brandock_Shapeshift","GLOBAL",9)
 THEN
 RESPONSE #100
+RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
 StartDialogueNoSet(Player1)
 END
 

@@ -1,0 +1,28 @@
+/* Book for Thalantyr */
+/* activation */
+IF %BGT_VAR%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+PartyHasItem("C#LCTHBO")
+Global("C#Br_LorePathC#LCTHBO","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathC#LCTHBO","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BGT_VAR%
+Global("C#Br_LorePathC#LCTHBO","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END

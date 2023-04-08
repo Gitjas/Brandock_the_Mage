@@ -83,11 +83,11 @@ InParty(Myself)
 Global("C#Brandock_ValerieBG1","GLOBAL",4)
 ~ THEN BT2VAL brandockvalerie_03
 @21 DO ~SetGlobal("C#Brandock_ValerieBG1","GLOBAL",5)~
-== c#brandB @22
+== c#brandJ @22
 == BT2VAL @23
-== c#brandB @24
+== c#brandJ @24
 == BT2VAL @25
-== c#brandB @26
+== c#brandJ @26
 EXIT
 
 
@@ -149,17 +149,17 @@ InParty(Myself)
 Global("C#Brandock_ValerieBG1","GLOBAL",7)
 ~ THEN BT2VAL brandockvalerie_06
 @41 DO ~SetGlobal("C#Brandock_ValerieBG1","GLOBAL",8)~
-== c#brandB @42
+== c#brandJ @42
 == BT2VAL @43
-== c#brandB @44
+== c#brandJ @44
 == BT2VAL @45
-== c#brandB @46
+== c#brandJ @46
 == BT2VAL @47
-== c#brandB @48
+== c#brandJ @48
 == BT2VAL @49
-== c#brandB @50
+== c#brandJ @50
 == BT2VAL @51
-== c#brandB @52
+== c#brandJ @52
 EXIT
 
 /* banter started by Brandock */

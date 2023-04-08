@@ -32,6 +32,8 @@ Global("C#Brandock_BreagarBook","GLOBAL",0)
 == C#BrandB @5 /* ~No, I don't. But I...~ */
 == ~ACBREB~ @6 /* ~See? - Hands off.~ */
 == C#BrandB @7 /* ~It's... it's alright, I got it.~ */
+== C#BrandB IF ~OR(2) PartyHasItem("SUFBOOK2") PartyHasItem("SUFBOOK5")~ THEN @77 /* ~I just thought... Especially with Finch's dwarven book about metallurgy I would have liked to see whether the two books are anything alike.~ */
+== ~ACBREB~ IF ~OR(2) PartyHasItem("SUFBOOK2") PartyHasItem("SUFBOOK5")~ THEN @78 /* ~[Breagar]They aren't. Mine is a tome about blacksmithing, and this is... whatever that is.~ */
 == ~ACBREB~ @20 /* ~You wouldn't understand any of it anyway! Not only it is about Dwarven blacksmithing, it is also written in Dwarven runes.~ */
 == C#BrandB @16 /* ~Dwarven runes! Oh, I really have to learn how to read those!~ */
 == ~ACBREB~ @17 /* ~Buzzurk. I should have kept my mouth shut!~ */

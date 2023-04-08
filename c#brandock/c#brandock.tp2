@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1_220430~ 
+VERSION ~v1~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -147,7 +147,7 @@ END
     OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",2)~
 
     OUTER_SPRINT ~OHDradeelInfo~ ~C#Bandock_DradeelInfo~
-    OUTER_SPRINT ~CELLDOOR~ ~c#brcelldoor~
+    OUTER_SPRINT ~CELLDOOR~ ~c#celldoor~
 
     OUTER_SPRINT ~NEERA_BANTER~ ~BGEEFAKE~
     OUTER_SPRINT ~FIREBE_Bookqueststate~ ~1~
@@ -273,6 +273,14 @@ ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
   OUTER_SPRINT ~HASSPELL_WIZARD_PIERCE_SHIELD~ ~HaveKnownSpell(WIZARD_PIERCE_SHIELD)~
 END
 
+/* extras needed for 7th party member mode */
+  OUTER_SPRINT "NPCname" "Brandock"
+  ACTION_IF GAME_IS ~eet bg2ee~ THEN BEGIN
+    OUTER_SPRINT ~RunAwayFromNoLeaveArea~ ~RunAwayFromNoLeaveArea~
+  END ELSE BEGIN
+    OUTER_SPRINT ~RunAwayFromNoLeaveArea~ ~RunAwayFrom~
+  END
+
 //////////////////////////////////////////////////////////////////////
 /* all following actions are only processed ONCE for the whole mod, independent of un- and reinstalling of single components */
 
@@ -378,6 +386,8 @@ FORBID_COMPONENT ~EET_end.tp2~ ~1~ @55568
 /* Brandock's dialogue timer */
 APPEND ~gtimes.ids~ ~3600 C#BRANDOCK_TIMERLONG~ UNLESS ~C#BRANDOCK_TIMERLONG~
 APPEND ~gtimes.ids~ ~1800 C#BRANDOCK_TIMERSHORT~ UNLESS ~C#BRANDOCK_TIMERSHORT~
+APPEND ~gtimes.ids~ ~1500 C#BRANDOCK_TIMER_SOD~ UNLESS ~C#BRANDOCK_TIMER_SOD~
+APPEND ~gtimes.ids~ ~350 C#BRANDOCK_TIMERSHORT_SOD~ UNLESS ~C#BRANDOCK_TIMERSHORT_SOD~
 
 //Damit Imoen auch was sagen darf [taken from BGII fixpack at G3]
 ACTION_IF (GAME_IS ~bgt tob bg2~ AND NOT FILE_EXISTS_IN_GAME ~cdbehbla.pro~) //makes sure the fixpack isn't already installed
@@ -436,7 +446,97 @@ ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 END
 
 
+/* patch dlgs into 2das */
 
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+
+/* BG:EE */
+APPEND ~pdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+APPEND ~interdia.2da~
+~C#Brandock 	C#BrandB~
+UNLESS ~C#Brandock~
+
+END
+
+/* SoD */
+
+ACTION_IF (GAME_IS ~bgee~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+APPEND ~bddialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
+    COPY ~c#brandock/2da/BDBANTER.2DA~ ~override~ 
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
+	APPEND ~bdbanter.2da~
+		~C#Brandock 	C#BrandB~
+	UNLESS ~C#Brandock~        
+  END 
+
+END //SoD
+
+/* BG1:EET */
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+APPEND ~bgdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+APPEND ~bgbanter.2da~
+~C#Brandock 	C#BrandB~
+UNLESS ~C#Brandock~
+
+/* SoD:EET */
+
+APPEND ~bddialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
+UNLESS ~C#Brandock~
+
+APPEND ~bdbanter.2da~
+~C#Brandock 	C#BrandB~
+UNLESS ~C#Brandock~
+
+END //eet
+
+ACTION_IF GAME_INCLUDES ~sod~ THEN BEGIN
+/* Create NPCs' Banter files if not present */
+COPY_EXISTING ~BDBANTER.2DA~ ~%MOD_FOLDER%/install~
+	COUNT_2DA_COLS cols
+	COUNT_2DA_ROWS cols rows
+	FOR ( row = 2 ; row < rows ; row = row + 1 ) BEGIN
+		READ_2DA_ENTRY %row% 0 2 npc_dv
+    	READ_2DA_ENTRY %row% 1 2 banterfile
+      	INNER_ACTION BEGIN
+		ACTION_IF NOT FILE_EXISTS_IN_GAME ~%banterfile%.dlg~ THEN BEGIN
+		  <<<<<<<< .../banterfiles-inlined/%banterfile%.d
+		  BEGIN %banterfile%
+		  >>>>>>>>
+		  COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/%banterfile%.d~ 
+		END
+      	END
+	END
+BUT_ONLY
+END
+
+/* BGT, BGII, BGII:EE */
+
+ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
+
+APPEND ~pdialog.2da~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD 	C#BrandP 	C#BrandJ 		C#BrandD 	C#Bran25~
+UNLESS ~C#Brandock~
+
+
+APPEND ~interdia.2da~
+~C#Brandock 	C#BrandB      C#BrandB~
+UNLESS ~C#Brandock~
+
+END
 
 
 /* general file patching */
@@ -455,14 +555,16 @@ WRITE_EVALUATED_ASCII 0x268 ~%tutu_scriptw%TASIGHT~ #8 // Default script
 COPY_EXISTING ~%tutu_var%LENDAR.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~Lendarn~ #32 // script name / DV
 
+/* doppelgangers in Candlekeep: Monk */
+COPY_EXISTING ~%tutu_var%POGHM9.CRE~ ~override~
+WRITE_EVALUATED_ASCII 0x280 ~POGHM9~ #32 // script name / DV
+
 /* doppelgangers in Candlekeep: Shistal */
 ACTION_IF GAME_IS ~bgt bgee~ THEN BEGIN
 COPY_EXISTING ~%tutu_var%SHISTA.CRE~ ~override~
 WRITE_EVALUATED_ASCII 0x280 ~Shistal~ #32 // script name / DV
 
-/* doppelgangers in Candlekeep: Monk */
-COPY_EXISTING ~%tutu_var%POGHM9.CRE~ ~override~
-WRITE_EVALUATED_ASCII 0x280 ~POGHM9~ #32 // script name / DV
+
 END /* ~bgt bgee~ */
 END /* ~bgee eet bgt~ */
 
@@ -478,26 +580,6 @@ END /* BG2 */
 /* general spells */
 
 /* general spells for lore increase below */
-
-/* 1 HP effect spell!! (gives 5 HP and a lot of protections against things that would kill + Regeneration of 1 HP / 6s */
-
-/* This line is crappy but I need one that works for Grey the dog, too */
-ADD_SECTYPE C#1HPEffect @1 /* ~(yawn)~ */
-
-/* HP effect spell etc. */
-COPY ~C#Brandock/spells/c#min5hp.spl~ ~override~
-WRITE_BYTE 0x27 C#1HPEffect
-WRITE_BYTE 0xa2 C#1HPEffect
-
-/* remove 5 HP effect and all other protections */
-COPY ~C#Brandock/spells/c#min0hp.spl~ ~override~
-WRITE_BYTE 0xa2 C#1HPEffect
-
-/* Work-around: Brandock gets restored after a fight */
-
-COPY ~C#Brandock/spells/c#brrest.spl~ ~override/c#brrest.spl~ //This is A7REST from Argent's Djinni Companion!
-SAY NAME1 @2 /* ~(cough)~ */
-SAY NAME2 @2 /* ~(cough)~ */
 
 /* scroll scribing ability */
 COPY ~C#Brandock/spells/c#brscrl.spl~ ~override/c#brscrl.spl~ //should have correct name
@@ -573,6 +655,20 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 END //~bgt~
 
+
+/* Reaction to Taerom, BG:EE: vial */
+ACTION_IF GAME_IS ~bgee eet~ BEGIN
+<<<<<<<< ...inlined/add_taerom_vial.d
+
+I_C_T ~TAEROM~ 18 C#Brandock_Taerom_Vial
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2010 /* ~I am deeply impressed by your and your friend's knowledge, Master Taerom.~ */
+== TAEROM IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2011 /* ~It was indeed a fruitful collaboration, young man. And quite to my own advantage.~ */
+END
+
+>>>>>>>>
+COMPILE EVALUATE_BUFFER ~...inlined/add_taerom_vial.d~ USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.TRA~ 
+END 
+
 /* events after Sarevok is dead. BG:EE & BGT with bg1ub: %bartender% is bart8 */
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_shapeshifter_bg1_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
@@ -609,7 +705,8 @@ END //GAME_IS ~bgee bgt eet~
 /* SoD (SoD specific dialogues) */
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod.d~ 
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_quest.d~ 
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_reactions.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sod_quest.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brandock_sod.tra~
 /* Lorepath: SoD content */
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_lorepath_sod.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
@@ -620,6 +717,7 @@ ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
   OUTER_SPRINT ~Tavernarea~ ~bd0109~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_shapeshifter_bg1_sod_bartender.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
+  COMPILE EVALUATE_BUFFER ~c#brandock/dialogue/brando_banter_sod.d~
 END //SoD
 
 /* BG2 */
@@ -627,9 +725,19 @@ ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva_firstmeeting.d~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva.d~
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_sva_sphere.d~
+END
 /* book restore quest: BG2 part */
+ACTION_IF GAME_IS ~bgt tob bg2ee~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
+END
+ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~
+			~C#Brandock/dialogue/brandock_bookrestore_eet.d~
+			
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
+END
+ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter.tra~
 /* Brandock and the half-ogre - BGII only part */
@@ -703,43 +811,6 @@ COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brandd.baf~
 EXTEND_BOTTOM ~player1d.bcs~   ~C#Brandock/scripts/c#brandd_player1.baf~
 EVALUATE_BUFFER 
 
-
-/* in case Player1 gets rested via cutscene and not by RestParty() while Brandock is not in the group */
-/* also needed for Brandock's "scribe scroll" once per day ability */
-/* spell and idea taken from Zed Nocear's BG1 trigger simulations! */
-
-/* bgee, bgt, eet, tob, bg2:ee */
-ACTION_IF GAME_IS ~bgee bgt tob bg2ee eet~ THEN BEGIN
-  EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  ACTION_IF !(FILE_CONTAINS_EVALUATED (~baldur.BCS~ ~"C#FATIG1"~))
-    THEN BEGIN
-        EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
-        COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
-  END
-END //~bgee bgt tob bg2ee eet~
-
-/* SoD, eet */
-ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
-  EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  ACTION_IF !(FILE_CONTAINS_EVALUATED (~bdbaldur.BCS~ ~"C#FATIG1"~))
-    THEN BEGIN
-        EXTEND_TOP ~bdbaldur.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
-        COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
-  END
-END
-
-/* bgt, eet, tob, bg2:ee */
-ACTION_IF GAME_IS ~bgt tob bg2ee eet~ THEN BEGIN
-  EXTEND_TOP ~baldur.bcs~   ~C#Brandock/scripts/c#brando_baldur_book.baf~ EVALUATE_BUFFER
-  EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_shift.baf~ EVALUATE_BUFFER
-  EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#brando_baldur_book.baf~ EVALUATE_BUFFER
-  ACTION_IF !(FILE_CONTAINS_EVALUATED (~baldur25.BCS~ ~"C#FATIG1"~))
-    THEN BEGIN
-        EXTEND_TOP ~baldur25.bcs~   ~C#Brandock/scripts/c#_7thpm_baldur_add.baf~
-        COPY ~C#Brandock/spells/C#FATIG1.SPL~ ~override~
-  END
-END
-
 /* general scripts for BG1 part */
 ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
 	COMPILE EVALUATE_BUFFER ~C#Brandock/scripts/c#brando.baf~
@@ -756,6 +827,8 @@ EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_shapeshifting.baf~ 
 EXTEND_TOP ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVALUATE_BUFFER
 /* Brandock's Half-Ogre quest: events after Sarevok is dead. Will only trigger here if game stays in BG1 after S. death */
 EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_bg1_sod_shapeshifting.baf~ EVALUATE_BUFFER
+/* extras needed for 7th party member mode */
+EXTEND_BOTTOM ~c#brando.bcs~ ~%MOD_FOLDER%/7thpmm/script_patch/set_7pmm_scripts.baf~ EVALUATE_BUFFER
 END
 
 /* general scripts for BGII part */
@@ -774,6 +847,8 @@ ACTION_IF GAME_IS ~bg2ee bgt eet tob~ THEN BEGIN
 EXTEND_TOP ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_bg2_shapeshifting.baf~ EVALUATE_BUFFER
 */
 EXTEND_TOP ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVALUATE_BUFFER
+/* extras needed for 7th party member mode */
+EXTEND_BOTTOM ~c#brand2.bcs~ ~%MOD_FOLDER%/7thpmm/script_patch/set_7pmm_scripts.baf~ EVALUATE_BUFFER
 END
 
 /* specific additions to scripts for bgt */
@@ -803,11 +878,14 @@ ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
 EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/scripts/c#brando_sod_korlaszcrypt.baf~ EVALUATE_BUFFER
 
 /* specific additions to scripts for sod */
+/* create Brandock's SoD override script */
 	<<<<<<<< ...inlined/c#brands.baf
 	>>>>>>>>
 	COMPILE ~...inlined/c#brands.baf~
 	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando.baf~  EVALUATE_BUFFER
+	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_sod_reactions.baf~  EVALUATE_BUFFER
 	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_sod.baf~  EVALUATE_BUFFER
+	EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_sod_lorepath.baf~  EVALUATE_BUFFER
   EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_bg1_cursedscrolls.baf~ EVALUATE_BUFFER
 /* script addition to trigger Brandock's scroll scribing dialogue */
   EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_scrollscribing.baf~ EVALUATE_BUFFER
@@ -816,6 +894,29 @@ EXTEND_TOP ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVAL
 EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_bg1_sod_shapeshifting.baf~ EVALUATE_BUFFER
   EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#_lvl_ee.baf~ EVALUATE_BUFFER
   EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/scripts/c#brando_ee.baf~ EVALUATE_BUFFER
+/* extras needed for 7th party member mode */
+EXTEND_BOTTOM ~c#brands.bcs~ ~%MOD_FOLDER%/7thpmm/script_patch/set_7pmm_scripts.baf~ EVALUATE_BUFFER
+
+<<<<<<<< ...inlined/C#brandoS_timer.baf
+/* Let's reset the timer once it run out without a valid dialogue, so the next reaction dialogue will not trigger right after the incident. */
+IF
+	InParty("C#Brage")
+	CombatCounter(0)
+	!See([ENEMY])
+	ActionListEmpty()
+	!RealGlobalTimerNotExpired("C#BrandockDialogTimer","GLOBAL")
+THEN
+	RESPONSE #25
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",800)
+	RESPONSE #25
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1000)
+	RESPONSE #25
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",1200)
+	RESPONSE #25
+		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",850)
+END	
+>>>>>>>>
+EXTEND_BOTTOM ~c#brands.bcs~ ~...inlined/C#brandoS_timer.baf~
 END
 
 /* additions to script for bg2ee game (EE specific) */
@@ -1837,41 +1938,30 @@ ACTION_IF (GAME_INCLUDES ~sod~) THEN BEGIN
 /* items */
 /* missing book page for quest "book quarrel" */
 COPY_EXISTING ~bdure2a.itm~ ~override/c#brsql1.itm~
-SAY NAME1 ~Old Torn Out Book Page~
-SAY NAME2 ~Old Torn Out Book Page~
-SAY UNIDENTIFIED_DESC ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
-You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~
-SAY IDENTIFIED_DESC ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
-You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~
+SAY NAME1 @1294 /* ~Old Torn Out Book Page~ */
+SAY NAME2 @1294 /* ~Old Torn Out Book Page~ */
+SAY UNIDENTIFIED_DESC @1295 /* ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
+You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~ */
+SAY IDENTIFIED_DESC @1295
 
 /* cres */
 /* refugees for bd1000.are quest "book quarrel" */
-COPY_EXISTING ~bdrefy2.cre~ ~override/c#brsqu1.cre~ //
-   SAY NAME1 ~Mander~ 
-   SAY NAME2 ~Mander~ 
+COPY ~c#brandock/cre/c#brsqu1.cre~ ~override/c#brsqu1.cre~ //
+   SAY NAME1 @1296 /* ~Mander~ */ 
+   SAY NAME2 @1296 /* ~Mander~ */  
 WRITE_EVALUATED_ASCII 0x280 ~c#brsqu1~ #8   // Death variable
 WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu1~ #8   // dialogue
 WRITE_EVALUATED_ASCII 0x248 ~c#brsqu1~ #8   // Override script
 
-COPY_EXISTING ~bdrefy8.cre~ ~override/c#brsqu2.cre~ //
-   SAY NAME1 ~Eldom~ 
-   SAY NAME2 ~Eldom~ 
+COPY_EXISTING ~c#brandock/cre/c#brsqu2.cre~ ~override/c#brsqu2.cre~ //
+   SAY NAME1 @1297 /* ~Eldom~ */
+   SAY NAME2 @1297 /* ~Eldom~ */
 WRITE_EVALUATED_ASCII 0x280 ~c#brsqu2~ #8   // Death variable
 WRITE_EVALUATED_ASCII 0x2cc ~c#brsqu2~ #8   // dialogue
 WRITE_EVALUATED_ASCII 0x248 ~c#brsqu2~ #8   // Override script
 
 
 /* SoD: scripts */
-
-/* SoD specific banter scripts */
-COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb01.baf~
-USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
-COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb02.baf~
-USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
-COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb03.baf~
-USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
-COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsb04.baf~
-USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter_sod.tra~
 
 /* quest "book quarrel" enchantment cutscene */
 COMPILE EVALUATE_BUFFER ~c#brandock/scripts/c#brsquc.baf~
@@ -1983,6 +2073,10 @@ EXTEND_TOP ~bdcut08.bcs~ ~c#brandock/scripts/c#brando_sod_bdcut08.baf~
 /* & Battle at Bridgefort starts */
 EXTEND_TOP ~bd2000.bcs~ ~c#brandock/scripts/c#brando_sod_bd2000.baf~
   EVALUATE_BUFFER
+
+/* (T3) Comment on closed vault door (to portal) in Dragonspear Castle Interior */
+EXTEND_BOTTOM ~bdvaultd.bcs~ ~c#brandock/scripts/c#brando_sod_bdvaultd.baf~
+EVALUATE_BUFFER
 
 /* portal opened */
 EXTEND_TOP ~bd4300.bcs~ ~c#brandock/scripts/c#brando_sod_bd4300.baf~
@@ -2197,153 +2291,7 @@ COPY_EXISTING ~c#br01.are~ ~override~
   END
 BUT_ONLY
 
-
-/*
-ACTION_IF GAME_IS ~bgt~ THEN BEGIN
-COPY_EXISTING ~c#br01.are~ ~override~
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel
-    fj_box_left     = 113  //kleinstes x
-    fj_box_top      = 545  //kleinstes y
-    fj_box_right    = 236  //größtes x
-    fj_box_bottom   = 638   //größtes y
-    fj_cursor_idx   = 30   //door
-    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
-    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
-    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
-    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#br01Ex
-    fj_destination_area = AR6900
-    fj_destination_name = c#br01Ex
-  END
-
-
-//trigger point with script
-  LPF ~fj_are_structure~
-    INT_VAR
-    fj_type         = 1    //trigger
-    fj_box_left    = 160
-    fj_box_top     = 200
-    fj_box_right   = 220
-    fj_box_bottom  = 228
-    fj_cursor_idx   = 2  //"take something"
-    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
-    fj_vertex_1    = 170 + (200 << 16)
-    fj_vertex_2    = 175 + (200 << 16)
-    fj_vertex_3    = 220 + (202 << 16)
-    fj_vertex_4    = 220 + (215 << 16)
-    fj_vertex_5    = 195 + (225 << 16)
-    fj_vertex_6    = 170 + (228 << 16)
-    fj_vertex_7    = 160 + (215 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#brpile
-    fj_reg_script   = c#brpile
-  END
-BUT_ONLY
-END
-
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-COPY_EXISTING ~c#br01.are~ ~override~
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel
-    fj_box_left     = 113  //kleinstes x
-    fj_box_top      = 545  //kleinstes y
-    fj_box_right    = 236  //größtes x
-    fj_box_bottom   = 638   //größtes y
-    fj_cursor_idx   = 30   //door
-    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
-    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
-    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
-    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#br01Ex
-    fj_destination_area = AR2800
-    fj_destination_name = c#br01Ex
-  END
-
-
-//trigger point with script
-  LPF ~fj_are_structure~
-    INT_VAR
-    fj_type         = 1    //trigger
-    fj_box_left    = 160
-    fj_box_top     = 200
-    fj_box_right   = 220
-    fj_box_bottom  = 228
-    fj_cursor_idx   = 2  //"take something"
-    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
-    fj_vertex_1    = 170 + (200 << 16)
-    fj_vertex_2    = 175 + (200 << 16)
-    fj_vertex_3    = 220 + (202 << 16)
-    fj_vertex_4    = 220 + (215 << 16)
-    fj_vertex_5    = 195 + (225 << 16)
-    fj_vertex_6    = 170 + (228 << 16)
-    fj_vertex_7    = 160 + (215 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#brpile
-    fj_reg_script   = c#brpile
-  END
-BUT_ONLY
-END
-
-
-ACTION_IF GAME_IS ~eet~ THEN BEGIN
-  COPY_EXISTING ~c#br01.are~ ~override~
-  WRITE_SHORT 0x48 THIS | IDS_OF_SYMBOL(~AREATYPE~ ~BG1AREA~)
-
-  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
-    INT_VAR
-    fj_type         = 2    //travel
-    fj_box_left     = 113  //kleinstes x
-    fj_box_top      = 545  //kleinstes y
-    fj_box_right    = 236  //größtes x
-    fj_box_bottom   = 638   //größtes y
-    fj_cursor_idx   = 30   //door
-    fj_vertex_0     = 113 + (545 << 16)   //kleinstes x +  kleinstes y
-    fj_vertex_1     = 236 + (545 << 16)   //größtes x + kleinstes y
-    fj_vertex_2     = 236 + (638 << 16)   //größtes x + größtes y
-    fj_vertex_3     = 113 + (638 << 16)   //kleinstes x + größtes y
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#br01Ex
-    fj_destination_area = BG2800
-    fj_destination_name = c#br01Ex
-  END
-
-//trigger point with script
-  LPF ~fj_are_structure~
-    INT_VAR
-    fj_type         = 1    //trigger
-    fj_box_left    = 160
-    fj_box_top     = 200
-    fj_box_right   = 220
-    fj_box_bottom  = 228
-    fj_cursor_idx   = 2  //"take something"
-    fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
-    fj_vertex_1    = 170 + (200 << 16)
-    fj_vertex_2    = 175 + (200 << 16)
-    fj_vertex_3    = 220 + (202 << 16)
-    fj_vertex_4    = 220 + (215 << 16)
-    fj_vertex_5    = 195 + (225 << 16)
-    fj_vertex_6    = 170 + (228 << 16)
-    fj_vertex_7    = 160 + (215 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#brpile
-    fj_reg_script   = c#brpile
-  END
-BUT_ONLY
-END
-*/
-
-  COPY ~C#Brandock/areas/bg1/c#br02~ ~Override~	
+COPY ~C#Brandock/areas/bg1/c#br02~ ~Override~	
 
 /* entrance & exit */
 
@@ -2434,7 +2382,7 @@ END
 
 ACTION_IF GAME_IS ~bgee bgt eet~ THEN BEGIN
 
-/* add entrance to cage  */
+/* add entrance to cave  */
 
 
 COPY_EXISTING ~%CoastWay%.are~ ~override~
@@ -2487,7 +2435,7 @@ COPY_EXISTING ~%SWBaldursGate_FlamingFistHQ_L1%.are~ ~override~
     fj_vertex_3    = 1382 + (215 << 16)
     STR_VAR
     fj_structure_type   = region
-    fj_name             = c#brcelldoor
+    fj_name             = c#celldoor
   END
 BUT_ONLY
 
@@ -2644,81 +2592,7 @@ END //~bg2ee tob bgt eet~
 
 
 
-
-
-
 /* +++++ Brandock cre things +++++ */
-
-/* Dialoguesets */
-
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-
-/* BG:EE */
-APPEND ~pdialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
-UNLESS ~C#Brandock~
-
-APPEND ~interdia.2da~
-~C#Brandock 	C#BrandB~
-UNLESS ~C#Brandock~
-
-END
-
-/* SoD */
-
-ACTION_IF (GAME_IS ~bgee~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
-APPEND ~bddialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
-UNLESS ~C#Brandock~
-
-  ACTION_IF !(FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
-    COPY ~c#brandock/2da/BDBANTER.2DA~ ~override~ 
-  END
-
-  ACTION_IF (FILE_EXISTS_IN_GAME ~BDBANTER.2DA~) BEGIN
-	APPEND ~bdbanter.2da~
-		~C#Brandock 	C#BrandB~
-	UNLESS ~C#Brandock~        
-  END 
-END //SoD
-
-/* BG1:EET */
-
-ACTION_IF GAME_IS ~eet~ THEN BEGIN
-APPEND ~bgdialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
-UNLESS ~C#Brandock~
-
-APPEND ~bgbanter.2da~
-~C#Brandock 	C#BrandB~
-UNLESS ~C#Brandock~
-
-/* SoD:EET */
-
-APPEND ~bddialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD~
-UNLESS ~C#Brandock~
-
-APPEND ~bdbanter.2da~
-~C#Brandock 	C#BrandB~
-UNLESS ~C#Brandock~
-
-END //eet
-
-/* BGT, BGII, BGII:EE */
-
-ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
-
-APPEND ~pdialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD 	C#BrandP 	C#BrandJ 		C#BrandD 	C#Bran25~
-UNLESS ~C#Brandock~
-
-
-APPEND ~interdia.2da~
-~C#Brandock 	C#BrandB      C#BrandB~
-UNLESS ~C#Brandock~
-
-END
 
 /* sounds */
 
@@ -2922,21 +2796,8 @@ BUT_ONLY_IF_IT_CHANGES
 END
 
 
-
-/* Reaction to Taerom, BG:EE: vial */
-ACTION_IF GAME_IS ~bgee eet~ BEGIN
-<<<<<<<< ...inlined/add_taerom_vial.d
-
-I_C_T ~TAEROM~ 18 C#Brandock_Taerom_Vial
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2010
-== TAEROM IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @2011
-END
-
->>>>>>>>
-COMPILE EVALUATE_BUFFER ~...inlined/add_taerom_vial.d~ USING ~c#brandock/tra/autotra/%LANGUAGE%/C#BRAND_DIALOGUES.TRA~ 
-END 
-
-
+/* extras needed for 7th party member mode */
+INCLUDE ~%MOD_FOLDER%/7thpmm/c#7thpmm_thingies.tpa~
 
 
 ///////////////////////////////////////////////////////////////
@@ -3005,6 +2866,7 @@ PRINT @55556 /* ~Ascalon's Questpack: Der große Karlini detected.~ */
 /* ~That's to my liking, my liking! Let's waste no more time and whooshy-whooshy set off! The Ulcaster Ruins are waiting!~ */
 OUTER_SET ygnatz_47 = STATE_WHICH_SAYS 47 IN ~AC_QUEST/tra/autotra/%s/ACQ17000.tra~ FROM ~ACQ17001~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_ac_quest_17.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_ac_quest.tra~
+  EXTEND_BOTTOM ~C#Brando.bcs~ ~c#brandock/crossmod/brando_crossmod_ac_quest_17.baf~ EVALUATE_BUFFER
 END //Ascalon's Questpack: Ignazius Bombastus detected.
 
 /* Ascalon's Questpack: Von Wölfen und Männern */
@@ -3028,6 +2890,10 @@ END //bst
 /* bg1npc, Quest & Interjections */
 ACTION_IF FILE_EXISTS_IN_GAME ~X#TOME.itm~ THEN BEGIN 
 PRINT @55557 /* ~bg1npc, Quest and Interjections detected.~ */
+
+// Get state for ~%IMOEN_JOINED%~ %BG1NPC_IM201% 
+/* @201  = ~Though, this stuff IS kinda complicated...~ */
+OUTER_SET BG1NPC_IM201 = STATE_WHICH_SAYS 201 IN ~bg1npc/tra/%s/x#imoen.tra~ FROM ~%IMOEN_JOINED%~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/bg1npc.baf~ EVALUATE_BUFFER
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bg1npc_BG1.d~ 
 END //~bg1npc, Quest and Interjections 
@@ -3058,6 +2924,11 @@ OUTER_SET Thalan_78 = STATE_WHICH_SAYS 78 IN ~bg1re/tra/autotra/%s/c#_thalantyr.
 OUTER_SET Thalan_340 = STATE_WHICH_SAYS 340 IN ~bg1re/tra/autotra/%s/c#_thalantyr.tra~ FROM ~Thalan~
 
 COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/brando_crossmod_bg1re_dinner_thalantyr.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_bg1re.tra~
+
+  EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_bg1re_dinner_thalantyr.baf~ EVALUATE_BUFFER
+
+  EXTEND_BOTTOM ~%WBaldursGate_RagefastsHouse%.bcs~   ~C#Brandock/crossmod/brando_crossmod_bg1re_dinner_thalantyr_ar0126.baf~ EVALUATE_BUFFER
+
 END /* bg1re - Dinner with Thalantyr */
 
 
@@ -3083,6 +2954,12 @@ END //bgt
 
 
 /* bgqe - need to check every component individually */
+
+/* bgqe - slimequest */
+ACTION_IF FILE_EXISTS_IN_GAME ~C#Q01001.dlg~ THEN BEGIN 
+PRINT @55588 /* ~bgqe - slimequest detected.~ */
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bgqe_slimequest.d~
+END //babysitting quest
 
 /* bgqe - babysitting quest */
 ACTION_IF FILE_EXISTS_IN_GAME ~C#Q03008.dlg~ THEN BEGIN 
@@ -3119,6 +2996,24 @@ PRINT @55561 /* ~Brage's Redemption detected.~ */
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brage_brandock.d~
 END /* Brage */
 
+/* Finch */
+ACTION_IF FILE_EXISTS_IN_GAME ~BSUFINCH.dlg~ THEN BEGIN 
+PRINT @55591 /* ~Finch NPC detected.~ */
+
+// Get state @463 for c#brandj %assassin_beregost_463% 
+/* ~(waves his arms) That man *attacked* us inside a tavern! And *no one* cares! I think I could use a drink. If only I would. Drink, I mean. (sigh).~ */
+  OUTER_SET assassin_beregost_463 = STATE_WHICH_SAYS 463 IN ~c#brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+// Get state @800 for SUFINCHJ %finch_800%
+/* ~Couldn't you have been polite just a little longer? You've ruined it! What will the priests think of me now?~ */
+  OUTER_SET finch_800 = STATE_WHICH_SAYS 800 IN ~FinchNPC/tra/bgee/%s/sufinch.tra~ FROM ~SUFINCHJ~
+END ELSE BEGIN  
+  OUTER_SET finch_800 = STATE_WHICH_SAYS 800 IN ~FinchNPC/tra/%s/sufinch.tra~ FROM ~SUFINCHJ~
+END
+COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_finch.d~
+EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_finch.baf~ EVALUATE_BUFFER
+END /* Finch */
+
 /* Framed */
 ACTION_IF FILE_EXISTS_IN_GAME ~#LF_CKWO.ITM~ THEN BEGIN 
 PRINT @55578 /* ~Framed Mod detected.~ */
@@ -3130,6 +3025,8 @@ OUTER_SET brandj_1078 = STATE_WHICH_SAYS 1078 IN ~C#Brandock/tra/autotra/%s/C#BR
 OUTER_SET brandj_1165 = STATE_WHICH_SAYS 1165 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
 /* @1173 = ~(sigh) To know that Candlekeep was about to be infiltrated by doppelgangers! The mighty library... I need to ponder this, <CHARNAME>. And what this must mean to you, I can only guess!~ */
 OUTER_SET brandj_1173 = STATE_WHICH_SAYS 1173 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
+/* @2148  = ~Stay and browse the library for as long as you like. This is once again your home, if you so wish.~ */
+OUTER_SET TETHTO2_2148 = STATE_WHICH_SAYS 2148 IN ~framed/languages/%s/framed.TRA~ FROM ~TETHTO2~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_framed.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_framed.baf~ EVALUATE_BUFFER
 END /* Framed */
@@ -3198,6 +3095,27 @@ END //ACTION_IF GAME_IS ~bgee bgt~
 
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
 
+
+/* Ajantis SoD */
+ACTION_IF FILE_EXISTS_IN_GAME ~C#AjSoDG.dlg~ THEN BEGIN
+PRINT @55589 /* Ajantis SoD detected. */ 
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/ajantis_brandock_sod.d~
+END /* Ajantis SoD */
+
+/* Brage SoD content */
+ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~ THEN BEGIN 
+/* @69 ~[uncle]Well, that's - that's great, no? Seems like you could sing it to her, then.~ */
+  OUTER_SET c#besq02_69 = STATE_WHICH_SAYS 69 IN ~c#brage/tra/autotra/%s/quest_sod.tra~ FROM ~c#besq02~
+/* @78 [Uncle]Singing it would be the smartest thing to do, I think. */
+  OUTER_SET c#besq02_78 = STATE_WHICH_SAYS 78 IN ~c#brage/tra/autotra/%s/quest_sod.tra~ FROM ~c#besq02~
+/* @126  = ~[Tilda]What?! You are... you are so mean! You can't do that... (sob)~ */
+  OUTER_SET c#besq0a_126 = STATE_WHICH_SAYS 126 IN ~c#brage/tra/autotra/%s/quest_sod.tra~ FROM ~c#besq0a~
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brage_brandock_sod.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brage_brandock.tra~
+  EXTEND_BOTTOM ~c#brands.bcs~ ~c#brandock/crossmod/brage_brandock_sod_banter.baf~
+    EVALUATE_BUFFER 
+END /* Brage */
+
+
 /* Gavin */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN
@@ -3210,19 +3128,8 @@ END //~b!gavin.cre~
 /* Imoen 4 Ever */
 
 ACTION_IF FILE_EXISTS_IN_GAME ~c#imback.bcs~ THEN BEGIN
-PRINT @55565 /* ~Imoen 4 Ever: SoD detected.~ */
-//WITH_TRA ~brando_crossmod_I4E_sod_main.tra~ BEGIN
-  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc01.baf~ 
-     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
-  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc02.baf~
-     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
-  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc03.baf~
-     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
-  COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/c#brsc04.baf~
-     USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_I4E_sod_main.tra~
-//END
-  EXTEND_BOTTOM ~c#brands.bcs~   ~C#Brandock/crossmod/brando_crossmod_i4e_sod.baf~  EVALUATE_BUFFER
-  EXTEND_BOTTOM ~bdimoens.bcs~   ~C#Brandock/crossmod/brando_crossmod_i4e_sod_im.baf~  EVALUATE_BUFFER
+PRINT @55565 /* ~Imoen 4 Ever SoD component "Give Imoen dialogue content during chapters 8 to 12" detected.~ */
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_I4E_sod_main.d~
 END //I4E
 
 
@@ -3430,88 +3337,13 @@ COPY ~C#Brandock/Portrait/bg2ee/C#BrandM.bmp~ ~override/C#BrandS.bmp~
 
 END
 
-
 ///////////////////////////////////////////////////////////
-// Use Dialogue Style for SoD Banter //
+// DEPRECATED Use Dialogue Style for SoD Banter //
 /////////////////////////////////////////////////////////
-
-
-BEGIN @55553 /* ~Use Dialogue Style for SoD Banter~ */ DESIGNATED 30 
+BEGIN @55553 /* ~Use Dialogue Style for SoD Banter~ */ 
+DESIGNATED 30 
 LABEL BrandockTheMage-Dialogue_Style_SoD_Banter
-REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
-REQUIRE_PREDICATE (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) @55554
-
-
-/* Crossmod banter - patching of c#brbxxx.2da needs to be done first */
-/* Imoen 4 Ever */
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#imback.bcs~ THEN BEGIN
-PRINT @55565 /* ~Imoen 4 Ever: SoD detected.~ */
-
-/* Create Imoen's Banter file if not present */
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~BDIMOENB.dlg~ THEN BEGIN
-<<<<<<<< .../banterfiles-inlined/BDIMOENB.d
- BEGIN BDIMOENB
->>>>>>>>
-COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/BDIMOENB.d~ 
-END
-
-  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_I4E_sod_main.d~ 
-  
-APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
-~c#brsc01	c#brands	%IMOEN_DV%~
-APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
-~c#brsc02	BDIMOENS	C#Brandock~
-APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
-~c#brsc03	BDIMOENS	C#Brandock~
-APPEND_OUTER ~c#brandock/2da/c#brbxxx.2da~ 
-~c#brsc04	c#brands	%IMOEN_DV%~
-
-END //I4E
-
-// --- end crossmod
-
-
-/* Create NPCs' Banter files if not present */
-COPY ~c#brandock/2da/BDBANTER.2DA~ ~c#brandock/install~
-	COUNT_2DA_COLS cols
-	COUNT_2DA_ROWS cols rows
-	FOR ( row = 2 ; row < rows ; row = row + 1 ) BEGIN
-		READ_2DA_ENTRY %row% 0 2 npc_dv
-    	READ_2DA_ENTRY %row% 1 2 banterfile
-      	INNER_ACTION BEGIN
-		ACTION_IF NOT FILE_EXISTS_IN_GAME ~%banterfile%.dlg~ THEN BEGIN
-		  <<<<<<<< .../banterfiles-inlined/%banterfile%.d
-		  BEGIN %banterfile%
-		  >>>>>>>>
-		  COMPILE EVALUATE_BUFFER ~.../banterfiles-inlined/%banterfile%.d~ 
-		END
-      	END
-	END
-BUT_ONLY
-
-COMPILE EVALUATE_BUFFER ~c#brandock/dialogue/brando_banter_sod.d~
-
-/* change the calling of the scripts to "Interact("npc") for all banters (including crossmod)
-Code taken from AstroBryGuy's "SoD Dialog Banters" mod with many thanks! */
-// Edit NPC scripts to start Interact actions for banters
-COPY ~c#brandock/2da/c#brbxxx.2da~ ~c#brandock/install~
-	COUNT_2DA_COLS cols
-	COUNT_2DA_ROWS cols rows
-	FOR ( row = 0 ; row < rows ; row = row + 1 ) BEGIN
-		READ_2DA_ENTRY %row% 0 3 banter
-    	READ_2DA_ENTRY %row% 1 3 script
-    	READ_2DA_ENTRY %row% 2 3 interact
-      	INNER_ACTION BEGIN
-      		COPY_EXISTING ~%script%.BCS~ ~override~
-    			DECOMPILE_AND_PATCH BEGIN
-        			REPLACE_TEXTUALLY ~SetAreaScript("%banter%",GENERAL)~ ~Interact("%interact%")~
-        		END
-        	BUT_ONLY
-      	END
-	END
-BUT_ONLY
-
+DEPRECATED @55592 
 
 
 ///////////////////////////////////////////////////////////////
@@ -3899,7 +3731,7 @@ COMPILE EVALUATE_BUFFER ~.../inlined/c#brand_atweaks.d~ USING ~c#brandock/tra/au
 BEGIN @55586 /* ~Make Cutscene in Thalantyr's Abode Short~ */ DESIGNATED 50 
 LABEL BrandockTheMage-Make_Cutscene_Short
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
-REQUIRE_PREDICATE (GAME_IS ~bgee eet~) @55541
+REQUIRE_PREDICATE (GAME_IS ~bgee eet bgt~) @55541
 
 COPY ~c#brandock/scripts/c#brcut3_short.baf~ ~c#brandock/install/c#brcut3.baf~
 COMPILE EVALUATE_BUFFER ~c#brandock/install/c#brcut3.baf~

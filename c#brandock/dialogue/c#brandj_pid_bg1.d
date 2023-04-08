@@ -21,8 +21,7 @@ JoinParty()~ EXIT
 
 + ~!InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) NumInParty(6)~ + @50 + join
 
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",0) Global("C#BrandockJoined","GLOBAL",2)~ + @51 + hp_alarm_on
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",1) Global("C#BrandockJoined","GLOBAL",2)~ + @52 + hp_alarm_off
++ ~Global("C#%NPCname%Joined","GLOBAL",2)~ + @200020 /* ~I want to give you orders how to follow me.~ */ + script_chose
 
 ++ @53 EXIT
 END
@@ -60,12 +59,6 @@ Global("c#brisog","GLOBAL",0) //Brandock is not half-ogre
 ~ THEN pid
 SAY @0
 
-
-/* SoD (put the more recent reply options on top) */
-
-/* SoD game events */
-//##
-
 /* half-ogre shapeshift quest */
 /* quest was not finished in BG1 - bring quest to same level: SoD */
 + ~%IT_IS_SOD%
@@ -96,6 +89,16 @@ PartyHasItem("C#br0007")~ + @1006 /* ~I see an empty book in your backpack. Remi
 
 /* BG1 (some for SoD in case of a continuous game) */
 
+
+/* TheCalling - gems for scrying device */
++ ~Global("C#BR_TheCallingGems","GLOBAL",1)
+GlobalGT("CDBracerQuest","GLOBAL",2)
+GlobalLT("CDBracerQuest","GLOBAL",6)~ + @486 /* Which gems are best suited for Thalantyr's scrying device? Just list them all.~ */ + list_gems_thecalling
++ ~Global("C#BR_TheCallingGems","GLOBAL",1)
+GlobalGT("CDBracerQuest","GLOBAL",2)
+GlobalLT("CDBracerQuest","GLOBAL",6)~ + @487 /* Do we have any suited gems for Thalantyr's scrying device?~ */ + sort_gems_thecalling
+
+
 /* crossmod with bgqe: unbaked egg c#q04001.itm */
 
 + ~OR(5)
@@ -115,7 +118,7 @@ PartyHasItem("C#br0007")~ + @1006 /* ~I see an empty book in your backpack. Remi
 	OR(3)
 		!HasItem("c#q04001","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("c#q04001","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -128,7 +131,8 @@ Global("C#BR_C#Q04007_3","GLOBAL",0)~ + @336 DO ~SetGlobal("C#Brandock_BhaalPID"
 /* comments on game-related happenings */
 
 /* half-ogre change */
-+ ~Global("C#Brandock_Shapeshift","GLOBAL",19)~ + @439 /* ~You turned into a half-ogre! Do you have any idea what happened there?~ */ + halfogre_shift_01
++ ~Global("C#Brandock_Shapeshift","GLOBAL",19)
+Global("C#Brando_ShapeshiftPID0","LOCALS",0)~ + @439 /* ~You turned into a half-ogre! Do you have any idea what happened there?~ */ DO ~SetGlobal("C#Brando_ShapeshiftPID0","LOCALS",1)~ + halfogre_shift_01
 + ~GlobalGT("C#Brandock_Shapeshift","GLOBAL",19)
 !GlobalGT("C#Brando_ShapeFollowup","LOCALS",4)
 Global("C#Brando_ShapeshiftPID1","LOCALS",0)~ + @440 /* ~How do you cope with your half-ogre shape?~ */ DO ~SetGlobal("C#Brando_ShapeshiftPID1","LOCALS",1)~ + halfogre_shift_02
@@ -201,7 +205,8 @@ Global("C#Br_OctopusInkPID","LOCALS",0)~ + @6 DO ~SetGlobal("C#Br_OctopusInkPID"
 /* comments on what Brandock did or said */
 
 /* scroll scribing - after Elvenhair helped Brandock and if PC didn't ask this in friendship dialogue */
-+ ~Global("C#Br_AskedScrollScribingPID","LOCALS",0) 
++ ~%BG1_BEFORE_TRANSITION%
+Global("C#Br_AskedScrollScribingPID","LOCALS",0) 
 OR(2)
 GlobalGT("C#Br_ScribeScrollQuest","GLOBAL",2)
 GlobalGT("C#BR_AlisarholdPID","LOCALS",2)~ + @163 /* ~Wait a moment - you could scribe scrolls already? Why didn't you do it then?~ */ DO ~SetGlobal("C#Br_AskedScrollScribingPID","LOCALS",1)~ + scribe_scrolls_asklate
@@ -241,7 +246,7 @@ GlobalGT("C#Brandock_Possessions","GLOBAL",1)
 !GlobalGT("C#Br_BookRestore","GLOBAL",1)
 Global("C#BR_KnowGorionsDeath","GLOBAL",1)
 OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
-Global("C#Brandock_EnterCandlekeepPID","LOCALS",0)~ + @13 DO ~SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",2)~ + enter_candlekeep_06
+Global("C#Brandock_EnterCandlekeepPID","LOCALS",0)~ + @14 DO ~SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",1)~ + enter_candlekeep
 + ~OR(2)
 	%BG1_BEFORE_TRANSITION% 
 	Global("SOD_fromimport","GLOBAL",1)
@@ -249,7 +254,7 @@ GlobalGT("C#Brandock_Possessions","GLOBAL",1)
 !GlobalGT("C#Br_BookRestore","GLOBAL",1)
 Global("C#BR_KnowGorionsDeath","GLOBAL",1)
 OR(2) PartyHasItem("c#br0001") HasItem("c#br0001","C#Brandock")
-Global("C#Brandock_EnterCandlekeepPID","LOCALS",0)~ + @14 DO ~SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",1)~ + enter_candlekeep
+Global("C#Brandock_EnterCandlekeepPID","LOCALS",0)~ + @13 DO ~SetGlobal("C#Brandock_EnterCandlekeepPID","LOCALS",2)~ + enter_candlekeep_06
 
 + ~OR(2)
 	%BG1_BEFORE_TRANSITION% 
@@ -585,9 +590,8 @@ JoinParty()~ EXIT
 
 + ~!InParty(Myself) Global("C#BrandockJoined","GLOBAL",2) NumInParty(6)~ + @50 + join
 
++ ~Global("C#BrandockJoined","GLOBAL",2)~ + @200020 /* ~I want to give you orders how to follow me.~ */ + script_chose
 
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",0) Global("C#BrandockJoined","GLOBAL",2)~ + @51 + hp_alarm_on
-+ ~Global("C#Brandock_HPAlarm","GLOBAL",1) Global("C#BrandockJoined","GLOBAL",2)~ + @52 + hp_alarm_off
 
 
 ++ @53 EXIT
@@ -598,7 +602,7 @@ SAY @57
 IF ~~ THEN EXIT
 END
 
-/* scroll skribing - late question */
+/* scroll scribing - late question */
 
 IF ~~ THEN scribe_scrolls_asklate
 SAY @164  /* ~Because I'd need papyrus, magic ink, and a quiet place to do so, <CHARNAME>. And a spell to copy on top of it. And... and the courage to do it in a surrounding that is not magically protected against fire.~ */ 
@@ -902,16 +906,21 @@ IF ~~ THEN halfogre_shift_03
 SAY @445 /* ~Oh yes, a lot... But I need to sort some thoughts, first. Thank you for asking, <CHARNAME>.~ */
 IF ~~ THEN EXIT
 END
+END //APPEND
 
-IF ~~ THEN halfogre_shift_04
-SAY @446 /* ~When I turned into a half-ogre, it was not fear that overwhelmed me or anything, <CHARNAME>. I... I was angry and wanted to be strong. That is why I turned...~ */
-= @447 /* ~So, in a moment full of boldness, strength, and determination, I didn't use my real strength - magic! - but chose to be a half-ogre. This is... this is so pathetic, I don't know where to start...~ */
+CHAIN
+IF ~~ THEN C#BrandJ halfogre_shift_04
+@446 /* ~When I turned into a half-ogre, it was not fear that overwhelmed me or anything, <CHARNAME>. I... I was angry and wanted to be strong. That is why I turned...~ */
+== c#brandj IF ~Global("Chapter","GLOBAL",%tutu_chapter_5%)~ THEN @485 /* ~I was just so - *so* out of my mind we might not get out of there alive. This was the Candlekeep Catacombs! I don't want neither of us to die down there, never to be found again and probably forgotten for the next hunded years. Not when you are *so* close to getting free access to your home - and me a good reputation here!~ */
+== c#brandj @447 /* ~So, in a moment full of boldness, strength, and determination, I didn't use my real strength - magic! - but chose to be a half-ogre. This is... this is so pathetic, I don't know where to start...~ */
+END
 ++ @448 /* ~Why is it pathetic? You needed to be strong, so you became strong.~ */ + halfogre_shift_05
 ++ @449 /* ~On the contrary! You found a way to help yourself. That is great! Not everyone can do that.~ */ + halfogre_shift_05
 ++ @450 /* ~Brandock, last time I checked, turning into a half-ogre *was* magic.~ */+ halfogre_shift_06
 ++ @451 /* ~I regret I asked. Let's just move on.~ */ EXIT
-END
 
+
+APPEND C#BrandJ
 IF ~~ THEN halfogre_shift_05
 SAY @452 /* ~[Brandock]Ah, I so wish I would be able to focus on the positive things like you do. Seeing this as me being clever to reach my goals is not how I see it.~ */
 IF ~~ THEN + halfogre_shift_06
@@ -1569,13 +1578,18 @@ IF ~~ THEN time_as_halfogre_02
 SAY @278
 IF ~~ THEN EXIT
 END
+END //APPEND
 
-IF ~~ THEN time_as_halfogre_03
-SAY @279
+CHAIN
+IF ~~ THEN c#brandj time_as_halfogre_03
+@279
+== c#brandj IF ~OR(2) Global("C#BR_C#Q01001_6","GLOBAL",1)
+Global("C#BR_C#Q01004_10","GLOBAL",1)~ THEN @484
 = @280
-IF ~~ THEN EXIT
 END
+IF ~~ THEN EXIT
 
+APPEND c#brandj 
 IF ~~ THEN time_as_halfogre_04
 SAY @281
 
@@ -1819,11 +1833,29 @@ SAY @1003 /* ~I'm still deeply impressed by the feyr manifesting in the fort's c
 IF ~~ THEN EXIT
 END
 
-
+IF ~~ THEN list_gems_thecalling
+SAY @488 /* ~Hmm, let's see. The best in any regard is also very rare - the Black Pearl. Then there is the Rogue Stone, also very expensive and useful for a lot of magic utilizations. But also Water Opal, and, surprisingly, the Zircon gems are very suitable. We should collect at least one of these. Also other expensive gems should suffice if we take three: Diamond, Emerald, King's Tear, and Star Saphire.~ */
+IF ~~ THEN EXIT
+END
 
 END //APPEND
 
+CHAIN
+IF ~~ THEN c#brandj sort_gems_thecalling
+@489 /*  ~Alright, let me see what I'll find.~ */
+== c#brandj IF ~OR(2) PartyHasItem("cdbpearl") HasItem("cdbpearl",Myself)~ THEN @490 /* ~We have a black pearl! That would definitely be a good choice.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc45") HasItem("misc45",Myself)~ THEN @491 /* ~I see a Rogue Stone. Definitely suitable.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc39") HasItem("misc39",Myself)~ THEN @492 /* ~We have a Water Opal. A very good choice.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc25") HasItem("misc25",Myself)~ THEN @493 /* ~Zircon also works perfectly, and isn't as expensive.~ */
 
+== c#brandj IF ~OR(2) PartyHasItem("misc42") HasItem("misc42",Myself)~ THEN @494 /* ~This diamond would work well enough.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc43") HasItem("misc43",Myself)~ THEN @495 /* ~An Emerald should be fine, too.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc44") HasItem("misc44",Myself)~ THEN @496 /* ~This King's Tear would be a well enough choice for a scrying device, too.~ */
+== c#brandj IF ~OR(2) PartyHasItem("misc41") HasItem("misc41",Myself)~ THEN @497 /* ~Star Saphire should work, too.~ */
+== c#brandj IF ~Global("C#Br_BookRestore","GLOBAL",4)
+NumItemsParty("misc41",1)~ THEN @498 /* ~Which, er, I would like to reserve for my book - if possible - I mean... ah dang, you decide what we'll use the Star Saphire for. We'll probably find another one eventually.~ */
+== c#brandj @499 /* ~I don't see any more suitable gems for a scrying device.~ */
+EXIT
 
 
 

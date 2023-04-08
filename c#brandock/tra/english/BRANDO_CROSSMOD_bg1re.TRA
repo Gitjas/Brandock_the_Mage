@@ -42,7 +42,7 @@
 @36  = ~Oh. OH! I am sorry, <CHARNAME>! I didn't mean to imply... the gods, now I feel embarassed. I *was* talking about having a long conversation with a well-versed mage like Thalantyr. Nothing else. Uhm...~
 @37  = ~I am a bit scared, <CHARNAME>. If you can charm this old "grumpyhead" - then you are really poweful. I am kidding of course... and yet - he surrounded himself with flesh golems. People who do that usually aren't the most social type.~
 @38  = ~Of course not. You are right. I'm just jealous of you getting some of his private time... he *is* the most powerful mage around after all.~
-/*
-@39  =
-@40  = 
-*/
+
+/* new for v1 */
+@39  = ~"Thee Oldde Magyck: Volume II" surely looks like a very interesting book. It's a pity I'd have to study the language it is written in first, though.~
+@40  = ~This is the book Master Thalantyr was looking after, is it not?~

@@ -13,7 +13,7 @@
 @10   = ~How did you come to leave Alisarhold with the De Simplex Magicae?~
 @11   = ~Do not despair, I am sure you will achieve your goals despite all that has happened. You are so driven to seek knowledge, magic, and books, I can't imagine you wouldn't find another way to get where you want to be.~
 @12   = ~Are you always that easily devastated? Losing the book is just a setback. Gather your strength and keep going!~
-@13   = ~The book still has readable pages. Don't you think it is still very valuable? Maybe they will accept it for entering Candlekeep, despite its condition.~
+@13   = ~The book still has readable pages, but it is destroyed and we should not risk anything. It is clear that it no longer meets the criteria for entry to Candlekeep.~
 @14   = ~The book might be heavily damaged, but don't you think we should try to gain entry to Candlekeep nonetheless?~
 @15   = ~I am very sorry about your very valuable book, Brandock.~
 @16   = ~I can't believe anyone is so stupid to lose such a valuable book.~
@@ -51,8 +51,8 @@
 @48   = ~What about magic and Amn?~
 @49   = ~Want to talk more about magic and Amn?~
 @50   = ~Brandock, would you grant me access to your inventory?~
-@51   = ~Brandock, please warn me if your health gets too low in the next fight.~
-@52   = ~Brandock, I want you to stop warning me about your health conditions in our fights.~
+//@51   = 
+//@52   =
 @53   = ~Nothing at the moment.~
 @54   = ~I will!~
 @55   = ~Alright!~
@@ -387,7 +387,7 @@
 @443  = ~Do you want to talk more about your half-ogre shapeshifting ability?~
 @444  = ~[Brandock]I... I didn't want to admit it, but since the incident with Melicamp, I felt connected to the form as a half-ogre. Like I was just putting on another coat... I repressed it and ignored it because I hoped it would pass. But it didn't, and it won't...~
 @445  = ~[Brandock]Oh yes, a lot... But I need to sort some thoughts, first. Thank you for asking.~
-@446  = ~[Brandock]When I turned into a half-ogre, it was not fear that overwhelmed me or anything. I... I was angry and wanted to be strong. That is why I turned...~
+@446  = ~[Brandock]When I turned into a half-ogre, it was not fear that overwhelmed me or anything. I... I was devastated, yes, but I was also angry and wanted to be strong. That is why I turned...~
 @447  = ~[Brandock]So, in a moment full of boldness, strength, and determination, I didn't use my real strength - magic! - but chose to be a half-ogre. This is... this is so pathetic, I don't know where to start...~
 @448  = ~Why is it pathetic? You needed to be strong, so you became strong.~
 @449  = ~On the contrary! You found a way to help yourself. That is great! Not everyone can do that.~
@@ -426,6 +426,23 @@
 @482  = ~[Brandock]Only, that I will guard this like my eyeballs until I can bring it to the temple. This book will not come to harm again, and I will see to it. Everything else - time will tell.~
 @483  = ~We are wanted for murder - in Baldur' Gate, anyway. Starting bonfires now is probably not such a good idea if we try to keep a low profile!~
 
+/* new for v1 */
+@484  = ~[Brandock]I am also lucky that it wasn't a slime passing by, or I'd be turned into a slime like the poor fellow in Beregost. No chance to go to Master Thalantyr and tell him what happened *then*...~
+@485  = ~[Brandock]I was just so - *so* out of my mind we might not get out of there alive. This was the Candlekeep Catacombs! I don't want neither of us to die down there, never to be found again and probably forgotten for the next hunded years. Not when you are *so* close to getting free access to your home - and me a good reputation there!~
+@486  = ~[PC Reply]Which gems are best suited for Thalantyr's scrying device? Just list them all.~
+@487  = ~[PC Reply]Do we have any suited gems for Thalantyr's scrying device?~
+@488  = ~[Brandock]Hmm, let's see. The best in any regard is also very rare - the Black Pearl. Then there is the Rogue Stone, also very expensive and useful for a lot of magic utilizations. But also Water Opal, and, surprisingly, the Zircon gems are very suitable. We should collect at least one of these. Also other expensive gems should suffice if we take three: Diamond, Emerald, King's Tear, and Star Saphire.~
+@489  = ~[Brandock]Alright, let me see what I'll find.~
+@490  = ~[Brandock]We have a black pearl! That would definitely be a good choice.~
+@491  = ~[Brandock]I see a Rogue Stone. Definitely suitable.~
+@492  = ~[Brandock]We have a Water Opal. A very good choice.~
+@493  = ~[Brandock]Zircon also works perfectly, and isn't as expensive.~
+@494  = ~[Brandock]This diamond would work well enough.~
+@495  = ~[Brandock]An Emerald should be fine, too.~
+@496  = ~[Brandock]This King's Tear would be a well enough choice for a scrying device, too.~
+@497  = ~[Brandock]Star Saphire should work, too.~
+@498  = ~[Brandock]Which, er, I would like to reserve for my book - if possible - I mean... ah dang, you decide what we'll use the Star Saphire for. We'll probably find another one eventually.~
+@499  = ~[Brandock]I don't see any more suitable gems for a scrying device.~
 
 /* SoD */
 /* @1000 - @1002, @1004, @1007 also used for "c#brandj_PID_BG2.d" */

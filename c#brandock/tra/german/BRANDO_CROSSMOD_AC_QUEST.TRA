@@ -1,9 +1,12 @@
 /* Der große Karlini */
 @0  = ~Die Schule von Ulcaster! Das ist ein Ort, den ich auch sehr gerne einmal besichtigen würde. Obwohl ich mir noch mehr wünschen würde, dass ich ihn in vergangenen Zeiten hätte sehen können, als die Schule noch voller Leben war.~
-
-
-
+@1  = ~Puh, das ist also Karlinis großartiges Zauberbuch. Es ist dick, es ist vollgeschrieben, ich sehe, wieviel Zeit und Mühe da reingeganegn sein müssen - und ich kann's nicht lesen! Was für eine Enttäuschung. Das müsste ich wie eine unbekannte Schrift entziffern, wenn ich hier was verstehen wollte. - Wenn ich die Macht hätte, dann würde ich vebieten, dass Leute mit außergewöhnlicher Profession mit so einer Sauklaue schreiben dürfen!~
+@2  = ~Ihr könnt das lesen?~
+@3  = ~Ihr könnt das wirklich lesen?! Könntet Ihr m...~
+@4  = ~Was *ist* die große Formel? Ihr könnt diese Notizen wirklich lesen?~
+@5  = ~Psst! RUHE! Behindert nicht die Wissenschaft, wenn sie so kurz davor steht, ihre wahre Größe zu entfalten!~
+@6  = ~Ich kann's selbst kaum glauben, dass ich das sage, aber.. irgendwie haben mich diese zwei Gnome beeindruckt - hinter all dem Irrsinn in ihrem Auftreten. Ich wünschte, ich hätte das Buch *lesen* können, als wir es hatten.~
 
 /* Von Wölfen und Männern */
 @10  = ~[Brandock]Was? Nein, das kann nicht Euer Ernst sein! Das ist doch ein Mensch... hinter dem Wolf, und Ihr wisst, wie man ihm hilft. Das meintet Ihr doch bestimmt nicht ernst?~
-@11  = ~[Thalantyr]Junger Magier, die Erfahrung hat mich gelehrt, dass man nicht immer allen helfen kann - und auch wenn man es könnte, es in manchen Fällen mehr Leid verursacht, als das Missgeschick eines Einzelnen als Anlass zu nehmen, eine grundsätzliche Lösung für ein Unheil zu finden, das sicher noch weitere Leben in Gefahr bringen wird.~
+@11  = ~[Thalantyr]Junger Magier, die Erfahrung hat mich gelehrt, dass man nicht immer allen helfen kann - und auch wenn man es könnte, es in manchen Fällen mehr Leid verursacht, als das Missgeschick eines Einzelnen als Anlass zu nehmen, eine grundsätzliche Lösung für ein Unheil zu finden, das sicher noch weitere Leben in Gefahr bringen wird. Außerdem - es könnte gut sein, dass es soweit kommt, und falls der Fall eintritt, dass Ihr den Werwolf töten müsst, dann ist es gut, wenn Ihr wisst, dass seine Leiche hier von Nutzen wäre, bevor ihr ihn irgendwo im Wald verscharrt.~

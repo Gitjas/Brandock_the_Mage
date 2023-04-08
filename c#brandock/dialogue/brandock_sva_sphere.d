@@ -672,7 +672,7 @@ IF ~Global("C#Brandock_HasApprentices","GLOBAL",1)
 Global("C#Brandock_MageApprentices","GLOBAL",1)~ THEN brandock_teacher
 SAY ~(Brandock inhales audibly.) I'm... I'm a teacher. I have apprentices. I have apprentices, because I'm a teacher. Pinch me, <CHARNAME>... I can't believe this is real!~
 ++ ~Yes, it is.~ + brandock_teacher_01
-++ ~Here you go. (You pinch Brandock into his upper arm.)~ + brandock_teacher_02
+++ ~Here you go.~ + brandock_teacher_02
 ++ ~Yeah,yeah. Let's get on, we've got things to do.~ + brandock_teacher_06
 END
 

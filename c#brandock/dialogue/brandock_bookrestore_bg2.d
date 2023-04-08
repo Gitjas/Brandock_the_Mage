@@ -41,11 +41,38 @@ PartyGoldGT(4999)
 	OR(3)
 		!HasItem("MISC44","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("MISC44","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
 		InParty("C#Brandock")~ + @1901 + bookrestore_oghma_01
+
+/* EET easter egg: bring the "Tome of Ancient Knowledge" from SoD to the temple */
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+InMyArea("C#Brandock")
+Global("C#Br_LorePathbdmisc53SoD","GLOBAL",3)
+	OR(5)
+		PartyHasItem("bdmisc53") 
+		HasItem("bdmisc53","C#Solaufein")
+		HasItem("bdmisc53","C#Grey")
+		HasItem("bdmisc53","C#Husam1")
+		HasItem("bdmisc53","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc53","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc53","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc53","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam1")
+	OR(3)
+		!HasItem("bdmisc53","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + @1969 EXTERN C#BrandJ bdmisc53_ancient_tome
 END
 
 EXTEND_BOTTOM DOGHMA 7
@@ -82,11 +109,37 @@ PartyGoldGT(4999)
 	OR(3)
 		!HasItem("MISC44","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("MISC44","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
 		InParty("C#Brandock")~ + @1901 + bookrestore_oghma_01
+/* EET easter egg: bring the "Tome of Ancient Knowledge" from SoD to the temple */
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+InMyArea("C#Brandock")
+Global("C#Br_LorePathbdmisc53SoD","GLOBAL",3)
+	OR(5)
+		PartyHasItem("bdmisc53") 
+		HasItem("bdmisc53","C#Solaufein")
+		HasItem("bdmisc53","C#Grey")
+		HasItem("bdmisc53","C#Husam1")
+		HasItem("bdmisc53","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc53","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc53","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc53","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam1")
+	OR(3)
+		!HasItem("bdmisc53","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + @1969 EXTERN C#BrandJ bdmisc53_ancient_tome
 END
 
 EXTEND_BOTTOM DOGHMA 9
@@ -123,11 +176,37 @@ PartyGoldGT(4999)
 	OR(3)
 		!HasItem("MISC44","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("MISC44","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
 		InParty("C#Brandock")~ + @1901 + bookrestore_oghma_01
+/* EET easter egg: bring the "Tome of Ancient Knowledge" from SoD to the temple */
++ ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+InMyArea("C#Brandock")
+Global("C#Br_LorePathbdmisc53SoD","GLOBAL",3)
+	OR(5)
+		PartyHasItem("bdmisc53") 
+		HasItem("bdmisc53","C#Solaufein")
+		HasItem("bdmisc53","C#Grey")
+		HasItem("bdmisc53","C#Husam1")
+		HasItem("bdmisc53","C#Brandock")
+	OR(3)
+		!HasItem("bdmisc53","C#Solaufein")
+		Global("C#SolauJoined","GLOBAL",2)
+		InParty("C#Solaufein")
+	OR(3)
+		!HasItem("bdmisc53","C#Grey")
+		Global("C#GreyJoined","GLOBAL",2)
+		InParty("C#Grey")
+	OR(3)
+		!HasItem("bdmisc53","C#Husam1")
+		Global("C#HusamJoined","GLOBAL",2)
+		InParty("C#Husam1")
+	OR(3)
+		!HasItem("bdmisc53","C#Brandock")
+		Global("C#BrandockJoined","GLOBAL",2)
+		InParty("C#Brandock")~ + @1969 EXTERN C#BrandJ bdmisc53_ancient_tome
 END
 
 APPEND DOGHMA 
@@ -162,7 +241,7 @@ IF ~PartyGoldGT(4999)
 	OR(3)
 		!HasItem("MISC44","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("MISC44","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)
@@ -182,7 +261,7 @@ InMyArea("C#Husam1")
 Global("C#HusamJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Husam1",GiveItem("MISC44",Player1))~ + bookrestore_oghma_02
 IF ~HasItem("MISC44","C#Brandock")
 Global("C#BrandockJoined","GLOBAL",2)~ THEN DO ~ActionOverride("C#Brandock",GiveItem("MISC44",Player1))~ + bookrestore_oghma_02
-IF ~PartyHasItem("MISC44") HasItem("c#br0007","C#Brandock")~ THEN + bookrestore_oghma_02
+IF ~PartyHasItem("MISC44")~ THEN + bookrestore_oghma_02
 END
 
 /* In Temple of Oghma, group has needed ingredient + gold: book gets restored */
@@ -321,7 +400,7 @@ APPEND c#brandj
 IF WEIGHT #-1
 ~Global("c#brscrl","GLOBAL",2)
 Global("C#Br_WriteBook","LOCALS",10)~ THEN scribe_book_last
-SAY @1964
+SAY @1964 /* */
 IF ~~ THEN + bookrestore_completed
 END
 
@@ -352,15 +431,25 @@ SAY @1926 /* ~I thank you.~ */
 END
 
 IF ~~ THEN bookrestore_completed_04
-SAY @1951 /* ~[Brandock]The De Simplex Magicae... I was its owner for so long - I learned verything I could from it. I studied the spell recipes, I learned about the restoration magic. There is nothing else I could learn from it.~ */
+SAY @1951 /* ~[Brandock]The De Simplex Magicae... I was its owner for so long - I learned everything I could from it. I studied the spell recipes, I learned about the restoration magic. There is nothing else I could learn from it.~ */
 = @1952 /* ~Oh wow, this sounded really arrogant. But... truth is, there is nothing more that I could learn from it without the help of someone even *more* experienced than me.~ */
-= @1962 /* ~It's a very useful book, though. And it's *complete*! Did I mention that the De Simplex Magicae is *complete* again?~ */
+IF ~~ THEN + bookrestore_completed_04_b
+END
+END //APPEND
+
+CHAIN
+IF ~~ THEN c#brandj bookrestore_completed_04_b
+@1962 /* ~It's a very useful book, though. And it's *complete*! Did I mention that the De Simplex Magicae is *complete* again?~ */
+== c#brandj IF ~!Global("C#Br_BookRestoreAlone","GLOBAL",3)~ THEN @1973 /* ~I can't *wait* to tell Master Elvenhair about this. - If we'll ever come back to him, that is.~ */ DO ~SetGlobal("C#Brando_ElvenhairFinishedBook","GLOBAL",1)~
+END
+
 IF ~~ THEN DO ~EraseJournalEntry(@10080)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
 SetGlobal("c#brscrl","GLOBAL",3)
 SetGlobal("C#Br_WriteBook","LOCALS",11)
 ActionOverride("C#Brhelp",DestroySelf())~ SOLVED_JOURNAL @10081 EXIT
-END
+
+APPEND c#brandj 
 
 IF ~~ THEN bookrestore_completed_05
 SAY @1936 /* ~Hahaha! I'd have an idea or two, to be honest. Helping out a very good friend without being distracted by a self-sustained guilt trap would be one, for example.~ */
@@ -390,7 +479,7 @@ SAY @1940 /* ~I feel like I should hold onto something, or I'll float away - tha
 END
 
 IF ~~ THEN bookrestore_completed_09
-SAY @1944 /* ~Hahaha! That would definitely distract me, yes.~ */
+SAY @1944 /* ~Hahaha! That would definitely ground me, yes.~ */
 IF ~~ THEN + bookrestore_completed_04
 END
 
@@ -473,3 +562,13 @@ SAY @3701 /* ~That ... might be true. Or the weel-known sage would have been bus
 IF ~~ THEN + finished_book_05
 END
 END //APPEND
+
+
+CHAIN 
+IF ~~ THEN C#BrandJ bdmisc53_ancient_tome
+@1970 /* ~Thank you for taking the time, <CHARNAME>. Here it is.~ */
+== DOGHMA  @1971 /* ~Oh, how very interesting. This is a very ancient language, not many are able to decipher it any more. You do not read it like Common, but more like this - you start here ... and then it goes here... For anything more, we would need to study it using the old lexica.~ */
+== C#BrandJ @1972 /* ~Ooh, I see! That was already very interesting. Thank you for sharing your wisdom!~ */
+END
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1","C#Brandock")
+SetGlobal("C#Br_LorePathbdmisc53SoD","GLOBAL",4)~ EXIT

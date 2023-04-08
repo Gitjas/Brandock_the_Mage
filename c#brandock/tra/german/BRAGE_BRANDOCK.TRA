@@ -19,7 +19,7 @@
 @16    = ~[Brage]Ihr habt einen neugierigen Geist, Brandock, und Ihr seid jung und unerfahren. Das ist immer eine gefährliche Mischung - manche überleben sie nicht. Ihr habt Fehler gemacht und hattet Pech, aber ich sehe nicht den Grad an Leichtsinn und Arroganz, der mich um Euer Leben - und unsere Sicherheit - fürchten ließe. Ganz im Gegenteil.~
 @17    = ~[Brandock]Ihr meint, wie ich mit wilder Magie hantiere, die ich nicht verstehe?...~
 @18    = ~[Brage]Ihr strebt danach, Magie zu lernen - zu *verstehen*, während Ihr gleichzeitig wisst, wie gefährlich sie ist. Das ist eine gute Herangehensweise für eine Profession, die das Potenzial für so mächtige - und zerstörerische - Ergebnisse hat.~
-@19    = ~[Brandock]Ich danke Euch, Brage. Ich... ich strebe danach zu verstehen, was ich tue, *bevor* ich zu mächtig bin...~
+@19    = ~[Brandock]Ich danke Euch, Brage. Ich... ich strebe danach zu verstehen, was ich tue, *bevor* ich zu mächtig bin... Und definitiv bevor es zerstörerisch wird.~
 @20    = ~[Brage]Brandock, ich kann nur unterstreichen, was ich kürzlich gesagt habe. Magie ist gefährlich und muss unter Kontrolle gehalten werden. Dazu müssen wir wissen, womit wir es zu tun haben. Eure Fähigkeit, unbekannte Magie zu erkennen, ist von größter Bedeutung für unsere Sicherheit.~
 @21    = ~[Brandock]Ja, ich kann Euch versichern, dass es nicht in meiner Absicht liegt, dass einem von uns noch einmal so etwas geschieht wie Euch... Es tut mir so leid, das war wenig einfühlsam von mir, das zu sagen.~
 @22    = ~[Brage]Aber es ist wahr - es stimmt, was Ihr sagt. Ihr sprecht nur das laut aus, was ich in meinem Herzen dachte. Hätten wir nur einen Magier in der Nashkeller Garde gehabt, dann wäre all' das nicht geschehen...~
@@ -60,3 +60,31 @@
 @57    = ~[Brandock]Ich danke Euch für Eure ermutigenden Worte, Brage. Ich werde mich auf jeden Fall bemühen, die verantwortungsbewusste Person zu bleiben, die ich bin - nicht nur, weil ich es versprochen habe und es jetzt auch so meine, sondern weil es das ist, was ich *bin*, zumindest hoffe ich das. Ich will mich nicht selbst verlieren, ganz gleich, wie verzweifelt ich bin, um eines Tages von den Verhüllten Magiern akzeptiert zu werden!~
 @58    = ~[Brage]Ich bin froh, dass wir sie rechtzeitig identifiziert haben. Danke, Brandock - dass Ihr da so ein scharfes Auge drauf habt.~
 @59    = ~[Brandock]Sehr gerne, Brage. Mein... mein Selbsterhaltungstrieb lässt gar nichts anderes zu.~
+
+/* new for v1 */
+
+/* SoD */
+/* brage_brandock_sod.d */
+@500  = ~Da bin ich erleichtert, Brage. So unangenehm es mir auch ist es zuzugeben, aber ich kenne dieses Lied nicht. Meine Familie... singt nicht viel, und bei den Cowled Wizards bringen sie einem keine Schlaflieder bei.~
+@501  = ~So unangenehm es mir auch ist es zuzugeben, aber ich kenne dieses Lied nicht. Meine Familie... singt nicht viel, und bei den Cowled Wizards bringen sie einem keine Schlaflieder bei.~
+@502  = ~<CHARNAME>, jetzt benehmt Euch doch nicht wie die Axt im Walde... äh, ich meine, macht ihr doch nicht noch Angst. Wie sollen wir sie denn zu ihrem Onkel bringen, wenn sie uns nicht vertraut?~
+@503  = ~[Brandock]Brage, seht Ihr wirklich Positives in diesem Kreuzzug? Die ganze Zerstörung - die ganzen Vertriebenen...~
+@504  = ~[Brage]Die sehe ich wohl, aber ich sehe was die Kreuzzügler erreichen wollen und halte es für ein nobles Ziel.~
+@505  = ~[Brage]Nun, bevor ich wusste, dass sie einfach nur planen, einen Weg nach Avernus zu öffnen und die Schwertküste schutzlos den Teufeln zu überlassen war ich dem Ziel des Kreuzzuges mehr zugeneigt. Aber trotzdem halte es für ein nobles Unterfangen.~
+@506  = ~[Brage]Zu der Zerstörung - glaubt nicht, dass eine Armee dieser Größe marschieren könnte, ohne dass es ungewollte Zwischenfälle geben würde, Brandock.~
+@507  = ~[Brandock]Zwischenfälle? Es werden ganze Dörfer nahezu dem Erdboden gleich gemacht. Wer sich nicht dem Kreuzzug anschließt wird vertrieben oder schlimmer. Was der Kreuzzug macht ist so, als würde ich auf der Suche nach der Wiederherstellung meines Buches eine Bücherei verwüsten. Das Agieren des Kreuzzuges läuft dem Ziel, Leben retten zu wollen, völlig zuwider. Und es klingt nicht nach dem, was in einer organisierten Armee mal neben den Augen der Offiziere passiert - hoffe ich doch sehr!~
+@508  = ~[Brage]Definitiv nicht. Aber Krieg macht vieles zunichte, auch wenn er mit den besten Absichten begonnen wurde. Ich habe genug als Hauptmann gesehen um zu wissen, dass selbst die besten Absichten, die ernstesten Versprechen, die inbrünstigst vorgetragenen Gelobigungen in der Realität des Krieges verloren gingen. Ich kann Euch in einem auf alle Fälle zustimmen: Dass aus dem Kreuzzug, der loszog, um verlorene Seelen zu befreien eine feindliche Armee wurde ist der große Fehler Caelars, den auch ich nicht verstehen kann.~
+/*
+@509  =
+@510  =
+*/
+
+@520  = ~[Brandock]Brage, da unsere Wege uns beide nach Amn führen werden - und zwar eher früher als später, nachdem all dies erledigt ist - könnten wir vielleicht zusammen reisen, nachdem wir <CHARNAME> Lebewohl sagen mussten?~
+@521  = ~[Brage]Das würde ich gerne, Brandock - nun, zumindest... Wie soll ich das sagen, ohne herzlos gegenüber möglichen Problemen eines Reisegefährten zu klingen. Ich würde es sehr vorziehen, an der amnischen Grenze nicht in Eure unvermeidlichen Magierdinge verwickelt zu werden.~
+@522  = ~[Brandock]Oh - natürlich nicht. Ich würde es nie wagen, Euch damit zu belästigen. Zumal ich keine Ahnung habe, was mich erwartet. Ich muss meine Anwesenheit bekannt geben, so viel ist sicher, und die Anweisungen der Verhüllten Magier abwarten. Ich hoffe jedoch, dass sie akzeptieren werden, dass ich unverzüglich zu meiner Mutter reise und dort ihre Antwort abwarte.~
+@523  = ~[Brage]Lasst uns zusammen reisen, bis wir das Wolkengebirge hinter uns gelassen haben. Wir alle wissen, dass der Norden nicht so kritisch ist, wenn es um Eure Profession geht, und die Berge überquert es sich besser in Gesellschaft. Danach wird die "Heimkehr" für uns beide ihre ganz eigenen und persönlichen Unwägsamkeiten mit sich bringen, die wohl besser jeder einzeln auf sich nimmt.~
+@524  = ~[Brandock]Das klingt gut, Brage. Ich freue mich darauf, noch etwas länger mit Euch zusammen zu reisen.~
+/*
+@525  =
+@526  =
+*/

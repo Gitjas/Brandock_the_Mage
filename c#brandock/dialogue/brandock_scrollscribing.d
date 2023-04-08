@@ -299,7 +299,8 @@ SetGlobal("C#Br_WriteScrollSCRL7H","LOCALS",1)~ + scribe_scoll_SCRL16_02
 /* "SCRL17" */
 + ~LevelGT("C#Brandock",8)
 PartyHasItemIdentified("SCRL17")~ + @3035 DO ~SetGlobal("C#Br_WriteScrollSCRL8O","LOCALS",1)~ + scribe_scoll_SCRL17_02
-+ ~LevelGT("C#Brandock",8)
++ ~%IT_IS_BGII%
+LevelGT("C#Brandock",8)
 !PartyHasItemIdentified("SCRL17")
 Global("C#BrandockJoined","GLOBAL",2)
 GlobalGT("C#Br_HasScrollSCRL17","LOCALS",0)

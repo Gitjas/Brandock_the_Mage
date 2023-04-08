@@ -20,6 +20,7 @@ SAY @10
 IF ~~ THEN DO ~SetGlobal("C#BrandockSpawn","GLOBAL",2)
 SetGlobal("C#BrandockJoined","GLOBAL",1)
 SetGlobal("C#Brandock_Dialog","GLOBAL",1)
+SetGlobalTimer("C#BrandoBG1QuestNagTimer","LOCALS",THIRTY_DAYS)
 RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",400)
 RealSetGlobalTimer("C#BrandockSpaceTimer","GLOBAL",60)
 RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",3600)

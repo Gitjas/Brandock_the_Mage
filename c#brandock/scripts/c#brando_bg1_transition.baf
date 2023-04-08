@@ -14,7 +14,7 @@ IF
 THEN
 	RESPONSE #100
 		SetInterrupt(FALSE)
-		ReallyForceSpellRES("SPRR712","C#Brandock") //SPRR712
+		ReallyForceSpellRES("SPPR712","C#Brandock") //SPRR712
     SmallWait(1)
 		ReallyForceSpellRES("SPPR607","C#Brandock") //Heal
     SmallWait(1)

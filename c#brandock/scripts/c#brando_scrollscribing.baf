@@ -147,8 +147,6 @@ IF
 	!InMyArea("C#Brhelp")
 THEN
 	RESPONSE #100
-		SetGlobal("C#Br_ScrollComment","LOCALS",1)
-		SetGlobal("c#brscrl","GLOBAL",3)
 		StartDialogNoSet([PC])
 END
 

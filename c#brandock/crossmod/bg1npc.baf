@@ -7,7 +7,8 @@ IF
 %BG1_BEFORE_TRANSITION%
   OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 //  RealGlobalTimerExpired("C#BrandockNPCBanterTimer","GLOBAL")
-  !See([ENEMY])
+    See(Player1)
+    !Detect([ENEMY])
   See("%IMOEN_DV%") 
   !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
   InParty("%IMOEN_DV%")
@@ -43,7 +44,8 @@ END
 IF
 %BG1_BEFORE_TRANSITION%
   OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-  !See([ENEMY])
+    See(Player1)
+    !Detect([ENEMY])
   See("%IMOEN_DV%") 
   !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
   !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -81,7 +83,8 @@ END
 IF
 %BG1_BEFORE_TRANSITION%
   OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
-  !See([ENEMY])
+    See(Player1)
+    !Detect([ENEMY])
   See("%IMOEN_DV%") 
   !StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
   InParty("%IMOEN_DV%")

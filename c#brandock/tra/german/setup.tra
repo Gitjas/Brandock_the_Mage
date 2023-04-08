@@ -25,7 +25,7 @@
 @55562  = ~Gavin BG1 detektiert...~
 @55563  = ~The Calling detektiert...~
 @55564  = ~Valerie detektiert...~
-@55565  = ~Imoen 4 Ever: SoD detektiert...~
+@55565  = ~Imoen 4 Ever SoD Komponente "Imoen erhaelt Dialog-Inhalte in Kapitel 8-12" detektiert...~
 @55566  = ~Alternatives detektiert...~
 @55567  = ~NPC Strongholds detektiert...~
 @55568  = ~Diese Mod muss vor EET_End installiert weden.~
@@ -52,3 +52,11 @@
 @55586  = ~Kurze Version der Cutscene in Thalantyrs Festung~
 
 @55587  = ~Die Szene auf der Eberfellbruecke Mod detektiert.~
+@55588  = ~bgqe: Schleimquest detektiert...~
+
+@55589  = ~Ajantis SoD detektiert...~
+@55590  = ~Diese Komponente muss nach "Brandock der Magier: Crossmodinhalte" installiert werden.~
+
+/* new for v1 */
+@55591  = ~Fink NPC detektiert.~
+@55592  = ~Diese Komponente ist nicht mehr existent.~

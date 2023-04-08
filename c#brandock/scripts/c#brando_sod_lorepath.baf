@@ -118,7 +118,7 @@ END
 /* Elwood Dowser, bd1000 */
 IF %IT_IS_SOD%
 Dead("bdcrus13")
-See("bscrus13")
+See("bdcrus13")
 Global("C#Br_LorePathbdcrus13SoD","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -249,14 +249,14 @@ ReallyForceSpellRES("c#brlob3",Myself)
 SetInterrupt(TRUE)
 END
 
-/* CrusaderMages, bd4300 DS Castle basement */
+/* CrusaderMages, bd4300 DS Castle basement "bdcrus92" */
 IF %IT_IS_SOD%
-Dead("bdcru22")
-Dead("bdcru23")
+Dead("bdcru122")
+Dead("bdcru123")
 OR(2)
-	See("bdcru22")
-	See("bdcru23")
-Global("C#Br_LorePathbdcru22SoD","GLOBAL",0)
+	See("bdcru122")
+	See("bdcru123")
+Global("C#Br_LorePathbdcru122SoD","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -266,7 +266,7 @@ CombatCounter(0)
 THEN
 RESPONSE #100
 SetInterrupt(FALSE)
-SetGlobal("C#Br_LorePathbdcru22SoD","GLOBAL",1)
+SetGlobal("C#Br_LorePathbdcru122SoD","GLOBAL",1)
 DisplayStringHead("C#Brandock",@1030)
 SetInterrupt(TRUE)
 END

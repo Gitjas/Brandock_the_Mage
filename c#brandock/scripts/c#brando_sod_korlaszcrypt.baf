@@ -62,7 +62,7 @@ IF
     CombatCounter(0)
 THEN
 	RESPONSE #100
-    		RealSetGlobalTimer("C#BrandockDialogSpaceTimer","GLOBAL",300)
+    		RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT_SOD)
 		StartDialogueNoSet(Player1)
 END
 

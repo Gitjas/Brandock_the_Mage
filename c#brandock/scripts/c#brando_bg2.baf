@@ -278,7 +278,7 @@ IF
 	OR(3)
 		!HasItem("MISC44","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("MISC44","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)

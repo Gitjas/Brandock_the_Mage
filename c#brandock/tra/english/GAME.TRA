@@ -1,6 +1,6 @@
 @0  = ~Durable Scroll of Dispel Magic~
-@1  = ~(yawn)~ 
-@2  = ~(cough)~ 
+//@1  = 
+//@2  = 
 @3  = ~Durable Scroll of Fireball~
 @4  = ~Brandock's Robe~
 @5  = ~This is the warmest robe Brandock could get when travelling far north from his home lands. Not that it is that warm where he comes from, but 'the nights are colder out here, I was told'. Plus, the coat is so thick it actually provides protection against missiles, which is quite handy for a mage.
@@ -483,6 +483,9 @@ This will transform Brandock back into his human form. Despite his fears and pan
 @1039 = ~This is Elvenhair's desk. You see piles of books, scrolls, and a set of differently shaped quills.~
 @1040 = ~Magic books! Great books! Will help ...~
 
+/* new for v1 */
+@1041 = ~Wait - WHAT? A fiend? That child was a *fiend*?~
+
 /* SoD */
 @1250 = ~Hey, <CHARNAME>! <CHARNAME>, over here!~
 @1251 = ~Gods, I hope <PRO_HESHE> notices me!~
@@ -505,7 +508,7 @@ This will transform Brandock back into his human form. Despite his fears and pan
 @1268 = ~Whoa, <CHARNAME>, this cost a lot of lives... But was it more lives than would have been lost if we had fought - I don't know, and I am glad I didn't have to make this decision.~
 @1269 = ~Oh, we get a chance to escape. That's... nice.~
 @1270 = ~We are.. we are standing on top of... (gulp) By the gods, <CHARNAME>, are you alright?~
-@1271 = ~Did we have to kill that man? I mean, yeah, we probably did.~
+@1271 = ~Did we have to kill them? I mean, yeah, we probably did.~
 @1272 = ~Oh dear... oh dear... If we do not close this portal somehow, we might as well kill ourselves right away. So, better we die trying... right? I'd never thought I might sound like a paladin one day... (moans)~
 @1273 = ~We... we are back. And the portal is closed... <CHARNAME>? <CHARNAME>?! You are not bleeding - are you?!~
 @1274 = ~I... I feel sick.~
@@ -530,6 +533,14 @@ This will transform Brandock back into his human form. Despite his fears and pan
 @1291 = ~(Brandock takes a good look at the dropped spellbooks, seemingly interested in what he sees.)~
 @1292 = ~Oh yes. This spellbook is definitely interesting.~
 @1293 = ~Are you serious?! Get this thing off me, and quickly! I'm no use like this.~
+@1294 = ~Old Torn Out Book Page~
+@1295 = ~This seems to be the missing page from Eldom's magic book he asked you to find. They give instructions how to enchant +3 munition by using up lower enchanted charges. 
+You see hand written notes along the page, the most obvious one being "This is of *no* use without the book it's from!!!" scribbled in big letters on the top.~
+@1296 = ~Mander~
+@1297 = ~Eldom~
+@1298 = ~So many people! So, so many people.~
+@1299 = ~I won't panic. I am all calm. Aaaaaall calm.~
+@1300 = ~I now I'll regret this, but I say it anyway. I'll be glad to get out of here.~
 
 /* BGII */
 @3500 = ~House of Brandock's Cousin~
@@ -562,3 +573,26 @@ This will transform Brandock back into his human form. Despite his fears and pan
 @100288 = ~Huh?~
 @100289 = ~Not any more, Imoen... I am so much farther than back then when I was pondering which mage could be my teacher. So much farther. Back *then*, though - back *then* I would have been jealous as *hell*.~
 @100290 = ~Ha!~
+
+/* c#7thpmm_thingies.tpa */
+@200000 = ~(yawn)~
+@200001 = ~I want you to stay in sight.~
+@200002 = ~Stop staying in sight.~
+@200003 = ~I want you to look out for traps.~ 
+@200004 = ~Stop looking for traps.~
+@200005 = ~If we encounter enemies...~
+@200006 = ~Leave everything as it is.~
+@200007 = ~I want you to fight enemies you see with magic.~
+@200008 = ~I want you to first prepare yourself and fight enemies with magic if you see them.~
+@200009 = ~I want you to run away from enemies so you don't have to fight.~
+@200010 = ~I want you to fight with melee weapons if you see enemies.~
+@200011 = ~I want you to fight with ranged weapons if you see enemies.~
+@200012 = ~I want you to only defend yourself if attacked.~
+@200013 = ~Do not fight at all, no matter what.~
+@200014 = ~I have no new instructions for fights.~
+@200015 = ~What do you want me to do?~
+@200016 = ~Yes?~
+@200017   = ~Brandock, please warn me if your health gets too low in the next fight.~
+@200018   = ~Brandock, I want you to stop warning me about your health conditions in our fights.~
+@200019   = ~I will!~
+@200020   = ~I want to give you instructions how to follow me.~

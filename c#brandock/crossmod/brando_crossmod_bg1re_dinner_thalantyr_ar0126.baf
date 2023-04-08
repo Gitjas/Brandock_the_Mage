@@ -1,0 +1,6 @@
+IF
+Global("C#BE_bg1re_C#LCTHBO","GLOBAL",0)
+PartyHasItem("C#LCTHBO")
+THEN RESPONSE #100
+SetGlobal("C#BE_bg1re_C#LCTHBO","GLOBAL",1)
+END

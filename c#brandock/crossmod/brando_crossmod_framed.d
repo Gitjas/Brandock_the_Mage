@@ -42,3 +42,12 @@ END
 EXTEND_BOTTOM c#brandj %brandj_1165%
 IF ~Global("#LF_AllowCKEntry","GLOBAL",1)~ THEN + %brandj_1173%
 END
+
+/*
+@2148 // ~Stay and browse the library for as long as you like. This is once again your home, if you so wish.~
+*/
+I_C_T TETHTO2 %TETHTO2_2148% C#BR_TETHTO2_framed_2148
+== c#brandj IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+See("C#Brandock")
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @7 /* ~Oh, <CHARNAME> - this... this is *fantastic*! I am so happy for you!~ */
+END

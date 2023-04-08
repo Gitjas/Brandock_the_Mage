@@ -138,6 +138,35 @@
 @525  = ~[Brandock]Hey everyone - how about we sing a song? Something cheery and frolicking... And loudly, very loudly!~
 @526  = ~[Brandock](moans)~
 
+/* new for v1 */
+@527  = ~[Imoen]Brandock, did you know about me, too? When you learnt about Candlekeep, and <CHARNAME>, I mean.~
+@528  = ~[Brandock]Er, no. I'm sorry, Imoen, but there is no mentioning of you.~
+@529  = ~[Imoen]Really? No mentionings of Imoen, foster child of Winthrop, the known keeper of Candlekeep Inn and her legendary tales of sneaking though Dreppin's hay in the search of a lost gold coin?~
+@530  = ~[Brandock]...No. But you see, there is not much about <CHARNAME>, either. It's basically just the name, and that's only because Gorion was such a well versed sage.~
+@531  = ~[Imoen]Well, maybe it's better this way. leaves me unknown and unnoticed - ideal conditions to suddenly sneak up on people!~
+@532  = ~[Brandock]Wha... Wait! Give me back my... oh, you didn't take anything. Imoen, that was extremely sneaky!~
+@533  = ~[Imoen]See? I'm *made* for this!~
+@534  = ~[Ajantis]Brandock, the unexpected magic in the destroyed book took me by surprise.~
+@535  = ~[Brandock]Oh yes. Me too!~
+@536  = ~[Ajantis]It is fascinating to see that this was - albeit maybe not a *planned* ocurrence, but definitely an *accounted for* instance from Master Bowgentle himself!~
+@537  = ~[Brandock]You have no idea how that makes me feel. I am not proud of what happened, but finding this note - and holding the restored book in my hands is like a miracle come true.~
+@538  = ~[Ajantis]It is your responsibility now to restore the book to its full glory again, Brandock.~
+@539  = ~[Brandock]Oh yes, I am aware of that.~
+@540  = ~[Ajantis]Adding in spells as unique as the ones lost to the destruction...~
+@541  = ~[Brandock]Yes...~
+@542  = ~[Ajantis]It will be a difficult task. And we do not know yet what "Oghma's Wisdom" stands for. It will be your responsibility to find out what it means.~
+@543  = ~[Brandock]It definitey will be...~
+@544  = ~[Ajantis]To see what Master Bowgentle expected his students to accomplish with it, and fulfill these expectations, even though you are not them, but a random mage who tinkered with Master Bowgentles' magic hundreds of years later.~
+@545  = ~[Brandock]I... thank you for your words of... er, of comfort? And maybe trust? But I'd rather we'd -~
+@546  = ~[Ajantis]It will be a journey of hardship, only to be mastered with full dedication to the task.~
+@547  = ~[Brandock]Ajantis, I'm more than ready to dedicate my life to this. I am and I will! Please stop talking. Please!~
+@548  = ~[Ajantis]Brandock, you ended our last conversation about your restored book rather abruptly. Was anything the matter?~
+@549  = ~[Brandock]Was anything...? Well, how to put this. You listing all the things that are expected of me now - calling it a hardship etcetera - it was a little too much, to be honest. You know I scare easily. The whole thing with the book really got to me. Having to hear all these expectations now just made me feel... small and helpless - with a lumb in my stomach.~
+@550  = ~[Ajantis]What you are facing *is* much, Brandock. Anyone would feel overwhelmed by such a task.~
+@551  = ~[Brandock]Oh, gods, please have mercy...~
+@552  = ~[Ajantis]That is why you will not have to face this on your own, Brandock. Do not despair. You will find helpful souls along the way, and I am ready to support you if you need help with this task! Noone expects you to face these expectations alone.~
+@553  = ~[Brandock]Oh - that... that was actually pretty nice of you to say. I think I understand your earlier words better now, too. Thank you for this offer, Ajantis - you have my sincerest thanks.~
+
 
 /* BGII */
 @5000 = ~Imoen, you don't sleep well lately.~

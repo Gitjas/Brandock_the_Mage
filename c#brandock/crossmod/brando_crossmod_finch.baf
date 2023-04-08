@@ -1,0 +1,65 @@
+/* "SUFBOOK2" (Metallurgy Today) OR "SUFBOOK5" ("library books") */
+/* activation */
+IF %BG1_BEFORE_TRANSITION%
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+InParty("sufinch")
+See("sufinch")
+!StateCheck("sufinch",CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+OR(2) PartyHasItem("SUFBOOK2") PartyHasItem("SUFBOOK5")
+Global("C#Br_LorePathSUFBOOK2BG1","GLOBAL",0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathSUFBOOK2BG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BG1_BEFORE_TRANSITION%
+Global("C#Br_LorePathSUFBOOK2BG1","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Myself)
+END
+
+/* Imoen -Finch - Brandock Banter - trigger via Script */
+/* activation */
+IF %BG1_BEFORE_TRANSITION%
+RealGlobalTimerExpired("C#Br_ImoenFinchBG1_Timer","GLOBAL")
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+CombatCounter(0) !See([ENEMY]) 
+InParty("%IMOEN_DV%")
+!StateCheck("%IMOEN_DV%",CD_STATE_NOTVALID)
+OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+See("%IMOEN_DV%")
+InParty("sufinch")
+See("sufinch")
+!StateCheck("sufinch",CD_STATE_NOTVALID)
+GlobalGT("C#Brandock_FinchBG1","GLOBAL",2)
+Global("C#Brandock_ImoenFinchBG1","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_ImoenFinchBG1","GLOBAL",1)
+END
+
+/* Initiate */
+IF %BG1_BEFORE_TRANSITION%
+Global("C#Brandock_ImoenFinchBG1","GLOBAL",1)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+ActionOverride("%IMOEN_DV%",StartDialogueNoSet("sufinch"))
+END

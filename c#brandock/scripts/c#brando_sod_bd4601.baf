@@ -1,6 +1,7 @@
 /* Brandock comments in the elevator in hell */
 
 IF
+	GlobalGT("bd_plot","global",554)
 	Global("C#Brandock_hellevator","bd4601",0)
 	InMyArea("C#Brandock")
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)

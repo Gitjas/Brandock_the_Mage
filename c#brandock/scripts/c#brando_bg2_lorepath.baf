@@ -493,8 +493,8 @@ END
 /* Deril, Cernd's family quest (CEDERIL) */
 IF %IT_IS_BGII%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
-Dead("VENKT")
-See("VENKT")
+Dead("CEDERIL")
+See("CEDERIL")
 Global("C#Br_LorePathCEDERILBG2","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)

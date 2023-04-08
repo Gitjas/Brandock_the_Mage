@@ -41,7 +41,7 @@ THEN
 		SetGlobal("C#Brandock_CKeepDoppelgangers","GLOBAL",6)
 END
 
-/* Going to Candlekeep woth work order in case brandock saw the monastery before */
+/* Going to Candlekeep with work order in case Brandock saw the monastery before */
 /* Activate */
 IF %BGT_VAR%
 Global("Chapter","GLOBAL",%tutu_chapter_5%)
@@ -62,7 +62,7 @@ OR(5)
 	OR(3)
 		!HasItem("#LF_CKWO","C#Husam1")
 		Global("C#HusamJoined","GLOBAL",2)
-		InParty("C#Husam")
+		InParty("C#Husam1")
 	OR(3)
 		!HasItem("#LF_CKWO","C#Brandock")
 		Global("C#BrandockJoined","GLOBAL",2)

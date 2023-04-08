@@ -23,3 +23,9 @@
 @20   = ~You did something there, without being trained. We should be careful, <CHARNAME>. Don't let her fiddle with it on her own for too long.~
 @21   = ~I'll have an eye on your attempts, Imoen, but unless you start training magic on a serious note, there is only so much damage control I can do.~
 @22   = ~"Damage control", huh? My, aren't you a real charmer!~
+
+/* new for v1 */
+@23   = ~[Brandock]Wait - alright, it's safe. Imoen, don't just take and open a mage's spellbook. Some secure theirs with spells - traps, so to say, but magic ones so I fear you won't be able to detect them with your abilities.~
+@24   = ~[Brandock]Fooling around is never a good idea if it comes to magic, but if you have an inner urge to engage in it, then it would be unwise to surpress it. Just be careful... Please.~
+/* This is @238 from ~bg1npc/tra/%s/x#imoen.tra~ */
+@25   = ~[Imoen]Oh! Uh... heh. Guess I never thought of that. *sigh* 'Spose I shouldn't fool 'round with it, huh?~

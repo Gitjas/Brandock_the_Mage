@@ -20,7 +20,7 @@ END
 
 IF
 	AreaCheck("BD4300")
-	Global("bd_plot","bd4300",495)
+	Global("bd_plot","global",495)
 	Global("C#Brandock_SoDPortalComment","bd4300",0)
 	InMyArea("C#Brandock")
 	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
@@ -29,6 +29,7 @@ THEN
 	RESPONSE #100
 		SetGlobal("C#Brandock_SoDPortalComment","bd4300",1)
 		DisplayStringHead("C#Brandock",@1270)  
+		SmallWait(8)
 		Continue()
 END
 
@@ -54,6 +55,7 @@ END
 /* after first wave of demons */
 
 IF
+	GlobalLT("bd_plot","global",499)
 	Global("bd_mdd1290d_ot","bd4300",1)
 	Global("C#Brandock_SoDPortalComment","bd4300",1)
 	InMyArea("C#Brandock")
@@ -63,6 +65,7 @@ THEN
 	RESPONSE #100 
 		SetGlobal("C#Brandock_SoDPortalComment","bd4300",2)
 		DisplayStringHead("C#Brandock",@1272) 
+		SmallWait(8)
 		Continue()
 END
 
@@ -80,6 +83,7 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("bd_mdd1341a_ot_timer","bd4300",3)
 		SetGlobal("C#Brandock_bd_ot2","bd4300",1)
-		DisplayStringHead("C#Brandock",@1273)   
+		DisplayStringHead("C#Brandock",@1273) 
+		SmallWait(8)  
 		Continue() 
 END

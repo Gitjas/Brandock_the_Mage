@@ -51,8 +51,8 @@
 @48   = ~Was ist das besondere mit Magie in Amn?~
 @49   = ~Wollt Ihr mehr zu Magie in Amn sagen?~
 @50   = ~Brandock, würdet Ihr mir Zugang zu Eurem Inventar gewähren?~
-@51   = ~Brandock, warnt mich bitte, wenn Ihr im nächsten Kampf zu sehr verletzt werdet.~
-@52   = ~Brandock, warnt mich bitte nicht mehr, wenn Ihr im Kampf zu sehr verletzt werdet.~
+//@51   = 
+//@52   = 
 @53   = ~Momentan nichts.~
 @54   = ~Das werde ich!~
 @55   = ~In Ordnung!~
@@ -388,7 +388,7 @@
 @443  = ~Wollt Ihr mehr über Eure Fähigkeit, Euch in einen Halboger verwandeln zu können, sprechen?~
 @444  = ~Ich... ich habe es nicht wahrhaben wollen, aber seit dem Vorfall mit Melicamp fühlte ich mich mit der Form als Halboger verbunden. So, als würde ich mir nur schnell einen anderen Mantel anziehen. Ich... ich habe es verdrängt und ignoriert weil ich hoffte, es würde vorbei gehen. Aber das tat es nicht, und wird es auch nicht...~
 @445  = ~Oh ja, sehr sogar... Aber ich muss erstmal ein paar Gedanken sortieren. Danke, dass Ihr fragt.~
-@446  = ~Als ich mich in einen Halboger verwandelt habe, hat mich nicht etwa Angst übermannt. Ich... ich war sehr verärgert und wollte stark sein. Das ist der Grund, warum ich mich verwandelt habe...~
+@446  = ~Als ich mich in einen Halboger verwandelt habe, hat mich nicht etwa Angst übermannt. Ich... ich war natürlich verzweifelt, aber ich war auch sehr verärgert und wollte stark sein. Das ist der Grund, warum ich mich verwandelt habe...~
 @447  = ~Also habe ich in einem Moment voll des Mutes, der Stärke und Entschlossenheit nicht etwa meine wirkliche Profession verwendet - Magie! - sondern wählte die physische Überlegenheit eines Halbogers. Das ist... das ist so jämmerlich, dass ich gar nicht weiß, wo ich anfangen soll.~
 @448  = ~Was ist daran jämmerlich? Ihr musstet stark sein, also wurdet Ihr stark.~
 @449  = ~Im Gegenteil! Ihr habt einen Weg gefunden, Euch selbst zu helfen. Das ist gut! Das schafft nicht jeder.~
@@ -397,7 +397,7 @@
 @452  = ~[Brandock]Ah, ich wünschte ich könnte mich auf die positiven Dinge konzentrieren, wie Ihr es tut. Ich bin nicht in der Lage, das als schlauen Schachzug zur Erreichung meiner Ziele anzusehen.~
 @453  = ~Natürlich ist es Magie, sich in einen Halboger zu verwandeln. Das meinte ich nicht. Was ich meinte war, dass es jämmerlich ist, dass ich einen Halbogerkörper zu brauchen scheine, um mich *stark* zu fühlen, weil ich offensichtlich überzeugt davon bin es nicht sein zu können, solange ich *Brandock* bin!~
 @454  = ~Ich... hatte so großes Verlangen danach, einfach mal sicher zu sein, was ich tun muss - nicht die ganze Zeit so viel darüber zu *grübeln*, was die beste Reaktion wäre. Seit meiner Zeit als Halboger war mir klar, dass mir mehr davon gut tun würde. Und als ich es das erste mal umsetzte - da konnte ich es nur als Halboger, aber nicht als "Brandock".~
-@455  = ~Und jetzt... habe ich Angst. Dass "Brandock" das niemals wird umsetzen können, sondern immer der dauerredende Depp sein wird, in den der Halboger sich verwandelt hat, als er meinen Körper bewohnte. Während ich die andere Hälfte des Tages alles als glücklicher, dummer Halboger zertrümmere.~
+@455  = ~Und jetzt... habe ich Angst. Dass "Brandock" das niemals wird umsetzen können, sondern immer der dauernd daherredende Depp sein wird, in den der Halboger sich verwandelt hat, als er meinen Körper bewohnte. Während ich die andere Hälfte des Tages alles als glücklicher, dummer Halboger zertrümmere.~
 @456  = ~Wirklich? Ich sehe nicht die geringsten Anzeichen, dass auch nur eine der zwei Szenarien wahr werden könnte, für keine der von Euch angenommenen Körperformen.~
 @457  = ~Hmm, Ihr scheint Euch da in Ängste reinzusteigern - Ängste, die Ihr nur als Mensch überhaupt fühlt. Wenn Ihr Euch jetzt in einen Halboger verwandelt, um Euch dem nicht aussetzen zu müssen, wäre der Teufelskreis perfekt.~
 @458  = ~Das ist eine starke Übertreibung, und das wisst Ihr auch.~
@@ -426,6 +426,25 @@
 @481  = ~[Brandock]Ich versuche mir einzureden, dass dieses leere, vorwurfsvolle Buch in meinem Gepäck nicht wirklich mein Problem wäre... Ich bin *so* froh, dass ich momentan im Grunde nichts diesbezüglich tun kann, um nicht zu sagen muss, so sehr überwältigt mich das ganze. Und doch bin ich *so* versessen darauf, es zu den Mönchen im Tempel von Oghma in Atkatla zu bringen. Ich bin mir sicher dass sie wissen, was damit zu tun ist - sie müssen es wissen.~
 @482  = ~[Brandock]Nur, dass ich dieses Buch wie meine Augäpfel hüten werde, bis ich es den Mönchen zeigen kann. Diesem Buch wird nichts Übles mehr geschehen, dafür werde ich sorgen. Alles weitere wird die Zeit zeigen.~
 @483  = ~Wir werden wegen Mordes gesucht - in Baldurs Tor, zumindest. Jetzt ein Leuchtfeuer zu provozieren ist sicher keine so gute Idee, wenn wir versuchen, uns versteckt zu halten.~
+
+/* new for v1 */
+@484  = ~Ich hatte auch Glück, dass es kein Schleim war, der vorbeikam, sonst wäre ich in einen Schleim verwandelt worden wie der arme Kerl in Beregost. Keine Chance, zu Meister Thalantyr zu gehen und ihm zu erzählen, was passiert ist als *Schleim*...~
+@485  = ~Ich war einfach so - *so* von dem Gedanken besessen, dass wir da vielleicht nicht lebend rauskommen. Das waren die Katakomben von Candlekeep! Ich will nicht, dass einer von uns beiden dort unten stirbt, um nie wieder gefunden und wahrscheinlich für die nächsten hundert Jahre vergessen zu werden. Nicht, wenn Ihr *so* nah dran seid, freien Zugang zu Eurem Zuhause zu bekommen - und ich dort einen guten Ruf!~
+@486  = ~[PC Reply]Welche Edelsteine eignen sich am besten für Thalantyrs Wahrsagegerät? Zähle sie einfach alle auf.~
+@487  = ~[PC Reply]Haben wir bereits passende Edelsteine für Thalantyrs Wahrsagegerät?~
+@488  = ~[Brandock]Hmm, mal überlegen. Die beste in jeder Hinsicht ist auch sehr selten - die schwarze Perle. Dann gibt es noch den Schurkenstein, ebenfalls sehr teuer und nützlich für viele magische Anwendungen. Aber auch der Wasseropal und, überraschenderweise, der Zirkon sind sehr gut geeignet. Wir sollten mindestens einen von diesen sammeln. Auch andere teure Edelsteine sollten ausreichen, wenn wir drei nehmen können: Diamant, Smaragd, Königsträne und Sternsaphir.~
+@489  = ~[Brandock]In Ordnung, ich schau mal was ich finde~
+@490  = ~[Brandock]Wir haben eine schwarze Perle! Das wäre definitiv eine gute Wahl.~
+@491  = ~[Brandock]Ich sehe einen Schurkenstein. Eindeutig geeignet.~
+@492  = ~[Brandock]Wir haben einen Wasseropal. Eine sehr gute Wahl.~
+@493  = ~[Brandock]Zirkon funktioniert ebenfalls perfekt und ist nicht so teuer.~
+@494  = ~[Brandock]Dieser Diamant würde sich gut eignen.~
+@495  = ~[Brandock]Ein Smaragd sollte auch gut sein.~
+@496  = ~[Brandock]Diese Königsträne wäre auch eine gute Wahl für ein Hellsehergerät.~
+@497  = ~[Brandock]Sternsaphir sollte auch funktionieren.~
+@498  = ~[Brandock]Den, ähm, ich gerne für mein Buch reservieren würde - wenn möglich - ich meine... ach verdammt, Ihr entscheidet, wofür wir den Sternsaphir verwenden. Wir werden sicher irgendwann einen anderen finden.~
+@499  = ~[Brandock]Ich sehe keine weiteren geeigneteren Edelsteine für ein Wahrsagegerät.~
+
 
 /* SoD */
 /* @1000 - @1002, @1004, @1007 also used for "c#brandj_PID_BG2.d" */
@@ -464,6 +483,6 @@
 @5006 = ~In der Tat! Ihr werdet es nicht glauben, <CHARNAME>! Ich habe tatsächlich die Fähigkeit erworben, mich in einen Halboger zu verwandeln! Es ist unglaublich - aber wahr! Lasst mich einfach wissen, wenn ich mich verwandeln soll. Ich... habe es bisher nicht getan, weil ich Angst habe, dass ich mich nicht mehr zurückverwandeln würde. Ein Halboger zu sein ist so viel unkomplizierter als "Brandock" zu sein.~
 @5007 = ~Und - ist das nicht unglaublich? Der Halboger hat nun Menschengestalt angenommen! Darin sieht er fast genauso aus wie ich, ich habe jetzt einen "Zwillingsbruder". Er ist sehr neugiereig und möchte lernen, unter Leuten zu leben.~
 @5008 = ~Ihr habt bereits meinen Halboger-"Zwillingsbruder" getroffen... Er ist sehr neugiereig und möchte lernen, unter Leuten zu leben.~
-@5009 = ~Er ist auf dem Weg zur Bibliothek Alisarhold - ich weiß, dass die Gelehrten dort begeistert sein werden, mit ihm zu arbeiten und die Magie zu untersuchen, die uns verwandelt hat, während er geduldige Lehrmeister braucht, die ihn mit dem Leben unter Menschen vertraut macht und seinen kindlichen Verstand unterrichten.~
+@5009 = ~Er ist auf dem Weg zur Bibliothek Alisarhold - ich weiß, dass die Gelehrten dort begeistert sein werden, mit ihm zu arbeiten und die Magie zu untersuchen, die uns verwandelt hat, während er geduldige Lehrmeister braucht, die ihn mit dem Leben unter Menschen vertraut machen und seinen kindlichen Verstand unterrichten.~
 @5010 = ~Ich habe ihn überzeugen können, zum Tempel in Beregost zu gehen. Ich glaube er mag es, unter Leuten zu sein.~
  

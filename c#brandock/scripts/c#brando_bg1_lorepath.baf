@@ -618,6 +618,27 @@ ReallyForceSpellRES("c#brlob1",Myself)
 SetInterrupt(TRUE)
 END
 
+/* Arlin (Reißer des Unterbergs) */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("Arlin")
+See("Arlin")
+Global("C#Br_LorePathArlinBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathArlinBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1028)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
 /* Venkt, Tazok's tent Bandit Camp */
 IF 
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
@@ -843,6 +864,73 @@ THEN
 RESPONSE #100
 SetInterrupt(FALSE)
 SetGlobal("C#Br_LorePathResarBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Prat und Sakul, Candlekeep Catacombs (Cave) */
+/* PRAT SAKUL */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("Sakul")
+Dead("Prat")
+OR(2)
+	See("Prat")
+	See("Sakul")
+Global("C#Br_LorePathPratSakulBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathPratSakulBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1029)
+ReallyForceSpellRES("c#brlob2",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Jemby, Fisherman's Lake */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("Jemby")
+See("Jemby")
+Global("C#Br_LorePathJembyBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathJembyBG1","GLOBAL",1)
+IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+DisplayStringHead("C#Brandock",@1026)
+ReallyForceSpellRES("c#brlob1",Myself) 
+SetInterrupt(TRUE)
+END
+
+/* Shaldrissa, Undercity */
+IF 
+!Global("C#Brandock_Shapeshift","GLOBAL",5)
+Dead("Shaldrissa")
+See("Shaldrissa")
+Global("C#Br_LorePathShaldrissaBG1","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetInterrupt(FALSE)
+SetGlobal("C#Br_LorePathShaldrissaBG1","GLOBAL",1)
 IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
 DisplayStringHead("C#Brandock",@1026)
 ReallyForceSpellRES("c#brlob1",Myself) 

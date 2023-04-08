@@ -1,0 +1,40 @@
+
+/* Brage- Brandock SoD: both received their letters and know they will go to Amn after Caelar is defeated */
+/* activation */
+IF
+	%IT_IS_SOD%
+	InParty("C#Brage")
+	See("C#Brage")
+	!StateCheck("C#Brage",CD_STATE_NOTVALID)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+	GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1)
+	GlobalGT("C#Brage_SoDSwordPathMess","GLOBAL",1)
+	!See("c#brmess")
+	!See("c#besmes")
+	Global("C#Brandock_BrageSoDEnd","GLOBAL",0)
+THEN
+  RESPONSE #100
+		SetGlobal("C#Brandock_BrageSoDEnd","GLOBAL",1)
+END
+
+/* triggering */
+IF 
+	%IT_IS_SOD%
+	InParty("C#Brage")
+	See("C#Brage")
+	!StateCheck("C#Brage",CD_STATE_NOTVALID)
+	OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2)
+	!StateCheck("C#Brandock",CD_STATE_NOTVALID)
+	See(Player1)
+	CombatCounter(0)
+	!See([ENEMY])
+  Global("C#Brandock_BrageSoDEnd","GLOBAL",1)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("C#BrandockNPCBanterTimer","GLOBAL",1800)
+		StartDialogueNoSet("C#Brage")
+END

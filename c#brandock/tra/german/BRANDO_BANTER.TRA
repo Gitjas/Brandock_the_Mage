@@ -140,6 +140,36 @@
 @526  = ~[Brandock](moans)~
 
 
+/* new for v1 */
+@527  = ~[Imoen]Brandock, habt Ihr auch von mir gehört? Als Ihr über Kerzenburg gehört habt, und <CHARNAME> und so.~
+@528  = ~[Brandock]Äh. nein. Tut mir Leid, Imoen, aber von Euch habe ich nichts erfahren.~
+@529  = ~[Imoen]Echt nicht? Keinerlei Erwähnung von Imoen, der Pflegetochter von Winthrop, dem bekannten Betreiber der Kerzenburger Taverne und ihrer legendären Erlebnisse beim Durchstöbern von Dreppins Heu auf der Suche nach verlorenen Goldmünzen?~
+@530  = ~[Brandock]...Nein. Aber schaut, es gibt auch nicht viel über <CHARNAME>. Es ist im Grunde nur der Name, und das auch nur, weil Gorion ein so bekannter Magier war.~
+@531  = ~[Imoen]Vielleicht ist das auch besser so. So bleibe ich unerkannt und unbemerkt - ideale Voraussetzungen, um sich plötzlich an Leute heranzuschleichen!~
+@532  = ~[Brandock]Wa... Stop! Gebt mir mein... Äh, Ihr habt ja gar nichts genommen? Das war äußerst hinterhältig, Imoen!~
+@533  = ~[Imoen]Seht Ihr? Ich bin wie geschaffen dafür!~
+@534  = ~[Ajantis]Brandock, die unerwartete Magie in dem zerstörten Buch hat mich sehr überrascht.~
+@535  = ~[Brandock]Oh ja. Und mich erst!~
+@536  = ~[Ajantis]Es ist faszinierend zu sehen, dass dies ein - wenn auch vielleicht nicht *antizipiertes* - aber sehr wohl von Meister Bowgentle selbst *berücksichtigtes* Ereignis war!~
+@537  = ~[Brandock]Ihr könnt Euch nicht vorstellen, was das für mich bedeutet. Ich bin nicht stolz auf das, was passiert ist, aber diese Notiz zu finden und das wiederhergestellte Buch in den Händen zu halten, ist wie ein wahr gewordenes Wunder.~
+@538  = ~[Ajantis]Es liegt nun in Eurer Verantwortung, das Buch wieder in vollem Glanz erstrahlen zu lassen, Brandock.~
+@539  = ~[Brandock]Oh ja, dessen bin ich mir bewusst.~
+@540  = ~[Ajantis]Zaubersprüche hinzuzufügen, die so einzigartig sind wie die, die durch die Zerstörung verloren gingen...~
+@541  = ~[Brandock]Ja...~
+@542  = ~[Ajantis]Eine äußerst schwierige Aufgabe. Und wir wissen noch nicht, wofür "Oghmas Weisheit" steht. Es liegt in Eurer Verantwortung, herauszufinden, was es bedeutet.~
+@543  = ~[Brandock]Das tut es auf alle Fälle...~
+@544  = ~[Ajantis]Zu erkennen, was Meister Bowgentle von seinen Schülern erwartete, und diese Erwartungen zu erfüllen, obwohl Ihr keiner von ihnen seid, sondern ein beliebiger Magier, der zufällig Hunderte von Jahren später über Meister Bowgentles Magie gestolpert ist.~
+@545  = ~[Brandock]Ich... danke Euch für Eure Worte des... äh, des Trostes? Und vielleicht des Vertrauens? Aber mir wäre es lieber, wenn wir -~
+@546  = ~[Ajantis]Es wird eine entbehrungsreiche Reise sein, die nur bei voller Hingabe an die Aufgabe gemeistert werden kann.~
+@547  = ~[Brandock]Ajantis, ich bin mehr als bereit, mein Leben dieser Aufgabe zu widmen. Das bin ich und das werde ich! Bitte hört auf zu reden. Ich flehe Euch an!~
+@548  = ~[Ajantis]Brandock, Ihr habt unser letztes Gespräch über Euer restauriertes Buch ziemlich abrupt beendet. Stimmte etwas nicht?~
+@549  = ~[Brandock]Ob etwas nicht...? Nun, wie soll ich es ausdrücken. Als Ihr all die Dinge aufzähltet, die jetzt von mir erwartet werden - es als Härtefall bezeichnetet und so weiter -, dann war das ein bisschen zu viel, um ehrlich zu sein. Ihr wisst, dass ich leicht Angst bekomme. Die ganze Sache mit dem Buch hat mir wirklich zugesetzt. Wenn ich jetzt all diese Erwartungen höre, fühle ich mich einfach... klein und hilflos - mit einem flauen Gefühl im Magen.~
+@550  = ~[Ajantis]Was Euch bevorsteht *ist* viel, Brandock. Jeder würde sich von einer solchen Aufgabe überwältigt fühlen.~
+@551  = ~[Brandock]Oh Ihr Götter, bitte habt Mitleid...~
+@552  = ~[Ajantis]Deshalb erwartet niemand, dass Ihr diese Aufgabe allein bewältigt, Brandock. Verzweifelt nicht. Ihr werdet hilfreiche Personen auf Eurem Weg finden, und ich bin bereit, Euch zu unterstützen, wenn Ihr Hilfe bei dieser Aufgabe braucht! Ihr müsst Euch diesen Erwartungen nicht allein stellen.~
+@553  = ~[Brandock]Oh - das... das war tatsächlich nett gesagt. Ich glaube, ich verstehe jetzt auch Eure früheren Worte besser. Vielen Dank für dieses Angebot, Ajantis - ich danke Euch sehr.~
+
+
 /* BGII */
 @5000 = ~Imoen, Ihr schlaft in letzter Zeit schlecht.~
 @5001 = ~Ich... ich habe die Träume, die <CHARNAME> ebenfalls bereits hinter sich gebracht hat. Ich habe Angst, dass es bei mir auch weiter geht, bis... Nun, bis der Schlächter zum Vorschein kommt.~
