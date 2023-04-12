@@ -75,11 +75,11 @@ Brandock scheint einen sehr neugierigen Geist zu haben. Er hat bisher aus fast a
 @10024  = ~Brandock erhöht seine Sagenkunde
 
 Brandock scheint einen sehr neugierigen Geist zu haben. Er hat durch das Studieren des Zauberbuches seines Großcousins seine Sagenkunde erhöht. Ihm auf unseren Reisen die Möglichkeit zu geben, so viele magische Bücher wie möglich zu studieren sollte dazu führen, dass er sein Wissen erweitern kann.~
-@10025  = ~Beeridung für Brandocks Großcousin~
+@10025  = ~Beerdiung für Brandocks Großcousin~
 @10026  = ~Brandock möchte sein Buch Restaurieren
 
 Wir haben alle von Elfenhaar geforderten Zutaten zusammen. Brandock möchte nun zu Elfenhaar nach Beregost gehen, um mit ihm an der Wiederherstellung seines Buches zu arbeiten.~
-@10027  = ~Beeridung für Brandocks Großcousin
+@10027  = ~Beerdiung für Brandocks Großcousin
 
 Brandock möchte zum Tempel des Helm gehen und die Beerdigung seines Großcousins Ebrel arrangieren.~
 @10028  = ~Brandock möchte sein Buch Restaurieren
@@ -92,7 +92,7 @@ Brandock scheint einen sehr wachen und neugierigen Geist zu haben wenn es um mag
 @10031  = ~Brandock erhöht seine Sagenkunde
 
 Brandock kann seine Sagenkunde nicht mehr über das studieren von beliebigen Zauberbüchern erhöhen. Vielleicht finden wir noch ein paar außergewöhnliche magische Bücher, aus denen er noch was lernen kann, aber ansonsten ist diese Zeit nun vorüber.~
-@10032  = ~Beeridung für Brandocks Großcousin
+@10032  = ~Beerdiung für Brandocks Großcousin
 
 Brandock hat mit dem Tempel des Helm die Beerdigung seines Großcousins Ebrel vereinbart. Die Priester werden Ebrels Überreste in dessen Heimatstadt bringen und dort beisetzen.~
 //@10033  = ~~
@@ -119,7 +119,7 @@ Malm, der Halboger, der sich in einen Menschen verwandelt hat, hat sich auf den 
 //@10049  = ~~
 
 /* new in vbeta 7 */
-@10050  = ~Elvenhair Offered Brandock to Scribe Scrolls
+@10050  = ~Brandocks Schreiben von Schriftrollen
 
 Elfenhaar hat Brandock angeboten, mit ihm Schriftrollen zu schreiben. Brandock kann dafür jederzeit Elfenhaars Schreibtisch verwenden.~
 @10051  = ~Brandock möchte sein Buch Restaurieren
@@ -129,7 +129,7 @@ Anscheinend hatte das De Simplex Magicae so eine Art Sicherheitszauber implement
 @10053    = ~Brandock möchte sein Buch Restaurieren
 
 Brandock wurde mit mir zusammen aus Kerzenburg verbannt...~
-@10054  = ~Brandocks Schreiben von Schriftrollens
+@10054  = ~Brandocks Schreiben von Schriftrollen
 
 Solange wir unter Mordverdacht stehen, kann Brandock keine Schriftrollen an Elfenhaars Schreibtisch schreiben.~
 @10055  = ~Brandock möchte sein Buch Restaurieren
@@ -196,21 +196,71 @@ Malm, der Halboger, der sich in einen Menschen verwandelt hat hat eine vorüberge
 
 Malm, der Halboger, der sich in einen Menschen verwandelt hat steckt offensichtlich in Schwierigkeiten - er soll sich im Gefängnis des Hauptquartiers der Flammenden Faust befinden! Brandock möchte, das wir dorthin gehen und sehen, ob er Unterstützung braucht.~
 @10076  = ~Brandock und sein Halboger "Zwilling"~
-//@10077  = ~##~
+@10077  = ~Quarrel about a Magic Book
+
+Sir Rayphus approached me with a request: two refugees are fighting over a magic book of which both say it belongs to them. As the hero of Baldur's Gate they will accept my verdict. I should talk to them and see whether I can decide who the book really belongs to.
+The refugees' names are Mander and Eldom. Mander says Eldom stole the book, but Eldom says he only took it back from Mander who stole it first. They should both be near Sir Rayphus in the camp.~
 @10078  = ~Brandock möchte sein Buch Restaurieren
 
-Brandock ist bereit, Zauber in das De Simplex Magicae zu schreiben! Für jede Seite braucht er eine Schriftrolle des entsprechenden Zaubers und die zehnfache Menge an Münzen in Gold, die eine normale Schriftrolle des entsprechenden Zaubers kosten würde.~
+Brandock ist bereit, Zauber in das De Simplex Magicae zu schreiben! Für jede Seite braucht er eine Schriftrolle des entsprechenden Zaubers und die zehnfache Menge an Münzen in Gold, die eine normale Schriftrolle des entsprechenden Zaubers kosten würde Brandock is able to write 5 pages now, but there will be a 6th page when he has more experience.
+Depending on Brandock's level, spells available will be:
+-Fireball (1500 gold)
+-Minor Sequencer (2500 gold)
+-Breach (5000 gold)
+-Spell Deflection (10,000 gold)
+-Mass Invisibility (15,000 gold)
+-Summon Efreeti (15,000 gold)
+-Bigby's Clenched Fist (25,000 gold)
+-Pierce Shield (25,000 gold)
+-Bigby's Crushing Hand (50,000 gold)
+-Chain Contingency (50,000 gold)..~
 @10079  = ~Brandock möchte sein Buch Restaurieren
 
 Brandock wrote spells onto all pages he has access to in the De Simplex Magicae. He said there is still one empty page, but he'll need more experience to fill it with a spell, too.~
-@10080  = ~Brandock möchte sein Buch Restaurieren
+@10080  = ~Brandock Wants to Restore his Book
 
-Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and 50.000 gold.~
+Brandock is ready to write a spell onto the last empty page of De Simplex Magicae. He'll need a spell scroll of the wanted spell and tenth the sum in gold that a normal spell scroll of the relevant spell would cost.
+Spells available will be:
+-Fireball (1500 gold)
+-Minor Sequencer (2500 gold)
+-Breach (5000 gold)
+-Spell Deflection (10,000 gold)
+-Mass Invisibility (15,000 gold)
+-Summon Efreeti (15,000 gold)
+-Bigby's Clenched Fist (25,000 gold)
+-Pierce Shield (25,000 gold)
+-Bigby's Crushing Hand (50,000 gold)
+-Chain Contingency (50,000 gold).~
 @10081  = ~Brandock möchte sein Buch Restaurieren
 
 It is done - Brandock restored the De Simplex Magicae, the magic book that was gnawed to shreads by foxes when first we met.~
+@10082  = ~Quarrel about a Magic Book~
+@10083  = ~Quarrel about a Magic Book
 
+I gave the magic book back to Mander. It's rediculous that Eldom claimed a book as his he didn't even knew the title of! - For some reason Eldom's reaction gave me a bad feeling about whether it was the correct decision, though... But what's done is done.~
+@10084  = ~Quarrel about a Magic Book
 
+I left the book with Eldom. The way Brandock discussed the contents with him made it clear that Eldom studied this book extensively, more than he could have done in the one day he had it after Mander proclaimed he "stole" it from him.~
+@10085  = ~Eldom's Munition Enchantments
+
+Eldom offered to enchant munitions for me. For arrows, bullets, and bolts without special spell effects, he can make one piece with higher enchantment out of 10 pieces. I should be able to find him near my chest in the camp.
+So far, he can do this for normal and +1 arrows, bullets, and bolts.~
+@10086  = ~Eldom's Munition Enchantments~
+@10087  = ~Eldom's Munition Enchantments
+
+Eldom offered to enchant munitions for me. For arrows, bullets, and bolts without special spell effects, he can make one piece with higher enchantment out of 10 pieces. I should be able to find him near my chest in the camp.
+He can do this for normal, +1, and +2 arrows, bullets, and bolts.~
+@10088  = ~Eldom's Missing Book Page
+
+The half-elf Eldom is missing a page from his magical book about item enchantments. It was probably sold by Mander after he stole the book. I should find the page near other mages or smiths.
+Eldom needs the page to enchant +3 munition.~
+@10089  = ~Eldom's Missing Book Page~
+@10090  = ~Eldom's Missing Book Page
+
+I brought Eldom the missing book page. It was in bad shape but still readable. He will be able to create +3 arrows, bullets, and bolts now if I bring him tenth the amount of +2 enchanted ammo.~
+@10091  = ~Quarrel about a Magic Book
+
+I left the book with Eldom.~
 
 /* Epilogue(s) */
 
