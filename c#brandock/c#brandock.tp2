@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1~ 
+VERSION ~v1.1~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -3060,6 +3060,8 @@ END //SoA
 /* The Calling */
 ACTION_IF FILE_EXISTS_IN_GAME ~cdbracer.itm~ THEN BEGIN
 PRINT @55563 /* ~The Calling detected.~ */
+/* @1032 = ~Then I wish you well in your task. Good day.~ */
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/mage.TRA~ FROM ~THALAN~
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
 EVALUATE_BUFFER
