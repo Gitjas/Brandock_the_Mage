@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.1~ 
+VERSION ~v1.2~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -20,7 +20,7 @@ END
 /* unify string ref numbers */
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
   OUTER_SPRINT ~eet_2~ ~~
-  INCLUDE ~sodrtd/lib/g3_bgee_cpmvars.tpa~
+  INCLUDE ~C#Brandock/lib/g3_bgee_cpmvars.tpa~
 END
 ACTION_IF GAME_IS ~eet~ THEN BEGIN
   OUTER_SPRINT ~eet_2~ ~2~
