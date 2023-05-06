@@ -1013,7 +1013,7 @@ IF WEIGHT #-1
 = @996
 = @1010 
 = @1011 /* ~"Oghma's Wisdom". I do not know yet whether this refers to an item, a spell - or just what the name says: wisdom hold by those who worship Oghma. But I already know where I will find an answer to this riddle. The greatest temple of Oghma I know is in my home land, in Athkatla.~ */
-= @1012 /* ~<CHARNAME> - this book and any notes I'll write about the spells in it will accompany my until I'll return home. Thank you, Master Elvenhair, for your help in this. I am in your debt.~ */
+= @1012 /* ~<CHARNAME> - this book and any notes I'll write about the spells in it will accompany me until I'll return home. Thank you, Master Elvenhair, for your help in this. I am in your debt.~ */
 == FIREBE @1013 /* ~[Elvenhair]It is most fotunate to see that this great book will indeed be restored. But the greatest knowledge out of this book is the magics that has the potential to preserve the contents even beyond the book's destruction. This knowledge will be most valuable to any sage in these realms. Let me know about your progress, young Brandock, so I can share the wisdom with the wise sages in Candlekeep~ */
 == c#brandj @1014 /* ~[Brandock]I will certainly do so, Master Elvenhair. I promise. Just as much as I promise to restore the De Simplex Magicae, even if Oghma's priests will need to extract my brain to get the spell recipes out for restoration.~ */
 END
