@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.2~ 
+VERSION ~v1.3pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -147,7 +147,6 @@ END
     OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~Global("ENDOFBG1","GLOBAL",2)~
 
     OUTER_SPRINT ~OHDradeelInfo~ ~C#Bandock_DradeelInfo~
-    OUTER_SPRINT ~CELLDOOR~ ~c#celldoor~
 
     OUTER_SPRINT ~NEERA_BANTER~ ~BGEEFAKE~
     OUTER_SPRINT ~FIREBE_Bookqueststate~ ~1~
@@ -173,7 +172,6 @@ END
     OUTER_SPRINT ~IT_IS_BGII~ ~False()~ 
     OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
     OUTER_SPRINT ~FIREBE_Bookqueststate~ ~3~
-    OUTER_SPRINT ~CELLDOOR~ ~CELLDOOR~
     OUTER_SPRINT ~Exit5506~ ~Exit5506~ 
     OUTER_SPRINT ~Exit2619~ ~Exit2619~ 
     OUTER_SPRINT ~Door5506~ ~Door5506~
@@ -220,7 +218,6 @@ END
 
     OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
     OUTER_SPRINT ~FIREBE_Bookqueststate~ ~3~
-    OUTER_SPRINT ~CELLDOOR~ ~CELLDOOR~
     OUTER_SPRINT ~Exit5506~ ~Exit5506~
     OUTER_SPRINT ~Exit2619~ ~Exit2619~ 
     OUTER_SPRINT ~Door5506~ ~Door5506~
@@ -2417,27 +2414,6 @@ COPY_EXISTING ~%CoastWay%.are~ ~override~
   END
 BUT_ONLY
 
-
-/* add detection proximity trigger */
-/* this is the CELLDOOR info trigger from BG:EE. I just used the same coodinates because it's as good as any. */
-//proximity trigger
-COPY_EXISTING ~%SWBaldursGate_FlamingFistHQ_L1%.are~ ~override~
-  LPF ~fj_are_structure~
-    INT_VAR
-    fj_type         = 0    //proximity trigger
-    fj_box_left    = 1382
-    fj_box_top     = 215
-    fj_box_right   = 1425
-    fj_box_bottom  = 276
-    fj_vertex_0    = 1382 + (270 << 16) 
-    fj_vertex_1    = 1425 + (276 << 16)
-    fj_vertex_2    = 1425 + (222 << 16)
-    fj_vertex_3    = 1382 + (215 << 16)
-    STR_VAR
-    fj_structure_type   = region
-    fj_name             = c#celldoor
-  END
-BUT_ONLY
 
 /* add new travel region to catacombs L2 */
 COPY_EXISTING ~%Candlekeep_Catacombs_L2%.are~ ~override~
