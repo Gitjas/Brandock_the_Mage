@@ -3125,6 +3125,7 @@ END
 
 
 /* 5th friendship talk */
+/* after freeing the Nashkel mines */
 IF
 %BGT_VAR%
   !Global("C#Brandock_Shapeshift","GLOBAL",5)
@@ -3136,6 +3137,8 @@ IF
   !StateCheck(Player1,CD_STATE_NOTVALID)
   CombatCounter(0)
   !AreaType(DUNGEON)
+  !AreaCheck("%NashkelMines_L4%")
+  GlobalGT("Chapter","GLOBAL",%tutu_chapter_2%)
   GlobalLT("Chapter","GLOBAL",%tutu_chapter_6%)
   Global("C#Brandock_Dialog","GLOBAL",9)
 THEN
