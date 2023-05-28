@@ -1,0 +1,29 @@
+/* lore path: FirkraaG's Illusion Lair C#AJ04 */
+/* activation */
+IF %IT_IS_BGII%
+AreaCheck("C#AJ04")
+Global("C#Br_LorePathC#AJ04BG2","GLOBAL",0)
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathC#AJ04BG2","GLOBAL",1)
+END
+
+/* Initiate */
+IF %IT_IS_BGII%
+Global("C#Br_LorePathC#AJ04BG2","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

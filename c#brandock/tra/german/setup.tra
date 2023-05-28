@@ -60,3 +60,9 @@
 /* new for v1 */
 @55591  = ~Fink NPC detektiert.~
 @55592  = ~Diese Komponente ist nicht mehr existent.~
+
+/* new for v1.3 */
+@55593  = ~Installiere BG1-Crossmod.~
+@55594  = ~Installiere SoD-Crossmod.~
+@55595  = ~Installiere BGII-Crossmod.~
+@55596  = ~Sir Ajantis BG2 detektiert...~

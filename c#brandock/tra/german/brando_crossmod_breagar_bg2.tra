@@ -1,0 +1,6 @@
+@0 = ~[Brandock]Oh, books! Dwarven books! <CHARNAME>, would you wait for a moment while I have a look at them? Could we risk sparing the time?~ [c#ablank]
+@1  = ~[Brandock]And I see different ones than in Durlag's library... Pleeeease?~
+@2 = ~It's alright, I think. But make haste.~
+@3 = ~I'm sorry, Brandock. We need to move on.~
+@4 = ~[Brandock]Thank you! I'll try to be quick.~
+@5 = ~[Brandock]Awwww.~

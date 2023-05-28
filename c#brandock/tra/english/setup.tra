@@ -60,3 +60,9 @@
 /* new for v1 */
 @55591  = ~Finch NPC detected.~
 @55592  = ~This component has been deprecated.~
+
+/* new for v1.3 */
+@55593  = ~Installing BG1 crossmod.~
+@55594  = ~Installing SoD crossmod.~
+@55595  = ~Installing BGII crossmod.~
+@55596  = ~Sir Ajantis BG2 detected.~

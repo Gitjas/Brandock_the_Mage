@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.3pre~ 
+VERSION ~v1.3~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -2821,6 +2821,7 @@ END /* EndlessBG1 */
 /* BG1 */
 
 ACTION_IF GAME_IS ~bgee eet bgt~ THEN BEGIN
+PRINT @55593 /* ~Installing BG1 crossmod.~ */
 
 /* Ascalon's Breagar */
 ACTION_IF FILE_EXISTS_IN_GAME ~ACBREB.dlg~ THEN BEGIN 
@@ -2832,6 +2833,7 @@ OUTER_SET ACBREJ_270 = STATE_WHICH_SAYS 270 IN ~ACBre/tra/autotra/%s/acarea.tra~
 
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_breagar.d~ 
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_breagar_bg1.baf~
+EVALUATE_BUFFER
 END 
 
 /* Ascalon's Questpack */
@@ -3072,6 +3074,7 @@ END //ACTION_IF GAME_IS ~bgee bgt~
 /* SoD */
 
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
+PRINT @55594 /* ~Installing SoD crossmod.~ */
 
 
 /* Ajantis SoD */
@@ -3147,6 +3150,7 @@ END //ACTION_IF [SoD]
 
 
 ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
+PRINT @55595 /* ~Installing BGII crossmod.~ */
 
 /* Alternatives */
 
@@ -3162,6 +3166,23 @@ PRINT @55566 /* ~Alternatives detected.~ */
     EXTEND_BOTTOM ~C#Brand2.bcs~ ~C#Brandock/crossmod/brando_crossmod_alternatives.baf~ EVALUATE_BUFFER
   END /* Alternatives */
 
+/* Ajantis BG2 */
+ACTION_IF FILE_EXISTS_IN_GAME ~C#AjanJ.dlg~ THEN BEGIN 
+PRINT @55596 /* ~Sir Ajantis BG2 detected.~ */
+
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_ajantis_bg2.d~ 
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/crossmod/brando_crossmod_ajantis_bg2.baf~
+EVALUATE_BUFFER
+END 
+
+/* Ascalon's Breagar - BG2 content */
+ACTION_IF FILE_EXISTS_IN_GAME ~ACBREB.dlg~ THEN BEGIN 
+PRINT @55555 /* ~Breagar detected.~ */
+
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_breagar_bg2.d~ 
+  EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/crossmod/brando_crossmod_breagar_bg2.baf~
+EVALUATE_BUFFER
+END 
 
 /* NPC Strongholds */
   ACTION_IF FILE_EXISTS_IN_GAME ~ksimteos.bcs~ THEN BEGIN
