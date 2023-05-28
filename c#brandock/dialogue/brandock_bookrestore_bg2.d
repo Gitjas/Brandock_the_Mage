@@ -289,7 +289,7 @@ IF ~~ THEN DO ~EraseJournalEntry(@10056)
 EraseJournalEntry(@10058)
 EraseJournalEntry(@10059)
 EraseJournalEntry(@10060)
-RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERLONG)
+RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",C#BRANDOCK_TIMERSHORT)
 SetGlobal("C#Br_BookRestore","GLOBAL",20)~ UNSOLVED_JOURNAL @10061 EXIT
 
 
@@ -328,7 +328,7 @@ END
 /* follow-up after taking the book to the temple - timer run out */
 
 IF ~Global("C#Br_BookRestore","GLOBAL",21)~ THEN bookrestore_after_temple
-SAY @1927 /* ~[Brandock] <CHARNAME>, ever since we left the temple I am trying to wrap my head around a *decision* I already made and that's scaring me to hells. I... I decided to refill the De Simplex Magicae with spells myself.~ */
+SAY @1927 /* ~<CHARNAME>, ever since we left the temple I am trying to wrap my head around a *decision* I already made and that's scaring me to hells. I... I decided to refill the De Simplex Magicae with spells myself.~ */
 ++ @1928 /* ~[PC Reply]That's a great idea! I am sure you can do it.~ */ + bookrestore_after_temple_03
 ++ @1929 /* ~[PC Reply]Why the shy look? Don't you think you can do it?~ */ + bookrestore_after_temple_02
 ++ @1930 /* ~[PC Reply]I figured as much, after seeing you holding on to it like that.~ */ + bookrestore_after_temple_04 
