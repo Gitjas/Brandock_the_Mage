@@ -83,14 +83,6 @@ OR(2)
 HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + @2004 /* ~You didn't show your transformed De Simplex Magicae to the priests of Oghma yet, I take it?~ */ + bookrestore_bg2_pid
 
-/* normal quest progression: PC can talk about book to Brandock after he gave it to Temple of Oghma */
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",19)
-Global("C#Brando_PIDBookTemple1","LOCALS",0)~ + ~You gave the De Simplex Magicae to the Temple of Oghma right after it being restored.~ DO ~SetGlobal("C#Brando_PIDBookTemple1","LOCALS",1)~ + bookrestore_end_pid
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",19)
-Global("C#Brando_PIDBookTemple","LOCALS",0)~ + ~Why did you leave the De Simplex Magicae with the Temple of Oghma? Why not one of the great libraries - Candlekeep or Alisarhold? Why not use it as entrance fee to Candlekeep?~ DO ~SetGlobal("C#Brando_PIDBookTemple","LOCALS",1)~ + bookrestore_end_pid_01
-+ ~GlobalGT("C#Br_BookRestore","GLOBAL",19)
-Global("C#Brando_PIDBookTemple2","LOCALS",0)~ + ~You could have used the De Simplex Magicae as an entrance fee to Candlekeep.~ DO ~SetGlobal("C#Brando_PIDBookTemple2","LOCALS",1)~ + bookrestore_end_pid_02
-
 
 /* inventory management.  - if Brandock is not in party but following as companion Brandock has to join the group so the player has access to the inventory.
 This is what usually is dealt with by the kicked out "P" dialogue for re-joining */
@@ -201,23 +193,6 @@ IF WEIGHT #-1
 ~Global("C#Br_BookRestore","GLOBAL",14)~ THEN bookrestore_bg2
 SAY ~[Brandock]You might have noticed that I still have the empty De Simplex Magicae with me.~
 IF ~~ THEN + bookrestore_bg2_pid
-END
-
-IF ~~ THEN bookrestore_end_pid
-SAY ~Yes, I was so glad it would be all over! The book can still be studied with the blessings of the monks, but it will be save from power hungry Cowled Wizards.~
-IF ~~ THEN EXIT
-END
-
-IF ~~ THEN bookrestore_end_pid_01
-SAY ~[Brandock] I didn't want to send it to Alisarhold... there are way too many Cowled Wizards there. If you remember - in case I told you, that is - I *left* Alisarhold with it because of that.~
-= ~And Candlekeep isn't the secure place I thought it was. Doppelgangers, anyone? And meeting place of mighty organizations plotting to start a war between lands? It's still the mightiest library I can imagine - just not the answer to all my problems.~
-= ~No, the De Simplex Magicae will be save here, under Oghma's protection. It's the best place I can think of currently. And it's where we happen to be. They can stow it right away without the risk of it being stolen on the way of delivery.~
-IF ~~ THEN EXIT
-END
-
-IF ~~ THEN bookrestore_end_pid_02
-SAY ~[Brandock] Yes, I know, but I didn't want to carry it around any more. I'm not sure when I'll ever get go to Candlekeep again. And - using it for the entrance fee now would feel like cheating. I can't really explain, <CHARNAME>. I really think I had it in my possession long enough.~
-IF ~~ THEN EXIT
 END
 
 END //APPEND
