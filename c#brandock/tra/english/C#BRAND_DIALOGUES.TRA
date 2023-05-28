@@ -1445,7 +1445,7 @@
 @1834 = ~Yeah, sure, go ahead and take your time studying them. It's not like we are hunted and I just lost my soul.~
 @1835 = ~Brandock, we really don't have time for that now.~
 @1836 = ~Thank you. I'll try to be *really* quick. It's not just any books. Some look antique. Maybe they'll tell us something about our "huntress".~
-@1837 = ~It's rare to have the spellbook of a living mage in my hands... Interesting choice of spells. We should bring this back to Lazarus as soon as possible. Being without ones spellbook is not funny - especially in a situation like this.~
+@1837 = ~It's rare to have the spellbook of a living mage in my hands... Interesting choice of spells. We should bring this back to Lazarus as soon as possible. Being without one's spellbook is not funny - especially in a situation like this.~
 
 /* brandock_bookrestore_bg2.d */
 @1900 = ~So, Brandock - here we are. Show your book to the monks to receive "Oghma's Wisdom".~
@@ -1475,7 +1475,7 @@
 @1924 = ~[PC Reply]So, what are you goin to *do* now?~
 @1925 = ~[Brandock]I did indeed.~
 @1926 = ~[Brandock]I thank you.~
-@1927 = ~[Brandock]<CHARNAME>, ever since we left the temple I am trying to wrap my head around a *decision* I already made and that's scaring me to hells. I... I decided to refill the De Simplex Magicae with spells myself.~
+@1927 = ~<CHARNAME>, ever since we left the temple I am trying to wrap my head around a *decision* I already made and that's scaring me to hells. I... I decided to refill the De Simplex Magicae with spells myself.~
 @1928 = ~[PC Reply]That's a great idea! I am sure you can do it.~
 @1929 = ~[PC Reply]Why the shy look? Don't you think you can do it?~
 @1930 = ~[PC Reply]I figured as much, after seeing you holding on to it like that.~
