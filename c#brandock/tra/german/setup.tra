@@ -66,3 +66,6 @@
 @55594  = ~Installiere SoD-Crossmod.~
 @55595  = ~Installiere BGII-Crossmod.~
 @55596  = ~Sir Ajantis BG2 detektiert...~
+
+/* new for v1.5 */
+@55597  = ~Black Hearts detected.~

@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.4~ 
+VERSION ~v1.5~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -2371,7 +2371,7 @@ END
 /* MOS-files for bgt */
 ACTION_IF GAME_IS ~bgt~ BEGIN
   COPY ~C#Brandock/areas/mos_bgt/c#br01.MOS~ ~Override/c#br01.MOS~
-  COPY ~C#Brandock/areas/mos_bgt/c#br01.MOS~ ~Override/c#br02.MOS~
+  COPY ~C#Brandock/areas/mos_bgt/c#br02.MOS~ ~Override/c#br02.MOS~
   COPY ~C#Brandock/areas/mos_bgt/c#thal.MOS~ ~Override/c#thal.MOS~
 END
 
@@ -2782,6 +2782,7 @@ INCLUDE ~%MOD_FOLDER%/7thpmm/c#7thpmm_thingies.tpa~
 
 BEGIN @55579 /* ~Brandock the Mage: Crossmod Content~ */ DESIGNATED 10 
 LABEL BrandockTheMage-Crossmod
+METADATA ~AFTER = ACBre, AC_QUEST, AjantisBG1, AjantisBG2, alternatives, atweaks, bgqe, bg1npc, bg1re, Blackhearts_BG1, Blackhearts EET, bst, c#brage, c#endlessbg1, c#sodboabri, c#solaufein, FinchNPC, Framed, gavin, imoen_forever, npc_strongholds, ntotsc, sirinescall, thecalling, transitions~
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
 /* EndlessBG1 - handled individually */
@@ -2963,6 +2964,76 @@ END
 
 END //Nashkell Monster
 
+/* Black Hearts - add transitions between the caves */
+ACTION_IF FILE_EXISTS_IN_GAME ~wi0002.bcs~ THEN BEGIN 
+PRINT @55597 /* ~Black Hearts detected.~ */
+
+/* add transition & entrance from c#br01 to black hearts area */
+COPY_EXISTING ~c#br01.are~ ~override~
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 644  //kleinstes x
+    fj_box_top      = 300  //kleinstes y
+    fj_box_right    = 754  //größtes x
+    fj_box_bottom   = 397   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 644 + (397 << 16)   
+    fj_vertex_1     = 754 + (391 << 16)   
+    fj_vertex_2     = 751 + (302 << 16)   
+    fj_vertex_3     = 714 + (300 << 16)   
+    fj_vertex_4     = 700 + (370 << 16) 
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = wi0002Ex
+    fj_destination_area = wi0002
+    fj_destination_name = c#br01Ex
+  END
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 626    //x
+    fj_loc_y       = 336   //y
+    fj_orientation = 3
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = wi0002Ex
+  END
+
+/* add transition & entrance from Black Hearts area to c#br01 */
+COPY_EXISTING ~wi0002.are~ ~override~
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 7  //kleinstes x
+    fj_box_top      = 218  //kleinstes y
+    fj_box_right    = 112  //größtes x
+    fj_box_bottom   = 363   //größtes y
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 11 + (363 << 16)   
+    fj_vertex_1     = 111 + (345 << 16)   
+    fj_vertex_2     = 112 + (298 << 16)   
+    fj_vertex_3     = 97 + (290 << 16)   
+    fj_vertex_4     = 43 + (222 << 16)   
+    fj_vertex_5     = 7 + (218 << 16)   
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = c#br01Ex
+    fj_destination_area = c#br01
+    fj_destination_name = wi0002Ex
+  END
+  LAUNCH_PATCH_FUNCTION  ~fj_are_structure~
+    INT_VAR
+    fj_loc_x       = 213    //x
+    fj_loc_y       = 249   //y
+    fj_orientation = 9
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = c#br01Ex
+  END
+
+  EXTEND_BOTTOM ~C#Brando.bcs~ ~c#brandock/crossmod/brando_crossmod_blackhearts.baf~ EVALUATE_BUFFER
+END //Black Hearts
+
 
 /* Brage */
 ACTION_IF FILE_EXISTS_IN_GAME ~c#bragej.dlg~ THEN BEGIN 
@@ -3054,7 +3125,7 @@ PRINT @55571 /* ~Shades of the Sword Coast detected.~ */
 END //Shades of the Sword Coast
 
 
-
+/* removed
 /* Valerie */
 /* not approved yet but I can't reach Tempest. Will be changed or removed if requested. */
 
@@ -3065,6 +3136,7 @@ PRINT @55564 /* ~Valerie detected.~ */
 EVALUATE_BUFFER
 
 END //ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~
+*/
 
 
 END //ACTION_IF GAME_IS ~bgee bgt~

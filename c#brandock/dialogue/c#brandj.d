@@ -294,9 +294,6 @@ IF ~Global("C#Brandock_NashkelMines","GLOBAL",1)~ THEN c#brandj nashkel_mines
 @10 DO ~SetGlobal("C#Brandock_NashkelMines","GLOBAL",2)~
 == c#brandj IF ~Global("C#Brandock_ValerieBG1","GLOBAL",0)~ THEN @11
 == c#brandj @12
-== c#brandj IF ~OR(2)
-InParty("t2val")
-GlobalGT("C#Brandock_ValerieBG1","GLOBAL",0)~ THEN @13
 EXIT
 
 /* dead assassin in Nashkel inn */
@@ -622,7 +619,7 @@ IF ~~ THEN c#brandj island_03
 @85
 == c#brandj IF ~Global("KillDaughter","GLOBAL",1)~ THEN @540 /* ~And now we are here as a punishment for killing three young women... Yes, that *is* fate alright.~ */
 == c#brandj IF ~Global("Evilsh","GLOBAL",1)~ THEN @541 /* ~And now we are here... send just because someone didn't like out demeanor. What a fate!~ */
-= @86
+== c#brandj @86
 = @542 /* ~I need to have a look at that wardstone again, now that I know what it is *for*... No, I don't really see how it works.~ */
 = @543 /* ~(moans) Let's hope that crazy man wants his cloak back bad enough then... and that it won't be the only thing he brings back from here! Excuse me, <CHARNAME>, I feel like I need to throw up...~ */
 END

@@ -1,0 +1,15 @@
+/* If entering the wrong cave, Brandock will give a hint about his possessions */
+IF 
+Global("C#BrandockSpawn","GLOBAL",4)
+AreaCheck("wi0002")
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+Global("C#Brando_BH_CaveComment","LOCALS",0)
+THEN
+RESPONSE #100
+DisplayStringHead("C#Brandock",@0)
+SetGlobal("C#Brando_BH_CaveComment","LOCALS",1)
+END

@@ -269,7 +269,7 @@ ADD_TRANS_ACTION ARKANI3 BEGIN 0 END BEGIN END ~SetGlobal("C#Brandock_MetArkanis
 
 /* After meeting Elminster doppelganger in Candlekeep Catacombs */
 CHAIN
-IF ~Global("C#Brandock_DoppelElminster","GLOBAL",1)~ THEN c#brandj  elminster_illusion
+IF ~!AreaCheck("c#br02") Global("C#Brandock_DoppelElminster","GLOBAL",1)~ THEN c#brandj  elminster_illusion
 @1128
 = @1129 
 == c#brandj IF ~Global("C#Brandock_KnowSarevokName","GLOBAL",1)~ THEN @1130

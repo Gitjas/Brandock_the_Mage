@@ -244,8 +244,6 @@ DO ~SetGlobal("C#Brandock_Brage","GLOBAL",11)~
 == C#BrageB @48 /* ~[Brage] Having you in this group gives me a feeling of security I cherish and do not want to lose, Brandock. Never would I have thought so possible. I might have said I wished for a mage in the Nashkel Guard but truth be told - he or she would have had a difficult stand amongst the soldiers, and me as the commander would have been amongst the most sceptical.~ */
 = @49 /* ~(sigh) This of course also originates from how the Coweld Wizards manage magic affairs in southern Amn, with own rules not being subject to the governmental authorities...~ */
 == C#BrandB @50 /* ~Well, magic and mages have a difficult stand in Amn in general, and that's where we originate from, so it's only natural that you share the Amnian mistrust against mages, and the way the Coweld Wizards seem to be above the governmental law is not reassuring to say the least - er, what I meant to say is I have *absolutely* no idea what you are talking about, of course.~ */
-== IF_FILE_EXISTS BT2VAL IF ~InParty("t2val") See("t2val") !StateCheck("t2val",CD_STATE_NOTVALID)~ THEN @51 /* ~[Valerie, if present] You don't have to put a gag onto yourself if criticizing Coweld Wizards, Brandock. There is indeed some things that could use improvement.~ */
-== C#BrandB IF ~InParty("t2val") See("t2val") !StateCheck("t2val",CD_STATE_NOTVALID)~ THEN @52 /* ~[Brandock, if Valrie is present] The problem is that I don't think it's just *some* things, Valerie.~ */
 == C#BrageB @53 /* ~[Brage] (smiles) We need mages like you in Amn, Brandock. The more the better.~ */
 == C#BrandB @54 /* ~[Brandock] Thank you, Brage. Oh, I *so* hope our fellow mages there think so, too...~ */
 EXIT

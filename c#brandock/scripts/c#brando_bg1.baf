@@ -270,11 +270,12 @@ THEN
 		StartCutScene("c#brcut8")
 END
 
-
+/* after leaving the cave */
 IF 
 %BGT_VAR%
 Global("C#Brandock_Possessions","GLOBAL",2)
-!AreaCheck("c#br01")
+//!AreaCheck("c#br01")
+AreaCheck("%CoastWay%")
 
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -288,7 +289,6 @@ THEN
 		SetGlobal("C#Brandock_Possessions","GLOBAL",3)
 END
 
-/* after leaving the cave */
 IF 
 %BGT_VAR%
 Global("C#Brandock_Possessions","GLOBAL",3) 
@@ -2033,7 +2033,7 @@ END
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 AreaCheck("%Candlekeep_Catacombs_L2%")
-Range("%Door5506%",15)
+Range("%Door5506%",25)
 Global("C#Brandock_DoppelElminster","GLOBAL",0)
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)

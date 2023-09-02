@@ -49,7 +49,6 @@ SAY ~Last time I met one, it went like 'Oh, Brandock, weren't you graduate of Te
 = ~I'm... I'm just saying. There is nothing amiss, but there could be snarky remarks. Or worse.~
 ++ ~Or worse? What do you mean?~ + ebrel_house_18
 ++ ~Or your presence would turn things to the better. Who knows.~ + ebrel_house_15
-+ ~InParty("t2val")~ + ~Seeing how we have another official Cowled Wizard with us, I am sure we will be alright.~ + ebrel_house_15
 ++ ~I don't see a problem.~ + ebrel_house_15
 ++ ~I need you to stand above their snarky remarks. We have urgent matters to inquire about.~ + ebrel_house_15
 + ~Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Are you suggesting you should not come inside?~ + ebrel_house_16
@@ -61,8 +60,6 @@ END //APPEND c#brandj
 CHAIN
 IF ~~ THEN c#brandj ebrel_house_13
 ~Oh, nothing special, you know, just the normal thing between a mage and his apprentice who couldn't stand each other... I never gave him a reason to reject me, magic-wise, I managed all the tasks. And he didn't treat me wrong, either. But he doesn't think of me too well. And I not of him, obviously. I 'trained' with him, alright. That man never ever *tought* me anything, I took it all out of the books. He is lazy and a jerk. But don't tell anyone I said that!~ 
-// ## correct to Valerie's BGII DV when available
-== c#brandj IF ~InParty("t2val")~ THEN ~Did Valerie hear that? Phew, no, I think not.~
 END
 IF ~~ THEN + ebrel_house_12
 
@@ -99,7 +96,6 @@ END
 IF ~~ THEN ebrel_house_18
 SAY ~I don't know... someone could snicker... It's probably nothing.~
 ++ ~Or your presence would turn things to the better. Who knows.~ + ebrel_house_15
-+ ~InParty("t2val")~ + ~Seeing how we have another official Cowled Wizard with us, I am sure we will be alright.~ + ebrel_house_15
 ++ ~I don't see a problem.~ + ebrel_house_15
 ++ ~I need you to stand above their snarky remarks. We have family to inquire about.~ + ebrel_house_15
 + ~Global("C#IM_ImoenStays","GLOBAL",0)~ + ~Are you suggesting you should not come inside?~ + ebrel_house_16

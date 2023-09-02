@@ -1,3 +1,16 @@
+/*
+== C#BrandB @50 /* ~Well, magic and mages have a difficult stand in Amn in general, and that's where we originate from, so it's only natural that you share the Amnian mistrust against mages, and the way the Coweld Wizards seem to be above the governmental law is not reassuring to say the least - er, what I meant to say is I have *absolutely* no idea what you are talking about, of course.~ */
+== IF_FILE_EXISTS BT2VAL IF ~InParty("t2val") See("t2val") !StateCheck("t2val",CD_STATE_NOTVALID)~ THEN @51 /* ~[Valerie, if present] You don't have to put a gag onto yourself if criticizing Coweld Wizards, Brandock. There is indeed some things that could use improvement.~ */
+== C#BrandB IF ~InParty("t2val") See("t2val") !StateCheck("t2val",CD_STATE_NOTVALID)~ THEN @52 /* ~[Brandock, if Valrie is present] The problem is that I don't think it's just *some* things, Valerie.~ */
+
+
+== c#brandj @12 /* ~I'm just saying... This would be of interest to me as well. Helping to clear the mines will surely earn us bonus points with the Cowled Wizards. Bonus points with them are always good.~ */
+== c#brandj IF ~OR(2)
+InParty("t2val")
+GlobalGT("C#Brandock_ValerieBG1","GLOBAL",0)~ THEN @13 /* ~Well, what am I saying? Of course they care, considering they sent a Cowled Wizard here to investigate...~ */
+*/
+
+
 /* spotting Valerie */
 
 APPEND c#brandj
