@@ -226,7 +226,9 @@ Global("C#BrandockSpawn","GLOBAL",2)
     !Detect([ENEMY])
     !Detect([EVILBUTBLUE])
     CombatCounter(0)
-    Range("c#br01Tr",20)
+  OR(2)
+    Range("c#br01Tr",30)
+    AreaCheck("C#Br01")
 THEN
 	RESPONSE #100
 		SetGlobal("C#BrandockSpawn","GLOBAL",3)
