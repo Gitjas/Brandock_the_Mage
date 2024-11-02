@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.5~ 
+VERSION ~v1.6pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -728,12 +728,17 @@ ACTION_IF GAME_IS ~bgt tob bg2ee~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 END
-ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
-  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~
-			~C#Brandock/dialogue/brandock_bookrestore_eet.d~
-			
+ACTION_IF GAME_IS ~bgt tob bg2ee~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~			
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
 END
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+  COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brandock_bookrestore_bg2.d~
+			~C#Brandock/dialogue/brandock_bookrestore_eet.d~			
+     USING ~C#Brandock/tra/autotra/%LANGUAGE%/c#brand_dialogues.tra~
+END
+
+
 ACTION_IF GAME_IS ~bgt eet tob bg2ee~ THEN BEGIN
   COMPILE EVALUATE_BUFFER ~C#Brandock/dialogue/brando_banter_bg2.d~
      USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_banter.tra~
