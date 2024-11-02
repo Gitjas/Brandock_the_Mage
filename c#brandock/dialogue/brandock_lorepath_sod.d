@@ -90,7 +90,8 @@ END
 /* BDMISC21 Hephernaan's Ritual Notes */
 IF ~Global("C#Br_LorePath_BDMISC21","GLOBAL",1)~ THEN hephernaans_arcane_notes
 SAY @1674 /* ~Hephernaan's Ritual Notes? This is... wow. Wow. Put that away, <CHARNAME>. I... I saw enough.~ */
-IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)~ EXIT
+IF ~~ THEN DO ~ReallyForceSpellRES("c#brlob1",Myself) IncrementGlobal("C#Br_LorePathIncrease","GLOBAL",1)
+SetGlobal("C#Br_LorePath_BDMISC21","GLOBAL",2)~ EXIT
 END
 
 END //APPEND
