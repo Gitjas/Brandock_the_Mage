@@ -372,6 +372,11 @@ LANGUAGE ~Deutsch~
          ~C#Brandock/tra/german/game.tra~
 	 ~C#Brandock/tra/german/journal.tra~
 
+LANGUAGE ~Simplified Chinese (translation: Lzw104522773)~
+         ~english~   
+         ~C#Brandock/tra/schinese/setup.tra~
+         ~C#Brandock/tra/schinese/game.tra~
+	 ~C#Brandock/tra/schinese/journal.tra~
 
 
 BEGIN @55540 /* ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~ */ DESIGNATED 0
