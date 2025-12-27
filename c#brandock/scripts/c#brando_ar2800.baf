@@ -6,3 +6,14 @@ THEN
 	    CreateCreature("c#bran01",[2006.369],13)
 	    %Brandock_MakeGlobalOverride% 
 END
+
+/* remove Map note about Brandock's cave if possessions were collected */
+
+IF
+	GlobalGT("C#Brandock_Possessions","GLOBAL",1)
+	Global("C#Brando_RemoveMapNote","MYAREA",0)
+THEN
+	RESPONSE #100
+		RemoveMapNote([4580.1525],@18)
+		SetGlobal("C#Brando_RemoveMapNote","MYAREA",1)
+END
