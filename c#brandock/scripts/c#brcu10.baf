@@ -9,7 +9,7 @@ THEN
 	Wait(1)	
 	ActionOverride("C#Brandock",ReallyForceSpellRES("c#brsh03","C#Brandock"))
 	Wait(3)
-	EndcutSceneMode()
+	EndCutSceneMode()
 	SetInterrupt(TRUE)
 	ActionOverride("C#Brandock",StartDialogueNoSet(Player1))
 END 
