@@ -7,6 +7,9 @@
 @5  = ~Psst! RUHE! Behindert nicht die Wissenschaft, wenn sie so kurz davor steht, ihre wahre Größe zu entfalten!~
 @6  = ~Ich kann's selbst kaum glauben, dass ich das sage, aber.. irgendwie haben mich diese zwei Gnome beeindruckt - hinter all dem Irrsinn in ihrem Auftreten. Ich wünschte, ich hätte das Buch *lesen* können, als wir es hatten.~
 
+/* new for v1.7 */
+@7  = ~Ein Zauberbuch? Das klingt doch mal interessant! Aber Karlini? ... Karlini ... Hm, ich denke nicht, dass ich, äh - was ist mit Euch, <CHARNAME>?~
+
 /* Von Wölfen und Männern */
 @10  = ~[Brandock]Was? Nein, das kann nicht Euer Ernst sein! Das ist doch ein Mensch... hinter dem Wolf, und Ihr wisst, wie man ihm hilft. Das meintet Ihr doch bestimmt nicht ernst?~
 @11  = ~[Thalantyr]Junger Magier, die Erfahrung hat mich gelehrt, dass man nicht immer allen helfen kann - und auch wenn man es könnte, es in manchen Fällen mehr Leid verursacht, als das Missgeschick eines Einzelnen als Anlass zu nehmen, eine grundsätzliche Lösung für ein Unheil zu finden, das sicher noch weitere Leben in Gefahr bringen wird. Außerdem - es könnte gut sein, dass es soweit kommt, und falls der Fall eintritt, dass Ihr den Werwolf töten müsst, dann ist es gut, wenn Ihr wisst, dass seine Leiche hier von Nutzen wäre, bevor ihr ihn irgendwo im Wald verscharrt.~

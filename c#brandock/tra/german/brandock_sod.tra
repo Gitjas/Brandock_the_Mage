@@ -55,8 +55,8 @@
 @54   = ~[Brandock](scoff) No, indeed. You have to provoke them with a threat...~
 @55   = ~[Brandock](sigh) Oh well, it's too late now anyhow.~
 @56   = ~[Brandock]Telling the truth is something I value very much - usually.~
-@57   = ~[Brandock]This is how the crusade leaves the villages? Look at this destroyed building, <CHARNAME>. It's just smoking ashes... This is what my home town would look like, were the crusade over there. My village would look exactly like this, were it along the path of such a mob. Farmers, Carpenders, bakers, a smith who is used to changing horse shoes and fix broken plows. The next town with a garrison is a day's march away, and it wouldn't be strong enough to fend of such an army, anyway.~
-@58   = ~[Brandock]They wouldn't stand a chance - just like the unfortunate villages here. I would meet parts of my family and neighbors in the crusade most likely, forced into service - or they would be dead. For the sake of my home I am so grateful the Crusade is marching so far up north - I know it doesn't make anything better for the people here, but I am still very, very glad this is *not* my home.~
+@57   = ~[Brandock]This is how the crusade leaves the villages? Look at this destroyed building, <CHARNAME>. It's just smoking ashes... This is what my home town would look like, were the crusade over there. My village would look exactly like this, were it along the path of such a mob. Farmers, carpenders, bakers, a smith who is used to changing horse shoes and fix broken plows. The next town with a garrison is a day's march away, and it wouldn't be strong enough to fend of such an army, anyway.~
+@58   = ~[Brandock]They wouldn't stand a chance - just like the unfortunate villagers here. I would meet parts of my family and neighbors in the crusade most likely, forced into service - or they would be dead. For the sake of my home I am so grateful the Crusade is marching so far up north - I know it doesn't make anything better for the people here, but I am still very, very glad this is *not* my home.~
 @59   = ~Yes, I know what you mean. Considering the amount of refugees in Baldur's Gate alone, I can't imagine how many villages now look like this.~
 @60   = ~With the size of that crusade, I guess no village would stand a chance.~
 @61   = ~Let's go on.~
@@ -501,6 +501,9 @@
 @500  = ~[Brandock]You mean Elandro and the Feyr? Yes, I do! That's why I am talking about it, because not experiencing something like this ever again is a good motivation.~
 @501  = ~[Brandock]Although I would hope Caelar found a way to free the trapped souls without going *into* Avernus to do that, right? With some sort of ritual to get the souls out, without letting the fiends lose on the Prime *again* - which lead to the whole problem in the first place...~
 @502  = ~[Brandock]Ah, what an anti-prep talk... Well, *I* do feel a bit better, so - thanks. I'll be quiet now.~
+
+/* new for v1.7 */
+@503  = ~Ahaha, you said "digest". Good luck with that, I failed.~
 
 
 /* brandock_sod_reactions.d */

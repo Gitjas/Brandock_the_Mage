@@ -1,5 +1,5 @@
 @0  = ~Haltbare Schriftrolle Magie Bannen~ 
-//@1  = 
+@1  = ~Gestaltwandlung: Halboger~
 //@2  =  
 @3  = ~Haltbare Schriftrolle Feuerball~ 
 @4  = ~Brandocks Mantel~
@@ -55,7 +55,8 @@ Gewicht: 1~
 
 /* BGII */
 @100 = ~Ebrels Zauberbuch~
-@101 = ~Dieses Zauberbuch gehörte einem der Verhüllten Magier, die Irenicus auf der Promenade tötete. Der Name "Ebrel Furborrow" steht auf der Klappeninnenseite.~
+@101 = ~Dieses Zauberbuch gehörte einem der Verhüllten Magier, die Irenicus auf der Promenade tötete. Der Name "Ebrel Furborrow" steht auf der Klappeninnenseite, zusammen mit einem Hinweis:
+"Wenn Ihr dieses Zauberbuch gefunden habt, bedeutet das, dass ich es ganz sicher nicht freiwillig weggegeben habe. Bitte bringt es zu meinem Haus in den Slums, direkt neben der „Sphäre“. Diese ist nicht zu verfehlen."~
 
 
 /* new for vbeta 7 */
