@@ -548,7 +548,7 @@ END
 
 IF ~~ THEN finished_book_08
 SAY @3667 /* ~I'm not sure what I'll do with all this knowledge yet - other than I'll write own books, once these times of madness will be over and the gods will grant me a quiet life. What I do know is that I will feel responsible for this knowledge not getting into the wrong hands.~ */
-IF ~~ THEN DO ~SetGlobal("C#Br_WriteBook","LOCALS",10)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Br_WriteBook","LOCALS",13)~ EXIT
 END
 
 IF ~~ THEN finished_book_09

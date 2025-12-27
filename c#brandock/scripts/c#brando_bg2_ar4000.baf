@@ -5,7 +5,7 @@ IF
 	Global("C#Brandock_SummonedVariable","GLOBAL",0)
 THEN
 	RESPONSE #100
-		ActionOverride("C#Brandock",ChangeAIScript("C#Bran25",OVERRIDE))
+//		ActionOverride("C#Brandock",ChangeAIScript("C#Bran25",OVERRIDE)) //keeps c#brand2.bcs
 		SetGlobal("C#Brandock_SummonedVariable","GLOBAL",3)
 		Continue()
 END

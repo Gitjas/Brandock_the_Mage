@@ -1,0 +1,60 @@
+
+/* after killing Ilasera ## surely needs more triggers to time it better */
+/* activation */
+IF %IT_IS_BGII%
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+GlobalLT("C#Brandock_LorePathStop","GLOBAL",3)
+Dead("illasera")
+THEN
+RESPONSE #100
+SetGlobal("C#Brandock_LorePathStop","GLOBAL",3)
+END
+
+/* Initiate */
+IF %IT_IS_BGII%
+Global("C#Brandock_LorePathStop","GLOBAL",3)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+/* lore path: Lazarus' Spellbook (Saradush) */
+/* activation */
+IF %IT_IS_BGII%
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+PartyHasItem("PLOT18B")
+Global("C#Br_LorePathLazarusBG2","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("C#Br_LorePathLazarusBG2","GLOBAL",1)
+END
+
+/* Initiate */
+IF %IT_IS_BGII%
+Global("C#Br_LorePathLazarusBG2","GLOBAL",1)
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+See(Player1)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

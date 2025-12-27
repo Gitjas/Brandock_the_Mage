@@ -1,10 +1,19 @@
-/* AR0700.bcs - create Ebrel's spellbook */
+/* AR0700.bcs - create Ebrel's spellbook & set journal entry */
 
 
 IF 
-    Global("C#Brandock_SpawnRing","MYAREA",0)
+    Global("C#Brandock_EbrelsSpellbook","MYAREA",0)
 THEN 
     RESPONSE #100 
         ActionOverride("C#Rubble",CreateItem("c#br2001",0,0,0))
-        SetGlobal("C#Brandock_SpawnRing","MYAREA",1) 
+        SetGlobal("C#Brandock_EbrelsSpellbook","MYAREA",1)
 END 
+
+IF
+    PartyHasItem("c#br2001")
+    GlobalLT("C#Brandock_EbrelsSpellbook","MYAREA",2)
+THEN
+    RESPONSE #100
+        AddJournalEntry(@10034,QUEST)
+        SetGlobal("C#Brandock_EbrelsSpellbook","MYAREA",2)
+END

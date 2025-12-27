@@ -1,0 +1,432 @@
+/* ToB script additions
+GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%) //we are in ToB
+*/
+
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  AreaCheck("AR4500")
+  Global("C#BranToB_StartTimer","MYAREA",0)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+    SetGlobal("C#BranToB_StartTimer","MYAREA",1)
+END
+
+
+/* dialogues that need to trigger immediately / without a timer check */
+
+/* In the Pocketplane. Cespenar */
+/* Dialogue activation */
+
+IF
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+    !See([ENEMY])
+    CombatCounter(0)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	AreaCheck("AR4500")
+	GlobalGT("TalkedToSarevok","GLOBAL",0)
+	Global("C#BranToB_Cespenar","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_Cespenar","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+	OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+    !See([ENEMY])
+    CombatCounter(0)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+	Global("C#BranToB_Cespenar","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",300)
+		StartDialogueNoSet(Player1)
+END
+/* inside Saradush */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  AreaCheck("AR5000")
+  Range("Tran5004",30)
+  Global("C#BranToB_InSaradush","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_InSaradush","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_InSaradush","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+/* Saradush's fall. */
+/* will only trigger as a stand-alone if Ajantis BGII is not in party */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+	AreaCheck("AR5203")
+	Global("EnteredArea5203","GLOBAL",1)
+	Global("C#BranToB_Saradush","GLOBAL",0)
+  !AreaType(DUNGEON)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_Saradush","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_Saradush","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+/* inside Amkethran */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  GlobalLT("Enclave","GLOBAL",2)
+  !Global("METBAL","GLOBAL",0)
+  AreaCheck("AR5500")
+  Range("Tran5503",30)
+  Global("C#BranToB_InAmkethran","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_InAmkethran","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_InAmkethran","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+/* Melissan's betrayal revealed */
+
+/* Dialogue activation */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+	CombatCounter(0) !See([ENEMY])
+	Detect(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!Range([NEUTRAL],10)
+	GlobalGT("TalkedToSolar","GLOBAL",5)
+	!Exists("solar")
+	Global("C#BranToB_Melissan","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_Melissan","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_Melissan","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+/* scenery dialogues and Friendship talks that use the timer and aditional triggers */
+
+/* We are in hell */
+/* activation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  AreaCheck("AR4500")
+  GlobalLT("C#Brandock_Dialog","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("C#BranToB_PPG","GLOBAL",1)
+END
+
+/* Initiation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#BranToB_PPG","GLOBAL",1)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+    StartDialogNoSet(Player1)
+END
+
+
+/* Pondering on Saradush's fall. */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Dead("yaga01") //trigger so it comes later
+  GlobalLT("C#BranToB_Saradush","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_Saradush","GLOBAL",3)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_Saradush","GLOBAL",3)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+
+/* Solar's test: CHARNAME will form his/her own destiny
+triggers after second trial */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  GlobalGT("TalkedToSolar","GLOBAL",3)
+  Global("C#BranToB_DestinyFT","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_DestinyFT","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_DestinyFT","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+
+/* Brandock finished his Book of Spells: follow up (in ToB) */
+/* activation */
+/* puting it here so it triggers at some point */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+  Global("C#Br_WriteBook","LOCALS",11) //only gets set in ToB (via PID)
+THEN
+  RESPONSE #100
+    SetGlobal("C#Br_WriteBook","LOCALS",12)
+END
+
+/* Initiation */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  Global("C#Br_WriteBook","LOCALS",12)
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+    StartDialogNoSet(Player1)
+END
+
+
+/* CHARNAME becoming powerful. */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  OR(2)
+    Dead("sendai")
+    Dead("Abazigal")
+  Global("C#BranToB_PowerfulFT","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_PowerfulFT","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_PowerfulFT","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+
+/* Brandock's resumée about <CHARNAME>'s ToB time
+triggers after third trial */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  GlobalGT("TalkedToSolar","GLOBAL",4)
+  Global("C#BranToB_NaturalFT","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_NaturalFT","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_NaturalFT","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END
+
+
+/* Brandock ponders how powerful he is now. */
+
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  RealGlobalTimerExpired("C#BrandockDialogTimer","GLOBAL")
+  !See([ENEMY])
+  CombatCounter(0)
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  GlobalGT("TalkedToSolar","GLOBAL",5)
+  !AreaType(DUNGEON)
+  Global("C#BranToB_GrowthFT","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#BranToB_GrowthFT","GLOBAL",1)
+END
+
+/* Dialogue triggering */
+IF
+  OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+  !See([ENEMY])
+  See(Player1)
+  !StateCheck(Myself,CD_STATE_NOTVALID)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CombatCounter(0)
+	Global("C#BranToB_GrowthFT","GLOBAL",1)
+
+THEN
+	RESPONSE #100
+        RealSetGlobalTimer("C#BrandockDialogTimer","GLOBAL",600)
+		StartDialogueNoSet(Player1)
+END

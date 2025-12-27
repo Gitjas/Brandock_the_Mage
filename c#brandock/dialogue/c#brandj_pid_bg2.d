@@ -4,20 +4,43 @@
 
 APPEND c#brandj
 
-IF ~IsGabber(Player1)
+IF ~%IT_IS_BGII%
+IsGabber(Player1)
 Global("c#brisog","GLOBAL",0) //Brandock is not half-ogre
 ~ THEN pid_bg2
 SAY @0 
+
+
+/* ToB */
++ ~%IT_IS_TOB%
+GlobalGT("TalkedToSarevok","GLOBAL",0)
+GlobalLT("TalkedToSolar","GLOBAL",5)
+Global("C#BranToBPID_OnYourMind","LOCALS",0)~ + ~Something on your mind?~ DO ~SetGlobal("C#BranToBPID_OnYourMind","LOCALS",1)~ + on_your_mind_01
+/* after confrontation with Balthazar */
++ ~%IT_IS_TOB%
+GlobalGT("TalkedToSolar","GLOBAL",4)
+GlobalLT("C#BranToBPID_OnYourMind","LOCALS",2)~ + ~Something on your mind?~ DO ~SetGlobal("C#BranToBPID_OnYourMind","LOCALS",2)~ + on_your_mind_02
+
++ ~Global("C#BranToB_GrowthFT","GLOBAL",2)~ + ~I can see that you are pondering. Tell me what is troubling you.~ DO ~SetGlobal("C#BranToB_GrowthFT","GLOBAL",3)~ + good_power
+
++ ~GlobalGT("TalkedToSolar","GLOBAL",4) //some random trigger so it shows later
+Global("C#BrandToB_afterplans","LOCALS",0)~ + ~What will you do when my Bhaalchild struggle and these times are over?~ DO ~SetGlobal("C#BrandToB_afterplans","LOCALS",1)~ + afterplans
+
+
+/* SoA */
 
 /* PID after seeking "Oghma's Wisdom" in the Temple of Oghma. Brandock remained silent */
 + ~Global("C#Br_BookRestore","GLOBAL",20) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~[PC Reply]No comment on what happened in the Temple of Oghma? I am surprised.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
 + ~Global("C#Br_BookRestore","GLOBAL",20) Global("C#Br_OghmasWisdomPID","LOCALS",0)~ + ~*Thank you* for shutting up about your book. You silence after we went to the Temple of Oghma took me by pleasant surprise.~ DO ~SetGlobal("C#Br_OghmasWisdomPID","LOCALS",1)~ + comment_oghmas_wisdom
 
 /* letter from his parents - EET with SoD only */
-+ ~GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end
++ ~!%IT_IS_TOB%
+GlobalGT("C#Brandock_SoDMessenger","GLOBAL",1) Global("C#Brando_PIDMother","LOCALS",0)~ + ~You left because of the letter from your parents. I hope you found your mother in well enough health?~ DO ~SetGlobal("C#Brando_PIDMother","LOCALS",1)~ + sod_end
 
-+ ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~So, how came it you ended up doing experiments with your mother's cousin?~ + how_you_fare
-+ ~Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~How did you fare after we parted at the Sword Coast, Brandock?~ + how_you_fare
++ ~!%IT_IS_TOB%
+Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~So, how came it you ended up doing experiments with your mother's cousin?~ + how_you_fare
++ ~!%IT_IS_TOB%
+Global("C#Brando_PIDHowYouFared","LOCALS",0)~ + ~How did you fare after we parted at the Sword Coast, Brandock?~ + how_you_fare
 
 + ~Global("C#Brando_PIDHowYouFared","LOCALS",1)~ + ~Were you very disappointed when your parents expected you to be able to heal?~ DO ~SetGlobal("C#Brando_PIDHowYouFared","LOCALS",2)~ + parents
 
@@ -26,12 +49,14 @@ SAY @0
 + ~Global("C#Brando_PIDSpellhold","LOCALS",0)
 Global("C#BR_KnowsNameSpellhold","GLOBAL",1)~ + ~Aything you want to say about 'Spellhold'?~ DO ~SetGlobal("C#Brando_PIDSpellhold","GLOBAL",1)~ + spellhold
 
-+ ~Global("C#Brando_PIDExperiments","LOCALS",0)~ + ~What kind of experiments were you doing here? Why did the Cowled Wizards had such an interest in you mixing substances?~ DO ~SetGlobal("C#Brando_PIDExperiments","LOCALS",1)~ + experiments
++ ~!%IT_IS_TOB%
+Global("C#Brando_PIDExperiments","LOCALS",0)~ + ~What kind of experiments were you doing here? Why did the Cowled Wizards had such an interest in you mixing substances?~ DO ~SetGlobal("C#Brando_PIDExperiments","LOCALS",1)~ + experiments
 
 //## ++ ~What do you know about the Shadow Thieves here in Athkatla?~ +  
 
 
-+ ~OR(4)
++ ~!%IT_IS_TOB%
+OR(4)
 Global("C#Brando_PIDEbrel1","LOCALS",0)
 Global("C#Brando_PIDEbrel2","LOCALS",0)
 Global("C#Brando_PIDEbrel3","LOCALS",0)
@@ -41,6 +66,7 @@ Global("C#Brando_PIDEbrel4","LOCALS",0)~ + ~About your mother's cousin, Ebrel th
 /* half-ogre shapeshift quest */
 /* quest was not finished in BG1 - bring quest to same level: BGII */
 + ~%IT_IS_BGII%
+!%IT_IS_TOB%
 !Global("C#Brandock_Shapeshift","GLOBAL",1)
 GlobalLT("C#Brandock_Shapeshift","GLOBAL",26)
 Global("C#Brandock_UpdateShapeshift","LOCALS",0)~ + @1004 /* ~About your attempt to help Melicamp 'the chicken' with a spell out of your magic book...~ */ DO ~SetGlobal("C#Brandock_UpdateShapeshift","LOCALS",1)~ + update_shapeshift
@@ -48,6 +74,8 @@ Global("C#Brandock_UpdateShapeshift","LOCALS",0)~ + @1004 /* ~About your attempt
 
 /* book restore quest */
 /* quest was not finished in BG1 - bring quest to same level */
+
+// ## neds ToB start: book with only one page left.
 
 /* could have asked in SoD but didn't */
 + ~Global("C#Br_BookRestoreAlone","GLOBAL",1)
@@ -57,28 +85,32 @@ HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + @1000 /* ~What happened to your destroyed book? I see an empty book in your backpack, instead.~ */ + bookrestore_alone_sod_late
 
 /* no SoD (BGT) */
-+ ~Global("C#Br_BookRestoreAlone","GLOBAL",2)
++ ~!%IT_IS_TOB%
+Global("C#Br_BookRestoreAlone","GLOBAL",2)
 GlobalLT("C#Br_BookRestore","GLOBAL",12)
 OR(2)
 HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + @1000 /* ~What happened to your destroyed book? I see an empty book in your backpack, instead.~ */ + bookrestore_alone_bg2
 
 /* bookrestore quest wasn't even started in BG1 - Master Elvenhair was never involved */
-+ ~Global("C#Br_BookRestoreAlone","GLOBAL",3)
++ ~!%IT_IS_TOB%
+Global("C#Br_BookRestoreAlone","GLOBAL",3)
 GlobalLT("C#Br_BookRestore","GLOBAL",12)
 OR(2)
 HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + @1000 /* ~What happened to your destroyed book? I see an empty book in your backpack, instead.~ */ + bookrestore_alone_bg2_02
 
 /* new game - what is this book about? (Player might not have played BG1 or not remember) */
-+ ~Global("C#Br_BookRestore","GLOBAL",12)
++ ~!%IT_IS_TOB%
+Global("C#Br_BookRestore","GLOBAL",12)
 OR(2)
 HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + ~Remind me what that empty book of yours was about.~ + bookrestore_update
 
 /* normal quest progression: PC can ask about book first if they want - disable after Brandock's dialogue or if quest progressed in Temple of Oghma */
 
-+ ~Global("C#Br_BookRestore","GLOBAL",13)
++ ~!%IT_IS_TOB%
+Global("C#Br_BookRestore","GLOBAL",13)
 OR(2)
 HasItem("C#br0007","C#Brandock")
 PartyHasItem("C#br0007")~ + @2004 /* ~You didn't show your transformed De Simplex Magicae to the priests of Oghma yet, I take it?~ */ + bookrestore_bg2_pid
@@ -100,9 +132,109 @@ SetGlobal("C#BrandockJoined","GLOBAL",1) JoinParty()~ EXIT
 ++ @53 /* ~Nothing at the moment.~ */ EXIT
 END
 
+// ToB content
+
+IF ~~ THEN on_your_mind_01
+SAY ~[Brandock]I am still processing what happened and what it implies. I mean the hell enclave, the solar, what was said about you and the prophecy... Still processing. As are you, I could imagine.~
+= ~[Brandock]Really, <CHARNAME>, traveling with you never, *never* gets dull.~
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN on_your_mind_02
+SAY ~[Brandock]Meeting this Balthazar... I was so glad you turned out the way you are, <CHARNAME>. Staying on the path of good, not turning into a force of destruction. It never occurred to me that there might be such a path of destruction and death *without* aiming for Bhaal's godly power - and from someone who truly believed he is walking on the path of righteousness.~
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN good_power
+SAY ~[Brandock]Beside all the things we are facing, I can't shake the thought of my own power increase. What will I do with all that power? I mean - after we are done with the times of struggle, of course. You know - *after* the crazy times. Will I... will I even have a place in this world any more? Will I be doing good things, useful things? Or will I become a danger myself?~
+++ ~You'll put your power to good use, I am sure of it. Stressing "good". Don't you dare doubt yourself, Brandock!~ + good_power_02
+++ ~All right, you wouldn't be you if you wouldn't worry about completely hypothetical things at times where there is actually no time for any of such thoughts.~ + good_power_03
+++ ~Brandock - the mere fact that you are worrying about this tells me that you will not misuse any power you'll wield.~ + good_power_04
+++ ~Wait a minute - you do consider your survival to be probable? What an unexpected burst of optimism. I'm thrilled!~ + good_power_01
+++ ~It's idle to worry about this now, Brandock.~ + good_power_05
+++ ~By the gods, this is keeping your mind occupied? Would you focus on what is at hand, please?~ + good_power_06
+END
+
+IF ~~ THEN good_power_01
+SAY ~[Brandock]W-what? Do you mean you do *not* think my survival would be... ah, wait. No, you meant that, for *me*, this is unexpected optimism. Heh. Way to change the topic, <CHARNAME>. But thanks, I get what you mean.~
+++ ~You'll put your power to good use, I am sure of it. Stressing "good". Don't you dare doubt yourself, Brandock!~ + good_power_02_1
+++ ~Brandock - the mere fact that you are worrying about this tells me that you will not misuse any power you'll wield.~ + good_power_04
+++ ~Just focus on what needs to be done right now.~ + good_power_06
+END
+
+IF ~~ THEN good_power_02
+SAY ~[Brandock]Hearing you say this without any hesitation means a lot to me, <CHARNAME>. It definitely does.~
+IF ~~ THEN + good_power_07
+END
+
+IF ~~ THEN good_power_02_1
+SAY ~[Brandock]Hearing you say this means a lot to me, <CHARNAME>. It definitely does.~
+IF ~~ THEN + good_power_07
+END
+
+IF ~~ THEN good_power_03
+SAY ~[Brandock]You mean, deep down, I'm still the same person I always was? In a way, that is reassuring. But then I think about all the disasters I've caused, and when I multiply that by my current power, I'm not sure if it really helps ease my mind...~
+++ ~You'll put your power to good use, I am sure of it. Stressing "good". Don't you dare doubt yourself, Brandock!~ + good_power_02_1
+++ ~Brandock - the mere fact that you are worrying about this tells me that you will not misuse any power you'll wield.~ + good_power_04
+++ ~Just focus on what needs to be done right now.~ + good_power_06
+END
+
+IF ~~ THEN good_power_04
+SAY ~[Brandock]At least I will try to. Always try to. Strive for it. I mean - in the end, that's all I can do, right?~
+IF ~~ THEN + good_power_07
+END
+
+IF ~~ THEN good_power_05
+SAY ~[Brandock]It is! Totally! I know that. Ugh, I feel so *stupid*...~
+++ ~You'll put your power to good use, I am sure of it. Stressing "good". Don't you dare doubt yourself, Brandock!~ + good_power_02_1
+++ ~All right, you wouldn't be you if you wouldn't worry about completely hypothetical things at times where there is actually no time for any of such thoughts.~ + good_power_03
+++ ~Brandock - the mere fact that you are worrying about this tells me that you will not misuse any power you'll wield.~ + good_power_04
+++ ~Wait a minute - you do consider your survival to be probable? What an unexpected burst of optimism. I'm thrilled!~ + good_power_01
+++ ~Just focus on what needs to be done right now.~ + good_power_06
+END
+
+IF ~~ THEN good_power_06
+SAY ~[Brandock]Focus on what is at hand. Yes. Yes, that is a good call.~
+IF ~~ THEN + good_power_07
+END
+
+
+IF ~~ THEN good_power_07
+SAY ~[Brandock]Thank you for pulling me out of that thought loop. (exhales) I appreciate it.~
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN afterplans
+SAY ~[Brandock]That's a really tough question, <CHARNAME>. I don't even know what the world will look like then!~
+++ ~What would you *like* to do, Brandock. You are allowed to have hopes and dreams, no?~ + afterplans_01
+++ ~Just humor me. Make believe, if you have to.~ + afterplans_01
+++ ~Gods, your tendency to interpret everything I say *literally* can be quite irritating at times.~ + afterplans_01
+++ ~Forget I asked.~ + afterplans_03
+END
+
+IF ~~ THEN afterplans_01
+SAY ~[Brandock]Oh - oh! You mean what *would* I like to do, like, if I could wish for it?~
+++ ~Yes.~ + afterplans_02
+++ ~Forget I asked.~ + afterplans_03
+END
+
+IF ~~ THEN afterplans_02
+SAY ~[Brandock]All right, here we go. Uhm... I would like to write down all I know and teach young mages - definitely teach young mages! Gods, the thought that *I* could be taking apprentices in... and treat them better than I was treated... teach them without taking them out of their homes!~
+= ~[Brandock]Be a force of good. Protect people. Really protect people, from rogue mages - this is all really going strongly into the direction of "being a Cowled Wizard", oh well. All right, so here we go: become a Cowled Wizard, an *influencial* Cowled Wizard - on my own terms! Ah... Let me enjoy this thought for a short moment, <CHARNAME>.~
+= ~[Brandock]But definitely staying in Amn, near my folks. Seeing my family again, old friends... who wouldn't fear me because of "MAGE". But... (scoffs) if my parents and brothers are well and I'll see them again, I am sure I will have to listen to a *lot* of lamenting about what evil can come with magic. (sigh) Ah, nostalgia...~
+= ~[Brandock]Ah, who knows how things will be then... And with that, I smashed all the nice rainbows I was chasing. Well done, Brandock. Nevertheless, thank you for asking, <CHARNAME>. This was... a nice train of thoughts, for once. But I can't without checking in on reality, I am sorry. So - first and foremost, I'll have to stay alive... I'll focus on that for the moment. After that, I'll take one step after another from there.~
+IF ~~ THEN EXIT
+END
+
+IF ~~ THEN afterplans_03
+SAY ~[Brandock]All right.~
+IF ~~ THEN EXIT
+END
 
 
 //----------
+// SoA and general content
+
 IF ~~ THEN comment_oghmas_wisdom
 SAY ~[Brandock]Oh, I could talk about that a lot. A *lot*. But I still haven't made up my mind what to do with the restored book yet.~
 = ~[Brandock]No - nono. That's not true. I *have* made up my mind, and this decision is scaring me to death, <CHARNAME>. I... I'm not ready to talk about it just yet. Let me ponder this a little longer...~
@@ -123,7 +255,7 @@ END
 
 
 IF ~~ THEN ebrel
-SAY ~What do you want to know?~
+SAY ~What do you want to know regarding Ebrel?~
 + ~Global("C#Brando_PIDEbrel1","LOCALS",0)~ + ~I am very sorry he is dead, Brandock.~ DO ~SetGlobal("C#Brando_PIDEbrel1","LOCALS",1)~ + ebrel_04
 + ~Global("C#Brando_PIDEbrel2","LOCALS",0)~ + ~Tell me about your mother's cousin. It didn't sound as if you had much contact before you left for the Sword Coast?~ DO ~SetGlobal("C#Brando_PIDEbrel2","LOCALS",1)~ + ebrel_01
 + ~Global("C#Brando_PIDEbrel3","LOCALS",0)~ + ~But you knew he was a Cowled Wizard, yes? Before talking to your parents, I mean.~ DO ~SetGlobal("C#Brando_PIDEbrel3","LOCALS",1)~ + ebrel_02
@@ -133,23 +265,23 @@ END
 
 IF ~~ THEN ebrel_01
 SAY ~No, I did not, indeed. Our families didn't have much contact. They did talk about him of course - that he is a magic wielder... but hush, we do not talk about this here, not in front of the children. (sigh)~
-IF ~~ THEN + pid_bg2
+IF ~~ THEN + ebrel
 END
 
 IF ~~ THEN ebrel_02
 SAY ~Er, well, I guess I heard it, some time back when I was still very young. But it never played a role in my life before my return. I know it sounds silly.~ 
-IF ~~ THEN + pid_bg2
+IF ~~ THEN + ebrel
 END
 
 IF ~~ THEN ebrel_03
-SAY ~No, never. It's not necessarily his fault, <CHARNAME>. My parents didn't have much contact to his part of the family. He and my mother were 'only' cousins, you know. And if you think that the Cowled Wizards should have told him that I was in training... firstly, Cowled Wizards are not that good organized as you might think. Some of them even don't know each other! Meetings are undercover, you can't even be sure the merchant we just bought our morning bread from wasn't a Cowled Wizard, as well. Sometimes you only realized someone was a Cowled Wizard because he is killed during a mage hunt.~
+SAY ~No, never. It's not necessarily his fault, <CHARNAME>. My parents didn't have much contact to his part of the family. He and my mother were 'only' cousins, you know. And if you think that the Cowled Wizards should have told him that I was in training... firstly, Cowled Wizards are not that good organized as you might think. Some of them even don't know each other! Meetings are undercover, you can't even be sure the last merchant we met wasn't a Cowled Wizard, as well. Sometimes you only realized someone was a Cowled Wizard because he is killed during a mage hunt.~
 = ~And secondly - that little organisation that is left, you don't expect the Cowled Wizard to actually enforce family bonds, do you? Family bonds are not wanted. Friendship is not wanted, either. My work for Ebrel was frowned upon by several Cowled Wizards visiting to inspect our progress. But they really wanted us to be successful in what we were investigating, so in *this* case family bonds proved to be a plus, because they decided I could be trusted in doing some of the secret work.~
-IF ~~ THEN + pid_bg2
+IF ~~ THEN + ebrel
 END
 
 IF ~~ THEN ebrel_04
 SAY ~Thank you, <CHARNAME>. Do you know the feeling if there is someone who was near you all these years but you didn't really pay attention to and when you get to know this person it feels like you should have known him much, much earlier because you two just get along so well? Ebrel was like the grandpa I never had but always wanted. He wasn't *that* old, though, so I should say uncle instead of grandpa, I think. And now destiny took him away again - way too early. (sigh)~
-IF ~~ THEN + pid_bg2
+IF ~~ THEN + ebrel
 END
 
 IF ~~ THEN bookrestore_alone_sod_late
@@ -315,7 +447,7 @@ IF ~~ THEN + how_you_fare_00_9
 END
 
 IF ~~ THEN how_you_fare_00_9
-SAY ~You have to picture the situation. Me - 'Nervousness-is-my-middle-name'-Brandock - in a serious negociation with the emissary of the Amnian Cowled Wizards. At the beginning, it seemed I had the power in my hands, they *really* wanted me as a mage. I stressed that I would like to meet with my mother's cousin Ebrel, they tried not to let show that they didn't like the idea but tried to persuade me to go to a different place by promising the stars out of the sky, etcetera.~
+SAY ~You have to picture the situation. Me - 'Nervousness-is-my-middle-name'-Brandock - in a serious negociation with the emissary of the Amnian Cowled Wizards. At the beginning, it seemed I had the power in my hands, they *really* wanted me as a mage. I stressed that I would like to meet with my mother's cousin Ebrel, they tried not to let show that they didn't like the idea but tried to persuade me to go to a different place by promising the stars out of the sky, and so on.~
 IF ~~ THEN + how_you_fare_00_10
 END
 
@@ -410,7 +542,7 @@ IF ~~ THEN + pid_bg2
 END
 
 IF ~~ THEN parents_war
-SAY ~<CHARNAME>, they have even problems imagining I was up all the way to Baldurs Gate. Telling them what we achieved would be like explaining the alphabet to a cow. Not that I'd call my family cows, but... you know what I mean.~
+SAY ~<CHARNAME>, they have even problems imagining I was up all the way to Baldurs Gate. Telling them what we achieved would be like explaining the alphabet to a cow. Not that I'd call my family stupid as cows, but... you know what I mean. It would be pointless.~
 IF ~~ THEN + pid_bg2
 END
 

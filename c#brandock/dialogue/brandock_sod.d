@@ -1449,7 +1449,7 @@ END
 IF ~~ THEN back_hell_07
 SAY @313 /* [Brandock]I wasn't prepared for going into Avernus and back again. Not that I'd complain about the coming back part. */
 = @314 /* [Brandock]And - it *was* all for saving her uncle... While Hephernaan was working with a fien master on the other side. */
-++ @315 /* I need to time to digest all what happened. It was a bit much. */ + back_hell_10
+++ @315 /* I need to time to digest all what happened. It was a bit much. */ + back_hell_21
 ++ @316 /* Well, it was a righteous cause. The execution, on the other hand... */ + back_hell_08
 + ~OR(2) !InMyArea("bdaun") Dead("bdaun")~ + @317 /* *And* it was all for nothing, because he remained there. */ + back_hell_10
 ++ @318 /* Her desperation was understandable. But she created countless mourning relatives with her crusade - as well as in the coalition. If one of them thinks they have to make amends, too... */ + back_hell_09
@@ -1531,6 +1531,11 @@ END
 IF ~~ THEN back_hell_20
 SAY @343 /* [Brandock]Oh, right! You weren't there when I received a letter from my parents, stating my mom fell sick. They are asking me to come home as soon as I could - which would be now. */
 IF ~~ THEN DO ~SetGlobal("C#Brandock_SoDMessenger","GLOBAL",2)~ + back_hell_15
+END
+
+IF ~~ THEN back_hell_21
+SAY @503 /* ~Ahaha, you said "digest". Good luck with that, I failed.~ */
+IF ~~ THEN + back_hell_10
 END
 
 END //APPEND

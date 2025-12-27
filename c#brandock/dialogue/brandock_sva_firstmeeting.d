@@ -144,7 +144,9 @@ END
 IF ~~ THEN firstmeeting_14
 SAY ~That... that's his spellbook. If you found this at the site, he is dead indeed...~
 = ~Oh no! Ebrel, no... I didn't... I didn't want to learn from you like this...~
-IF ~~ THEN DO ~ActionOverride("C#Brandock",TakePartyItem("c#br2001"))~ + firstmeeting_15
+IF ~~ THEN DO ~ActionOverride("C#Brandock",TakePartyItem("c#br2001"))
+EraseJournalEntry(@10034)
+AddexperienceParty(500)~ SOLVED_JOURNAL @10035 + firstmeeting_15
 END
 
 IF ~~ THEN firstmeeting_15

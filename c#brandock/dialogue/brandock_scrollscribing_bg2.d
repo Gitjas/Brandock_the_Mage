@@ -123,7 +123,7 @@ APPEND c#brandj
 
 /* ToB */
 IF WEIGHT #-1
-~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)
+~%IT_IS_TOB%
 Global("c#brscrl","GLOBAL",1)
 Global("C#Br_WriteBook","LOCALS",8)~ THEN scribe_book_tob
 SAY @3700 /* ~<CHARNAME>, the incredible happened - the last page of the De Simplex Magicae opened up for me. Let me know what you want me to write on it!~  */

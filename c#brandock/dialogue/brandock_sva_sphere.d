@@ -86,9 +86,18 @@ END
 IF ~~ THEN angered_tolgerias_03
 SAY ~I know you can't... (moan) Can't you see that I can't remain at your side?~
 = ~I need to go and fix this... somehow make him understand... I, I... <CHARNAME>, I need to find a way to live amongst the Cowled Wizards! This is not a game to me, this is my *home*. I can't... I can't cross a Cowled Wizard so. My *employer*, of all things!~
+++ ~No, don't go, Brandock! We'll fix this together, I promise!~ + angered_tolgerias_03_b
 ++ ~You said yourself that one hand doesn't know what the other does with the Cowled Wizards. Just because we crossed one doesn't have to mean all of them turned against you.~ + angered_tolgerias_04
 ++ ~All I did was refusing to do one rediculous job! It's not my fault he has such a bad temper.~ + angered_tolgerias_04
+++ ~Well, he's not your employer any more, right? I don't care about him, Brandock.~ + angered_tolgerias_02
 ++ ~I couldn't care less about what this means to you, Brandock.~ + angered_tolgerias_02
+END
+
+IF ~~ THEN angered_tolgerias_03_b
+SAY ~...How?~
+++ ~The way he talked was fishy as hell. I want to hear that Valygar's side first before agreeing to kill him!~ + angered_tolgerias_04
+++ ~You said yourself that one hand doesn't know what the other does with the Cowled Wizards. Just because we crossed one doesn't have to mean all of them turned against you.~ + angered_tolgerias_04
+++ ~No idea. Maybe it's better we go separate ways.~ + angered_tolgerias_02_b
 END
 
 IF ~~ THEN angered_tolgerias_04

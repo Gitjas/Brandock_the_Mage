@@ -19,7 +19,6 @@ END
 /* after portal is opened, after Hephernaan's scheme  */
 
 IF
-	AreaCheck("BD4300")
 	Global("bd_plot","global",495)
 	Global("C#Brandock_SoDPortalComment","bd4300",0)
 	InMyArea("C#Brandock")

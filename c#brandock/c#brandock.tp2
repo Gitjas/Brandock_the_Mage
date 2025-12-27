@@ -2,7 +2,7 @@ BACKUP ~C#Brandock/backup~
 AUTHOR ~Please post at G3 or Kerzenburgforum, refer to readme.~ 
 
 
-VERSION ~v1.6_edited_atweaks_crossmod_jastey~ 
+VERSION ~v1.7pre~ 
 
 README ~C#Brandock/readme.brandock.%LANGUAGE%.html~ ~readme.brandock.english.html~
 
@@ -81,6 +81,7 @@ END
     OUTER_SPRINT ~tutu_var~ ~~
     OUTER_SPRINT ~IT_IS_SOD~ ~False()~
     OUTER_SPRINT ~IT_IS_BGII~ ~~
+    OUTER_SPRINT ~IT_IS_TOB~ ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
     OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~~
 
@@ -108,6 +109,7 @@ END
     OUTER_SPRINT ~tutu_var~ ~~
     OUTER_SPRINT ~IT_IS_SOD~ ~False()~
     OUTER_SPRINT ~IT_IS_BGII~ ~~ //will be overwritten for BGT below
+    OUTER_SPRINT ~IT_IS_TOB~ ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~
     OUTER_SPRINT ~BG1_BEFORE_TRANSITION~ ~False()~
     OUTER_SPRINT ~AFTER_BG1_TRANSITION~ ~~
 
@@ -154,6 +156,7 @@ END
     OUTER_SPRINT ~Exit2619~ ~Exit6519~
     OUTER_SPRINT ~Door5506~ ~Door6506~
     OUTER_SPRINT ~Door2619~ ~Door6519~
+    OUTER_SPRINT ~BOOK54~ ~book54~
   END
 
 
@@ -176,6 +179,7 @@ END
     OUTER_SPRINT ~Exit2619~ ~Exit2619~ 
     OUTER_SPRINT ~Door5506~ ~Door5506~
     OUTER_SPRINT ~Door2619~ ~Door2619~
+    OUTER_SPRINT ~BOOK54~ ~ubbook54~
     OUTER_SPRINT ~IMOEN_DV_SOD~ ~IMOEN~
 
 ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
@@ -214,6 +218,7 @@ END
     PRINT @55552
 	INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
     OUTER_SPRINT ~IT_IS_BGII~ ~Global("ENDOFBG1","GLOBAL",2)~
+    OUTER_SPRINT ~IT_IS_TOB~ ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%)~
     OUTER_SPRINT "IMOEN_DV_SOD" "imoen2"
 
     OUTER_SPRINT ~OHDradeelInfo~ ~OHDradeelInfo~
@@ -222,6 +227,7 @@ END
     OUTER_SPRINT ~Exit2619~ ~Exit2619~ 
     OUTER_SPRINT ~Door5506~ ~Door5506~
     OUTER_SPRINT ~Door2619~ ~Door2619~
+    OUTER_SPRINT ~BOOK54~ ~ubbook54~
     OUTER_SPRINT ~IMOEN_DV_SOD~ ~IMOEN2~
 
 ACTION_IF (MOD_IS_INSTALLED ~c#endlessbg1.tp2~ ~14~) BEGIN
@@ -373,10 +379,11 @@ LANGUAGE ~Deutsch~
 	 ~C#Brandock/tra/german/journal.tra~
 
 LANGUAGE ~Simplified Chinese (translation: Lzw104522773)~
-         ~english~   
+         ~schinese~
          ~C#Brandock/tra/schinese/setup.tra~
          ~C#Brandock/tra/schinese/game.tra~
 	 ~C#Brandock/tra/schinese/journal.tra~
+
 
 
 BEGIN @55540 /* ~Brandock the Mage, NPC for BG:EE, BGII:EE, EET, and BGT~ */ DESIGNATED 0
@@ -445,6 +452,8 @@ ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
   ADD_JOURNAL TITLE (@10025) @10027 @10032 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 /* ~Brandock's Scroll Scribing Skills~ */
   ADD_JOURNAL TITLE (@10007) @10012 @10062 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
+/* ~Return A Cowled Wizard's Spellbook~ */
+  ADD_JOURNAL TITLE (@10033) @10034 @10035 USING ~C#Brandock/tra/autotra/%LANGUAGE%/journal.tra~
 END
 
 
@@ -530,7 +539,7 @@ END
 ACTION_IF GAME_IS ~tob bg2ee bgt eet~ THEN BEGIN
 
 APPEND ~pdialog.2da~
-~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD 	C#BrandP 	C#BrandJ 		C#BrandD 	C#Bran25~
+~C#Brandock 	C#BrandP 	C#BrandJ 	C#BrandD 	C#BrandP 	C#BrandJ 		C#BrandD 	c#brand2~
 UNLESS ~C#Brandock~
 
 
@@ -595,7 +604,7 @@ SAY UNIDENTIFIED_DESC  @126
 SAY DESC  @126 
 /* innate ability: Shapeshift Half-Ogre */
 COPY ~C#Brandock/spells/c#brshog.spl~ ~override/c#brshog.spl~
-  SAY NAME1 ~Shapeshift Half-Ogre~ 
+  SAY NAME1 @1 /* ~Shapeshift Half-Ogre~ */
 SAY UNIDENTIFIED_DESC  @127 
 SAY DESC  @127 
 /* grant the innate ability "c#brshog" -> shapeshift Half-ogre */
@@ -840,11 +849,13 @@ END
 
 /* general scripts for BGII part */
 ACTION_IF GAME_IS ~bg2ee bgt eet tob~ THEN BEGIN
+/* soa - c#brand2.bcs */
 	<<<<<<<< ...inlined/c#brand2.baf
 	>>>>>>>>
 	COMPILE ~...inlined/c#brand2.baf~
 	EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando.baf~ EVALUATE_BUFFER 
 	EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_bg2.baf~ EVALUATE_BUFFER
+	EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_tob.baf~ EVALUATE_BUFFER
 /* lorepath: BG2 content */
   EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_bg2_lorepath.baf~ EVALUATE_BUFFER
 /* script addition to trigger Brandock's scroll scribing dialogue */
@@ -856,6 +867,7 @@ EXTEND_TOP ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_bg2_shapeshifting.baf~ 
 EXTEND_TOP ~c#brand2.bcs~   ~C#Brandock/scripts/c#brando_shapeshifting.baf~ EVALUATE_BUFFER
 /* extras needed for 7th party member mode */
 EXTEND_BOTTOM ~c#brand2.bcs~ ~%MOD_FOLDER%/7thpmm/script_patch/set_7pmm_scripts.baf~ EVALUATE_BUFFER
+
 END
 
 /* specific additions to scripts for bgt */
@@ -1626,6 +1638,8 @@ Saving Throw: Special
 This spell creates a huge disembodied fist that crushes the target and pins them to the ground. In the first round, the spell does 2D10 damage. The victim can save at -4 vs. paralyzation to avoid being pinned. If they fail, the hand does 3D10 damage the next round. The victim can again save vs. paralyzation at -2. If they fail to save, the hand does a final 4D10 damage and disappears.~ */
 SAY IDENTIFIED_DESC @112
 WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
+
+/* book of Infinite Spells */
 COPY ~C#Brandock/items/c#brbo10.itm~ ~override/c#brbo10.itm~
 SAY NAME1 @103 /* ~De Simplex Magicae~ */
 SAY NAME2 @103 /* ~De Simplex Magicae~ */
@@ -1643,9 +1657,8 @@ Saving Throw: None
 
 Chain contingency channels some of the magical energy of the mage and releases it only under certain circumstances.  Basically, the mage chooses three spells, which will be released under certain conditions, such as being hit by an enemy.  When this condition occurs all three spells are cast immediately.  Spells of 8th level or lower may be used in the contingency.~ */
 SAY IDENTIFIED_DESC @113
-
-/* book of Infinite Spells */
 WRITE_ASCII 0x3a ~C#BR0007~  #8  // inventory BAM
+
 COPY ~C#Brandock/items/c#brboAA.itm~ ~override/c#brboAA.itm~
 SAY UNIDENTIFIED_DESC @115 /* ~This ancient tome creaks as you open it.  Each page of the Book of Infinite Spells contains a spell described in layman's terms, easy enough for a thief, a cleric or even a fighter to understand and cast it.  Each spell on a page can be cast once per day.
 
@@ -2282,7 +2295,7 @@ COPY_EXISTING ~c#br01.are~ ~override~
     fj_box_top     = 200
     fj_box_right   = 220
     fj_box_bottom  = 228
-    fj_cursor_idx   = 2  //"take something"
+    fj_cursor_idx   = 22 //question mark
     fj_vertex_0    = 160 + (215 << 16) //I don't need that many vertexes because the area does not get highlighted by "tab"
     fj_vertex_1    = 170 + (200 << 16)
     fj_vertex_2    = 175 + (200 << 16)
@@ -2851,9 +2864,6 @@ END
 /* The Great Karlini (Ygnazius Bombastus III) */
 ACTION_IF FILE_EXISTS_IN_GAME ~ACQ17001.dlg~ THEN BEGIN 
 PRINT @55556 /* ~Ascalon's Questpack: Der große Karlini detected.~ */
-// Get state for Ygnazius ACQ17001 %ygnatz_47% 
-/* ~That's to my liking, my liking! Let's waste no more time and whooshy-whooshy set off! The Ulcaster Ruins are waiting!~ */
-OUTER_SET ygnatz_47 = STATE_WHICH_SAYS 47 IN ~AC_QUEST/tra/autotra/%s/ACQ17000.tra~ FROM ~ACQ17001~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_ac_quest_17.d~ USING ~C#Brandock/tra/autotra/%LANGUAGE%/brando_crossmod_ac_quest.tra~
   EXTEND_BOTTOM ~C#Brando.bcs~ ~c#brandock/crossmod/brando_crossmod_ac_quest_17.baf~ EVALUATE_BUFFER
 END //Ascalon's Questpack: Ignazius Bombastus detected.
@@ -3085,10 +3095,31 @@ OUTER_SET brandj_1165 = STATE_WHICH_SAYS 1165 IN ~C#Brandock/tra/autotra/%s/C#BR
 /* @1173 = ~(sigh) To know that Candlekeep was about to be infiltrated by doppelgangers! The mighty library... I need to ponder this, <CHARNAME>. And what this must mean to you, I can only guess!~ */
 OUTER_SET brandj_1173 = STATE_WHICH_SAYS 1173 IN ~C#Brandock/tra/autotra/%s/C#BRAND_DIALOGUES.TRA~ FROM ~c#brandj~
 /* @2148  = ~Stay and browse the library for as long as you like. This is once again your home, if you so wish.~ */
-OUTER_SET TETHTO2_2148 = STATE_WHICH_SAYS 2148 IN ~framed/languages/%s/framed.TRA~ FROM ~TETHTO2~
+OUTER_SET TETHTO2_2148 = STATE_WHICH_SAYS 2148 IN ~weidu_external/workspace/framed/languages/%s/framed.TRA~ FROM ~TETHTO2~
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_framed.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/brando_crossmod_framed.baf~ EVALUATE_BUFFER
 END /* Framed */
+
+
+
+/* Helga */
+ACTION_IF FILE_EXISTS_IN_GAME ~X3HelgaB.dlg~ THEN BEGIN
+PRINT @55598 /* ~Helga NPC detected.~ */
+
+// Get state @2 for c#brando.dlg %search_b%
+/* @2    = ~Erm, help?~ */
+  OUTER_SET search_b = STATE_WHICH_SAYS 2 IN ~C#Brandock/tra/autotra/%s/C#BRANDO.TRA~ FROM ~c#brando~
+
+// Get state @16 for c#brando.dlg %search_05%
+/* @14   = ~Oh! Er, yes! Probably should have told you that right at the beginning.~ */
+  OUTER_SET search_05 = STATE_WHICH_SAYS 14 IN ~C#Brandock/tra/autotra/%s/C#BRANDO.TRA~ FROM ~c#brando~
+
+// Get state @32 for c#brando.dlg %search_13%
+/* @32   = ~What else would you like to know?~ */
+  OUTER_SET search_13 = STATE_WHICH_SAYS 32 IN ~C#Brandock/tra/autotra/%s/C#BRANDO.TRA~ FROM ~c#brando~
+
+  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/helga_brandock.d~
+END /* Helga */
 
 /* Gavin BG1 */
 ACTION_IF FILE_EXISTS_IN_GAME ~BB!GAVIN.dlg~ THEN BEGIN 
@@ -3120,7 +3151,11 @@ END //SoA
 ACTION_IF FILE_EXISTS_IN_GAME ~cdbracer.itm~ THEN BEGIN
 PRINT @55563 /* ~The Calling detected.~ */
 /* @1032 = ~Then I wish you well in your task. Good day.~ */
-OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/mage.TRA~ FROM ~THALAN~
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/mage.tra~ FROM ~THALAN~
+END ELSE BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/mage.tra~ FROM ~THALAN~
+END
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
 EVALUATE_BUFFER
@@ -3251,6 +3286,32 @@ PRINT @55566 /* ~Alternatives detected.~ */
 /* Ajantis BG2 */
 ACTION_IF FILE_EXISTS_IN_GAME ~C#AjanJ.dlg~ THEN BEGIN 
 PRINT @55596 /* ~Sir Ajantis BG2 detected.~ */
+
+
+    /* prevent stand alone remark from happening */
+COPY_EXISTING ~c#brand2.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~\(Global("C#BranToB_Saradush","GLOBAL",0))\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches > 0) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+			OR(3) !InParty("C#Ajantis") !Detect("C#Ajantis") StateCheck("C#Ajantis",CD_STATE_NOTVALID)~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+// Get state for c#aja25j %saradush_fallen_34%
+/* @34   = ~The city... the whole city destroyed. We were too late.~ */
+OUTER_SET ajantis_saradush_34 = STATE_WHICH_SAYS 34 IN ~ajantisbg2/tra/autotra/%s/TOB_AJANTIS_NPC.TRA~ FROM ~c#aja25j~
+// Get state for SAREV25J %saradush_fallen_35%
+/* @35   = ~Paladin, you have a remarkable talent for stating the obvious.~ */
+OUTER_SET ajantis_saradush_35 = STATE_WHICH_SAYS 35 IN ~ajantisbg2/tra/autotra/%s/TOB_AJANTIS_NPC.TRA~ FROM ~SAREV25J~
+// Get state for C#BrandJ %in_saradush%
+/* @0   = ~[Brandock]I mean, duh. We are inside a besieged city.~ */
+OUTER_SET in_saradush = STATE_WHICH_SAYS 0 IN ~ajantisbg2/tra/autotra/%s/brandock_tob.TRA~ FROM ~C#BrandJ~
 
   COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_ajantis_bg2.d~ 
   EXTEND_BOTTOM ~c#brand2.bcs~   ~C#Brandock/crossmod/brando_crossmod_ajantis_bg2.baf~
