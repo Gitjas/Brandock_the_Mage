@@ -6,6 +6,6 @@ THEN
         	FadeToColor([20.0],0)
         	Wait(2)
         	FadeFromColor([20.0],0)
-		EndcutSceneMode()
+		EndCutSceneMode()
 		ActionOverride("C#Brandock",StartDialogNoSet([PC]))
 END
