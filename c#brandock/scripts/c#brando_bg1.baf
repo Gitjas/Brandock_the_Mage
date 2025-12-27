@@ -930,10 +930,21 @@ END
 
 
 /* Player gets Brandock drunk random */
-
+IF
+Global("C#Brandock_Drunk","GLOBAL",2)
+CheckStat(Myself,0,INTOXICATION)
+    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+    !Detect([ENEMY])
+    !Detect([EVILBUTBLUE])
+    CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("C#Brandock_Drunk","GLOBAL",0)
+END
 
 IF
 Global("C#Brandock_Drunk","GLOBAL",0)
+!RealGlobalTimerNotExpired("C#Brandock_Drunk_Timer","GLOBAL")
 CheckStatGT(Myself,50,INTOXICATION)
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
   !StateCheck(Player1,CD_STATE_NOTVALID)
@@ -965,7 +976,8 @@ AreaCheck("%FriendlyArmInn_L1%")
 AreaCheck("%NEBaldursGate_SplurgingSturgeon_L1%")
 THEN
 	RESPONSE #100
-	SetGlobal("C#Brandock_Drunk","GLOBAL",1)
+		RealSetGlobalTimer("C#Brandock_Drunk_Timer","GLOBAL",1000)
+		SetGlobal("C#Brandock_Drunk","GLOBAL",1)
 END
 
 
@@ -2231,13 +2243,13 @@ RESPONSE #100
 StartDialogueNoSet(Player1)
 END
 
-/* Ulcaster school - in dungeon PartyHasItem("Book54") */
+/* Ulcaster school - in dungeon PartyHasItem("Book54") / PartyHasItem("ULbook54") */
 /* activation */
 IF %BGT_VAR%
 !Global("C#Brandock_Shapeshift","GLOBAL",5)
 Global("C#Brandock_InsideUlcasterSchool","GLOBAL",0)
 AreaCheck("%UlcasterRuins%")
-PartyHasItem("Book54")
+PartyHasItem("%BOOK54%")
 OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
 !StateCheck(Myself,CD_STATE_NOTVALID)
 See(Player1)

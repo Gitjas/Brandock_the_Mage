@@ -739,27 +739,27 @@ END
 
 IF ~RandomNum(5,1) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk
 SAY @118
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",2)~ EXIT
 END
 
 IF ~RandomNum(5,2) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_02
 SAY @119
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",2)~ EXIT
 END
 
 IF ~RandomNum(5,3) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_03
 SAY @120
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",2)~ EXIT
 END
 
 IF ~RandomNum(5,4) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_04
 SAY @121
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",2)~ EXIT
 END
 
 IF ~RandomNum(5,5) Global("C#Brandock_Drunk","GLOBAL",1)~ THEN drunk_04
 SAY @122
-IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",0)~ EXIT
+IF ~~ THEN DO ~SetGlobal("C#Brandock_Drunk","GLOBAL",2)~ EXIT
 END
 
 /* Inside Flaming Fist Headquarters */
