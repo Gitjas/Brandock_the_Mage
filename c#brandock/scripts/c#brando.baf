@@ -32,7 +32,7 @@ END
 
 
 
-/* follows as familiar: reset variable for refreshing of min HP spell after fight */
+/* follows as familiar: reset variable for refreshing of min HP spell after fight, refresh min HP spell */
 
 IF
 	Global("C#Brandock_Has1HPEffect","GLOBAL",2)
@@ -41,10 +41,13 @@ IF
 	!See([ENEMY])
 THEN
 	RESPONSE #100
+		SetInterrupt(FALSE)
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",1)
+		ReallyForceSpellRES("C#MIN5HP","C#Brandock")
+		SetInterrupt(TRUE)
 END
 
-/* refresh min HP spell before a fight */
+/* remember a fight */
 IF
 	Global("C#Brandock_Has1HPEffect","GLOBAL",1)
 	Global("C#BrandockJoined","GLOBAL",2)  //follows as 7th party member
@@ -52,10 +55,7 @@ IF
 	See([ENEMY])
 THEN
 	RESPONSE #100
-		SetInterrupt(FALSE)
 		SetGlobal("C#Brandock_Has1HPEffect","GLOBAL",2)
-		ReallyForceSpellRES("C#MIN5HP","C#Brandock")
-		SetInterrupt(TRUE)
 END
 
 
