@@ -40,7 +40,7 @@ See("C#Brandock")
 Global("C#Brandock_ShapeshiftFF","MYAREA",0)~ THEN flambg verwechslung_d
 @3902
 END
-IF ~~ THEN EXIT
+IF ~OR(2) !See("c#brhaff") StateCheck("c#brhaff",CD_STATE_NOTVALID)~ THEN EXIT
 IF ~See("c#brhaff") !StateCheck("c#brhaff",CD_STATE_NOTVALID)~ THEN DO ~SetGlobal("C#Brandock_ShapeshiftFF","MYAREA",1)~ EXTERN c#brhaff verwechslung_jo
 IF ~GlobalLT("C#Brando_VisitedMalm","GLOBAL",5)
 OR(2) !See("c#brhaff") StateCheck("c#brhaff",CD_STATE_NOTVALID)~ THEN DO ~SetGlobal("C#Brandock_ShapeshiftFF","MYAREA",1)~ EXTERN c#brandj verwechslung_b
