@@ -1,5 +1,5 @@
 @0  = ~Durable Scroll of Dispel Magic~
-//@1  = 
+@1  = ~Shapeshift Half-Ogre~
 //@2  = 
 @3  = ~Durable Scroll of Fireball~
 @4  = ~Brandock's Robe~
@@ -55,7 +55,8 @@ Weight: 1~
 
 /* BGII */
 @100 = ~Ebrel's Spellbook~
-@101 = ~This is a spellbook that belonged to one of the Cowled Wizards who were killed by Irenicus at the Promenade. The name 'Ebrel Furborrow' is written inside.~
+@101 = ~This is a spellbook that belonged to one of the Cowled Wizards who were killed by Irenicus at the Promenade. The name 'Ebrel Furborrow' is written inside, together with a note:
+"If you found this it means I most definitely didn't part with it voluntarily. Please bring it to my house in the Slums, right next to the 'sphere'. You can't miss it."~
 
 
 /* new for vbeta 7 */

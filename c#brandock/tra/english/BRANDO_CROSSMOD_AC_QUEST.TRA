@@ -7,6 +7,9 @@
 @5  = ~Ah, HUSH! Don't hinder science to unfold its true power.~
 @6  = ~I can't believe I'm saying this but... Those two gnomes impressed me somehow - behind all of that craziness. I wished I could have *read* the book while we had it.~
 
+/* new for v1.7 */
+@7  = ~A spellbook? Well, that does sounds interesting! But Karlini? ... Karlini ... Hm, I don't think I ever, uh - how about you, <CHARNAME>?~
+
 /* Von Wölfen und Männern */
 @10  = ~[Brandock]What? You can't be serious! This is still a man... inside the wolf, and you know how to help him. Surely you were jesting?~
 @11  = ~[Thalantyr]Young mage, I have gained enough experience to know that one cannot always help everyone - and even if one could, that there are instances where trying to do so would cause more misery than using one individuum's misfortune to find a general solution to a threat that will surely endanger more lives in the future. Besides - it is well possible it will come to this end, and if that happens, it will be far better to bring the carcas to me instead of dumping it in the woods.~

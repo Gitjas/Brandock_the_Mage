@@ -488,7 +488,7 @@
 @480  = ~Master Ulcaster wants us to give im a book from the old school, I think. Oh, we *so* should do this, <CHARNAME>. The sight breaks my heart.~
 @481  = ~Rest in peace, Master Ulcaster. And do not worry. Even if this school is lost, there are others, and there are still students, ready and eager to learn! Oh, I really think this could be me someday, <CHARNAME>. Haunting the grounds and looking for my books. My books... where are my books... (ahem) Yep, sounds like me.~
 /* #18300 in BG:EE */
-@482  = ~... we all shall live again... someday...~
+@482  = ~[#18300 in BG:EE]... we all shall live again... someday...~
 
 /* new for vbeta 6 */
 @483  = ~No, Brandock. There were assassins *inside* Candlekeep I had to fight off as well. They were explicitely aiming at me, personally, stating that my head is worth a large amount of gold.~

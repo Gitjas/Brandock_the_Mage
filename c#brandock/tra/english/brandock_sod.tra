@@ -312,7 +312,7 @@
 @311  = ~[Brandock]Noted. I'll - I'll work on it. That was meant to be a joke.~
 @312  = ~[Brandock]Well, I'm obviously a wimp with a weak stomach.~
 @313  = ~[Brandock]I wasn't prepared for going into Avernus and back again. Not that I'd complain about the coming back part.~
-@314  = ~[Brandock]And - it *was* all for saving her uncle... While Hephernaan was working with a fien master on the other side.~
+@314  = ~[Brandock]And - it *was* all for saving her uncle... While Hephernaan was working with a fiend master on the other side.~
 @315  = ~I need to time to digest all what happened. It was a bit much.~
 @316  = ~Well, it was a righteous cause. The execution, on the other hand...~
 @317  = ~*And* it was all for nothing, because he remained there.~
@@ -502,6 +502,8 @@
 @501  = ~[Brandock]Although I would hope Caelar found a way to free the trapped souls without going *into* Avernus to do that, right? With some sort of ritual to get the souls out, without letting the fiends lose on the Prime *again* - which lead to the whole problem in the first place...~
 @502  = ~[Brandock]Ah, what an anti-prep talk... Well, *I* do feel a bit better, so - thanks. I'll be quiet now.~
 
+/* new for v1.7 */
+@503  = ~Ahaha, you said "digest". Good luck with that, I failed.~
 
 /* brandock_sod_reactions.d */
 @1000  = ~What in the nine hells' name was that? <CHARNAME>, are you alright?~

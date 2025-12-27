@@ -69,3 +69,6 @@
 
 /* new for v1.5 */
 @55597  = ~Black Hearts detected.~
+
+/* new for v1.7 */
+@55598  = ~Helga NPC detected.~
