@@ -1072,7 +1072,7 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-/* bdrobe02 "Robe of Arcane Aptitude" */
+/* bdrobe02 "Robe of Netheril" */
 /* activate */
 IF
    OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
@@ -1126,7 +1126,7 @@ END
 
 
 
-/* bdrobe01 "Robe of Netheril" */
+/* bdrobe01 "Robe of Arcane Aptitude" */
 /* (DisplayStringHead) */
 IF
     OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
@@ -1136,7 +1136,7 @@ IF
     !Detect([ENEMY])
    PartyHasItemIdentified("bdrobe01")
     CombatCounter(0)
-	Global("C#Brando_BDHELM01","LOCALS",0)
+	Global("C#Brando_bdrobe01","LOCALS",0)
 THEN
 	RESPONSE #100
 		SetGlobal("C#Brando_bdrobe01","LOCALS",1)
