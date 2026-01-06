@@ -3151,11 +3151,31 @@ END //SoA
 ACTION_IF FILE_EXISTS_IN_GAME ~cdbracer.itm~ THEN BEGIN
 PRINT @55563 /* ~The Calling detected.~ */
 /* @1032 = ~Then I wish you well in your task. Good day.~ */
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
-OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/mage.tra~ FROM ~THALAN~
+
+/* make this compatible for the upcoming new version, too. old version uses "mage.tra", new one will use "game.tra" for all text lines */
+ACTION_IF FILE_EXISTS ~thecalling/languages/english/mage.tra~ THEN BEGIN
+  OUTER_SPRINT ~MAGE_TRA_FILE~ ~mage.tra~
 END ELSE BEGIN
-OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/mage.tra~ FROM ~THALAN~
+  OUTER_SPRINT ~MAGE_TRA_FILE~ ~game.tra~
 END
+/*
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
+END ELSE BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
+END
+*/
+
+APPEND_OUTER - ~.../inlined/thecalling_crossmod.tph~
+"ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
+END ELSE BEGIN
+OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
+END"
+INCLUDE ~.../inlined/thecalling_crossmod.tph~
+
+
+
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
 EVALUATE_BUFFER
