@@ -45,7 +45,13 @@ END
 */
 
 /* Seatower Mage's "Mimic Powder" */
-I_C_T ~BSTRMAGE~ 17 C#Brando_BSTRMAGE_17
+/* ~Yes, please take this. This is a bottle of my Mimic Powder. Er, it's actually a liquid now because I mixed it into the - never mind. Just walk it past a doppelganger and they will be driven to rage by the smell. Be prepared to fight them.~ */
+I_C_T ~BSTRMAGE~ 17 C#Brando_BSTRMAGE_MimicPowder
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @14 /* ~Wow, you developped this yourself? That's impressive!... Your naming scheme is as intelligent as I'd imagined mine to be, though...~ */
+== ~BSTRMAGE~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @15 /* ~Yes, I know, I didn't have time to think about a proper name yet... but I do admit that I also think that's not important, as long as it works!~ */
+END
+/* ~I mean it was originally *meant* as a mimic powder, which we had need of to deal with another situation some time ago. Due to the obvious situation on our hands, in order to save time I've used the same base in the creation of an alchemical solution to unmask the doppelgangers currently plaguing us. And it works! The doppelganger you saw here became so irritated by my mimic powder it was driven to change into its natural form and attack.~ */
+I_C_T ~BSTRMAGE~ 28 C#Brando_BSTRMAGE_MimicPowder //same as above!
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @14 /* ~Wow, you developped this yourself? That's impressive!... Your naming scheme is as intelligent as I'd imagined mine to be, though...~ */
 == ~BSTRMAGE~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @15 /* ~Yes, I know, I didn't have time to think about a proper name yet... but I do admit that I also think that's not important, as long as it works!~ */
 END
