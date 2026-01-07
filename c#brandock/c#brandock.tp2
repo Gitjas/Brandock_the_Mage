@@ -2805,7 +2805,7 @@ INCLUDE ~%MOD_FOLDER%/7thpmm/c#7thpmm_thingies.tpa~
 
 BEGIN @55579 /* ~Brandock the Mage: Crossmod Content~ */ DESIGNATED 10 
 LABEL BrandockTheMage-Crossmod
-METADATA ~AFTER = ACBre, AC_QUEST, AjantisBG1, AjantisBG2, alternatives, bgqe, bg1npc, bg1re, Blackhearts_BG1, Blackhearts EET, bst, c#brage, c#endlessbg1, c#sodboabri, c#solaufein, FinchNPC, Framed, gavin, imoen_forever, npc_strongholds, ntotsc, sirinescall, thecalling, transitions~
+METADATA ~AFTER = ACBre, AC_QUEST, AjantisBG1, AjantisBG2, alternatives, bgqe, bg1npc, bg1re, Blackhearts_BG1, Blackhearts EET, bst, c#brage, c#endlessbg1, c#sodboabri, c#solaufein, FinchNPC, Framed, gavin, Helga, imoen_forever, npc_strongholds, ntotsc, sirinescall, thecalling, transitions~
 REQUIRE_COMPONENT ~c#brandock.tp2~ ~0~ @55543
 
 /* EndlessBG1 - handled individually */
