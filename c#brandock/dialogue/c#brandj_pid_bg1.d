@@ -1853,7 +1853,8 @@ IF ~~ THEN c#brandj sort_gems_thecalling
 == c#brandj IF ~OR(2) PartyHasItem("misc44") HasItem("misc44",Myself)~ THEN @496 /* ~This King's Tear would be a well enough choice for a scrying device, too.~ */
 == c#brandj IF ~OR(2) PartyHasItem("misc41") HasItem("misc41",Myself)~ THEN @497 /* ~Star Saphire should work, too.~ */
 == c#brandj IF ~Global("C#Br_BookRestore","GLOBAL",4)
-NumItemsParty("misc41",1)~ THEN @498 /* ~Which, er, I would like to reserve for my book - if possible - I mean... ah dang, you decide what we'll use the Star Saphire for. We'll probably find another one eventually.~ */
+NumItemsParty("misc41",1)
+Global("C#Br_TheCallingStarSaph","LOCALS",0)~ THEN @498 /* ~Which, er, I would like to reserve for my book - if possible - I mean... ah dang, you decide what we'll use the Star Saphire for. We'll probably find another one eventually.~ */ DO ~SetGlobal("C#Br_TheCallingStarSaph","LOCALS",1)~
 == c#brandj @499 /* ~I don't see any more suitable gems for a scrying device.~ */
 EXIT
 
