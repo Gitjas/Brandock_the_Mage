@@ -8,11 +8,11 @@
 @7  = ~[Brandock]Oh, you-you are right that traveling with <CHARNAME> will give me more opportunity to strengthen my physis... more than working in a library, that's for sure. Although some of the tomes can be really heavy! - Saying that I probably just made it worse...~
 @8  = ~[Brandock]I'll... I'll do my best to help defeating the ogre leader you are hunting. I promise I'll do my absolute best not to get too scared. By that ogre leader. (mutters) And you...~
 @9  = ~[Brandock]I'll... I'll do my best to help defeating whatever monsters will come our way. I promise I'll do my absolute best not to get too scared. By them. (mutters) And you...~
+@10  = ~[Brandock]Helga, "much needed muscle" - that's the kindest way of pointing out my lacking physical build I heard in - like, ever.~
+@11  = ~[Helga]Muscle is good lad, but you don't become a veteran fighter with muscle. It's mastery of yer weapon, yer fear, and yer lust for battle.~
+@12  = ~[Brandock]Oh, I am definitely trying - *definitely* trying to become a useful fighting comrade. Most probably never with a bloodied weapon, though. Unless it's my blood...~
+@13  = ~[Helga]A bit of blood is good for you, but don't make it yer own blasted blood. Keep working with a weapon, nay arrows unless yer a coward, get close and hungry. Ye'll survive till the next battle, and that's what matters.~
 /*
-@10  =
-@11  =
-@12  =
-@13  =
 @14  =
 @15  =
 @16  =

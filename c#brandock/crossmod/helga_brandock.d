@@ -60,3 +60,19 @@ DO ~SetGlobal("C#Brandock_HelgaBG1","GLOBAL",1)~
 == C#BrandB IF ~!Dead("X3HogreL")~ THEN @8 /* ~I'll... I'll do my best to help defeating the ogre leader you are hunting. I promise I'll do my absolute best not to get too scared. By him. (mutters) And you...~ */
 == C#BrandB IF ~Dead("X3HogreL")~ THEN @9 /* ~I'll... I'll do my best to help defeating whatever monsters will come our way. I promise I'll do my absolute best not to get too scared. By him. (mutters) And you...~ */
 EXIT
+
+CHAIN
+IF ~%BGT_VAR%
+CombatCounter(0) !See([ENEMY])
+OR(2) InParty(Myself) Global("C#BrandockJoined","GLOBAL",2)
+InParty("X3Helga")
+See("X3Helga") See(Player1)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("X3Helga",CD_STATE_NOTVALID)
+Global("C#Brandock_HelgaBG1","GLOBAL",1)~ THEN C#BrandB brandock_helga_bg1_2
+@10 /* ~[Brandock]Helga, "much needed muscle" - that's the kindest way of pointing out my lacking physical build I heard in - like, ever.~ */
+DO ~SetGlobal("C#Brandock_HelgaBG1","GLOBAL",2)~
+== X3HelgaB @11 /* ~[Helga]Muscle is good lad, but you don't become a veteran fighter with muscle. It's mastery of yer weapon, yer fear, and yer lust for battle.~ */
+== C#BrandB @12 /* ~[Brandock]Oh, I am definitely trying - *definitely* trying to become a useful fighting comrade. Most probably never with a bloodied weapon, though. Unless it's my blood...~ */
+== X3HelgaB @13 /* ~[Helga]A bit of blood is good for you, but don't make it yer own blasted blood. Keep working with a weapon, nay arrows unless yer a coward, get close and hungry. Ye'll survive till the next battle, and that's what matters.~ */
+EXIT
