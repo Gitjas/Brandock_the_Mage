@@ -3158,14 +3158,9 @@ ACTION_IF FILE_EXISTS ~thecalling/languages/english/mage.tra~ THEN BEGIN
 END ELSE BEGIN
   OUTER_SPRINT ~MAGE_TRA_FILE~ ~game.tra~
 END
-/*
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
-OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
-END ELSE BEGIN
-OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
-END
-*/
 
+<<<<<<<< .../inlined/thecalling_crossmod.tph
+>>>>>>>>
 APPEND_OUTER - ~.../inlined/thecalling_crossmod.tph~
 "ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
