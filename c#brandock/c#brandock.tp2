@@ -2879,10 +2879,22 @@ END //Ascalon's Questpack: Von Wölfen und Männern
 
 
 /* Balduran's Seatower */
-ACTION_IF FILE_EXISTS_IN_GAME ~bstrmage.dlg~ THEN BEGIN 
-PRINT @55576 /* ~Balduran's Seatower detected.~ */
-  COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bst.d~
-  EXTEND_BOTTOM ~C#Brando.bcs~ ~c#brandock/crossmod/brando_crossmod_bst.baf~ EVALUATE_BUFFER
+ACTION_IF FILE_EXISTS_IN_GAME ~bstrmage.dlg~ THEN BEGIN
+ PRINT @55576 /* ~Balduran's Seatower detected.~ */
+
+/* make this compatible for the upcoming version 1, too. */
+/* v1+ */
+ ACTION_IF FILE_EXISTS_IN_GAME ~bsiprum1.dlg~ THEN BEGIN
+  OUTER_SPRINT ~BSTRMAGE_ICT1~ ~11~
+  OUTER_SPRINT ~BSTRMAGE_ICT2~ ~22~
+ END ELSE BEGIN
+/* eaob */
+  OUTER_SPRINT ~BSTRMAGE_ICT1~ ~17~
+  OUTER_SPRINT ~BSTRMAGE_ICT2~ ~28~
+ END
+
+ COMPILE EVALUATE_BUFFER ~c#brandock/crossmod/brando_crossmod_bst.d~
+ EXTEND_BOTTOM ~C#Brando.bcs~ ~c#brandock/crossmod/brando_crossmod_bst.baf~ EVALUATE_BUFFER
 END //bst
 
 
