@@ -26,23 +26,21 @@ I_C_T ~BSLENARD~ 10 C#Brandock_BSLENARD_10
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @7 /* ~We are so sorry for your loss! Ah, I really wished this would have gone differently...~ */
 END
 
-/*
 /* Klaus and his rabbits */
 I_C_T ~BSGHAST2~ 20 C#Brando_AskedRabbits_bst_CM
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @8 /* ~Oh no, that is horrible! I wish you to get well soon, Klaus. And <CHARNAME> - thank you for asking this question. I was curious as well.~ */
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @12 /* ~I didn't even know Vampiric Rabbits existed, not to mention conjuring them was possible...~ */
-== ~BSTQ004~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @11 /* ~Not so difficult... just focus on the fur - and the teeth.~ */
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @13 /* ~Erm... Thanks. I'll keep that in mind!~ */
 END 
 
-I_C_T ~BSTQ004~ 11 C#Brando_AskedRabbits_bst_CM
-== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @9 /* ~Klaus - just one question. Why Vampiric rabbits?~ */
-== ~BSTQ004~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @10 /* ~Didn't mean to call them specifically... but my aim was too weak for anything stronger.~ */
+I_C_T3 ~BSTQ004~ 11 C#Brando_AskedRabbits_bst_CM2
+== ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+Global("C#Brando_AskedRabbits_bst_CM","GLOBAL",0)~ THEN @9 /* ~Klaus - just one question. Why Vampiric rabbits?~ */
+== ~BSTQ004~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)
+Global("C#Brando_AskedRabbits_bst_CM","GLOBAL",0)~ THEN @10 /* ~Didn't mean to call them specifically... but my aim was too weak for anything stronger.~ */
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @12 /* ~I didn't even know Vampiric Rabbits existed, not to mention conjuring them was possible...~ */
 == ~BSTQ004~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @11 /* ~Not so difficult... just focus on the fur - and the teeth.~ */
 == ~c#brandj~ IF ~OR(2) InParty("C#Brandock") Global("C#BrandockJoined","GLOBAL",2) InMyArea("C#Brandock") !StateCheck("C#Brandock",CD_STATE_NOTVALID)~ THEN @13 /* ~Erm... Thanks. I'll keep that in mind!~ */
 END
-*/
+
 
 /* Seatower Mage's "Mimic Powder" */
 /* ~Yes, please take this. This is a bottle of my Mimic Powder. Er, it's actually a liquid now because I mixed it into the - never mind. Just walk it past a doppelganger and they will be driven to rage by the smell. Be prepared to fight them.~ */
