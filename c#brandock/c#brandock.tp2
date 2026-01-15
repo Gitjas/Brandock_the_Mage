@@ -2652,6 +2652,8 @@ c#bran01.cre is for BG1
 c#bran02.cre is for a new SoD game and knows more spells
 */
 
+ACTION_IF GAME_IS ~bgt bgee eet~ BEGIN
+
 COPY 	~C#Brandock/Cre/c#bran01.cre~ ~override/c#bran01.cre~
 SAY NAME1 @500 /* ~Brandock~ */
 SAY NAME2 @500 /* ~Brandock~ */
@@ -2701,7 +2703,7 @@ SAY BIO @533 /* ~When asked about his past, BRANDOCK DEEPWATER smiles apologetic
 ADD_KNOWN_SPELL ~SPWI210~ #1 ~wizard~ //Resist Fear
 ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~ //Mirror Image
 ADD_KNOWN_SPELL ~SPWI116~ #0 ~wizard~ //Sleep
-
+END
 
 
 ACTION_IF (GAME_IS ~bgee eet~ AND FILE_EXISTS_IN_GAME ~bd0103.are~) THEN BEGIN
@@ -2738,7 +2740,57 @@ END
 
 ACTION_IF GAME_IS ~tob bgt bg2ee eet~ BEGIN
 /* c#bran03.cre is for a new SoA start: more spells memorized */
-COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran03.cre~
+COPY 	~C#Brandock/Cre/c#bran01.cre~ ~override/c#bran03.cre~
+WRITE_EVALUATED_ASCII 0x248 ~c#brand2~ #8   // Override script
+WRITE_EVALUATED_ASCII 0x2cc ~c#brand2~ #8   // dialogue
+SAY NAME1 @500 /* ~Brandock~ */
+SAY NAME2 @500 /* ~Brandock~ */
+SAY MORALE @501 /* ~~ [c#bran01] */
+SAY HAPPY @502 /* ~~ */
+SAY UNHAPPY_ANNOYED @503 /* ~~ [c#bran21] */
+SAY UNHAPPY_SERIOUS @504 /* ~~ [c#bran26] */
+SAY UNHAPPY_BREAKING @505 /* ~~ [c#bran02] */
+SAY LEADER @506 /* ~~ [c#bran08] */
+SAY TIRED @507 /* ~~ [c#bran09] */
+SAY BORED @508 /* ~~ [c#bran10] */
+SAY BATTLE_CRY1 @509 /* ~~ [c#bran03] */
+SAY BATTLE_CRY2 @510 /* ~~ [c#bran05] */
+SAY BATTLE_CRY3 @511 /* ~~ [c#bran06] */
+SAY BATTLE_CRY4 @512 /* ~~ [c#bran07] */
+SAY BATTLE_CRY5 @513 /* ~~ [c#bran04] */
+SAY DAMAGE @514 /* ~~ [c#bran25] */
+SAY DYING @515 /* ~~ [c#bran22] */
+SAY HURT @516 /* ~~ [c#bran24] */
+SAY AREA_FOREST @517 /* ~Ich liebe den Duft von Moos und Kiefernadeln.~ [c#bran28] */
+SAY AREA_CITY @518 /* ~In der Stadt sind immer so viele Leute auf einem Haufen!~ [c#bran29] */
+SAY AREA_DUNGEON @519 /* ~Irgendwie ist es hier unheimlich.~ [c#bran30] */
+SAY AREA_DAY @520 /* ~Ich mag es, wenn die Sonne scheint! Außer direkt in mein Gesicht, natürlich.~ [c#bran31] */
+SAY AREA_NIGHT @521 /* ~Nachts ist es immer so... dunkel.~ [c#bran32] */
+SAY SELECT_COMMON1 @522 /* ~~ [c#bran11] */
+SAY SELECT_COMMON2 @523 /* ~~ [c#bran12] */
+SAY SELECT_COMMON3 @524 /* ~~ [c#bran14] */
+SAY SELECT_COMMON4 @534 /* ~M-hm?~ [c#bran33] */
+SAY SELECT_COMMON5 @535 /* ~Ich höre?~ [c#bran34] */
+SAY SELECT_COMMON6 @536 /* ~[als freundliche Aufforderung] Sagt, was Ihr wollt!~ [c#bran35] */
+SAY SELECT_ACTION1 @525 /* ~~ [c#bran15] */
+SAY SELECT_ACTION2 @526 /* ~~ [c#bran13] */
+SAY SELECT_ACTION3 @527 /* ~~ [c#bran16] */
+SAY SELECT_ACTION4 @528 /* ~~ [c#bran17] */
+SAY SELECT_ACTION5 @529 /* ~~ [c#bran18] */
+SAY SELECT_ACTION6 @530 /* ~~ [c#bran19] */
+SAY SELECT_ACTION7 @531 /* ~~ [c#bran20] */
+SAY REACT_TO_DIE_GENERAL @532 /* ~~ [c#bran23] */
+SAY SELECT_RARE1 @537 /* ~Bei den Göttern! Erschreckt mich doch nicht so! Was wollt Ihr?~ [c#bran36] */
+SAY CRITICAL_HIT @538 /* ~[triumphierend] Ja!!~ [c#bran37] */
+SAY CRITICAL_MISS @539 /* ~Verdammt, daneben!~ [c#bran38] */
+SAY TARGET_IMMUNE @540 /* ~Meine Waffe scheint nichts zu bewirken.~ [c#bran39] */
+SAY INVENTORY_FULL @541 /* ~[entschuldigend] Tut mir Leid, aber das passte wirklich nicht mehr in meine Tasche.~ [c#bran40] */
+SAY SPELL_DISRUPTED @542 /* ~Ach, Mist! Jetzt bin ich rausgekommen.~ [c#bran41] */
+SAY BIO @533 /* ~When asked about his past, BRANDOCK DEEPWATER smiles apologetically and talks about his plans to become an acknowledged wizard. "There is not much to know about me", he adds. "I come from a normal family of farmers and carpenters - no magic talent, except for some distant mother's cousin."~ */
+
+  ADD_KNOWN_SPELL ~SPWI210~ #1 ~wizard~ //Resist Fear
+  ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~ //Mirror Image
+  ADD_KNOWN_SPELL ~SPWI116~ #0 ~wizard~ //Sleep
   ADD_KNOWN_SPELL ~SPWI106~ #0 ~wizard~ //Blindness
   ADD_KNOWN_SPELL ~SPWI114~ #0 ~wizard~ //Shield
   ADD_KNOWN_SPELL ~SPWI201~ #1 ~wizard~ //Blurr
@@ -2769,13 +2821,15 @@ COPY_EXISTING ~c#bran01.CRE~ ~override/c#bran03.cre~
   ADD_KNOWN_SPELL ~SPWI703~ #6 ~wizard~ //Project Image
 
 /* items: */
-  ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
-//  ADD_CRE_ITEM ~C#BR0004~ #0 #0 #0 ~IDENTIFIED~ ~CLOAK~
+//  ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~ARMOR~
   ADD_CRE_ITEM ~STAF02~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
   ADD_CRE_ITEM ~SLNG02~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~ EQUIP
   ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver1~
   ADD_CRE_ITEM ~BULL02~ #40 #0 #0 ~IDENTIFIED~ ~quiver2~
   ADD_CRE_ITEM ~BULL03~ #40 #0 #0 ~IDENTIFIED~ ~quiver3~
+  ADD_CRE_ITEM ~POTN52~ #5 #0 #0 ~IDENTIFIED~ ~QITEM1~
+  ADD_CRE_ITEM ~c#br0003~ #0 #0 #0 ~IDENTIFIED~ ~INV15~
+  ADD_CRE_ITEM ~c#br0007~ #0 #0 #0 ~IDENTIFIED~ ~INV16~
 BUT_ONLY_IF_IT_CHANGES
 END
 
@@ -3180,9 +3234,6 @@ END ELSE BEGIN
 OUTER_SET thecalling_1032 = STATE_WHICH_SAYS 1032 IN ~weidu_external/thecalling/languages/%s/%MAGE_TRA_FILE%~ FROM ~THALAN~
 END"
 INCLUDE ~.../inlined/thecalling_crossmod.tph~
-
-
-
   COMPILE EVALUATE_BUFFER ~C#Brandock/crossmod/the_calling.d~
   EXTEND_BOTTOM ~c#brando.bcs~   ~C#Brandock/crossmod/the_calling.baf~
 EVALUATE_BUFFER
